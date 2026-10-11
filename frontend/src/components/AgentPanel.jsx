@@ -13,7 +13,7 @@ function Section({ title, children, className = "" }) {
   return <section className={`border-t border-white/[0.07] py-5 ${className}`}><h3 className="eyebrow mb-3">{title}</h3>{children}</section>;
 }
 
-export default function AgentPanel({ summary, report, error, mode, setMode, onJump }) {
+export default function AgentPanel({ meta, all, summary, report, error, mode, setMode, onJump }) {
   const [finished, setFinished] = useState(false);
   const les = (summary && summary.lesions && summary.lesions.lesions) || [];
   const q = summary && summary.quality_audit && summary.quality_audit.structures && summary.quality_audit.structures[0];

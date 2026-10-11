@@ -149,3 +149,16 @@ def test_recalibrated_view_is_written_next_to_the_default_and_default_is_unchang
     assert os.path.exists(os.path.join(out, "s", "tumour_recal.nii.gz"))
     r2 = build_results(path, probs, os.path.join(str(tmp_path), "res2"), "s", {})  # without a recalibration threshold nothing extra is written
     assert not os.path.exists(os.path.join(str(tmp_path), "res2", "s", "recalibrated.json")) and r2["lesions"]["n_lesions"] == 0
+
+
+def test_outline_layers_are_boundaries_and_the_reference_outline_is_dashed(tmp_path):
+    import nibabel as nib
+    from glassbox.pipeline.viewer import make_outline_layers
+    d = str(tmp_path); aff = np.diag([1.5, 1.5, 1.5, 1.0]); m = np.zeros((40, 40, 6), np.uint8); m[10:30, 10:30, 2:4] = 1  # a square tumour on two slices
+    nib.save(nib.Nifti1Image(np.zeros((40, 40, 6), np.int16), aff), os.path.join(d, "ct.nii.gz"))
+    for n in ("tumour", "reference_tumour"):
+        nib.save(nib.Nifti1Image(m, aff), os.path.join(d, f"{n}.nii.gz"))
+    assert make_outline_layers(d) == ["tumour_outline", "reference_outline"]
+    solid = np.asarray(nib.load(os.path.join(d, "tumour_outline.nii.gz")).dataobj) > 0; dash = np.asarray(nib.load(os.path.join(d, "reference_outline.nii.gz")).dataobj) > 0
+    assert solid[:, :, 2].sum() == 76 and not solid[15:25, 15:25, 2].any() and not solid[:, :, 0].any()  # 20x20 square: 76 boundary pixels, none inside, none off-lesion
+    assert 0 < dash[:, :, 2].sum() < solid[:, :, 2].sum() and (dash & ~solid).sum() == 0  # dashed is a proper subset of the boundary

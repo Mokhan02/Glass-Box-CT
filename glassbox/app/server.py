@@ -14,7 +14,8 @@ from fastapi.staticfiles import StaticFiles
 from glassbox.app.report import make_report
 
 SCAN_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.-]{0,80}$")
-FILES = {"ct.nii.gz", "organs.nii.gz", "tumour.nii.gz", "tumour_recal.nii.gz", "labels.json", "thumb.png"}
+VOLUMES = ("ct", "organs", "tumour", "tumour_outline", "tumour_recal", "tumour_recal_outline", "reference_outline")  # what the viewer may draw; a scan lists the ones it has
+FILES = {f"{v}.nii.gz" for v in VOLUMES} | {"labels.json", "thumb.png"}
 SUMMARY_PARTS = ("segmentation", "body_composition", "lesions", "quality_audit", "recalibrated")
 DIST = os.environ.get("GLASSBOX_FRONTEND_DIST") or os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "dist")
 MAX_UPLOAD_MB = 300
@@ -48,7 +49,9 @@ def create_app(demo_dir: str, live=None, llm=None) -> FastAPI:
     @app.get("/api/scans/{scan_id}/summary")
     def summary(scan_id: str):
         d = scan_dir(scan_id)
-        return {n: json.load(open(os.path.join(d, f"{n}.json"))) for n in SUMMARY_PARTS if os.path.exists(os.path.join(d, f"{n}.json"))}
+        out = {n: json.load(open(os.path.join(d, f"{n}.json"))) for n in SUMMARY_PARTS if os.path.exists(os.path.join(d, f"{n}.json"))}
+        out["layers"] = [v for v in VOLUMES if os.path.exists(os.path.join(d, f"{v}.nii.gz"))]
+        return out
 
     @app.post("/api/scans/{scan_id}/report")
     def report(scan_id: str, refresh: bool = False):

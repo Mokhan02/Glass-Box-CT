@@ -56,3 +56,40 @@ def align_to_viewer(scan_dir: str) -> bool:
     if B.get("available"):
         B["l3_voxel_in_file"] = _remap(B["l3_voxel_in_file"], old, ct.affine); B["viewer_grid_mm"] = {"value": mm, "unit": "mm"}; json.dump(B, open(bcp, "w"), indent=1)
     return True
+
+
+def _boundary(mask2d: np.ndarray) -> np.ndarray:
+    from scipy import ndimage
+    return mask2d & ~ndimage.binary_erosion(mask2d, border_value=0)
+
+
+def _dashed(mask2d: np.ndarray) -> np.ndarray:
+    """Boundary pixels kept in alternating runs around each component (about 5 pixels per dash), so the outline reads as dashed."""
+    from scipy import ndimage
+    b = _boundary(mask2d); out = np.zeros_like(b); lab, n = ndimage.label(mask2d)
+    for i in range(1, n + 1):
+        pts = np.argwhere(b & (lab == i))
+        if len(pts) == 0:
+            continue
+        c = np.argwhere(lab == i).mean(0); ang = (np.arctan2(pts[:, 1] - c[1], pts[:, 0] - c[0]) + np.pi) / (2 * np.pi)
+        n_dash = max(6, int(round(len(pts) / 5.0))); on = (np.floor(ang * n_dash).astype(int) % 2) == 0
+        out[tuple(pts[on].T)] = True
+    return out
+
+
+def make_outline_layers(scan_dir: str) -> list[str]:
+    """Write the outline volumes the viewer draws: `<name>_outline.nii.gz` (solid) for the predicted masks and `reference_outline.nii.gz` (dashed) for the dataset's
+    reference tumour. Masks are first put on the viewer CT's grid if they are not. Per axial slice, 2D boundaries. Returns the files written."""
+    ct = nib.load(os.path.join(scan_dir, "ct.nii.gz")); written = []
+    for name, out_name, fn in (("tumour", "tumour_outline", _boundary), ("tumour_recal", "tumour_recal_outline", _boundary), ("reference_tumour", "reference_outline", _dashed)):
+        f = os.path.join(scan_dir, f"{name}.nii.gz")
+        if not os.path.exists(f):
+            continue
+        m = nib.load(f)
+        if m.shape != ct.shape or not np.allclose(m.affine, ct.affine):
+            m = resample_from_to(m, (ct.shape, ct.affine), order=0, cval=0); nib.save(nib.Nifti1Image(np.asarray(m.dataobj).astype(np.uint8), ct.affine), f)
+        a = np.asarray(m.dataobj) > 0; o = np.zeros(a.shape, np.uint8)
+        for z in np.flatnonzero(a.any(axis=(0, 1))):
+            o[:, :, z] = fn(a[:, :, z])
+        nib.save(nib.Nifti1Image(o, ct.affine), os.path.join(scan_dir, f"{out_name}.nii.gz")); written.append(out_name)
+    return written
