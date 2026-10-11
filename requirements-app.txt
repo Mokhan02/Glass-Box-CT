@@ -1,0 +1,10 @@
+# Runtime dependencies of the web app (the PyTorch base image supplies torch).
+monai[nibabel,einops]==1.6.1
+nibabel
+numpy
+scipy
+scikit-learn
+openai
+fastapi
+uvicorn
+python-multipart

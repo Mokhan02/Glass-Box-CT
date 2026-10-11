@@ -67,3 +67,12 @@ def test_result_files_carry_voxels_in_the_file_frame_for_the_viewer(tmp_path):
     path, probs = _scan(str(tmp_path)); r = build_results(path, probs, os.path.join(str(tmp_path), "res"), "s", {})
     v = r["lesions"]["lesions"][0]["voxel_in_file"]; assert abs(v[0] - 30) <= 2 and abs(v[1] - 40) <= 2 and abs(v[2] - 25) <= 2  # the synthetic tumour sits at (30, 40, 25)
     assert len(r["body_composition"]["l3_voxel_in_file"]) == 3
+
+
+def test_viewer_copies_keep_click_to_locate_on_the_lesion_after_resampling(tmp_path):
+    from glassbox.pipeline.viewer import make_viewer_files
+    path, probs = _scan(str(tmp_path)); out = os.path.join(str(tmp_path), "res"); r = build_results(path, probs, out, "s", {}); d = os.path.join(out, "s")
+    before = r["lesions"]["lesions"][0]["voxel_in_file"]; info = make_viewer_files(path, d, mm=3.0)
+    L = json.load(open(os.path.join(d, "lesions.json"))); v = L["lesions"][0]["voxel_in_file"]; assert v != before and L["viewer_grid_mm"] == 3.0
+    tum = nib.load(os.path.join(d, "tumour.nii.gz")); arr = np.asarray(tum.dataobj); assert arr.shape == tuple(info["viewer_shape"]) and arr[tuple(v)] == 1  # the remapped voxel is inside the tumour
+    B = json.load(open(os.path.join(d, "body_composition.json"))); assert np.asarray(nib.load(os.path.join(d, "organs.nii.gz")).dataobj)[tuple(B["l3_voxel_in_file"])] > 0

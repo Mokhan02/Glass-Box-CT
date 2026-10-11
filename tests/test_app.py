@@ -34,3 +34,11 @@ def test_live_segmentation_is_disabled_by_default_and_uploads_are_validated(tmp_
     called = []; c2 = TestClient(create_app(_demo(tmp_path), live=lambda p, s: called.append(s)))
     assert c2.post("/api/segment", files={"file": ("x.txt", b"abc")}).status_code == 400
     assert c2.post("/api/segment", files={"file": ("x.nii.gz", b"abc")}).status_code == 200 and called
+
+
+def test_entry_point_builds_an_offline_app_without_a_gpu_or_an_llm(tmp_path, monkeypatch):
+    for k in ("LLM_BASE_URL", "LLM_API_KEY", "LLM_MODEL", "LLM_FAST_MODEL", "GLASSBOX_LIVE"):
+        monkeypatch.delenv(k, raising=False)
+    monkeypatch.chdir(tmp_path); monkeypatch.setenv("GLASSBOX_DEMO_DIR", str(tmp_path / "d"))
+    from glassbox.app.main import build_app
+    c = TestClient(build_app()); h = c.get("/api/health").json(); assert h["live_segmentation"] is False and h["language_model"] is False

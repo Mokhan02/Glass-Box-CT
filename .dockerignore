@@ -1,0 +1,10 @@
+.git
+.venv
+cache
+__pycache__
+*.pyc
+.env
+results
+writeup
+*.nii.gz
+*.pt
