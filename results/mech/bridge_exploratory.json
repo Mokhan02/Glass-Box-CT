@@ -1,0 +1,51 @@
+{
+ "n_pairs_run": 62,
+ "n_complete_with_cells": 62,
+ "all_complete": {
+  "n_tumours": 62,
+  "n_cases": 58,
+  "mean_bright_minus_dark_projection": -0.9302585781101258,
+  "mean_dark_projection": 4.539400441271644,
+  "ci": [
+   -1.2199870773491868,
+   -0.6629715708394847
+  ],
+  "n_negative": 55,
+  "n_nonzero": 62,
+  "sign_test_p": 2.4300843108615577e-10,
+  "pearson": 0.7075327117213505,
+  "spearman": 0.7419858477499937,
+  "pearson_ci": [
+   0.5855220420728697,
+   0.8384885222659759
+  ],
+  "spearman_ci": [
+   0.5781447108635648,
+   0.8529581556733853
+  ]
+ },
+ "eligible_drop_ge_0.20": {
+  "n_tumours": 32,
+  "n_cases": 30,
+  "mean_bright_minus_dark_projection": -1.5328824073076248,
+  "mean_dark_projection": 4.508627999573946,
+  "ci": [
+   -1.9828204549800965,
+   -1.1189604373308282
+  ],
+  "n_negative": 30,
+  "n_nonzero": 32,
+  "sign_test_p": 2.4633482098579407e-07,
+  "pearson": 0.5426913810152207,
+  "spearman": 0.6231671554252198,
+  "pearson_ci": [
+   0.3209760363866471,
+   0.7748351950582629
+  ],
+  "spearman_ci": [
+   0.33075171334701486,
+   0.8111749624505576
+  ]
+ },
+ "verdict": "projection tracks the brightness effect"
+}
