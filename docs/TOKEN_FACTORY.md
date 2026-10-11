@@ -37,7 +37,7 @@ The NVIDIA key was pasted into a chat during development: rotate it after the ha
 
 ## 3. Verify (each step prints the provider; none prints the key)
 ```bash
-python scripts/agent_smoke.py                       # one real agent run against a demo scan, number check included
+python scripts/agent_smoke.py data/demo demo_2       # one real agent run against a demo scan, number check included
 uvicorn --factory glassbox.app.main:build_app --port 8000
 #   startup log:  Glass-Box CT: language model provider=api.tokenfactory.nebius.com model=<id> fast_model=<id>; demo_dir=...; live_segmentation=off
 curl -s localhost:8000/api/health                   # {"language_model": true, "provider": "api.tokenfactory.nebius.com", "model": ...}

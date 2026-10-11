@@ -148,3 +148,29 @@ def test_the_standing_limitation_and_caution_are_appended_when_the_model_leaves_
     assert all(x in out["report"] for x in ("STANDING LIMITATION TEXT.", "CAUTION TEXT.", "EVIDENCE STATUS.")) and out["report"].endswith(DISCLAIMER)
     again = run_agent("scanA", FakeClient("STANDING LIMITATION TEXT. CAUTION TEXT. EVIDENCE STATUS. " + DISCLAIMER), CFG, ToolBox(PrecomputedBackend(str(tmp_path), allow_fixture=True)))
     assert again["report"].count("STANDING LIMITATION TEXT.") == 1  # not duplicated when the model already included it
+
+
+class _Scripted(FakeClient):
+    """Tool calls as FakeClient; the successive report calls return the scripted reports."""
+    def __init__(self, reports):
+        super().__init__(reports[0]); self.reports = list(reports)
+
+    def _create(self, **kw):
+        if "tools" not in kw and self.reports:
+            self.calls.append(kw); self.report = self.reports.pop(0); return NS(choices=[NS(message=NS(content=self.report, tool_calls=None))])
+        return super()._create(**kw)
+
+
+def test_a_report_with_numbers_that_do_not_match_is_rewritten_with_the_offender_named(tmp_path):
+    good = "The lesion is 23.5 mm [measure_lesions]. " + DISCLAIMER
+    c = _Scripted(["The lesion is 99.9 mm [measure_lesions].", good]); out = run_agent("scanA", c, CFG, ToolBox(_backend(tmp_path)))
+    assert out["ok"] and out["attempts"] == 2 and "23.5 mm" in out["report"]
+    assert "99.9 mm" in json.dumps([x for x in c.calls if "tools" not in x][1]["messages"][-1])  # the rewrite request names the number
+
+
+def test_a_report_that_keeps_failing_is_replaced_by_the_template_with_a_note(tmp_path):
+    from glassbox.app.report import make_report
+    c = _Scripted(["It is 99.9 mm."] * 3)
+    _backend(tmp_path)  # writes the scanA fixture files under tmp_path (the real backend refuses fixtures, so the evidence is empty: the point here is the fallback path)
+    out = make_report(str(tmp_path), "scanA", llm=(c, CFG))
+    assert out["mode"] == "template" and "failed the number check after 3 attempts" in out["note"] and out["ok"] is True and "99.9" not in out["report"]

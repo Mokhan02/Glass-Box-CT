@@ -162,3 +162,14 @@ def test_outline_layers_are_boundaries_and_the_reference_outline_is_dashed(tmp_p
     solid = np.asarray(nib.load(os.path.join(d, "tumour_outline.nii.gz")).dataobj) > 0; dash = np.asarray(nib.load(os.path.join(d, "reference_outline.nii.gz")).dataobj) > 0
     assert solid[:, :, 2].sum() == 76 and not solid[15:25, 15:25, 2].any() and not solid[:, :, 0].any()  # 20x20 square: 76 boundary pixels, none inside, none off-lesion
     assert 0 < dash[:, :, 2].sum() < solid[:, :, 2].sum() and (dash & ~solid).sum() == 0  # dashed is a proper subset of the boundary
+
+
+def test_a_baked_model_report_is_kept_by_a_server_without_a_model_but_replaced_when_another_model_is_configured(tmp_path):
+    from glassbox.agent.config import LLMConfig
+    from glassbox.app.report import make_report
+    path, probs = _scan(str(tmp_path)); out = os.path.join(str(tmp_path), "res"); build_results(path, probs, out, "s", {"source": "synthetic"})
+    rep = make_report(out, "s"); rp = os.path.join(out, "s", "report.json"); d = json.load(open(rp))
+    d.update({"mode": "agent", "report": "BAKED MODEL REPORT", "writer_sha": "some-other-provider"}); json.dump(d, open(rp, "w"))  # as if a model had written it elsewhere
+    assert make_report(out, "s")["report"] == "BAKED MODEL REPORT"  # no model configured here: keep serving it
+    fake = (object(), LLMConfig("https://other.test/v1", "k", "m", "f"))  # a model that is not the writer: the cache is not used (the call below must try the model and fall back)
+    assert make_report(out, "s", llm=fake)["report"] != "BAKED MODEL REPORT"

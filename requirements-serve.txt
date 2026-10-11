@@ -1,0 +1,7 @@
+# Everything the demo server needs at run time. No torch, MONAI or nibabel: the five demo scans and their results are pre-computed.
+# (Live segmentation of an uploaded scan needs a GPU and the heavier requirements-app.txt; see Dockerfile.gpu.)
+fastapi>=0.115,<1
+uvicorn>=0.30,<1
+openai>=1.40,<3
+pydantic>=2,<3
+python-multipart>=0.0.9

@@ -6,7 +6,7 @@ import hashlib
 import json
 import os
 
-from glassbox.agent.agent import DISCLAIMER, REPORT_PROMPT, run_agent
+from glassbox.agent.agent import DISCLAIMER, MAX_ATTEMPTS, REPORT_PROMPT, run_agent
 from glassbox.agent.backends import PrecomputedBackend
 from glassbox.agent.grounding import check_report
 from glassbox.agent.tools import ToolBox, qty
@@ -59,31 +59,41 @@ REPORT_VERSION = 2  # bump when the template or the agent prompt changes, so cac
 RESULT_FILES = ("segmentation.json", "body_composition.json", "lesions.json", "quality_audit.json")
 
 
-def inputs_sha(demo_dir: str, scan_id: str, llm) -> str:
-    """Fingerprint of everything a report is built from: the tool-result files, the report version, and which provider/models would write it."""
-    h = hashlib.sha256(f"v{REPORT_VERSION}|{(llm[1].provider_host + llm[1].model + llm[1].fast_model + REPORT_PROMPT) if llm else 'template'}".encode())
+def inputs_sha(demo_dir: str, scan_id: str) -> str:
+    """Fingerprint of the tool-result files a report is built from, plus the report version."""
+    h = hashlib.sha256(f"v{REPORT_VERSION}".encode())
     for f in RESULT_FILES:
         p = os.path.join(demo_dir, scan_id, f)
         h.update(open(p, "rb").read() if os.path.exists(p) else b"-")
     return h.hexdigest()[:16]
 
 
+def writer_sha(llm) -> str:
+    """Who would write a fresh report: provider, models and prompt (or the template)."""
+    return hashlib.sha256((llm[1].provider_host + llm[1].model + llm[1].fast_model + REPORT_PROMPT if llm else "template").encode()).hexdigest()[:16]
+
+
 def make_report(demo_dir: str, scan_id: str, llm=None, refresh: bool = False) -> dict:
-    cache = os.path.join(demo_dir, scan_id, "report.json"); sha = inputs_sha(demo_dir, scan_id, llm)
+    cache = os.path.join(demo_dir, scan_id, "report.json"); sha, wsha = inputs_sha(demo_dir, scan_id), writer_sha(llm)
     if os.path.exists(cache) and not refresh:
         cached = json.load(open(cache))
-        if cached.get("inputs_sha") == sha:
-            return {**cached, "cached": True}  # otherwise the tool results (or report version) changed since it was written: rebuild
+        # served from cache when the tool results are unchanged and, if a language model is configured, it is the one that wrote the report.
+        # A server with no model configured keeps serving a baked model-written report (it cannot write a better one).
+        if cached.get("ok") and cached.get("inputs_sha") == sha and (llm is None or cached.get("writer_sha") == wsha):  # a cached report that failed its number check is never served
+            return {**cached, "cached": True}
     tb = ToolBox(PrecomputedBackend(demo_dir))
     if llm is not None:
         client, cfg = llm
         try:
             out = run_agent(scan_id, client, cfg, tb); out["mode"] = "agent"
+            if not out["ok"]:  # still failing the number check after the rewrites: show the template (which always passes), never an unchecked report
+                bad = out["unsupported_numbers"] + out["missing_units"]; tb = ToolBox(PrecomputedBackend(demo_dir)); out = _template(tb, scan_id)
+                out["note"] = f"the language model's report failed the number check after {MAX_ATTEMPTS} attempts ({bad}); template shown"
         except Exception as e:  # provider down or misconfigured: fall back, and say so
             tb = ToolBox(PrecomputedBackend(demo_dir)); out = _template(tb, scan_id); out["note"] = f"language model unavailable ({type(e).__name__}); template used"
     else:
         out = _template(tb, scan_id)
-    out["inputs_sha"] = sha; out["cached"] = False
+    out["inputs_sha"], out["writer_sha"], out["cached"] = sha, wsha, False
     if not out.get("note"):  # a fallback because the provider failed is not cached: the next request tries the language model again
         json.dump(out, open(cache, "w"), indent=1)
     return out

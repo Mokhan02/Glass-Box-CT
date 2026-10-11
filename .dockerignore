@@ -1,10 +1,17 @@
-.git
-.venv
-cache
-__pycache__
-*.pyc
-.env
-results
-writeup
-*.nii.gz
-*.pt
+# Allow-list: only what the image needs. Keeps .env, .git (history), results, caches, node_modules and dev outputs out of the build context.
+*
+!LICENSE
+!requirements-serve.txt
+!requirements-app.txt
+!glassbox
+!frontend/package.json
+!frontend/package-lock.json
+!frontend/index.html
+!frontend/vite.config.js
+!frontend/postcss.config.js
+!frontend/tailwind.config.js
+!frontend/src
+!data/demo
+**/__pycache__
+**/*.pyc
+data/demo/*/original.nii.gz

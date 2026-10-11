@@ -8,6 +8,7 @@ from glassbox.agent.config import LLMConfig
 from glassbox.agent.grounding import check_report
 from glassbox.agent.tools import TOOL_SCHEMAS, ToolBox
 
+MAX_ATTEMPTS = 3
 DISCLAIMER = "Research use only, not for clinical decisions."
 
 GATHER_PROMPT = (
@@ -54,16 +55,19 @@ def run_agent(scan_id: str, client, cfg: LLMConfig, toolbox: ToolBox, max_steps:
         for c in calls:
             rec = toolbox.call(c.function.name, c.function.arguments)
             messages.append({"role": "tool", "tool_call_id": c.id, "content": json.dumps(rec)})
-    final = client.chat.completions.create(model=cfg.model, messages=[
-        {"role": "system", "content": REPORT_PROMPT},
-        {"role": "user", "content": f"Scan id: {scan_id}\nTool results:\n{json.dumps(toolbox.evidence, indent=1)}"}])
-    report = (final.choices[0].message.content or "").strip()
-    report = _verbatim_notes(report, toolbox.evidence)
-    if not report.endswith(DISCLAIMER):
-        report += "\n\n" + DISCLAIMER
+    base = f"Scan id: {scan_id}\nTool results:\n{json.dumps(toolbox.evidence, indent=1)}"; chk, attempts = {"ok": False}, 0
+    for attempts in range(1, MAX_ATTEMPTS + 1):  # a report whose numbers do not all match the tool results is rewritten, with the offending numbers named
+        user = base if attempts == 1 else base + f"\n\nYour previous report contained numbers that do not match the tool results: {chk['unsupported_numbers'] + chk['missing_units']}. Rewrite it quoting only exact tool values with their units (write a difference as the signed tool value, for example -14.6 HU, not '14.6 HU lower')."
+        final = client.chat.completions.create(model=cfg.model, messages=[{"role": "system", "content": REPORT_PROMPT}, {"role": "user", "content": user}])
+        report = _verbatim_notes((final.choices[0].message.content or "").strip(), toolbox.evidence)
+        if not report.endswith(DISCLAIMER):
+            report += "\n\n" + DISCLAIMER
+        chk = check_report(report, toolbox.evidence)
+        if chk["ok"]:
+            break
     fixture = any(isinstance(e.get("result"), dict) and e["result"].get("fixture") for e in toolbox.evidence)
     if fixture:
         report = "**TEST FIXTURE DATA: made-up values, not real results.**\n\n" + report
     return {"scan_id": scan_id, "report": report, "evidence": toolbox.evidence, "fixture": fixture,
-            **check_report(report, toolbox.evidence),
+            **check_report(report, toolbox.evidence), "attempts": attempts,
             "provider_host": cfg.provider_host, "models": {"fast": cfg.fast_model, "reasoning": cfg.model}}
