@@ -12,12 +12,13 @@ import urllib.request
 
 from playwright.sync_api import sync_playwright
 
-ap = argparse.ArgumentParser(); ap.add_argument("--step", required=True); ap.add_argument("--demo", default="data/demo"); ap.add_argument("--port", type=int, default=8014); ap.add_argument("--scans", nargs="*", default=["demo_1", "demo_2", "demo_3", "demo_4", "demo_5"]); ap.add_argument("--w", type=int, default=1440); ap.add_argument("--h", type=int, default=900); a = ap.parse_args()
+ap = argparse.ArgumentParser(); ap.add_argument("--step", required=True); ap.add_argument("--demo", default="data/demo"); ap.add_argument("--port", type=int, default=8014); ap.add_argument("--scans", nargs="*", default=["demo_1", "demo_2", "demo_3", "demo_4", "demo_5"]); ap.add_argument("--live", action="store_true", help="run from the repo root so .env is read and the language-model agent writes the reports"); ap.add_argument("--w", type=int, default=1440); ap.add_argument("--h", type=int, default=900); a = ap.parse_args()
 out = f"screenshots/revision/{a.step}"; os.makedirs(out, exist_ok=True); root = os.path.abspath(".")
 env = {**os.environ, "GLASSBOX_DEMO_DIR": os.path.abspath(a.demo), "PYTHONPATH": root}
 for k in ("LLM_BASE_URL", "LLM_API_KEY", "LLM_MODEL", "LLM_FAST_MODEL"):
-    env.pop(k, None)
-srv = subprocess.Popen([sys.executable, "-m", "uvicorn", "--factory", "glassbox.app.main:build_app", "--host", "127.0.0.1", "--port", str(a.port)], cwd=tempfile.mkdtemp(), env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    if not a.live:
+        env.pop(k, None)
+srv = subprocess.Popen([sys.executable, "-m", "uvicorn", "--factory", "glassbox.app.main:build_app", "--host", "127.0.0.1", "--port", str(a.port)], cwd=root if a.live else tempfile.mkdtemp(), env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 base = f"http://127.0.0.1:{a.port}"
 for _ in range(60):
     try:
@@ -32,7 +33,7 @@ try:
         pg.on("pageerror", lambda e: errs.append(str(e)[:200])); pg.on("console", lambda m: errs.append(m.text[:200]) if m.type == "error" else None)
         for sid in a.scans:
             errs.clear(); pg.goto(f"{base}/scan/{sid}")
-            pg.wait_for_function("() => window.__nv && window.__nv.volumes.length >= 3 && document.querySelector('[role=status]') === null", timeout=60000); time.sleep(3.5)
+            pg.wait_for_function("() => window.__nv && window.__nv.volumes.length >= 3 && document.querySelector('section[aria-label=Key-numbers]') !== null || (window.__nv && window.__nv.volumes.length >= 3 && Array.from(document.querySelectorAll('section')).some(s => s.getAttribute('aria-label') === 'Key numbers'))", timeout=300000); time.sleep(3.5)
             m = pg.evaluate("""() => { const nv = window.__nv, c = nv.canvas, t = nv.screenSlices.filter(s => s.leftTopWidthHeight && s.leftTopWidthHeight[2] > 0)[0].leftTopWidthHeight, r = c.getBoundingClientRect(), k = c.width / r.width;
                 return {canvas: [Math.round(c.width / k), Math.round(c.height / k)], tile: t.map(v => Math.round(v / k)), vols: nv.volumes.map(v => [v.name, +v.opacity.toFixed(2)])} }""")
             cw, ch = m["canvas"]; l, t, w, h = m["tile"]; cover = max(w / min(cw, ch), h / min(cw, ch)); cx, cy = abs((l + w / 2) - cw / 2) / cw, abs((t + h / 2) - ch / 2) / ch
