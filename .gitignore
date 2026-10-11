@@ -16,3 +16,8 @@ __pycache__/
 
 # private planning notes
 /PLAN.md
+
+# frontend build output and dependencies (built in the Docker image / by `npm run build`)
+/frontend/node_modules/
+/frontend/dist/
+/screenshots/

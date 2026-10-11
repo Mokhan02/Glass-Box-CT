@@ -2,6 +2,7 @@
 numbers still come from, and are checked against, the tools). Every report ends with the research-use disclaimer."""
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 
@@ -34,7 +35,7 @@ def template_report(evidence: list[dict]) -> str:
             for l in les["lesions"]:
                 L.append(f"**Lesion {l['id']}** [measure_lesions]: longest axial diameter {_q(l['longest_axial_diameter'])}, volume {_q(l['volume'])}, mean model probability {l['mean_probability']}; RECIST 1.1 suggestion: {l['recist']}.")
             if "tumour_liver_contrast" in les:
-                L.append(f"**Tumour-minus-liver contrast** [measure_lesions]: {_q(les['tumour_liver_contrast'])} ({les['contrast_basis']}).")
+                L.append(f"**Tumour-minus-liver contrast** [measure_lesions]: {_q(les['tumour_liver_contrast'])} ({les['contrast_basis']}; reference liver at least {_q(les['liver_reference_margin'])} from the tumour).")
                 if "contrast_caution" in les:
                     L.append(f"**{les['contrast_caution']}** [measure_lesions] {les['contrast_context']['evidence_status']}")
             v = les["validation_context"]
@@ -54,10 +55,25 @@ def template_report(evidence: list[dict]) -> str:
     return "\n\n".join(L) + "\n\n" + DISCLAIMER
 
 
+REPORT_VERSION = 2  # bump when the template or the agent prompt changes, so cached reports are rebuilt
+RESULT_FILES = ("segmentation.json", "body_composition.json", "lesions.json", "quality_audit.json")
+
+
+def inputs_sha(demo_dir: str, scan_id: str, llm) -> str:
+    """Fingerprint of everything a report is built from: the tool-result files, the report version, and which provider/models would write it."""
+    h = hashlib.sha256(f"v{REPORT_VERSION}|{llm[1].provider_host + llm[1].model + llm[1].fast_model if llm else 'template'}".encode())
+    for f in RESULT_FILES:
+        p = os.path.join(demo_dir, scan_id, f)
+        h.update(open(p, "rb").read() if os.path.exists(p) else b"-")
+    return h.hexdigest()[:16]
+
+
 def make_report(demo_dir: str, scan_id: str, llm=None, refresh: bool = False) -> dict:
-    cache = os.path.join(demo_dir, scan_id, "report.json")
+    cache = os.path.join(demo_dir, scan_id, "report.json"); sha = inputs_sha(demo_dir, scan_id, llm)
     if os.path.exists(cache) and not refresh:
-        return json.load(open(cache))
+        cached = json.load(open(cache))
+        if cached.get("inputs_sha") == sha:
+            return cached  # otherwise the tool results (or report version) changed since it was written: rebuild
     tb = ToolBox(PrecomputedBackend(demo_dir))
     if llm is not None:
         client, cfg = llm
@@ -67,6 +83,7 @@ def make_report(demo_dir: str, scan_id: str, llm=None, refresh: bool = False) ->
             tb = ToolBox(PrecomputedBackend(demo_dir)); out = _template(tb, scan_id); out["note"] = f"language model unavailable ({type(e).__name__}); template used"
     else:
         out = _template(tb, scan_id)
+    out["inputs_sha"] = sha
     json.dump(out, open(cache, "w"), indent=1)
     return out
 

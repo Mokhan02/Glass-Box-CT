@@ -1,0 +1,44 @@
+{
+  "_note": "Every number shown on the 'Why it fails' page lives here. Each entry's `src` is an exact fragment of results/SUMMARY.md and must contain the entry's value and CI strings (tests/test_findings_numbers.py). Do not add numbers elsewhere.",
+  "bias": {
+    "sld": { "value": "-19", "ci": ["-28", "-13"], "unit": "%", "label": "Sum of tumour diameters, median error", "cohort": "75 held-out CT scans (UID route)", "src": "**-19% [-28%, -13%]**" },
+    "detected_mm": { "value": "-11.4", "unit": "mm", "label": "Even when it finds a tumour, it measures it smaller", "note": "about -17%; never an over-estimate", "src": "-11.4 mm (about -17%); zero over-estimates" },
+    "missed": { "value": "1 in 5", "label": "tumours largely missed", "src": "Roughly 1 in 5 lesions are largely missed" },
+    "orig": { "dice": "0.555", "dice_ci": ["0.487", "0.619"], "sld": "-19.2", "sld_ci": ["-29.4", "-14.3"], "over": "0.0", "src": "| original readout | 0.555 [0.487, 0.619] | 77.2% [67.6, 86.1] | -19.2% [-29.4, -14.3] | 0.0% |" },
+    "recal": { "dice": "0.635", "dice_ci": ["0.578", "0.689"], "sld": "+0.6", "sld_ci": ["-4.4", "2.6"], "over": "13.5", "over_ci": ["6.7", "21.3"], "src": "| threshold shift, matched over-estimation | 0.635 [0.578, 0.689] | 88.1% [79.8, 95.3] | +0.6% [-4.4, 2.6] | 13.5% [6.7, 21.3] |" }
+  },
+  "probe": {
+    "mid": {
+      "trained": { "value": "0.587", "ci": ["0.551", "0.656"], "src": "| mid-encoder | 0.587 [0.551, 0.656] | 0.079 [0.060, 0.090] | 0.114 [0.050, 0.146] |" },
+      "random": { "value": "0.079", "ci": ["0.060", "0.090"], "src": "| mid-encoder | 0.587 [0.551, 0.656] | 0.079 [0.060, 0.090] | 0.114 [0.050, 0.146] |" },
+      "hu": { "value": "0.114", "ci": ["0.050", "0.146"], "src": "| mid-encoder | 0.587 [0.551, 0.656] | 0.079 [0.060, 0.090] | 0.114 [0.050, 0.146] |" }
+    },
+    "bottleneck": {
+      "trained": { "value": "0.825", "ci": ["0.795", "0.869"], "src": "| bottleneck | 0.825 [0.795, 0.869] | 0.141 [0.075, 0.178] | 0.204 [0.071, 0.281] |" },
+      "random": { "value": "0.141", "ci": ["0.075", "0.178"], "src": "| bottleneck | 0.825 [0.795, 0.869] | 0.141 [0.075, 0.178] | 0.204 [0.071, 0.281] |" },
+      "hu": { "value": "0.204", "ci": ["0.071", "0.281"], "src": "| bottleneck | 0.825 [0.795, 0.869] | 0.141 [0.075, 0.178] | 0.204 [0.071, 0.281] |" }
+    },
+    "logit": { "value": "2.5", "src": "the head logits sit about 2.5 below threshold" }
+  },
+  "brightness": {
+    "armA": { "value": "-0.208", "ci": ["-0.284", "-0.098"], "n": "62", "hits": "56/62", "src": "Arm A, dark tumours made bright (n=62): lesion coverage change -0.208 [-0.284, -0.098]; edit minus control -0.301 [-0.470, -0.188]; 56/62 in the hypothesised direction" },
+    "armA_minus_control": { "value": "-0.301", "ci": ["-0.470", "-0.188"], "src": "edit minus control -0.301 [-0.470, -0.188]" },
+    "armB": { "value": "+0.238", "ci": ["+0.001", "+0.563"], "n": "17", "hits": "13/14", "src": "Arm B, bright missed tumours made dark (n=17): +0.238 [+0.001, +0.563]; edit minus control +0.242 [+0.001, +0.515]; 13/14 non-tied in the hypothesised direction" },
+    "bright_det": { "value": "58", "src": "21/36 (58%) -> 29/36 (81%)" },
+    "dark_det": { "value": "88", "src": "57/65 (88%) -> 61/65 (94%)" }
+  },
+  "erasure": {
+    "leace": { "value": "-0.33", "ci": ["-0.38", "-0.29"], "n": "78", "still": "65", "src": "LEACE: lesion Dice **-0.33 [-0.38, -0.29]** on the 78 lesions the model detects (65% still detected)" },
+    "random": { "value": "-0.002", "src": "random direction -0.002, local-HU direction -0.045; liver Dice unchanged (+0.002)" },
+    "hu": { "value": "-0.045", "src": "random direction -0.002, local-HU direction -0.045; liver Dice unchanged (+0.002)" },
+    "channels": { "value": "0.77", "ci": ["0.76", "0.78"], "n": "8", "src": "8 channels (36, 20, 10, 22, 18, 30, 17, 7) explain **0.77 [0.76, 0.78]** of the gap on held-out cases" }
+  },
+  "patching": {
+    "mid": { "value": "0.79", "ci": ["0.71", "0.85"], "src": "restore **0.79 [0.71, 0.85]** of the coverage drop (bottleneck 0.66 [0.55, 0.76]; decoder_F 1.0 by construction)" },
+    "bottleneck": { "value": "0.66", "ci": ["0.55", "0.76"], "src": "(bottleneck 0.66 [0.55, 0.76]; decoder_F 1.0 by construction)" },
+    "shell": { "value": "0.06", "src": "shell-only 0.06, far context 0.03 at mid" },
+    "far": { "value": "0.03", "src": "shell-only 0.06, far context 0.03 at mid" },
+    "bridge": { "value": "-0.93", "ci": ["-1.22", "-0.66"], "hits": "55 of 62", "rho": "0.74", "rho_ci": ["0.58", "0.85"], "src": "Projection bright minus dark **-0.93 [-1.22, -0.66]** (55 of 62 lower, p = 2e-10); correlation of projection drop with coverage drop Spearman 0.74 [0.58, 0.85]" }
+  },
+  "flag": { "auroc": "0.925", "ci": ["0.860", "0.980"], "src": "**0.925 [0.860, 0.980]**" }
+}

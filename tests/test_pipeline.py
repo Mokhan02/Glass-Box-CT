@@ -73,7 +73,7 @@ def test_viewer_copies_keep_click_to_locate_on_the_lesion_after_resampling(tmp_p
     from glassbox.pipeline.viewer import make_viewer_files
     path, probs = _scan(str(tmp_path)); out = os.path.join(str(tmp_path), "res"); r = build_results(path, probs, out, "s", {}); d = os.path.join(out, "s")
     before = r["lesions"]["lesions"][0]["voxel_in_file"]; info = make_viewer_files(path, d, mm=3.0)
-    L = json.load(open(os.path.join(d, "lesions.json"))); v = L["lesions"][0]["voxel_in_file"]; assert v != before and L["viewer_grid_mm"] == 3.0
+    L = json.load(open(os.path.join(d, "lesions.json"))); v = L["lesions"][0]["voxel_in_file"]; assert v != before and L["viewer_grid_mm"] == {"value": 3.0, "unit": "mm"}
     tum = nib.load(os.path.join(d, "tumour.nii.gz")); arr = np.asarray(tum.dataobj); assert arr.shape == tuple(info["viewer_shape"]) and arr[tuple(v)] == 1  # the remapped voxel is inside the tumour
     B = json.load(open(os.path.join(d, "body_composition.json"))); assert np.asarray(nib.load(os.path.join(d, "organs.nii.gz")).dataobj)[tuple(B["l3_voxel_in_file"])] > 0
 
@@ -111,3 +111,30 @@ def test_every_liver_report_carries_the_standing_limitation_even_with_no_lesion(
         rep = template_report(tb.evidence)
         assert "known to miss some liver tumours brighter than the surrounding liver (research finding, n=89). A small or absent tumour prediction does not rule out a tumour." in rep
         chk = check_report(rep, tb.evidence); assert chk["unsupported_numbers"] == [] and chk["missing_units"] == [], chk
+
+
+def test_cached_report_is_rebuilt_when_the_tool_results_change(tmp_path):
+    from glassbox.app.report import make_report
+    path, probs = _scan(str(tmp_path)); out = os.path.join(str(tmp_path), "res"); build_results(path, probs, out, "s", {"source": "synthetic"})
+    first = make_report(out, "s"); assert make_report(out, "s")["inputs_sha"] == first["inputs_sha"]  # unchanged inputs: served from cache
+    les = os.path.join(out, "s", "lesions.json"); d = json.load(open(les)); d["standing_limitation"] = "A DIFFERENT NOTE."; json.dump(d, open(les, "w"))
+    second = make_report(out, "s"); assert "A DIFFERENT NOTE." in second["report"] and second["inputs_sha"] != first["inputs_sha"]
+
+
+def test_contrast_text_carries_no_bare_numbers_the_checker_could_misattribute(tmp_path):
+    path, probs = _scan(str(tmp_path), tumour_hu=140.0); les = build_results(path, probs, os.path.join(str(tmp_path), "res"), "s", {})["lesions"]
+    assert not any(ch.isdigit() for ch in les["contrast_basis"]) and les["liver_reference_margin"] == {"value": 5, "unit": "mm"}
+
+
+def test_align_to_viewer_puts_masks_on_the_viewer_grid_and_remaps_voxels(tmp_path):
+    import nibabel as nib
+    from glassbox.pipeline.viewer import align_to_viewer
+    d = str(tmp_path); big = np.zeros((60, 60, 40), np.uint8); big[30:40, 20:30, 10:20] = 1  # original 1 mm grid, lesion centre about (34.5, 24.5, 14.5)
+    nib.save(nib.Nifti1Image(big, np.diag([1.0, 1.0, 1.0, 1.0])), os.path.join(d, "tumour.nii.gz")); nib.save(nib.Nifti1Image(big, np.diag([1.0, 1.0, 1.0, 1.0])), os.path.join(d, "organs.nii.gz"))
+    nib.save(nib.Nifti1Image(np.zeros((30, 30, 20), np.int16), np.diag([2.0, 2.0, 2.0, 1.0])), os.path.join(d, "ct.nii.gz"))  # viewer grid: 2 mm
+    json.dump({"lesions": [{"id": 1, "voxel_in_file": [35, 25, 15]}]}, open(os.path.join(d, "lesions.json"), "w")); json.dump({"available": False}, open(os.path.join(d, "body_composition.json"), "w"))
+    assert align_to_viewer(d) is True and align_to_viewer(d) is False  # second call: nothing to do
+    t = nib.load(os.path.join(d, "tumour.nii.gz")); L = json.load(open(os.path.join(d, "lesions.json")))
+    from glassbox.agent.tools import bare_floats
+    assert t.shape == (30, 30, 20) and L["viewer_grid_mm"] == {"value": 2.0, "unit": "mm"} and bare_floats(L) == []  # the agent's unit check must still accept the file
+    v = L["lesions"][0]["voxel_in_file"]; assert v == [18, 12, 8] and np.asarray(t.dataobj)[tuple(v)] == 1  # lands inside the lesion on the new grid

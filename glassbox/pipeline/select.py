@@ -12,6 +12,15 @@ SLOTS = [
     ("flag_false_alarm", "A case the flag marked as likely wrong although the model found most of the tumour", "The flag is not perfect: it also raises false alarms."),
 ]
 
+# What the landing-page card says about each slot: a status chip and one plain-language line.
+CARD = {
+    "well_found_dark": ("good", "A dark tumour the model finds well; the quality flag stays quiet."),
+    "bright_missed_flagged": ("missed", "A bright tumour the model largely misses, and the quality flag catches it."),
+    "shift_matters": ("missed", "A tumour missed at the default setting that a recalibrated threshold recovers."),
+    "bright_found": ("good", "A bright tumour the model finds well: bright tumours are missed more often, not always."),
+    "flag_false_alarm": ("flagged", "The quality flag raises an alarm although the model found most of the tumour."),
+}
+
 
 def _first(rows, pred, key=lambda r: r["id"]):
     c = sorted((r for r in rows if pred(r)), key=key); return c[0] if c else None

@@ -12,7 +12,7 @@ import sys
 
 sys.path.insert(0, ".")
 from glassbox.pipeline.scan import build_results  # noqa: E402
-from glassbox.pipeline.select import select_demos  # noqa: E402
+from glassbox.pipeline.select import CARD, select_demos  # noqa: E402
 from glassbox.pipeline.viewer import make_viewer_files  # noqa: E402
 
 ap = argparse.ArgumentParser(); ap.add_argument("--stage", required=True, choices=["all", "pick", "rebuild"]); ap.add_argument("--out", default="cache"); ap.add_argument("--limit", type=int, default=0)
@@ -40,6 +40,7 @@ elif a.stage == "rebuild":
     for it in idx["scans"]:
         case = it["source"]["case"]; src = dict(cohort)[case]; ct = os.path.join(ROOTS[src], case, "ct.nii.gz")
         build_results(ct, infer_probs(ct, net, dev), demo, it["id"], {"source": "HCC-TACE-Seg (TCIA, CC BY 4.0)", "case": case, "in_distribution": False, "label_route": src, "model": "NV-Segment-CT vista3d132"})
+        make_viewer_files(ct, os.path.join(demo, it["id"]))  # build_results wrote original-grid masks and voxel coordinates: put them back on the viewer grid
         print("rebuilt", it["id"], case, flush=True)
         if os.path.exists(os.path.join(demo, it["id"], "report.json")):
             os.remove(os.path.join(demo, it["id"], "report.json"))
@@ -73,6 +74,6 @@ else:
         info = make_viewer_files(os.path.join(ROOTS[r["src"]], r["id"], "ct.nii.gz"), d)
         blurb = (f"{p['why']} Against the reference segmentation, the model found {100 * r['coverage']:.0f}% of the largest tumour (reference longest diameter {r['diam_mm']:.0f} mm; tumour minus local liver {r['contrast']:+.0f} HU). "
                  f"Source: HCC-TACE-Seg, case {r['id'][:7]} (The Cancer Imaging Archive, CC BY 4.0). Chosen by rule, not at random: see selection.")
-        index.append({"id": sid, "title": f"{k}. {p['title']}", "blurb": blurb, "source": {"dataset": "HCC-TACE-Seg", "case": r["id"], "license": "CC BY 4.0"}, "selection": p["slot"], "viewer_mb": info["viewer_mb"]})
+        index.append({"id": sid, "title": f"{k}. {p['title']}", "blurb": blurb, "source": {"dataset": "HCC-TACE-Seg", "case": r["id"], "license": "CC BY 4.0"}, "selection": p["slot"], "chip": CARD[p["slot"]][0], "oneliner": CARD[p["slot"]][1], "viewer_mb": info["viewer_mb"]})
     json.dump({"scans": index, "selection_note": "Scans were chosen by fixed rules (glassbox/pipeline/select.py) to show typical successes, the main failure mode, and the flag's own false alarms. They are not a random sample."}, open(os.path.join(demo, "index.json"), "w"), indent=1)
     print(json.dumps([(i["id"], i["selection"], i["viewer_mb"]) for i in index]))

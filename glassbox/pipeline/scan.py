@@ -109,7 +109,7 @@ def build_results(ct_path: str, probs: dict[int, np.ndarray], out_dir: str, scan
                             "recist": l["recist"], "slice_index": l["best_slice"], "voxel_in_file": to_file_voxel(l["centroid_voxel"], aff_c, affine)} for l in les], "n_lesions": len(les)}
     liver_c = canonical((organs == 1).astype(np.uint8), affine)[0]; con = tumour_liver_contrast(cc, tc.astype(bool), liver_c.astype(bool), zc) if les else None
     if con is not None:
-        lesions["tumour_liver_contrast"] = qty(round(con, 1), "HU"); lesions["contrast_basis"] = "mean HU of the predicted tumour minus mean HU of liver more than 5 mm away from it (research measurement)"
+        lesions["tumour_liver_contrast"] = qty(round(con, 1), "HU"); lesions["contrast_basis"] = "mean HU of the predicted tumour minus mean HU of liver tissue outside a margin around it (research measurement)"; lesions["liver_reference_margin"] = qty(5, "mm")
         lesions["contrast_context"] = CONTRAST_CONTEXT
         if con > 0:
             lesions["contrast_caution"] = CAUTION.format(bright=_q(CONTRAST_CONTEXT["bright_tumour_lesion_detection"]), dark=_q(CONTRAST_CONTEXT["dark_tumour_lesion_detection"]))

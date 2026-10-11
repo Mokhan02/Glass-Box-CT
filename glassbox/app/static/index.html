@@ -32,6 +32,7 @@ a.num{color:var(--accent);text-decoration:underline dotted;cursor:pointer}a.num.
 table{border-collapse:collapse;width:100%;font-size:13px}td,th{padding:4px 6px;border-bottom:1px solid var(--line);text-align:left}
 .muted{color:var(--muted);font-size:13px}.err{color:var(--bad)}
 footer{padding:0 20px 28px;color:var(--muted);font-size:12px}
+a{color:var(--accent)}footer a{color:#8cb4ff}
 </style>
 </head>
 <body>
@@ -98,7 +99,7 @@ async function initViewer() {
   const views = [["Multiplanar", "sliceTypeMultiplanar"], ["Axial", "sliceTypeAxial"], ["Coronal", "sliceTypeCoronal"], ["Sagittal", "sliceTypeSagittal"], ["3D", "sliceTypeRender"]];
   $("#views").innerHTML = "";
   views.forEach(([label, key]) => { const b = document.createElement("button"); b.textContent = label; b.onclick = () => { nv.setSliceType(nv[key]); document.querySelectorAll("#views button").forEach((x) => x.classList.remove("on")); b.classList.add("on"); }; $("#views").appendChild(b); });
-  $("#views button").classList.add("on");
+  $("#views button").classList.add("on");  // overwritten to Axial after a scan loads
   $("#tgOrgans").onchange = (e) => { if (nv.volumes.length > 1) nv.setOpacity(1, e.target.checked ? 0.45 : 0); };
   $("#tgTumour").onchange = (e) => { if (nv.volumes.length > 2) nv.setOpacity(2, e.target.checked ? 0.8 : 0); };
 }
@@ -110,9 +111,10 @@ async function loadViewer(id) {
     const base = `/api/scans/${id}/files/`, labels = await (await api(base + "labels.json")).json();
     while (nv.volumes.length) nv.removeVolume(nv.volumes[0]);
     await nv.loadVolumes([{url: base + "ct.nii.gz", name: "ct.nii.gz", colormap: "gray", cal_min: -150, cal_max: 250},
-      {url: base + "organs.nii.gz", name: "organs.nii.gz", colormapLabel: makeLut(labels.organs), opacity: $("#tgOrgans").checked ? 0.45 : 0},
+      {url: base + "organs.nii.gz", name: "organs.nii.gz", cal_min: 0, cal_max: 255, colormapLabel: makeLut(labels.organs), opacity: $("#tgOrgans").checked ? 0.45 : 0},
       {url: base + "tumour.nii.gz", name: "tumour.nii.gz", colormap: "red", cal_min: 0, cal_max: 1, opacity: $("#tgTumour").checked ? 0.8 : 0}]);
-    nv.setSliceType(nv.sliceTypeMultiplanar);
+    nv.setSliceType(nv.sliceTypeAxial);
+    document.querySelectorAll("#views button").forEach((x) => x.classList.toggle("on", x.textContent === "Axial"));
     status("");
   } catch (e) { status("Could not load the volume: " + e.message, true); }
 }
@@ -166,11 +168,13 @@ function renderPanels(rep) {
 
 async function openScan(id, blurb) {
   scanId = id; $("#blurb").textContent = blurb || ""; $("#report").textContent = "Writing the report ..."; $("#flag").textContent = "Loading ...";
-  loadViewer(id);
   try {
     summary = await (await api(`/api/scans/${id}/summary`)).json();
+    const viewer = loadViewer(id);
     const rep = await (await api(`/api/scans/${id}/report`, {method: "POST"})).json();
     renderPanels(rep); renderReport(rep.report, rep.mode, rep.note);
+    await viewer;
+    const ls = summary.lesions && summary.lesions.lesions; if (ls && ls.length) jumpTo(ls[0].voxel_in_file);  // start on the largest predicted lesion
   } catch (e) { $("#report").innerHTML = `<span class="err">${esc(e.message)}</span>`; }
 }
 
