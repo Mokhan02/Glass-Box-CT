@@ -1,8 +1,8 @@
-# glassbox-ct-demo-data
+# Demo data v1
 
-Five resampled research CT scans and their pre-computed results, used by the [Glass-Box CT](https://github.com/Mokhan02/Glass-Box-CT) demo. **Research use only. Not for clinical decisions.**
+Five resampled research CT scans and their pre-computed results, used by the Glass-Box CT demo. **Research use only. Not for clinical decisions.**
 
-The data is published as a release asset: `glassbox-demo-data-v1.tar.gz` (56402560 bytes, SHA-256 `8391cd183116664dad64a79d48d9e2996ce5d4750a8219dca76e54f9d321cdb5`). The Glass-Box CT Docker build downloads it and refuses to continue if the checksum differs.
+The data is this release's asset: `glassbox-demo-data-v1.tar.gz` (56402560 bytes, SHA-256 `8391cd183116664dad64a79d48d9e2996ce5d4750a8219dca76e54f9d321cdb5`). The Glass-Box CT Docker build downloads it and refuses to continue if the checksum differs.
 
 Licence and attribution: the scans are from HCC-TACE-Seg on The Cancer Imaging Archive, **CC BY 4.0**. They were resampled for viewing; the segmentations are NVIDIA NV-Segment-CT (VISTA-3D) output; the reference outline is the dataset's own annotation. The full citation, DOI and a statement of changes are in `demo/ATTRIBUTION.md` inside the archive and are reproduced here:
 

@@ -1,6 +1,6 @@
 # Glass-Box CT demo server: React front end (built here) + FastAPI + the five pre-computed demo scans and reports baked in.
 # Research use only. The five demo scans (HCC-TACE-Seg, TCIA, CC BY 4.0, resampled) are NOT in git: the build downloads them from a public release asset, verifies the SHA-256 and fails on a mismatch
-# (scripts/fetch_demo_data.py; archive and attribution: https://github.com/Mokhan02/glassbox-ct-demo-data). Override the two build args to use another copy.
+# (scripts/fetch_demo_data.py; archive and attribution: https://github.com/Mokhan02/Glass-Box-CT). Override the two build args to use another copy.
 #   docker build -t glassbox-ct .
 #   docker run --rm -p 8000:8000 --env-file .env glassbox-ct      # .env supplies the language model (see docs/TOKEN_FACTORY.md); without it the baked reports are served and Ask is off
 # syntax=docker/dockerfile:1
@@ -21,7 +21,7 @@ RUN useradd --create-home --uid 10001 app
 COPY LICENSE ./LICENSE
 COPY glassbox ./glassbox
 COPY --from=web /web/dist ./frontend/dist
-ARG DEMO_DATA_URL=https://github.com/Mokhan02/glassbox-ct-demo-data/releases/download/v1/glassbox-demo-data-v1.tar.gz
+ARG DEMO_DATA_URL=https://github.com/Mokhan02/Glass-Box-CT/releases/download/v1/glassbox-demo-data-v1.tar.gz
 ARG DEMO_DATA_SHA256=8391cd183116664dad64a79d48d9e2996ce5d4750a8219dca76e54f9d321cdb5
 COPY scripts/fetch_demo_data.py /tmp/fetch_demo_data.py
 RUN python /tmp/fetch_demo_data.py --url "$DEMO_DATA_URL" --sha256 "$DEMO_DATA_SHA256" --out /app && chown -R app:app /app/demo && rm /tmp/fetch_demo_data.py

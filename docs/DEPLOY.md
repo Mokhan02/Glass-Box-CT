@@ -4,21 +4,21 @@ The image (`Dockerfile`, about 360 MB) is the React front end + FastAPI + the fi
 
 ## 0. Demo data and the build (same for every host)
 **The five demo scans are not in git.** The Docker build downloads them from a public release asset, checks the SHA-256 and **fails the build on a mismatch** (`scripts/fetch_demo_data.py`, run by the `RUN` line in the `Dockerfile`; unpacked to `/app/demo`, owned by the non-root `app` user). Archive: `glassbox-demo-data-v1.tar.gz`, 56402560 bytes, SHA-256 `8391cd183116664dad64a79d48d9e2996ce5d4750a8219dca76e54f9d321cdb5`. The two build arguments and their defaults:
-- `DEMO_DATA_URL` = `https://github.com/Mokhan02/glassbox-ct-demo-data/releases/download/v1/glassbox-demo-data-v1.tar.gz`
+- `DEMO_DATA_URL` = `https://github.com/Mokhan02/Glass-Box-CT/releases/download/v1/glassbox-demo-data-v1.tar.gz`
 - `DEMO_DATA_SHA256` = `8391cd183116664dad64a79d48d9e2996ce5d4750a8219dca76e54f9d321cdb5`
-The URL must be reachable **without credentials** from the build machine, which is why the data lives in a separate public repository while this repository can stay private. Until the release below is published the build stops with `HTTP 404 (has the release been published, and is the repository public?)`.
+The URL must be reachable **without credentials** from the build machine, so this repository must be **public** when the release is published (release assets of a private repository need a token). The data is a release asset of this repository, not a file in git. Until the release below is published the build stops with `HTTP 404 (has the release been published, and is the repository public?)`.
 
-### Publishing the data (one time; I did not do any of this for you)
+### Publishing the data (one time)
 The archive is `release/glassbox-demo-data-v1.tar.gz` on your Mac (git-ignored; keep a copy). **Upload that exact file**: rebuilding the tarball changes its hash, and then the SHA in the `Dockerfile` and here must change with it.
-1. GitHub → New repository: owner `Mokhan02`, name `glassbox-ct-demo-data`, **Public**, tick "Add a README". Skip the licence picker (the licence statement is in the README).
-2. Edit that repository's `README.md` and paste in the contents of `docs/demo-data-README.md` from this repository. Commit.
-3. Releases → "Create a new release" → "Choose a tag": type `v1` and select "Create new tag: v1 on publish" → Release title `Demo data v1` → description: `SHA-256 8391cd183116664dad64a79d48d9e2996ce5d4750a8219dca76e54f9d321cdb5` → drag in `release/glassbox-demo-data-v1.tar.gz` (GitHub allows 2 GB per asset; this is about 56 MB) → leave "Set as a pre-release" and draft unticked → **Publish release**.
+1. Before making the repository public: `gitleaks detect` on the full history must report no leaks, and `git ls-files` must not list `.env` or anything under `release/`.
+2. GitHub → `Mokhan02/Glass-Box-CT` → Settings → General → Danger Zone → "Change visibility" → Public.
+3. Releases → "Create a new release" → "Choose a tag": type `v1` and select "Create new tag: v1 on publish" → Release title `Demo data v1` → description: paste the contents of `docs/demo-data-README.md` (it carries the CC BY 4.0 attribution and the SHA-256) → drag in `release/glassbox-demo-data-v1.tar.gz` (GitHub allows 2 GB per asset; this is about 56 MB) → leave pre-release and draft unticked → **Publish release**.
 4. Verify from any machine (no login):
    ```bash
-   curl -L -o /tmp/d.tgz https://github.com/Mokhan02/glassbox-ct-demo-data/releases/download/v1/glassbox-demo-data-v1.tar.gz
+   curl -L -o /tmp/d.tgz https://github.com/Mokhan02/Glass-Box-CT/releases/download/v1/glassbox-demo-data-v1.tar.gz
    shasum -a 256 /tmp/d.tgz        # must print 8391cd183116664dad64a79d48d9e2996ce5d4750a8219dca76e54f9d321cdb5
    ```
-With the GitHub CLI instead (`brew install gh`, `gh auth login`): `gh repo create Mokhan02/glassbox-ct-demo-data --public --add-readme` then `gh release create v1 release/glassbox-demo-data-v1.tar.gz --repo Mokhan02/glassbox-ct-demo-data --title "Demo data v1" --notes "SHA-256 8391cd183116664dad64a79d48d9e2996ce5d4750a8219dca76e54f9d321cdb5"`.
+With the GitHub CLI instead (`brew install gh`, `gh auth login`): `gh repo edit Mokhan02/Glass-Box-CT --visibility public --accept-visibility-change-consequences`, then `gh release create v1 release/glassbox-demo-data-v1.tar.gz --repo Mokhan02/Glass-Box-CT --title "Demo data v1" --notes-file docs/demo-data-README.md`.
 To use another copy (a new version, a mirror): `docker build --build-arg DEMO_DATA_URL=... --build-arg DEMO_DATA_SHA256=... .`
 
 ## 0b. Build and run
@@ -73,7 +73,7 @@ Caveats to resolve when you run it:
 ## B. Fallback host (any container host)
 The image works anywhere that runs a Linux container and injects `PORT`. Two options; neither tried.
 - **Fly.io:** `fly launch --no-deploy` (accept the Dockerfile, internal port 8000), `fly secrets set LLM_API_KEY=... LLM_BASE_URL=... LLM_MODEL=... LLM_FAST_MODEL=...`, `fly deploy`. Use at least 512 MB RAM. Then `python scripts/smoke_deployed.py https://<app>.fly.dev`.
-- **Render (build from the private repository):** New → Web Service → connect `Mokhan02/Glass-Box-CT` → Language: Docker (it finds the `Dockerfile`). Render injects `PORT` (the server listens on it) and passes environment variables to the Docker build as build arguments, so the demo-data URL and SHA-256 need no setting unless you want to override them. Set `LLM_BASE_URL`, `LLM_API_KEY`, `LLM_MODEL`, `LLM_FAST_MODEL` as environment variables (runtime secrets; never commit them). Health check path: `/api/health`. The build fails with a clear message if the data release is not published yet or the checksum differs; publish the release (section 0), then "Manual Deploy" → "Deploy latest commit". Memory: the image is about 500 MB; a 512 MB instance may be tight, try 1 GB if the service restarts (not tested on Render).
+- **Render (build from the repository):** New → Web Service → connect `Mokhan02/Glass-Box-CT` → Language: Docker (it finds the `Dockerfile`). Render injects `PORT` (the server listens on it) and passes environment variables to the Docker build as build arguments, so the demo-data URL and SHA-256 need no setting unless you want to override them. Set `LLM_BASE_URL`, `LLM_API_KEY`, `LLM_MODEL`, `LLM_FAST_MODEL` as environment variables (runtime secrets; never commit them). Health check path: `/api/health`. The build fails with a clear message if the data release is not published yet or the checksum differs; publish the release (section 0), then "Manual Deploy" → "Deploy latest commit". Memory: the image is about 500 MB; a 512 MB instance may be tight, try 1 GB if the service restarts (not tested on Render).
 - Pushing the image to a public registry publishes the five scans (CC BY 4.0, attribution included) and the baked reports; it does not publish keys or the repo history.
 
 ## C. Keeping a key safe on a public page
