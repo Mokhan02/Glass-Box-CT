@@ -20,7 +20,7 @@ REPORT_PROMPT = (
     "(3) if the quality audit flags a structure, say it is flagged as likely wrong, quote its probability and name its drivers; if it could not assess a structure, say so; "
     "(4) if a tool failed or returned nothing, say so instead of guessing; (5) call these research measurements, never diagnoses "
     "or recommendations; (6) if measure_lesions returns tumour_liver_contrast, report it with its unit and basis, and if it returns contrast_caution, include that caution word for word "
-    "together with its evidence_status, never turning it into a statement about this patient; (7) end with exactly: " + DISCLAIMER
+    "together with its evidence_status, never turning it into a statement about this patient; (7) if measure_lesions returns standing_limitation, include it word for word in every report, including when no lesion was found; (8) end with exactly: " + DISCLAIMER
 )
 
 

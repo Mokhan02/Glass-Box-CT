@@ -28,6 +28,8 @@ def template_report(evidence: list[dict]) -> str:
             L.append(f"**Body composition** [body_composition]: not available, because {b['reason']}.")
     les = ev.get("measure_lesions")
     if les:
+        if les.get("standing_limitation"):
+            L.append(f"**Limitation** [measure_lesions]: {les['standing_limitation']}")
         if les["n_lesions"]:
             for l in les["lesions"]:
                 L.append(f"**Lesion {l['id']}** [measure_lesions]: longest axial diameter {_q(l['longest_axial_diameter'])}, volume {_q(l['volume'])}, mean model probability {l['mean_probability']}; RECIST 1.1 suggestion: {l['recist']}.")

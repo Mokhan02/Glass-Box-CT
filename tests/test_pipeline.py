@@ -98,3 +98,16 @@ def test_contrast_is_measured_and_caution_appears_only_for_bright_tumours(tmp_pa
 def test_no_contrast_is_reported_when_nothing_is_predicted(tmp_path):
     path, probs = _scan(str(tmp_path), tumour_prob=0.2); r = build_results(path, probs, os.path.join(str(tmp_path), "res"), "s", {})["lesions"]
     assert "tumour_liver_contrast" not in r and "contrast_caution" not in r
+
+
+def test_every_liver_report_carries_the_standing_limitation_even_with_no_lesion(tmp_path):
+    from glassbox.agent.grounding import check_report
+    from glassbox.app.report import template_report
+    for prob in (0.95, 0.2):
+        d = tmp_path / str(prob); d.mkdir(); path, probs = _scan(str(d), tumour_prob=prob); out = os.path.join(str(d), "res"); build_results(path, probs, out, "s", {"source": "synthetic"})
+        tb = ToolBox(PrecomputedBackend(out))
+        for t in ("segment_ct", "body_composition", "measure_lesions", "quality_audit"):
+            assert tb.call(t, {"scan_id": "s"})["ok"]
+        rep = template_report(tb.evidence)
+        assert "known to miss some liver tumours brighter than the surrounding liver (research finding, n=89). A small or absent tumour prediction does not rule out a tumour." in rep
+        chk = check_report(rep, tb.evidence); assert chk["unsupported_numbers"] == [] and chk["missing_units"] == [], chk

@@ -33,6 +33,9 @@ CONTRAST_CONTEXT = {"cohort": "HCC-TACE-Seg held-out CT, 89 cases with verifiabl
 CAUTION = ("Caution (research finding): this model tends to miss tumours brighter than the surrounding liver. In held-out research data it detected {bright} of lesions in bright-tumour cases versus {dark} in dark-tumour cases. "
            "Contrast here is measured on the predicted tumour only, so tissue the model missed is not included.")
 
+LIMITATION = ("This model is known to miss some liver tumours brighter than the surrounding liver (research finding, n=89). "
+              "A small or absent tumour prediction does not rule out a tumour.")
+
 
 def tumour_liver_contrast(ct: np.ndarray, tumour: np.ndarray, liver: np.ndarray, zooms, min_ref_voxels: int = 1000):
     """Mean HU of the predicted tumour (edge voxels removed) minus mean HU of liver more than 5 mm from any predicted tumour. Canonical orientation. None if not measurable."""
@@ -101,7 +104,7 @@ def build_results(ct_path: str, probs: dict[int, np.ndarray], out_dir: str, scan
     # lesions
     tc = canonical(tumour.astype(np.uint8), affine)[0]; pc = canonical(probs[C.HEPATIC_TUMOR].astype(np.float32), affine)[0]
     les = measure_lesions(tc.astype(bool), pc, zc); require_tumour_prompts(PROMPTED)
-    lesions = {**prov, "prompted_classes": PROMPTED, "organ": "liver (hepatic tumour class 26)", "validation_context": VALIDATION,
+    lesions = {**prov, "prompted_classes": PROMPTED, "organ": "liver (hepatic tumour class 26)", "validation_context": VALIDATION, "standing_limitation": LIMITATION,
                "lesions": [{"id": l["id"], "organ": "liver", "longest_axial_diameter": qty(round(l["diameter_mm"], 1), "mm"), "volume": qty(round(l["volume_cm3"], 1), "cm3"), "mean_probability": round(l["mean_probability"], 3),
                             "recist": l["recist"], "slice_index": l["best_slice"], "voxel_in_file": to_file_voxel(l["centroid_voxel"], aff_c, affine)} for l in les], "n_lesions": len(les)}
     liver_c = canonical((organs == 1).astype(np.uint8), affine)[0]; con = tumour_liver_contrast(cc, tc.astype(bool), liver_c.astype(bool), zc) if les else None
