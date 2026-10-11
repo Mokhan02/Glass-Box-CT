@@ -1,0 +1,4 @@
+condition,delta_lesion_dice,ci_low,ci_high,delta_coverage,still_detected,delta_liver_dice,liver_ci_low,liver_ci_high
+leace,-0.3319,-0.3798,-0.2862,-0.3382,0.654,0.0016,-0.0004,0.0046
+random,-0.0019,-0.0037,-0.0003,-0.0024,1.0,-0.0,-0.0002,0.0001
+hu,-0.045,-0.071,-0.019,-0.0488,0.962,-0.0232,-0.0361,-0.0119

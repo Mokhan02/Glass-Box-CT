@@ -1,0 +1,32 @@
+{
+ "before": {
+  "auroc_heldout_pooled": 0.9581716428690177,
+  "ci": [
+   0.9485420203809847,
+   0.9680081741592882
+  ]
+ },
+ "after_leace": {
+  "auroc_heldout_pooled": 0.3679509942454745,
+  "ci": [
+   0.27038461652282014,
+   0.5097981343280344
+  ]
+ },
+ "after_random": {
+  "auroc_heldout_pooled": 0.9579726129982375,
+  "ci": [
+   0.9470597156731017,
+   0.9681435643081416
+  ]
+ },
+ "after_hu": {
+  "auroc_heldout_pooled": 0.9549168080071087,
+  "ci": [
+   0.944753675837186,
+   0.9651434109889443
+  ]
+ },
+ "near_chance_rule": "after_leace upper CI <= 0.60",
+ "probe_near_chance_after_leace": true
+}
