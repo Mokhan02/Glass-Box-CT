@@ -36,6 +36,15 @@ def lesions(m3):
     return lab, out
 
 
+def lesion_rows(pred, glab, gl):
+    """Per target lesion: the reference diameter and what this prediction measured for it (0 if it covers < 10% of the lesion): the data the two-timepoint bias model is fitted on."""
+    plab, pl = lesions(pred); pd_ = {l["id"]: l["diam"] for l in pl}; out = []
+    for l in gl:
+        gm = glab == l["id"]; ov = np.unique(plab[gm & (plab > 0)]); det = (pred & gm).sum() / max(gm.sum(), 1) >= 0.10
+        out.append({"gt_diam": l["diam"], "measured": max([pd_[o] for o in ov], default=0.0) if det else 0.0})
+    return out
+
+
 def rel_error(pred, glab, gl):
     """Relative error of the sum of target diameters (as results/readout_refit): a target counts if >= 10% covered; nan if there is no measurable target."""
     if not gl:
@@ -53,16 +62,24 @@ def job(c):
     if m.any():  # the shipped flag's features, on the whole default prediction
         q = np.clip(1.0 / (1.0 + np.exp(-base[m].astype(np.float64))), 1e-6, 1 - 1e-6); feats = [float(np.log1p(m.sum() * VOX ** 3 / 1000.0)), float(q.mean()), float((-(q * np.log(q) + (1 - q) * np.log(1 - q))).mean())]
     ann = (L != 3).any(axis=(0, 1)); gt = (L == 2)[:, :, ann]; glab, gl = lesions(gt); gl = sorted([l for l in gl if l["diam"] >= 10.0], key=lambda l: -l["diam"])[:2]
-    out = {"case": c, "fold": fold_of[c], "features": feats}
+    out = {"case": c, "fold": fold_of[c], "features": feats, "contrast_hu": float(z["contrast_hu"]), "lesion_rows": []}; per = {}
     for name, t in (("default", 0.0), ("recal", a.recal)):
-        pred = (base > t)[:, :, ann]; out[f"dice_{name}"] = float(2 * (pred & gt).sum() / max(pred.sum() + gt.sum(), 1)); out[f"rel_{name}"] = rel_error(pred, glab, gl)
+        pred = (base > t)[:, :, ann]; out[f"dice_{name}"] = float(2 * (pred & gt).sum() / max(pred.sum() + gt.sum(), 1)); out[f"rel_{name}"] = rel_error(pred, glab, gl); per[name] = lesion_rows(pred, glab, gl)
+    out["lesion_rows"] = [{"gt_diam": d["gt_diam"], "measured_default": d["measured"], "measured_recal": r["measured"]} for d, r in zip(per["default"], per["recal"])]
     return out
 
 
 if __name__ == "__main__":
     with ProcessPoolExecutor(max_workers=24) as ex:
         rows = list(ex.map(job, cases, chunksize=2))
-    res = run_gating(rows); res["n_cases"] = len(rows); res["recal_logit"] = a.recal; os.makedirs(a.out, exist_ok=True)
+    import csv  # per-lesion measurements for the two-timepoint bias model (scripts/longitudinal_fit.py)
+    os.makedirs(a.out, exist_ok=True)
+    with open(os.path.join(a.out, "lesion_measurements.csv"), "w", newline="") as f:
+        w = csv.writer(f); w.writerow(["case", "contrast_hu", "gt_diam_mm", "measured_default_mm", "measured_recal_mm"])
+        for r in rows:
+            for l in r["lesion_rows"]:
+                w.writerow([r["case"], r["contrast_hu"], round(l["gt_diam"], 2), round(l["measured_default"], 2), round(l["measured_recal"], 2)])
+    res = run_gating([{k: v for k, v in r.items() if k != "lesion_rows"} for r in rows]); res["n_cases"] = len(rows); res["recal_logit"] = a.recal; os.makedirs(a.out, exist_ok=True)
     json.dump(res, open(os.path.join(a.out, "gated_recal.json"), "w"), indent=1)
     t = res["policies"]; L = ["# Flag-gated recalibration (pre-registered, results/trust/PREREG.md section B)", "", f"{res['n_cases']} clean-cohort cases ({res['n_cases_with_target']} with a measurable target); 5-fold patient-level CV; the flag is refitted on training folds; {res['n_gated_to_recalibrated']} cases were gated to the recalibrated threshold.", "",
          "| policy | median signed error | mean abs error | over-estimated >= 20% | abs error >= 20% | mean Dice |", "|---|---|---|---|---|---|"]

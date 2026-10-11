@@ -19,6 +19,7 @@ from glassbox.agent.backends import PrecomputedBackend
 from glassbox.agent.tools import ToolBox
 from glassbox.app.report import make_report
 from glassbox.trust.audit import audit_pdf, build_audit
+from glassbox.trust.longitudinal import SIMULATED, load_model, simulate
 from glassbox.trust.verdict import assess
 
 SCAN_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.-]{0,80}$")
@@ -33,6 +34,13 @@ BANNER = "Research use only. Not for clinical decisions. Do not upload patient d
 
 class Question(BaseModel):
     question: str
+
+
+class SimRequest(BaseModel):
+    baseline_mm: list[float]
+    change: float
+    bright_baseline: bool = False
+    bright_followup: bool = False
 
 
 def create_app(demo_dir: str, live=None, llm=None) -> FastAPI:
@@ -107,6 +115,31 @@ def create_app(demo_dir: str, live=None, llm=None) -> FastAPI:
             except Exception as e:  # provider error mid-question: say so, never a stack trace
                 yield json.dumps({"type": "answer", "answer": "The language model is unavailable right now, so I can't answer. The report and measurements above still work.", "ok": False, "refused": False, "error": type(e).__name__}) + "\n"
         return StreamingResponse(stream(), media_type="application/x-ndjson", headers={"Cache-Control": "no-store"})
+
+    def long_model() -> dict | None:
+        m = load_model()
+        return m if m and (not m.get("fixture") or os.environ.get("GLASSBOX_ALLOW_FIXTURE") == "1") else None  # a test-fixture model is never served unless explicitly allowed
+
+    @app.get("/api/longitudinal/model")
+    def longitudinal_model():
+        m = long_model()
+        if m is None:
+            return {"available": False, "simulated": True, "notice": SIMULATED}
+        return {"available": True, "simulated": True, "notice": SIMULATED, "fixture": bool(m.get("fixture")), "source": m.get("source"), "n_lesions": m["n_lesions"], "presets": m.get("presets", []),
+                "median_error_mm_detected": {k: v["median_error_mm_detected"] for k, v in m["methods"].items()}}
+
+    @app.post("/api/longitudinal/simulate")
+    def longitudinal_simulate(body: SimRequest):
+        m = long_model()
+        if m is None:
+            return JSONResponse({"error": "The two-timepoint bias model is not installed on this server."}, status_code=503)
+        if not (1 <= len(body.baseline_mm) <= 3) or any(not 5 <= d <= 250 for d in body.baseline_mm) or not -0.95 <= body.change <= 1.5:
+            raise HTTPException(422, "baseline_mm: 1 to 3 sizes of 5 to 250 mm; change: -0.95 to 1.5")
+        try:
+            r = simulate(m, body.baseline_mm, body.change, body.bright_baseline, body.bright_followup, n=1500)
+        except ValueError as e:
+            raise HTTPException(422, str(e))
+        r["fixture"] = bool(m.get("fixture")); return r
 
     @app.get("/api/scans/{scan_id}/audit.json")
     def audit_json(scan_id: str):

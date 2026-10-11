@@ -7,6 +7,7 @@ import Layout from "./components/Layout";
 import Landing from "./pages/Landing";
 import ScanPage from "./pages/Scan";
 import Evidence from "./pages/Evidence";
+import FollowUp from "./pages/FollowUp";
 import About from "./pages/About";
 
 createRoot(document.getElementById("root")).render(
@@ -18,6 +19,7 @@ createRoot(document.getElementById("root")).render(
             <Route path="/" element={<Landing />} />
             <Route path="/scan/:id" element={<ScanPage />} />
             <Route path="/evidence" element={<Evidence />} />
+            <Route path="/follow-up" element={<FollowUp />} />
             <Route path="/why" element={<Navigate to="/evidence" replace />} />
             <Route path="/about" element={<About />} />
             <Route path="*" element={<Landing />} />

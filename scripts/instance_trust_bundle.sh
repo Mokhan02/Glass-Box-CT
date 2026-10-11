@@ -12,5 +12,5 @@ $V scripts/phase_cohort.py > results/trust/phase_cohort.log 2>&1
 wait
 $V scripts/make_demo_results.py --stage rebuild
 $V scripts/export_reference.py --demo cache/demo --out cache/demo_ref
-tar -czf cache/trust_bundle.tgz results/trust/phase_estimates.csv results/trust/gated_recal.json results/trust/GATED_RECAL.md results/trust/*.log -C cache demo demo_ref
+tar -czf cache/trust_bundle.tgz results/trust/phase_estimates.csv results/trust/gated_recal.json results/trust/GATED_RECAL.md results/trust/lesion_measurements.csv results/trust/*.log -C cache demo demo_ref
 ls -l cache/trust_bundle.tgz; echo TRUST-BUNDLE-READY

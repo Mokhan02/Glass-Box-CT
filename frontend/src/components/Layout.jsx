@@ -2,7 +2,7 @@ import { NavLink, Outlet, useLocation, Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { pageVariants } from "../lib/motion";
 
-const NAV = [["/", "Scans"], ["/evidence", "Evidence"], ["/about", "About"]];
+const NAV = [["/", "Scans"], ["/evidence", "Evidence"], ["/follow-up", "Follow-up (simulated)"], ["/about", "About"]];
 
 function Header() {
   return (
