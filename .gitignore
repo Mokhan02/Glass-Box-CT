@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+*.egg-info/
+# data and artifacts are never committed
+/raw/
+/cache/
+*.nii
+*.nii.gz
+*.npy
+*.pt
+*.safetensors
+.env
+
+# private planning notes
+/PLAN.md

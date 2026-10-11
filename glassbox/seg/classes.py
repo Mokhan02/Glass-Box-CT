@@ -1,0 +1,23 @@
+"""Global class indices from the VISTA3D MONAI bundle (configs/metadata.json, model-zoo `dev`).
+Note: the bundle network is `vista3d132`, i.e. 132 indices, not the paper's 127."""
+from __future__ import annotations
+
+LIVER = 1
+RIGHT_KIDNEY = 5
+LEFT_KIDNEY = 14
+LUNG_TUMOR = 23
+PANCREATIC_TUMOR = 24
+HEPATIC_TUMOR = 26
+VERTEBRA_L3 = 35
+LEFT_AUTOCHTHON = 104
+RIGHT_AUTOCHTHON = 105
+LEFT_ILIOPSOAS = 106
+RIGHT_ILIOPSOAS = 107
+LEFT_KIDNEY_CYST = 116
+RIGHT_KIDNEY_CYST = 117
+BONE_LESION = 128
+KIDNEY_MASS = 129
+LIVER_TUMOR = 130
+
+PSOAS = (LEFT_ILIOPSOAS, RIGHT_ILIOPSOAS)
+PARASPINAL = (LEFT_AUTOCHTHON, RIGHT_AUTOCHTHON)
