@@ -21,12 +21,12 @@ function Section({ n, title, lede, children }) {
 }
 const Tag = ({ kind }) => <span className="num ml-2 rounded-full border px-2 py-0.5 align-middle text-[10px] uppercase tracking-wider" style={{ color: kind === "expl" ? C : A, borderColor: kind === "expl" ? "rgba(245,181,74,.4)" : "rgba(94,230,208,.4)" }}>{kind === "expl" ? "exploratory" : "pre-registered"}</span>;
 
-export default function Why() {
+export default function Evidence() {
   const b = f.bias, p = f.probe, br = f.brightness, e = f.erasure, pa = f.patching;
   return (
     <div className="mx-auto max-w-[1200px] px-4 pt-12 sm:px-6 sm:pt-20">
       <header className="max-w-3xl">
-        <div className="eyebrow">Why it fails</div>
+        <div className="eyebrow">Evidence</div>
         <h1 className="mt-3 text-[34px] font-medium leading-[1.08] tracking-tight sm:text-[52px]">The model sees the tumour, then loses it.</h1>
         <p className="mt-5 text-[16px] leading-relaxed text-ink-dim">Everything below was measured on held-out research CT, and every number comes from the project's research summary. These are statements about the model, not about patients.</p>
       </header>

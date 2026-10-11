@@ -38,7 +38,7 @@ export default function AgentPanel({ meta, all, summary, report, error, mode, se
 
       {report && finished ? (
         <motion.div {...fade} className="mt-4">
-          <Verdict q={q} />
+          <Verdict trust={summary.trust} />
 
           <section className="py-6" aria-label="Key numbers">
             {sorted.length ? (
@@ -53,7 +53,7 @@ export default function AgentPanel({ meta, all, summary, report, error, mode, se
 
           <section className="border-t border-white/[0.07] py-5" aria-label="Threshold"><H>Threshold</H><RecalToggle recal={summary.recalibrated} mode={mode} setMode={setMode} /></section>
 
-          {sorted.length ? <section className="border-t border-white/[0.07] py-5" aria-label="Lesions"><H>Lesions</H><LesionsTable lesions={sorted} onJump={onJump} /></section> : null}
+          {sorted.length ? <section className="border-t border-white/[0.07] py-5" aria-label="Lesions"><H>Lesions</H><LesionsTable lesions={sorted} trust={summary.trust} onJump={onJump} /></section> : null}
 
           {prose ? (agent ? (
             <section className="border-t border-white/[0.07] py-5" aria-label="Report"><H>Report</H><ReportText text={prose} summary={summary} onJump={onJump} /></section>

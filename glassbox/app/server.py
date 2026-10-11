@@ -18,11 +18,12 @@ from glassbox.agent.ask import MAX_QUESTION, ask_events
 from glassbox.agent.backends import PrecomputedBackend
 from glassbox.agent.tools import ToolBox
 from glassbox.app.report import make_report
+from glassbox.trust.verdict import assess
 
 SCAN_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.-]{0,80}$")
 VOLUMES = ("ct", "organs", "tumour", "tumour_outline", "tumour_recal", "tumour_recal_outline", "reference_outline")  # what the viewer may draw; a scan lists the ones it has
 FILES = {f"{v}.nii.gz" for v in VOLUMES} | {"labels.json", "thumb.png"}
-SUMMARY_PARTS = ("segmentation", "body_composition", "lesions", "quality_audit", "recalibrated", "reference")
+SUMMARY_PARTS = ("segmentation", "body_composition", "lesions", "quality_audit", "recalibrated", "reference", "phase")
 DIST = os.environ.get("GLASSBOX_FRONTEND_DIST") or os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "dist")
 MAX_UPLOAD_MB = 300
 ASK_PER_MINUTE, ASK_PER_HOUR = 6, 120
@@ -52,16 +53,29 @@ def create_app(demo_dir: str, live=None, llm=None) -> FastAPI:
             h.update({"provider": llm[1].provider_host, "model": llm[1].model, "fast_model": llm[1].fast_model})
         return h
 
+    def trust(d: str) -> dict | None:
+        """The Trusted / Review / Unreliable verdict, computed from the stored tool results (deterministic; shared with the audit record)."""
+        try:
+            les = json.load(open(os.path.join(d, "lesions.json"))); qa = json.load(open(os.path.join(d, "quality_audit.json")))["structures"][0]
+            ph = os.path.join(d, "phase.json")
+            return assess(les, qa, json.load(open(ph)) if os.path.exists(ph) else None)
+        except (OSError, KeyError, IndexError, ValueError):
+            return None
+
     @app.get("/api/scans")
     def scans():
         p = os.path.join(demo_dir, "index.json")
-        return json.load(open(p)) if os.path.exists(p) else {"scans": []}
+        data = json.load(open(p)) if os.path.exists(p) else {"scans": []}
+        for sc in data["scans"]:
+            t = trust(os.path.join(demo_dir, sc["id"])); sc["verdict"] = t["level"] if t else None
+        return data
 
     @app.get("/api/scans/{scan_id}/summary")
     def summary(scan_id: str):
         d = scan_dir(scan_id)
         out = {n: json.load(open(os.path.join(d, f"{n}.json"))) for n in SUMMARY_PARTS if os.path.exists(os.path.join(d, f"{n}.json"))}
         out["layers"] = [v for v in VOLUMES if os.path.exists(os.path.join(d, f"{v}.nii.gz"))]
+        out["trust"] = trust(d)
         return out
 
     @app.post("/api/scans/{scan_id}/report")

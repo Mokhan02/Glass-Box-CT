@@ -17,7 +17,7 @@
 - **Shows the failure** in the viewer: the model's prediction (fill + outline) against the dataset's own reference annotation (dashed), and a **recalibrated (research)** threshold next to the default. The default stays primary.
 - **Agent:** a tool-calling Nemotron agent gathers the tool results and writes a short report. Every number in it is checked against the tool results and must carry its unit; a failing report is rewritten, then replaced by a template, never shown unchecked.
 - **Ask about this scan:** a question goes to the agent with that scan's tool results. Clinical advice, diagnosis and treatment questions are refused before any model is called.
-- **Explains** the failure on the "Why it fails" page, with every number tied to `results/SUMMARY.md` (a test enforces it).
+- **Explains** the failure on the "Evidence" page, with every number tied to `results/SUMMARY.md` (a test enforces it).
 
 ## Quick start
 ```bash
@@ -69,7 +69,7 @@ The sample scans are from the HCC-TACE-Seg collection on The Cancer Imaging Arch
 Code: [MIT](LICENSE). NV-Segment-CT weights: NVIDIA Open Model License (not redistributed here). Viewer: NiiVue (BSD-2). Sample data: CC BY 4.0 (above).
 
 ## Repository map
-`glassbox/` Python package (`agent`, `app`, `pipeline`, `seg`, `extract`, `bodycomp`, `probes`, `quality`) &middot; `frontend/` React + Tailwind + Framer Motion app (NiiVue viewer) &middot; `scripts/` experiments, demo build and checks &middot; `results/` pre-registrations, deviations, tables and figures &middot; `tests/` (68 tests, including one that ties every number on the "Why it fails" page to `results/SUMMARY.md`) &middot; `docs/` deployment and Token Factory runbooks.
+`glassbox/` Python package (`agent`, `app`, `pipeline`, `seg`, `extract`, `bodycomp`, `probes`, `quality`) &middot; `frontend/` React + Tailwind + Framer Motion app (NiiVue viewer) &middot; `scripts/` experiments, demo build and checks &middot; `results/` pre-registrations, deviations, tables and figures &middot; `tests/` (68 tests, including one that ties every number on the "Evidence" page to `results/SUMMARY.md`) &middot; `docs/` deployment and Token Factory runbooks.
 
 ## Gotchas for anyone using NV-Segment-CT (`vista3d132`)
 

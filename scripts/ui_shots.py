@@ -32,7 +32,7 @@ try:
             pg.on("console", lambda m: errors.append((cur["page"], m.type, m.text[:200])) if m.type in ("error", "warning") else None)
             pg.on("pageerror", lambda e: errors.append((cur["page"], "pageerror", str(e)[:200])))
             pg.on("response", lambda r: errors.append((cur["page"], f"http{r.status}", r.url)) if r.status >= 400 else None)
-            for name, path, wait in [("landing", "/", "ul li img"), *[(f"scan_{s}", f"/scan/{s}", "text=Quality flag") for s in a.scans], ("why", "/why", "text=From brightness to a missed tumour"), ("about", "/about", "text=A research instrument")]:
+            for name, path, wait in [("landing", "/", "ul li img"), *[(f"scan_{s}", f"/scan/{s}", "text=Quality flag") for s in a.scans], ("evidence", "/evidence", "text=From brightness to a missed tumour"), ("about", "/about", "text=A research instrument")]:
                 cur["page"] = f"{tag}/{name}"; pg.goto(base + path); pg.wait_for_selector(wait, timeout=40000)
                 if name.startswith("scan_"):
                     pg.wait_for_function("() => document.querySelector('canvas') && document.querySelector('[role=status]') === null", timeout=60000); time.sleep(3.0)

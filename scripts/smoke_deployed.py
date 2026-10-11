@@ -24,7 +24,7 @@ def check(name, ok, detail=""):
 
 s, b, _ = get("/api/health"); h = json.loads(b) if s == 200 else {}; check("health", s == 200 and h.get("ok"), f"language_model={h.get('language_model')} provider={h.get('provider')} model={h.get('model')}")
 s, b, _ = get("/api/scans"); scans = json.loads(b)["scans"] if s == 200 else []; check("five demo scans listed", len(scans) == 5, ", ".join(x["id"] for x in scans))
-for p in ("/", "/why", "/about", "/scan/demo_2"):
+for p in ("/", "/evidence", "/why", "/about", "/scan/demo_2"):
     s, b, _ = get(p); check(f"page {p}", s == 200 and b"<div id=\"root\">" in b)
 if scans:
     sid = scans[1]["id"]

@@ -14,7 +14,7 @@ AI segmentation models are now good enough that their measurements get used: tum
 - A **default vs recalibrated (research) threshold** toggle. Recalibration removes most of the bias (median error -19.2% to +0.6%), and the app states the cost beside it: it over-estimates by 20% or more in 13.5% of cases. The default stays primary.
 - A **Nemotron agent** that calls tools (segmentation, body composition, lesion measurement, quality audit) and writes a short report. **Every number is checked against the tool results and must carry its unit**; a report that fails is rewritten, then replaced by a template, never shown unchecked.
 - **Ask about this scan:** questions go to the agent with that scan's tool results; the tool steps stream; the answer passes the same number check; clinical advice, diagnosis and treatment questions are refused before any model is called.
-- A **"Why it fails" story** with the research behind it, every figure traceable to the project's summary.
+- An **"Evidence" page** with the research behind it, every figure traceable to the project's summary.
 
 ## The finding
 The model **represents tumours it fails to segment**. Its misses **depend causally on the tumour being brighter than the liver**. And a single threshold recalibration removes most of the one-sided under-measurement, at a cost we state. In numbers (all on held-out public HCC scans, 95% patient-bootstrap intervals; see `results/SUMMARY.md` for cohorts and which analyses were pre-registered):

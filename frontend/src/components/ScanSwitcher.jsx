@@ -17,7 +17,7 @@ export default function ScanSwitcher({ scans, current }) {
             <li key={s.id} className="w-[156px] shrink-0 snap-start">
               <Link to={`/scan/${s.id}`} aria-current={on ? "page" : undefined} className={`focus-ring block overflow-hidden rounded-xl border transition-colors duration-200 ${on ? "border-accent/70 bg-accent/[0.06]" : "border-white/10 hover:border-white/25"}`}>
                 <div className="aspect-[16/9] bg-black"><img src={fileUrl(s.id, "thumb.png")} alt="" loading="lazy" className="h-full w-full object-cover opacity-90" /></div>
-                <div className="px-2 py-1.5"><div className="flex items-center justify-between gap-1"><span className="eyebrow !text-[10px]">Scan {s.id.replace("demo_", "")}</span><span className="origin-right scale-[0.85]"><Chip kind={s.chip} /></span></div><p className="mt-1 line-clamp-3 text-[11.5px] leading-snug text-ink">{s.oneliner}</p></div>
+                <div className="px-2 py-1.5"><div className="flex flex-wrap items-center gap-x-1.5 gap-y-1"><span className="eyebrow whitespace-nowrap !text-[10px]">Scan {s.id.replace("demo_", "")}</span><span className="origin-left scale-[0.85]"><Chip kind={s.verdict || "review"} /></span></div><p className="mt-1 line-clamp-3 text-[11.5px] leading-snug text-ink">{s.oneliner}</p></div>
               </Link>
             </li>
           );

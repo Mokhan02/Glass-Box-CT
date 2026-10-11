@@ -1,12 +1,12 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { MotionConfig } from "framer-motion";
 import "./index.css";
 import Layout from "./components/Layout";
 import Landing from "./pages/Landing";
 import ScanPage from "./pages/Scan";
-import Why from "./pages/Why";
+import Evidence from "./pages/Evidence";
 import About from "./pages/About";
 
 createRoot(document.getElementById("root")).render(
@@ -17,7 +17,8 @@ createRoot(document.getElementById("root")).render(
           <Route element={<Layout />}>
             <Route path="/" element={<Landing />} />
             <Route path="/scan/:id" element={<ScanPage />} />
-            <Route path="/why" element={<Why />} />
+            <Route path="/evidence" element={<Evidence />} />
+            <Route path="/why" element={<Navigate to="/evidence" replace />} />
             <Route path="/about" element={<About />} />
             <Route path="*" element={<Landing />} />
           </Route>

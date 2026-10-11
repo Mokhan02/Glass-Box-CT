@@ -1,4 +1,4 @@
-"""Every number on the 'Why it fails' page must come from results/SUMMARY.md: each entry in frontend/src/data/findings.json carries a verbatim `src` fragment
+"""Every number on the 'Evidence' page must come from results/SUMMARY.md: each entry in frontend/src/data/findings.json carries a verbatim `src` fragment
 of SUMMARY.md, and its value / CI / count strings must appear inside that fragment."""
 import json
 import os

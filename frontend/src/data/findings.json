@@ -1,5 +1,5 @@
 {
-  "_note": "Every number shown on the 'Why it fails' page lives here. Each entry's `src` is an exact fragment of results/SUMMARY.md and must contain the entry's value and CI strings (tests/test_findings_numbers.py). Do not add numbers elsewhere.",
+  "_note": "Every number shown on the 'Evidence' page lives here. Each entry's `src` is an exact fragment of results/SUMMARY.md and must contain the entry's value and CI strings (tests/test_findings_numbers.py). Do not add numbers elsewhere.",
   "bias": {
     "sld": { "value": "-19", "ci": ["-28", "-13"], "unit": "%", "label": "Sum of tumour diameters, median error", "cohort": "75 held-out CT scans (UID route)", "src": "**-19% [-28%, -13%]**" },
     "detected_mm": { "value": "-11.4", "unit": "mm", "label": "Even when it finds a tumour, it measures it smaller", "note": "about -17%; never an over-estimate", "src": "-11.4 mm (about -17%); zero over-estimates" },

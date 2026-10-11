@@ -8,7 +8,7 @@ import Chip from "../components/Chip";
 const CHIP = { good: "good", flagged: "flagged", missed: "missed" };
 
 function ScanCard({ s, i }) {
-  const kind = CHIP[s.chip] || "flagged";
+  const kind = s.verdict || "review";
   return (
     <motion.li initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25, ease: EASE, delay: 0.05 * i }}>
       <Link to={`/scan/${s.id}`} className="glass focus-ring group block h-full overflow-hidden transition-colors duration-300 hover:border-white/20">
@@ -49,12 +49,12 @@ export default function Landing() {
   return (
     <div className="mx-auto max-w-[1500px] px-4 pt-12 sm:px-6 sm:pt-20">
       <section className="max-w-3xl">
-        <div className="eyebrow">Research instrument · liver tumours on CT</div>
-        <h1 className="mt-3 text-[34px] font-medium leading-[1.08] tracking-tight sm:text-[56px]">See where the model fails <span className="text-ink-dim">— and why.</span></h1>
-        <p className="mt-5 max-w-2xl text-[16px] leading-relaxed text-ink-dim">An AI segmentation model measures tumours on CT. This tool shows the measurement, flags when it should not be trusted, and opens the model to show what goes wrong. Five held-out research scans below.</p>
+        <div className="eyebrow">A trust layer for oncology imaging AI</div>
+        <h1 className="mt-3 text-[34px] font-medium leading-[1.08] tracking-tight sm:text-[56px]">Don't just measure the tumour. <span className="text-ink-dim">Measure whether to trust the measurement.</span></h1>
+        <p className="mt-5 max-w-2xl text-[16px] leading-relaxed text-ink-dim">Glass-Box CT audits an AI model's lesion measurements and gives each scan and each lesion a verdict, Trusted, Review or Unreliable, with the reasons and the evidence behind them. Five held-out research scans of an open NVIDIA model below.</p>
         <div className="mt-6 flex flex-wrap gap-2">
           <a href="#scans" className="btn-pill" style={{ background: "#5EE6D0", color: "#07090D", borderColor: "#5EE6D0" }}>Explore the scans</a>
-          <Link to="/why" className="btn-pill">Why it fails</Link>
+          <Link to="/evidence" className="btn-pill">The evidence</Link>
         </div>
       </section>
       <section id="scans" className="mt-14 scroll-mt-24" aria-labelledby="scans-h">
