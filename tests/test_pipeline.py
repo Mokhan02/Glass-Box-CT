@@ -173,3 +173,9 @@ def test_a_baked_model_report_is_kept_by_a_server_without_a_model_but_replaced_w
     assert make_report(out, "s")["report"] == "BAKED MODEL REPORT"  # no model configured here: keep serving it
     fake = (object(), LLMConfig("https://other.test/v1", "k", "m", "f"))  # a model that is not the writer: the cache is not used (the call below must try the model and fall back)
     assert make_report(out, "s", llm=fake)["report"] != "BAKED MODEL REPORT"
+
+
+def test_every_scan_gets_a_phase_estimate_next_to_its_other_results(tmp_path):
+    path, probs = _scan(str(tmp_path)); out = os.path.join(str(tmp_path), "res"); r = build_results(path, probs, out, "s", {"source": "synthetic", "dicom_tags": {"SeriesDescription": "Arterial"}})
+    ph = json.load(open(os.path.join(out, "s", "phase.json"))); assert ph["estimate"] in ("unenhanced", "arterial-like", "venous-like", "indeterminate") and ph["rule"].startswith("research heuristic")
+    assert ph["tag_hint"] == "arterial" and r["phase"]["estimate"] == ph["estimate"] and "portal vein" in json.load(open(os.path.join(out, "s", "labels.json")))["organs"].values()

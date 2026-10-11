@@ -16,9 +16,11 @@ from glassbox.bodycomp.muscle import l3_muscle
 from glassbox.quality.flag import assess, tumour_features
 from glassbox.seg import classes as C
 from glassbox.seg.prompts import require_tumour_prompts
+from glassbox.trust.phase import estimate_phase
 
+PORTAL_VEIN, AORTA = 17, 6  # 'portal vein and splenic vein' and 'aorta' in the bundle's label table; appended last so the other label indices do not move
 ORGANS = {"liver": C.LIVER, "spleen": 3, "aorta": 6, "right kidney": C.RIGHT_KIDNEY, "left kidney": C.LEFT_KIDNEY, "vertebra L3": C.VERTEBRA_L3, "left iliopsoas": C.LEFT_ILIOPSOAS,
-          "right iliopsoas": C.RIGHT_ILIOPSOAS, "left autochthon": C.LEFT_AUTOCHTHON, "right autochthon": C.RIGHT_AUTOCHTHON}
+          "right iliopsoas": C.RIGHT_ILIOPSOAS, "left autochthon": C.LEFT_AUTOCHTHON, "right autochthon": C.RIGHT_AUTOCHTHON, "portal vein": PORTAL_VEIN}
 MUSCLE_KEYS = {"vertebrae_L3": C.VERTEBRA_L3, "iliopsoas_left": C.LEFT_ILIOPSOAS, "iliopsoas_right": C.RIGHT_ILIOPSOAS, "autochthon_left": C.LEFT_AUTOCHTHON, "autochthon_right": C.RIGHT_AUTOCHTHON}
 PROMPTED = sorted(ORGANS.values()) + [C.HEPATIC_TUMOR]
 MIN_ORGAN_CM3 = 1.0
@@ -122,6 +124,8 @@ def build_results(ct_path: str, probs: dict[int, np.ndarray], out_dir: str, scan
         lesions["contrast_context"] = CONTRAST_CONTEXT
         if con > 0:
             lesions["contrast_caution"] = CAUTION.format(bright=_q(CONTRAST_CONTEXT["bright_tumour_lesion_detection"]), dark=_q(CONTRAST_CONTEXT["dark_tumour_lesion_detection"]))
+    idx = list(ORGANS.values()); mk = lambda cls: canonical((organs == idx.index(cls) + 1).astype(np.uint8), affine)[0].astype(bool)  # noqa: E731
+    phase = {**prov, **estimate_phase(cc, mk(AORTA), mk(PORTAL_VEIN), mk(C.LIVER), zc, provenance.get("dicom_tags"))}
     if not les:
         lesions["note"] = "No hepatic tumour predicted. That is not the same as no tumour: on held-out data about one lesion in five was largely missed."
     # quality audit (tumour class only; organs are not assessed)
@@ -133,6 +137,6 @@ def build_results(ct_path: str, probs: dict[int, np.ndarray], out_dir: str, scan
         t_r = probs[C.HEPATIC_TUMOR] > 1.0 / (1.0 + np.exp(-recal_logit)); nib.save(nib.Nifti1Image(t_r.astype(np.uint8), affine), os.path.join(d, "tumour_recal.nii.gz"))
         les_r = measure_lesions(canonical(t_r.astype(np.uint8), affine)[0].astype(bool), None, zc)
         json.dump({**prov, "threshold_logit": recal_logit, "default": _sld(les), "recalibrated": _sld(les_r), "note": "Research view. The default threshold stays primary; see results/SUMMARY.md for the measured cost."}, open(os.path.join(d, "recalibrated.json"), "w"), indent=1)
-    for name, obj in (("segmentation", seg), ("body_composition", bc), ("lesions", lesions), ("quality_audit", qa)):
+    for name, obj in (("segmentation", seg), ("body_composition", bc), ("lesions", lesions), ("quality_audit", qa), ("phase", phase)):
         json.dump(obj, open(os.path.join(d, f"{name}.json"), "w"), indent=1)
-    return {"segmentation": seg, "body_composition": bc, "lesions": lesions, "quality_audit": qa}
+    return {"segmentation": seg, "body_composition": bc, "lesions": lesions, "quality_audit": qa, "phase": phase}
