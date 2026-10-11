@@ -21,6 +21,8 @@ ap.add_argument("--root", default="cache/heldout_nii/hcc_tace_seg")
 ap.add_argument("--out", default="results/voxel_probe")
 ap.add_argument("--n-boot", type=int, default=1000)
 ap.add_argument("--skip-recovery", action="store_true")
+ap.add_argument("--cohort", default="all", choices=["all", "single_acquisition", "uid_route"], help="sensitivity cohorts (DEVIATIONS.md #2); all = the pre-registered primary analysis")
+ap.add_argument("--acq", default="cache/hcc_acq_check.csv")
 a = ap.parse_args()
 os.makedirs(a.out, exist_ok=True)
 # ---- pre-registered constants (PREREG.md) ----
@@ -29,6 +31,10 @@ LAYERS = ["mid", "bottleneck", "decoder_F"]; INTERIOR_MM = 2.0
 rng = np.random.default_rng(SEED)
 
 cases = sorted(f[:-4] for f in os.listdir(os.path.join(a.vp, "trained")) if f.endswith(".npz"))
+if a.cohort != "all":  # sensitivity cohort: the whole pipeline is re-run on these cases only, with its own folds and resamples
+    _acq = {r["case"]: r for r in csv.DictReader(open(a.acq))}
+    cases = [c for c in cases if (int(_acq[c]["n_acq_numbers"]) == 1 if a.cohort == "single_acquisition" else _acq[c]["route"] == "uid")]
+    print(f"cohort {a.cohort}: {len(cases)} cases", flush=True)
 P = len(cases); fold_of = {c: i % K for i, c in enumerate(cases)}  # fixed grouped folds: sorted case id, round-robin
 route = {c: json.load(open(os.path.join(a.root, c, "segments.json"))).get("label_method", "uid") for c in cases}
 B = rng.integers(0, P, size=(a.n_boot, P))  # one set of patient resamples, reused by every row (paired comparisons)
