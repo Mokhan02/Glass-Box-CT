@@ -1,12 +1,75 @@
 # Glass-Box CT
 
-Interpreting NVIDIA's NV-Segment-CT (VISTA-3D) with probes and sparse autoencoders, wrapped in a Nemotron agent that measures body composition and lesions and flags when the segmentation is likely wrong.
+[![License: MIT](https://img.shields.io/badge/license-MIT-5ee6d0.svg)](LICENSE) &nbsp; **Research use only. Not for clinical decisions.**
 
-**Research use only. Not for clinical decisions.** NV-Segment-CT weights carry a non-commercial license.
+**See where the model fails, and why.** NVIDIA's NV-Segment-CT (VISTA-3D) measures liver tumours on CT, but on held-out research scans it under-measures them by about a fifth (sum of diameters, median **-19%**, 95% CI [-28%, -13%], 75 scans) and almost never over-measures. Glass-Box CT opens the model to find out why: it **represents tumours it fails to segment**, its misses depend **causally** on the tumour being **brighter than the liver**, and a single threshold recalibration removes most of the bias, **at a stated cost** (it over-estimates by 20% or more in 13.5% of cases). The app puts all of that in front of a user: the measurement, an honest quality flag, a Nemotron agent that writes a number-checked report and answers questions about the scan, and the research behind the failure. Every claim is pre-registered or labelled exploratory in [results/SUMMARY.md](results/SUMMARY.md).
 
-Status: scaffolding. Findings, setup steps and the "How NVIDIA models and Nebius are used" section will be filled in as the work lands.
+**Live demo:** `[TO ADD: https://... once deployed]` &nbsp;|&nbsp; **Video:** `[TO ADD]`
 
-Layout: `glassbox/` holds one subpackage per stage (`data`, `seg`, `extract`, `bodycomp`, `probes`, `sae`, `autointerp`, `agent`, `app`); `writeup/` holds figures and the post.
+| | |
+|---|---|
+| ![Landing page: five scans with status chips](docs/img/landing.jpg) | ![Scan view: predicted tumour (teal) against the dataset's reference tumour (dashed)](docs/img/scan-reference.jpg) |
+| ![Recalibrated (research) view with its cost stated](docs/img/scan-recalibrated.jpg) | ![Ask about this scan: a grounded answer with streamed tool steps](docs/img/ask.jpg) |
+
+## What it does
+- **Measures** the five sample scans: largest lesion, RECIST-style sum of diameters, tumour-minus-liver contrast, and muscle at L3, all with units.
+- **Flags** when the tumour segmentation is likely wrong (a logistic flag on the model's own confidence; cross-validated AUROC 0.925 [0.860, 0.980]) and says why in one plain sentence.
+- **Shows the failure** in the viewer: the model's prediction (fill + outline) against the dataset's own reference annotation (dashed), and a **recalibrated (research)** threshold next to the default. The default stays primary.
+- **Agent:** a tool-calling Nemotron agent gathers the tool results and writes a short report. Every number in it is checked against the tool results and must carry its unit; a failing report is rewritten, then replaced by a template, never shown unchecked.
+- **Ask about this scan:** a question goes to the agent with that scan's tool results. Clinical advice, diagnosis and treatment questions are refused before any model is called.
+- **Explains** the failure on the "Why it fails" page, with every number tied to `results/SUMMARY.md` (a test enforces it).
+
+## Quick start
+```bash
+# Docker (no GPU needed; the five scans and their reports are baked in; data/demo is not in git, see docs/DEPLOY.md)
+docker build -t glassbox-ct .
+docker run --rm -p 8000:8000 --env-file .env glassbox-ct       # http://localhost:8000
+
+# Without Docker
+python -m venv .venv && .venv/bin/pip install -r requirements-serve.txt
+(cd frontend && npm ci && npm run build)
+cp .env.example .env                                            # fill in the language model; without it reports use a template and "Ask" is off
+GLASSBOX_DEMO_DIR=data/demo .venv/bin/uvicorn --factory glassbox.app.main:build_app --port 8000
+```
+The server logs which provider and model it uses at start-up. Deploying: [docs/DEPLOY.md](docs/DEPLOY.md). Switching to Nebius Token Factory: [docs/TOKEN_FACTORY.md](docs/TOKEN_FACTORY.md).
+
+## How NVIDIA models and Nebius are used
+- **NVIDIA NV-Segment-CT (VISTA-3D, `vista3d132`)** is the model under study, used frozen under the NVIDIA Open Model License (weights are not in this repository). All research (probes, erasure, patching, steering) reads or edits its internal activations; the app serves its pre-computed outputs.
+- **NVIDIA Nemotron** is the agent's language model during development, through NVIDIA's hosted OpenAI-compatible API (reasoning model writes reports and answers; a smaller model runs the tool calls).
+- **Nebius Token Factory** is the agent's language model in the submitted build: the agent only reads `LLM_BASE_URL`, `LLM_API_KEY`, `LLM_MODEL`, `LLM_FAST_MODEL`, so the swap is a config change, and the server's start-up line and `/api/health` show the provider in use. `[TO CONFIRM before submission: the model IDs used, and that the deployed build calls Token Factory.]`
+- **Nebius AI Cloud** hosts the container `[TO CONFIRM: deployed on Nebius AI Cloud / which fallback]`. The research ran on a rented A100 elsewhere (Lambda).
+
+## Research summary
+Full write-up with cohorts, intervals and a pre-registered / exploratory label for every number: **[results/SUMMARY.md](results/SUMMARY.md)**. Pre-registrations and deviation logs sit beside the results (`results/*/PREREG.md`, `DEVIATIONS.md`) and were committed before the results they govern.
+
+| Question | Finding | Status |
+|---|---|---|
+| How wrong is the model? | Sum of diameters -19% [-28%, -13%]; detected lesions 11.4 mm too small; about 1 in 5 lesions largely missed | descriptive |
+| Is the missed tissue represented? | Mid-encoder read-out finds 0.587 [0.551, 0.656] of it vs 0.079 [0.060, 0.090] untrained, 0.114 [0.050, 0.146] raw brightness: **lost late** | pre-registered |
+| Does brightness cause misses? | Making dark tumours bright cuts coverage by 0.208 [0.098, 0.284]; 56 of 62 move as predicted (reverse arm passes narrowly) | pre-registered |
+| Is the tumour direction used? | Erasing it: lesion Dice -0.33 [-0.38, -0.29]; random direction -0.002; liver unchanged | pre-registered |
+| Where does it arise? | Pasting the dark version's mid-encoder state back inside the tumour restores 0.79 [0.71, 0.85] | pre-registered |
+| Can we fix it? | One threshold shift: Dice 0.555 to 0.635, median error -19.2% to +0.6%, but over-estimates by >=20% in 13.5% of cases. Our 48-weight re-fit and steering did **not** beat it | pre-registered |
+
+## Limitations
+- One model, one disease (HCC), one public dataset, 89 to 103 scans: nothing here is about patients, outcomes or contrast phase (the phase fields are stripped from the DICOM).
+- The recalibrated threshold was chosen on these same cases (cross-validated), and the 13.5% cost was measured with per-fold thresholds, not the single fixed value the app uses (logit -3).
+- The bridge and stratified analyses are exploratory; the counterfactual's bright-to-dark arm passes narrowly (CI lower bound +0.001).
+- The quality flag is a research signal fitted on 75 held-out scans. A small or absent tumour prediction does not rule out a tumour.
+
+**Disclaimer.** Research use only. Not a medical device. Not for clinical decisions. Do not upload patient data.
+
+## Data attribution (HCC-TACE-Seg, CC BY 4.0)
+The sample scans are from the HCC-TACE-Seg collection on The Cancer Imaging Archive (TCIA), licensed CC BY 4.0, shown as research examples. They were resampled for viewing; the segmentations shown are this model's output, not the dataset's annotations (the dashed reference outline is the dataset's own).
+- Dataset: Moawad, A. W., Fuentes, D., Morshid, A., Khalaf, A. M., Elmohr, M. M., Abusaif, A., Hazle, J. D., Kaseb, A. O., Hassan, M., Mahvash, A., Szklaruk, J., Qayyom, A., Elsayes, K. (2021). *Multimodality annotated HCC cases with and without advanced imaging segmentation (HCC-TACE-Seg)* [Data set]. The Cancer Imaging Archive. https://doi.org/10.7937/TCIA.5FNA-0924
+- Data paper: Moawad, A. W. et al. (2023). Multimodality annotated hepatocellular carcinoma data set including pre- and post-TACE with imaging segmentation. *Scientific Data* 10, 33. https://doi.org/10.1038/s41597-023-01928-3
+- TCIA: Clark, K. et al. (2013). The Cancer Imaging Archive (TCIA): maintaining and operating a public information repository. *Journal of Digital Imaging* 26(6), 1045-1057. https://doi.org/10.1007/s10278-013-9622-7
+
+## License
+Code: [MIT](LICENSE). NV-Segment-CT weights: NVIDIA Open Model License (not redistributed here). Viewer: NiiVue (BSD-2). Sample data: CC BY 4.0 (above).
+
+## Repository map
+`glassbox/` Python package (`agent`, `app`, `pipeline`, `seg`, `extract`, `bodycomp`, `probes`, `quality`) &middot; `frontend/` React + Tailwind + Framer Motion app (NiiVue viewer) &middot; `scripts/` experiments, demo build and checks &middot; `results/` pre-registrations, deviations, tables and figures &middot; `tests/` (68 tests, including one that ties every number on the "Why it fails" page to `results/SUMMARY.md`) &middot; `docs/` deployment and Token Factory runbooks.
 
 ## Gotchas for anyone using NV-Segment-CT (`vista3d132`)
 
@@ -16,11 +79,3 @@ These come from reading the shipped code (quoted with file and line in `results/
 - **The foreground threshold is logit > 0 (probability 0.5) for every class**, applied before resampling the label map. There is no tunable threshold in the shipped pipeline.
 - **With several classes prompted together, overlaps are resolved by argmax over the class logits**, with no priority order.
 - **On held-out HCC CT the tumour class under-measures lesions, always in the same direction.** See `results/` and the write-up before using it for RECIST-style measurements.
-
-
-## Data attribution (HCC-TACE-Seg, CC BY 4.0)
-The sample scans in the demo are from the HCC-TACE-Seg collection on The Cancer Imaging Archive (TCIA), licensed CC BY 4.0. They are public, de-identified research CT, shown here only as research examples.
-- Dataset: Moawad, A. W., Fuentes, D., Morshid, A., Khalaf, A. M., Elmohr, M. M., Abusaif, A., Hazle, J. D., Kaseb, A. O., Hassan, M., Mahvash, A., Szklaruk, J., Qayyom, A., Elsayes, K. (2021). *Multimodality annotated HCC cases with and without advanced imaging segmentation (HCC-TACE-Seg)* [Data set]. The Cancer Imaging Archive. https://doi.org/10.7937/TCIA.5FNA-0924
-- Data paper: Moawad, A. W. et al. (2023). Multimodality annotated hepatocellular carcinoma data set including pre- and post-TACE with imaging segmentation. *Scientific Data* 10, 33. https://doi.org/10.1038/s41597-023-01928-3
-- TCIA: Clark, K. et al. (2013). The Cancer Imaging Archive (TCIA): maintaining and operating a public information repository. *Journal of Digital Imaging* 26(6), 1045-1057. https://doi.org/10.1007/s10278-013-9622-7
-The scans were resampled for viewing; the segmentations shown are this model's output, not the dataset's annotations.
