@@ -11,7 +11,6 @@
 !frontend/postcss.config.js
 !frontend/tailwind.config.js
 !frontend/src
-!data/demo
+!scripts/fetch_demo_data.py
 **/__pycache__
 **/*.pyc
-data/demo/*/original.nii.gz

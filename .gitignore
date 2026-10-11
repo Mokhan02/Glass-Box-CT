@@ -21,3 +21,6 @@ __pycache__/
 /frontend/node_modules/
 /frontend/dist/
 /screenshots/
+
+# release artefacts (built by hand, published as a GitHub release asset)
+/release/
