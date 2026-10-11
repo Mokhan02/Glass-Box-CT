@@ -47,7 +47,7 @@ export default function ScanPage() {
           <Pill view={view} setView={setView} organsOn={organsOn} setOrgansOn={setOrgansOn} predictedOn={predictedOn} setPredictedOn={setPredictedOn} referenceOn={referenceOn} setReferenceOn={setReferenceOn} hasReference={hasReference} mode={mode} />
           <ul className="pointer-events-none absolute bottom-3 left-4 right-4 flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-ink-dim">
             <li className="flex items-center gap-1.5"><span aria-hidden="true" className="inline-block h-2.5 w-4 rounded-sm border-2" style={{ borderColor: mode === "recal" ? "#F5B54A" : "#5EE6D0", background: mode === "recal" ? "rgba(245,181,74,.3)" : "rgba(94,230,208,.3)" }} />predicted tumour{mode === "recal" ? " (recalibrated)" : ""}</li>
-            {hasReference ? <li className="flex items-center gap-1.5"><span aria-hidden="true" className="inline-block h-2.5 w-4 rounded-sm border-2 border-dashed border-ink" />reference tumour (dataset annotation)</li> : null}
+            {hasReference ? <li className="flex items-center gap-1.5"><span aria-hidden="true" className="inline-block h-2.5 w-4 rounded-sm border-2 border-dashed border-ink" />reference tumour (dataset annotation{summary && summary.reference ? `: ${summary.reference.annotated_slices} of ${summary.reference.total_slices} slices annotated` : ""})</li> : null}
             <li>scroll to change slice</li>
           </ul>
         </div>

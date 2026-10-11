@@ -12,7 +12,7 @@ import urllib.request
 
 from playwright.sync_api import sync_playwright
 
-ap = argparse.ArgumentParser(); ap.add_argument("--step", required=True); ap.add_argument("--demo", default="data/demo"); ap.add_argument("--port", type=int, default=8014); ap.add_argument("--scans", nargs="*", default=["demo_1", "demo_2", "demo_3", "demo_4", "demo_5"]); ap.add_argument("--live", action="store_true", help="run from the repo root so .env is read and the language-model agent writes the reports"); ap.add_argument("--w", type=int, default=1440); ap.add_argument("--h", type=int, default=900); a = ap.parse_args()
+ap = argparse.ArgumentParser(); ap.add_argument("--step", required=True); ap.add_argument("--demo", default="data/demo"); ap.add_argument("--port", type=int, default=8014); ap.add_argument("--scans", nargs="*", default=["demo_1", "demo_2", "demo_3", "demo_4", "demo_5"]); ap.add_argument("--live", action="store_true", help="run from the repo root so .env is read and the language-model agent writes the reports"); ap.add_argument("--recal", action="store_true", help="also click the recalibrated tab and screenshot it"); ap.add_argument("--w", type=int, default=1440); ap.add_argument("--h", type=int, default=900); a = ap.parse_args()
 out = f"screenshots/revision/{a.step}"; os.makedirs(out, exist_ok=True); root = os.path.abspath(".")
 env = {**os.environ, "GLASSBOX_DEMO_DIR": os.path.abspath(a.demo), "PYTHONPATH": root}
 for k in ("LLM_BASE_URL", "LLM_API_KEY", "LLM_MODEL", "LLM_FAST_MODEL"):
@@ -41,6 +41,9 @@ try:
             if cover < 0.85 or cx > 0.03 or cy > 0.03: problems.append(f"{sid}: CT not fitted/centred (tile {m['tile']} in canvas {m['canvas']})")
             if errs: problems.append(f"{sid}: {errs[:2]}")
             pg.screenshot(path=f"{out}/{sid}_top.png"); pg.evaluate("window.scrollTo(0, 900)"); time.sleep(0.8); pg.screenshot(path=f"{out}/{sid}_scrolled.png"); pg.evaluate("window.scrollTo(0, 0)")
+            if a.recal:
+                pg.get_by_role("tab", name="Recalibrated (research)").click(); time.sleep(2.5); pg.evaluate("() => Array.from(document.querySelectorAll('section')).find(s => s.getAttribute('aria-label') === 'Threshold').scrollIntoView({block: 'center'})"); time.sleep(0.8); pg.screenshot(path=f"{out}/{sid}_recal.png")
+                pg.get_by_role("tab", name="Default").click(); time.sleep(0.8); pg.evaluate("window.scrollTo(0, 0)")
             print("shot", sid, row["coverage_of_short_side"], row["centre_offset"], flush=True)
         b.close()
 finally:

@@ -14,7 +14,9 @@ from glassbox.pipeline.viewer import align_to_viewer, make_outline_layers  # noq
 
 for f in sorted(glob.glob(os.path.join(sys.argv[1] if len(sys.argv) > 1 else "data/demo", "*", "lesions.json"))):
     d = json.load(open(f)); d["standing_limitation"] = LIMITATION
-    t = [l for l in d["lesions"] if l["recist"] == "target candidate"]; d["sum_of_target_diameters"] = qty(round(sum(l["longest_axial_diameter"]["value"] for l in t), 1), "mm"); d["n_targets"] = len(t)  # sum of the tool result's own target diameters
+    t = [l for l in d["lesions"] if l["recist"] == "target candidate"]
+    if "sum_of_target_diameters" not in d:  # older results only; the pipeline now writes it from the unrounded diameters
+        d["sum_of_target_diameters"] = qty(round(sum(l["longest_axial_diameter"]["value"] for l in t), 1), "mm"); d["n_targets"] = len(t)
     if "tumour_liver_contrast" in d:
         d["contrast_basis"] = "mean HU of the predicted tumour minus mean HU of liver tissue outside a margin around it (research measurement)"; d["liver_reference_margin"] = qty(5, "mm")
     json.dump(d, open(f, "w"), indent=1); print("refreshed", f)

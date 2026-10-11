@@ -16,7 +16,7 @@ from glassbox.app.report import make_report
 SCAN_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.-]{0,80}$")
 VOLUMES = ("ct", "organs", "tumour", "tumour_outline", "tumour_recal", "tumour_recal_outline", "reference_outline")  # what the viewer may draw; a scan lists the ones it has
 FILES = {f"{v}.nii.gz" for v in VOLUMES} | {"labels.json", "thumb.png"}
-SUMMARY_PARTS = ("segmentation", "body_composition", "lesions", "quality_audit", "recalibrated")
+SUMMARY_PARTS = ("segmentation", "body_composition", "lesions", "quality_audit", "recalibrated", "reference")
 DIST = os.environ.get("GLASSBOX_FRONTEND_DIST") or os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "dist")
 MAX_UPLOAD_MB = 300
 BANNER = "Research use only. Not for clinical decisions. Do not upload patient data."

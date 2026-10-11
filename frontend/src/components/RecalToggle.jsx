@@ -7,7 +7,7 @@ import { minus } from "../lib/format";
 export default function RecalToggle({ recal, mode, setMode }) {
   const f = findings.bias;
   if (!recal) {
-    return <p className="text-[12px] leading-relaxed text-ink-dim">The recalibrated (research) view needs the probability map for this scan, which is not installed on this server.</p>;
+    return <p className="text-[12px] leading-relaxed text-ink-dim">The recalibrated (research) view is not available for this scan.</p>;
   }
   const d = recal.default, r = recal.recalibrated, max = Math.max(d.sum_of_diameters.value, r.sum_of_diameters.value, 1) * 1.12, cur = mode === "recal" ? r : d;
   const pct = (v) => `${(100 * v / max).toFixed(1)}%`;
@@ -20,7 +20,7 @@ export default function RecalToggle({ recal, mode, setMode }) {
       </div>
       <div className="mt-4 grid grid-cols-2 gap-4">
         <div><div className="eyebrow">Sum of diameters</div><div className="mt-1 text-[28px] leading-none"><CountUp value={cur.sum_of_diameters.value} /> <span className="unit text-[14px]">mm</span></div></div>
-        <div><div className="eyebrow">Tumours found</div><div className="mt-1 text-[28px] leading-none"><CountUp value={cur.n_lesions} decimals={0} /></div></div>
+        <div><div className="eyebrow">Largest lesion</div><div className="mt-1 text-[28px] leading-none"><CountUp value={cur.largest_diameter.value} /> <span className="unit text-[14px]">mm</span></div></div>
       </div>
       <div className="relative mt-4 h-2.5 rounded-full bg-white/[0.06]" role="img" aria-label={`Sum of diameters: default ${d.sum_of_diameters.value} mm, recalibrated ${r.sum_of_diameters.value} mm`}>
         <motion.div className="absolute inset-y-0 left-0 rounded-full" style={{ background: mode === "recal" ? "#F5B54A" : "#5EE6D0" }} initial={false} animate={{ width: pct(cur.sum_of_diameters.value) }} transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }} />
