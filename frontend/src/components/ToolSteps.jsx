@@ -13,12 +13,12 @@ function Tick({ ok }) {
 }
 
 /** The agent's tool calls, replayed from the real evidence record: each step appears, runs, then ticks off. */
-export default function ToolSteps({ evidence, done, onFinished }) {
+export default function ToolSteps({ evidence, done, onFinished, fast = false }) {
   const [n, setN] = useState(0);
   useEffect(() => {
     if (!done) return;
     if (reducedMotion()) { setN(STEPS.length); onFinished && onFinished(); return; }
-    setN(0); let k = 0; const t = setInterval(() => { k += 1; setN(k); if (k >= STEPS.length) { clearInterval(t); setTimeout(() => onFinished && onFinished(), 250); } }, 380);
+    setN(0); let k = 0; const t = setInterval(() => { k += 1; setN(k); if (k >= STEPS.length) { clearInterval(t); setTimeout(() => onFinished && onFinished(), fast ? 60 : 250); } }, fast ? 70 : 380);
     return () => clearInterval(t);
   }, [done]);
   const byTool = Object.fromEntries((evidence || []).map((e) => [e.tool, e]));

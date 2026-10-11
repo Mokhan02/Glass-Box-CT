@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Viewer, { VIEWS } from "../components/Viewer";
 import AgentPanel from "../components/AgentPanel";
-import { getReport, getSummary, listScans } from "../lib/api";
+import { getHealth, getReport, getSummary, listScans } from "../lib/api";
 
 const B = "btn-pill !border-transparent !px-2.5 !py-1 !text-[12px]";
 
@@ -22,7 +22,8 @@ export default function ScanPage() {
   const { id } = useParams();
   const [meta, setMeta] = useState(null), [all, setAll] = useState([]), [summary, setSummary] = useState(null), [report, setReport] = useState(null), [error, setError] = useState("");
   const [mode, setMode] = useState("default"), [view, setView] = useState("sliceTypeAxial"), [organsOn, setOrgansOn] = useState(false), [predictedOn, setPredictedOn] = useState(true), [referenceOn, setReferenceOn] = useState(false);
-  const viewerApi = useRef(null);
+  const viewerApi = useRef(null), [canAsk, setCanAsk] = useState(false);
+  useEffect(() => { getHealth().then((h) => setCanAsk(!!h.language_model)).catch(() => {}); }, []);
 
   useEffect(() => {
     let dead = false; setSummary(null); setReport(null); setError(""); setMode("default"); setView("sliceTypeAxial"); setMeta(null);
@@ -52,7 +53,7 @@ export default function ScanPage() {
           </ul>
         </div>
         <aside className="glass p-5 lg:min-h-[calc(100vh-84px)]" aria-label="Agent and report">
-          <AgentPanel meta={meta} all={all} summary={summary} report={report} error={error} mode={mode} setMode={setMode} onJump={(v) => viewerApi.current && viewerApi.current.jump(v)} />
+          <AgentPanel meta={meta} all={all} summary={summary} report={report} error={error} mode={mode} setMode={setMode} onJump={(v) => viewerApi.current && viewerApi.current.jump(v)} canAsk={canAsk} />
         </aside>
       </div>
     </div>

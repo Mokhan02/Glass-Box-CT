@@ -6,11 +6,17 @@ import json
 import os
 import re
 import tempfile
+import threading
+import time
 
 from fastapi import FastAPI, File, HTTPException, UploadFile
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel
 
+from glassbox.agent.ask import MAX_QUESTION, ask_events
+from glassbox.agent.backends import PrecomputedBackend
+from glassbox.agent.tools import ToolBox
 from glassbox.app.report import make_report
 
 SCAN_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.-]{0,80}$")
@@ -19,7 +25,12 @@ FILES = {f"{v}.nii.gz" for v in VOLUMES} | {"labels.json", "thumb.png"}
 SUMMARY_PARTS = ("segmentation", "body_composition", "lesions", "quality_audit", "recalibrated", "reference")
 DIST = os.environ.get("GLASSBOX_FRONTEND_DIST") or os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "dist")
 MAX_UPLOAD_MB = 300
+ASK_PER_MINUTE, ASK_PER_HOUR = 6, 120
 BANNER = "Research use only. Not for clinical decisions. Do not upload patient data."
+
+
+class Question(BaseModel):
+    question: str
 
 
 def create_app(demo_dir: str, live=None, llm=None) -> FastAPI:
@@ -57,6 +68,30 @@ def create_app(demo_dir: str, live=None, llm=None) -> FastAPI:
     def report(scan_id: str, refresh: bool = False):
         scan_dir(scan_id)
         return make_report(demo_dir, scan_id, llm=llm, refresh=refresh)
+
+    asked: list[float] = []; lock = threading.Lock()  # a small global limit protects the language-model key from a public page
+
+    @app.post("/api/scans/{scan_id}/ask")
+    def ask(scan_id: str, body: Question):
+        scan_dir(scan_id)
+        if llm is None:
+            return JSONResponse({"error": "Asking questions needs a language model, and none is configured on this server."}, status_code=503)
+        if len(body.question) > MAX_QUESTION * 2:
+            raise HTTPException(413, "question too long")
+        with lock:
+            now = time.time(); asked[:] = [t for t in asked if now - t < 3600]
+            if len([t for t in asked if now - t < 60]) >= ASK_PER_MINUTE or len(asked) >= ASK_PER_HOUR:
+                return JSONResponse({"error": "Too many questions just now. Please wait a moment."}, status_code=429)
+            asked.append(now)
+        client, cfg = llm; tb = ToolBox(PrecomputedBackend(demo_dir))
+
+        def stream():
+            try:
+                for ev in ask_events(scan_id, body.question, client, cfg, tb):
+                    yield json.dumps(ev) + "\n"
+            except Exception as e:  # provider error mid-question: say so, never a stack trace
+                yield json.dumps({"type": "answer", "answer": "The language model is unavailable right now, so I can't answer. The report and measurements above still work.", "ok": False, "refused": False, "error": type(e).__name__}) + "\n"
+        return StreamingResponse(stream(), media_type="application/x-ndjson", headers={"Cache-Control": "no-store"})
 
     @app.get("/api/scans/{scan_id}/files/{name}")
     def files(scan_id: str, name: str):

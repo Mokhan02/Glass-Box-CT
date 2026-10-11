@@ -8,13 +8,14 @@ import Verdict from "./Verdict";
 import LesionsTable from "./LesionsTable";
 import Collapsible from "./Collapsible";
 import ScanSwitcher from "./ScanSwitcher";
+import AskBox from "./AskBox";
 import { EASE } from "../lib/motion";
 import { minus } from "../lib/format";
 
 const fade = { initial: { opacity: 0, y: 8 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.25, ease: EASE } };
 const H = ({ children }) => <h3 className="eyebrow mb-3">{children}</h3>;
 
-export default function AgentPanel({ meta, all, summary, report, error, mode, setMode, onJump }) {
+export default function AgentPanel({ meta, all, summary, report, error, mode, setMode, onJump, canAsk }) {
   const [finished, setFinished] = useState(false);
   const les = (summary && summary.lesions && summary.lesions.lesions) || [];
   const q = summary && summary.quality_audit && summary.quality_audit.structures && summary.quality_audit.structures[0];
@@ -31,7 +32,7 @@ export default function AgentPanel({ meta, all, summary, report, error, mode, se
       <ScanSwitcher scans={all} current={meta && meta.id} />
       <div className="mt-5 flex items-baseline justify-between"><h2 className="text-[17px] font-medium tracking-tight">Agent</h2><span className="text-[12px] text-ink-dim">{finished ? "4 tool calls · see Evidence" : "working…"}</span></div>
       <AnimatePresence initial={false}>
-        {!finished ? <motion.div key="steps" exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.25 }} className="mt-4 overflow-hidden"><ToolSteps evidence={report && report.evidence} done={!!report} onFinished={() => setFinished(true)} /></motion.div> : null}
+        {!finished ? <motion.div key="steps" exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.25 }} className="mt-4 overflow-hidden"><ToolSteps evidence={report && report.evidence} done={!!report} fast={!!(report && report.cached)} onFinished={() => setFinished(true)} /></motion.div> : null}
       </AnimatePresence>
       {error ? <p role="alert" className="mt-4 text-failure">{error}</p> : null}
 
@@ -59,6 +60,8 @@ export default function AgentPanel({ meta, all, summary, report, error, mode, se
           ) : (
             <Collapsible title="Written report"><ReportText text={prose} summary={summary} onJump={onJump} /></Collapsible>
           )) : null}
+
+          <section className="border-t border-white/[0.07] py-5" aria-label="Ask about this scan"><H>Ask about this scan</H><AskBox scanId={meta ? meta.id : report.scan_id} summary={summary} onJump={onJump} available={canAsk} /></section>
 
           <Collapsible title="Known limits of this model" open={!!L.contrast_caution}>
             <div className="space-y-3 text-[13px] leading-relaxed text-ink-dim">

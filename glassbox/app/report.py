@@ -73,7 +73,7 @@ def make_report(demo_dir: str, scan_id: str, llm=None, refresh: bool = False) ->
     if os.path.exists(cache) and not refresh:
         cached = json.load(open(cache))
         if cached.get("inputs_sha") == sha:
-            return cached  # otherwise the tool results (or report version) changed since it was written: rebuild
+            return {**cached, "cached": True}  # otherwise the tool results (or report version) changed since it was written: rebuild
     tb = ToolBox(PrecomputedBackend(demo_dir))
     if llm is not None:
         client, cfg = llm
@@ -83,9 +83,20 @@ def make_report(demo_dir: str, scan_id: str, llm=None, refresh: bool = False) ->
             tb = ToolBox(PrecomputedBackend(demo_dir)); out = _template(tb, scan_id); out["note"] = f"language model unavailable ({type(e).__name__}); template used"
     else:
         out = _template(tb, scan_id)
-    out["inputs_sha"] = sha
-    json.dump(out, open(cache, "w"), indent=1)
+    out["inputs_sha"] = sha; out["cached"] = False
+    if not out.get("note"):  # a fallback because the provider failed is not cached: the next request tries the language model again
+        json.dump(out, open(cache, "w"), indent=1)
     return out
+
+
+def warm_reports(demo_dir: str, llm=None, log=print) -> None:
+    """Build (or confirm) the cached report of every scan in index.json, so the first visitor does not wait for the language model."""
+    p = os.path.join(demo_dir, "index.json")
+    for sc in (json.load(open(p)).get("scans", []) if os.path.exists(p) else []):
+        try:
+            r = make_report(demo_dir, sc["id"], llm=llm); log(f"report {sc['id']}: {r['mode']}{' (cached)' if r.get('cached') else ' (built)'}, number check {'ok' if r.get('ok') else 'FAILED'}")
+        except Exception as e:  # a missing scan folder must not stop the others
+            log(f"report {sc['id']}: could not build ({type(e).__name__}: {e})")
 
 
 def _template(tb: ToolBox, scan_id: str) -> dict:

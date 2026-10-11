@@ -42,3 +42,12 @@ def test_entry_point_builds_an_offline_app_without_a_gpu_or_an_llm(tmp_path, mon
     monkeypatch.chdir(tmp_path); monkeypatch.setenv("GLASSBOX_DEMO_DIR", str(tmp_path / "d"))
     from glassbox.app.main import build_app
     c = TestClient(build_app()); h = c.get("/api/health").json(); assert h["live_segmentation"] is False and h["language_model"] is False
+
+
+def test_startup_line_names_the_provider_and_models_but_never_the_key():
+    from glassbox.agent.config import LLMConfig
+    from glassbox.app.main import startup_line
+    cfg = LLMConfig("https://api.example-provider.test/v1", "SECRET-KEY-123", "big-model", "small-model")
+    line = startup_line((object(), cfg), "demo", False)
+    assert "provider=api.example-provider.test" in line and "model=big-model" in line and "fast_model=small-model" in line and "SECRET" not in line
+    assert "language model=none" in startup_line(None, "demo", False)

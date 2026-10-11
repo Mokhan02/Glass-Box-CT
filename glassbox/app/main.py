@@ -7,7 +7,19 @@ import os
 import shutil
 
 from glassbox.agent.config import ConfigError, from_env, make_client
+import logging
+import threading
+
+from glassbox.app.report import warm_reports
 from glassbox.app.server import create_app
+
+log = logging.getLogger("uvicorn.error")
+
+
+def startup_line(llm, demo: str, live: bool) -> str:
+    """The one line that says which provider and models write reports on this server (never the key)."""
+    who = f"language model provider={llm[1].provider_host} model={llm[1].model} fast_model={llm[1].fast_model}" if llm else "language model=none (reports use the deterministic template; Ask is disabled)"
+    return f"Glass-Box CT: {who}; demo_dir={demo}; live_segmentation={'on' if live else 'off'}"
 
 
 def build_app():
@@ -30,4 +42,8 @@ def build_app():
         cfg = from_env(); llm = (make_client(cfg), cfg)
     except ConfigError:
         llm = None
-    return create_app(demo, live=live, llm=llm)
+    log.info(startup_line(llm, demo, live is not None))
+    app = create_app(demo, live=live, llm=llm)
+    if os.environ.get("GLASSBOX_WARM_REPORTS", "1") != "0":  # build any report that is not cached yet in the background; cached ones load instantly
+        threading.Thread(target=warm_reports, args=(demo, llm, log.info), daemon=True).start()
+    return app

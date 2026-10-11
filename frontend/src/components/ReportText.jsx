@@ -32,5 +32,6 @@ export default function ReportText({ text, summary, onJump }) {
     if (last < p.length) parts.push(p.slice(last));
     return <p key={i} title={prov} className="mb-2.5">{parts.map((x, k) => <Fragment key={k}>{x}</Fragment>)}</p>;
   };
-  return <div className="text-[13px] leading-relaxed text-ink-dim">{text.split(/\n\s*\n/).map(para)}</div>;
+  const clean = text.replace(/\u2212/g, "-").replace(/(?<![\d.])\u2013(?=\d)/g, "-");  // a typographic minus or en dash before a number is a minus sign: keep it inside the clickable number
+  return <div className="text-[13px] leading-relaxed text-ink-dim">{clean.split(/\n\s*\n/).map(para)}</div>;
 }
