@@ -35,9 +35,3 @@ class PrecomputedBackend:
     def body_composition(self, scan_id): return self._scan(scan_id, "body_composition")
     def measure_lesions(self, scan_id): return self._scan(scan_id, "measure_lesions")
     def quality_audit(self, scan_id): return self._scan(scan_id, "quality_audit")
-
-    def explain_feature(self, feature_id: int) -> dict:
-        feats = self._load(os.path.join(self.root, "features.json"))
-        if str(feature_id) not in feats:
-            raise KeyError(f"no feature {feature_id}")
-        return feats[str(feature_id)]

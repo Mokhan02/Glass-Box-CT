@@ -12,13 +12,12 @@ DISCLAIMER = "Research use only, not for clinical decisions."
 
 GATHER_PROMPT = (
     "You are a CT research-measurement assistant. For the given scan, call the tools to collect: the segmentation, "
-    "body composition, lesion measurements and the quality audit. Call explain_feature for the features the quality audit "
-    "names as drivers of any flagged structure. Do not write the report yet and do not invent numbers."
+    "body composition, lesion measurements and the quality audit. Do not write the report yet and do not invent numbers."
 )
 REPORT_PROMPT = (
     "Write a short research report from the tool results below. Rules: (1) every number must be copied from a tool result and "
     "followed by its source in brackets, e.g. [body_composition]; (2) never compute, estimate or round numbers yourself; "
-    "(3) for each structure the quality audit flags, say it is flagged as likely wrong and quote its probability; "
+    "(3) if the quality audit flags a structure, say it is flagged as likely wrong, quote its probability and name its drivers; if it could not assess a structure, say so; "
     "(4) if a tool failed or returned nothing, say so instead of guessing; (5) call these research measurements, never diagnoses "
     "or recommendations; (6) end with exactly: " + DISCLAIMER
 )

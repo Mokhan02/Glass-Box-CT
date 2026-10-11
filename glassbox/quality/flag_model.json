@@ -1,0 +1,29 @@
+{
+ "features": [
+  "log1p(predicted_volume_cm3)",
+  "mean_probability_in_mask",
+  "mean_binary_entropy_in_mask"
+ ],
+ "mean": [
+  4.114645508139731,
+  0.8381787705421447,
+  0.341845889488856
+ ],
+ "scale": [
+  1.9705867083194795,
+  0.08552935007513272,
+  0.13586552319650566
+ ],
+ "coef": [
+  -1.028623303134077,
+  -1.197270144934736,
+  1.1005773486558614
+ ],
+ "intercept": 0.9319181741509499,
+ "flag_threshold_probability": 0.45974346819984324,
+ "empty_prediction_rule": "if no voxel exceeds p = 0.5 the flag cannot assess the structure; report 'no tumour found, which is not the same as no tumour'. In the training data 0 of the 75 cases had an empty prediction, so this rule was not exercised.",
+ "base_failure_rate_in_training_data": 0.5466666666666666,
+ "trained_on": "75 UID-route HCC-TACE-Seg cases with a non-empty prediction (+0 empty); cross-validated AUROC 0.925",
+ "label": "tumour Dice < 0.7",
+ "research_use_only": true
+}

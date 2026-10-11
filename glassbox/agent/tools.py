@@ -18,11 +18,8 @@ TOOL_SCHEMAS = [
         "name": "measure_lesions", "description": "Lesions with longest axial diameter (mm), organ, and a RECIST target or non-target suggestion. Always prompts the hepatic tumour class (26) and other tumour classes explicitly, and reports which classes it prompted.",
         "parameters": {"type": "object", "properties": {"scan_id": {"type": "string"}}, "required": ["scan_id"]}}},
     {"type": "function", "function": {
-        "name": "quality_audit", "description": "Per-structure probability that the segmentation is wrong, with a quality flag and the SAE features that drove it.",
+        "name": "quality_audit", "description": "Probability that the hepatic-tumour segmentation is wrong, a quality flag, and the factors that drove it (predicted size and model confidence). Reports plainly when a structure cannot be assessed.",
         "parameters": {"type": "object", "properties": {"scan_id": {"type": "string"}}, "required": ["scan_id"]}}},
-    {"type": "function", "function": {
-        "name": "explain_feature", "description": "Name, description and evidence for one sparse-autoencoder feature.",
-        "parameters": {"type": "object", "properties": {"feature_id": {"type": "integer"}}, "required": ["feature_id"]}}},
 ]
 
 
@@ -52,7 +49,6 @@ class Backend(Protocol):
     def body_composition(self, scan_id: str) -> dict: ...
     def measure_lesions(self, scan_id: str) -> dict: ...
     def quality_audit(self, scan_id: str) -> dict: ...
-    def explain_feature(self, feature_id: int) -> dict: ...
 
 
 class ToolBox:
