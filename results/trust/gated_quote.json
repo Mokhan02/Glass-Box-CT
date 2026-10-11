@@ -1,0 +1,39 @@
+{
+ "quoted": "nested sensitivity analysis",
+ "rule": "the nested analysis is quoted: it is the stricter test (no threshold or flag operating point is chosen with any information from the held-out fold) and it gives the less favourable over-estimation rate and fails the pre-registered shipping rule",
+ "gated_mean_abs_error": {
+  "pre_registered": 0.20554422558200441,
+  "nested": 0.198094569172487
+ },
+ "gated_over_20pct": {
+  "pre_registered": 0.033707865168539325,
+  "nested": 0.07865168539325842
+ },
+ "pre_registered_rule_would_ship": {
+  "pre_registered": true,
+  "nested": false
+ },
+ "n": 89,
+ "default": {
+  "median_signed_error": -0.19215022183190986,
+  "mean_abs_error": 0.34087193103646773,
+  "over_20pct": 0.0,
+  "mean_dice": 0.5547781274242483
+ },
+ "recalibrated": {
+  "median_signed_error": -0.0007061316639043628,
+  "mean_abs_error": 0.21939034975111635,
+  "over_20pct": 0.12359550561797752,
+  "mean_dice": 0.6403361127927313
+ },
+ "gated": {
+  "median_signed_error": -0.0446272311964959,
+  "mean_abs_error": 0.198094569172487,
+  "over_20pct": 0.07865168539325842,
+  "mean_dice": 0.645216059494377
+ },
+ "gated_over_20pct_ci": [
+  0.033707865168539325,
+  0.14606741573033707
+ ]
+}

@@ -9,6 +9,7 @@ import LesionsTable from "./LesionsTable";
 import Collapsible from "./Collapsible";
 import ScanSwitcher from "./ScanSwitcher";
 import AskBox from "./AskBox";
+import Suggestion from "./Suggestion";
 import { EASE } from "../lib/motion";
 import { minus } from "../lib/format";
 
@@ -51,6 +52,8 @@ export default function AgentPanel({ meta, all, summary, report, error, mode, se
             {why ? <p className="mt-3 text-[12px] leading-relaxed text-ink-dim">{why}</p> : null}
           </section>
 
+          <Suggestion recal={summary.recalibrated} flagged={flagged} mode={mode} setMode={setMode} />
+
           {summary.phase && summary.phase.estimate ? (
             <section className="border-t border-white/[0.07] py-5" aria-label="Contrast phase"><H>Contrast phase <span className="ml-1 normal-case tracking-normal text-caution">research heuristic</span></H>
               <div className="flex flex-wrap items-baseline gap-x-6 gap-y-1">
@@ -61,7 +64,7 @@ export default function AgentPanel({ meta, all, summary, report, error, mode, se
             </section>
           ) : null}
 
-          <section className="border-t border-white/[0.07] py-5" aria-label="Threshold"><H>Threshold</H><RecalToggle recal={summary.recalibrated} mode={mode} setMode={setMode} flagged={flagged} /></section>
+          <section className="border-t border-white/[0.07] py-5" aria-label="Threshold"><H>Threshold</H><RecalToggle recal={summary.recalibrated} mode={mode} setMode={setMode} /></section>
 
           {sorted.length ? <section className="border-t border-white/[0.07] py-5" aria-label="Lesions"><H>Lesions</H><LesionsTable lesions={sorted} trust={summary.trust} onJump={onJump} /></section> : null}
 

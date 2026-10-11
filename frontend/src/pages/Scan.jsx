@@ -39,7 +39,7 @@ export default function ScanPage() {
 
   const qa = summary && summary.quality_audit && summary.quality_audit.structures && summary.quality_audit.structures[0];
   const flagged = !!(summary && (!qa || !qa.assessed || qa.flag === "likely wrong"));  // an empty default prediction also counts as predicting under-segmentation (pre-registered)
-  const overlay = mode === "gated" ? (flagged ? "recal" : "default") : mode;  // the viewer follows the measurement that is shown
+  const overlay = mode;  // the viewer follows the measurement that is shown (Default unless the user asks for the recalibrated view)
   const layers = (summary && summary.layers) || [], hasReference = layers.includes("reference_outline");
   useEffect(() => { setReferenceOn(!!(meta && meta.reference_default && hasReference)); }, [meta, hasReference]);  // demos where the model misses the tumour show the dataset's reference by default
   const focus = summary && summary.lesions && summary.lesions.lesions && summary.lesions.lesions[0] ? summary.lesions.lesions[0].voxel_in_file : null;

@@ -43,7 +43,9 @@ try:
             pg.screenshot(path=f"{out}/{sid}_top.png"); pg.evaluate("window.scrollTo(0, 900)"); time.sleep(0.8); pg.screenshot(path=f"{out}/{sid}_scrolled.png"); pg.evaluate("window.scrollTo(0, 0)")
             if a.recal:
                 pg.get_by_role("tab", name="Recalibrated (research)").click(); time.sleep(2.5); pg.evaluate("() => Array.from(document.querySelectorAll('section')).find(s => s.getAttribute('aria-label') === 'Threshold').scrollIntoView({block: 'center'})"); time.sleep(0.8); pg.screenshot(path=f"{out}/{sid}_recal.png")
-                pg.get_by_role("tab", name="Flag-gated (research)").click(); time.sleep(2.5); pg.evaluate("() => Array.from(document.querySelectorAll('section')).find(s => s.getAttribute('aria-label') === 'Threshold').scrollIntoView({block: 'center'})"); time.sleep(0.8); pg.screenshot(path=f"{out}/{sid}_gated.png")
+                sug = pg.locator("section[aria-label='Trust layer suggestion']"); has = sug.count() > 0; print("  suggestion card:", has)
+                if has:
+                    sug.scroll_into_view_if_needed(); time.sleep(0.6); pg.screenshot(path=f"{out}/{sid}_suggestion.png")
                 pg.get_by_role("tab", name="Default").click(); time.sleep(0.8); pg.evaluate("window.scrollTo(0, 0)")
             print("shot", sid, row["coverage_of_short_side"], row["centre_offset"], flush=True)
         b.close()

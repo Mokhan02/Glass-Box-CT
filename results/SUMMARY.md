@@ -78,6 +78,13 @@ One-line reading: the model's detection depends on a tumour-vs-liver feature at 
 | recalibrated | -0.1% | 21.9% | 12.4% | 31.5% | 0.640 |
 | gated | -7.7% | 20.6% | 3.4% | 29.2% | 0.647 |
 Pre-registered decision: **SHIPPED** (the gated policy beats both). Gated minus always-recalibrated, over-estimation indicator -0.090 (95% CI -0.157 to -0.034); gated minus always-default, absolute sum-of-diameters error -0.135 (95% CI -0.195 to -0.080). Caveats: the recalibrated threshold and the flag's operating point were chosen on these same cases (cross-validated, but expect less on new data); the gated policy still leaves a median under-measurement of 7.7%; about 89 cases.
+**Sensitivity analysis [NOT pre-registered; nested CV].** The recalibrated threshold (grid -1.0 to -4.0 logit) and the flag's sensitivity target (0.80 to 0.95) are chosen inside each outer training fold only (inner 4-fold CV of the gated policy's mean absolute error), then applied to the held-out fold. 95% patient-bootstrap CIs in brackets.
+| policy | median signed error | mean abs error | over-estimated >= 20% | abs error >= 20% | mean Dice |
+|---|---|---|---|---|---|
+| default (nested) | -19.2% [-28.9, -14.3] | 34.1% [26.7, 41.8] | 0.0% | 49.4% | 0.555 |
+| recalibrated (nested) | -0.1% [-6.3, +2.7] | 21.9% [16.3, 28.5] | 12.4% [5.6, 20.2] | 31.5% | 0.640 |
+| gated (nested) | -4.5% [-6.2, -2.0] | 19.8% [15.2, 25.2] | 7.9% [3.4, 14.6] | 31.5% | 0.645 |
+Gated minus always-recalibrated, over-estimation indicator -0.045 (95% CI -0.124 to +0.034); gated minus always-default, absolute error -0.143 (95% CI -0.202 to -0.085). **Applied to this analysis, the pre-registered shipping rule is NOT met** (the over-estimation interval includes zero). Chosen thresholds: -3.5 logit for the gated policy in all five folds, -3.0 for always-recalibrated. **Quoted in the app and README: the nested analysis** (the stricter test, with the less favourable over-estimation rate); the reason the quoting rule was changed after both results were seen is in `results/trust/DEVIATIONS.md` #1. Honest reading: the gated policy still cuts the sum-of-diameters error from 34.1% to about 20% and recovers most of the Dice, but whether it over-estimates less than always-recalibrated is not established.
 
 ## What can and cannot be said
 - Can: the model under-measures hepatic tumour diameters by about a fifth; the missed tissue is represented in the encoder and lost downstream; the model's detection depends on contrast sign (causally, by editing); a single threshold shift removes most of the bias on this cohort, and our 48-weight re-fit did not beat it (this does not exclude a better readout).
