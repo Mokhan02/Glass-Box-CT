@@ -125,3 +125,26 @@ def test_provider_swap_is_a_config_change(tmp_path, monkeypatch):
         monkeypatch.delenv(k, raising=False)
     env.write_text("LLM_BASE_URL=https://tokenfactory.example/v1\nLLM_API_KEY=k2\nLLM_MODEL=big-b\n")
     b = from_env(str(env)); assert b.provider_host == "tokenfactory.example" and b.model == b.fast_model == "big-b" and "k2" not in repr(b)
+
+
+def test_typographic_minus_is_a_negative_sign_not_a_different_number():
+    from glassbox.agent.grounding import check_report
+    ev = [{"tool": "measure_lesions", "ok": True, "result": {"error": {"value": -11.4, "unit": "mm"}, "contrast": {"value": -8.4, "unit": "HU"}, "lesion": {"value": 8.4, "unit": "mm"}}}]
+    assert check_report("The median error is \u221211.4 mm and the contrast is \u22128.4 HU.", ev)["ok"] is True
+    assert check_report("The contrast is 8.4 HU.", ev)["ok"] is False  # the sign still matters: +8.4 HU is not a tool result
+
+
+def test_an_en_dash_before_a_number_is_a_minus_but_not_inside_a_range():
+    ev = [{"tool": "t", "ok": True, "result": {"c": {"value": -8.4, "unit": "HU"}, "r": {"value": 5.0, "unit": "mm"}, "s": {"value": 10.0, "unit": "mm"}}}]
+    assert check_report("Contrast is \u20138.4 HU, margin 5.0 mm\u201310.0 mm.", ev)["ok"] is True
+
+
+def test_the_standing_limitation_and_caution_are_appended_when_the_model_leaves_them_out(tmp_path):
+    d = tmp_path / "scanA"; d.mkdir()
+    for n, body in (("segmentation", {"structures": []}), ("body_composition", {"available": False, "reason": "x"}), ("quality_audit", {"structures": []}),
+                    ("lesions", {"prompted_classes": [26], "lesions": [], "n_lesions": 0, "standing_limitation": "STANDING LIMITATION TEXT.", "contrast_caution": "CAUTION TEXT.", "contrast_context": {"evidence_status": "EVIDENCE STATUS."}})):
+        (d / f"{n}.json").write_text(json.dumps({"fixture": True, **body}))
+    tb = ToolBox(PrecomputedBackend(str(tmp_path), allow_fixture=True)); out = run_agent("scanA", FakeClient("No tumour was predicted. " + DISCLAIMER), CFG, tb)
+    assert all(x in out["report"] for x in ("STANDING LIMITATION TEXT.", "CAUTION TEXT.", "EVIDENCE STATUS.")) and out["report"].endswith(DISCLAIMER)
+    again = run_agent("scanA", FakeClient("STANDING LIMITATION TEXT. CAUTION TEXT. EVIDENCE STATUS. " + DISCLAIMER), CFG, ToolBox(PrecomputedBackend(str(tmp_path), allow_fixture=True)))
+    assert again["report"].count("STANDING LIMITATION TEXT.") == 1  # not duplicated when the model already included it

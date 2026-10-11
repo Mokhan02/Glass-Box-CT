@@ -56,7 +56,8 @@ NAMES = re.compile(r"RECIST\s*1\.1", re.IGNORECASE)  # a criteria name, not a me
 
 
 def check_report(report: str, evidence: list[dict]) -> dict:
-    report = NAMES.sub("RECIST", report)
+    report = NAMES.sub("RECIST", report).replace("\u2212", "-").replace("\u2011", "-")  # typographic minus / non-breaking hyphen are negative signs, not part of a different number
+    report = re.sub(r"(?<![\d.])\u2013(?=\d)", "-", report)  # an en dash directly before a number (not inside a range like 5\u201310) is a minus sign
     nums, qtys = _collect(evidence)
     unsupported, missing = [], []
     for m in NUM.finditer(report):

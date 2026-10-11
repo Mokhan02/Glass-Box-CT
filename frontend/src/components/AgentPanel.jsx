@@ -20,7 +20,7 @@ export default function AgentPanel({ meta, all, summary, report, error, mode, se
   const q = summary && summary.quality_audit && summary.quality_audit.structures && summary.quality_audit.structures[0];
   const bc = summary && summary.body_composition, L = (summary && summary.lesions) || {};
   const sorted = useMemo(() => [...les].sort((a, b) => b.longest_axial_diameter.value - a.longest_axial_diameter.value), [les]);
-  const targets = sorted.filter((l) => l.recist === "target candidate"), sum = targets.reduce((a, l) => a + l.longest_axial_diameter.value, 0);
+  const targets = sorted.filter((l) => l.recist === "target candidate"), sum = L.sum_of_target_diameters ? L.sum_of_target_diameters.value : targets.reduce((a, l) => a + l.longest_axial_diameter.value, 0);
   const contrast = L.tumour_liver_contrast ? L.tumour_liver_contrast.value : null;
   const refC = meta && Number.isFinite(meta.reference_contrast_hu) ? meta.reference_contrast_hu : null, cov = meta && meta.reference_coverage_pct;
   const why = contrast !== null && refC !== null && Math.abs(contrast - refC) >= 5 && cov < 50 ? `The model found only ${cov}% of this tumour, ${contrast < refC ? "the darker" : "the brighter"} part, so the contrast measured on its prediction differs from the reference tumour's.` : null;

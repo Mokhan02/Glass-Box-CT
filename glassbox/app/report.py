@@ -6,7 +6,7 @@ import hashlib
 import json
 import os
 
-from glassbox.agent.agent import DISCLAIMER, run_agent
+from glassbox.agent.agent import DISCLAIMER, REPORT_PROMPT, run_agent
 from glassbox.agent.backends import PrecomputedBackend
 from glassbox.agent.grounding import check_report
 from glassbox.agent.tools import ToolBox, qty
@@ -61,7 +61,7 @@ RESULT_FILES = ("segmentation.json", "body_composition.json", "lesions.json", "q
 
 def inputs_sha(demo_dir: str, scan_id: str, llm) -> str:
     """Fingerprint of everything a report is built from: the tool-result files, the report version, and which provider/models would write it."""
-    h = hashlib.sha256(f"v{REPORT_VERSION}|{llm[1].provider_host + llm[1].model + llm[1].fast_model if llm else 'template'}".encode())
+    h = hashlib.sha256(f"v{REPORT_VERSION}|{(llm[1].provider_host + llm[1].model + llm[1].fast_model + REPORT_PROMPT) if llm else 'template'}".encode())
     for f in RESULT_FILES:
         p = os.path.join(demo_dir, scan_id, f)
         h.update(open(p, "rb").read() if os.path.exists(p) else b"-")

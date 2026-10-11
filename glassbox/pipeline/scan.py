@@ -114,7 +114,8 @@ def build_results(ct_path: str, probs: dict[int, np.ndarray], out_dir: str, scan
     les = measure_lesions(tc.astype(bool), pc, zc); require_tumour_prompts(PROMPTED)
     lesions = {**prov, "prompted_classes": PROMPTED, "organ": "liver (hepatic tumour class 26)", "validation_context": VALIDATION, "standing_limitation": LIMITATION,
                "lesions": [{"id": l["id"], "organ": "liver", "longest_axial_diameter": qty(round(l["diameter_mm"], 1), "mm"), "volume": qty(round(l["volume_cm3"], 1), "cm3"), "mean_probability": round(l["mean_probability"], 3),
-                            "recist": l["recist"], "slice_index": l["best_slice"], "voxel_in_file": to_file_voxel(l["centroid_voxel"], aff_c, affine)} for l in les], "n_lesions": len(les)}
+                            "recist": l["recist"], "slice_index": l["best_slice"], "voxel_in_file": to_file_voxel(l["centroid_voxel"], aff_c, affine)} for l in les], "n_lesions": len(les),
+               "sum_of_target_diameters": qty(round(sum(l["diameter_mm"] for l in les if l["recist"] == "target candidate"), 1), "mm"), "n_targets": sum(l["recist"] == "target candidate" for l in les)}
     liver_c = canonical((organs == 1).astype(np.uint8), affine)[0]; con = tumour_liver_contrast(cc, tc.astype(bool), liver_c.astype(bool), zc) if les else None
     if con is not None:
         lesions["tumour_liver_contrast"] = qty(round(con, 1), "HU"); lesions["contrast_basis"] = "mean HU of the predicted tumour minus mean HU of liver tissue outside a margin around it (research measurement)"; lesions["liver_reference_margin"] = qty(5, "mm")
