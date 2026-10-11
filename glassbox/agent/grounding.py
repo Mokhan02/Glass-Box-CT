@@ -8,13 +8,13 @@ from __future__ import annotations
 
 import re
 
-UNIT = r"(?:cm\s*²|cm2|cm\^2|mm|HU|%|Hounsfield\s+units?)"
+UNIT = r"(?:cm\s*²|cm2|cm\^2|cm\s*³|cm3|cm\^3|mm|HU|%|Hounsfield\s+units?)"
 NUM = re.compile(rf"(?<![\w.])(-?\d+(?:\.\d+)?)(\s*{UNIT})?", re.IGNORECASE)
 
 
 def canon_unit(u: str) -> str:
     u = re.sub(r"\s+", "", u.lower())
-    return {"cm²": "cm2", "cm^2": "cm2", "hounsfieldunit": "hu", "hounsfieldunits": "hu"}.get(u, u)
+    return {"cm²": "cm2", "cm^2": "cm2", "cm³": "cm3", "cm^3": "cm3", "hounsfieldunit": "hu", "hounsfieldunits": "hu"}.get(u, u)
 
 
 def is_qty(o) -> bool:
@@ -52,7 +52,11 @@ def _collect(evidence):
     return nums, qtys
 
 
+NAMES = re.compile(r"RECIST\s*1\.1", re.IGNORECASE)  # a criteria name, not a measurement
+
+
 def check_report(report: str, evidence: list[dict]) -> dict:
+    report = NAMES.sub("RECIST", report)
     nums, qtys = _collect(evidence)
     unsupported, missing = [], []
     for m in NUM.finditer(report):

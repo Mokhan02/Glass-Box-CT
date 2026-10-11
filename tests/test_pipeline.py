@@ -54,3 +54,16 @@ def test_lesion_diameter_matches_a_known_sphere_and_recist_labels():
 def test_organ_label_map_uses_larger_probability_for_overlaps(tmp_path):
     path, probs = _scan(str(tmp_path)); probs[C.SPLEEN if hasattr(C, "SPLEEN") else 3][30, 40, 25] = 0.99; from glassbox.pipeline.scan import organ_label_map
     lab = organ_label_map(probs); assert lab[30, 40, 25] == list(ORGANS.values()).index(3) + 1
+
+
+def test_file_voxel_mapping_round_trips_for_a_flipped_axis_volume(tmp_path):
+    import nibabel as nib
+    from glassbox.pipeline.scan import canonical, to_file_voxel
+    arr = np.zeros((10, 12, 8), np.uint8); arr[7, 3, 2] = 1; aff = np.diag([-1.0, 2.0, 3.0, 1.0]); aff[0, 3] = 9  # x axis stored flipped
+    c, _, aff_c = canonical(arr, aff); v = tuple(int(i) for i in np.argwhere(c)[0]); assert tuple(to_file_voxel(v, aff_c, aff)) == (7, 3, 2)
+
+
+def test_result_files_carry_voxels_in_the_file_frame_for_the_viewer(tmp_path):
+    path, probs = _scan(str(tmp_path)); r = build_results(path, probs, os.path.join(str(tmp_path), "res"), "s", {})
+    v = r["lesions"]["lesions"][0]["voxel_in_file"]; assert abs(v[0] - 30) <= 2 and abs(v[1] - 40) <= 2 and abs(v[2] - 25) <= 2  # the synthetic tumour sits at (30, 40, 25)
+    assert len(r["body_composition"]["l3_voxel_in_file"]) == 3

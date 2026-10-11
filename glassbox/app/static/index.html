@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glass-Box CT</title>
+<style>
+:root{--bg:#0d1117;--panel:#161b22;--line:#30363d;--text:#e6edf3;--muted:#9da7b3;--accent:#58a6ff;--bad:#f85149;--good:#3fb950;--warn:#d29922;--r:10px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{display:flex;gap:16px;align-items:baseline;flex-wrap:wrap;padding:14px 20px 6px}
+header h1{margin:0;font-size:20px;letter-spacing:.2px}
+header span{color:var(--muted);font-size:13px}
+.banner{margin:0 20px 10px;padding:8px 12px;border:1px solid var(--warn);border-radius:var(--r);color:#f0d68a;font-size:13px}
+main{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:16px;padding:0 20px 24px}
+@media (max-width:900px){main{grid-template-columns:1fr;padding:0 16px 24px}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;margin-bottom:14px}
+.card h2{margin:0 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);font-weight:600}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
+select,button,input[type=file]{background:#21262d;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font:inherit}
+button{cursor:pointer}button:hover{border-color:var(--accent)}button.on{border-color:var(--accent);color:var(--accent)}
+.canvas-wrap{position:relative;background:#000;border-radius:var(--r);overflow:hidden;min-height:440px}
+canvas{display:block;width:100%;height:520px}
+#status{position:absolute;left:10px;bottom:8px;right:10px;font-size:12px;color:#c9d1d9;text-shadow:0 0 4px #000}
+label.tg{display:inline-flex;gap:6px;align-items:center;color:var(--muted);font-size:13px}
+.chip{display:inline-block;padding:3px 10px;border-radius:999px;font-weight:600;font-size:13px;border:1px solid}
+.chip.bad{color:var(--bad);border-color:var(--bad)}.chip.good{color:var(--good);border-color:var(--good)}.chip.na{color:var(--warn);border-color:var(--warn)}
+.bar{height:6px;border-radius:4px;background:#30363d;margin:3px 0 8px}.bar i{display:block;height:100%;border-radius:4px;background:var(--accent)}
+#report p{margin:0 0 10px}
+a.num{color:var(--accent);text-decoration:underline dotted;cursor:pointer}a.num.flash{background:#1f6feb55}
+.src{color:var(--muted);font-size:12px}
+table{border-collapse:collapse;width:100%;font-size:13px}td,th{padding:4px 6px;border-bottom:1px solid var(--line);text-align:left}
+.muted{color:var(--muted);font-size:13px}.err{color:var(--bad)}
+footer{padding:0 20px 28px;color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+<header><h1>Glass-Box CT</h1><span>an agent that measures a CT and says when it should not be trusted</span></header>
+<div class="banner" role="note"><strong>Research use only. Not for clinical decisions.</strong> Do not upload patient data. Sample scans are public, de-identified research CT.</div>
+<main>
+  <section>
+    <div class="card">
+      <div class="toolbar">
+        <label>Scan <select id="scanSel"></select></label>
+        <span id="views"></span>
+        <label class="tg"><input type="checkbox" id="tgOrgans" checked> organs</label>
+        <label class="tg"><input type="checkbox" id="tgTumour" checked> predicted tumour</label>
+      </div>
+      <div class="canvas-wrap"><canvas id="gl"></canvas><div id="status"></div></div>
+      <p class="muted" id="blurb"></p>
+    </div>
+    <div class="card">
+      <h2>Try your own scan</h2>
+      <p class="muted">Needs a GPU-enabled server. Upload only public or synthetic research data; never patient data.</p>
+      <input type="file" id="upl" accept=".nii,.gz"> <span id="uplMsg" class="muted"></span>
+    </div>
+  </section>
+  <aside>
+    <div class="card" id="flagCard"><h2>Quality flag</h2><div id="flag" class="muted">Choose a scan.</div></div>
+    <div class="card"><h2>Report</h2><div id="report" class="muted">The report appears here. Click any number to jump to where it was measured.</div></div>
+    <div class="card"><h2>Lesions</h2><div id="lesions" class="muted">-</div></div>
+    <div class="card"><h2>What we know about this measurement</h2><div id="validation" class="muted">-</div></div>
+    <div class="card"><h2>Evidence (tool calls)</h2><div id="evidence" class="muted">-</div></div>
+  </aside>
+</main>
+<footer>
+  Segmentation: NVIDIA NV-Segment-CT (VISTA-3D), NVIDIA Open Model License. Viewer: NiiVue (BSD-2). Sample data: HCC-TACE-Seg (CC BY 4.0) and TotalSegmentator (CC BY 4.0), from The Cancer Imaging Archive / Zenodo; see each scan's note.
+  The quality flag was fitted on 75 held-out cases and is a research signal only.
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@niivue/niivue@0.57.0/dist/niivue.umd.js"></script>
+<script>
+"use strict";
+const $ = (s) => document.querySelector(s);
+const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+const COLORS = [[230,25,75],[60,180,75],[255,225,25],[67,99,216],[245,130,49],[145,30,180],[70,240,240],[240,50,230],[188,246,12],[250,190,212]];
+let nv = null, summary = null, scanId = null;
+
+function status(msg, isErr) { const s = $("#status"); s.textContent = msg || ""; s.className = isErr ? "err" : ""; }
+
+function makeLut(names) {
+  const ids = Object.keys(names).map(Number).sort((a, b) => a - b), n = ids.length + 1;
+  const R = new Array(n).fill(0), G = new Array(n).fill(0), B = new Array(n).fill(0), A = new Array(n).fill(0), I = Array.from({length: n}, (_, i) => i), labels = new Array(n).fill("");
+  ids.forEach((id, k) => { const c = COLORS[k % COLORS.length]; R[id] = c[0]; G[id] = c[1]; B[id] = c[2]; A[id] = 255; labels[id] = names[id]; });
+  return {R, G, B, A, I, labels};
+}
+
+async function api(path, opts) {
+  const r = await fetch(path, opts);
+  if (!r.ok) { let m = r.statusText; try { m = (await r.json()).error || m; } catch (e) {} throw new Error(m); }
+  return r;
+}
+
+async function initViewer() {
+  if (!window.niivue) { status("The 3D viewer library could not be loaded (network). Reports still work.", true); return; }
+  nv = new niivue.Niivue({backColor: [0, 0, 0, 1], crosshairColor: [1, 1, 0, 1], show3Dcrosshair: true, isColorbar: false});
+  await nv.attachToCanvas($("#gl"));
+  const views = [["Multiplanar", "sliceTypeMultiplanar"], ["Axial", "sliceTypeAxial"], ["Coronal", "sliceTypeCoronal"], ["Sagittal", "sliceTypeSagittal"], ["3D", "sliceTypeRender"]];
+  $("#views").innerHTML = "";
+  views.forEach(([label, key]) => { const b = document.createElement("button"); b.textContent = label; b.onclick = () => { nv.setSliceType(nv[key]); document.querySelectorAll("#views button").forEach((x) => x.classList.remove("on")); b.classList.add("on"); }; $("#views").appendChild(b); });
+  $("#views button").classList.add("on");
+  $("#tgOrgans").onchange = (e) => { if (nv.volumes.length > 1) nv.setOpacity(1, e.target.checked ? 0.45 : 0); };
+  $("#tgTumour").onchange = (e) => { if (nv.volumes.length > 2) nv.setOpacity(2, e.target.checked ? 0.8 : 0); };
+}
+
+async function loadViewer(id) {
+  if (!nv) return;
+  status("Loading volumes ...");
+  try {
+    const base = `/api/scans/${id}/files/`, labels = await (await api(base + "labels.json")).json();
+    while (nv.volumes.length) nv.removeVolume(nv.volumes[0]);
+    await nv.loadVolumes([{url: base + "ct.nii.gz", name: "ct.nii.gz", colormap: "gray", cal_min: -150, cal_max: 250},
+      {url: base + "organs.nii.gz", name: "organs.nii.gz", colormapLabel: makeLut(labels.organs), opacity: $("#tgOrgans").checked ? 0.45 : 0},
+      {url: base + "tumour.nii.gz", name: "tumour.nii.gz", colormap: "red", cal_min: 0, cal_max: 1, opacity: $("#tgTumour").checked ? 0.8 : 0}]);
+    nv.setSliceType(nv.sliceTypeMultiplanar);
+    status("");
+  } catch (e) { status("Could not load the volume: " + e.message, true); }
+}
+
+function jumpTo(vox) {
+  if (!nv || !nv.volumes.length || !vox) return;
+  try { nv.scene.crosshairPos = nv.vox2frac(vox, 0); nv.updateGLVolume(); status("Showing the measured location (voxel " + vox.join(", ") + ")"); }
+  catch (e) { status("Could not move the cursor: " + e.message, true); }
+}
+
+function numberTarget(tool, valueText) {
+  if (!summary) return null;
+  const v = parseFloat(valueText);
+  if (tool === "body_composition" && summary.body_composition && summary.body_composition.available) return summary.body_composition.l3_voxel_in_file;
+  if (summary.lesions && summary.lesions.lesions && summary.lesions.lesions.length && (tool === "measure_lesions" || tool === "quality_audit")) {
+    const ls = summary.lesions.lesions, hit = ls.find((l) => Math.abs(l.longest_axial_diameter.value - v) < 0.06 || Math.abs(l.volume.value - v) < 0.06);
+    return (hit || ls[0]).voxel_in_file;
+  }
+  return null;
+}
+
+function renderReport(text, mode, note) {
+  const unit = "(?:cm2|cm3|cm²|cm³|mm|HU|%)", tags = "(?:segment_ct|body_composition|measure_lesions|quality_audit)";
+  const lines = esc(text).split(/\n\s*\n|\n(?=[-*] )/).map((p) => {
+    const first = (p.match(new RegExp("\\[(" + tags + ")\\]")) || [])[1];
+    let h = p.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+    h = h.replace(new RegExp("(-?\\d+(?:\\.\\d+)?\\s?" + unit + ")(\\s*\\[(" + tags + ")\\])?", "g"), (m, num, br, tag) => `<a class="num" data-tool="${tag || first || ""}" data-val="${num}">${num}</a>${br ? `<span class="src">${br}</span>` : ""}`);
+    h = h.replace(new RegExp("\\[(" + tags + ")\\]", "g"), '<span class="src">[$1]</span>');
+    return "<p>" + h + "</p>";
+  }).join("");
+  $("#report").innerHTML = lines + `<p class="muted">${mode === "agent" ? "Written by a language model from the tool results below; every number was checked against them." : "Template report built from the tool results (no language model was called). "}${esc(note || "")}</p>`;
+  $("#report").querySelectorAll("a.num").forEach((a) => a.onclick = (e) => { e.preventDefault(); document.querySelectorAll("a.num.flash").forEach((x) => x.classList.remove("flash")); a.classList.add("flash"); jumpTo(numberTarget(a.dataset.tool, a.dataset.val)); });
+}
+
+function renderPanels(rep) {
+  const q = summary.quality_audit && summary.quality_audit.structures ? summary.quality_audit.structures[0] : null;
+  if (q && q.assessed) {
+    const bad = q.flag === "likely wrong";
+    $("#flag").innerHTML = `<span class="chip ${bad ? "bad" : "good"}">${esc(q.name)}: ${esc(q.flag)}</span> <span class="muted">estimated probability the segmentation is wrong: ${q.failure_probability}</span>` +
+      (q.drivers || []).map((d) => `<div class="muted" style="margin-top:6px">${esc(d.name)} (${esc(d.pushes_toward)})</div><div class="bar"><i style="width:${Math.round(d.weight_fraction * 100)}%"></i></div>`).join("") + `<div class="muted">${esc(q.caveat || "")}</div>`;
+  } else if (q) { $("#flag").innerHTML = `<span class="chip na">${esc(q.name)}: ${esc(q.flag)}</span> <div class="muted" style="margin-top:6px">${esc(q.reason || "")}</div>`; }
+  const ls = summary.lesions ? summary.lesions.lesions || [] : [];
+  $("#lesions").innerHTML = ls.length ? "<table><tr><th>#</th><th>Longest diameter</th><th>Volume</th><th>RECIST 1.1 suggestion</th><th></th></tr>" +
+    ls.map((l, i) => `<tr><td>${l.id}</td><td>${l.longest_axial_diameter.value} mm</td><td>${l.volume.value} cm3</td><td>${esc(l.recist)}</td><td><button data-i="${i}">show</button></td></tr>`).join("") + "</table>" : esc((summary.lesions && summary.lesions.note) || "No lesions predicted.");
+  $("#lesions").querySelectorAll("button").forEach((b) => b.onclick = () => jumpTo(ls[+b.dataset.i].voxel_in_file));
+  const v = summary.lesions && summary.lesions.validation_context;
+  $("#validation").innerHTML = v ? `<p>${esc(v.cohort)}.</p><p>Detected lesions: median error ${v.detected_lesion_median_error.value} mm (${v.detected_lesion_median_relative_error.value}%). Sum of diameters: median ${v.case_sum_of_diameters_median_error.value}%. Overestimates of ${v.large_overestimate_threshold.value}% or more: ${v.overestimates_at_or_above_threshold}.</p><p>${esc(v.note)}</p>` : "-";
+  $("#evidence").innerHTML = (rep.evidence || []).map((e) => `<div>${e.ok ? "✓" : "✗"} <strong>${esc(e.tool)}</strong> <span class="muted">${e.ok ? "" : esc(e.error)}</span></div>`).join("") +
+    `<div class="muted" style="margin-top:6px">Number check: ${rep.ok ? "every number matches a tool result and carries its unit" : "problems: " + esc(JSON.stringify([...(rep.unsupported_numbers || []), ...(rep.missing_units || [])]))}</div><a class="num" href="/api/scans/${scanId}/summary" target="_blank" rel="noopener">raw tool results (JSON)</a>`;
+}
+
+async function openScan(id, blurb) {
+  scanId = id; $("#blurb").textContent = blurb || ""; $("#report").textContent = "Writing the report ..."; $("#flag").textContent = "Loading ...";
+  loadViewer(id);
+  try {
+    summary = await (await api(`/api/scans/${id}/summary`)).json();
+    const rep = await (await api(`/api/scans/${id}/report`, {method: "POST"})).json();
+    renderPanels(rep); renderReport(rep.report, rep.mode, rep.note);
+  } catch (e) { $("#report").innerHTML = `<span class="err">${esc(e.message)}</span>`; }
+}
+
+async function main() {
+  await initViewer();
+  const list = (await (await api("/api/scans")).json()).scans || [], sel = $("#scanSel");
+  sel.innerHTML = list.map((s) => `<option value="${esc(s.id)}">${esc(s.title)}</option>`).join("");
+  sel.onchange = () => { const s = list.find((x) => x.id === sel.value); openScan(s.id, s.blurb); };
+  if (list.length) openScan(list[0].id, list[0].blurb); else $("#report").textContent = "No sample scans are installed on this server.";
+  $("#upl").onchange = async (e) => {
+    const f = e.target.files[0]; if (!f) return; $("#uplMsg").textContent = "Uploading ...";
+    const fd = new FormData(); fd.append("file", f);
+    try { const r = await (await api("/api/segment", {method: "POST", body: fd})).json(); $("#uplMsg").textContent = "Done."; sel.innerHTML += `<option value="${esc(r.scan_id)}">${esc(r.scan_id)}</option>`; sel.value = r.scan_id; openScan(r.scan_id, "Uploaded scan"); }
+    catch (err) { $("#uplMsg").innerHTML = `<span class="err">${esc(err.message)}</span>`; }
+  };
+}
+main().catch((e) => status("Startup error: " + e.message, true));
+</script>
+</body>
+</html>

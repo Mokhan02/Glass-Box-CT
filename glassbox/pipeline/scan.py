@@ -23,7 +23,7 @@ PROMPTED = sorted(ORGANS.values()) + [C.HEPATIC_TUMOR]
 MIN_ORGAN_CM3 = 1.0
 # Held-out validation of the hepatic-tumour class, quoted in every lesion result so a report cannot omit the known bias (results/SUMMARY.md; UID route, 75 cases).
 VALIDATION = {"cohort": "HCC-TACE-Seg held-out CT, 75 cases with verifiably linked labels (research data, not clinical)", "detected_lesion_median_error": qty(-11.4, "mm"),
-              "detected_lesion_median_relative_error": qty(-17, "%"), "case_sum_of_diameters_median_error": qty(-19, "%"), "overestimates_of_20_percent_or_more": 0,
+              "detected_lesion_median_relative_error": qty(-17, "%"), "case_sum_of_diameters_median_error": qty(-19, "%"), "large_overestimate_threshold": qty(20, "%"), "overestimates_at_or_above_threshold": 0,
               "note": "On held-out data the hepatic-tumour class measured lesions smaller than the reference in every case where error was large; about one lesion in five was largely missed."}
 
 
@@ -35,7 +35,12 @@ def infer_probs(ct_path: str, net, device) -> dict[int, np.ndarray]:
 
 
 def canonical(arr: np.ndarray, affine: np.ndarray):
-    img = nib.as_closest_canonical(nib.Nifti1Image(np.ascontiguousarray(arr), affine)); return np.asarray(img.dataobj), tuple(float(z) for z in img.header.get_zooms()[:3])
+    img = nib.as_closest_canonical(nib.Nifti1Image(np.ascontiguousarray(arr), affine)); return np.asarray(img.dataobj), tuple(float(z) for z in img.header.get_zooms()[:3]), img.affine
+
+
+def to_file_voxel(vox_canonical, canonical_affine: np.ndarray, file_affine: np.ndarray) -> list[int]:
+    """Voxel in the canonical (RAS+) array -> voxel in the file's own array (what a viewer indexes), via world coordinates."""
+    world = canonical_affine @ np.array([*vox_canonical, 1.0]); return [int(round(v)) for v in (np.linalg.inv(file_affine) @ world)[:3]]
 
 
 def organ_label_map(probs: dict[int, np.ndarray]) -> np.ndarray:
@@ -59,19 +64,20 @@ def build_results(ct_path: str, probs: dict[int, np.ndarray], out_dir: str, scan
            "note": "Tumour classes are prompted explicitly; the model's segment-everything mode omits them."}
     # body composition at L3 (canonical orientation: axis 2 axial)
     masks = {k: canonical((organs == list(ORGANS.values()).index(c) + 1).astype(np.uint8), affine)[0] for k, c in MUSCLE_KEYS.items()}
-    cc, zc = canonical(ct, affine); m = l3_muscle(cc, masks, zc) if masks["vertebrae_L3"].any() else None
+    cc, zc, aff_c = canonical(ct, affine); m = l3_muscle(cc, masks, zc) if masks["vertebrae_L3"].any() else None
     if m is None:
         bc = {**prov, "available": False, "reason": "the L3 vertebra or enough muscle at L3 was not found in this scan's field of view"}
     else:
         bc = {**prov, "available": True, "l3_slice_index": int(m["l3_slice"]), "psoas_paraspinal_area": qty(round(m["muscle_area_cm2"], 1), "cm2"), "psoas_area": qty(round(m["psoas_area_cm2"], 1), "cm2"),
-              "mean_muscle_density": qty(round(m["muscle_mean_hu"], 1), "HU"), "low_attenuation_fraction": round(m["lama_fraction"], 3),
+              "mean_muscle_density": qty(round(m["muscle_mean_hu"], 1), "HU"),
+              "l3_voxel_in_file": to_file_voxel([*(int(round(v)) for v in np.argwhere(masks["vertebrae_L3"][:, :, m["l3_slice"]]).mean(0)), int(m["l3_slice"])], aff_c, affine), "low_attenuation_fraction": round(m["lama_fraction"], 3),
               "label": "research measurement; psoas and paraspinal muscle only, not total skeletal muscle area, so not comparable with published sarcopenia thresholds"}
     # lesions
-    tc, _ = canonical(tumour.astype(np.uint8), affine); pc, _ = canonical(probs[C.HEPATIC_TUMOR].astype(np.float32), affine)
+    tc = canonical(tumour.astype(np.uint8), affine)[0]; pc = canonical(probs[C.HEPATIC_TUMOR].astype(np.float32), affine)[0]
     les = measure_lesions(tc.astype(bool), pc, zc); require_tumour_prompts(PROMPTED)
     lesions = {**prov, "prompted_classes": PROMPTED, "organ": "liver (hepatic tumour class 26)", "validation_context": VALIDATION,
                "lesions": [{"id": l["id"], "organ": "liver", "longest_axial_diameter": qty(round(l["diameter_mm"], 1), "mm"), "volume": qty(round(l["volume_cm3"], 1), "cm3"), "mean_probability": round(l["mean_probability"], 3),
-                            "recist": l["recist"], "slice_index": l["best_slice"], "centroid_voxel": [int(round(c)) for c in l["centroid_voxel"]]} for l in les], "n_lesions": len(les)}
+                            "recist": l["recist"], "slice_index": l["best_slice"], "voxel_in_file": to_file_voxel(l["centroid_voxel"], aff_c, affine)} for l in les], "n_lesions": len(les)}
     if not les:
         lesions["note"] = "No hepatic tumour predicted. That is not the same as no tumour: on held-out data about one lesion in five was largely missed."
     # quality audit (tumour class only; organs are not assessed)
