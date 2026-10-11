@@ -1,0 +1,15 @@
+{
+ "n_lesions_run": 62,
+ "n_complete": 62,
+ "n_eligible": 32,
+ "earliest_layer_restoring_ge_50pct_coverage": {
+  "R1 dilated tumour": "mid",
+  "R2 shell only": "none reaches 0.50",
+  "R3 far context": "none reaches 0.50"
+ },
+ "unrelated_control_restores_less_than_R1": {
+  "mid": true,
+  "bottleneck": true,
+  "decoder_F": true
+ }
+}
