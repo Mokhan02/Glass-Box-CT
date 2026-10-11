@@ -1,0 +1,6 @@
+bin_mm,n_lesions,n_cases,detection_rate,detection_ci,detected_any_overlap_rate,n_detected,detected_median_error_mm,detected_error_mm_ci,detected_median_rel_error,detected_share_rel_le_minus30,combined_median_rel_error_misses_as_minus100,combined_share_rel_le_minus30,share_of_mm_shortfall_from_misses
+10-30,8,7,0.25,"(np.float64(0.0), np.float64(0.667))",0.375,2,-6.159,"(np.float64(-9.031), np.float64(-3.288))",-0.29,0.5,-1.0,0.875,0.913
+30-60,43,42,0.605,"(np.float64(0.45), np.float64(0.75))",0.721,26,-9.353,"(np.float64(-12.968), np.float64(-4.423))",-0.223,0.346,-0.397,0.605,0.746
+60-100,30,30,0.933,"(np.float64(0.833), np.float64(1.0))",1.0,28,-9.9,"(np.float64(-13.437), np.float64(-5.898))",-0.12,0.179,-0.146,0.233,0.352
+100-inf,34,34,0.882,"(np.float64(0.771), np.float64(0.974))",0.971,30,-21.212,"(np.float64(-33.607), np.float64(-10.489))",-0.158,0.2,-0.18,0.294,0.474
+all,115,103,0.748,"(np.float64(0.667), np.float64(0.826))",0.843,86,-11.338,"(np.float64(-13.757), np.float64(-8.684))",-0.172,0.244,-0.246,0.435,0.571

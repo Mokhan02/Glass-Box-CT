@@ -1,0 +1,5 @@
+cases,n,A_median_rel_err_misses_as_0mm,A_share_abs_ge_20,A_share_abs_ge_30,B_n_cases_with_a_detected_target,B_median_rel_err_detected_targets_only,B_share_abs_ge_20,B_share_abs_ge_30,share_of_total_mm_shortfall_from_misses
+all cases,103,-0.242,0.524,0.437,79,-0.154,0.38,0.253,0.571
+GT sum 22-55 mm (tercile 1),35,-0.453,0.714,0.629,21,-0.211,0.524,0.381,0.732
+GT sum 55-101 mm (tercile 2),35,-0.198,0.486,0.429,29,-0.166,0.379,0.31,0.488
+GT sum 101-278 mm (tercile 3),35,-0.161,0.4,0.286,31,-0.133,0.323,0.161,0.511

@@ -5,15 +5,17 @@ from __future__ import annotations
 import json
 from typing import Any, Protocol
 
+from glassbox.seg.prompts import require_tumour_prompts
+
 TOOL_SCHEMAS = [
     {"type": "function", "function": {
-        "name": "segment_ct", "description": "Segment a CT scan with NV-Segment-CT. Returns the structures found and the mask file.",
+        "name": "segment_ct", "description": "Segment a CT scan with NV-Segment-CT. Returns the structures found and the mask file. Tumour classes are prompted explicitly because the model's segment-everything mode omits them.",
         "parameters": {"type": "object", "properties": {"scan_id": {"type": "string"}}, "required": ["scan_id"]}}},
     {"type": "function", "function": {
         "name": "body_composition", "description": "Psoas and paraspinal muscle area (cm2) and mean density (HU) at the L3 slice. Research measurement only.",
         "parameters": {"type": "object", "properties": {"scan_id": {"type": "string"}}, "required": ["scan_id"]}}},
     {"type": "function", "function": {
-        "name": "measure_lesions", "description": "Lesions with longest axial diameter (mm), organ, and a RECIST target or non-target suggestion.",
+        "name": "measure_lesions", "description": "Lesions with longest axial diameter (mm), organ, and a RECIST target or non-target suggestion. Always prompts the hepatic tumour class (26) and other tumour classes explicitly, and reports which classes it prompted.",
         "parameters": {"type": "object", "properties": {"scan_id": {"type": "string"}}, "required": ["scan_id"]}}},
     {"type": "function", "function": {
         "name": "quality_audit", "description": "Per-structure probability that the segmentation is wrong, with a quality flag and the SAE features that drove it.",
@@ -64,6 +66,8 @@ class ToolBox:
             if name not in {t["function"]["name"] for t in TOOL_SCHEMAS}:
                 raise ValueError(f"unknown tool {name!r}")
             result = getattr(self.backend, name)(**args)
+            if name == "measure_lesions":  # an empty lesion list only means 'no tumour' if the tumour class was actually asked for
+                require_tumour_prompts(result.get("prompted_classes"))
             bad = bare_floats(result)
             if bad:  # a tool must say what unit a measurement is in, so the report can be checked for it
                 raise ValueError(f"result has measurements without units: {bad[:3]}")

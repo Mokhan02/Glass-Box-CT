@@ -15,7 +15,7 @@ def _backend(tmp_path):
     fx = {"fixture": True}
     (d / "segmentation.json").write_text(json.dumps({**fx, "structures": ["liver", "L3"]}))
     (d / "body_composition.json").write_text(json.dumps({**fx, "l3_slice": 146, "muscle_area": qty(45.8, "cm2"), "mean_density": qty(46.4, "HU")}))
-    (d / "lesions.json").write_text(json.dumps({**fx, "lesions": [{"organ": "liver", "diameter": qty(23.5, "mm")}]}))
+    (d / "lesions.json").write_text(json.dumps({**fx, "prompted_classes": [26], "lesions": [{"organ": "liver", "diameter": qty(23.5, "mm")}]}))
     (d / "quality_audit.json").write_text(json.dumps({**fx, "liver": {"failure_probability": 0.12, "flag": False}}))
     (tmp_path / "features.json").write_text(json.dumps({"fixture": True, "7": {"name": "psoas edge"}}))
     return PrecomputedBackend(str(tmp_path), allow_fixture=True)
@@ -99,3 +99,17 @@ def test_backend_refuses_made_up_data_and_temp_dirs(tmp_path):
     assert not r["ok"] and "fixture" in r["error"]
     with pytest.raises(PermissionError):
         PrecomputedBackend("/private/tmp/claude-1/scratchpad/demo")  # scratch path refused outright
+
+
+def test_lesion_tool_must_report_that_it_prompted_the_hepatic_tumour_class(tmp_path):
+    class NoPrompt(PrecomputedBackend):
+        def measure_lesions(self, scan_id): return {"lesions": []}  # looks like "no tumour" but class 26 was never asked for
+    r = ToolBox(NoPrompt(str(tmp_path), allow_fixture=True)).call("measure_lesions", {"scan_id": "scanA"})
+    assert not r["ok"] and "not prompted" in r["error"]
+
+
+def test_segment_everything_excludes_tumour_classes_but_report_prompts_include_them():
+    from glassbox.seg.prompts import EVERYTHING_EXCLUDED, everything_prompts, report_prompts
+    assert 26 in EVERYTHING_EXCLUDED and 26 not in everything_prompts()
+    assert 26 in report_prompts() and 23 in report_prompts()
+    assert 129 not in report_prompts() and 130 not in report_prompts()  # not promptable by label; need point prompts
