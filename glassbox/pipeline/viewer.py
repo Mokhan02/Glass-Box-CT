@@ -18,7 +18,9 @@ def make_viewer_files(ct_path: str, scan_dir: str, mm: float = 1.5) -> dict:
     ct = nib.load(ct_path); old = ct.affine; out = {}
     new_ct = resample_to_output(ct, voxel_sizes=[mm] * 3, order=1, cval=-1024); data = np.clip(np.rint(np.asarray(new_ct.dataobj)), -1024, 3071).astype(np.int16)
     nib.save(nib.Nifti1Image(data, new_ct.affine), os.path.join(scan_dir, "ct.nii.gz")); new = new_ct.affine
-    for name in ("organs", "tumour"):
+    for name in ("organs", "tumour", "tumour_recal"):
+        if not os.path.exists(os.path.join(scan_dir, f"{name}.nii.gz")):
+            continue
         m = nib.load(os.path.join(scan_dir, f"{name}.nii.gz")); r = resample_to_output(m, voxel_sizes=[mm] * 3, order=0)
         nib.save(nib.Nifti1Image(np.asarray(r.dataobj).astype(np.uint8), r.affine), os.path.join(scan_dir, f"{name}.nii.gz")); assert np.allclose(r.affine, new), "viewer grids differ"
     les = os.path.join(scan_dir, "lesions.json"); L = json.load(open(les))

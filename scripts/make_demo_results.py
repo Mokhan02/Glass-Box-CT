@@ -11,7 +11,7 @@ import shutil
 import sys
 
 sys.path.insert(0, ".")
-from glassbox.pipeline.scan import build_results  # noqa: E402
+from glassbox.pipeline.scan import RECAL_LOGIT, build_results  # noqa: E402
 from glassbox.pipeline.select import CARD, select_demos  # noqa: E402
 from glassbox.pipeline.viewer import make_viewer_files  # noqa: E402
 
@@ -39,7 +39,7 @@ elif a.stage == "rebuild":
     demo = os.path.join(a.out, "demo"); idx = json.load(open(os.path.join(demo, "index.json")))
     for it in idx["scans"]:
         case = it["source"]["case"]; src = dict(cohort)[case]; ct = os.path.join(ROOTS[src], case, "ct.nii.gz")
-        build_results(ct, infer_probs(ct, net, dev), demo, it["id"], {"source": "HCC-TACE-Seg (TCIA, CC BY 4.0)", "case": case, "in_distribution": False, "label_route": src, "model": "NV-Segment-CT vista3d132"})
+        build_results(ct, infer_probs(ct, net, dev), demo, it["id"], {"source": "HCC-TACE-Seg (TCIA, CC BY 4.0)", "case": case, "in_distribution": False, "label_route": src, "model": "NV-Segment-CT vista3d132"}, recal_logit=RECAL_LOGIT)
         make_viewer_files(ct, os.path.join(demo, it["id"]))  # build_results wrote original-grid masks and voxel coordinates: put them back on the viewer grid
         print("rebuilt", it["id"], case, flush=True)
         if os.path.exists(os.path.join(demo, it["id"], "report.json")):

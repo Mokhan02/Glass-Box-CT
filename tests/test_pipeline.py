@@ -138,3 +138,14 @@ def test_align_to_viewer_puts_masks_on_the_viewer_grid_and_remaps_voxels(tmp_pat
     from glassbox.agent.tools import bare_floats
     assert t.shape == (30, 30, 20) and L["viewer_grid_mm"] == {"value": 2.0, "unit": "mm"} and bare_floats(L) == []  # the agent's unit check must still accept the file
     v = L["lesions"][0]["voxel_in_file"]; assert v == [18, 12, 8] and np.asarray(t.dataobj)[tuple(v)] == 1  # lands inside the lesion on the new grid
+
+
+def test_recalibrated_view_is_written_next_to_the_default_and_default_is_unchanged(tmp_path):
+    path, probs = _scan(str(tmp_path), tumour_prob=0.30)  # a tumour the default threshold (p > 0.5) misses
+    out = os.path.join(str(tmp_path), "res"); r = build_results(path, probs, out, "s", {"source": "synthetic"}, recal_logit=-3.0)
+    assert r["lesions"]["n_lesions"] == 0  # default untouched
+    rc = json.load(open(os.path.join(out, "s", "recalibrated.json")))
+    assert rc["default"]["n_lesions"] == 0 and rc["recalibrated"]["n_lesions"] == 1 and rc["recalibrated"]["sum_of_diameters"]["unit"] == "mm" and rc["threshold_logit"] == -3.0
+    assert os.path.exists(os.path.join(out, "s", "tumour_recal.nii.gz"))
+    r2 = build_results(path, probs, os.path.join(str(tmp_path), "res2"), "s", {})  # without a recalibration threshold nothing extra is written
+    assert not os.path.exists(os.path.join(str(tmp_path), "res2", "s", "recalibrated.json")) and r2["lesions"]["n_lesions"] == 0

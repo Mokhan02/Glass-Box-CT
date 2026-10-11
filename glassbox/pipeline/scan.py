@@ -77,7 +77,15 @@ def organ_label_map(probs: dict[int, np.ndarray]) -> np.ndarray:
     names = list(ORGANS.values()); stack = np.stack([probs[c] for c in names]); lab = stack.argmax(0) + 1; lab[stack.max(0) <= 0.5] = 0; return lab.astype(np.uint8)
 
 
-def build_results(ct_path: str, probs: dict[int, np.ndarray], out_dir: str, scan_id: str, provenance: dict) -> dict:
+RECAL_LOGIT = -3.0  # recalibrated (research) threshold: cross-validated choices on held-out HCC cases ranged from -2.5 to -3.5 logit (results/SUMMARY.md); the default is 0 (p > 0.5)
+
+
+def _sld(les: list[dict]) -> dict:
+    t = [l for l in les if l["recist"] == "target candidate"]
+    return {"n_lesions": len(les), "n_targets": len(t), "sum_of_diameters": qty(round(sum(l["diameter_mm"] for l in t), 1), "mm"), "largest_diameter": qty(round(les[0]["diameter_mm"], 1) if les else 0.0, "mm"), "volume": qty(round(sum(l["volume_cm3"] for l in les), 1), "cm3")}
+
+
+def build_results(ct_path: str, probs: dict[int, np.ndarray], out_dir: str, scan_id: str, provenance: dict, recal_logit: float | None = None) -> dict:
     img = nib.load(ct_path); affine, ct = img.affine, np.asarray(img.dataobj).astype(np.float32); zooms = tuple(float(z) for z in img.header.get_zooms()[:3]); vox = float(np.prod(zooms))
     d = os.path.join(out_dir, scan_id); os.makedirs(d, exist_ok=True)
     organs = organ_label_map(probs); tumour = probs[C.HEPATIC_TUMOR] > 0.5
@@ -120,6 +128,10 @@ def build_results(ct_path: str, probs: dict[int, np.ndarray], out_dir: str, scan
     qa = {**prov, "structures": [{"name": "hepatic tumour", **{k: (v if not isinstance(v, float) else round(v, 3)) for k, v in a.items() if k != "drivers"},
                                   **({"drivers": [{**dd, "weight_fraction": round(dd["weight_fraction"], 2)} for dd in a["drivers"]]} if a.get("assessed") else {})}],
           "organs_not_assessed": "Liver, kidney and other organ failures were too rare in the held-out data to fit or validate a flag, so no flag is given for them."}
+    if recal_logit is not None:  # research view: the same measurements at a lower tumour threshold, next to the default ones (default stays primary)
+        t_r = probs[C.HEPATIC_TUMOR] > 1.0 / (1.0 + np.exp(-recal_logit)); nib.save(nib.Nifti1Image(t_r.astype(np.uint8), affine), os.path.join(d, "tumour_recal.nii.gz"))
+        les_r = measure_lesions(canonical(t_r.astype(np.uint8), affine)[0].astype(bool), None, zc)
+        json.dump({**prov, "threshold_logit": recal_logit, "default": _sld(les), "recalibrated": _sld(les_r), "note": "Research view. The default threshold stays primary; see results/SUMMARY.md for the measured cost."}, open(os.path.join(d, "recalibrated.json"), "w"), indent=1)
     for name, obj in (("segmentation", seg), ("body_composition", bc), ("lesions", lesions), ("quality_audit", qa)):
         json.dump(obj, open(os.path.join(d, f"{name}.json"), "w"), indent=1)
     return {"segmentation": seg, "body_composition": bc, "lesions": lesions, "quality_audit": qa}
