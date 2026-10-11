@@ -37,6 +37,9 @@ export default function ScanPage() {
     return () => { dead = true; };
   }, [id]);
 
+  const qa = summary && summary.quality_audit && summary.quality_audit.structures && summary.quality_audit.structures[0];
+  const flagged = !!(summary && (!qa || !qa.assessed || qa.flag === "likely wrong"));  // an empty default prediction also counts as predicting under-segmentation (pre-registered)
+  const overlay = mode === "gated" ? (flagged ? "recal" : "default") : mode;  // the viewer follows the measurement that is shown
   const layers = (summary && summary.layers) || [], hasReference = layers.includes("reference_outline");
   useEffect(() => { setReferenceOn(!!(meta && meta.reference_default && hasReference)); }, [meta, hasReference]);  // demos where the model misses the tumour show the dataset's reference by default
   const focus = summary && summary.lesions && summary.lesions.lesions && summary.lesions.lesions[0] ? summary.lesions.lesions[0].voxel_in_file : null;
@@ -44,16 +47,16 @@ export default function ScanPage() {
     <div className="mx-auto max-w-[1700px] px-3 pt-3 sm:px-5">
       <div className="grid gap-4 lg:grid-cols-[minmax(0,60fr)_minmax(0,40fr)]">
         <div className="relative h-[64vh] min-h-[380px] lg:sticky lg:top-[68px] lg:h-[calc(100vh-84px)] lg:self-start">
-          {summary ? <Viewer scanId={id} layers={layers} mode={mode} organsOn={organsOn} predictedOn={predictedOn} referenceOn={referenceOn} view={view} focus={focus} apiRef={viewerApi} /> : <div className="grid h-full place-items-center rounded-glass border border-white/[0.08] text-[13px] text-ink-dim" role="status">Loading…</div>}
-          <Pill view={view} setView={setView} organsOn={organsOn} setOrgansOn={setOrgansOn} predictedOn={predictedOn} setPredictedOn={setPredictedOn} referenceOn={referenceOn} setReferenceOn={setReferenceOn} hasReference={hasReference} mode={mode} />
+          {summary ? <Viewer scanId={id} layers={layers} mode={overlay} organsOn={organsOn} predictedOn={predictedOn} referenceOn={referenceOn} view={view} focus={focus} apiRef={viewerApi} /> : <div className="grid h-full place-items-center rounded-glass border border-white/[0.08] text-[13px] text-ink-dim" role="status">Loading…</div>}
+          <Pill view={view} setView={setView} organsOn={organsOn} setOrgansOn={setOrgansOn} predictedOn={predictedOn} setPredictedOn={setPredictedOn} referenceOn={referenceOn} setReferenceOn={setReferenceOn} hasReference={hasReference} mode={overlay} />
           <ul className="pointer-events-none absolute bottom-3 left-4 right-4 flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-ink-dim">
-            <li className="flex items-center gap-1.5"><span aria-hidden="true" className="inline-block h-2.5 w-4 rounded-sm border-2" style={{ borderColor: mode === "recal" ? "#F5B54A" : "#5EE6D0", background: mode === "recal" ? "rgba(245,181,74,.3)" : "rgba(94,230,208,.3)" }} />predicted tumour{mode === "recal" ? " (recalibrated)" : ""}</li>
+            <li className="flex items-center gap-1.5"><span aria-hidden="true" className="inline-block h-2.5 w-4 rounded-sm border-2" style={{ borderColor: overlay === "recal" ? "#F5B54A" : "#5EE6D0", background: overlay === "recal" ? "rgba(245,181,74,.3)" : "rgba(94,230,208,.3)" }} />predicted tumour{overlay === "recal" ? " (recalibrated)" : ""}</li>
             {hasReference ? <li className="flex items-center gap-1.5"><span aria-hidden="true" className="inline-block h-2.5 w-4 rounded-sm border-2 border-dashed border-ink" />reference tumour (dataset annotation{summary && summary.reference ? `: ${summary.reference.annotated_slices} of ${summary.reference.total_slices} slices annotated` : ""})</li> : null}
             <li>scroll to change slice</li>
           </ul>
         </div>
         <aside className="glass p-5 lg:min-h-[calc(100vh-84px)]" aria-label="Agent and report">
-          <AgentPanel meta={meta} all={all} summary={summary} report={report} error={error} mode={mode} setMode={setMode} onJump={(v) => viewerApi.current && viewerApi.current.jump(v)} canAsk={canAsk} />
+          <AgentPanel meta={meta} all={all} summary={summary} report={report} error={error} mode={mode} setMode={setMode} onJump={(v) => viewerApi.current && viewerApi.current.jump(v)} canAsk={canAsk} flagged={flagged} />
         </aside>
       </div>
     </div>

@@ -15,7 +15,7 @@ import { minus } from "../lib/format";
 const fade = { initial: { opacity: 0, y: 8 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.25, ease: EASE } };
 const H = ({ children }) => <h3 className="eyebrow mb-3">{children}</h3>;
 
-export default function AgentPanel({ meta, all, summary, report, error, mode, setMode, onJump, canAsk }) {
+export default function AgentPanel({ meta, all, summary, report, error, mode, setMode, onJump, canAsk, flagged }) {
   const [finished, setFinished] = useState(false);
   const les = (summary && summary.lesions && summary.lesions.lesions) || [];
   const q = summary && summary.quality_audit && summary.quality_audit.structures && summary.quality_audit.structures[0];
@@ -61,7 +61,7 @@ export default function AgentPanel({ meta, all, summary, report, error, mode, se
             </section>
           ) : null}
 
-          <section className="border-t border-white/[0.07] py-5" aria-label="Threshold"><H>Threshold</H><RecalToggle recal={summary.recalibrated} mode={mode} setMode={setMode} /></section>
+          <section className="border-t border-white/[0.07] py-5" aria-label="Threshold"><H>Threshold</H><RecalToggle recal={summary.recalibrated} mode={mode} setMode={setMode} flagged={flagged} /></section>
 
           {sorted.length ? <section className="border-t border-white/[0.07] py-5" aria-label="Lesions"><H>Lesions</H><LesionsTable lesions={sorted} trust={summary.trust} onJump={onJump} /></section> : null}
 

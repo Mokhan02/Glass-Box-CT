@@ -70,6 +70,15 @@ Conclusion: the shift recovers bright missed tumours (8 of 15) at about the same
 | C, steering | does adding the direction recover missed tumours better than a threshold shift? | Probe steering beats random directions (+0.020 Dice) but not the matched threshold shift (mid -0.006 [-0.013, +0.001]; bottleneck -0.003 [-0.009, +0.002]): **EQUIVALENT TO THRESHOLD** at both layers. Alpha sat at the grid edge in every fold, so stronger steering was not tested; matching on false-positive volume makes the comparator a weak threshold shift. | pre-registered |
 One-line reading: the model's detection depends on a tumour-vs-liver feature at the mid-encoder; making a tumour brighter lowers that feature inside the tumour (exploratory bridge), removing it removes detection (B), restoring it restores detection (D), but adding it back behaves like a threshold shift, not a better detector (C). All of this is about the model, not about patients.
 
+## 7. Trust layer (`results/trust/`; clean-89; rules in `results/trust/PREREG.md`, written before these analyses were run)
+**Flag-gated recalibration [PRE, CPU on the saved logits].** Apply the recalibrated threshold (logit -3.0) only when the quality flag (refitted inside each training fold) predicts under-segmentation; otherwise keep the default. 5-fold patient-level CV, 89 cases with a measurable target, 49 gated to the recalibrated threshold.
+| policy | median signed error | mean abs error | over-estimated >= 20% | abs error >= 20% | mean Dice |
+|---|---|---|---|---|---|
+| default | -19.2% | 34.1% | 0.0% | 49.4% | 0.555 |
+| recalibrated | -0.1% | 21.9% | 12.4% | 31.5% | 0.640 |
+| gated | -7.7% | 20.6% | 3.4% | 29.2% | 0.647 |
+Pre-registered decision: **SHIPPED** (the gated policy beats both). Gated minus always-recalibrated, over-estimation indicator -0.090 (95% CI -0.157 to -0.034); gated minus always-default, absolute sum-of-diameters error -0.135 (95% CI -0.195 to -0.080). Caveats: the recalibrated threshold and the flag's operating point were chosen on these same cases (cross-validated, but expect less on new data); the gated policy still leaves a median under-measurement of 7.7%; about 89 cases.
+
 ## What can and cannot be said
 - Can: the model under-measures hepatic tumour diameters by about a fifth; the missed tissue is represented in the encoder and lost downstream; the model's detection depends on contrast sign (causally, by editing); a single threshold shift removes most of the bias on this cohort, and our 48-weight re-fit did not beat it (this does not exclude a better readout).
 - Cannot: anything about patients or outcomes; anything about phase; that the threshold shift generalises beyond HCC-TACE-Seg (it was chosen on HCC cases only); that the bias is the same on other cohorts (the research in this file is HCC-TACE-Seg only).

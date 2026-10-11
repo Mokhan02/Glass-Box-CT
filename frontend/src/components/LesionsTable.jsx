@@ -22,7 +22,7 @@ export default function LesionsTable({ lesions, trust, onJump }) {
     <div className="overflow-x-auto">
       <table className="w-full text-[13px]">
         <caption className="sr-only">Predicted lesions, largest first</caption>
-        <thead><tr className="text-left"><th scope="col" className="eyebrow pb-1.5 font-normal">Longest diameter</th><th scope="col" className="eyebrow pb-1.5 font-normal">Volume</th><th scope="col" className="eyebrow pb-1.5 font-normal">RECIST 1.1</th><th scope="col" className="eyebrow pb-1.5 font-normal">Verdict</th><th /></tr></thead>
+        <thead><tr className="text-left"><th scope="col" className="eyebrow whitespace-nowrap pb-1.5 pr-3 font-normal">Longest diameter</th><th scope="col" className="eyebrow whitespace-nowrap pb-1.5 pr-3 font-normal">Volume</th><th scope="col" className="eyebrow whitespace-nowrap pb-1.5 pr-3 font-normal">RECIST 1.1</th><th scope="col" className="eyebrow whitespace-nowrap pb-1.5 pr-3 font-normal">Verdict</th><th /></tr></thead>
         <tbody>
           {main.map((l) => row(l))}
           {frags.length ? (

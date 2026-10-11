@@ -1,0 +1,45 @@
+{
+ "n_cases_with_target": 89,
+ "n_gated_to_recalibrated": 49,
+ "policies": {
+  "default": {
+   "median_signed_error": -0.19215022183190986,
+   "mean_abs_error": 0.34087193103646773,
+   "over_20pct": 0.0,
+   "abs_error_ge_20pct": 0.4943820224719101,
+   "mean_dice": 0.5547781274242483
+  },
+  "recalibrated": {
+   "median_signed_error": -0.0007061316639043628,
+   "mean_abs_error": 0.21939034975111635,
+   "over_20pct": 0.12359550561797752,
+   "abs_error_ge_20pct": 0.3146067415730337,
+   "mean_dice": 0.6403361127927313
+  },
+  "gated": {
+   "median_signed_error": -0.07743627764813651,
+   "mean_abs_error": 0.20554422558200441,
+   "over_20pct": 0.033707865168539325,
+   "abs_error_ge_20pct": 0.29213483146067415,
+   "mean_dice": 0.646730491074626
+  }
+ },
+ "gated_minus_recal_over20": {
+  "mean": -0.0898876404494382,
+  "ci": [
+   -0.15730337078651685,
+   -0.033707865168539325
+  ]
+ },
+ "gated_minus_default_abs_error": {
+  "mean": -0.13532770545446327,
+  "ci": [
+   -0.1945998294093788,
+   -0.08019523124204414
+  ]
+ },
+ "ship_gated_policy": true,
+ "decision": "SHIPPED: gated policy beats both",
+ "n_cases": 89,
+ "recal_logit": -3.0
+}
