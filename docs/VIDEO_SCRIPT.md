@@ -1,5 +1,7 @@
 # Video script: Glass-Box CT (target 2:45)
 
+Framing: a trust layer for oncology imaging AI. Update the shots below to open on the verdict card (Trusted / Review / Unreliable), show the audit download, and, if time allows, the simulated follow-up page (say "simulated" out loud and keep its banner in frame). Re-time after the final build.
+
 Record at 1440x900, dark system theme, browser zoom 100%, no bookmarks bar. Use scan 2 (bright tumour the model misses) as the hero, scan 4 (counter-example) only if time allows. Voice-over is about 400 words at a calm pace (about 150 words per minute). Numbers are exactly those in `results/SUMMARY.md` and the app.
 
 | Time | On screen | Voice-over |

@@ -3,12 +3,13 @@
 Track: Best Apps and Agents. Everything in [brackets] is for you to confirm or fill before submitting; nothing below claims a Nebius result that has not happened yet.
 
 ## Tagline
-See where the model fails, and why: an agent that measures a CT, says when not to trust it, and opens the model to show what goes wrong.
+Don't just measure the tumour; measure whether to trust the measurement. An open trust layer for oncology imaging AI: per-scan and per-lesion verdicts, an audit record, and the evidence behind every warning.
 
 ## Inspiration
 AI segmentation models are now good enough that their measurements get used: tumour size changes decide whether a treatment is working. But a model that is right on average can fail in a consistent, invisible direction. We took NVIDIA's NV-Segment-CT (VISTA-3D), a widely used CT model, measured it on public held-out scans, and found it under-measures liver tumours by about a fifth, almost never the other way. Instead of reporting a number, we wanted to know why, and to build a tool that shows a user the failure as it happens.
 
 ## What it does
+- **Trust verdicts:** every scan and every lesion is Trusted, Review or Unreliable, with plain reasons drawn from tool results (quality flag, contrast, contrast phase, size, fragments). A **contrast-phase heuristic** (literature thresholds fixed before it was checked) warns when a scan matches the model's known bright-tumour blind spot. A downloadable **audit record** (JSON and PDF) captures model checkpoint hash, thresholds, phase, flag, default vs recalibrated values, the agent's report and the tool-call log. A **two-timepoint check** shows when a RECIST response category depends on calibration, using clearly labelled **simulated** pairs from a fitted bias model (no real follow-ups exist in the data).
 - **Five real research scans**, chosen by fixed rules (a good case, a bright tumour the model largely misses, a tumour a recalibrated threshold recovers, a counter-example, and a false alarm of our own quality flag).
 - For each: **measurements** (largest lesion, sum of diameters, tumour-minus-liver contrast, muscle at L3), a **verdict** in plain words ("Tumour likely under-segmented, don't trust these measurements"), and the **prediction drawn against the dataset's own reference annotation**.
 - A **default vs recalibrated (research) threshold** toggle. Recalibration removes most of the bias (median error -19.2% to +0.6%), and the app states the cost beside it: it over-estimates by 20% or more in 13.5% of cases. The default stays primary.

@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-5ee6d0.svg)](LICENSE) &nbsp; **Research use only. Not for clinical decisions.**
 
-**See where the model fails, and why.** NVIDIA's NV-Segment-CT (VISTA-3D) measures liver tumours on CT, but on held-out research scans it under-measures them by about a fifth (sum of diameters, median **-19%**, 95% CI [-28%, -13%], 75 scans) and almost never over-measures. Glass-Box CT opens the model to find out why: it **represents tumours it fails to segment**, its misses depend **causally** on the tumour being **brighter than the liver**, and a single threshold recalibration removes most of the bias, **at a stated cost** (it over-estimates by 20% or more in 13.5% of cases). The app puts all of that in front of a user: the measurement, an honest quality flag, a Nemotron agent that writes a number-checked report and answers questions about the scan, and the research behind the failure. Every claim is pre-registered or labelled exploratory in [results/SUMMARY.md](results/SUMMARY.md).
+**A trust layer for oncology imaging AI. Don't just measure the tumour; measure whether to trust the measurement.** Glass-Box CT audits an AI model's lesion measurements and gives every scan and every lesion a verdict (**Trusted / Review / Unreliable**) with plain reasons, an audit record you can download, and the evidence behind each warning. The demo audits NVIDIA's open NV-Segment-CT (VISTA-3D) on liver tumours: on held-out research scans it under-measures them by about a fifth (sum of diameters, median **-19%**, 95% CI [-28%, -13%], 75 scans) and almost never over-measures. We found why. The model **represents tumours it fails to segment**, its misses depend **causally** on the tumour being **brighter than the liver**, and one threshold recalibration removes most of the bias **at a stated cost** (it over-estimates by 20% or more in 13.5% of cases). Every claim is pre-registered or labelled exploratory in [results/SUMMARY.md](results/SUMMARY.md).
 
 **Live demo:** `[TO ADD: https://... once deployed]` &nbsp;|&nbsp; **Video:** `[TO ADD]`
 
@@ -12,12 +12,15 @@
 | ![Recalibrated (research) view with its cost stated](docs/img/scan-recalibrated.jpg) | ![Ask about this scan: a grounded answer with streamed tool steps](docs/img/ask.jpg) |
 
 ## What it does
-- **Measures** the five sample scans: largest lesion, RECIST-style sum of diameters, tumour-minus-liver contrast, and muscle at L3, all with units.
-- **Flags** when the tumour segmentation is likely wrong (a logistic flag on the model's own confidence; cross-validated AUROC 0.925 [0.860, 0.980]) and says why in one plain sentence.
-- **Shows the failure** in the viewer: the model's prediction (fill + outline) against the dataset's own reference annotation (dashed), and a **recalibrated (research)** threshold next to the default. The default stays primary.
-- **Agent:** a tool-calling Nemotron agent gathers the tool results and writes a short report. Every number in it is checked against the tool results and must carry its unit; a failing report is rewritten, then replaced by a template, never shown unchecked.
-- **Ask about this scan:** a question goes to the agent with that scan's tool results. Clinical advice, diagnosis and treatment questions are refused before any model is called.
-- **Explains** the failure on the "Evidence" page, with every number tied to `results/SUMMARY.md` (a test enforces it).
+- **Verdicts.** Each scan and each lesion is Trusted, Review or Unreliable, with reasons that each name the tool result they come from (quality flag, tumour-versus-liver contrast, contrast phase, lesion size, fragments). The rules are written down in [glassbox/trust/verdict.py](glassbox/trust/verdict.py) and are a research heuristic about the *measurement*, never a diagnosis.
+- **Quality flag.** A logistic flag on the model's own confidence predicts when the tumour segmentation is wrong (cross-validated AUROC 0.925 [0.860, 0.980]).
+- **Contrast-phase check.** The phase is estimated from the model's own aorta and portal-vein HU with literature thresholds fixed before it was checked on HCC-TACE-Seg ([results/trust/PREREG.md](results/trust/PREREG.md)); it warns when the scan matches the model's known bright-tumour blind spot. A research heuristic, not a validated classifier.
+- **Measures** the five sample scans (largest lesion, sum of diameters, tumour-minus-liver contrast, muscle at L3) and shows the prediction against the dataset's own reference annotation, with a **recalibrated (research)** threshold next to the default. The default stays primary and the cost is stated beside it.
+- **Audit record.** A downloadable JSON and a readable PDF per scan: model and checkpoint hash, thresholds, phase estimate, flag score and reasons, default vs recalibrated values, the agent's report, the tool-call log and an integrity checksum.
+- **Two-timepoint check (simulated).** Matches lesions across two scans and computes RECIST 1.1 response under default and recalibrated measurement, and flags when the response category depends on the calibration. There are no usable follow-up pairs in the dataset, so the pairs are **simulated** from a bias model fitted to the real per-lesion measurements, and every screen says so.
+- **Agent.** A tool-calling Nemotron agent gathers the tool results and writes a short report; every number is checked against the tool results and must carry its unit (a failing report is rewritten, then replaced by a template, never shown unchecked).
+- **Ask about this scan.** Questions go to the agent with that scan's tool results; clinical advice, diagnosis and treatment questions are refused before any model is called.
+- **Evidence.** The research behind the warnings, with every number tied to `results/SUMMARY.md` (a test enforces it).
 
 ## Quick start
 ```bash
@@ -69,7 +72,7 @@ The sample scans are from the HCC-TACE-Seg collection on The Cancer Imaging Arch
 Code: [MIT](LICENSE). NV-Segment-CT weights: NVIDIA Open Model License (not redistributed here). Viewer: NiiVue (BSD-2). Sample data: CC BY 4.0 (above).
 
 ## Repository map
-`glassbox/` Python package (`agent`, `app`, `pipeline`, `seg`, `extract`, `bodycomp`, `probes`, `quality`) &middot; `frontend/` React + Tailwind + Framer Motion app (NiiVue viewer) &middot; `scripts/` experiments, demo build and checks &middot; `results/` pre-registrations, deviations, tables and figures &middot; `tests/` (68 tests, including one that ties every number on the "Evidence" page to `results/SUMMARY.md`) &middot; `docs/` deployment and Token Factory runbooks.
+`glassbox/` Python package (`agent`, `app`, `pipeline`, `seg`, `extract`, `bodycomp`, `probes`, `quality`, `trust`) &middot; `frontend/` React + Tailwind + Framer Motion app (NiiVue viewer) &middot; `scripts/` experiments, demo build and checks &middot; `results/` pre-registrations, deviations, tables and figures &middot; `tests/` (68 tests, including one that ties every number on the "Evidence" page to `results/SUMMARY.md`) &middot; `docs/` deployment and Token Factory runbooks.
 
 ## Gotchas for anyone using NV-Segment-CT (`vista3d132`)
 
