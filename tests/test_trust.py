@@ -26,11 +26,11 @@ def test_a_bright_tumour_downgrades_a_quiet_flag_to_review_and_says_why():
     assert v["level"] == REVIEW and v["lesions"][0]["level"] == REVIEW and any(r["code"] == "bright_tumour" for r in v["reasons"])
 
 
-def test_phase_arterial_like_or_unenhanced_downgrades_and_is_attributed_to_the_phase_check():
-    phase = {"estimate": "arterial-like", "aorta_hu": qty(260, "HU")}
-    v = assess({"lesions": [L(1, 40, 20.0)], "tumour_liver_contrast": qty(-5, "HU")}, Q(p=0.05), phase)
-    assert v["level"] == REVIEW and any(r["code"] == "arterial_phase" and r["source"] == "phase_check" for r in v["reasons"])
-    assert assess({"lesions": [L(1, 40, 20.0)]}, Q(p=0.05), {"estimate": "unenhanced", "aorta_hu": qty(45, "HU")})["level"] == REVIEW
+def test_the_phase_estimate_plays_no_part_in_verdicts_and_the_bright_warning_uses_measured_contrast_only():
+    import inspect
+    assert "phase" not in inspect.signature(assess).parameters  # kappa 0.04 against the reference contrast sign: not a basis for a verdict
+    dark = assess({"lesions": [L(1, 40, 20.0)], "tumour_liver_contrast": qty(-5, "HU")}, Q(p=0.05)); assert dark["level"] == TRUSTED and not any("phase" in r["code"] for r in dark["reasons"])
+    bright = assess({"lesions": [L(1, 40, 20.0)], "tumour_liver_contrast": qty(5, "HU")}, Q(p=0.05)); assert bright["level"] == REVIEW and any(r["code"] == "bright_tumour" for r in bright["reasons"])
 
 
 def test_lesion_rules_fragments_small_and_low_confidence():

@@ -36,7 +36,7 @@ if scans:
     check("ask: clinical question refused (or 503 when no model)", (s == 200 and b"refused" in b and b'"refused": true' in b) or s == 503, f"status {s}")
 if scans:
     check("every scan carries a Trusted / Review / Unreliable verdict", all(x.get("verdict") in ("Trusted", "Review", "Unreliable") for x in scans), ", ".join(str(x.get("verdict")) for x in scans))
-    s, b, _ = get(f"/api/scans/{sid}/summary"); sm = json.loads(b) if s == 200 else {}; check("summary has verdict, phase, recalibrated, reference layers", bool(sm.get("trust")) and bool(sm.get("phase")) and bool(sm.get("recalibrated")) and "reference_outline" in sm.get("layers", []))
+    s, b, _ = get(f"/api/scans/{sid}/summary"); sm = json.loads(b) if s == 200 else {}; check("summary has verdict, recalibrated, reference layers and NO phase in the main payload", bool(sm.get("trust")) and "phase" not in sm and bool(sm.get("recalibrated")) and "reference_outline" in sm.get("layers", []))
     s, b, _ = get(f"/api/scans/{sid}/audit.json"); a_ = json.loads(b) if s == 200 else {}; check("audit.json downloads and has the integrity block", s == 200 and "sha256" in a_.get("integrity", {}) and len(a_.get("model", {}).get("checkpoint_sha256", "")) == 64)
     s, b, _ = get(f"/api/scans/{sid}/audit.pdf"); check("audit.pdf downloads", s == 200 and b[:5] == b"%PDF-" and len(b) > 3000, f"{len(b)} bytes")
 s, b, _ = get("/api/longitudinal/model"); lm = json.loads(b) if s == 200 else {}; check("two-timepoint model is available, real (not a fixture) and labelled simulated", s == 200 and lm.get("available") and not lm.get("fixture") and lm.get("simulated"))

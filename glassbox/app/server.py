@@ -19,13 +19,13 @@ from glassbox.agent.backends import PrecomputedBackend
 from glassbox.agent.tools import ToolBox
 from glassbox.app.report import make_report
 from glassbox.trust.audit import audit_pdf, build_audit
-from glassbox.trust.longitudinal import SIMULATED, load_model, simulate
+from glassbox.trust.longitudinal import SIMULATED, load_model, persistence_sweep, simulate
 from glassbox.trust.verdict import assess
 
 SCAN_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.-]{0,80}$")
 VOLUMES = ("ct", "organs", "tumour", "tumour_outline", "tumour_recal", "tumour_recal_outline", "reference_outline")  # what the viewer may draw; a scan lists the ones it has
 FILES = {f"{v}.nii.gz" for v in VOLUMES} | {"labels.json", "thumb.png"}
-SUMMARY_PARTS = ("segmentation", "body_composition", "lesions", "quality_audit", "recalibrated", "reference", "phase")
+SUMMARY_PARTS = ("segmentation", "body_composition", "lesions", "quality_audit", "recalibrated", "reference")
 DIST = os.environ.get("GLASSBOX_FRONTEND_DIST") or os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "dist")
 MAX_UPLOAD_MB = 300
 ASK_PER_MINUTE, ASK_PER_HOUR = 6, 120
@@ -67,8 +67,7 @@ def create_app(demo_dir: str, live=None, llm=None) -> FastAPI:
         """The Trusted / Review / Unreliable verdict, computed from the stored tool results (deterministic; shared with the audit record)."""
         try:
             les = json.load(open(os.path.join(d, "lesions.json"))); qa = json.load(open(os.path.join(d, "quality_audit.json")))["structures"][0]
-            ph = os.path.join(d, "phase.json")
-            return assess(les, qa, json.load(open(ph)) if os.path.exists(ph) else None)
+            return assess(les, qa)
         except (OSError, KeyError, IndexError, ValueError):
             return None
 
@@ -140,7 +139,7 @@ def create_app(demo_dir: str, live=None, llm=None) -> FastAPI:
             r = simulate(m, body.baseline_mm, body.change, body.bright_baseline, body.bright_followup, n=1500, persistence=body.persistence)
         except ValueError as e:
             raise HTTPException(422, str(e))
-        r["fixture"] = bool(m.get("fixture")); return r
+        r["persistence_sweep"] = persistence_sweep(m, body.baseline_mm, body.change, body.bright_baseline, body.bright_followup); r["grid_summary"] = m.get("grid_summary"); r["fixture"] = bool(m.get("fixture")); return r
 
     @app.get("/api/scans/{scan_id}/audit.json")
     def audit_json(scan_id: str):

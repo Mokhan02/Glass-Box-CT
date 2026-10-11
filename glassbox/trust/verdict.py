@@ -1,6 +1,6 @@
 """Trusted / Review / Unreliable, for a whole scan and for each lesion, with plain reasons that each name the tool result they come from.
 The rules are a transparent product heuristic, written down here and not tuned on the demo scans: they combine the quality flag (the only validated signal, AUROC 0.925 in
-cross-validation), the known bright-tumour blind spot (results/SUMMARY.md), the contrast-phase heuristic (results/trust/PREREG.md), and simple size and fragment rules.
+cross-validation), the known bright-tumour blind spot judged from the MEASURED tumour-minus-liver contrast (results/SUMMARY.md), and simple size and fragment rules.
 This is a statement about how far a MEASUREMENT can be relied on. It is never a diagnosis."""
 from __future__ import annotations
 
@@ -27,21 +27,20 @@ def is_fragment(l: dict) -> bool:
     return l["longest_axial_diameter"]["value"] < FRAGMENT_MM or l["volume"]["value"] < FRAGMENT_CM3
 
 
-def blind_spot(lesions: dict, phase: dict | None) -> list[dict]:
-    """The situation in which this model tends to miss tumours: tumour brighter than the surrounding liver, or an arterial-like phase (research heuristic)."""
+def blind_spot(lesions: dict) -> list[dict]:
+    """The situation in which this model tends to miss tumours: the predicted tumour is brighter than the surrounding liver (measured contrast only; the contrast-phase heuristic is
+    not used here because it agreed with the reference contrast sign no better than chance, kappa 0.04, results/SUMMARY.md section 7)."""
     out = []
     c = (lesions or {}).get("tumour_liver_contrast")
     if c and c["value"] > 0:
         out.append(_r("bright_tumour", f"The predicted tumour is brighter than the surrounding liver ({c['value']} HU). This model is known to miss some liver tumours in that situation (research finding).", "measure_lesions", REVIEW))
-    if phase and phase.get("estimate") == "arterial-like":
-        out.append(_r("arterial_phase", f"The scan looks arterial-phase by a research heuristic (aorta {phase['aorta_hu']['value']} HU); liver tumours are often brighter than liver in that phase.", "phase_check", REVIEW))
     return out
 
 
-def assess(lesions: dict | None, quality: dict | None, phase: dict | None = None) -> dict:
-    """lesions: lesions.json, quality: the tumour entry of quality_audit.json['structures'], phase: phase.json or None. Returns the scan verdict and one per lesion."""
+def assess(lesions: dict | None, quality: dict | None) -> dict:
+    """lesions: lesions.json, quality: the tumour entry of quality_audit.json['structures']. Returns the scan verdict and one per lesion."""
     lesions = lesions or {}; ls = lesions.get("lesions") or []; reasons: list[dict] = []; level = TRUSTED
-    bad = blind_spot(lesions, phase)
+    bad = blind_spot(lesions)
     if quality is None or not quality.get("assessed"):
         level = REVIEW; reasons.append(_r("no_tumour", "No tumour was predicted. That does not mean there is none: on held-out data about one lesion in five was largely missed.", "quality_audit", REVIEW))
     else:
@@ -54,8 +53,6 @@ def assess(lesions: dict | None, quality: dict | None, phase: dict | None = None
             level = REVIEW; reasons.append(_r("flag_near", f"The quality flag is not triggered but is close (probability {p}, flagged at {thr:.2f}).", "quality_audit", REVIEW))
         else:
             reasons.append(_r("flag_ok", f"The quality flag is quiet (probability {p} that the segmentation is wrong){why}.", "quality_audit", TRUSTED))
-    if phase and phase.get("estimate") == "unenhanced":
-        level = max(level, REVIEW, key=ORDER.get); reasons.append(_r("unenhanced", f"The scan looks unenhanced (aorta {phase['aorta_hu']['value']} HU); this model's tumour measurements were only examined on contrast-enhanced scans.", "phase_check", REVIEW))
     for b in bad:
         level = max(level, REVIEW, key=ORDER.get); reasons.append(b)
     nfrag = sum(is_fragment(l) for l in ls)

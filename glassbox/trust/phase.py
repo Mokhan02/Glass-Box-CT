@@ -14,6 +14,7 @@ from glassbox.agent.tools import qty
 UNENHANCED_BELOW, ARTERIAL_FROM, PV_ENHANCED = 100.0, 200.0, 100.0   # HU
 MIN_VOLUME_MM3 = 200 * 1.5 ** 3
 SLAB_MM = 20.0
+STATUS = "unvalidated heuristic (agreement with reference contrast sign at chance level, kappa 0.04)"  # results/SUMMARY.md section 7; the estimate is kept in the audit record only
 RULE = "research heuristic v1 (thresholds from the literature, fixed before checking on HCC-TACE-Seg; results/trust/PREREG.md)"
 FAMILY = {"arterial": "arterial-like", "venous": "venous-like", "delayed": "venous-like", "unenhanced": "unenhanced"}
 

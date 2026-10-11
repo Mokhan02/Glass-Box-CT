@@ -37,6 +37,25 @@
  "notice": "SIMULATED: generated from a fitted bias model, not real patients.",
  "fixture": false,
  "source": "per-lesion measurements of the NV-Segment-CT hepatic-tumour class on the clean 89-case HCC-TACE-Seg cohort (saved logits; default logit > 0 vs recalibrated logit > -3.0)",
+ "grid_summary": {
+  "n_scenarios": 304,
+  "by_persistence": {
+   "0.0": {
+    "share_calibration_dependent": 0.5263157894736842,
+    "default_wrong_more_often_than_recal": 0.9407894736842105
+   },
+   "0.5": {
+    "share_calibration_dependent": 0.4868421052631579,
+    "default_wrong_more_often_than_recal": 0.9407894736842105
+   },
+   "1.0": {
+    "share_calibration_dependent": 0.4309210526315789,
+    "default_wrong_more_often_than_recal": 0.9375
+   }
+  },
+  "mean_abs_change_in_p_differ_0_to_1": 0.09813808277883691,
+  "note": "share of simulated scenarios in which the default and recalibrated thresholds give different RECIST categories in at least 25% of draws"
+ },
  "presets": [
   {
    "label": "Simulated patient A: true PR, bright to bright",

@@ -12,7 +12,6 @@ import AskBox from "./AskBox";
 import Suggestion from "./Suggestion";
 import { EASE } from "../lib/motion";
 import { minus } from "../lib/format";
-import findings from "../data/findings.json";
 
 const fade = { initial: { opacity: 0, y: 8 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.25, ease: EASE } };
 const H = ({ children }) => <h3 className="eyebrow mb-3">{children}</h3>;
@@ -55,16 +54,6 @@ export default function AgentPanel({ meta, all, summary, report, error, mode, se
 
           <Suggestion recal={summary.recalibrated} flagged={flagged} mode={mode} setMode={setMode} />
 
-          {summary.phase && summary.phase.estimate ? (
-            <section className="border-t border-white/[0.07] py-5" aria-label="Contrast phase"><H>Contrast phase <span className="ml-1 normal-case tracking-normal text-caution">research heuristic</span></H>
-              <div className="flex flex-wrap items-baseline gap-x-6 gap-y-1">
-                <span className="text-[20px] font-medium capitalize">{summary.phase.estimate}</span>
-                <span className="text-[13px] text-ink-dim">aorta {summary.phase.aorta_hu ? <><span className="num text-ink">{summary.phase.aorta_hu.value}</span> <span className="unit">HU</span></> : "not measurable"} · portal vein {summary.phase.portal_vein_hu ? <><span className="num text-ink">{summary.phase.portal_vein_hu.value}</span> <span className="unit">HU</span></> : "not measurable"}</span>
-              </div>
-              <p className="mt-2 text-[12px] leading-relaxed text-ink-dim">{summary.phase.note} Estimated from the model's own aorta and portal-vein masks with literature thresholds; not a validated classifier. On <span className="num">{findings.phase.n.value}</span> HCC scans it agreed with the reference contrast sign no better than chance (kappa <span className="num">{findings.phase.kappa.value}</span>, CI <span className="num">{minus(findings.phase.kappa.ci[0])}</span> to <span className="num">{findings.phase.kappa.ci[1]}</span>), and the miss rate was higher when the warning fired (<span className="num">{findings.phase.fires.value}%</span> vs <span className="num">{findings.phase.quiet.value}%</span>) but the difference is not statistically clear (<span className="num">{findings.phase.diff.value}</span> points, 95% CI <span className="num">{minus(findings.phase.diff.ci[0])}</span> to <span className="num">{findings.phase.diff.ci[1]}</span>). Treat it as a prompt to check, not a measurement.</p>
-            </section>
-          ) : null}
-
           <section className="border-t border-white/[0.07] py-5" aria-label="Threshold"><H>Threshold</H><RecalToggle recal={summary.recalibrated} mode={mode} setMode={setMode} /></section>
 
           {sorted.length ? <section className="border-t border-white/[0.07] py-5" aria-label="Lesions"><H>Lesions</H><LesionsTable lesions={sorted} trust={summary.trust} onJump={onJump} /></section> : null}
@@ -92,7 +81,7 @@ export default function AgentPanel({ meta, all, summary, report, error, mode, se
           ) : null}
 
           <section className="border-t border-white/[0.07] py-5" aria-label="Audit record"><H>Audit record</H>
-            <p className="text-[13px] leading-relaxed text-ink-dim">Everything behind this verdict in one file: model and checkpoint hash, thresholds, phase estimate, flag score and reasons, default vs recalibrated values, the agent's report and the tool-call log, with an integrity checksum.</p>
+            <p className="text-[13px] leading-relaxed text-ink-dim">Everything behind this verdict in one file: model and checkpoint hash, thresholds, flag score and reasons, default vs recalibrated values, the agent's report and the tool-call log, with an integrity checksum.</p>
             <div className="mt-3 flex flex-wrap gap-2"><a className="btn-pill" href={`/api/scans/${meta ? meta.id : report.scan_id}/audit.pdf`} download>Download PDF</a><a className="btn-pill" href={`/api/scans/${meta ? meta.id : report.scan_id}/audit.json`} download>Download JSON</a></div>
           </section>
 

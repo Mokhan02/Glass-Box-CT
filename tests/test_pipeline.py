@@ -201,3 +201,12 @@ def test_audit_record_is_complete_tamper_evident_and_downloadable_as_json_and_pd
 def test_pdf_text_helper_maps_typographic_characters_the_builtin_font_cannot_draw():
     from glassbox.trust.audit import pdf_safe
     assert pdf_safe("tumour\u2011liver \u2212 8.4 HU \u2265 20% \u2192 ok \u201cx\u201d \u4e2d") == 'tumour-liver - 8.4 HU >= 20% -> ok "x" ?'
+
+
+def test_phase_estimate_is_kept_in_the_audit_record_only_and_labelled_unvalidated(tmp_path):
+    from fastapi.testclient import TestClient
+    from glassbox.app.server import create_app
+    from glassbox.trust.audit import build_audit
+    path, probs = _scan(str(tmp_path)); root = os.path.join(str(tmp_path), "res"); build_results(path, probs, root, "s", {"source": "synthetic"}); json.dump({"scans": []}, open(os.path.join(root, "index.json"), "w"))
+    rec = build_audit(root, "s"); assert rec["phase"]["used_in_verdict"] is False and "unvalidated heuristic" in rec["phase"]["status"] and "kappa 0.04" in rec["phase"]["status"] and "at chance level" in rec["phase"]["status"]
+    assert "phase" not in TestClient(create_app(root)).get("/api/scans/s/summary").json()  # nothing about phase reaches the main UI payload

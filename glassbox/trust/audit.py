@@ -12,6 +12,7 @@ import subprocess
 from datetime import datetime, timezone
 
 from glassbox.app.report import RESULT_FILES, make_report
+from glassbox.trust.phase import STATUS as PHASE_STATUS
 from glassbox.trust.verdict import assess, sentence
 
 HERE = os.path.dirname(__file__)
@@ -45,7 +46,7 @@ def _digest(rec: dict) -> str:
 
 def build_audit(demo_dir: str, scan_id: str, llm=None, now: datetime | None = None) -> dict:
     d = os.path.join(demo_dir, scan_id); rep = make_report(demo_dir, scan_id, llm=llm); les, qa, ph, rc = _load(d, "lesions.json"), _load(d, "quality_audit.json"), _load(d, "phase.json"), _load(d, "recalibrated.json")
-    q = qa["structures"][0] if qa else None; trust = assess(les, q, ph) if les else None; idx = _load(demo_dir, "index.json") or {"scans": []}; meta = next((s for s in idx["scans"] if s["id"] == scan_id), {})
+    q = qa["structures"][0] if qa else None; trust = assess(les, q) if les else None; idx = _load(demo_dir, "index.json") or {"scans": []}; meta = next((s for s in idx["scans"] if s["id"] == scan_id), {})
     rec = {
         "record_version": RECORD_VERSION, "purpose": "Audit of an AI lesion measurement: what was measured, by which model and settings, and how far it can be trusted. Research use only; not a diagnosis.",
         "generated_at": (now or datetime.now(timezone.utc)).isoformat(timespec="seconds"),
@@ -54,7 +55,7 @@ def build_audit(demo_dir: str, scan_id: str, llm=None, now: datetime | None = No
         "software": {"glassbox_commit": _commit(), "report_version": rep.get("writer_sha") and "see agent.writer_sha"},
         "measurements": {"default": (rc or {}).get("default"), "recalibrated": (rc or {}).get("recalibrated"), "recalibrated_logit": (rc or {}).get("threshold_logit"), "lesions": (les or {}).get("lesions"),
                          "sum_of_target_diameters": (les or {}).get("sum_of_target_diameters"), "tumour_liver_contrast": (les or {}).get("tumour_liver_contrast"), "reference_contrast_hu": meta.get("reference_contrast_hu")},
-        "quality_flag": q, "phase": ph or {"estimate": None, "note": "no phase estimate was stored for this scan"},
+        "quality_flag": q, "phase": {**ph, "status": PHASE_STATUS, "used_in_verdict": False} if ph else {"estimate": None, "status": PHASE_STATUS, "used_in_verdict": False, "note": "no phase estimate was stored for this scan"},
         "verdict": trust,
         "agent": {"mode": rep.get("mode"), "provider_host": rep.get("provider_host"), "models": rep.get("models"), "attempts": rep.get("attempts"), "report_generated_at": rep.get("generated_at"), "cached": rep.get("cached"),
                   "report": rep.get("report"), "number_check_ok": rep.get("ok"), "unsupported_numbers": rep.get("unsupported_numbers"), "missing_units": rep.get("missing_units"), "writer_sha": rep.get("writer_sha"), "note": rep.get("note")},
@@ -108,7 +109,7 @@ def audit_pdf(rec: dict) -> bytes:
     qf = rec.get("quality_flag") or {}; st += [Paragraph("Quality flag", h), Paragraph(f"Flag: <b>{e(str(qf.get('flag')))}</b>; estimated probability that the segmentation is wrong {e(str(qf.get('failure_probability')))} (threshold {e(str(qf.get('flag_threshold_probability')))}). Validated on: {e(str(qf.get('validated_on')))}.", base)]
     st += [Paragraph(f"&bull; {e(d['name'])} pushes toward {e(d['pushes_toward'])} (weight {d['weight_fraction']})", base) for d in (qf.get("drivers") or [])]
     ph = rec["phase"]; hu = lambda k: (f"{ph[k]['value']} HU" if ph.get(k) else "not measurable")  # noqa: E731
-    st += [Paragraph("Contrast phase (research heuristic)", h), Paragraph(f"Estimate: <b>{e(ph['estimate'])}</b>; aorta {e(hu('aorta_hu'))}; portal vein {e(hu('portal_vein_hu'))}. {e(ph.get('note') or '')}" if ph.get("estimate") else "No phase estimate was stored for this scan.", base)]
+    st += [Paragraph("Contrast phase (not used in the verdict)", h), Paragraph(f"Estimate: <b>{e(ph['estimate'])}</b>; aorta {e(hu('aorta_hu'))}; portal vein {e(hu('portal_vein_hu'))}. {e(ph.get('note') or '')}" if ph.get("estimate") else "No phase estimate was stored for this scan.", base), Paragraph(e(PHASE_STATUS) + ". Shown for the record only; the verdict uses the measured tumour-minus-liver contrast.", small)]
     m = rec["model"]; a = rec["agent"]; st += [Paragraph("Model, settings and software", h), Paragraph(f"{e(m['name'])}, network {e(m['network'])}. Checkpoint SHA-256 <font size=7>{e(m['checkpoint_sha256'])}</font>. Licence: {e(m['license'])}.", base),
            Paragraph(f"Default threshold: logit {rec['thresholds']['default_logit']:g} (probability {rec['thresholds']['default_probability']}); recalibrated: logit {rec['thresholds']['recalibrated_logit']:g} (probability {rec['thresholds']['recalibrated_probability']}). Software commit {e(str(rec['software']['glassbox_commit']))}.", base),
            Paragraph("Agent report", h), Paragraph(f"Written by {e(str(a['mode']))} ({e(str(a.get('provider_host')))}; models {e(json.dumps(a.get('models')))}); number check {'passed' if a.get('number_check_ok') else 'NOT passed'}.", small)]

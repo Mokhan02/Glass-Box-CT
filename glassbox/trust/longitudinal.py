@@ -106,6 +106,16 @@ def simulate(model: dict, baseline_mm: list[float], change: float, bright_baseli
     return res
 
 
+def persistence_sweep(model: dict, baseline_mm: list[float], change: float, bright_baseline: bool, bright_followup: bool, n: int = 1000, seed: int = 1, levels=(0.0, 0.5, 1.0)) -> list[dict]:
+    """SIMULATED. The same scenario at several persistence assumptions: how often the two thresholds disagree, whether that crosses the flagging bar, and how often each is wrong."""
+    out = []
+    for lv in levels:
+        r = simulate(model, baseline_mm, change, bright_baseline, bright_followup, n=n, seed=seed, persistence=lv)
+        out.append({"persistence": lv, "probability_differ": r["calibration_dependent"]["probability_default_and_recalibrated_differ"], "flag": r["calibration_dependent"]["flag"], "modal": r["calibration_dependent"]["modal"],
+                    "wrong_default": r["methods"]["default"]["wrong_probability"], "wrong_recal": r["methods"]["recal"]["wrong_probability"]})
+    return out
+
+
 def _illustrative_pair(t0: np.ndarray, t1: np.ndarray, seed: int) -> dict:
     """SIMULATED lesion positions for the display: baseline lesions 60 mm apart, follow-up positions jittered by a few mm, then matched exactly as real scans would be."""
     rng = np.random.default_rng(seed + 7); a = [{"centroid_mm": [60.0 * i, 0.0, 0.0], "diameter_mm": float(d)} for i, d in enumerate(t0)]
