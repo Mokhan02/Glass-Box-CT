@@ -17,3 +17,10 @@ These come from reading the shipped code (quoted with file and line in `results/
 - **With several classes prompted together, overlaps are resolved by argmax over the class logits**, with no priority order.
 - **On held-out HCC CT the tumour class under-measures lesions, always in the same direction.** See `results/` and the write-up before using it for RECIST-style measurements.
 
+
+## Data attribution (HCC-TACE-Seg, CC BY 4.0)
+The sample scans in the demo are from the HCC-TACE-Seg collection on The Cancer Imaging Archive (TCIA), licensed CC BY 4.0. They are public, de-identified research CT, shown here only as research examples.
+- Dataset: Moawad, A. W., Fuentes, D., Morshid, A., Khalaf, A. M., Elmohr, M. M., Abusaif, A., Hazle, J. D., Kaseb, A. O., Hassan, M., Mahvash, A., Szklaruk, J., Qayyom, A., Elsayes, K. (2021). *Multimodality annotated HCC cases with and without advanced imaging segmentation (HCC-TACE-Seg)* [Data set]. The Cancer Imaging Archive. https://doi.org/10.7937/TCIA.5FNA-0924
+- Data paper: Moawad, A. W. et al. (2023). Multimodality annotated hepatocellular carcinoma data set including pre- and post-TACE with imaging segmentation. *Scientific Data* 10, 33. https://doi.org/10.1038/s41597-023-01928-3
+- TCIA: Clark, K. et al. (2013). The Cancer Imaging Archive (TCIA): maintaining and operating a public information repository. *Journal of Digital Imaging* 26(6), 1045-1057. https://doi.org/10.1007/s10278-013-9622-7
+The scans were resampled for viewing; the segmentations shown are this model's output, not the dataset's annotations.
