@@ -1,0 +1,72 @@
+{
+ "n_lesions": 101,
+ "n_bright": 36,
+ "methods": {
+  "default": {
+   "detect_coef": [
+    -4.544577583537047,
+    1.6331861074763296,
+    -1.7844713906737206
+   ],
+   "size_coef": [
+    6.985504648753415,
+    0.8114378808158281,
+    -11.98178489251056
+   ],
+   "size_sd": 15.977719384895973,
+   "n_detected": 78,
+   "median_error_mm_detected": -10.869999999999997
+  },
+  "recal": {
+   "detect_coef": [
+    -5.061385986666173,
+    2.0274740316819293,
+    -1.5708713443832385
+   ],
+   "size_coef": [
+    18.462659649293684,
+    0.8341727864566344,
+    -13.341383641121626
+   ],
+   "size_sd": 19.319053671255308,
+   "n_detected": 90,
+   "median_error_mm_detected": 0.6149999999999984
+  }
+ },
+ "simulated": true,
+ "notice": "SIMULATED: generated from a fitted bias model, not real patients.",
+ "fixture": false,
+ "source": "per-lesion measurements of the NV-Segment-CT hepatic-tumour class on the clean 89-case HCC-TACE-Seg cohort (saved logits; default logit > 0 vs recalibrated logit > -3.0)",
+ "presets": [
+  {
+   "label": "Simulated patient A: true PR, bright to bright",
+   "baseline_mm": [
+    60.0,
+    30.0
+   ],
+   "change": -0.35,
+   "bright_baseline": true,
+   "bright_followup": true
+  },
+  {
+   "label": "Simulated patient B: true SD, bright to bright",
+   "baseline_mm": [
+    60.0,
+    30.0
+   ],
+   "change": -0.3,
+   "bright_baseline": true,
+   "bright_followup": true
+  },
+  {
+   "label": "Simulated patient C: true PD, dark to bright (phase change)",
+   "baseline_mm": [
+    60.0,
+    30.0
+   ],
+   "change": 0.2,
+   "bright_baseline": false,
+   "bright_followup": true
+  }
+ ]
+}

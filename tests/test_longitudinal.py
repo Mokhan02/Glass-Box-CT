@@ -52,3 +52,8 @@ def test_api_serves_only_a_real_model_and_labels_every_response_simulated(tmp_pa
     assert r["simulated"] is True and "not real patients" in r["notice"] and r["fixture"] is True and r["pair"]["matching"]["matched"] == [[0, 0], [1, 1]]
     assert c.post("/api/longitudinal/simulate", json={"baseline_mm": [3], "change": 0.1}).status_code == 422 and c.post("/api/longitudinal/simulate", json={"baseline_mm": [50], "change": 9}).status_code == 422
     assert c.post("/api/longitudinal/simulate", json={"baseline_mm": [8, 9], "change": 0.1}).status_code == 422  # no measurable target lesion
+
+
+def test_persistence_makes_a_lesions_misses_carry_over_and_reduces_spurious_category_changes():
+    m = fit_bias_model(_rows()); free = simulate(m, [60, 40], 0.0, True, True, n=1500, persistence=0.0); stuck = simulate(m, [60, 40], 0.0, True, True, n=1500, persistence=1.0)
+    assert stuck["methods"]["default"]["wrong_probability"] < free["methods"]["default"]["wrong_probability"] and stuck["persistence"] == 1.0 and free["persistence"] == 0.0

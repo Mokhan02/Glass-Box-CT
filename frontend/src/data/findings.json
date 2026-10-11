@@ -271,5 +271,35 @@
       "value": "This is the nested analysis; the pre-registered analysis, whose thresholds were chosen on these same scans, gave a lower over-estimation rate and passed its shipping rule, and the nested one does not.",
       "src": "**Applied to this analysis, the pre-registered shipping rule is NOT met**"
     }
+  },
+  "phase": {
+    "kappa": {
+      "value": "0.04",
+      "ci": [
+        "-0.16",
+        "0.24"
+      ],
+      "src": "kappa 0.04 (CI -0.16 to 0.24)"
+    },
+    "fires": {
+      "value": "28",
+      "src": "28% (11% to 46%) when the blind-spot warning fires vs 17% (8% to 28%) when quiet"
+    },
+    "quiet": {
+      "value": "17",
+      "src": "28% (11% to 46%) when the blind-spot warning fires vs 17% (8% to 28%) when quiet"
+    },
+    "diff": {
+      "value": "+11",
+      "ci": [
+        "-9",
+        "+31"
+      ],
+      "src": "a difference of +11 points (95% CI -9 to +31)"
+    },
+    "n": {
+      "value": "89",
+      "src": "Estimates on the 89 cases"
+    }
   }
 }

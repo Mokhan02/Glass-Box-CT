@@ -1,0 +1,76 @@
+{
+ "n_cases": 89,
+ "estimates": {
+  "arterial-like": 21,
+  "venous-like": 65,
+  "unenhanced": 3,
+  "indeterminate": 0
+ },
+ "arterial_vs_ref_contrast_positive": {
+  "cases": 89,
+  "both": 8,
+  "x_only": 13,
+  "y_only": 23,
+  "neither": 45,
+  "agreement": 0.5955056179775281,
+  "kappa": 0.036680697534575965,
+  "agreement_ci": [
+   0.4943820224719101,
+   0.6966292134831461
+  ],
+  "kappa_ci": [
+   -0.16254289131662336,
+   0.24019653275860672
+  ]
+ },
+ "venous_vs_ref_contrast_nonpositive": {
+  "cases": 86,
+  "both": 42,
+  "x_only": 23,
+  "y_only": 13,
+  "neither": 8,
+  "agreement": 0.5813953488372093,
+  "kappa": 0.023343848580441796
+ },
+ "miss_rate": {
+  "warning_fires": {
+   "n": 25,
+   "rate": 0.28,
+   "ci": [
+    0.10526315789473684,
+    0.46153846153846156
+   ]
+  },
+  "warning_quiet": {
+   "n": 64,
+   "rate": 0.171875,
+   "ci": [
+    0.08333333333333333,
+    0.2758885941644561
+   ]
+  },
+  "arterial_like": {
+   "n": 21,
+   "rate": 0.3333333333333333,
+   "ci": [
+    0.13043478260869565,
+    0.5384615384615384
+   ]
+  },
+  "not_arterial_like": {
+   "n": 68,
+   "rate": 0.16176470588235295,
+   "ci": [
+    0.078125,
+    0.25757575757575757
+   ]
+  },
+  "difference_fires_minus_quiet": {
+   "mean": 0.10812500000000003,
+   "ci": [
+    -0.08502597402597402,
+    0.3144323576888382
+   ]
+  }
+ }
+}

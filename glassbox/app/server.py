@@ -41,6 +41,7 @@ class SimRequest(BaseModel):
     change: float
     bright_baseline: bool = False
     bright_followup: bool = False
+    persistence: float = 0.5
 
 
 def create_app(demo_dir: str, live=None, llm=None) -> FastAPI:
@@ -133,10 +134,10 @@ def create_app(demo_dir: str, live=None, llm=None) -> FastAPI:
         m = long_model()
         if m is None:
             return JSONResponse({"error": "The two-timepoint bias model is not installed on this server."}, status_code=503)
-        if not (1 <= len(body.baseline_mm) <= 3) or any(not 5 <= d <= 250 for d in body.baseline_mm) or not -0.95 <= body.change <= 1.5:
+        if not (1 <= len(body.baseline_mm) <= 3) or any(not 5 <= d <= 250 for d in body.baseline_mm) or not -0.95 <= body.change <= 1.5 or not 0 <= body.persistence <= 1:
             raise HTTPException(422, "baseline_mm: 1 to 3 sizes of 5 to 250 mm; change: -0.95 to 1.5")
         try:
-            r = simulate(m, body.baseline_mm, body.change, body.bright_baseline, body.bright_followup, n=1500)
+            r = simulate(m, body.baseline_mm, body.change, body.bright_baseline, body.bright_followup, n=1500, persistence=body.persistence)
         except ValueError as e:
             raise HTTPException(422, str(e))
         r["fixture"] = bool(m.get("fixture")); return r

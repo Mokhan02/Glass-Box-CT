@@ -15,6 +15,7 @@ import numpy as np
 SIMULATED = "SIMULATED: generated from a fitted bias model, not real patients."
 CATEGORIES = ("CR", "PR", "SD", "PD")
 MEASURABLE_MM = 10.0
+DEFAULT_PERSISTENCE = 0.5
 DISAGREE_FLAG = 0.25   # "response depends on calibration" when default and recalibrated categories differ in at least this share of simulated draws
 MODEL_PATH = os.environ.get("GLASSBOX_LONGITUDINAL_MODEL") or os.path.join(os.path.dirname(__file__), "longitudinal_model.json")
 
@@ -84,19 +85,21 @@ def _measure(method: dict, true_mm: np.ndarray, bright: bool, u: np.ndarray, z: 
     return np.where(u < p, np.maximum(mu + sd * z, 0.0), 0.0)
 
 
-def simulate(model: dict, baseline_mm: list[float], change: float, bright_baseline: bool, bright_followup: bool, n: int = 2000, seed: int = 1) -> dict:
+def simulate(model: dict, baseline_mm: list[float], change: float, bright_baseline: bool, bright_followup: bool, n: int = 2000, seed: int = 1, persistence: float = DEFAULT_PERSISTENCE) -> dict:
     """SIMULATED. True target lesions of `baseline_mm` all change by `change` (e.g. -0.25). Measure both timepoints under each threshold with common random numbers and report the
-    RECIST category distribution, the mean measured sums, how often each is wrong, and how often the two thresholds disagree."""
+    RECIST category distribution, the mean measured sums, how often each is wrong, and how often the two thresholds disagree.
+    `persistence` (0 to 1) is how much a lesion's detection draw carries over between the two visits: 0 = independent misses (exaggerates flips), 1 = the same lesion is missed or found in
+    the same way both times unless its size change moves it across the threshold. The truth is in between; the default is a stated modelling assumption, not a fitted quantity."""
     t0 = np.array([d for d in baseline_mm if d >= MEASURABLE_MM][:2], float)
     if t0.size == 0:
         raise ValueError("needs at least one baseline lesion of 10 mm or more")
     t1 = t0 * (1 + change); truth = recist_category(float(t0.sum()), float(t1.sum())); rng = np.random.default_rng(seed)
-    u0, u1, z0, z1 = rng.random((n, t0.size)), rng.random((n, t0.size)), rng.standard_normal((n, t0.size)), rng.standard_normal((n, t0.size)); res: dict = {"simulated": True, "notice": SIMULATED, "truth": {"category": truth, "baseline_sum_mm": float(t0.sum()), "followup_sum_mm": float(t1.sum()), "change": change}, "methods": {}}; cats = {}
+    u0, u1f, z0, z1 = rng.random((n, t0.size)), rng.random((n, t0.size)), rng.standard_normal((n, t0.size)), rng.standard_normal((n, t0.size)); keep = rng.random((n, t0.size)) < persistence; u1 = np.where(keep, u0, u1f); res: dict = {"simulated": True, "notice": SIMULATED, "truth": {"category": truth, "baseline_sum_mm": float(t0.sum()), "followup_sum_mm": float(t1.sum()), "change": change}, "methods": {}}; cats = {}
     for k in ("default", "recal"):
         m0 = np.array([_measure(model["methods"][k], t0, bright_baseline, u0[i], z0[i]) for i in range(n)]); m1 = np.array([_measure(model["methods"][k], t1, bright_followup, u1[i], z1[i]) for i in range(n)])
         s0, s1 = m0.sum(1), m1.sum(1); c = np.array([recist_category(a, b) if a > 0 else "n/a" for a, b in zip(s0, s1)]); cats[k] = c
         res["methods"][k] = {"category_probability": {x: float((c == x).mean()) for x in CATEGORIES}, "baseline_not_measurable": float((c == "n/a").mean()), "mean_baseline_sum_mm": float(s0.mean()), "mean_followup_sum_mm": float(s1.mean()), "wrong_probability": float((c != truth).mean())}
-    res["pair"] = _illustrative_pair(t0, t1, seed)
+    res["persistence"] = persistence; res["pair"] = _illustrative_pair(t0, t1, seed)
     both = (cats["default"] != "n/a") & (cats["recal"] != "n/a"); pd = float((cats["default"][both] != cats["recal"][both]).mean()) if both.any() else 0.0
     res["calibration_dependent"] = {"probability_default_and_recalibrated_differ": pd, "flag": pd >= DISAGREE_FLAG, "rule": f"flag when the two thresholds give different categories in at least {DISAGREE_FLAG:.0%} of simulated draws",
                                     "modal": {k: max(CATEGORIES, key=lambda x, k=k: res["methods"][k]["category_probability"][x]) for k in cats}}
