@@ -10,7 +10,7 @@ import threading
 import time
 
 from fastapi import FastAPI, File, HTTPException, UploadFile
-from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
+from fastapi.responses import FileResponse, JSONResponse, Response, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
@@ -18,6 +18,7 @@ from glassbox.agent.ask import MAX_QUESTION, ask_events
 from glassbox.agent.backends import PrecomputedBackend
 from glassbox.agent.tools import ToolBox
 from glassbox.app.report import make_report
+from glassbox.trust.audit import audit_pdf, build_audit
 from glassbox.trust.verdict import assess
 
 SCAN_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.-]{0,80}$")
@@ -106,6 +107,16 @@ def create_app(demo_dir: str, live=None, llm=None) -> FastAPI:
             except Exception as e:  # provider error mid-question: say so, never a stack trace
                 yield json.dumps({"type": "answer", "answer": "The language model is unavailable right now, so I can't answer. The report and measurements above still work.", "ok": False, "refused": False, "error": type(e).__name__}) + "\n"
         return StreamingResponse(stream(), media_type="application/x-ndjson", headers={"Cache-Control": "no-store"})
+
+    @app.get("/api/scans/{scan_id}/audit.json")
+    def audit_json(scan_id: str):
+        scan_dir(scan_id)
+        return Response(json.dumps(build_audit(demo_dir, scan_id, llm=llm), indent=1), media_type="application/json", headers={"Content-Disposition": f'attachment; filename="glassbox-audit-{scan_id}.json"'})
+
+    @app.get("/api/scans/{scan_id}/audit.pdf")
+    def audit_pdf_file(scan_id: str):
+        scan_dir(scan_id)
+        return Response(audit_pdf(build_audit(demo_dir, scan_id, llm=llm)), media_type="application/pdf", headers={"Content-Disposition": f'attachment; filename="glassbox-audit-{scan_id}.pdf"'})
 
     @app.get("/api/scans/{scan_id}/files/{name}")
     def files(scan_id: str, name: str):

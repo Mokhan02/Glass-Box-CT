@@ -1,0 +1,21 @@
+{
+  "name": "NVIDIA NV-Segment-CT (VISTA-3D)",
+  "network": "vista3d132 (MONAI bundle; 132 label indices)",
+  "source": "https://huggingface.co/nvidia/NV-Segment-CT",
+  "checkpoint_file": "vista3d_pretrained_model/model.pt",
+  "checkpoint_sha256": "c92bab26d00b4a5d89fa8a383900cdeb88302fd318e5e816df0bbec7106d9a1b",
+  "license": "NVIDIA Open Model License (weights are not redistributed in this repository)",
+  "used_frozen": true,
+  "inference": {
+    "spacing_mm": 1.5,
+    "window": [
+      128,
+      128,
+      128
+    ],
+    "overlap": 0.3,
+    "foreground_rule": "logit > 0 (probability > 0.5)",
+    "tumour_class": 26,
+    "tumour_class_prompted_explicitly": true
+  }
+}

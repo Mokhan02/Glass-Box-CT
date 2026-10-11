@@ -51,6 +51,16 @@ export default function AgentPanel({ meta, all, summary, report, error, mode, se
             {why ? <p className="mt-3 text-[12px] leading-relaxed text-ink-dim">{why}</p> : null}
           </section>
 
+          {summary.phase && summary.phase.estimate ? (
+            <section className="border-t border-white/[0.07] py-5" aria-label="Contrast phase"><H>Contrast phase <span className="ml-1 normal-case tracking-normal text-caution">research heuristic</span></H>
+              <div className="flex flex-wrap items-baseline gap-x-6 gap-y-1">
+                <span className="text-[20px] font-medium capitalize">{summary.phase.estimate}</span>
+                <span className="text-[13px] text-ink-dim">aorta {summary.phase.aorta_hu ? <><span className="num text-ink">{summary.phase.aorta_hu.value}</span> <span className="unit">HU</span></> : "not measurable"} · portal vein {summary.phase.portal_vein_hu ? <><span className="num text-ink">{summary.phase.portal_vein_hu.value}</span> <span className="unit">HU</span></> : "not measurable"}</span>
+              </div>
+              <p className="mt-2 text-[12px] leading-relaxed text-ink-dim">{summary.phase.note} Estimated from the model's own aorta and portal-vein masks with literature thresholds; not a validated classifier.</p>
+            </section>
+          ) : null}
+
           <section className="border-t border-white/[0.07] py-5" aria-label="Threshold"><H>Threshold</H><RecalToggle recal={summary.recalibrated} mode={mode} setMode={setMode} /></section>
 
           {sorted.length ? <section className="border-t border-white/[0.07] py-5" aria-label="Lesions"><H>Lesions</H><LesionsTable lesions={sorted} trust={summary.trust} onJump={onJump} /></section> : null}
@@ -76,6 +86,11 @@ export default function AgentPanel({ meta, all, summary, report, error, mode, se
               {bc.available ? <div className="space-y-2 text-[13px] text-ink-dim"><p>Psoas and paraspinal muscle at L3: <span className="num text-ink">{bc.psoas_paraspinal_area.value}</span> <span className="unit">cm2</span> · psoas alone <span className="num text-ink">{bc.psoas_area.value}</span> <span className="unit">cm2</span> · mean density <span className="num text-ink">{bc.mean_muscle_density.value}</span> <span className="unit">HU</span></p><p className="text-[12px]">{bc.label}</p></div> : <p className="text-[13px] text-ink-dim">Not available: {bc.reason}</p>}
             </Collapsible>
           ) : null}
+
+          <section className="border-t border-white/[0.07] py-5" aria-label="Audit record"><H>Audit record</H>
+            <p className="text-[13px] leading-relaxed text-ink-dim">Everything behind this verdict in one file: model and checkpoint hash, thresholds, phase estimate, flag score and reasons, default vs recalibrated values, the agent's report and the tool-call log, with an integrity checksum.</p>
+            <div className="mt-3 flex flex-wrap gap-2"><a className="btn-pill" href={`/api/scans/${meta ? meta.id : report.scan_id}/audit.pdf`} download>Download PDF</a><a className="btn-pill" href={`/api/scans/${meta ? meta.id : report.scan_id}/audit.json`} download>Download JSON</a></div>
+          </section>
 
           <Collapsible title="Evidence">
             <ul className="space-y-1 text-[12px] text-ink-dim">{(report.evidence || []).map((e) => <li key={e.tool}><span aria-hidden="true" className={e.ok ? "text-accent" : "text-failure"}>{e.ok ? "✓" : "✗"}</span> <code className="num">{e.tool}</code> {e.ok ? "" : e.error}</li>)}</ul>

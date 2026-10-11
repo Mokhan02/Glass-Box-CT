@@ -179,3 +179,25 @@ def test_every_scan_gets_a_phase_estimate_next_to_its_other_results(tmp_path):
     path, probs = _scan(str(tmp_path)); out = os.path.join(str(tmp_path), "res"); r = build_results(path, probs, out, "s", {"source": "synthetic", "dicom_tags": {"SeriesDescription": "Arterial"}})
     ph = json.load(open(os.path.join(out, "s", "phase.json"))); assert ph["estimate"] in ("unenhanced", "arterial-like", "venous-like", "indeterminate") and ph["rule"].startswith("research heuristic")
     assert ph["tag_hint"] == "arterial" and r["phase"]["estimate"] == ph["estimate"] and "portal vein" in json.load(open(os.path.join(out, "s", "labels.json")))["organs"].values()
+
+
+def test_audit_record_is_complete_tamper_evident_and_downloadable_as_json_and_pdf(tmp_path):
+    from fastapi.testclient import TestClient
+    from glassbox.app.server import create_app
+    from glassbox.trust.audit import build_audit, verify_audit
+    path, probs = _scan(str(tmp_path), tumour_hu=140.0); root = os.path.join(str(tmp_path), "res"); build_results(path, probs, root, "s", {"source": "synthetic", "dataset": "synthetic"}, recal_logit=-3.0)
+    json.dump({"scans": [{"id": "s", "source": {"dataset": "synthetic", "case": "x", "license": "none"}}]}, open(os.path.join(root, "index.json"), "w"))
+    rec = build_audit(root, "s")
+    for k in ("scan", "model", "thresholds", "software", "measurements", "quality_flag", "phase", "verdict", "agent", "tool_call_log", "limitations", "inputs_sha256", "integrity", "generated_at"):
+        assert k in rec, k
+    assert len(rec["model"]["checkpoint_sha256"]) == 64 and rec["thresholds"]["recalibrated_logit"] == -3.0 and rec["measurements"]["recalibrated"] and {x["tool"] for x in rec["tool_call_log"]} == {"segment_ct", "body_composition", "measure_lesions", "quality_audit"}
+    assert verify_audit(rec) and rec["verdict"]["level"] in ("Trusted", "Review", "Unreliable")
+    rec["verdict"]["level"] = "Trusted" if rec["verdict"]["level"] != "Trusted" else "Review"; assert not verify_audit(rec)  # an edit is detectable
+    c = TestClient(create_app(root)); j = c.get("/api/scans/s/audit.json"); pdf = c.get("/api/scans/s/audit.pdf")
+    assert j.status_code == 200 and "attachment" in j.headers["content-disposition"] and verify_audit(j.json())
+    assert pdf.status_code == 200 and pdf.content[:5] == b"%PDF-" and len(pdf.content) > 2000 and c.get("/api/scans/nope/audit.pdf").status_code in (400, 404)
+
+
+def test_pdf_text_helper_maps_typographic_characters_the_builtin_font_cannot_draw():
+    from glassbox.trust.audit import pdf_safe
+    assert pdf_safe("tumour\u2011liver \u2212 8.4 HU \u2265 20% \u2192 ok \u201cx\u201d \u4e2d") == 'tumour-liver - 8.4 HU >= 20% -> ok "x" ?'

@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+from datetime import datetime, timezone
 
 from glassbox.agent.agent import DISCLAIMER, MAX_ATTEMPTS, REPORT_PROMPT, run_agent
 from glassbox.agent.backends import PrecomputedBackend
@@ -94,6 +95,7 @@ def make_report(demo_dir: str, scan_id: str, llm=None, refresh: bool = False) ->
     else:
         out = _template(tb, scan_id)
     out["inputs_sha"], out["writer_sha"], out["cached"] = sha, wsha, False
+    out["generated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
     if not out.get("note"):  # a fallback because the provider failed is not cached: the next request tries the language model again
         json.dump(out, open(cache, "w"), indent=1)
     return out
