@@ -107,3 +107,33 @@ class ActivationRecorder:
         return {
             f"{name}_{field}": torch.cat(v).numpy() for name, d in self._out.items() for field, v in d.items()
         }
+
+
+class RoiTokenRecorder(ActivationRecorder):
+    """Like ActivationRecorder, but keeps only the tokens whose cell lies (>= 50%) inside a region of interest and stores no
+    per-token labels or HU (those are computed afterwards from full-volume masks). Used by the voxel-probe experiment.
+    No air subsampling: every in-ROI token from every window is kept; `patch` records the window."""
+
+    def __init__(self, network, roi_volume, seed: int = 0):
+        super().__init__(network, roi_volume.long(), n_labels=1, seed=seed)  # padded label: 0 = outside image, 1 = not ROI, 2 = ROI
+        self._out = {k: {"x": [], "xyz": [], "patch": []} for k in HOOKS}
+
+    def _ingest(self, p: int) -> None:
+        sl = self.coords[p]
+        starts = [s.start for s in sl]
+        lab = self.label[tuple(slice(s.start, s.stop) for s in sl)]
+        roi_w = (lab == 2).float()[None, None]
+        for name, (stride, pool) in HOOKS.items():
+            x = self._cur[name]
+            if pool > 1:
+                x = F.avg_pool3d(x, pool)
+            g = x.shape[-1]
+            assert g * stride == PATCH_SIZE[0], (name, tuple(x.shape))
+            frac = F.avg_pool3d(roi_w.to(x.device), stride)[0, 0]
+            ii = torch.stack(torch.meshgrid(*[torch.arange(g)] * 3, indexing="ij"), -1).to(x.device)
+            xyz = ii * stride + stride // 2 + torch.tensor(starts, device=x.device) - torch.tensor(self.before, device=x.device)
+            keep = (frac >= 0.5).flatten()
+            o = self._out[name]
+            o["x"].append(x[0].flatten(1).T[keep].half().cpu())
+            o["xyz"].append(xyz.reshape(-1, 3)[keep].short().cpu())
+            o["patch"].append(torch.full((int(keep.sum()),), p, dtype=torch.int16))

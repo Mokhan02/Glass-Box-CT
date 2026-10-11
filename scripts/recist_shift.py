@@ -2,8 +2,9 @@
 Longest axial diameter of a lesion = largest in-plane Feret distance (max distance between convex-hull vertices) over its axial slices,
 in mm using the CT's in-plane voxel size. Lesions are 3D connected components restricted to annotated slices (same as the Dice rule).
 Per RECIST 1.1 a measurable target is >= 10 mm, up to 2 targets in one organ (here: the 2 largest GT lesions).
-A GT target is 'detected' if any predicted component overlaps it; its predicted diameter is the largest among overlapping components
-(a miss counts as 0 mm). Per case we compare the SUM of target diameters, which is what RECIST response is judged on.
+A GT target is 'detected' if predicted voxels cover at least 10% of its volume (a single overlapping voxel is not a detection: a visual check
+found a lesion counted that way with a 0 mm prediction); 'detected_any' (any overlap) is also reported. Its predicted diameter is the largest
+among overlapping components (a miss counts as 0 mm). Per case we compare the SUM of target diameters, which is what RECIST response is judged on.
 Threshold-crossing proxy (no baseline/follow-up pairs exist in this data): RECIST calls partial response at a >= 30% decrease in the sum
 and progression at a >= 20% (and >= 5 mm) increase. A case whose measurement error alone is that large could change category from
 measurement error alone, so we count cases with relative error beyond +/-20% and +/-30%. This is a proxy, not a response analysis.
@@ -59,9 +60,12 @@ for f in sorted(os.listdir(predd)):
     pdiam = {l["id"]: l["diam"] for l in pl}
     sg = sp = 0.0
     for l in gl:
-        ov = np.unique(plab[(glab == l["id"]) & (plab > 0)])
-        pd_ = max([pdiam[o] for o in ov], default=0.0)
-        per_lesion.append({"case": case, "gt": l["diam"], "pred": pd_, "detected": len(ov) > 0})
+        gmask = glab == l["id"]
+        ov = np.unique(plab[gmask & (plab > 0)])
+        frac = float((pred & gmask).sum()) / max(int(gmask.sum()), 1)
+        det = frac >= 0.10
+        pd_ = max([pdiam[o] for o in ov], default=0.0) if det else 0.0
+        per_lesion.append({"case": case, "gt": l["diam"], "pred": pd_, "detected": det, "detected_any": len(ov) > 0, "cover": frac})
         sg += l["diam"]; sp += pd_
     per_case.append({"case": case, "gt_sum": sg, "pred_sum": sp, "rel": (sp - sg) / sg, "n_targets": len(gl), "missed": any(not p["detected"] for p in per_lesion[-len(gl):])})
     print(f"{case[:16]:17s} targets {len(gl)} GT sum {sg:6.1f} mm  pred sum {sp:6.1f} mm  rel err {(sp - sg) / sg:+.2f}", flush=True)
@@ -69,7 +73,7 @@ for f in sorted(os.listdir(predd)):
 L = per_lesion; det = [l for l in L if l["detected"]]
 err = np.array([l["pred"] - l["gt"] for l in det])
 print(f"\n{len(per_case)} cases with >=1 measurable (>=10 mm) GT target; {len(L)} target lesions")
-print(f"lesions detected (any overlap): {len(det)}/{len(L)} = {len(det) / len(L):.2f}")
+print(f"lesions detected (>=10% of volume covered): {len(det)}/{len(L)} = {len(det) / len(L):.2f}   | any overlap at all: {sum(l['detected_any'] for l in L)}/{len(L)}")
 print(f"diameter error on detected lesions (pred - GT): median {np.median(err):+.1f} mm, median |error| {np.median(np.abs(err)):.1f} mm, IQR of |error| {np.percentile(np.abs(err), 25):.1f}-{np.percentile(np.abs(err), 75):.1f} mm")
 rel = np.array([c["rel"] for c in per_case]); gsum = np.array([c["gt_sum"] for c in per_case])
 print(f"sum-of-diameters relative error per case: median {np.median(rel):+.2f}, median |rel| {np.median(np.abs(rel)):.2f}")
@@ -83,13 +87,13 @@ print(f"restricted to cases where every target was detected (n={len(full)}): med
 # By lesion size: is the bias concentrated in small tumours? (Dice punishes small structures, but mm error and relative error need not.)
 import csv as _csv
 with open(os.path.join(predd, "..", "recist_lesions.csv"), "w", newline="") as f:
-    w = _csv.DictWriter(f, fieldnames=["case", "gt", "pred", "detected"]); w.writeheader(); w.writerows(L)
-print("\nby GT lesion diameter (target lesions):")
-print(f"{'bin':>10s} {'n':>4s} {'detected':>9s} {'median err (mm)':>16s} {'median rel err':>15s} {'rel err <= -30%':>16s}")
-for lo, hi in ((10, 20), (20, 50), (50, 1e9)):
+    w = _csv.DictWriter(f, fieldnames=["case", "gt", "pred", "detected", "detected_any", "cover"]); w.writeheader(); w.writerows(L)
+print("\nby GT lesion diameter (target lesions; error columns use detected lesions only, relative error counts misses as -100%):")
+print(f"{'bin (mm)':>10s} {'n':>4s} {'detected':>9s} {'median err (mm)':>16s} {'median rel err':>15s} {'rel err <= -30%':>16s}")
+for lo, hi in ((10, 30), (30, 60), (60, 100), (100, 1e9)):
     sel = [l for l in L if lo <= l["gt"] < hi]
     if not sel:
         continue
     dt = [l for l in sel if l["detected"]]
-    e = np.array([l["pred"] - l["gt"] for l in dt]); rl = np.array([(l["pred"] - l["gt"]) / l["gt"] for l in sel])
+    e = np.array([l["pred"] - l["gt"] for l in dt]) if dt else np.array([np.nan]); rl = np.array([(l["pred"] - l["gt"]) / l["gt"] for l in sel])
     print(f"{lo:>4d}-{('inf' if hi > 1e8 else int(hi)):>5} {len(sel):4d} {len(dt) / len(sel):9.2f} {np.median(e):+16.1f} {np.median(rl):+15.2f} {(rl <= -0.3).mean():16.2f}")
