@@ -7,7 +7,6 @@ from __future__ import annotations
 import re
 
 import numpy as np
-from scipy import ndimage
 
 from glassbox.agent.tools import qty
 
@@ -20,6 +19,7 @@ FAMILY = {"arterial": "arterial-like", "venous": "venous-like", "delayed": "veno
 
 
 def _median_hu(ct: np.ndarray, mask: np.ndarray, zooms, z_range: tuple[int, int] | None) -> tuple[float | None, int]:
+    from scipy import ndimage   # imported here: the serve image has no scipy and only needs STATUS
     m = ndimage.binary_erosion(mask.astype(bool), iterations=1)
     if z_range is not None:
         keep = np.zeros_like(m); keep[:, :, z_range[0]:z_range[1] + 1] = True; m &= keep
