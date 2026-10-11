@@ -1,0 +1,47 @@
+{
+ "n_cases": 89,
+ "n_cases_with_both_det_and_miss_voxels": 82,
+ "max_abs_recon_error": 0.0110015869140625,
+ "mean_logit_gap_detected_minus_missed": 5.547975239654323,
+ "heldout_top8_share": 0.7704915616506476,
+ "heldout_top8_share_ci": [
+  0.7578930991919473,
+  0.781702734587977
+ ],
+ "verdict_concentration": "CLEARLY CONCENTRATED",
+ "min_k_for_50pct_all_data_optimistic": 5,
+ "top8_channels_all_data": [
+  36,
+  20,
+  10,
+  22,
+  18,
+  30,
+  17,
+  7
+ ],
+ "bright_minus_dark_gap_total": -3.5344619750976562,
+ "bright_dark_share_same_top8": 0.7572613954544067,
+ "bright_dark_share_ci_reselected_each_bootstrap": [
+  0.7065163686871528,
+  0.825470845401287
+ ],
+ "spearman_D_vs_B": -0.9541901867129831,
+ "spearman_ci": [
+  -0.9787315458098134,
+  -0.8515604646113768
+ ],
+ "same_channels_for_bright_dark": false,
+ "cos_w_vs_probe_direction_all": 0.35462966561317444,
+ "cos_w_vs_probe_direction_per_fold": [
+  0.3252798318862915,
+  0.3418142795562744,
+  0.35985738039016724,
+  0.395207017660141,
+  0.3288057744503021
+ ],
+ "counts": {
+  "bright_cases": 31,
+  "dark_cases": 58
+ }
+}

@@ -1,0 +1,4 @@
+# Deviations / notes for the mechanistic follow-up
+
+## 1. Sign convention of the "same channels for bright vs dark" rule (found after seeing A's result)
+PREREG A defined D_j = detected minus missed and B_j = bright minus dark, then required a POSITIVE Spearman correlation between them for "same channels". Bright tumours have LOWER logits than dark ones (B_j sums negative) while detected voxels have HIGHER logits than missed ones (D_j sums positive), so a real overlap shows up as a strongly NEGATIVE correlation, which the rule as written cannot count. The literal pre-registered verdict is reported unchanged ("same channels" = false). The sign-aware reading (|Spearman| with the opposite sign, i.e. bright tumours look like missed voxels in the same channels) is POST HOC and is labelled exploratory wherever it appears. No other rule was changed. Written after A's result had been read (A ran 2026-10-11 before this note).
