@@ -1,0 +1,52 @@
+{
+ "0|mid": {
+  "alpha": 1.5,
+  "t": -0.5,
+  "steer_fp_cm3_on_subset": 1.049119
+ },
+ "0|bottleneck": {
+  "alpha": 1.5,
+  "t": -0.25,
+  "steer_fp_cm3_on_subset": 1.0091249999999998
+ },
+ "1|mid": {
+  "alpha": 1.5,
+  "t": -0.5,
+  "steer_fp_cm3_on_subset": 0.15676850000000003
+ },
+ "1|bottleneck": {
+  "alpha": 1.5,
+  "t": -0.5,
+  "steer_fp_cm3_on_subset": 0.152887
+ },
+ "2|mid": {
+  "alpha": 1.5,
+  "t": -0.5,
+  "steer_fp_cm3_on_subset": 1.422901
+ },
+ "2|bottleneck": {
+  "alpha": 1.5,
+  "t": -0.5,
+  "steer_fp_cm3_on_subset": 1.41615
+ },
+ "3|mid": {
+  "alpha": 1.5,
+  "t": -0.5,
+  "steer_fp_cm3_on_subset": 1.795333
+ },
+ "3|bottleneck": {
+  "alpha": 1.5,
+  "t": -0.75,
+  "steer_fp_cm3_on_subset": 1.9996879999999997
+ },
+ "4|mid": {
+  "alpha": 1.5,
+  "t": -0.75,
+  "steer_fp_cm3_on_subset": 2.0862554999999996
+ },
+ "4|bottleneck": {
+  "alpha": 1.5,
+  "t": -0.5,
+  "steer_fp_cm3_on_subset": 1.8079869999999996
+ }
+}
