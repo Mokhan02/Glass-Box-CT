@@ -23,6 +23,7 @@ ap.add_argument("--n-boot", type=int, default=1000)
 ap.add_argument("--skip-recovery", action="store_true")
 ap.add_argument("--cohort", default="all", choices=["all", "single_acquisition", "uid_route"], help="sensitivity cohorts (DEVIATIONS.md #2); all = the pre-registered primary analysis")
 ap.add_argument("--acq", default="cache/hcc_acq_check.csv")
+ap.add_argument("--random-groups-from-trained", action="store_true", help="DEVIATIONS.md #3: define the random-init control's token groups from the TRAINED model on identical tokens (default off)")
 a = ap.parse_args()
 os.makedirs(a.out, exist_ok=True)
 # ---- pre-registered constants (PREREG.md) ----
@@ -112,6 +113,12 @@ def auroc_ci(score, mask1, mask0, pid):
 
 print(f"{P} patients (uid {sum(r == 'uid' for r in route.values())}, geometry {sum(r == 'geometry' for r in route.values())}); loading tokens ...", flush=True)
 data = {m: load(m) for m in ("trained", "random")}
+if a.random_groups_from_trained:
+    for h in LAYERS:  # same windows and ROI in both extractions, so tokens must line up exactly; only the activations differ
+        t, r = data["trained"][0][h], data["random"][0][h]
+        assert np.array_equal(t["xyz"], r["xyz"]) and np.array_equal(t["pid"], r["pid"]) and np.array_equal(t["is_tum"], r["is_tum"]), f"trained and random tokens differ at {h}"
+        for k in ("pred_cov", "edt"):
+            r[k] = t[k].copy()
 vol = np.array([data["trained"][1][c]["gt_tumour_mm3"] for c in cases]); small = vol < np.median(vol)
 is_geo = np.array([route[c] == "geometry" for c in cases]); is_uid = ~is_geo
 rows, store = [], {}
@@ -235,7 +242,12 @@ if represents and (late_a or late_b): verdict = "LOST LATE: the encoder represen
 elif represents: verdict = "ENCODER REPRESENTS the missed tissue (and the pre-registered 'lost late' criteria are not met)"
 elif never: verdict = "NEVER REPRESENTED: the mid-encoder probe does not beat the raw-HU control"
 else: verdict = "INCONCLUSIVE"
-rand_note = "random-init CI overlaps trained CI" if rnd["ci_high"] >= enc["ci_low"] and rnd["ci_low"] <= enc["ci_high"] else "random-init CI separate from trained"
+if not np.isfinite(rnd["interior_FN_rate"]):
+    rand_note = "random-init control NOT AVAILABLE (empty FN group; see DEVIATIONS.md #3)"
+elif rnd["ci_high"] >= enc["ci_low"] and rnd["ci_low"] <= enc["ci_high"]:
+    rand_note = "random-init CI overlaps trained CI"
+else:
+    rand_note = "random-init CI separate from trained"
 dec_out = {"rule": "PREREG.md", "R_enc": enc["interior_FN_rate"], "CI_enc": [enc["ci_low"], enc["ci_high"]], "R_hu": hu["interior_FN_rate"], "CI_hu": [hu["ci_low"], hu["ci_high"]], "X": X_RATE,
            "represents": bool(represents), "never": bool(never), "decoder_F_rate": dec["interior_FN_rate"], "decoder_minus_mid": [float(dpoint), float(dlo), float(dhi)], "late_criterion_a": bool(late_a),
            "median_FN_logit": head["interior_FN_logit_median"], "late_criterion_b": bool(late_b), "random_init_rate": rnd["interior_FN_rate"], "random_init_CI": [rnd["ci_low"], rnd["ci_high"]], "random_note": rand_note, "verdict": verdict}

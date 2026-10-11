@@ -25,3 +25,14 @@ Each entry says what changed, why, and when relative to seeing any probe result.
 - Code change: `scripts/voxel_probe_analyze.py` gains `--cohort {all,single_acquisition,uid_route}` (default `all` reproduces the primary analysis unchanged) and `--acq`. No change to probes, features, thresholds or the decision rule.
 - Data fix, separate from the analysis: a corrected conversion (one acquisition per series, the one the segmentation references, unresolved cases excluded and logged) is being built in a NEW directory (`cache/heldout_nii_clean/`);
   the directory the pre-registered extraction reads is not modified.
+
+## 3. The random-initialised control was invalid as implemented; corrected run added (found AFTER the primary results were visible)
+- **What went wrong:** `voxel_probe_extract.py` computed each token's predicted-tumour coverage from the network being probed. For the randomly initialised network that prediction is meaningless, its "FN" group came out
+  empty, and every random-init row in `probe_table.csv` is NaN (the decision file's `random_note` "random-init CI separate from trained" is therefore wrong: comparisons with NaN are false). The pre-registered
+  rule did not use the random model (PREREG.md calls it an "interpretation note"), so **the primary verdict is unaffected**, but the control is unavailable in the primary output.
+- **Timing and honesty:** noticed on reading the primary `probe_table.csv`, after the primary numbers and verdict were known. The fix is mechanical (it does not depend on any result): the control's token groups
+  (tumour / liver, predicted / missed, interior) must be those of the TRAINED model on identical tokens, with only the activations replaced by the random network's.
+- **Fix:** `scripts/voxel_probe_analyze.py --random-groups-from-trained` (default off, so every earlier run is reproduced unchanged). It asserts that the trained and random token tables have identical positions, copies the trained
+  model's group fields onto the random tokens, and everything else (folds, probe, capping, threshold, bootstrap) is unchanged. Output: `results/voxel_probe/random_control_corrected/`. Reported as a SUPPLEMENTARY result; it does not
+  replace or alter the primary decision.
+- The same limitation applies to the sensitivity cohorts launched earlier: their random-init rows are also NaN, for the same reason.
