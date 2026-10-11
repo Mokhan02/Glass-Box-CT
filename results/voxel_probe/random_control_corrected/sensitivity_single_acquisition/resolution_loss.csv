@@ -1,0 +1,4 @@
+layer,tumour_components,retained_with_a_tumour_token,vanished,cases_with_no_tumour_token,vanished_uid,vanished_geometry,median_mm3_vanished,median_mm3_retained
+mid,116,97,19,0,19/110,0/6,162.0,80173.125
+bottleneck,116,81,35,7,34/110,1/6,1890.0,123481.125
+decoder_F,116,97,19,0,19/110,0/6,162.0,80173.125

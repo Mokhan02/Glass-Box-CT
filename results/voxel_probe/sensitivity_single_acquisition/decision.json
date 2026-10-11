@@ -1,0 +1,32 @@
+{
+ "rule": "PREREG.md",
+ "R_enc": 0.6038469550725644,
+ "CI_enc": [
+  0.5709054272728382,
+  0.6763336660345132
+ ],
+ "R_hu": 0.08346642594264288,
+ "CI_hu": [
+  0.04142868628542722,
+  0.11495721056920004
+ ],
+ "X": 0.5,
+ "represents": true,
+ "never": false,
+ "decoder_F_rate": 0.7504339976390528,
+ "decoder_minus_mid": [
+  0.14658704256648847,
+  0.11628984326490831,
+  0.18962412322339647
+ ],
+ "late_criterion_a": false,
+ "median_FN_logit": -2.52734375,
+ "late_criterion_b": true,
+ "random_init_rate": NaN,
+ "random_init_CI": [
+  NaN,
+  NaN
+ ],
+ "random_note": "random-init CI separate from trained",
+ "verdict": "LOST LATE: the encoder represents the missed tissue and the loss happens later (decoder_F detection or head logits clearly lower)"
+}

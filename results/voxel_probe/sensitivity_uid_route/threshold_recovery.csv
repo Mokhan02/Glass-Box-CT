@@ -1,0 +1,4 @@
+subset,n_cases,mean_dice_threshold_0,mean_dice_recovered,dice_gain,gain_ci_low,gain_ci_high,recist_n_at_0,recist_median_rel_error_at_0,recist_frac_abs_ge_20pct_at_0,recist_frac_abs_ge_30pct_at_0,recist_frac_overestimate_ge_20pct_at_0,recist_n_recovered,recist_median_rel_error_recovered,recist_frac_abs_ge_20pct_recovered,recist_frac_abs_ge_30pct_recovered,recist_frac_overestimate_ge_20pct_recovered
+pooled,75,0.585277539814316,0.6618783077391606,0.07660076792484459,0.04018137774487249,0.11439724677445456,75,-0.19443707636732444,0.48,0.37333333333333335,0.0,75,-0.0339737688178095,0.29333333333333333,0.18666666666666668,0.08
+uid,75,0.585277539814316,0.6618783077391606,0.07660076792484459,0.043005351675838355,0.11442371259591513,75,-0.19443707636732444,0.48,0.37333333333333335,0.0,75,-0.0339737688178095,0.29333333333333333,0.18666666666666668,0.08
+geometry,0,nan,nan,nan,nan,nan,0,nan,nan,nan,nan,0,nan,nan,nan,nan

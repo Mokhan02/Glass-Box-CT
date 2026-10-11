@@ -1,0 +1,91 @@
+in_distribution,model,layer,features,probe,subset,interior_FN_rate,ci_low,ci_high,n_patients_with_interior_FN,interior_FN_tokens,patient_avg_rate,TP_rate,TP_ci_low,TP_ci_high,LIV_false_positive_rate,LIV_fpr_ci_low,LIV_fpr_ci_high,auroc_FN_vs_LIV,auroc_ci_low,auroc_ci_high
+False,trained,mid,activations,A,pooled,0.5873,0.5513,0.656,100,49372,0.6552,0.9017,0.8765,0.9282,0.0533,0.0434,0.0649,0.8925,0.8764,0.9138
+False,trained,mid,activations,A,uid,0.5826,0.5465,0.6642,73,42537,0.6799,0.9051,0.8785,0.9338,0.0464,0.0363,0.0576,,,
+False,trained,mid,activations,A,geometry,0.6161,0.4655,0.6831,27,6835,0.5884,0.8741,0.8083,0.9537,0.0723,0.0483,0.1011,,,
+False,trained,mid,activations,A,small tumours,0.568,0.4046,0.7247,48,2877,0.6832,0.9828,0.9563,0.9971,0.0526,0.0388,0.0692,,,
+False,trained,mid,activations,A,large tumours,0.5885,0.5504,0.6617,52,46495,0.6293,0.899,0.8733,0.9254,0.054,0.0401,0.0701,,,
+False,trained,mid,activations,B,pooled,0.6161,0.5894,0.6561,100,49372,0.6444,0.9389,0.9261,0.9497,0.0556,0.0446,0.0681,0.8935,0.8767,0.9073
+False,trained,mid,activations,B,uid,0.6218,0.5921,0.6719,73,42537,0.6838,0.9409,0.927,0.9529,0.0522,0.0391,0.0678,,,
+False,trained,mid,activations,B,geometry,0.5805,0.4155,0.65,27,6835,0.5377,0.9222,0.8974,0.946,0.0649,0.0457,0.0864,,,
+False,trained,mid,activations,B,small tumours,0.5568,0.398,0.7165,48,2877,0.6609,0.9823,0.9599,0.9959,0.0524,0.0401,0.0669,,,
+False,trained,mid,activations,B,large tumours,0.6197,0.5913,0.6614,52,46495,0.6292,0.9374,0.9244,0.9486,0.0592,0.0412,0.0807,,,
+False,trained,mid,rawHU,A,pooled,0.1137,0.0496,0.1459,100,49372,0.0633,0.2769,0.1666,0.3896,0.0547,0.0288,0.0842,0.6077,0.4839,0.6814
+False,trained,mid,rawHU,A,uid,0.108,0.029,0.1447,73,42537,0.0422,0.2674,0.1468,0.3942,0.037,0.0134,0.0716,,,
+False,trained,mid,rawHU,A,geometry,0.1494,0.0519,0.2399,27,6835,0.1203,0.3533,0.1435,0.5412,0.1034,0.0437,0.1754,,,
+False,trained,mid,rawHU,A,small tumours,0.1255,0.0279,0.2663,48,2877,0.0671,0.1113,0.0543,0.1812,0.0589,0.0276,0.0963,,,
+False,trained,mid,rawHU,A,large tumours,0.113,0.0427,0.1456,52,46495,0.0598,0.2824,0.1682,0.3975,0.0499,0.0123,0.1008,,,
+False,trained,mid,rawHU,B,pooled,0.1683,0.0933,0.2081,100,49372,0.0866,0.3661,0.2845,0.4496,0.0545,0.0414,0.0685,0.6089,0.4901,0.6788
+False,trained,mid,rawHU,B,uid,0.1701,0.08,0.2114,73,42537,0.0789,0.3641,0.27,0.4529,0.0488,0.0338,0.0662,,,
+False,trained,mid,rawHU,B,geometry,0.1571,0.0654,0.2352,27,6835,0.1075,0.3819,0.2151,0.4933,0.0701,0.0472,0.1035,,,
+False,trained,mid,rawHU,B,small tumours,0.1401,0.0445,0.2741,48,2877,0.0935,0.3402,0.2545,0.4452,0.0583,0.0434,0.0782,,,
+False,trained,mid,rawHU,B,large tumours,0.1701,0.0889,0.2097,52,46495,0.0802,0.3669,0.2804,0.451,0.05,0.0296,0.0745,,,
+False,trained,bottleneck,activations,A,pooled,0.8251,0.7955,0.8692,87,6135,0.757,0.9963,0.994,0.9982,0.0718,0.0551,0.0912,0.932,0.914,0.9573
+False,trained,bottleneck,activations,A,uid,0.8302,0.8015,0.8808,64,5447,0.7879,0.9965,0.9942,0.9982,0.0527,0.0417,0.0652,,,
+False,trained,bottleneck,activations,A,geometry,0.7849,0.5424,0.8833,23,688,0.6711,0.9943,0.9822,1.0,0.1269,0.0738,0.1915,,,
+False,trained,bottleneck,activations,A,small tumours,0.5937,0.4197,0.7815,36,315,0.6013,0.9877,0.9662,1.0,0.0711,0.0486,0.1032,,,
+False,trained,bottleneck,activations,A,large tumours,0.8376,0.8096,0.8875,51,5820,0.8669,0.9965,0.9941,0.9983,0.0727,0.0505,0.0951,,,
+False,trained,bottleneck,activations,B,pooled,0.8443,0.8167,0.8825,87,6135,0.806,0.9975,0.9951,0.9993,0.0599,0.047,0.0749,0.9504,0.9376,0.966
+False,trained,bottleneck,activations,B,uid,0.8557,0.8307,0.9022,64,5447,0.8616,0.9975,0.9948,0.9994,0.0509,0.0401,0.0633,,,
+False,trained,bottleneck,activations,B,geometry,0.7544,0.5234,0.8592,23,688,0.6513,0.9972,0.9907,1.0,0.0857,0.0498,0.1321,,,
+False,trained,bottleneck,activations,B,small tumours,0.6095,0.4261,0.8279,36,315,0.6994,0.9815,0.9454,1.0,0.0597,0.0411,0.0822,,,
+False,trained,bottleneck,activations,B,large tumours,0.857,0.8343,0.8993,51,5820,0.8812,0.9979,0.9954,0.9996,0.0601,0.0438,0.0774,,,
+False,trained,bottleneck,rawHU,A,pooled,0.2042,0.0715,0.2808,87,6135,0.063,0.3738,0.2819,0.4615,0.0546,0.0359,0.0774,0.628,0.4753,0.7225
+False,trained,bottleneck,rawHU,A,uid,0.2131,0.0603,0.2904,64,5447,0.0569,0.3706,0.2724,0.4652,0.0467,0.0277,0.074,,,
+False,trained,bottleneck,rawHU,A,geometry,0.1337,0.0238,0.1891,23,688,0.08,0.4031,0.1715,0.624,0.0774,0.039,0.1181,,,
+False,trained,bottleneck,rawHU,A,small tumours,0.1016,0.0255,0.21,36,315,0.0653,0.2469,0.0828,0.4634,0.0555,0.03,0.0893,,,
+False,trained,bottleneck,rawHU,A,large tumours,0.2098,0.0681,0.2863,51,5820,0.0614,0.3767,0.2829,0.467,0.0535,0.0288,0.0764,,,
+False,trained,bottleneck,rawHU,B,pooled,0.2142,0.0913,0.2834,87,6135,0.0706,0.4122,0.3251,0.4976,0.0526,0.0379,0.071,0.6325,0.4818,0.7246
+False,trained,bottleneck,rawHU,B,uid,0.2265,0.088,0.2947,64,5447,0.0746,0.4119,0.3166,0.5033,0.0506,0.0323,0.0754,,,
+False,trained,bottleneck,rawHU,B,geometry,0.1163,0.0123,0.1714,23,688,0.0593,0.4145,0.2105,0.6137,0.0582,0.035,0.089,,,
+False,trained,bottleneck,rawHU,B,small tumours,0.1079,0.0211,0.2236,36,315,0.0641,0.3086,0.1063,0.5472,0.0528,0.0308,0.0833,,,
+False,trained,bottleneck,rawHU,B,large tumours,0.2199,0.0894,0.2887,51,5820,0.0751,0.4145,0.3264,0.502,0.0523,0.0341,0.0694,,,
+False,trained,decoder_F,activations,A,pooled,0.7578,0.7216,0.8209,100,49372,0.7798,0.9997,0.9994,0.9999,0.0524,0.0408,0.066,0.9257,0.9103,0.9482
+False,trained,decoder_F,activations,A,uid,0.757,0.7203,0.833,73,42537,0.8262,0.9998,0.9995,1.0,0.0395,0.0308,0.0499,,,
+False,trained,decoder_F,activations,A,geometry,0.7624,0.6244,0.8237,27,6835,0.6544,0.999,0.9964,0.9999,0.0878,0.057,0.1304,,,
+False,trained,decoder_F,activations,A,small tumours,0.617,0.5123,0.7257,48,2877,0.7072,0.998,0.995,1.0,0.0497,0.0336,0.0705,,,
+False,trained,decoder_F,activations,A,large tumours,0.7665,0.7268,0.8404,52,46495,0.8469,0.9998,0.9995,1.0,0.0554,0.0427,0.0728,,,
+False,trained,decoder_F,activations,B,pooled,0.7257,0.6753,0.8157,100,49372,0.7738,0.9996,0.9991,0.9999,0.0528,0.0407,0.0662,0.9099,0.8916,0.9412
+False,trained,decoder_F,activations,B,uid,0.7285,0.6723,0.8384,73,42537,0.8234,0.9999,0.9996,1.0,0.0412,0.0321,0.0523,,,
+False,trained,decoder_F,activations,B,geometry,0.7086,0.6075,0.7949,27,6835,0.6397,0.9977,0.9943,1.0,0.0846,0.0539,0.1265,,,
+False,trained,decoder_F,activations,B,small tumours,0.6044,0.4927,0.718,48,2877,0.6934,0.999,0.9964,1.0,0.0491,0.033,0.0706,,,
+False,trained,decoder_F,activations,B,large tumours,0.7332,0.6782,0.8365,52,46495,0.848,0.9996,0.9991,0.9999,0.0569,0.0434,0.074,,,
+False,trained,decoder_F,rawHU,A,pooled,0.1096,0.0476,0.1414,100,49372,0.0619,0.2722,0.159,0.3889,0.0518,0.0279,0.0791,0.6066,0.485,0.6815
+False,trained,decoder_F,rawHU,A,uid,0.1051,0.0274,0.141,73,42537,0.0426,0.2647,0.1391,0.395,0.0344,0.0129,0.067,,,
+False,trained,decoder_F,rawHU,A,geometry,0.1377,0.0507,0.2328,27,6835,0.114,0.3323,0.1296,0.5215,0.0997,0.0429,0.1688,,,
+False,trained,decoder_F,rawHU,A,small tumours,0.1258,0.0269,0.2669,48,2877,0.0672,0.1068,0.0595,0.1666,0.0551,0.0274,0.0896,,,
+False,trained,decoder_F,rawHU,A,large tumours,0.1086,0.0404,0.1417,52,46495,0.0569,0.2777,0.162,0.3963,0.048,0.0119,0.0967,,,
+False,trained,decoder_F,rawHU,B,pooled,0.1663,0.0868,0.2095,100,49372,0.0843,0.3591,0.2721,0.4433,0.0523,0.0396,0.0659,0.6062,0.4889,0.6748
+False,trained,decoder_F,rawHU,B,uid,0.1691,0.0739,0.2139,73,42537,0.0773,0.3574,0.2595,0.4511,0.0461,0.0319,0.0634,,,
+False,trained,decoder_F,rawHU,B,geometry,0.1489,0.0582,0.2295,27,6835,0.1031,0.3727,0.2067,0.4824,0.0692,0.0462,0.1011,,,
+False,trained,decoder_F,rawHU,B,small tumours,0.1373,0.0398,0.2718,48,2877,0.0916,0.321,0.2305,0.4285,0.0555,0.0411,0.0745,,,
+False,trained,decoder_F,rawHU,B,large tumours,0.1681,0.0827,0.2121,52,46495,0.0775,0.3604,0.2703,0.4474,0.0485,0.0279,0.0724,,,
+False,random,mid,activations,A,pooled,0.0788,0.0605,0.0905,100,49372,0.0694,0.1949,0.1591,0.2369,0.0525,0.045,0.061,0.5632,0.5178,0.5874
+False,random,mid,activations,A,uid,0.0728,0.0485,0.0839,73,42537,0.0616,0.174,0.1421,0.2069,0.0481,0.0381,0.0592,,,
+False,random,mid,activations,A,geometry,0.1157,0.0846,0.1522,27,6835,0.0904,0.3626,0.2173,0.484,0.0645,0.0526,0.079,,,
+False,random,mid,activations,A,small tumours,0.0699,0.0463,0.0927,48,2877,0.0545,0.1177,0.079,0.1618,0.0574,0.0471,0.0695,,,
+False,random,mid,activations,A,large tumours,0.0793,0.0598,0.0919,52,46495,0.0831,0.1974,0.1603,0.2398,0.0469,0.0347,0.0597,,,
+False,random,mid,activations,B,pooled,0.086,0.06,0.1018,100,49372,0.0679,0.2381,0.1931,0.2862,0.0518,0.0439,0.0603,0.5702,0.5188,0.6018
+False,random,mid,activations,B,uid,0.0817,0.0471,0.0991,73,42537,0.0592,0.219,0.1752,0.264,0.0484,0.0384,0.0596,,,
+False,random,mid,activations,B,geometry,0.1124,0.0701,0.1615,27,6835,0.0916,0.3915,0.2303,0.53,0.0611,0.0493,0.0755,,,
+False,random,mid,activations,B,small tumours,0.0626,0.0444,0.0832,48,2877,0.06,0.163,0.1054,0.2251,0.055,0.0448,0.0661,,,
+False,random,mid,activations,B,large tumours,0.0874,0.0597,0.1045,52,46495,0.0753,0.2406,0.1944,0.2896,0.0481,0.0352,0.0619,,,
+False,random,bottleneck,activations,A,pooled,0.1407,0.0746,0.1778,87,6135,0.0638,0.1862,0.1487,0.2239,0.057,0.051,0.0631,0.5874,0.5253,0.6168
+False,random,bottleneck,activations,A,uid,0.1437,0.0681,0.1821,64,5447,0.0562,0.1843,0.1439,0.2239,0.055,0.0482,0.0622,,,
+False,random,bottleneck,activations,A,geometry,0.1163,0.0616,0.1443,23,688,0.085,0.2037,0.127,0.2541,0.0628,0.0509,0.0758,,,
+False,random,bottleneck,activations,A,small tumours,0.0667,0.0247,0.1232,36,315,0.0433,0.1667,0.0345,0.3529,0.0592,0.0505,0.0683,,,
+False,random,bottleneck,activations,A,large tumours,0.1447,0.076,0.1817,51,5820,0.0783,0.1866,0.1485,0.2243,0.0544,0.0456,0.0625,,,
+False,random,bottleneck,activations,B,pooled,0.1478,0.0808,0.1858,87,6135,0.0746,0.203,0.1604,0.2426,0.0575,0.051,0.0641,0.5977,0.5352,0.6301
+False,random,bottleneck,activations,B,uid,0.1544,0.0775,0.1917,64,5447,0.0725,0.2009,0.155,0.2443,0.0554,0.0477,0.0633,,,
+False,random,bottleneck,activations,B,geometry,0.0959,0.0457,0.1325,23,688,0.0803,0.2222,0.1217,0.2714,0.0634,0.0512,0.0764,,,
+False,random,bottleneck,activations,B,small tumours,0.0889,0.0374,0.1525,36,315,0.0887,0.1481,0.0476,0.274,0.0593,0.0505,0.0684,,,
+False,random,bottleneck,activations,B,large tumours,0.151,0.0803,0.1883,51,5820,0.0647,0.2042,0.16,0.2434,0.0552,0.0444,0.0647,,,
+False,random,decoder_F,activations,A,pooled,0.0872,0.0476,0.1099,100,49372,0.0606,0.1984,0.1331,0.2686,0.0529,0.0411,0.0658,0.583,0.5057,0.6241
+False,random,decoder_F,activations,A,uid,0.0871,0.0386,0.1143,73,42537,0.0543,0.1778,0.113,0.2494,0.0531,0.039,0.0682,,,
+False,random,decoder_F,activations,A,geometry,0.0878,0.0499,0.1034,27,6835,0.0776,0.3636,0.1201,0.4899,0.0522,0.032,0.0757,,,
+False,random,decoder_F,activations,A,small tumours,0.0525,0.0269,0.0838,48,2877,0.0513,0.1093,0.0644,0.1522,0.052,0.0377,0.0671,,,
+False,random,decoder_F,activations,A,large tumours,0.0893,0.0468,0.114,52,46495,0.0692,0.2013,0.1353,0.2735,0.0539,0.0344,0.077,,,
+False,random,decoder_F,activations,B,pooled,0.1344,0.0578,0.1742,100,49372,0.058,0.2174,0.1509,0.2914,0.0517,0.04,0.0645,0.6073,0.512,0.6567
+False,random,decoder_F,activations,B,uid,0.1403,0.0503,0.1819,73,42537,0.0562,0.2023,0.1308,0.2794,0.0535,0.0385,0.0694,,,
+False,random,decoder_F,activations,B,geometry,0.0982,0.0403,0.1252,27,6835,0.0628,0.339,0.1173,0.4533,0.0468,0.0301,0.0687,,,
+False,random,decoder_F,activations,B,small tumours,0.0428,0.0197,0.0684,48,2877,0.0378,0.126,0.0776,0.1788,0.0506,0.0368,0.0663,,,
+False,random,decoder_F,activations,B,large tumours,0.1401,0.0598,0.1797,52,46495,0.0766,0.2205,0.1531,0.2974,0.053,0.0346,0.0753,,,

@@ -1,0 +1,28 @@
+{
+ "interior_FN_voxels_sampled": 761832,
+ "interior_FN_logit_median": -2.40234375,
+ "interior_FN_logit_IQR": [
+  -4.23046875,
+  -1.0322265625
+ ],
+ "share_FN_within_1_logit_below_0": 0.2430850896260593,
+ "share_FN_below_minus_2": 0.5650379611252875,
+ "interior_TP_logit_median": 3.205078125,
+ "per_case_median_FN_logit_quartiles": [
+  -3.4140625,
+  -1.9931640625,
+  -1.34033203125
+ ],
+ "cases_with_interior_FN": 75,
+ "median_by_route": {
+  "uid": -1.9931640625,
+  "geometry": NaN
+ },
+ "thresholds_chosen_per_fold": {
+  "0": -2.5,
+  "1": -2.5,
+  "2": -3.0,
+  "3": -2.5,
+  "4": -2.5
+ }
+}

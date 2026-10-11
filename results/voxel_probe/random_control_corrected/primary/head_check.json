@@ -1,0 +1,21 @@
+{
+ "interior_FN_voxels_sampled": 995511,
+ "interior_FN_logit_median": -2.58984375,
+ "interior_FN_logit_IQR": [
+  -4.41796875,
+  -1.1162109375
+ ],
+ "share_FN_within_1_logit_below_0": 0.22639026590364145,
+ "share_FN_below_minus_2": 0.5902154772774987,
+ "interior_TP_logit_median": 3.154296875,
+ "per_case_median_FN_logit_quartiles": [
+  -3.65625,
+  -2.18359375,
+  -1.37451171875
+ ],
+ "cases_with_interior_FN": 103,
+ "median_by_route": {
+  "uid": -1.9931640625,
+  "geometry": -3.1728515625
+ }
+}

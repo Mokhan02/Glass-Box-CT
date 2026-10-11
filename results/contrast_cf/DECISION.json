@@ -1,0 +1,86 @@
+{
+ "rule": "results/contrast_cf/PREREG.md",
+ "verdict": "SUPPORTED",
+ "arm_A_meets_all_criteria": true,
+ "arm_B_meets_all_criteria": true,
+ "coverage": {
+  "A": {
+   "arm": "A",
+   "n": 62,
+   "median_delta_edit": -0.20840000000000003,
+   "ci_delta_edit": [
+    -0.2843,
+    -0.0975
+   ],
+   "median_delta_control": 0.055400000000000005,
+   "median_D": -0.30105000000000004,
+   "ci_D": [
+    -0.47040000000000004,
+    -0.18761375000000036
+   ],
+   "n_D_in_hypothesised_direction": 56,
+   "n_D_nonzero": 62,
+   "sign_test_p": 2.972584851879123e-11,
+   "n_flagged_edits": 10
+  },
+  "B": {
+   "arm": "B",
+   "n": 17,
+   "median_delta_edit": 0.23800000000000002,
+   "ci_delta_edit": [
+    0.001,
+    0.5631
+   ],
+   "median_delta_control": 0.0,
+   "median_D": 0.24200000000000002,
+   "ci_D": [
+    0.001,
+    0.5147412499999999
+   ],
+   "n_D_in_hypothesised_direction": 13,
+   "n_D_nonzero": 14,
+   "sign_test_p": 0.0018310546875,
+   "n_flagged_edits": 10
+  }
+ },
+ "lesion_dice_secondary": {
+  "A": {
+   "arm": "A",
+   "n": 62,
+   "median_delta_edit": -0.1624,
+   "ci_delta_edit": [
+    -0.28159999999999996,
+    -0.1064
+   ],
+   "median_delta_control": 0.054200000000000026,
+   "median_D": -0.25254999999999994,
+   "ci_D": [
+    -0.34630000000000005,
+    -0.13080000000000003
+   ],
+   "n_D_in_hypothesised_direction": 54,
+   "n_D_nonzero": 62,
+   "sign_test_p": 1.709326186236787e-09,
+   "n_flagged_edits": 10
+  },
+  "B": {
+   "arm": "B",
+   "n": 17,
+   "median_delta_edit": 0.3665,
+   "ci_delta_edit": [
+    0.002,
+    0.68285
+   ],
+   "median_delta_control": 0.0,
+   "median_D": 0.2912,
+   "ci_D": [
+    0.002,
+    0.67115
+   ],
+   "n_D_in_hypothesised_direction": 13,
+   "n_D_nonzero": 14,
+   "sign_test_p": 0.0018310546875,
+   "n_flagged_edits": 10
+  }
+ }
+}

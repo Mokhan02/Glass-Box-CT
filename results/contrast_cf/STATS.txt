@@ -1,0 +1,7 @@
+VERDICT (pre-registered rule): SUPPORTED
+
+COVERAGE (decision outcome) Arm A: dark tumours made bright (expect decrease): n=62 | median change with edit -0.208 [-0.284,-0.098] | median change with sign-keeping control +0.055 | edit minus control: median -0.301 [-0.470,-0.188] | sign test 56/62 in the hypothesised direction, p=0.0000 | edits flagged (realised mean >5 HU off target): 10
+COVERAGE (decision outcome) Arm B: bright, missed tumours made dark (expect increase): n=17 | median change with edit +0.238 [+0.001,+0.563] | median change with sign-keeping control +0.000 | edit minus control: median +0.242 [+0.001,+0.515] | sign test 13/14 in the hypothesised direction, p=0.0018 | edits flagged (realised mean >5 HU off target): 10
+
+LESION DICE (secondary) Arm A: dark tumours made bright (expect decrease): n=62 | median change with edit -0.162 [-0.282,-0.106] | median change with sign-keeping control +0.054 | edit minus control: median -0.253 [-0.346,-0.131] | sign test 54/62 in the hypothesised direction, p=0.0000 | edits flagged (realised mean >5 HU off target): 10
+LESION DICE (secondary) Arm B: bright, missed tumours made dark (expect increase): n=17 | median change with edit +0.366 [+0.002,+0.683] | median change with sign-keeping control +0.000 | edit minus control: median +0.291 [+0.002,+0.671] | sign test 13/14 in the hypothesised direction, p=0.0018 | edits flagged (realised mean >5 HU off target): 10
