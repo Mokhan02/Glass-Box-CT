@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { listScans, fileUrl } from "../lib/api";
+import { listScans, fileUrl, getHealth, getJSON } from "../lib/api";
 import { EASE } from "../lib/motion";
 import Chip from "../components/Chip";
 
@@ -27,9 +27,25 @@ function ScanCard({ s, i }) {
   );
 }
 
+function Upload({ live }) {
+  const nav = useNavigate(), [busy, setBusy] = useState(false), [err, setErr] = useState("");
+  const send = async (e) => {
+    const f = e.target.files[0]; if (!f) return; setBusy(true); setErr(""); const fd = new FormData(); fd.append("file", f);
+    try { const r = await getJSON("/api/segment", { method: "POST", body: fd }); nav(`/scan/${r.scan_id}`); } catch (x) { setErr(x.message); setBusy(false); }
+  };
+  return (
+    <div className={`glass mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 p-4 sm:p-5 ${live ? "" : "opacity-60"}`}>
+      <div className="min-w-[14rem] flex-1"><div className="eyebrow">Try your own scan {live ? null : <span className="ml-1.5 rounded-full border border-white/20 px-2 py-0.5 normal-case tracking-normal">coming soon</span>}</div>
+        <p className="mt-1 text-[13px] leading-relaxed text-ink-dim">{live ? "Upload a public or synthetic research CT (NIfTI). Never upload patient data." : "Segmenting your own scan needs a GPU backend, which this server does not have yet."}</p></div>
+      <label className={`btn-pill ${live ? "cursor-pointer" : "pointer-events-none cursor-not-allowed"}`} aria-disabled={!live}>{busy ? "Segmenting…" : "Choose a NIfTI file"}<input type="file" accept=".nii,.gz" className="sr-only" disabled={!live || busy} onChange={send} /></label>
+      {err ? <p role="alert" className="w-full text-[13px] text-failure">{err}</p> : null}
+    </div>
+  );
+}
+
 export default function Landing() {
-  const [data, setData] = useState(null), [err, setErr] = useState(""); const scans = data && data.scans;
-  useEffect(() => { listScans().then(setData).catch((e) => setErr(e.message)); }, []);
+  const [data, setData] = useState(null), [err, setErr] = useState(""), [live, setLive] = useState(false); const scans = data && data.scans;
+  useEffect(() => { listScans().then(setData).catch((e) => setErr(e.message)); getHealth().then((h) => setLive(!!h.live_segmentation)).catch(() => {}); }, []);
   return (
     <div className="mx-auto max-w-[1500px] px-4 pt-12 sm:px-6 sm:pt-20">
       <section className="max-w-3xl">
@@ -48,6 +64,7 @@ export default function Landing() {
         <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {(scans || []).map((s, i) => <ScanCard key={s.id} s={s} i={i} />)}
         </ul>
+        {scans ? <Upload live={live} /> : null}
         {scans ? <p className="mt-4 max-w-2xl text-[12px] leading-relaxed text-ink-dim">{data.selection_note}</p> : null}
       </section>
     </div>
