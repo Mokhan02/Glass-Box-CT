@@ -1,0 +1,50 @@
+{
+ "cos_probe_vs_original": 0.4800293445587158,
+ "cos_refit_vs_original_per_fold": [
+  0.678558886051178,
+  0.6534168124198914,
+  0.6802350282669067,
+  0.6516894102096558,
+  0.6036272048950195
+ ],
+ "projection_by_group": {
+  "bright (contrast>0)": {
+   "missed": {
+    "n_cases": 31,
+    "mean_projection_onto_original_readout": -1.7595248356942208,
+    "mean_projection_onto_probe_direction": -0.7924422650567947
+   },
+   "detected": {
+    "n_cases": 27,
+    "mean_projection_onto_original_readout": 1.0371970705412052,
+    "mean_projection_onto_probe_direction": 1.4309996173337654
+   }
+  },
+  "dark (contrast<=0)": {
+   "missed": {
+    "n_cases": 58,
+    "mean_projection_onto_original_readout": -1.087565896839931,
+    "mean_projection_onto_probe_direction": -0.20078398894261698
+   },
+   "detected": {
+    "n_cases": 56,
+    "mean_projection_onto_original_readout": 1.4928600266575813,
+    "mean_projection_onto_probe_direction": 1.7730186618864536
+   }
+  }
+ },
+ "exploratory_subgroups_dice": {
+  "bright (contrast>0)": {
+   "n": 31,
+   "dice_orig": 0.3164841815195659,
+   "dice_thr": 0.4771566984358545,
+   "dice_refit": 0.40121427489450284
+  },
+  "dark (contrast<=0)": {
+   "n": 58,
+   "dice_orig": 0.6821421329939923,
+   "dice_thr": 0.7186677530385669,
+   "dice_refit": 0.684618564058506
+  }
+ }
+}
