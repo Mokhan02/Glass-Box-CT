@@ -117,8 +117,9 @@ def steer(ctx, x, layer, step_vec):
 
 
 def write(path, rows):
+    names = list(dict.fromkeys(k for r in rows for k in r))
     with open(path, "w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=list(rows[0])); w.writeheader(); w.writerows(rows)
+        w = csv.DictWriter(f, fieldnames=names, restval=""); w.writeheader(); w.writerows(rows)
 
 
 rows, t0 = [], time.time()
