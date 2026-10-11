@@ -18,7 +18,7 @@ from scipy import ndimage
 from scipy.spatial import ConvexHull
 
 predd = sys.argv[1]
-root = "cache/heldout_nii/hcc_tace_seg"
+root = sys.argv[2] if len(sys.argv) > 2 else "cache/heldout_nii/hcc_tace_seg"  # second argument: converted-case directory (default: the original conversion)
 
 
 def feret(mask2d, sx, sy):

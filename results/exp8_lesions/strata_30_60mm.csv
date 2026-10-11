@@ -1,0 +1,31 @@
+subset,variable,n_missed,n_detected,median_missed,median_detected,mannwhitney_p,rank_biserial
+all lesions,|contrast| (HU),17,26,22.7348,13.9169,0.2481,-0.2127
+all lesions,tumour HU,17,26,104.5891,92.6789,0.911,-0.0226
+all lesions,liver HU (shell),17,26,97.4741,106.7834,0.0717,0.3303
+all lesions,aorta HU (arterial proxy),17,26,183.9822,165.4693,0.6281,-0.0905
+all lesions,whole-liver HU,17,26,100.2359,105.4283,0.1838,0.2443
+all lesions,best edge distance (mm),17,26,47.8577,58.2958,0.2481,0.2127
+all lesions,covering windows,17,26,4.0,4.0,0.6771,-0.0747
+all lesions,liver volume in window (cm3),17,26,1407.229,1452.6859,0.5933,0.0995
+all lesions,diameter (mm),17,26,40.354,48.0319,0.4053,0.1538
+all lesions,share |contrast| < 20 HU,17,26,0.4118,0.7308,nan,nan
+UID route only,|contrast| (HU),8,22,26.9442,13.5062,0.0134,-0.5909
+UID route only,tumour HU,8,22,108.5121,100.9346,0.696,-0.1023
+UID route only,liver HU (shell),8,22,95.2995,107.64,0.1067,0.3977
+UID route only,aorta HU (arterial proxy),8,22,205.2555,160.2979,0.4672,-0.1818
+UID route only,whole-liver HU,8,22,97.8466,105.4283,0.2505,0.2841
+UID route only,best edge distance (mm),8,22,48.4888,54.0961,0.5042,0.1705
+UID route only,covering windows,8,22,4.0,4.0,0.7837,0.0682
+UID route only,liver volume in window (cm3),8,22,1340.5997,1452.6859,0.9813,-0.0114
+UID route only,diameter (mm),8,22,42.1668,48.0319,0.8723,0.0455
+UID route only,share |contrast| < 20 HU,8,22,0.125,0.7273,nan,nan
+single-acquisition only,|contrast| (HU),12,22,23.4357,13.5062,0.1653,-0.2955
+single-acquisition only,tumour HU,12,22,89.956,100.9346,0.2717,0.2348
+single-acquisition only,liver HU (shell),12,22,85.7311,107.64,0.0123,0.5303
+single-acquisition only,aorta HU (arterial proxy),12,22,205.2555,160.2979,0.6785,-0.0909
+single-acquisition only,whole-liver HU,12,22,88.8155,105.4283,0.0455,0.4242
+single-acquisition only,best edge distance (mm),12,22,48.4888,54.0961,0.5283,0.1364
+single-acquisition only,covering windows,12,22,4.0,4.0,0.9697,-0.0114
+single-acquisition only,liver volume in window (cm3),12,22,1340.5997,1452.6859,0.5764,0.1212
+single-acquisition only,diameter (mm),12,22,39.5829,48.0319,0.5521,0.1288
+single-acquisition only,share |contrast| < 20 HU,12,22,0.3333,0.7273,nan,nan

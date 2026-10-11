@@ -1,0 +1,19 @@
+subset,model,n,events_missed,auroc,auroc_ci_low,auroc_ci_high,gain_over_size,gain_ci_low,gain_ci_high
+all lesions,size only,115,29,0.741,0.6179,0.8672,0.0,0.0,0.0
+all lesions,size + contrast,115,29,0.7173,0.5968,0.8401,-0.0237,-0.0445,-0.0087
+all lesions,size + phase,115,29,0.733,0.625,0.8434,-0.008,-0.0806,0.0571
+all lesions,size + position,115,29,0.7265,0.5993,0.8539,-0.0144,-0.0646,0.0259
+all lesions,size + window content,115,29,0.7185,0.6022,0.8383,-0.0225,-0.0673,0.0121
+all lesions,all blocks (exploratory),115,29,0.684,0.5761,0.7943,-0.0569,-0.1441,0.0231
+UID route only,size only,86,16,0.6732,0.4878,0.8406,0.0,0.0,0.0
+UID route only,size + contrast,86,16,0.6571,0.4693,0.8344,-0.0161,-0.0765,0.049
+UID route only,size + phase,86,16,0.6625,0.4567,0.8248,-0.0107,-0.164,0.1167
+UID route only,size + position,86,16,0.6232,0.4411,0.7972,-0.05,-0.1342,0.0114
+UID route only,size + window content,86,16,0.6205,0.4535,0.7824,-0.0527,-0.1055,-0.011
+UID route only,all blocks (exploratory),86,16,0.5268,0.3338,0.6853,-0.1464,-0.3095,0.0
+single-acquisition only,size only,92,21,0.7009,0.5514,0.8358,0.0,0.0,0.0
+single-acquisition only,size + contrast,92,21,0.6794,0.5336,0.8162,-0.0215,-0.0448,-0.0041
+single-acquisition only,size + phase,92,21,0.717,0.5739,0.8469,0.0161,-0.1045,0.1184
+single-acquisition only,size + position,92,21,0.6472,0.4902,0.7839,-0.0537,-0.1131,-0.0126
+single-acquisition only,size + window content,92,21,0.6761,0.5375,0.8029,-0.0248,-0.0844,0.0311
+single-acquisition only,all blocks (exploratory),92,21,0.617,0.4725,0.7373,-0.0838,-0.212,0.0254

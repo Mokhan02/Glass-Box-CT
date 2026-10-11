@@ -1,0 +1,27 @@
+EXPLORATORY, NOT PRE-SPECIFIED (added after seeing that |contrast| pointed the wrong way). Treat as a hypothesis to test on new data, not a finding.
+Signed contrast = tumour HU minus local liver HU: positive = brighter than liver (hyperattenuating), negative = darker.
+
+Detection rate by the SIGN of contrast, within size strata:
+  all lesions      30- 60 mm: detection rate, tumour BRIGHTER than liver    0.35 (7/20) | tumour DARKER than liver   0.83 (19/23)
+  all lesions      60-inf mm: detection rate, tumour BRIGHTER than liver   0.67 (10/15) | tumour DARKER than liver   0.98 (48/49)
+  UID route        30- 60 mm: detection rate, tumour BRIGHTER than liver    0.54 (7/13) | tumour DARKER than liver   0.88 (15/17)
+  UID route        60-inf mm: detection rate, tumour BRIGHTER than liver    0.64 (7/11) | tumour DARKER than liver   1.00 (39/39)
+
+UID route, 30-60 mm, signed contrast (HU): missed median +22.8 (n=8), detected median -7.0 (n=22)
+
+UID route, 30-60 mm, tumour HU: missed median +108.5 (n=8), detected median +100.9 (n=22)
+
+UID route, 30-60 mm, liver HU (shell): missed median +95.3 (n=8), detected median +107.6 (n=22)
+
+Missed 30-60 mm UID lesions (n=8): signed contrast values (HU): [-65, -49, 3, 22, 23, 26, 28, 47]
+Detected 30-60 mm UID lesions (n=22): signed contrast quartiles (HU): [-18, -7, 6]
+
+--- Fisher exact tests (exploratory; unadjusted; same cohort, so not independent confirmation) ---
+  all lesions  30- 60 mm: bright 7/20 detected vs dark 19/23   Fisher p = 0.0020
+  all lesions  60-inf mm: bright 10/15 detected vs dark 48/49   Fisher p = 0.0020
+  UID route    30- 60 mm: bright 7/13 detected vs dark 15/17   Fisher p = 0.0492
+  UID route    60-inf mm: bright 7/11 detected vs dark 39/39   Fisher p = 0.0014
+
+--- cross-validated AUROC, size alone vs size + SIGNED contrast (exploratory; case-bootstrap CI for the gain) ---
+  all lesions  size 0.739  ->  size + signed contrast 0.741   gain +0.002 [-0.081,+0.079]
+  UID route    size 0.674  ->  size + signed contrast 0.672   gain -0.002 [-0.180,+0.116]
