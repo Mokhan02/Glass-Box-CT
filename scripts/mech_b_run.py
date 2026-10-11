@@ -74,7 +74,7 @@ for ci, c in enumerate(mine, 1):
     ref = z["logit_full"].astype(np.float32).ravel(); ref[z["roi_idx"].astype(np.int64)] = z["logit_roi"]; ref = ref.reshape(shape)
     for cond in ("none", "leace", "random", "hu"):
         state["p"] = None if cond == "none" else params(f, cond)
-        lg = infer(x); l1, l26 = lg[0][:, :, ann], lg[1][:, :, ann]  # prompts are [[1],[26]]: row 0 = liver, row 1 = tumour; pred = l26 > 0; liv = l1 > 0
+        lg = infer(x); l1, l26 = lg[0][:, :, ann], lg[1][:, :, ann]; pred = l26 > 0; liv = l1 > 0  # prompts are [[1],[26]]: row 0 = liver, row 1 = tumour
         diff = float(np.abs(lg[1] - ref).max()) if cond == "none" else float("nan")
         dice = lambda p, g: float(2 * (p & g).sum() / max(p.sum() + g.sum(), 1))  # noqa: E731
         case_rows.append({"case": c, "fold": f, "cond": cond, "tumour_dice": dice(pred, gt), "liver_dice": dice(liv, gl), "max_abs_diff_vs_stored": diff, "contrast_hu": float(z["contrast_hu"])})
