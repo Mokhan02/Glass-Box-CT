@@ -134,3 +134,14 @@ All from DICOM headers and files already on the instance; nothing was re-run on 
   Quote the UID-route figures as the primary estimate; the one-sided bias among detected lesions (about -11 mm, -17%) is identical across subsets.
 - **The pre-registered voxel-probe experiment includes these cases** (it reports uid and geometry separately, as pre-registered). It was not changed. A sensitivity analysis restricted to the 81 single-acquisition cases is an addition for you to decide; I have not edited `results/voxel_probe/`.
 
+
+## 6. Corrected conversion of the geometry-route cases (`scripts/convert_heldout_clean.py`; per-case table `hcc_clean_conversion.csv`)
+For each of the 28 geometry cases: find the CT series holding the SOP instances the SEG references (anywhere in the study), then keep an acquisition only if >= 95% of the SEG frame positions coincide (< 0.5 mm) with its instances.
+Written to a new directory; the original conversion (read by the pre-registered voxel-probe extraction) was not modified.
+- **14 RESOLVED** (one acquisition matches), **11 AMBIGUOUS** (two or three acquisitions at identical positions; one volume written per candidate), **3 UNRESOLVED and excluded**: HCC_015 and HCC_016 (referenced series found, but no acquisition's positions match the SEG frames) and HCC_048 (no referenced instance in the study).
+- The first conversion used the wrong series for 5 cases (HCC_006, 015, 016, 104, 105).
+- **Resolved cases (n = 14), old vs corrected conversion:** tumour Dice 0.327 -> 0.394 (+0.067 [-0.030, +0.198]); liver Dice 0.898 -> 0.917 (+0.019 [+0.007, +0.033]). Individual cases move both ways. **The corrected geometry cases (0.394) remain well below the UID route (0.585): the route gap is not an artifact of the interleaving.**
+- **RECIST on the clean cohort (75 UID-route + 14 resolved = 89 cases, 101 lesions):** missed (< 10% covered) 23%; detected lesions -11.3 mm (-17%); sum-of-diameters error **-21% [-30%, -15%]**; 51% of cases off by >= 20%, 40% by >= 30%; **0 overestimates**.
+  The 14 resolved cases alone: sum-of-diameters error -36% (it was -75% under the old conversion), 47% of lesions missed (53% before).
+- **Ambiguous cases (11): the choice of acquisition changes tumour Dice a lot** (spread > 0.2 in 4 of 11, up to 0.75); see `results/exp8_lesions/SUMMARY.md` section 4.
+- The evaluation of the clean volumes initially ran against the wrong root path (my error: `eval_heldout.py` takes the parent directory) and produced nothing; it was rerun correctly. Saved masks and RECIST used full paths and were unaffected.

@@ -1,0 +1,29 @@
+case,status,detail,used_by_old_converter,chosen_series,candidates
+HCC_001_100377,RESOLVED,acq1: 0.76 of SEG frames at an instance position; acq2: 0.97 of SEG frames at an instance position; ,25942120,25942120,2
+HCC_002_484861,AMBIGUOUS,acq1: 1.00 of SEG frames at an instance position; acq2: 1.00 of SEG frames at an instance position; ,11685789,11685789,"1,2"
+HCC_006_965146,RESOLVED,acq3: 1.00 of SEG frames at an instance position; ,49720374,07245033,3
+HCC_007_467834,AMBIGUOUS,acq2: 1.00 of SEG frames at an instance position; acq3: 1.00 of SEG frames at an instance position; ,95828011,95828011,"2,3"
+HCC_008_501687,AMBIGUOUS,acq1: 1.00 of SEG frames at an instance position; acq2: 1.00 of SEG frames at an instance position; acq3: 1.00 of SEG frames at an instance position; ,74560972,74560972,"1,2,3"
+HCC_010_261733,AMBIGUOUS,acq1: 1.00 of SEG frames at an instance position; acq3: 1.00 of SEG frames at an instance position; ,41637279,41637279,"1,3"
+HCC_011_385429,AMBIGUOUS,acq1: 1.00 of SEG frames at an instance position; acq2: 1.00 of SEG frames at an instance position; acq3: 1.00 of SEG frames at an instance position; ,08174786,08174786,"1,2,3"
+HCC_015_464482,UNRESOLVED,acq3: 0.00 of SEG frames at an instance position; | no acquisition matches the SEG frame positions,32836597,93444492,
+HCC_016_554145,UNRESOLVED,acq3: 0.00 of SEG frames at an instance position; | no acquisition matches the SEG frame positions,49073571,12501955,
+HCC_030_106479,AMBIGUOUS,acq1: 1.00 of SEG frames at an instance position; acq3: 1.00 of SEG frames at an instance position; ,16416186,16416186,"1,3"
+HCC_048_565112,UNRESOLVED,none of the SEG's referenced instances exists in the study,39218381,,
+HCC_068_508684,RESOLVED,acq1: 0.00 of SEG frames at an instance position; acq2: 1.00 of SEG frames at an instance position; ,74708552,74708552,2
+HCC_082_997169,RESOLVED,acq2: 1.00 of SEG frames at an instance position; acq3: 0.00 of SEG frames at an instance position; ,33296240,33296240,2
+HCC_085_703259,RESOLVED,acq2: 1.00 of SEG frames at an instance position; acq3: 0.00 of SEG frames at an instance position; ,53505764,53505764,2
+HCC_091_777242,RESOLVED,acq1: 0.00 of SEG frames at an instance position; acq2: 1.00 of SEG frames at an instance position; ,80686447,80686447,2
+HCC_092_453721,RESOLVED,acq1: 0.91 of SEG frames at an instance position; acq2: 1.00 of SEG frames at an instance position; ,75251539,75251539,2
+HCC_093_335849,AMBIGUOUS,acq1: 1.00 of SEG frames at an instance position; acq2: 1.00 of SEG frames at an instance position; ,18585145,18585145,"1,2"
+HCC_094_609740,RESOLVED,acq1: 0.00 of SEG frames at an instance position; acq2: 1.00 of SEG frames at an instance position; ,15766779,15766779,2
+HCC_095_759690,RESOLVED,acq1: 0.84 of SEG frames at an instance position; acq2: 0.99 of SEG frames at an instance position; acq3: 0.01 of SEG frames at an instance position; ,26235537,26235537,2
+HCC_096_672686,AMBIGUOUS,acq1: 1.00 of SEG frames at an instance position; acq2: 1.00 of SEG frames at an instance position; ,64022608,64022608,"1,2"
+HCC_097_527753,RESOLVED,acq1: 0.00 of SEG frames at an instance position; acq2: 1.00 of SEG frames at an instance position; ,91396696,91396696,2
+HCC_099_597879,RESOLVED,acq1: 0.00 of SEG frames at an instance position; acq2: 1.00 of SEG frames at an instance position; ,55568663,55568663,2
+HCC_100_543997,AMBIGUOUS,acq1: 1.00 of SEG frames at an instance position; acq2: 1.00 of SEG frames at an instance position; ,57083210,57083210,"1,2"
+HCC_101_598254,RESOLVED,acq1: 0.00 of SEG frames at an instance position; acq2: 1.00 of SEG frames at an instance position; ,16114619,16114619,2
+HCC_102_054560,RESOLVED,acq1: 0.93 of SEG frames at an instance position; acq2: 1.00 of SEG frames at an instance position; ,10990635,10990635,2
+HCC_103_963305,RESOLVED,acq1: 0.57 of SEG frames at an instance position; acq2: 1.00 of SEG frames at an instance position; ,90391706,90391706,2
+HCC_104_977724,AMBIGUOUS,acq1: 1.00 of SEG frames at an instance position; acq2: 1.00 of SEG frames at an instance position; ,55081664,75469617,"1,2"
+HCC_105_556667,AMBIGUOUS,acq1: 1.00 of SEG frames at an instance position; acq2: 1.00 of SEG frames at an instance position; ,31523481,44812674,"1,2"

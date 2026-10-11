@@ -54,3 +54,13 @@ This needs a pre-registered test on data not used here; nothing in this reposito
 
 ## Not tested
 Necrotic fraction, tiling shift reruns and per-lesion residual search (the rest of the strategy document's Experiment 8): not run.
+
+## 4. Within-patient test on the corrected volumes (pre-specified in `PHASE_PAIRS_PREREG.md` before the contrast values were computed)
+Eleven cases have a segmentation that fits two or three acquisitions of the same patient equally well by position; the corrected conversion writes one volume per candidate. The same ground truth, patient and tumour then give different tumour Dice per acquisition:
+HCC_008 0.00 / 0.62 / 0.75, HCC_093 0.39 / 0.89, HCC_105 0.18 / 0.72, HCC_011 0.22 to 0.51 (spread > 0.2 in 4 of 11 cases; table: `phase_pairs.csv`).
+**Pre-specified test:** in cases whose acquisitions differ in tumour Dice by >= 0.10 (6 cases), does the acquisition with the higher signed tumour-minus-liver contrast have the lower Dice? **Yes in 6 of 6; exact two-sided binomial p = 0.031.**
+**Controls and limits (read before quoting):**
+- The radiologist drew on one acquisition; on the others, registration or breathing shifts could lower tumour Dice for reasons unrelated to what the model sees. Liver Dice is the check: in 4 of 6 qualifying cases the higher-contrast acquisition also has the lower liver Dice (median -0.059); in the other 2 it is higher (+0.015, +0.068).
+  Tumour Dice gaps (0.15 to 0.75) are much larger than liver gaps, but small structures are more sensitive to a given shift, so partial misalignment is **not excluded**.
+- Contrast is collinear with arterial timing (the aorta HU is highest in the same acquisitions in 5 of 6 cases); "brighter than liver" and "earlier phase" cannot be separated here. Acquisition number is not a phase label.
+- At most 6 usable cases, and the hypothesis came from the same patients (different images). Treat as: **consistent with phase-dependent detection of hyperattenuating HCC; needs a labelled-phase dataset or a registration check to confirm.**
