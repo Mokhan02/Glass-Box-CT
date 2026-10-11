@@ -11,12 +11,12 @@ from glassbox.pipeline.scan import ORGANS, PROMPTED, build_results
 from glassbox.seg import classes as C
 
 
-def _scan(tmp_path, tumour_radius=6, tumour_prob=0.95, with_l3=True):
+def _scan(tmp_path, tumour_radius=6, tumour_prob=0.95, with_l3=True, tumour_hu=70.0):
     shape = (80, 80, 50); zoom = (0.8, 0.8, 3.0); ct = np.full(shape, -50.0, np.float32); probs = {c: np.full(shape, 0.01, np.float32) for c in PROMPTED}
     xx, yy, zz = np.mgrid[:80, :80, :50]
     def blob(cx, cy, cz, rx, ry, rz): return ((xx - cx) / rx) ** 2 + ((yy - cy) / ry) ** 2 + ((zz - cz) / rz) ** 2 <= 1
     liver = blob(30, 40, 25, 22, 20, 15); probs[C.LIVER][liver] = 0.97; ct[liver] = 100.0
-    t = blob(30, 40, 25, tumour_radius, tumour_radius, 6); probs[C.HEPATIC_TUMOR][t] = tumour_prob; ct[t] = 70.0
+    t = blob(30, 40, 25, tumour_radius, tumour_radius, 6); probs[C.HEPATIC_TUMOR][t] = tumour_prob; ct[t] = tumour_hu
     if with_l3:
         probs[C.VERTEBRA_L3][blob(60, 40, 25, 8, 8, 5)] = 0.95
         for cls, cx in ((C.LEFT_ILIOPSOAS, 52), (C.RIGHT_ILIOPSOAS, 68), (C.LEFT_AUTOCHTHON, 55), (C.RIGHT_AUTOCHTHON, 65)):
@@ -76,3 +76,25 @@ def test_viewer_copies_keep_click_to_locate_on_the_lesion_after_resampling(tmp_p
     L = json.load(open(os.path.join(d, "lesions.json"))); v = L["lesions"][0]["voxel_in_file"]; assert v != before and L["viewer_grid_mm"] == 3.0
     tum = nib.load(os.path.join(d, "tumour.nii.gz")); arr = np.asarray(tum.dataobj); assert arr.shape == tuple(info["viewer_shape"]) and arr[tuple(v)] == 1  # the remapped voxel is inside the tumour
     B = json.load(open(os.path.join(d, "body_composition.json"))); assert np.asarray(nib.load(os.path.join(d, "organs.nii.gz")).dataobj)[tuple(B["l3_voxel_in_file"])] > 0
+
+
+def test_contrast_is_measured_and_caution_appears_only_for_bright_tumours(tmp_path):
+    from glassbox.app.report import template_report
+    from glassbox.agent.grounding import check_report
+    for hu, bright in ((70.0, False), (140.0, True)):
+        d = tmp_path / str(int(hu)); d.mkdir()
+        path, probs = _scan(str(d), tumour_hu=hu); out = os.path.join(str(d), "res"); r = build_results(path, probs, out, "s", {"source": "synthetic"})["lesions"]
+        c = r["tumour_liver_contrast"]; assert c["unit"] == "HU" and abs(c["value"] - (hu - 100.0)) < 1.0
+        assert ("contrast_caution" in r) is bright
+        tb = ToolBox(PrecomputedBackend(out))
+        for t in ("segment_ct", "body_composition", "measure_lesions", "quality_audit"):
+            assert tb.call(t, {"scan_id": "s"})["ok"]
+        rep = template_report(tb.evidence); chk = check_report(rep, tb.evidence)
+        assert chk["unsupported_numbers"] == [] and chk["missing_units"] == [], chk
+        assert ("tends to miss tumours brighter than the surrounding liver" in rep) is bright
+        assert "Contrast here is measured on the predicted tumour only" in rep or not bright
+
+
+def test_no_contrast_is_reported_when_nothing_is_predicted(tmp_path):
+    path, probs = _scan(str(tmp_path), tumour_prob=0.2); r = build_results(path, probs, os.path.join(str(tmp_path), "res"), "s", {})["lesions"]
+    assert "tumour_liver_contrast" not in r and "contrast_caution" not in r

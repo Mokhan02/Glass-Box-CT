@@ -31,6 +31,10 @@ def template_report(evidence: list[dict]) -> str:
         if les["n_lesions"]:
             for l in les["lesions"]:
                 L.append(f"**Lesion {l['id']}** [measure_lesions]: longest axial diameter {_q(l['longest_axial_diameter'])}, volume {_q(l['volume'])}, mean model probability {l['mean_probability']}; RECIST 1.1 suggestion: {l['recist']}.")
+            if "tumour_liver_contrast" in les:
+                L.append(f"**Tumour-minus-liver contrast** [measure_lesions]: {_q(les['tumour_liver_contrast'])} ({les['contrast_basis']}).")
+                if "contrast_caution" in les:
+                    L.append(f"**{les['contrast_caution']}** [measure_lesions] {les['contrast_context']['evidence_status']}")
             v = les["validation_context"]
             L.append(f"**Known bias of this measurement** [measure_lesions]: in held-out research data the model's detected lesions measured a median {_q(v['detected_lesion_median_error'])} from the reference ({_q(v['detected_lesion_median_relative_error'])}), "
                      f"and the sum of diameters a median {_q(v['case_sum_of_diameters_median_error'])}; it never overestimated by {_q(v['large_overestimate_threshold'])} or more (count: {v['overestimates_at_or_above_threshold']}). {v['note']}")

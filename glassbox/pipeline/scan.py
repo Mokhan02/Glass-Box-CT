@@ -8,6 +8,7 @@ import os
 
 import nibabel as nib
 import numpy as np
+from scipy import ndimage
 
 from glassbox.agent.tools import qty
 from glassbox.bodycomp.lesions import measure_lesions
@@ -25,6 +26,31 @@ MIN_ORGAN_CM3 = 1.0
 VALIDATION = {"cohort": "HCC-TACE-Seg held-out CT, 75 cases with verifiably linked labels (research data, not clinical)", "detected_lesion_median_error": qty(-11.4, "mm"),
               "detected_lesion_median_relative_error": qty(-17, "%"), "case_sum_of_diameters_median_error": qty(-19, "%"), "large_overestimate_threshold": qty(20, "%"), "overestimates_at_or_above_threshold": 0,
               "note": "On held-out data the hepatic-tumour class measured lesions smaller than the reference in every case where error was large; about one lesion in five was largely missed."}
+
+# Quoted with the contrast measurement. Detection = lesion coverage >= 10% by the reference. EXPLORATORY and descriptive (results/SUMMARY.md section 5, clean-89 cohort, 36 bright vs 65 dark lesions).
+CONTRAST_CONTEXT = {"cohort": "HCC-TACE-Seg held-out CT, 89 cases with verifiably linked labels (research data, not clinical)", "bright_tumour_lesion_detection": qty(58, "%"), "dark_tumour_lesion_detection": qty(88, "%"),
+                    "evidence_status": "Exploratory and descriptive. Editing tumour brightness in a pre-registered counterfactual changed the model's detection in the expected direction (strong when dark tumours were made bright; narrow when bright tumours were made dark)."}
+CAUTION = ("Caution (research finding): this model tends to miss tumours brighter than the surrounding liver. In held-out research data it detected {bright} of lesions in bright-tumour cases versus {dark} in dark-tumour cases. "
+           "Contrast here is measured on the predicted tumour only, so tissue the model missed is not included.")
+
+
+def tumour_liver_contrast(ct: np.ndarray, tumour: np.ndarray, liver: np.ndarray, zooms, min_ref_voxels: int = 1000):
+    """Mean HU of the predicted tumour (edge voxels removed) minus mean HU of liver more than 5 mm from any predicted tumour. Canonical orientation. None if not measurable."""
+    if not tumour.any() or not liver.any():
+        return None
+    idx = np.argwhere(tumour | liver); lo = np.maximum(idx.min(0) - 8, 0); hi = idx.max(0) + 9; sl = tuple(slice(a, b) for a, b in zip(lo, hi))
+    t, lv, h = tumour[sl].astype(bool), liver[sl].astype(bool), ct[sl]
+    core = ndimage.binary_erosion(t, iterations=1)
+    if core.sum() < 30:
+        core = t
+    ref = lv & ~t & (ndimage.distance_transform_edt(~t, sampling=zooms) > 5.0)
+    if ref.sum() < min_ref_voxels:
+        return None
+    return float(h[core].mean() - h[ref].mean())
+
+
+def _q(x) -> str:
+    return f"{x['value']:g}{x['unit']}"
 
 
 def infer_probs(ct_path: str, net, device) -> dict[int, np.ndarray]:
@@ -78,6 +104,12 @@ def build_results(ct_path: str, probs: dict[int, np.ndarray], out_dir: str, scan
     lesions = {**prov, "prompted_classes": PROMPTED, "organ": "liver (hepatic tumour class 26)", "validation_context": VALIDATION,
                "lesions": [{"id": l["id"], "organ": "liver", "longest_axial_diameter": qty(round(l["diameter_mm"], 1), "mm"), "volume": qty(round(l["volume_cm3"], 1), "cm3"), "mean_probability": round(l["mean_probability"], 3),
                             "recist": l["recist"], "slice_index": l["best_slice"], "voxel_in_file": to_file_voxel(l["centroid_voxel"], aff_c, affine)} for l in les], "n_lesions": len(les)}
+    liver_c = canonical((organs == 1).astype(np.uint8), affine)[0]; con = tumour_liver_contrast(cc, tc.astype(bool), liver_c.astype(bool), zc) if les else None
+    if con is not None:
+        lesions["tumour_liver_contrast"] = qty(round(con, 1), "HU"); lesions["contrast_basis"] = "mean HU of the predicted tumour minus mean HU of liver more than 5 mm away from it (research measurement)"
+        lesions["contrast_context"] = CONTRAST_CONTEXT
+        if con > 0:
+            lesions["contrast_caution"] = CAUTION.format(bright=_q(CONTRAST_CONTEXT["bright_tumour_lesion_detection"]), dark=_q(CONTRAST_CONTEXT["dark_tumour_lesion_detection"]))
     if not les:
         lesions["note"] = "No hepatic tumour predicted. That is not the same as no tumour: on held-out data about one lesion in five was largely missed."
     # quality audit (tumour class only; organs are not assessed)

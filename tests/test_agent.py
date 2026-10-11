@@ -113,3 +113,15 @@ def test_segment_everything_excludes_tumour_classes_but_report_prompts_include_t
     assert 26 in EVERYTHING_EXCLUDED and 26 not in everything_prompts()
     assert 26 in report_prompts() and 23 in report_prompts()
     assert 129 not in report_prompts() and 130 not in report_prompts()  # not promptable by label; need point prompts
+
+
+def test_provider_swap_is_a_config_change(tmp_path, monkeypatch):
+    for k in ("LLM_BASE_URL", "LLM_API_KEY", "LLM_MODEL", "LLM_FAST_MODEL"):
+        monkeypatch.delenv(k, raising=False)
+    env = tmp_path / ".env"
+    env.write_text("LLM_BASE_URL=https://dev.example/v1\nLLM_API_KEY=k1\nLLM_MODEL=big-a\nLLM_FAST_MODEL=small-a\n")
+    a = from_env(str(env)); assert a.provider_host == "dev.example" and a.model == "big-a" and a.fast_model == "small-a"
+    for k in ("LLM_BASE_URL", "LLM_API_KEY", "LLM_MODEL", "LLM_FAST_MODEL"):
+        monkeypatch.delenv(k, raising=False)
+    env.write_text("LLM_BASE_URL=https://tokenfactory.example/v1\nLLM_API_KEY=k2\nLLM_MODEL=big-b\n")
+    b = from_env(str(env)); assert b.provider_host == "tokenfactory.example" and b.model == b.fast_model == "big-b" and "k2" not in repr(b)
