@@ -1,0 +1,25 @@
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/utils/deprecate_utils.py:320: FutureWarning: monai.transforms.spatial.dictionary Orientationd.__init__:labels: Current default value of argument `labels=(('L', 'R'), ('P', 'A'), ('I', 'S'))` was changed in version None from `labels=(('L', 'R'), ('P', 'A'), ('I', 'S'))` to `labels=None`. Default value changed to None meaning that the transform now uses the 'space' of a meta-tensor, if applicable, to determine appropriate axis labels.
+  warn_deprecated(argname, msg, warning_category)
+/lambda/nfs/CTGate/w1/repo/scripts/w2_validity_run.py:52: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments. To learn more, see the migration guide https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword
+  return data, img, np.linalg.inv(np.array(data["image"].affine, float)) @ np.array(data["image"].meta["original_affine"], float)
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+kidney_129 KiTS-00120_080267 rank 1: coverage 0.92210 (csv 0.9221), dice10 0.14882 (csv 0.14882), pred_diam 59.127 (csv 59.127) -> MATCH
+/lambda/nfs/CTGate/w1/repo/scripts/w2_validity_run.py:120: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments. To learn more, see the migration guide https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword
+  ann=ann, aff_pre=np.array(data["image"].affine, float), orig_affine=np.array(data["image"].meta["original_affine"], float), cls=cls, csv_pred_diam=float(ref["pred_diam_mm"]))
+kidney_129 KiTS-00037_959755 rank 1: coverage 0.83444 (csv 0.83444), dice10 0.39334 (csv 0.39334), pred_diam 91.241 (csv 91.241) -> MATCH
+kidney_129 KiTS-00114_152388 rank 2: coverage 0.41451 (csv 0.41451), dice10 0.02938 (csv 0.02938), pred_diam 138.939 (csv 138.939) -> MATCH
+kidney_129 KiTS-00165_315836 rank 1: coverage 0.80386 (csv 0.80386), dice10 0.15905 (csv 0.15905), pred_diam 81.099 (csv 81.099) -> MATCH
+kidney_129 KiTS-00097_031698 rank 1: coverage 0.86583 (csv 0.86583), dice10 0.59847 (csv 0.59847), pred_diam 69.689 (csv 69.689) -> MATCH
+kidney_129 KiTS-00138_248840 rank 1: coverage 0.88925 (csv 0.88925), dice10 0.58434 (csv 0.58434), pred_diam 70.807 (csv 70.807) -> MATCH
+kidney_129 KiTS-00021_101579 rank 1: coverage 0.85443 (csv 0.85443), dice10 0.75585 (csv 0.75585), pred_diam 59.794 (csv 59.794) -> MATCH
+kidney_129 KiTS-00130_854044 rank 1: coverage 0.85275 (csv 0.85275), dice10 0.75302 (csv 0.75302), pred_diam 80.998 (csv 80.998) -> MATCH
+hcc_130 HCC_051_502793 rank 2: coverage 1.00000 (csv 1.0), dice10 0.02749 (csv 0.02749), pred_diam 200.534 (csv 200.534) -> MATCH
+hcc_130 HCC_098_610748 rank 1: coverage 0.99745 (csv 0.99745), dice10 0.26538 (csv 0.26538), pred_diam 200.421 (csv 200.421) -> MATCH
+hcc_130 HCC_077_996191 rank 1: coverage 1.00000 (csv 1.0), dice10 0.27507 (csv 0.27507), pred_diam 178.868 (csv 178.868) -> MATCH
+hcc_130 HCC_071_621596 rank 1: coverage 0.97213 (csv 0.97213), dice10 0.30626 (csv 0.30626), pred_diam 190.589 (csv 190.589) -> MATCH
+hcc_130 HCC_086_615027 rank 1: coverage 0.93384 (csv 0.93384), dice10 0.55256 (csv 0.55256), pred_diam 197.818 (csv 197.818) -> MATCH
+hcc_130 HCC_024_254376 rank 1: coverage 0.96132 (csv 0.96132), dice10 0.47882 (csv 0.47882), pred_diam 190.209 (csv 190.209) -> MATCH
+hcc_130 HCC_057_698557 rank 2: coverage 0.99958 (csv 0.99958), dice10 0.69396 (csv 0.69396), pred_diam 187.527 (csv 187.527) -> MATCH
+hcc_130 HCC_081_327663 rank 1: coverage 0.93076 (csv 0.93076), dice10 0.65679 (csv 0.65679), pred_diam 151.671 (csv 151.671) -> MATCH
+DETERMINISM CHECK PASSED (16 lesions)
