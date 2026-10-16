@@ -1,0 +1,46 @@
+{
+ "in_distribution_flag": "possibly seen in training (images, via AbdomenCT-1K)",
+ "cases_total": 210,
+ "cases_with_lesion_ge_10mm": 210,
+ "cases_without": [],
+ "lesions_all_ge_10mm": 227,
+ "lesions_primary_two_largest": 219,
+ "bright_lesions": 53,
+ "dark_lesions": 166,
+ "bright_share": 0.2420091324200913,
+ "bright_share_ci95": [
+  0.18805905963302755,
+  0.2995506912442396
+ ],
+ "bright_cases": 52,
+ "fallback_lesions": 0,
+ "contrast_quantiles_5_25_50_75_95": [
+  -82.59227714538574,
+  -44.26098442077637,
+  -22.4091796875,
+  -0.8537979125976562,
+  20.67162742614746
+ ],
+ "diameter_quantiles_mm_5_25_50_75_95": [
+  19.64015038370088,
+  28.074602966113353,
+  42.08604155535215,
+  61.86802509354041,
+  113.52020859179727
+ ],
+ "bright_by_size": {
+  "<30 mm": [
+   18,
+   67
+  ],
+  "30-60 mm": [
+   26,
+   93
+  ],
+  ">60 mm": [
+   9,
+   59
+  ]
+ },
+ "underpowered_for_brightness_test_lt_40_bright": false
+}

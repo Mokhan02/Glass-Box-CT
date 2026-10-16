@@ -6,8 +6,8 @@ Append-only record of research results on branch `research/roadmap`. Past entrie
 
 | Workstream | Stage | Last result | Next step | Blocking on |
 |---|---|---|---|---|
-| W1 training-data contrast audit | Extraction done for CRML-CT; Task03 downloaded, being verified and extracted; comparison not yet run | HCC reproduction passed: 86/86 lesions, max difference 0.0000 HU ([hcc_repro.log](results/w1_training_audit/hcc_repro.log)) | Task03 inventory, then contrast, then `scripts/w1_compare.py` (pre-registered rule) | Task03 SHA-256 and extraction finishing |
-| W2 kidney replication | Gate 1 (training-data overlap) reported; Gate 2 (feasibility, ground truth only) in progress | C4KC-KiTS may have been seen in training through AbdomenCT-1K (section 4) | Draft `results/w2_kidney/PREREG.md`, ground-truth lesion and contrast counts, report bright-lesion count | Approval of the PREREG before any model run |
+| W1 training-data contrast audit | Verdict reached (pre-registered rule) | BRIGHT RARE IN TRAINING: bright share 5.2% [2.9, 7.6] pooled training vs 32.6% [21.2, 42.4] HCC, d +27.4 points [+15.9, +37.7] ([SUMMARY](results/w1_training_audit/SUMMARY.md)) | 89-case HCC sensitivity analysis; optional Task08 secondary; W5 for the causal link | Nothing blocking; confounded by tumour type and phase |
+| W2 kidney replication | Gate 2 (ground-truth feasibility) reported; PREREG draft not committed | 53 bright of 219 primary lesions (24.2% [18.8, 30.0]) in 210 cases: not underpowered | Review and approve the PREREG, then Gate 3 (model, GPU) | Approval of the PREREG |
 | W3-W7 | Not started | - | - | W1 and W2 |
 
 ## 2. Headline results so far (hackathon-era, model NV-Segment-CT / VISTA-3D `vista3d132`, frozen)
@@ -54,14 +54,19 @@ Log (append-only):
 | 2026-10-16 | Task03 downloaded on the instance (28,925,891,584 bytes, equal to the source object size); `tar -tf` exit 0 (672 entries) | SHA-256 and extraction pending | - |
 | 2026-10-16 | Task03 extractor, comparison script and deviation 4 committed before any Task03 contrast or any share | - | 4e56182 |
 | 2026-10-16 | Rows above marked "this commit" (HCC reproduction, W2 Gate 1) were committed together with this log | - | 251aa61 |
+| 2026-10-16 | Task03 verified on the instance | SHA-256 4007d9db1acda850d57a6ceb2b3998b7a0d43f8ad5a3f740dc38bc0cb8b7a2c5, `tar -tf` exit 0; 131 images and 131 labels extracted ([task03_verify.log](results/w1_training_audit/task03_verify.log), [DATASETS.md](results/w1_training_audit/DATASETS.md)) | HASH_B |
+| 2026-10-16 | Task03 inventory with the DEV4 guard as written, before any contrast | 26 of 131 cases excluded: 13 tumour-free and 13 flagged by a voxel-fraction guard that fails for large tumours (volume ratios normal, 0.04 to 0.46); guard misfired | 0baae1b |
+| 2026-10-16 | Guard revised to a tumour-surface criterion (deviation 5); inventory rerun before any contrast | 115 of 131 included; 16 excluded: 13 tumour-free, 3 failed the surface guard (liver_39, liver_71, liver_74) ([inventory](results/w1_training_audit/msd_inventory.csv), [log](results/w1_training_audit/msd_inventory.log)) | 0baae1b |
+| 2026-10-16 | Pre-registered comparison run | Pooled primary: p_train 5.2% [2.9, 7.6] (25 of 485 lesions, 307 cases) vs p_HCC 32.6% [21.2, 42.4] (28 of 86, 75 cases); d +27.4 points [+15.9, +37.7]. Verdict BRIGHT RARE IN TRAINING. Secondary: MSD Task03 1.1% [0.0, 2.8], CRML-CT 7.6% [4.2, 11.1]; all three size strata and all sensitivity analyses point the same way ([w1_results.md](results/w1_training_audit/w1_results.md), [SUMMARY](results/w1_training_audit/SUMMARY.md)) | HASH_B |
 
 **Deviations** ([DEVIATIONS.md](results/w1_training_audit/DEVIATIONS.md)):
 1. CRML-CT uses only the MANUAL "Segmentation" series (AI and AI-corrected series are model output); roles read from segment labels, not order.
 2. CRML-CT patient exclusion criteria fixed before any contrast.
 3. Reference parity with exp8: Liver minus all tumour minus Portal vein is the primary reference (hepatic-vein and no-vessel-removal variants are sensitivities); decided 2026-10-16 before any share.
 4. MSD Task03 loader and exclusion criteria fixed before any Task03 contrast.
+5. The Task03 label-swap guard of #4 misfired on large tumours (13 legitimate cases); revised to a tumour-surface criterion before any contrast, with the #4 rule kept as a sensitivity analysis.
 
-**Verdict.** None yet.
+**Verdict.** BRIGHT RARE IN TRAINING (pooled primary, pre-registered rule: CI lower > 0 and d >= 0.10), with tumour type and acquisition phase as named confounders; see [SUMMARY](results/w1_training_audit/SUMMARY.md).
 
 ## 4. W2: kidney replication (C4KC-KiTS)
 
@@ -75,6 +80,8 @@ Log (append-only):
 | 2026-10-16 | Gate 1: training-data overlap check, no compute | VISTA-3D's Table 1 (arXiv 2406.05285) lists no KiTS19/21/23. The paper uses C4KC-KiTS (210 scans) as a zero-shot evaluation set. It includes AbdomenCT-1K (1,050 volumes; liver, kidney, spleen, pancreas labels). The AbdomenCT-1K paper (Ma et al., arXiv 2010.14808) says: "our dataset, namely AbdomenCT-1K, consists of 1112 3D CT scans from five existing datasets: LiTS (201 cases), KiTS (300 cases), MSD Spleen (61 cases) and Pancreas (420 cases), NIH Pancreas (80 cases), and a new dataset from Nanjing University (50 cases)", and that KiTS "includes 210 training cases with kidney and kidney tumor annotations and 90 testing cases". C4KC-KiTS is the 210 KiTS19 training cases (TCIA page). So C4KC-KiTS images may have been in VISTA-3D's training pool through AbdomenCT-1K. Which cases cannot be determined: each source is split 64/16/20% at random and no case lists are published. | this commit |
 | 2026-10-16 | AbdomenCT-1K tumour handling | Not stated. The paper says "We annotate the liver, kidney, spleen, and pancreas for all cases", lists the original KiTS annotation as "Kidney and tumor", and gives the KiTS annotation in its continual-learning benchmark as "Kidney". Whether KiTS tumours are merged into the kidney label, excluded or separate is unresolved; treat "tumours may have been labelled as kidney in training" as a named confound. The paper also says the KiTS (210) scans "were acquired on the arterial phase". | this commit |
 | 2026-10-16 | Prompting | Class 129 (kidney mass) cannot be prompted by label (vendored pipeline excludes 129, 130, 131; [AUDIT.md](results/exp1_audit/AUDIT.md)); it needs point prompts. | this commit |
+| 2026-10-16 | Class index confirmed | `cache/bundle_metadata.json`: "129": "kidney mass", "130": "liver tumor". | HASH_B |
+| 2026-10-16 | Gate 2: ground-truth feasibility (no model run); PREREG drafted, not committed | C4KC-KiTS, 210 cases, all with a lesion >= 10 mm; 227 lesions >= 10 mm, 219 primary (two largest per case). Bright (contrast > 0 HU vs kidney parenchyma shell): 53 lesions in 52 cases, 24.2% [18.8, 30.0]; 166 dark. Contrast quantiles (HU, 5/25/50/75/95) -82.6, -44.3, -22.4, -0.9, +20.7. Bright by size: <30 mm 18 of 67, 30-60 mm 26 of 93, >60 mm 9 of 59. No shell fallbacks. 53 bright lesions is above the ~40 bar, so W2 is not underpowered for the brightness test ([gt_summary.json](results/w2_kidney/gt_summary.json), [gt_lesions.csv](results/w2_kidney/gt_lesions.csv)). Every output carries "possibly seen in training (images, via AbdomenCT-1K)". | HASH_B |
 
 **Deviations.** None yet.
 **Verdict.** None yet.
@@ -94,6 +101,8 @@ Log (append-only):
 | 2026-10-16 | W2 headline arm = one positive point per lesion at its interior point (max distance to the boundary), no negative points, identical protocol run on the HCC UID cohort; class 26 HCC results stay as the separate reported analysis; point prompts give location, so W2 measures appearance-driven under-segmentation, not detection; the automatic kidney mask is descriptive only | Class 129 cannot be label-prompted; a matched protocol makes kidney vs liver like-for-like |
 | 2026-10-16 | All of C4KC-KiTS is labelled "possibly seen in training (images, via AbdomenCT-1K)" in the PREREG and every output; no case matching attempted | Cases cannot be identified from public information |
 | 2026-10-16 | The encoder probe and LEACE for W2 are specified exactly as in HCC (class-agnostic encoder) | Keeps the mechanism steps comparable |
+| 2026-10-16 | Task03 swap guard revised from a voxel fraction to a tumour-surface criterion (DEVIATIONS 5), the #4 rule kept as a sensitivity analysis, decided after the inventory but before any contrast or share | The voxel-fraction guard excluded 13 legitimate large-tumour cases (size-biased exclusion) |
+| 2026-10-16 | W2 PREREG proposes `label_prompt = [129]` (kidney) and `[130]` (HCC liver tumour) with one positive point, margin 0.10, headline statistic = mean coverage gap dark minus bright; marked for approval | 129 and 130 are the point-only tumour classes, so the two organs use the same mechanism |
 
 ## 6. Open questions and limitations
 
@@ -102,4 +111,5 @@ Log (append-only):
 - VISTA-3D's MAISI synthetic-tumour stage is not covered by W1.
 - C4KC-KiTS may be in-distribution at the image level, and AbdomenCT-1K's tumour labelling is unresolved.
 - C4KC-KiTS is described as arterial phase; phase cannot be labelled on HCC-TACE-Seg.
-- Whether the kidney cohort has enough bright lesions for a brightness test is unknown until Gate 2.
+- W1: the HCC reference is 75 cases (86 lesions); the 89-case sensitivity analysis and the optional Task08 secondary are not run; the contrast of a lesion is a coarse mean-HU summary.
+- W2: the point-prompt coordinate convention must pass a unit test before any scored run; whether HCC should use class 130 or class 26 with a point is a choice marked for approval; the kidney label spans cortex and medulla, which differ in the corticomedullary phase.

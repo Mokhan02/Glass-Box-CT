@@ -9,4 +9,6 @@ Data live under `data/w1/` (git-ignored, never committed). Downloaded files are 
 | MSD Task08 HepaticVessel | as MSD | S3 listing | not yet downloaded (secondary) | `Task08_HepaticVessel.tar` 9.35 GB | pending |
 
 Not yet checked: whether the NV-Segment-CT bundle publishes per-case training splits (PREREG expects not).
-Sha256 of the downloaded files will be appended below when the downloads finish.
+Task03 download (2026-10-16, on the GPU instance, because local transfer was too slow): `Task03_Liver.tar` 28,925,891,584 bytes (equal to the source object size); `tar -tf` exit 0, 672 entries; SHA-256 `4007d9db1acda850d57a6ceb2b3998b7a0d43f8ad5a3f740dc38bc0cb8b7a2c5` ([task03_verify.log](task03_verify.log)). Extracted into its own empty directory: 131 images and 131 labels (the tar's macOS `._*` files ignored).
+CRML-CT SHA-256 is not recorded: it came from the IDC index as many DICOM files rather than one archive (197 patients, CT and SEG series, 11.64 GB).
+Task08: not downloaded (secondary analysis not run).
