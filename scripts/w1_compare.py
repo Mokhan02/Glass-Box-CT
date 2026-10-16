@@ -17,7 +17,7 @@ hcc = [r for r in rd("results/exp8_lesions/lesion_table.csv") if r["route"] == "
 
 
 def rows(src, key, col="contrast_hu"):
-    return [{"case": r[key], "rank": int(r["rank"]), "diam": float(r["diam_mm"]), "c": float(r[col]) if r[col] not in ("", "nan") else np.nan, "dataset": r.get("dataset", "hcc")} for r in src]
+    return [{"case": r[key], "rank": int(r["rank"]), "diam": float(r["diam_mm"]), "c": float(r[col]) if r[col] not in ("", "nan") else np.nan, "dataset": r.get("dataset", "hcc"), "included_dev4": r.get("included_dev4", "True") == "True"} for r in src]
 
 
 def boot_share(rs, pred=lambda r: r["c"] > 0, rng=None):
@@ -68,6 +68,8 @@ def comp_pred(train, ref, pred):
 sens["bright_gt_+10HU"] = comp_pred(C + M, H, lambda r: r["c"] > 10)
 sens["crml_no_hepatic_vein_reference"] = compare(prim(rows(crml, "patient", "contrast_hu_no_hepatic_vein")) + M, H, rng)
 sens["crml_no_vessel_removal_reference"] = compare(prim(rows(crml, "patient", "contrast_hu_no_vessel_removal")) + M, H, rng)
+M4 = [r for r in M if r["included_dev4"]]
+sens["msd_inclusion_as_in_DEV4_(voxel-fraction_guard)"] = compare(C + M4, H, rng)
 sens["all_lesions_ge_10mm_training_vs_hcc_primary"] = compare(rows(crml, "patient") + rows(msd, "patient"), H, rng)
 json.dump(res, open(f"{out}/w1_results.json", "w"), indent=1, default=float)
 f = lambda s: f"{100 * s['share']:.1f}% [{100 * s['lo']:.1f}, {100 * s['hi']:.1f}] ({s['bright']}/{s['n_lesions']} lesions, {s['n_cases']} cases)"

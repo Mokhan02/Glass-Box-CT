@@ -27,7 +27,7 @@ def load(name):
 
 def inventory_one(name):
     row = {"case": name.replace(".nii.gz", ""), "included": False, "reason": "", "shape": "", "spacing": "", "label_values": "", "liver_vox": 0, "tumour_vox": 0,
-           "tumour_near_liver": np.nan, "tumour_over_liver_vol": np.nan, "liver_hu_ex_tumour": np.nan, "affine_max_diff": np.nan}
+           "tumour_near_liver": np.nan, "tumour_surface_near_liver": np.nan, "included_dev4": False, "tumour_over_liver_vol": np.nan, "liver_hu_ex_tumour": np.nan, "affine_max_diff": np.nan}
     try:
         img, lab = load(name)
         row["shape"] = "x".join(map(str, img.shape)); row["spacing"] = "x".join(f"{z:.3f}" for z in img.header.get_zooms()[:3])
@@ -39,18 +39,26 @@ def inventory_one(name):
             row["reason"] = f"unexpected label values {vals}"; return row
         liver, tum = L == 1, L == 2
         row["liver_vox"], row["tumour_vox"] = int(liver.sum()), int(tum.sum())
-        if not liver.any() or not tum.any():
-            row["reason"] = "no liver or no tumour label"; return row
+        if not liver.any():
+            row["reason"] = "no liver label"; return row
+        if not tum.any():
+            row["reason"] = "tumour-free case (no label 2)"; return row
         sp = img.header.get_zooms()[:3]
-        near = ndimage.distance_transform_edt(~liver, sampling=sp) <= 5.0           # swap guard: tumour must sit against the liver label
-        row["tumour_near_liver"] = round(float(near[tum].mean()), 4); row["tumour_over_liver_vol"] = round(float(tum.sum() / liver.sum()), 4)
+        dist = ndimage.distance_transform_edt(~liver, sampling=sp)
+        surf = tum & ~ndimage.binary_erosion(tum)                                    # DEV5 swap guard: the tumour SURFACE must sit against the liver label (a voxel-fraction criterion fails for large tumours)
+        row["tumour_near_liver"] = round(float((dist[tum] <= 5.0).mean()), 4)       # DEV4 criterion, kept as a diagnostic and as the sensitivity inclusion rule
+        row["tumour_surface_near_liver"] = round(float((dist[surf] <= 3.0).mean()), 4); row["tumour_over_liver_vol"] = round(float(tum.sum() / liver.sum()), 4)
+        row["included_dev4"] = bool(row["tumour_near_liver"] >= 0.5 and row["tumour_over_liver_vol"] <= 1.0)
         ct = np.asarray(img.dataobj).astype(np.float32); row["liver_hu_ex_tumour"] = round(float(ct[liver].mean()), 1)
-        if row["tumour_near_liver"] < 0.5 or row["tumour_over_liver_vol"] > 1.0:
-            row["reason"] = "label inconsistency (tumour not against liver, or larger than liver)"; return row
+        if row["tumour_surface_near_liver"] < 0.5 or row["tumour_over_liver_vol"] > 1.0:
+            row["reason"] = "label inconsistency (tumour surface not against liver, or larger than liver)"; return row
         row["included"] = True
     except Exception as e:
         row["reason"] = f"error: {type(e).__name__}: {e}"
     return row
+
+
+INC4 = {}
 
 
 def contrast_one(name):
@@ -58,7 +66,7 @@ def contrast_one(name):
     ct = np.asarray(img.dataobj).astype(np.float32); L = np.asarray(lab.dataobj).astype(np.uint8)
     rows = case_lesions(ct, L == 2, L == 1, sp, n_lesions=None)
     nov = case_lesions(ct, L == 2, L == 1, sp, n_lesions=None)          # no vessel labels exist: identical by construction, kept so the column set matches CRML-CT
-    return [{"patient": name.replace(".nii.gz", ""), "dataset": "msd_task03", **r, "contrast_hu_no_hepatic_vein": r["contrast_hu"], "contrast_hu_no_vessel_removal": b["contrast_hu"]} for r, b in zip(rows, nov)]
+    return [{"patient": name.replace(".nii.gz", ""), "dataset": "msd_task03", "included_dev4": INC4[name.replace(".nii.gz", "")], **r, "contrast_hu_no_hepatic_vein": r["contrast_hu"], "contrast_hu_no_vessel_removal": b["contrast_hu"]} for r, b in zip(rows, nov)]
 
 
 def write(path, rows):
@@ -80,6 +88,7 @@ if __name__ == "__main__":
     else:
         inv = list(csv.DictReader(open(os.path.join(outdir, "msd_inventory.csv"))))
         todo = [r["case"] + ".nii.gz" for r in inv if r["included"] == "True"]
+        INC4.update({r["case"]: r["included_dev4"] == "True" for r in inv})
         with Pool(10) as pool:
             rows = [x for rs in pool.map(contrast_one, todo) for x in rs]
         write(os.path.join(outdir, "msd_lesions.csv"), rows)
