@@ -1,0 +1,17 @@
+organ,case,rank,group,stratum,diam_mm,pred_diam_mm,rel_err
+kidney_129,KiTS-00120_080267,1,bright,largest_error,13.544,59.127,3.3655
+kidney_129,KiTS-00037_959755,1,bright,largest_error,23.438,91.241,2.8929
+kidney_129,KiTS-00114_152388,2,dark,largest_error,12.656,138.939,9.9781
+kidney_129,KiTS-00165_315836,1,dark,largest_error,15.348,81.099,4.284
+kidney_129,KiTS-00097_031698,1,bright,typical(group median +0.964),35.483,69.689,0.964
+kidney_129,KiTS-00138_248840,1,bright,typical(group median +0.964),36.334,70.807,0.9488
+kidney_129,KiTS-00021_101579,1,dark,typical(group median +0.534),38.96,59.794,0.5348
+kidney_129,KiTS-00130_854044,1,dark,typical(group median +0.534),52.81,80.998,0.5338
+hcc_130,HCC_051_502793,2,bright,largest_error,11.787,200.534,16.0132
+hcc_130,HCC_098_610748,1,bright,largest_error,21.63,200.421,8.2659
+hcc_130,HCC_077_996191,1,dark,largest_error,23.591,178.868,6.582
+hcc_130,HCC_071_621596,1,dark,largest_error,30.233,190.589,5.304
+hcc_130,HCC_086_615027,1,bright,typical(group median +2.294),58.45,197.818,2.3844
+hcc_130,HCC_024_254376,1,bright,typical(group median +2.294),59.38,190.209,2.2033
+hcc_130,HCC_057_698557,2,dark,typical(group median +1.128),87.069,187.527,1.1538
+hcc_130,HCC_081_327663,1,dark,typical(group median +1.128),72.155,151.671,1.102
