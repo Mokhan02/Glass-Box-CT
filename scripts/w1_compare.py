@@ -71,6 +71,10 @@ sens["crml_no_vessel_removal_reference"] = compare(prim(rows(crml, "patient", "c
 M4 = [r for r in M if r["included_dev4"]]
 sens["msd_inclusion_as_in_DEV4_(voxel-fraction_guard)"] = compare(C + M4, H, rng)
 sens["all_lesions_ge_10mm_training_vs_hcc_primary"] = compare(rows(crml, "patient") + rows(msd, "patient"), H, rng)
+import os
+if os.path.exists(f"{out}/msd_lesions_guard_failed.csv"):      # appended LAST so no earlier draw changes
+    GF = prim(rows(rd(f"{out}/msd_lesions_guard_failed.csv"), "patient"))
+    sens["POST HOC (added after the primary result was known; signed off by the researcher): MSD cases that failed the DEV5 surface guard included"] = compare(C + M + GF, H, rng)
 json.dump(res, open(f"{out}/w1_results.json", "w"), indent=1, default=float)
 f = lambda s: f"{100 * s['share']:.1f}% [{100 * s['lo']:.1f}, {100 * s['hi']:.1f}] ({s['bright']}/{s['n_lesions']} lesions, {s['n_cases']} cases)"
 g = lambda r: f"d = {100 * r['d']:+.1f} pts [{100 * r['d_lo']:+.1f}, {100 * r['d_hi']:+.1f}]"

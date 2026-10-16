@@ -268,6 +268,27 @@
     "d": 0.2929948373040307,
     "d_lo": 0.19285020699521382,
     "d_hi": 0.39430306335775117
+   },
+   "POST HOC (added after the primary result was known; signed off by the researcher): MSD cases that failed the DEV5 surface guard included": {
+    "p_train": {
+     "share": 0.05102040816326531,
+     "lo": 0.029806235654963747,
+     "hi": 0.07613561155657375,
+     "n_lesions": 490,
+     "n_cases": 310,
+     "bright": 25
+    },
+    "p_hcc": {
+     "share": 0.32558139534883723,
+     "lo": 0.2261904761904762,
+     "hi": 0.430272198731501,
+     "n_lesions": 86,
+     "n_cases": 75,
+     "bright": 28
+    },
+    "d": 0.2745609871855719,
+    "d_lo": 0.17134964669423597,
+    "d_hi": 0.3821699094784494
    }
   }
  }

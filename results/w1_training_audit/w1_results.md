@@ -25,3 +25,4 @@
 - crml_no_vessel_removal_reference: p_train 5.2% [3.1, 7.6] (25/485 lesions, 307 cases); p_HCC 32.6% [22.5, 42.9] (28/86 lesions, 75 cases); d = +27.4 pts [+16.8, +38.1]
 - msd_inclusion_as_in_DEV4_(voxel-fraction_guard): p_train 5.4% [3.0, 7.7] (25/467 lesions, 297 cases); p_HCC 32.6% [22.8, 43.0] (28/86 lesions, 75 cases); d = +27.2 pts [+17.2, +37.8]
 - all_lesions_ge_10mm_training_vs_hcc_primary: p_train 3.3% [2.0, 5.1] (32/982 lesions, 307 cases); p_HCC 32.6% [22.9, 42.9] (28/86 lesions, 75 cases); d = +29.3 pts [+19.3, +39.4]
+- POST HOC (added after the primary result was known; signed off by the researcher): MSD cases that failed the DEV5 surface guard included: p_train 5.1% [3.0, 7.6] (25/490 lesions, 310 cases); p_HCC 32.6% [22.6, 43.0] (28/86 lesions, 75 cases); d = +27.5 pts [+17.1, +38.2]

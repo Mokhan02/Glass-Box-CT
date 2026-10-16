@@ -85,6 +85,14 @@ if __name__ == "__main__":
         print(f"{len(rows)} cases, {len(rows) - len(exc)} included, {len(exc)} excluded")
         for r in exc:
             print("  EXCLUDED", r["case"], r["reason"])
+    elif stage == "contrast_guard_failed":
+        # POST HOC sensitivity (added after the primary result was known; signed off by the researcher): the cases that failed the DEV5 surface guard
+        inv = list(csv.DictReader(open(os.path.join(outdir, "msd_inventory.csv"))))
+        todo = [r["case"] + ".nii.gz" for r in inv if r["reason"].startswith("label inconsistency")]
+        INC4.update({r["case"]: r["included_dev4"] == "True" for r in inv})
+        rows = [x for n in todo for x in contrast_one(n)]
+        write(os.path.join(outdir, "msd_lesions_guard_failed.csv"), rows)
+        print(len(rows), "lesions from", len(todo), "guard-failed cases:", ", ".join(t.replace(".nii.gz", "") for t in todo))
     else:
         inv = list(csv.DictReader(open(os.path.join(outdir, "msd_inventory.csv"))))
         todo = [r["case"] + ".nii.gz" for r in inv if r["included"] == "True"]
