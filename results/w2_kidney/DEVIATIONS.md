@@ -1,0 +1,11 @@
+# W2 deviations and implementation notes
+
+## 1. Analysis-script flag bug found and fixed before the report (2026-10-16)
+`scripts/w2_analyze.py` flagged "adjusted effect disappears" whenever the size-adjusted gap was <= 0, which assumed a positive headline gap. The PREREG rule is: the adjusted coefficient's CI includes 0 or has the opposite sign to the headline gap. For kidney the headline gap is negative (bright covered more), the adjusted gap is negative with a CI that excludes 0, so the effect remains. The flag now compares against the headline's sign; a synthetic test covers a negative headline gap. All numbers are unchanged (a diff of the two outputs differs only in that one flag line). Found on first reading of the output, no criterion or inclusion was touched.
+
+## 2. Implementation details not specified in the PREREG (no inclusion or exclusion criterion changed)
+- RECIST bias is per case (sum of the up-to-2 target diameters, predicted diameter = largest overlapping predicted component, a miss = 0 mm). To split it by bright and dark, a case is labelled by the sign of its rank-1 lesion. The lesion-level median diameter error by sign is also reported.
+- The point-coordinate convention test (before any scored run) used the Kidney label of three C4KC-KiTS cases with kidney classes 5 and 14 and one point per kidney (organ Dice 0.90 to 0.955, 6 of 6 kidney components passed); no tumour outcome was involved.
+- The VISTA-3D point path is NVIDIA's `Vista3dInferer` with `use_point_window=True`, vendored at run time from the Hugging Face pipeline (not committed); `scikit-image` was required by the connected-components step.
+- Distance transforms (interior point, the 10 mm Dice neighbourhood) were cropped to the lesion's neighbourhood for speed; outputs were verified identical to the uncropped version on three lesions before the run.
+- Prediction threshold: probability > 0.5 on the original grid after inverting the preprocessing; predictions and ground truth restricted to annotated slices, as in exp8 and recist_shift.

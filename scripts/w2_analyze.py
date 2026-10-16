@@ -86,7 +86,7 @@ def summarize(rs, rng):
     res["recist_per_case"] = recist(rs, rng)
     res["size_strata"] = {n: (lambda sub: gap_stat(sub, rng)[0] if sub else {"note": "empty"})([r for r in rs if f(r["diam"])]) for n, f in (("<30 mm", lambda d: d < 30), ("30-60 mm", lambda d: 30 <= d <= 60), (">60 mm", lambda d: d > 60))}
     adj = ols_bright(rs, rng); res["size_adjusted"] = {**adj, "adjusted_gap_equals_minus_coef": -adj["coef_bright"], "adjusted_gap_lo": -adj["hi"], "adjusted_gap_hi": -adj["lo"],
-                                                       "adjusted_effect_gone": bool(-adj["hi"] <= 0 <= -adj["lo"] or -adj["coef_bright"] <= 0)}
+                                                       "adjusted_effect_gone": bool((-adj["hi"] <= 0 <= -adj["lo"]) or np.sign(-adj["coef_bright"]) != np.sign(res["headline"]["gap"]))}   # CI includes 0, or the sign differs from the headline gap (PREREG)
     return res
 
 
@@ -132,6 +132,9 @@ def selftest():
     R = json.load(open(f"{d}/gate3_results.json"))
     assert R["kidney (class 129)"]["verdict"] == "GAP" and R["HCC (class 130, primary)"]["verdict"] == "NO MEANINGFUL GAP", R["replication"]
     assert R["HCC (class 26 + point, sensitivity)"]["headline"]["gap"] > 0.05
+    # a NEGATIVE headline gap (bright covered more) with a same-sign adjusted gap whose CI excludes 0 must NOT be flagged as "adjusted effect gone"
+    rs = [{"case": f"n{i}", "rank": 1, "diam": 40.0 + (i % 7), "c": (20.0 if i % 2 else -20.0), "cov": (0.9 if i % 2 else 0.7), "dice": 0.5, "det": 1, "pdiam": 40.0} for i in range(160)]
+    r = summarize(rs, np.random.default_rng(0)); assert r["headline"]["gap"] < 0 and not r["size_adjusted"]["adjusted_effect_gone"], r["size_adjusted"]
     print("SELFTEST PASSED")
 
 

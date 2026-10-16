@@ -1,0 +1,258 @@
+{
+ "kidney (class 129)": {
+  "headline": {
+   "gap": -0.055164832916571926,
+   "lo": -0.08857808413917588,
+   "hi": -0.02430646216946521,
+   "n_bright": 53,
+   "n_dark": 166,
+   "n_cases": 210
+  },
+  "verdict": "NO MEANINGFUL GAP",
+  "by_group": {
+   "dark": {
+    "coverage_mean": 0.8237612048192771,
+    "dice_within_10mm_mean": 0.6636242168674699,
+    "detected_share": 1.0,
+    "n": 166,
+    "lesion_diameter_rel_error_median": 0.5342580692008505
+   },
+   "bright": {
+    "coverage_mean": 0.878926037735849,
+    "dice_within_10mm_mean": 0.5493058490566038,
+    "detected_share": 1.0,
+    "n": 53,
+    "lesion_diameter_rel_error_median": 0.9640109348138545
+   }
+  },
+  "recist_per_case": {
+   "all": {
+    "median_signed_error": 0.6066602868134106,
+    "lo": 0.5336839389269149,
+    "hi": 0.7636051203601122,
+    "n_cases": 210
+   },
+   "bright (rank-1 lesion)": {
+    "median_signed_error": 0.9774897083293299,
+    "lo": 0.6686099091127728,
+    "hi": 1.4159308590242439,
+    "n_cases": 52
+   },
+   "dark (rank-1 lesion)": {
+    "median_signed_error": 0.5114018042375914,
+    "lo": 0.29088338479981396,
+    "hi": 0.6251184279662425,
+    "n_cases": 158
+   }
+  },
+  "size_strata": {
+   "<30 mm": {
+    "gap": -0.10300964852607697,
+    "lo": -0.15638034002474174,
+    "hi": -0.05155505307971059,
+    "n_bright": 18,
+    "n_dark": 49,
+    "n_cases": 65
+   },
+   "30-60 mm": {
+    "gap": -0.061794368541905786,
+    "lo": -0.09747807536676276,
+    "hi": -0.029601902530098336,
+    "n_bright": 26,
+    "n_dark": 67,
+    "n_cases": 90
+   },
+   ">60 mm": {
+    "gap": 0.048136666666666494,
+    "lo": -0.0785492675850338,
+    "hi": 0.1769597632326864,
+    "n_bright": 9,
+    "n_dark": 50,
+    "n_cases": 59
+   }
+  },
+  "size_adjusted": {
+   "coef_bright": 0.05644149349979407,
+   "lo": 0.021970091156667284,
+   "hi": 0.09019057686353664,
+   "adjusted_gap_equals_minus_coef": -0.05644149349979407,
+   "adjusted_gap_lo": -0.09019057686353664,
+   "adjusted_gap_hi": -0.021970091156667284,
+   "adjusted_effect_gone": false
+  }
+ },
+ "HCC (class 130, primary)": {
+  "headline": {
+   "gap": 0.05041043103448273,
+   "lo": -0.008340549019607827,
+   "hi": 0.13343753001373654,
+   "n_bright": 28,
+   "n_dark": 58,
+   "n_cases": 75
+  },
+  "verdict": "INCONCLUSIVE",
+  "by_group": {
+   "dark": {
+    "coverage_mean": 0.9488529310344826,
+    "dice_within_10mm_mean": 0.7087906896551724,
+    "detected_share": 1.0,
+    "n": 58,
+    "lesion_diameter_rel_error_median": 1.1278955424190475
+   },
+   "bright": {
+    "coverage_mean": 0.8984425,
+    "dice_within_10mm_mean": 0.5327350000000001,
+    "detected_share": 1.0,
+    "n": 28,
+    "lesion_diameter_rel_error_median": 2.293823586527566
+   }
+  },
+  "recist_per_case": {
+   "all": {
+    "median_signed_error": 1.3444877099050867,
+    "lo": 1.0433997988284716,
+    "hi": 1.7274119223238076,
+    "n_cases": 75
+   },
+   "bright (rank-1 lesion)": {
+    "median_signed_error": 1.7043713463457935,
+    "lo": 1.086639381308693,
+    "hi": 2.7733757180187544,
+    "n_cases": 22
+   },
+   "dark (rank-1 lesion)": {
+    "median_signed_error": 1.202650645973271,
+    "lo": 0.7049953676144782,
+    "hi": 1.5439018146652257,
+    "n_cases": 53
+   }
+  },
+  "size_strata": {
+   "<30 mm": {
+    "gap": -0.0701750000000001,
+    "lo": -0.16314249999999997,
+    "hi": 0.026586,
+    "n_bright": 4,
+    "n_dark": 2,
+    "n_cases": 6
+   },
+   "30-60 mm": {
+    "gap": 0.017198325791855318,
+    "lo": -0.07898094251777642,
+    "hi": 0.1520828239583335,
+    "n_bright": 13,
+    "n_dark": 17,
+    "n_cases": 29
+   },
+   ">60 mm": {
+    "gap": 0.09351885780885805,
+    "lo": 0.0028782737179491825,
+    "hi": 0.2372690153654487,
+    "n_bright": 11,
+    "n_dark": 39,
+    "n_cases": 47
+   }
+  },
+  "size_adjusted": {
+   "coef_bright": -0.0535377968729044,
+   "lo": -0.14011093663203872,
+   "hi": 0.018559814081687116,
+   "adjusted_gap_equals_minus_coef": 0.0535377968729044,
+   "adjusted_gap_lo": -0.018559814081687116,
+   "adjusted_gap_hi": 0.14011093663203872,
+   "adjusted_effect_gone": true
+  }
+ },
+ "HCC (class 26 + point, sensitivity)": {
+  "headline": {
+   "gap": 0.05069039408867004,
+   "lo": -0.009103246752052868,
+   "hi": 0.13122114874505367,
+   "n_bright": 28,
+   "n_dark": 58,
+   "n_cases": 75
+  },
+  "verdict": "INCONCLUSIVE",
+  "by_group": {
+   "dark": {
+    "coverage_mean": 0.9508539655172413,
+    "dice_within_10mm_mean": 0.7085089655172413,
+    "detected_share": 1.0,
+    "n": 58,
+    "lesion_diameter_rel_error_median": 1.1278955424190475
+   },
+   "bright": {
+    "coverage_mean": 0.9001635714285715,
+    "dice_within_10mm_mean": 0.5335646428571429,
+    "detected_share": 1.0,
+    "n": 28,
+    "lesion_diameter_rel_error_median": 2.293823586527566
+   }
+  },
+  "recist_per_case": {
+   "all": {
+    "median_signed_error": 1.3444877099050867,
+    "lo": 1.0433997988284716,
+    "hi": 1.6841878172588833,
+    "n_cases": 75
+   },
+   "bright (rank-1 lesion)": {
+    "median_signed_error": 1.7043713463457935,
+    "lo": 1.086639381308693,
+    "hi": 2.912627601938979,
+    "n_cases": 22
+   },
+   "dark (rank-1 lesion)": {
+    "median_signed_error": 1.202650645973271,
+    "lo": 0.7023581121149752,
+    "hi": 1.5439018146652257,
+    "n_cases": 53
+   }
+  },
+  "size_strata": {
+   "<30 mm": {
+    "gap": -0.06252499999999994,
+    "lo": -0.14751999999999998,
+    "hi": 0.026046000000000014,
+    "n_bright": 4,
+    "n_dark": 2,
+    "n_cases": 6
+   },
+   "30-60 mm": {
+    "gap": 0.01766407239819001,
+    "lo": -0.0820835241374434,
+    "hi": 0.15519676542207791,
+    "n_bright": 13,
+    "n_dark": 17,
+    "n_cases": 29
+   },
+   ">60 mm": {
+    "gap": 0.09359016317016333,
+    "lo": 8.624788961048318e-05,
+    "hi": 0.23733859062543394,
+    "n_bright": 11,
+    "n_dark": 39,
+    "n_cases": 47
+   }
+  },
+  "size_adjusted": {
+   "coef_bright": -0.05422191341296568,
+   "lo": -0.1376313544500979,
+   "hi": 0.015093134868819857,
+   "adjusted_gap_equals_minus_coef": 0.05422191341296568,
+   "adjusted_gap_lo": -0.015093134868819857,
+   "adjusted_gap_hi": 0.1376313544500979,
+   "adjusted_effect_gone": true
+  }
+ },
+ "replication": {
+  "kidney_verdict": "NO MEANINGFUL GAP",
+  "hcc130_verdict": "INCONCLUSIVE",
+  "replicates": false,
+  "kidney_minus_hcc_gap_difference_descriptive": {
+   "diff": -0.10557526395105465,
+   "lo": -0.19224459168893523,
+   "hi": -0.03517474637679096
+  }
+ }
+}

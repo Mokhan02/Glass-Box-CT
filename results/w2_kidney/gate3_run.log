@@ -1,0 +1,46 @@
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/utils/deprecate_utils.py:320: FutureWarning: monai.transforms.spatial.dictionary Orientationd.__init__:labels: Current default value of argument `labels=(('L', 'R'), ('P', 'A'), ('I', 'S'))` was changed in version None from `labels=(('L', 'R'), ('P', 'A'), ('I', 'S'))` to `labels=None`. Default value changed to None meaning that the transform now uses the 'space' of a meta-tensor, if applicable, to determine appropriate axis labels.
+  warn_deprecated(argname, msg, warning_category)
+/lambda/nfs/CTGate/w1/repo/scripts/w2_point_run.py:52: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments. To learn more, see the migration guide https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword
+  return data, img, np.linalg.inv(np.array(data["image"].affine, float)) @ np.array(data["image"].meta["original_affine"], float)
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+[kidney] 1/210 KiTS-00000_641748 elapsed 18s
+[kidney] 11/210 KiTS-00010_337475 elapsed 103s
+[kidney] 21/210 KiTS-00020_568207 elapsed 152s
+[kidney] 31/210 KiTS-00030_354267 elapsed 224s
+[kidney] 41/210 KiTS-00040_997858 elapsed 275s
+[kidney] 51/210 KiTS-00050_047294 elapsed 341s
+[kidney] 61/210 KiTS-00060_267317 elapsed 427s
+[kidney] 71/210 KiTS-00070_621220 elapsed 508s
+[kidney] 81/210 KiTS-00080_780644 elapsed 566s
+[kidney] 91/210 KiTS-00090_875522 elapsed 611s
+[kidney] 101/210 KiTS-00100_872918 elapsed 721s
+[kidney] 111/210 KiTS-00110_190905 elapsed 795s
+[kidney] 121/210 KiTS-00120_080267 elapsed 898s
+[kidney] 131/210 KiTS-00130_854044 elapsed 948s
+[kidney] 141/210 KiTS-00140_719872 elapsed 1024s
+[kidney] 151/210 KiTS-00150_866898 elapsed 1097s
+[kidney] 161/210 KiTS-00160_586690 elapsed 1278s
+[kidney] 171/210 KiTS-00170_990192 elapsed 1336s
+[kidney] 181/210 KiTS-00180_679347 elapsed 1373s
+[kidney] 191/210 KiTS-00190_409654 elapsed 1433s
+[kidney] 201/210 KiTS-00200_620878 elapsed 1492s
+ARM kidney done: 219 lesions, 1546s
+[hcc] 1/75 HCC_004_414785 elapsed 3s
+[hcc] 11/75 HCC_021_043762 elapsed 39s
+[hcc] 21/75 HCC_032_522941 elapsed 82s
+[hcc] 31/75 HCC_042_785120 elapsed 122s
+[hcc] 41/75 HCC_053_504983 elapsed 166s
+[hcc] 51/75 HCC_063_661087 elapsed 210s
+[hcc] 61/75 HCC_074_379020 elapsed 260s
+[hcc] 71/75 HCC_086_615027 elapsed 297s
+ARM hcc done: 86 lesions, 311s
+[hcc26] 1/75 HCC_004_414785 elapsed 3s
+[hcc26] 11/75 HCC_021_043762 elapsed 38s
+[hcc26] 21/75 HCC_032_522941 elapsed 79s
+[hcc26] 31/75 HCC_042_785120 elapsed 119s
+[hcc26] 41/75 HCC_053_504983 elapsed 162s
+[hcc26] 51/75 HCC_063_661087 elapsed 206s
+[hcc26] 61/75 HCC_074_379020 elapsed 256s
+[hcc26] 71/75 HCC_086_615027 elapsed 293s
+ARM hcc26 done: 86 lesions, 307s
