@@ -18,7 +18,7 @@ stage, root, cache, outdir = sys.argv[1:5]
 
 
 def inventory_one(p):
-    row = {"patient": p, "included": False, "reason": "", "series_used": "", "series_seen": "", "n_tumour_segments": 0, "tumour_labels": "", "liver_vox": 0, "tumour_vox": 0, "tumour_in_liver": np.nan,
+    row = {"patient": p, "included": False, "reason": "", "series_used": "", "series_seen": "", "n_tumour_segments": 0, "tumour_labels": "", "liver_vox": 0, "tumour_vox": 0, "portal_vox": 0, "hepatic_vox": 0, "portal_in_liver": np.nan, "hepatic_in_liver": np.nan, "tumour_in_liver": np.nan,
            "tumour_over_liver_vol": np.nan, "liver_hu_ex_tumour": np.nan, "shape": "", "spacing": "", "max_gap_dev_mm": np.nan}
     try:
         pd_ = os.path.join(root, p)
@@ -37,7 +37,14 @@ def inventory_one(p):
         liver = m[livers[0]]; tum = np.zeros(ct.shape, bool)
         for k in tums:
             tum |= m[k]
-        row.update(liver_vox=int(liver.sum()), tumour_vox=int(tum.sum()))
+        portal = np.zeros(ct.shape, bool); hepatic = np.zeros(ct.shape, bool)
+        for k, v in r.items():
+            if v == "portal_vein":
+                portal |= m[k]
+            elif v == "hepatic_vein":
+                hepatic |= m[k]
+        row.update(liver_vox=int(liver.sum()), tumour_vox=int(tum.sum()), portal_vox=int(portal.sum()), hepatic_vox=int(hepatic.sum()),
+                   portal_in_liver=round(float((portal & liver).sum() / max(portal.sum(), 1)), 4), hepatic_in_liver=round(float((hepatic & liver).sum() / max(hepatic.sum(), 1)), 4))
         if gdev > 1.0:
             row["reason"] = f"slice gap deviation {gdev:.2f} mm > 1 mm"; return row
         if not liver.any() or not tum.any():
@@ -46,7 +53,7 @@ def inventory_one(p):
         row["liver_hu_ex_tumour"] = round(float(ct[liver & ~tum].astype(np.float32).mean()), 1) if (liver & ~tum).any() else np.nan
         if row["tumour_in_liver"] < 0.5 or row["tumour_over_liver_vol"] > 1.0:
             row["reason"] = "label inconsistency (tumour not inside liver, or larger than liver)"; return row
-        np.savez_compressed(os.path.join(cache, p + ".npz"), ct=ct, liver=liver, tumour=tum, spacing=np.array(sp))
+        np.savez_compressed(os.path.join(cache, p + ".npz"), ct=ct, liver=liver, tumour=tum, portal=portal, hepatic=hepatic, spacing=np.array(sp))
         row["included"] = True
     except Exception as e:
         row["reason"] = f"error: {type(e).__name__}: {e}"
@@ -55,8 +62,14 @@ def inventory_one(p):
 
 def contrast_one(p):
     z = np.load(os.path.join(cache, p + ".npz")); sp = tuple(float(x) for x in z["spacing"])
-    rows = case_lesions(z["ct"].astype(np.float32), z["tumour"], z["liver"], sp, n_lesions=None)       # all lesions >= 10 mm, ranked; the 2 largest are rank 1-2
-    return [{"patient": p, "dataset": "crml", **r} for r in rows]
+    ct = z["ct"].astype(np.float32)
+    # primary: reference = Liver segment minus ALL tumour segments minus the labelled portal vein (exactly what exp8's label 1 excludes, DEVIATIONS #3)
+    rows = case_lesions(ct, z["tumour"], z["liver"], sp, n_lesions=None, exclude=z["portal"])       # all lesions >= 10 mm, ranked; the 2 largest are rank 1-2
+    # sensitivity: also remove the labelled hepatic veins (HCC-TACE-Seg has no hepatic-vein label)
+    alt = case_lesions(ct, z["tumour"], z["liver"], sp, n_lesions=None, exclude=z["portal"] | z["hepatic"])
+    # sensitivity: Liver minus all tumour only, no vessel removal (the only treatment MSD Task03 allows, since it has no vessel labels)
+    nov = case_lesions(ct, z["tumour"], z["liver"], sp, n_lesions=None)
+    return [{"patient": p, "dataset": "crml", **r, "contrast_hu_no_hepatic_vein": a["contrast_hu"], "contrast_hu_no_vessel_removal": b["contrast_hu"]} for r, a, b in zip(rows, alt, nov)]
 
 
 def write(path, rows):

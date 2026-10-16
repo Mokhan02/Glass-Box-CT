@@ -55,8 +55,15 @@ def lesion_contrast(ct, lesion, liver, spacing):
     return {"tumour_hu": t, "liver_hu": L, "contrast_hu": t - L, "n_shell_vox": n_shell, "fallback": fallback, "n_liver_vox": n_liver}
 
 
-def case_lesions(ct, tumour, liver, spacing, n_lesions=N_LESIONS, min_diam_mm=MIN_DIAM_MM):
-    """Rows (one per selected lesion, rank 1 = largest) with diameter, volume and contrast."""
+def case_lesions(ct, tumour, liver, spacing, n_lesions=N_LESIONS, min_diam_mm=MIN_DIAM_MM, exclude=None):
+    """Rows (one per selected lesion, rank 1 = largest) with diameter, volume and contrast.
+    Reference parenchyma = liver & ~tumour & ~exclude, where `tumour` is the mask of ALL tumour voxels of the case (every component, not only the selected
+    lesions) and `exclude` is any other labelled non-parenchyma (e.g. the labelled portal vein). This mirrors exp8, whose liver mask is the single-valued label 1,
+    which already excludes every tumour component (label 2) and the labelled portal vein (label 3) (DEVIATIONS #3)."""
+    ref = liver & ~tumour
+    if exclude is not None:
+        ref = ref & ~exclude
+    liver = ref
     lab, sel = select_lesions(tumour, spacing, n_lesions, min_diam_mm)
     vox = spacing[0] * spacing[1] * spacing[2]
     rows = []

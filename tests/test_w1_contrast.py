@@ -68,3 +68,19 @@ def test_two_largest_per_case_and_all_lesions_option():
     assert len(case_lesions(ct, t, liv | t, sp)) == 2
     assert len(case_lesions(ct, t, liv | t, sp, n_lesions=None)) == 3
     lab, sel = select_lesions(t, sp); assert sel[0][0] > sel[1][0]
+
+
+def test_reference_excludes_all_tumours_and_vessels_even_when_the_liver_mask_contains_them():
+    """Liver mask contains the target lesion, a second (non-target-sized or other) lesion and a bright vessel; none may enter the 5-20 mm shell."""
+    ct, les, liv, sp = _phantom(130.0, shape=(120, 120, 80), r=8)
+    g = np.indices(ct.shape).astype(float)
+    second = ((g[0] - 40) ** 2 + (g[1] - 60) ** 2 + (g[2] - 40) ** 2) <= 36        # radius 6 voxels, 12 mm away from the target: inside its shell
+    vessel = (np.abs(g[0] - 60) <= 12) & (np.abs(g[1] - 85) <= 2) & (np.abs(g[2] - 40) <= 2)
+    assert (liv[second]).all() and (liv[vessel]).all()
+    ct[second] = -50.0; ct[vessel] = 400.0
+    a = case_lesions(ct, les | second, liv, sp, exclude=vessel, n_lesions=None)[0]      # `tumour` = ALL tumour voxels of the case
+    assert a["rank"] == 1 and abs(a["diam_mm"] - 16) < 1.5
+    assert abs(a["liver_hu"] - 100.0) < 1e-6 and abs(a["contrast_hu"] - 30.0) < 1e-6
+    # without the exclusions the reference is contaminated (guards the test itself)
+    b = case_lesions(ct, les, liv, sp, exclude=None)[0]
+    assert abs(b["liver_hu"] - 100.0) > 0.01

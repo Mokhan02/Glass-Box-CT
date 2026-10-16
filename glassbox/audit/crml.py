@@ -11,11 +11,11 @@ MANUAL = "MANUAL"
 
 
 def roles(seg_ds):
-    """{segment_number: 'liver' | 'liver_remnant' | 'tumour' | 'other'} from the segment label (exact, case-insensitive). Note 'Liver' and 'Liver Remnant' share the type code meaning 'Liver'."""
+    """{segment_number: 'liver' | 'liver_remnant' | 'portal_vein' | 'hepatic_vein' | 'tumour' | 'other'} from the segment label (exact, case-insensitive). Note 'Liver' and 'Liver Remnant' share the type code meaning 'Liver'."""
     out = {}
     for s in seg_ds.SegmentSequence:
         lab = str(s.SegmentLabel).strip().lower()
-        out[int(s.SegmentNumber)] = ("liver" if lab == "liver" else "liver_remnant" if lab == "liver remnant" else "tumour" if re.fullmatch(r"tumou?r_\d+", lab) else "other")
+        out[int(s.SegmentNumber)] = ("liver" if lab == "liver" else "liver_remnant" if lab == "liver remnant" else "portal_vein" if lab == "portal" else "hepatic_vein" if lab == "hepatic" else "tumour" if re.fullmatch(r"tumou?r_\d+", lab) else "other")
     return out
 
 
