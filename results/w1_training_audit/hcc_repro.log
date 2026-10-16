@@ -1,0 +1,4 @@
+reference lesions 86, reproduced 86, missing 0, extra 0
+max |delta contrast| 0.0000 HU, max |delta diameter| 0.0000 mm
+REPRODUCTION PASSED (strict 0.1 HU bar)
+no_vessel_removal variant: 0 of 86 HCC lesions change bright/dark class
