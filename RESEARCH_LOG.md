@@ -53,6 +53,7 @@ Log (append-only):
 | 2026-10-16 | HCC reproduction on the GPU cloud instance (HCC volumes live on its persistent filesystem): shared function vs exp8 on the UID route | 86 of 86 lesions reproduced, 0 missing, 0 extra, max difference 0.0000 HU and 0.0000 mm, passes the 0.1 HU bar; HCC no-vessel-removal variant: 0 of 86 class changes ([log](results/w1_training_audit/hcc_repro.log), [variants](results/w1_training_audit/hcc_lesions_variants.csv)) | this commit |
 | 2026-10-16 | Task03 downloaded on the instance (28,925,891,584 bytes, equal to the source object size); `tar -tf` exit 0 (672 entries) | SHA-256 and extraction pending | - |
 | 2026-10-16 | Task03 extractor, comparison script and deviation 4 committed before any Task03 contrast or any share | - | 4e56182 |
+| 2026-10-16 | Rows above marked "this commit" (HCC reproduction, W2 Gate 1) were committed together with this log | - | 251aa61 |
 
 **Deviations** ([DEVIATIONS.md](results/w1_training_audit/DEVIATIONS.md)):
 1. CRML-CT uses only the MANUAL "Segmentation" series (AI and AI-corrected series are model output); roles read from segment labels, not order.
