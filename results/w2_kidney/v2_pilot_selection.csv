@@ -1,0 +1,21 @@
+organ,case,rank,stratum,group,diam_mm,contrast_hu
+kidney,KiTS-00182_447227,1,<30 mm,bright,24.963,41.39
+kidney,KiTS-00023_443124,1,<30 mm,bright,28.465,19.92
+kidney,KiTS-00156_549444,1,<30 mm,dark,27.57,-23.66
+kidney,KiTS-00169_891471,1,30-60 mm,bright,49.22,10.29
+kidney,KiTS-00052_832563,1,30-60 mm,bright,35.565,1.71
+kidney,KiTS-00147_680747,1,30-60 mm,dark,38.916,-3.4
+kidney,KiTS-00143_231611,1,30-60 mm,dark,59.774,-23.02
+kidney,KiTS-00118_461729,1,>60 mm,bright,61.176,7.89
+kidney,KiTS-00012_344868,1,>60 mm,dark,97.418,-20.08
+kidney,KiTS-00088_116739,1,>60 mm,dark,84.193,-47.04
+hcc,HCC_051_502793,2,<30 mm,bright,11.787,8.48
+hcc,HCC_098_610748,1,<30 mm,bright,21.63,10.44
+hcc,HCC_063_661087,2,<30 mm,dark,15.682,-24.64
+hcc,HCC_036_158534,1,30-60 mm,bright,33.369,30.92
+hcc,HCC_078_958325,1,30-60 mm,bright,40.354,23.49
+hcc,HCC_076_084985,1,30-60 mm,dark,48.101,-3.54
+hcc,HCC_050_749732,1,30-60 mm,dark,46.51,-5.68
+hcc,HCC_013_902874,1,>60 mm,bright,69.722,5.12
+hcc,HCC_005_936548,2,>60 mm,dark,62.008,-13.56
+hcc,HCC_061_179170,1,>60 mm,dark,90.398,-17.72
