@@ -21,6 +21,7 @@ from glassbox.seg.infer import load_network  # noqa: E402
 from glassbox.seg.w2_arms import ARMS  # noqa: E402
 
 ap = argparse.ArgumentParser(); ap.add_argument("stage"); ap.add_argument("inferer_dir"); ap.add_argument("weights"); ap.add_argument("outdir")
+ap.add_argument("--arms", default="all", help="comma-separated arm names; default all arms of each organ (the v3 main run passes the three primary arms)")
 ap.add_argument("--kits", default="/lambda/nfs/CTGate/glassbox/cache/heldout_nii/c4kc_kits"); ap.add_argument("--hcc", default="/lambda/nfs/CTGate/glassbox/cache/heldout_nii/hcc_tace_seg"); a = ap.parse_args()
 sys.path.insert(0, a.inferer_dir); from inferer import Vista3dInferer  # noqa: E402  (NVIDIA's point-window inferer, vendored at run time, not committed)
 
@@ -107,7 +108,7 @@ roots = {"kidney": a.kits, "hcc": a.hcc}
 os.makedirs(os.path.join(a.outdir, "masks"), exist_ok=True)
 for organ in ("kidney", "hcc"):
     want = {k for k in tables[organ] if ((organ,) + k in pilot) == (a.stage == "pilot")}
-    cases = sorted({k[0] for k in want}); arms = [n for n, c in ARMS.items() if c["organ"] == organ]; rows = []; t0 = time.time()
+    cases = sorted({k[0] for k in want}); arms = [n for n, c in ARMS.items() if c["organ"] == organ and (a.arms == "all" or n in a.arms.split(","))]; rows = []; t0 = time.time()
     for ci, case in enumerate(cases):
         nii, sp, seg, ann, zidx, lab, sel_l = lesions_for(organ, case, roots[organ]); ct = np.asarray(nii.dataobj).astype(np.float32); seg_nii = nib.load(os.path.join(roots[organ], case, "seg.nii.gz"))
         data, img, M = prep(os.path.join(roots[organ], case, "ct.nii.gz"))
