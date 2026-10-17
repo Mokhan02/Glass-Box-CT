@@ -15,3 +15,6 @@ The Gate 3 predictions were not saved, so 16 lesions were rerun with masks saved
 
 ## 4. v2 pilot outcome (2026-10-17 UTC): gate failed for all three primary arms; stop per the execution rule
 The v2 pilot ran exactly as pre-registered (selection, arms, point labels, gate). The runner asserts on every call that the point label reaching the point head equals the arm's label; no assertion fired. All three primary arms failed the gate (details in `results/w2_kidney/v2/w2v2_gate.json` and the log), so the pre-agreed execution rule applies: stop after the pilot, no main run, no primary analysis. Nothing about the gate, the pilot set, the arms or any criterion was changed after seeing the pilot.
+
+## 5. v3 main run executed as pre-registered (2026-10-17 UTC): no deviations
+The three primary arms were run on the main set (kidney 209 lesions, HCC 76 lesions x 2 arms) with all masks saved (361 masks), and `scripts/w2v3_analyze.py` was run unchanged: its git blob sha1 (`04a6a488e67bc795eedd8eeb0541766f11b3faa2`) and the commit (fa4a639) were verified before the run, and the copy on the GPU instance had the same blob hash. The HCC 26/1 arm was not run on the main set (dropped in the PREREG). No criterion, inclusion rule or analysis step was changed after seeing any main-set result.

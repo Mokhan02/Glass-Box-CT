@@ -1,0 +1,38 @@
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/utils/deprecate_utils.py:320: FutureWarning: monai.transforms.spatial.dictionary Orientationd.__init__:labels: Current default value of argument `labels=(('L', 'R'), ('P', 'A'), ('I', 'S'))` was changed in version None from `labels=(('L', 'R'), ('P', 'A'), ('I', 'S'))` to `labels=None`. Default value changed to None meaning that the transform now uses the 'space' of a meta-tensor, if applicable, to determine appropriate axis labels.
+  warn_deprecated(argname, msg, warning_category)
+/lambda/nfs/CTGate/w1/repo/scripts/w2v2_run.py:61: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments. To learn more, see the migration guide https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword
+  return data, img, np.linalg.inv(np.array(data["image"].affine, float)) @ np.array(data["image"].meta["original_affine"], float)
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/repo/scripts/w2v2_run.py:135: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments. To learn more, see the migration guide https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword
+  aff_pre=np.array(data["image"].affine, float), orig_affine=np.array(data["image"].meta["original_affine"], float))
+[main kidney] 1/201 KiTS-00000_641748 elapsed 24s
+[main kidney] 11/201 KiTS-00010_337475 elapsed 137s
+[main kidney] 21/201 KiTS-00021_101579 elapsed 193s
+[main kidney] 31/201 KiTS-00032_312593 elapsed 289s
+[main kidney] 41/201 KiTS-00042_705628 elapsed 361s
+[main kidney] 51/201 KiTS-00053_571528 elapsed 444s
+[main kidney] 61/201 KiTS-00063_932897 elapsed 527s
+[main kidney] 71/201 KiTS-00073_140531 elapsed 631s
+[main kidney] 81/201 KiTS-00083_796301 elapsed 680s
+[main kidney] 91/201 KiTS-00094_057873 elapsed 767s
+[main kidney] 101/201 KiTS-00104_306408 elapsed 892s
+[main kidney] 111/201 KiTS-00114_152388 elapsed 952s
+[main kidney] 121/201 KiTS-00124_621167 elapsed 1049s
+[main kidney] 131/201 KiTS-00134_541550 elapsed 1111s
+[main kidney] 141/201 KiTS-00145_910427 elapsed 1205s
+[main kidney] 151/201 KiTS-00157_461431 elapsed 1351s
+[main kidney] 161/201 KiTS-00167_416662 elapsed 1460s
+[main kidney] 171/201 KiTS-00178_384598 elapsed 1508s
+[main kidney] 181/201 KiTS-00189_325076 elapsed 1574s
+[main kidney] 191/201 KiTS-00199_266934 elapsed 1641s
+[main kidney] 201/201 KiTS-00209_999291 elapsed 1708s
+DONE main kidney: 209 predictions, 1708s
+[main hcc] 1/68 HCC_004_414785 elapsed 6s
+[main hcc] 11/68 HCC_022_228695 elapsed 75s
+[main hcc] 21/68 HCC_033_612153 elapsed 150s
+[main hcc] 31/68 HCC_044_006910 elapsed 229s
+[main hcc] 41/68 HCC_056_505211 elapsed 310s
+[main hcc] 51/68 HCC_067_472967 elapsed 404s
+[main hcc] 61/68 HCC_080_216191 elapsed 485s
+DONE main hcc: 152 predictions, 533s
