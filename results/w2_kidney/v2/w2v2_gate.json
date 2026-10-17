@@ -1,0 +1,463 @@
+{
+ "kidney_133_1": {
+  "n": 10,
+  "pass_fraction": 0.6,
+  "strata": {
+   ">60 mm": 1.0,
+   "<30 mm": 0.0,
+   "30-60 mm": 0.75
+  },
+  "passes": false,
+  "role": "primary",
+  "median_volume_ratio": 2.6768,
+  "median_inside_share": 0.8397,
+  "lesions": [
+   {
+    "case": "KiTS-00012_344868",
+    "rank": 1,
+    "group": "dark",
+    "stratum": ">60 mm",
+    "diam_mm": 97.418,
+    "volume_ratio": 0.1599,
+    "inside_share": 0.9997,
+    "passes": true
+   },
+   {
+    "case": "KiTS-00023_443124",
+    "rank": 1,
+    "group": "bright",
+    "stratum": "<30 mm",
+    "diam_mm": 28.465,
+    "volume_ratio": 27.4963,
+    "inside_share": 0.0364,
+    "passes": false
+   },
+   {
+    "case": "KiTS-00052_832563",
+    "rank": 1,
+    "group": "bright",
+    "stratum": "30-60 mm",
+    "diam_mm": 35.565,
+    "volume_ratio": 9.4356,
+    "inside_share": 0.0907,
+    "passes": false
+   },
+   {
+    "case": "KiTS-00088_116739",
+    "rank": 1,
+    "group": "dark",
+    "stratum": ">60 mm",
+    "diam_mm": 84.193,
+    "volume_ratio": 0.1468,
+    "inside_share": 0.9624,
+    "passes": true
+   },
+   {
+    "case": "KiTS-00118_461729",
+    "rank": 1,
+    "group": "bright",
+    "stratum": ">60 mm",
+    "diam_mm": 61.176,
+    "volume_ratio": 2.6768,
+    "inside_share": 0.3284,
+    "passes": true
+   },
+   {
+    "case": "KiTS-00143_231611",
+    "rank": 1,
+    "group": "dark",
+    "stratum": "30-60 mm",
+    "diam_mm": 59.774,
+    "volume_ratio": 0.3549,
+    "inside_share": 0.9968,
+    "passes": true
+   },
+   {
+    "case": "KiTS-00147_680747",
+    "rank": 1,
+    "group": "dark",
+    "stratum": "30-60 mm",
+    "diam_mm": 38.916,
+    "volume_ratio": 0.7292,
+    "inside_share": 0.9078,
+    "passes": true
+   },
+   {
+    "case": "KiTS-00156_549444",
+    "rank": 1,
+    "group": "dark",
+    "stratum": "<30 mm",
+    "diam_mm": 27.57,
+    "volume_ratio": 8.0956,
+    "inside_share": 0.1185,
+    "passes": false
+   },
+   {
+    "case": "KiTS-00169_891471",
+    "rank": 1,
+    "group": "bright",
+    "stratum": "30-60 mm",
+    "diam_mm": 49.22,
+    "volume_ratio": 0.7037,
+    "inside_share": 0.8397,
+    "passes": true
+   },
+   {
+    "case": "KiTS-00182_447227",
+    "rank": 1,
+    "group": "bright",
+    "stratum": "<30 mm",
+    "diam_mm": 24.963,
+    "volume_ratio": 3.6343,
+    "inside_share": 0.2724,
+    "passes": false
+   }
+  ]
+ },
+ "hcc_26_3": {
+  "n": 10,
+  "pass_fraction": 0.6,
+  "strata": {
+   ">60 mm": 1.0,
+   "30-60 mm": 0.75,
+   "<30 mm": 0.0
+  },
+  "passes": false,
+  "role": "primary",
+  "median_volume_ratio": 0.8111,
+  "median_inside_share": 0.9151,
+  "lesions": [
+   {
+    "case": "HCC_005_936548",
+    "rank": 2,
+    "group": "dark",
+    "stratum": ">60 mm",
+    "diam_mm": 62.008,
+    "volume_ratio": 2.3421,
+    "inside_share": 0.3496,
+    "passes": true
+   },
+   {
+    "case": "HCC_013_902874",
+    "rank": 1,
+    "group": "bright",
+    "stratum": ">60 mm",
+    "diam_mm": 69.722,
+    "volume_ratio": 0.3077,
+    "inside_share": 0.9944,
+    "passes": true
+   },
+   {
+    "case": "HCC_036_158534",
+    "rank": 1,
+    "group": "bright",
+    "stratum": "30-60 mm",
+    "diam_mm": 33.369,
+    "volume_ratio": 0.457,
+    "inside_share": 0.9151,
+    "passes": true
+   },
+   {
+    "case": "HCC_050_749732",
+    "rank": 1,
+    "group": "dark",
+    "stratum": "30-60 mm",
+    "diam_mm": 46.51,
+    "volume_ratio": 0.6399,
+    "inside_share": 0.9255,
+    "passes": true
+   },
+   {
+    "case": "HCC_051_502793",
+    "rank": 2,
+    "group": "bright",
+    "stratum": "<30 mm",
+    "diam_mm": 11.787,
+    "volume_ratio": 5186.4595,
+    "inside_share": 0.0002,
+    "passes": false
+   },
+   {
+    "case": "HCC_061_179170",
+    "rank": 1,
+    "group": "dark",
+    "stratum": ">60 mm",
+    "diam_mm": 90.398,
+    "volume_ratio": 0.8111,
+    "inside_share": 0.9234,
+    "passes": true
+   },
+   {
+    "case": "HCC_063_661087",
+    "rank": 2,
+    "group": "dark",
+    "stratum": "<30 mm",
+    "diam_mm": 15.682,
+    "volume_ratio": 29.0094,
+    "inside_share": 0.0245,
+    "passes": false
+   },
+   {
+    "case": "HCC_076_084985",
+    "rank": 1,
+    "group": "dark",
+    "stratum": "30-60 mm",
+    "diam_mm": 48.101,
+    "volume_ratio": 0.6966,
+    "inside_share": 0.9486,
+    "passes": true
+   },
+   {
+    "case": "HCC_078_958325",
+    "rank": 1,
+    "group": "bright",
+    "stratum": "30-60 mm",
+    "diam_mm": 40.354,
+    "volume_ratio": 19.5974,
+    "inside_share": 0.04,
+    "passes": false
+   },
+   {
+    "case": "HCC_098_610748",
+    "rank": 1,
+    "group": "bright",
+    "stratum": "<30 mm",
+    "diam_mm": 21.63,
+    "volume_ratio": 0.2482,
+    "inside_share": 0.2015,
+    "passes": false
+   }
+  ]
+ },
+ "hcc_133_1": {
+  "n": 10,
+  "pass_fraction": 0.6,
+  "strata": {
+   ">60 mm": 1.0,
+   "30-60 mm": 0.5,
+   "<30 mm": 0.3333333333333333
+  },
+  "passes": false,
+  "role": "primary",
+  "median_volume_ratio": 0.5827,
+  "median_inside_share": 0.9432,
+  "lesions": [
+   {
+    "case": "HCC_005_936548",
+    "rank": 2,
+    "group": "dark",
+    "stratum": ">60 mm",
+    "diam_mm": 62.008,
+    "volume_ratio": 0.4659,
+    "inside_share": 0.883,
+    "passes": true
+   },
+   {
+    "case": "HCC_013_902874",
+    "rank": 1,
+    "group": "bright",
+    "stratum": ">60 mm",
+    "diam_mm": 69.722,
+    "volume_ratio": 0.1624,
+    "inside_share": 1.0,
+    "passes": true
+   },
+   {
+    "case": "HCC_036_158534",
+    "rank": 1,
+    "group": "bright",
+    "stratum": "30-60 mm",
+    "diam_mm": 33.369,
+    "volume_ratio": 10.042,
+    "inside_share": 0.0807,
+    "passes": false
+   },
+   {
+    "case": "HCC_050_749732",
+    "rank": 1,
+    "group": "dark",
+    "stratum": "30-60 mm",
+    "diam_mm": 46.51,
+    "volume_ratio": 0.3693,
+    "inside_share": 0.9974,
+    "passes": true
+   },
+   {
+    "case": "HCC_051_502793",
+    "rank": 2,
+    "group": "bright",
+    "stratum": "<30 mm",
+    "diam_mm": 11.787,
+    "volume_ratio": 3025.7568,
+    "inside_share": 0.0003,
+    "passes": false
+   },
+   {
+    "case": "HCC_061_179170",
+    "rank": 1,
+    "group": "dark",
+    "stratum": ">60 mm",
+    "diam_mm": 90.398,
+    "volume_ratio": 0.5158,
+    "inside_share": 0.9957,
+    "passes": true
+   },
+   {
+    "case": "HCC_063_661087",
+    "rank": 2,
+    "group": "dark",
+    "stratum": "<30 mm",
+    "diam_mm": 15.682,
+    "volume_ratio": 0.5827,
+    "inside_share": 0.9432,
+    "passes": true
+   },
+   {
+    "case": "HCC_076_084985",
+    "rank": 1,
+    "group": "dark",
+    "stratum": "30-60 mm",
+    "diam_mm": 48.101,
+    "volume_ratio": 0.3738,
+    "inside_share": 0.9937,
+    "passes": true
+   },
+   {
+    "case": "HCC_078_958325",
+    "rank": 1,
+    "group": "bright",
+    "stratum": "30-60 mm",
+    "diam_mm": 40.354,
+    "volume_ratio": 26.7054,
+    "inside_share": 0.0355,
+    "passes": false
+   },
+   {
+    "case": "HCC_098_610748",
+    "rank": 1,
+    "group": "bright",
+    "stratum": "<30 mm",
+    "diam_mm": 21.63,
+    "volume_ratio": 11.3827,
+    "inside_share": 0.0874,
+    "passes": false
+   }
+  ]
+ },
+ "hcc_26_1": {
+  "n": 10,
+  "pass_fraction": 0.1,
+  "strata": {
+   ">60 mm": 0.0,
+   "30-60 mm": 0.25,
+   "<30 mm": 0.0
+  },
+  "passes": false,
+  "role": "secondary_v1_equivalent",
+  "median_volume_ratio": 29.3764,
+  "median_inside_share": 0.0555,
+  "lesions": [
+   {
+    "case": "HCC_005_936548",
+    "rank": 2,
+    "group": "dark",
+    "stratum": ">60 mm",
+    "diam_mm": 62.008,
+    "volume_ratio": 17.0455,
+    "inside_share": 0.0555,
+    "passes": false
+   },
+   {
+    "case": "HCC_013_902874",
+    "rank": 1,
+    "group": "bright",
+    "stratum": ">60 mm",
+    "diam_mm": 69.722,
+    "volume_ratio": 7.0076,
+    "inside_share": 0.1113,
+    "passes": false
+   },
+   {
+    "case": "HCC_036_158534",
+    "rank": 1,
+    "group": "bright",
+    "stratum": "30-60 mm",
+    "diam_mm": 33.369,
+    "volume_ratio": 45.3309,
+    "inside_share": 0.0209,
+    "passes": false
+   },
+   {
+    "case": "HCC_050_749732",
+    "rank": 1,
+    "group": "dark",
+    "stratum": "30-60 mm",
+    "diam_mm": 46.51,
+    "volume_ratio": 1.881,
+    "inside_share": 0.3611,
+    "passes": true
+   },
+   {
+    "case": "HCC_051_502793",
+    "rank": 2,
+    "group": "bright",
+    "stratum": "<30 mm",
+    "diam_mm": 11.787,
+    "volume_ratio": 12203.3874,
+    "inside_share": 0.0001,
+    "passes": false
+   },
+   {
+    "case": "HCC_061_179170",
+    "rank": 1,
+    "group": "dark",
+    "stratum": ">60 mm",
+    "diam_mm": 90.398,
+    "volume_ratio": 7.2942,
+    "inside_share": 0.1343,
+    "passes": false
+   },
+   {
+    "case": "HCC_063_661087",
+    "rank": 2,
+    "group": "dark",
+    "stratum": "<30 mm",
+    "diam_mm": 15.682,
+    "volume_ratio": 29.3764,
+    "inside_share": 0.029,
+    "passes": false
+   },
+   {
+    "case": "HCC_076_084985",
+    "rank": 1,
+    "group": "dark",
+    "stratum": "30-60 mm",
+    "diam_mm": 48.101,
+    "volume_ratio": 3.5934,
+    "inside_share": 0.2587,
+    "passes": false
+   },
+   {
+    "case": "HCC_078_958325",
+    "rank": 1,
+    "group": "bright",
+    "stratum": "30-60 mm",
+    "diam_mm": 40.354,
+    "volume_ratio": 69.3798,
+    "inside_share": 0.0144,
+    "passes": false
+   },
+   {
+    "case": "HCC_098_610748",
+    "rank": 1,
+    "group": "bright",
+    "stratum": "<30 mm",
+    "diam_mm": 21.63,
+    "volume_ratio": 258.5981,
+    "inside_share": 0.0039,
+    "passes": false
+   }
+  ]
+ },
+ "all_primary_arms_pass": false
+}
