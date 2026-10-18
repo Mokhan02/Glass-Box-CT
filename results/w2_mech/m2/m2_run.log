@@ -1,0 +1,26 @@
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/utils/deprecate_utils.py:320: FutureWarning: monai.transforms.spatial.dictionary Orientationd.__init__:labels: Current default value of argument `labels=(('L', 'R'), ('P', 'A'), ('I', 'S'))` was changed in version None from `labels=(('L', 'R'), ('P', 'A'), ('I', 'S'))` to `labels=None`. Default value changed to None meaning that the transform now uses the 'space' of a meta-tensor, if applicable, to determine appropriate axis labels.
+  warn_deprecated(argname, msg, warning_category)
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+[run] 1/201 KiTS-00000_641748 elapsed 91s
+[run] 11/201 KiTS-00010_337475 elapsed 396s
+[run] 21/201 KiTS-00021_101579 elapsed 546s
+[run] 31/201 KiTS-00032_312593 elapsed 775s
+[run] 41/201 KiTS-00042_705628 elapsed 1017s
+[run] 51/201 KiTS-00053_571528 elapsed 1232s
+[run] 61/201 KiTS-00063_932897 elapsed 1411s
+[run] 71/201 KiTS-00073_140531 elapsed 1649s
+[run] 81/201 KiTS-00083_796301 elapsed 1794s
+[run] 91/201 KiTS-00094_057873 elapsed 2053s
+[run] 101/201 KiTS-00104_306408 elapsed 2445s
+[run] 111/201 KiTS-00114_152388 elapsed 2610s
+[run] 121/201 KiTS-00124_621167 elapsed 2888s
+[run] 131/201 KiTS-00134_541550 elapsed 3073s
+[run] 141/201 KiTS-00145_910427 elapsed 3374s
+[run] 151/201 KiTS-00157_461431 elapsed 3718s
+[run] 161/201 KiTS-00167_416662 elapsed 3930s
+[run] 171/201 KiTS-00178_384598 elapsed 4067s
+[run] 181/201 KiTS-00189_325076 elapsed 4228s
+[run] 191/201 KiTS-00199_266934 elapsed 4405s
+[run] 201/201 KiTS-00209_999291 elapsed 4553s
+DONE run: 836 lesion-condition predictions, 60 organ-check cases, 4554s

@@ -1,0 +1,651 @@
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/utils/deprecate_utils.py:320: FutureWarning: monai.transforms.spatial.dictionary Orientationd.__init__:labels: Current default value of argument `labels=(('L', 'R'), ('P', 'A'), ('I', 'S'))` was changed in version None from `labels=(('L', 'R'), ('P', 'A'), ('I', 'S'))` to `labels=None`. Default value changed to None meaning that the transform now uses the 'space' of a meta-tensor, if applicable, to determine appropriate axis labels.
+  warn_deprecated(argname, msg, warning_category)
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+baseline check KiTS-00000_641748 r1: MATCH
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+[m3] 1/151 cases, 3 runs, elapsed 59s
+baseline check KiTS-00001_149621 r1: MATCH
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+baseline check KiTS-00001_149621 r2: MATCH
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+baseline check KiTS-00002_907929 r1: MATCH
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+baseline check KiTS-00003_739435 r1: MATCH
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+baseline check KiTS-00006_666415 r1: MATCH
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+baseline check KiTS-00007_899333 r1: MATCH
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+baseline check KiTS-00011_410751 r1: MATCH
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+baseline check KiTS-00013_903777 r1: MATCH
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+baseline check KiTS-00014_604730 r1: MATCH
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+[m3] 11/151 cases, 36 runs, elapsed 336s
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+[m3] 21/151 cases, 66 runs, elapsed 570s
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+[m3] 31/151 cases, 96 runs, elapsed 718s
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+[m3] 41/151 cases, 126 runs, elapsed 986s
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+[m3] 51/151 cases, 156 runs, elapsed 1243s
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+[m3] 61/151 cases, 186 runs, elapsed 1439s
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+[m3] 71/151 cases, 216 runs, elapsed 1771s
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+[m3] 81/151 cases, 249 runs, elapsed 1944s
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+[m3] 91/151 cases, 279 runs, elapsed 2185s
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+[m3] 101/151 cases, 309 runs, elapsed 2408s
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+[m3] 111/151 cases, 342 runs, elapsed 2858s
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+[m3] 121/151 cases, 372 runs, elapsed 3001s
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+[m3] 131/151 cases, 405 runs, elapsed 3166s
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+[m3] 141/151 cases, 435 runs, elapsed 3370s
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+[m3] 151/151 cases, 465 runs, elapsed 3573s
+DONE m3: 465 runs, 3573s

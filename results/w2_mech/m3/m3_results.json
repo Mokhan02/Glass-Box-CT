@@ -1,0 +1,133 @@
+{
+ "A": {
+  "n_lesions": 136,
+  "n_cases": 132,
+  "leak_rate": {
+   "baseline": 0.0,
+   "control": 0.014705882352941176,
+   "edit": 0.25735294117647056
+  },
+  "D_leak_edit_minus_control": {
+   "mean": 0.2426470588235294,
+   "lo": 0.17777777777777778,
+   "hi": 0.3188405797101449,
+   "n": 136,
+   "n_cases": 132
+  },
+  "dice_edit_minus_control": {
+   "mean": -0.1013347794117647,
+   "lo": -0.1446846411600088,
+   "hi": -0.05769780799009387,
+   "n": 136,
+   "n_cases": 132
+  },
+  "coverage_edit_minus_control": {
+   "mean": 0.10178161764705883,
+   "lo": 0.0760193306763285,
+   "hi": 0.1283034888326226,
+   "n": 136,
+   "n_cases": 132
+  },
+  "flagged_edits": 182,
+  "failure_modes": {
+   "baseline": {
+    "LEAK": 0.0,
+    "UNDER": 0.41911764705882354,
+    "OK": 0.5808823529411765
+   },
+   "control": {
+    "LEAK": 0.014705882352941176,
+    "UNDER": 0.5294117647058824,
+    "OK": 0.45588235294117646
+   },
+   "edit": {
+    "LEAK": 0.25735294117647056,
+    "UNDER": 0.375,
+    "OK": 0.36764705882352944
+   }
+  },
+  "exploratory_projection": {
+   "projection_change_edit_minus_unedited": {
+    "mean": -1.046210737458377,
+    "lo": -1.2342661132314108,
+    "hi": -0.8742386668338783,
+    "n": 133,
+    "n_cases": 129
+   },
+   "spearman_with_dice_change": {
+    "rho": -0.0793350404505157,
+    "lo": -0.2375729544936527,
+    "hi": 0.07610410574442558
+   },
+   "lesions_with_tokens": 133
+  }
+ },
+ "B": {
+  "n_lesions": 19,
+  "n_cases": 19,
+  "leak_rate": {
+   "baseline": 1.0,
+   "control": 1.0,
+   "edit": 1.0
+  },
+  "D_leak_edit_minus_control": {
+   "mean": 0.0,
+   "lo": 0.0,
+   "hi": 0.0,
+   "n": 19,
+   "n_cases": 19
+  },
+  "dice_edit_minus_control": {
+   "mean": 0.003289473684210526,
+   "lo": -0.03609080263157894,
+   "hi": 0.04650198684210526,
+   "n": 19,
+   "n_cases": 19
+  },
+  "coverage_edit_minus_control": {
+   "mean": -0.012105263157894742,
+   "lo": -0.01907343421052631,
+   "hi": -0.005290381578947383,
+   "n": 19,
+   "n_cases": 19
+  },
+  "flagged_edits": 18,
+  "failure_modes": {
+   "baseline": {
+    "LEAK": 1.0,
+    "UNDER": 0.0,
+    "OK": 0.0
+   },
+   "control": {
+    "LEAK": 1.0,
+    "UNDER": 0.0,
+    "OK": 0.0
+   },
+   "edit": {
+    "LEAK": 1.0,
+    "UNDER": 0.0,
+    "OK": 0.0
+   }
+  },
+  "exploratory_projection": {
+   "projection_change_edit_minus_unedited": {
+    "mean": 0.24434603259680582,
+    "lo": 0.08524828103882362,
+    "hi": 0.42170762239635706,
+    "n": 18,
+    "n_cases": 18
+   },
+   "spearman_with_dice_change": {
+    "rho": -0.12693498452012383,
+    "lo": -0.6029890759094363,
+    "hi": 0.42046097636815905
+   },
+   "lesions_with_tokens": 18
+  }
+ },
+ "verdict": {
+  "verdict": "PARTIAL",
+  "arm_A_meets": true,
+  "arm_B_meets": false
+ }
+}
