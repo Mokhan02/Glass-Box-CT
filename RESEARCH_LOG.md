@@ -8,7 +8,7 @@ Append-only record of research results on branch `research/roadmap`. Past entrie
 |---|---|---|---|---|
 | W1 training-data contrast audit | Verdict reached (pre-registered rule) | BRIGHT RARE IN TRAINING: bright share 5.2% [2.9, 7.6] pooled training vs 32.6% [21.2, 42.4] HCC, d +27.4 points [+15.9, +37.7] ([SUMMARY](results/w1_training_audit/SUMMARY.md)) | 89-case HCC sensitivity analysis; optional Task08 secondary; W5 for the causal link | Nothing blocking; confounded by tumour type and phase |
 | W2 kidney replication | v3 main run and pre-registered analysis done; stopped at the verdicts | **All three primary arms GAP; like-for-like replication True** (kidney 133/1 Dice gap +10.3 pts [+4.0, +17.6]; HCC 133/1 +24.4 [+14.0, +34.5]; HCC 26/3 +29.0 [+17.5, +40.9]); the mechanism differs (kidney: bright lesions LEAK more; HCC: bright lesions UNDER-segmented more) ([w2v3_results.md](results/w2_kidney/v3/w2v3_results.md)) | Researcher's review; mechanism steps (probe, LEACE, patching) only with their own approval | Researcher |
-| W2-M mechanism steps (kidney) | PREREG approved and committed; M1 not yet run (waiting for the GPU instance) | - | Commit the M1 extraction and analysis code, then run M1 only (3-case timing first), report, stop | Researcher launches the instance |
+| W2-M mechanism steps (kidney) | M1 kidney token extraction running on the GPU (3-case timing and identity check passed); M1 verdict held: HCC reproduction check was not exact (deviation 1) | Primary HCC probe row reproduces exactly; 228 of 1086 other cells differ by at most 0.007 | Finish extraction, then run the committed M1 analysis once the researcher accepts or rejects the near-exact reproduction | Researcher's decision on deviation 1 |
 | W3-W7 | Not started | - | - | W1 and W2 |
 
 ## 2. Headline results so far (hackathon-era, model NV-Segment-CT / VISTA-3D `vista3d132`, frozen)
@@ -122,8 +122,12 @@ Log (append-only):
 | Date | What was done | Result | Commit |
 |---|---|---|---|
 | 2026-10-18 | PREREG written, reviewed and approved with edits (three-tier M1 verdict; M2 branch pre-specified; M2 organ check on a seeded 60-case subset with LEAK/UNDER shifts as a secondary; M1 timed on 3 cases first with a 3.5 h stop rule and the window-skip optimisation allowed only after a 3-case token identity check) and committed before any run | GPU estimates: M1 2.2 to 4.5 h (1 to 2 h with window skipping), M2 about 2 to 2.5 h, M3 about 1.5 to 1.8 h | a67de51 |
+| 2026-10-18 | 3-case timing and token identity check on the GPU instance (trained network, kidney cases KiTS-00000, 00001, 00002) | Token tables identical between the window-skipping and full-grid passes on 3 of 3 cases; 0 windows skipped (the ROI touches every window), speed-up about 15 to 20% (about 19 s per case per network); projected extraction 2.1 to 2.6 h < 3.5 h stop rule, so M1 proceeds ([DEVIATIONS.md](results/w2_mech/DEVIATIONS.md) #2) | HASH_L |
+| 2026-10-18 | M1 code committed before the extraction run: `scripts/w2m_extract.py` (commit 4c53c04) and `scripts/w2m_m1_analyze.py` with `tests/test_w2m_m1.py` (commit e190275, blob sha1 dd6e7d84d5292d81183bba5d301bdd2efcfc742e; 4 synthetic tests pass: SHARED, ORGAN-SPECIFIC, the three-tier logic) | - | e190275 |
+| 2026-10-18 | PREREG sanity check 1: the existing HCC probe analysis re-run on the stored HCC tokens vs `results/voxel_probe/probe_table.csv` | **Not exact.** The primary row reproduces exactly (trained, mid, probe A, pooled: 0.5873 [0.5513, 0.656]); 228 of 1086 numeric cells differ, maximum 0.007 (bottleneck small-tumour subset); mid-layer rows at most 0.0023; likely solver/library-version noise (untested). The PREREG says stop on failure, so the M1 analysis and verdict are held for the researcher's decision; extraction (independent of the check) continues ([DEVIATIONS.md](results/w2_mech/DEVIATIONS.md) #1, [reproduced table](results/w2_mech/m1/hcc_repro_probe_table.csv)) | HASH_L |
+| 2026-10-18 | M1 kidney token extraction launched on the GPU instance, trained and random-init networks in parallel, 201 main-set cases, window skipping on | Running | HASH_L |
 
-**Deviations.** None yet.
+**Deviations** ([DEVIATIONS.md](results/w2_mech/DEVIATIONS.md)): 1. HCC reproduction sanity check not exact (primary row exact, other cells within 0.007); M1 verdict held for the researcher's decision. 2. 3-case timing and identity check passed (note, no change).
 **Verdict.** None yet.
 
 ## 5. Decisions log
