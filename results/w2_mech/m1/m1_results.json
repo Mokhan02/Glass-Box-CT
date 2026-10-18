@@ -1,0 +1,188 @@
+{
+ "n_hcc_cases": 89,
+ "n_kidney_cases": 201,
+ "interior_tumour_tokens": 64549,
+ "kidney_parenchyma_tokens": 265195,
+ "lesion_resolution": {
+  "lesions": 209,
+  "bright": 48,
+  "dark": 161,
+  "lesions_with_no_mid_tumour_token": 6,
+  "bright_with_no_token": 1,
+  "dark_with_no_token": 5
+ },
+ "verdict": {
+  "verdict": "ORGAN-SPECIFIC",
+  "transfer_beats_both_controls": false,
+  "transfer_ci_lower_above_0.5": false,
+  "fraction_of_native_above_chance": -0.09735145348981693,
+  "transfer_significantly_below_0.5": false
+ },
+ "metrics": {
+  "transfer/trained": {
+   "value": 0.45483332567967744,
+   "lo": 0.3981896675655452,
+   "hi": 0.5165383990608595
+  },
+  "transfer/trained/bright": {
+   "value": 0.5577244479345755,
+   "lo": 0.5135154208138009,
+   "hi": 0.6127931631558118
+  },
+  "transfer/trained/dark": {
+   "value": 0.44197821143350513,
+   "lo": 0.3820541856737676,
+   "hi": 0.5081494439493747
+  },
+  "transfer/trained/bright_minus_dark": {
+   "value": 0.11574623650107041,
+   "lo": 0.03887892395558597,
+   "hi": 0.19141427526481333
+  },
+  "transfer/trained/detection": {
+   "value": 0.04390463059071403,
+   "lo": 0.032349888158403194,
+   "hi": 0.05800247709537469
+  },
+  "transfer/trained/detection_hcc_threshold": {
+   "value": 0.7851089869711382,
+   "lo": 0.7218237799802646,
+   "hi": 0.8513132295274234
+  },
+  "native/trained": {
+   "value": 0.9639548019182584,
+   "lo": 0.9546630063939925,
+   "hi": 0.9713229662330916
+  },
+  "native/trained/bright": {
+   "value": 0.9383263037933138,
+   "lo": 0.9074947215565801,
+   "hi": 0.9513468270853374
+  },
+  "native/trained/dark": {
+   "value": 0.967156800925887,
+   "lo": 0.9583203663585056,
+   "hi": 0.9742346460373114
+  },
+  "native/trained/bright_minus_dark": {
+   "value": -0.02883049713257313,
+   "lo": -0.05861897821597768,
+   "hi": -0.01589799903148427
+  },
+  "native/trained/detection": {
+   "value": 0.833785186447505,
+   "lo": 0.7973684458480852,
+   "hi": 0.8629370255794736
+  },
+  "transfer/random": {
+   "value": 0.6917716701946667,
+   "lo": 0.6513817525531497,
+   "hi": 0.7236508998422333
+  },
+  "transfer/random/bright": {
+   "value": 0.6039457333552625,
+   "lo": 0.5207894069712505,
+   "hi": 0.6847686413936039
+  },
+  "transfer/random/dark": {
+   "value": 0.7027445551929533,
+   "lo": 0.6621325814214607,
+   "hi": 0.7346291455163966
+  },
+  "transfer/random/bright_minus_dark": {
+   "value": -0.09879882183769084,
+   "lo": -0.1872416259840619,
+   "hi": -0.008901172053359043
+  },
+  "transfer/random/detection": {
+   "value": 0.1661528451254086,
+   "lo": 0.12950026158497138,
+   "hi": 0.19995367204439934
+  },
+  "transfer/random/detection_hcc_threshold": {
+   "value": 0.1428837007544656,
+   "lo": 0.1108485716499156,
+   "hi": 0.17335956852905257
+  },
+  "native/random": {
+   "value": 0.8231713672968296,
+   "lo": 0.7970690674967925,
+   "hi": 0.8446464965901912
+  },
+  "native/random/bright": {
+   "value": 0.703897759276934,
+   "lo": 0.6127688978997933,
+   "hi": 0.7674527640775997
+  },
+  "native/random/dark": {
+   "value": 0.8380732929833865,
+   "lo": 0.8138488889283731,
+   "hi": 0.8577240302503276
+  },
+  "native/random/bright_minus_dark": {
+   "value": -0.13417553370645252,
+   "lo": -0.22665887946766367,
+   "hi": -0.06707938228185983
+  },
+  "native/random/detection": {
+   "value": 0.37769756309160485,
+   "lo": 0.323112841827678,
+   "hi": 0.42508801969227344
+  },
+  "transfer/hu": {
+   "value": 0.6517827718654267,
+   "lo": 0.6141357140130649,
+   "hi": 0.6879496232177944
+  },
+  "transfer/hu/bright": {
+   "value": 0.5532354922674972,
+   "lo": 0.5080741613821266,
+   "hi": 0.5880741634914981
+  },
+  "transfer/hu/dark": {
+   "value": 0.6640951707402534,
+   "lo": 0.6258699059099764,
+   "hi": 0.7011827300280786
+  },
+  "transfer/hu/bright_minus_dark": {
+   "value": -0.11085967847275613,
+   "lo": -0.16639704260920107,
+   "hi": -0.06752377915321248
+  },
+  "transfer/hu/detection": {
+   "value": 0.014500611938217478,
+   "lo": 0.00775727444430776,
+   "hi": 0.02252227161641725
+  },
+  "transfer/hu/detection_hcc_threshold": {
+   "value": 0.601790887542797,
+   "lo": 0.5214661230666838,
+   "hi": 0.677130954222653
+  },
+  "native/hu": {
+   "value": 0.9088990402079482,
+   "lo": 0.8800073589950925,
+   "hi": 0.9321263345729394
+  },
+  "native/hu/bright": {
+   "value": 0.8065005463927063,
+   "lo": 0.7212708483890674,
+   "hi": 0.8438866888375983
+  },
+  "native/hu/dark": {
+   "value": 0.9216926059479529,
+   "lo": 0.8941852323980419,
+   "hi": 0.9437085367940622
+  },
+  "native/hu/bright_minus_dark": {
+   "value": -0.11519205955524658,
+   "lo": -0.19998933869611485,
+   "hi": -0.06718701903258645
+  },
+  "native/hu/detection": {
+   "value": 0.6348975197137059,
+   "lo": 0.5262962400710332,
+   "hi": 0.722716353290241
+  }
+ }
+}
