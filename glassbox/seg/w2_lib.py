@@ -137,3 +137,28 @@ class Runner:
         pred = MetaTensor(probs, meta=data["image"].meta, applied_operations=data["image"].applied_operations)
         out = Invertd(keys="pred", transform=self.pre, orig_keys="image", nearest_interp=False, to_tensor=True)({"pred": pred, "image": data["image"]})
         return out["pred"].as_tensor()[0].numpy() > 0.5
+
+
+def dice_within(pred_a, comp_c, sp, mm=10.0):
+    """Dice between the lesion and the prediction restricted to the lesion dilated by `mm` (the mech B / counterfactual 'lesion Dice'); computed on the lesion's neighbourhood only."""
+    bb = bbox(comp_c, int(math.ceil(mm / min(sp))) + 2, comp_c.shape)
+    dist = ndimage.distance_transform_edt(~comp_c[bb], sampling=sp); near = pred_a[bb] & (dist <= mm)
+    return float(2 * (near & comp_c[bb]).sum() / max(int(near.sum()) + int(comp_c.sum()), 1))
+
+
+def _predict_auto(self, data, img, label):
+    """AUTOMATIC route (no point): whole-volume sliding window (128^3, overlap 0.3, replicate padding) with one class prompt, probability > 0.5 on the original grid (as glassbox.seg.infer.predict_probs); the mid-encoder hook acts on every window."""
+    torch = self.torch
+    from monai.data import MetaTensor
+    from monai.inferers import SlidingWindowInfererAdapt
+    from monai.transforms import Invertd
+    sw = SlidingWindowInfererAdapt(roi_size=(128, 128, 128), sw_batch_size=1, overlap=0.3, with_coord=True, padding_mode="replicate")
+    with torch.no_grad():
+        logits = sw(img, self.net, transpose=True, point_coords=None, point_labels=None, class_vector=torch.tensor([[label]], device=self.dev), prompt_class=None, prev_mask=None, labels=None, label_set=None)
+    probs = torch.sigmoid(logits.reshape(1, *img.shape[2:]).float().cpu())
+    pred = MetaTensor(probs, meta=data["image"].meta, applied_operations=data["image"].applied_operations)
+    out = Invertd(keys="pred", transform=self.pre, orig_keys="image", nearest_interp=False, to_tensor=True)({"pred": pred, "image": data["image"]})
+    return out["pred"].as_tensor()[0].numpy() > 0.5
+
+
+Runner.predict_auto = _predict_auto

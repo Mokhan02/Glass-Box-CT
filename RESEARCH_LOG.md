@@ -9,6 +9,7 @@ Append-only record of research results on branch `research/roadmap`. Past entrie
 | W1 training-data contrast audit | Verdict reached (pre-registered rule) | BRIGHT RARE IN TRAINING: bright share 5.2% [2.9, 7.6] pooled training vs 32.6% [21.2, 42.4] HCC, d +27.4 points [+15.9, +37.7] ([SUMMARY](results/w1_training_audit/SUMMARY.md)) | 89-case HCC sensitivity analysis; optional Task08 secondary; W5 for the causal link | Nothing blocking; confounded by tumour type and phase |
 | W2 kidney replication | v3 main run and pre-registered analysis done; stopped at the verdicts | **All three primary arms GAP; like-for-like replication True** (kidney 133/1 Dice gap +10.3 pts [+4.0, +17.6]; HCC 133/1 +24.4 [+14.0, +34.5]; HCC 26/3 +29.0 [+17.5, +40.9]); the mechanism differs (kidney: bright lesions LEAK more; HCC: bright lesions UNDER-segmented more) ([w2v3_results.md](results/w2_kidney/v3/w2v3_results.md)) | Researcher's review; mechanism steps (probe, LEACE, patching) only with their own approval | Researcher |
 | W2-M mechanism steps (kidney) | M1, M2, M3 all run and reported; stopped | M1 ORGAN-SPECIFIC; M2 NOT NECESSARY (kidney-native LEACE: lesion Dice -0.015 [-0.028, -0.002], organ Dice holds); M3 PARTIAL (brightening dark lesions raises LEAK by +24.3 pts [+17.8, +31.9]; darkening bright leaking lesions has no effect) ([write-up](results/w2_mech/M2_M3_WRITEUP.md)) | Researcher's review; nothing further pre-registered | Researcher |
+| W2-M route check | PREREG approved and committed; not yet run | - | Researcher launches the instance, then determinism check, timing, run, analysis | Instance |
 | W3-W7 | Not started | - | - | W1 and W2 |
 
 ## 2. Headline results so far (hackathon-era, model NV-Segment-CT / VISTA-3D `vista3d132`, frozen)
@@ -140,6 +141,20 @@ Log (append-only):
 **M2 verdict: NOT NECESSARY. M3 verdict: PARTIAL** (see the log and [M2_M3_WRITEUP.md](results/w2_mech/M2_M3_WRITEUP.md); both with the named confounds and limits).
 **Deviations** ([DEVIATIONS.md](results/w2_mech/DEVIATIONS.md)): 1. HCC reproduction sanity check not exact (primary row exact, other cells within 0.007); accepted by the researcher with three conditions, all met (1a). 2. 3-case timing and identity check passed (note, no change).
 
+### W2-M route check: is M2's null due to the zero-shot route rather than the organ?
+
+**Question.** Does erasing the HCC mech-B direction on HCC lesions under label 133 + point label 1 (the kidney route) do little (route explains M2) or a lot (organ differs)?
+**Pre-registration.** [PREREG_route.md](results/w2_mech/PREREG_route.md), committed HASH_R. Arms: HCC main set (76 lesions, 23 bright, 68 cases) with 133/1 (primary), 26/3 (secondary), and a positive control (class 26, automatic route, same erasers and controls; expected to reproduce a mech-B-sized drop, reported in 10 mm Dice beside mech B's -0.33). Erasers: the stored cross-fitted HCC mech-B erasers (fold = clean-89 index mod 5, fitted on training folds). Decision (primary 133/1, order ORGAN DIFFERS then ROUTE EXPLAINS M2 then INCONCLUSIVE): ORGAN DIFFERS = the M2 USED criteria met; ROUTE EXPLAINS M2 = Dice-change CI lower > -0.10 and the positive control CI upper < -0.10; INCONCLUSIVE otherwise (failed positive control, too blunt). The M2-style verdict is reported as secondary.
+
+Log (append-only):
+
+| Date | What was done | Result | Commit |
+|---|---|---|---|
+| 2026-10-18 | PREREG approved with two edits (the new decision rule; a positive-control arm) and committed with the run script, the analysis script, their tests (code hashes in [code_hashes_route.txt](results/w2_mech/code_hashes_route.txt)) and the seeded 30-case liver organ-check subset ([route_organ_subset.csv](results/w2_mech/route_organ_subset.csv)) BEFORE any GPU run; new helpers `dice_within` and `Runner.predict_auto` added to the shared library | Tests pass; estimated GPU time 2 to 3.2 h (stop rule: project from 3 timed cases, stop if > 3.5 h) | HASH_R |
+
+**Deviations.** None yet.
+**Verdict.** None yet.
+
 ## 5. Decisions log
 
 | Date | Decision | Why |
@@ -164,6 +179,7 @@ Log (append-only):
 | 2026-10-17 | v3: replace the v2 gate (which was correlated with brightness) with a dark-lesion gate and a Dice-gap primary on the unseen main set; drop the 26/1 arm (failed the gate); commit the analysis script and record its hash before the GPU run | A gate that fails more on bright lesions cannot validate an analysis of bright vs dark lesions; the script hash makes the analysis verifiably unchanged |
 | 2026-10-18 | W2-M: three-tier M1 verdict (SHARED / PARTIAL / ORGAN-SPECIFIC); controls are the HCC-trained random-init and raw-HU probes transferred like the trained probe; M2 branch fixed in advance (HCC direction primary if SHARED/PARTIAL, kidney-native LEACE on training folds primary if ORGAN-SPECIFIC, HCC direction secondary either way); organ check on a seeded 60-case subset (seed 133); M1 timed on 3 cases first with a 3.5 h stop rule; window-skip optimisation only after a 3-case token identity check | Avoids deciding the branch after seeing M1; keeps GPU time bounded; the optimisation must not change the tokens |
 | 2026-10-18 | W2-M: M3 exploratory projection uses the kidney-native probe direction (per-fold probe, held-out patients) because M1 was organ-specific; M2 primary = kidney-native LEACE (pre-specified branch); M2 and M3 run concurrently on one instance because M3 does not depend on M2 | Follows the committed PREREG branch; shortens instance time |
+| 2026-10-18 | W2-M route check decision rule set by the researcher (ORGAN DIFFERS / ROUTE EXPLAINS M2 / INCONCLUSIVE, with a positive control on the automatic class-26 route); I added the evaluation order (ORGAN DIFFERS first) for the narrow overlap region | The M2-style verdict alone could not separate route from organ without a positive control showing the erasers still bite |
 | 2026-10-16 | gitleaks 8.30.1 installed (checksum-verified single binary) and run before each push, alongside the name-guard test | The earlier regex scan was a substitute |
 
 ## 6. Open questions and limitations
