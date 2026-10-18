@@ -1,0 +1,23 @@
+{
+ "label": "tight solver (tol 1e-8, max_iter 20000) vs stored",
+ "cells": 1086,
+ "cells_differing": 529,
+ "max_abs_diff": 0.02100000000000002,
+ "max_abs_diff_mid": 0.001700000000000007,
+ "quoted_precision_cells_changed_3dp": 111,
+ "trained_vs_control_comparisons": 15,
+ "trained_vs_control_changed": [],
+ "verdict_stored": "LOST LATE",
+ "verdict_repro": "LOST LATE",
+ "verdict_same": true,
+ "decision_booleans_same": true,
+ "decision_numbers_3dp_same": {
+  "R_enc": true,
+  "CI_enc": true,
+  "R_hu": true,
+  "CI_hu": false,
+  "decoder_F_rate": true,
+  "decoder_minus_mid": false,
+  "median_FN_logit": true
+ }
+}

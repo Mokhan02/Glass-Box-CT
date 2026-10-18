@@ -1,0 +1,438 @@
+{
+ "quoted_cells_compared": 27,
+ "quoted_cells_changed_at_3dp": 7,
+ "cells": [
+  {
+   "set": "all-103",
+   "layer": "mid",
+   "quantity": "trained activations",
+   "stored": [
+    0.587,
+    0.551,
+    0.656
+   ],
+   "rerun": [
+    0.587,
+    0.551,
+    0.656
+   ],
+   "same_at_3dp": true
+  },
+  {
+   "set": "all-103",
+   "layer": "mid",
+   "quantity": "trained raw-HU",
+   "stored": [
+    0.114,
+    0.05,
+    0.146
+   ],
+   "rerun": [
+    0.114,
+    0.05,
+    0.146
+   ],
+   "same_at_3dp": true
+  },
+  {
+   "set": "all-103",
+   "layer": "mid",
+   "quantity": "random-init activations (corrected control)",
+   "stored": [
+    0.079,
+    0.06,
+    0.09
+   ],
+   "rerun": [
+    0.079,
+    0.06,
+    0.09
+   ],
+   "same_at_3dp": true
+  },
+  {
+   "set": "all-103",
+   "layer": "bottleneck",
+   "quantity": "trained activations",
+   "stored": [
+    0.825,
+    0.795,
+    0.869
+   ],
+   "rerun": [
+    0.825,
+    0.796,
+    0.869
+   ],
+   "same_at_3dp": false
+  },
+  {
+   "set": "all-103",
+   "layer": "bottleneck",
+   "quantity": "trained raw-HU",
+   "stored": [
+    0.204,
+    0.071,
+    0.281
+   ],
+   "rerun": [
+    0.204,
+    0.071,
+    0.281
+   ],
+   "same_at_3dp": true
+  },
+  {
+   "set": "all-103",
+   "layer": "bottleneck",
+   "quantity": "random-init activations (corrected control)",
+   "stored": [
+    0.141,
+    0.075,
+    0.178
+   ],
+   "rerun": [
+    0.141,
+    0.075,
+    0.178
+   ],
+   "same_at_3dp": true
+  },
+  {
+   "set": "all-103",
+   "layer": "decoder_F",
+   "quantity": "trained activations",
+   "stored": [
+    0.758,
+    0.722,
+    0.821
+   ],
+   "rerun": [
+    0.758,
+    0.722,
+    0.821
+   ],
+   "same_at_3dp": true
+  },
+  {
+   "set": "all-103",
+   "layer": "decoder_F",
+   "quantity": "trained raw-HU",
+   "stored": [
+    0.11,
+    0.048,
+    0.141
+   ],
+   "rerun": [
+    0.109,
+    0.048,
+    0.141
+   ],
+   "same_at_3dp": false
+  },
+  {
+   "set": "all-103",
+   "layer": "decoder_F",
+   "quantity": "random-init activations (corrected control)",
+   "stored": [
+    0.087,
+    0.048,
+    0.11
+   ],
+   "rerun": [
+    0.087,
+    0.048,
+    0.11
+   ],
+   "same_at_3dp": true
+  },
+  {
+   "set": "single-acquisition",
+   "layer": "mid",
+   "quantity": "trained activations",
+   "stored": [
+    0.604,
+    0.571,
+    0.676
+   ],
+   "rerun": [
+    0.604,
+    0.571,
+    0.676
+   ],
+   "same_at_3dp": true
+  },
+  {
+   "set": "single-acquisition",
+   "layer": "mid",
+   "quantity": "trained raw-HU",
+   "stored": [
+    0.084,
+    0.041,
+    0.115
+   ],
+   "rerun": [
+    0.083,
+    0.041,
+    0.115
+   ],
+   "same_at_3dp": false
+  },
+  {
+   "set": "single-acquisition",
+   "layer": "mid",
+   "quantity": "random-init activations (corrected control)",
+   "stored": [
+    0.078,
+    0.06,
+    0.104
+   ],
+   "rerun": [
+    0.078,
+    0.06,
+    0.104
+   ],
+   "same_at_3dp": true
+  },
+  {
+   "set": "single-acquisition",
+   "layer": "bottleneck",
+   "quantity": "trained activations",
+   "stored": [
+    0.838,
+    0.803,
+    0.875
+   ],
+   "rerun": [
+    0.838,
+    0.803,
+    0.875
+   ],
+   "same_at_3dp": true
+  },
+  {
+   "set": "single-acquisition",
+   "layer": "bottleneck",
+   "quantity": "trained raw-HU",
+   "stored": [
+    0.19,
+    0.075,
+    0.247
+   ],
+   "rerun": [
+    0.19,
+    0.074,
+    0.247
+   ],
+   "same_at_3dp": false
+  },
+  {
+   "set": "single-acquisition",
+   "layer": "bottleneck",
+   "quantity": "random-init activations (corrected control)",
+   "stored": [
+    0.163,
+    0.076,
+    0.207
+   ],
+   "rerun": [
+    0.163,
+    0.076,
+    0.207
+   ],
+   "same_at_3dp": true
+  },
+  {
+   "set": "single-acquisition",
+   "layer": "decoder_F",
+   "quantity": "trained activations",
+   "stored": [
+    0.75,
+    0.713,
+    0.829
+   ],
+   "rerun": [
+    0.75,
+    0.713,
+    0.829
+   ],
+   "same_at_3dp": true
+  },
+  {
+   "set": "single-acquisition",
+   "layer": "decoder_F",
+   "quantity": "trained raw-HU",
+   "stored": [
+    0.079,
+    0.043,
+    0.116
+   ],
+   "rerun": [
+    0.079,
+    0.043,
+    0.116
+   ],
+   "same_at_3dp": true
+  },
+  {
+   "set": "single-acquisition",
+   "layer": "decoder_F",
+   "quantity": "random-init activations (corrected control)",
+   "stored": [
+    0.119,
+    0.051,
+    0.15
+   ],
+   "rerun": [
+    0.119,
+    0.051,
+    0.15
+   ],
+   "same_at_3dp": true
+  },
+  {
+   "set": "UID-route",
+   "layer": "mid",
+   "quantity": "trained activations",
+   "stored": [
+    0.627,
+    0.587,
+    0.714
+   ],
+   "rerun": [
+    0.627,
+    0.587,
+    0.714
+   ],
+   "same_at_3dp": true
+  },
+  {
+   "set": "UID-route",
+   "layer": "mid",
+   "quantity": "trained raw-HU",
+   "stored": [
+    0.112,
+    0.045,
+    0.171
+   ],
+   "rerun": [
+    0.112,
+    0.045,
+    0.171
+   ],
+   "same_at_3dp": true
+  },
+  {
+   "set": "UID-route",
+   "layer": "mid",
+   "quantity": "random-init activations (corrected control)",
+   "stored": [
+    0.075,
+    0.057,
+    0.101
+   ],
+   "rerun": [
+    0.075,
+    0.057,
+    0.101
+   ],
+   "same_at_3dp": true
+  },
+  {
+   "set": "UID-route",
+   "layer": "bottleneck",
+   "quantity": "trained activations",
+   "stored": [
+    0.882,
+    0.854,
+    0.916
+   ],
+   "rerun": [
+    0.882,
+    0.854,
+    0.916
+   ],
+   "same_at_3dp": true
+  },
+  {
+   "set": "UID-route",
+   "layer": "bottleneck",
+   "quantity": "trained raw-HU",
+   "stored": [
+    0.19,
+    0.061,
+    0.253
+   ],
+   "rerun": [
+    0.191,
+    0.061,
+    0.254
+   ],
+   "same_at_3dp": false
+  },
+  {
+   "set": "UID-route",
+   "layer": "bottleneck",
+   "quantity": "random-init activations (corrected control)",
+   "stored": [
+    0.161,
+    0.082,
+    0.197
+   ],
+   "rerun": [
+    0.161,
+    0.082,
+    0.197
+   ],
+   "same_at_3dp": true
+  },
+  {
+   "set": "UID-route",
+   "layer": "decoder_F",
+   "quantity": "trained activations",
+   "stored": [
+    0.791,
+    0.76,
+    0.857
+   ],
+   "rerun": [
+    0.791,
+    0.76,
+    0.857
+   ],
+   "same_at_3dp": true
+  },
+  {
+   "set": "UID-route",
+   "layer": "decoder_F",
+   "quantity": "trained raw-HU",
+   "stored": [
+    0.112,
+    0.044,
+    0.167
+   ],
+   "rerun": [
+    0.113,
+    0.045,
+    0.167
+   ],
+   "same_at_3dp": false
+  },
+  {
+   "set": "UID-route",
+   "layer": "decoder_F",
+   "quantity": "random-init activations (corrected control)",
+   "stored": [
+    0.127,
+    0.044,
+    0.161
+   ],
+   "rerun": [
+    0.127,
+    0.044,
+    0.162
+   ],
+   "same_at_3dp": false
+  }
+ ]
+}
