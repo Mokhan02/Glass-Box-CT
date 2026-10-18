@@ -144,13 +144,13 @@ Log (append-only):
 ### W2-M route check: is M2's null due to the zero-shot route rather than the organ?
 
 **Question.** Does erasing the HCC mech-B direction on HCC lesions under label 133 + point label 1 (the kidney route) do little (route explains M2) or a lot (organ differs)?
-**Pre-registration.** [PREREG_route.md](results/w2_mech/PREREG_route.md), committed HASH_R. Arms: HCC main set (76 lesions, 23 bright, 68 cases) with 133/1 (primary), 26/3 (secondary), and a positive control (class 26, automatic route, same erasers and controls; expected to reproduce a mech-B-sized drop, reported in 10 mm Dice beside mech B's -0.33). Erasers: the stored cross-fitted HCC mech-B erasers (fold = clean-89 index mod 5, fitted on training folds). Decision (primary 133/1, order ORGAN DIFFERS then ROUTE EXPLAINS M2 then INCONCLUSIVE): ORGAN DIFFERS = the M2 USED criteria met; ROUTE EXPLAINS M2 = Dice-change CI lower > -0.10 and the positive control CI upper < -0.10; INCONCLUSIVE otherwise (failed positive control, too blunt). The M2-style verdict is reported as secondary.
+**Pre-registration.** [PREREG_route.md](results/w2_mech/PREREG_route.md), committed 3cf34fc. Arms: HCC main set (76 lesions, 23 bright, 68 cases) with 133/1 (primary), 26/3 (secondary), and a positive control (class 26, automatic route, same erasers and controls; expected to reproduce a mech-B-sized drop, reported in 10 mm Dice beside mech B's -0.33). Erasers: the stored cross-fitted HCC mech-B erasers (fold = clean-89 index mod 5, fitted on training folds). Decision (primary 133/1, order ORGAN DIFFERS then ROUTE EXPLAINS M2 then INCONCLUSIVE): ORGAN DIFFERS = the M2 USED criteria met; ROUTE EXPLAINS M2 = Dice-change CI lower > -0.10 and the positive control CI upper < -0.10; INCONCLUSIVE otherwise (failed positive control, too blunt). The M2-style verdict is reported as secondary.
 
 Log (append-only):
 
 | Date | What was done | Result | Commit |
 |---|---|---|---|
-| 2026-10-18 | PREREG approved with two edits (the new decision rule; a positive-control arm) and committed with the run script, the analysis script, their tests (code hashes in [code_hashes_route.txt](results/w2_mech/code_hashes_route.txt)) and the seeded 30-case liver organ-check subset ([route_organ_subset.csv](results/w2_mech/route_organ_subset.csv)) BEFORE any GPU run; new helpers `dice_within` and `Runner.predict_auto` added to the shared library | Tests pass; estimated GPU time 2 to 3.2 h (stop rule: project from 3 timed cases, stop if > 3.5 h) | HASH_R |
+| 2026-10-18 | PREREG approved with two edits (the new decision rule; a positive-control arm) and committed with the run script, the analysis script, their tests (code hashes in [code_hashes_route.txt](results/w2_mech/code_hashes_route.txt)) and the seeded 30-case liver organ-check subset ([route_organ_subset.csv](results/w2_mech/route_organ_subset.csv)) BEFORE any GPU run; new helpers `dice_within` and `Runner.predict_auto` added to the shared library | Tests pass; estimated GPU time 2 to 3.2 h (stop rule: project from 3 timed cases, stop if > 3.5 h) | 3cf34fc |
 
 **Deviations.** None yet.
 **Verdict.** None yet.
