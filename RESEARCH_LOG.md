@@ -8,6 +8,7 @@ Append-only record of research results on branch `research/roadmap`. Past entrie
 |---|---|---|---|---|
 | W1 training-data contrast audit | Verdict reached (pre-registered rule) | BRIGHT RARE IN TRAINING: bright share 5.2% [2.9, 7.6] pooled training vs 32.6% [21.2, 42.4] HCC, d +27.4 points [+15.9, +37.7] ([SUMMARY](results/w1_training_audit/SUMMARY.md)) | 89-case HCC sensitivity analysis; optional Task08 secondary; W5 for the causal link | Nothing blocking; confounded by tumour type and phase |
 | W2 kidney replication | v3 main run and pre-registered analysis done; stopped at the verdicts | **All three primary arms GAP; like-for-like replication True** (kidney 133/1 Dice gap +10.3 pts [+4.0, +17.6]; HCC 133/1 +24.4 [+14.0, +34.5]; HCC 26/3 +29.0 [+17.5, +40.9]); the mechanism differs (kidney: bright lesions LEAK more; HCC: bright lesions UNDER-segmented more) ([w2v3_results.md](results/w2_kidney/v3/w2v3_results.md)) | Researcher's review; mechanism steps (probe, LEACE, patching) only with their own approval | Researcher |
+| W2-M mechanism steps (kidney) | PREREG approved and committed; M1 not yet run (waiting for the GPU instance) | - | Commit the M1 extraction and analysis code, then run M1 only (3-case timing first), report, stop | Researcher launches the instance |
 | W3-W7 | Not started | - | - | W1 and W2 |
 
 ## 2. Headline results so far (hackathon-era, model NV-Segment-CT / VISTA-3D `vista3d132`, frozen)
@@ -110,6 +111,21 @@ Log (append-only):
 **Validity caveat (added 2026-10-16 after the validity check):** coverage is at ceiling because the point-prompted 129/130 output is close to a whole-organ mask, so the coverage gap does not measure appearance-driven under-segmentation of tumours; the verdicts below stand as the pre-registered result but carry this caveat ([validity_check.md](results/w2_kidney/validity_check.md)).
 **Verdict (per the PREREG rule).** Kidney (class 129): NO MEANINGFUL GAP, with the direction reversed (bright covered more). HCC (class 130): INCONCLUSIVE (28 bright lesions). Replication (both GAP): False. Named confounds: possible in-distribution images (AbdomenCT-1K, tumour labelling unknown), arterial-phase KiTS, point prompts give location.
 
+### W2-M: mechanism steps for the kidney result (M1 transfer, M2 erasure, M3 counterfactual)
+
+**Question.** Does the HCC mid-encoder tumour concept explain the kidney Dice gap found in W2 v3?
+**Pre-registration.** [PREREG.md](results/w2_mech/PREREG.md), committed HASH_K. M1: HCC-trained probe applied unchanged to kidney mid-encoder tokens, three-tier verdict SHARED / PARTIAL / ORGAN-SPECIFIC (transfer CI-lower beats both HCC-trained random-init and raw-HU transfer controls, > 0.5, and >= 70% of the kidney-native above-chance signal for SHARED). M2: LEACE erasure with a branch fixed in advance (HCC direction if M1 is SHARED or PARTIAL, kidney-native LEACE on training folds if ORGAN-SPECIFIC; HCC direction secondary either way), organ check on a seeded 60-case subset. M3: kidney contrast counterfactual, primary = change in LEAK rate. Kidney arm = label 133 + point label 1, main-set lesions only. Order: M1 only, then stop.
+**Named confounds:** possible in-distribution images (AbdomenCT-1K), arterial phase, point prompts give location.
+
+Log (append-only):
+
+| Date | What was done | Result | Commit |
+|---|---|---|---|
+| 2026-10-18 | PREREG written, reviewed and approved with edits (three-tier M1 verdict; M2 branch pre-specified; M2 organ check on a seeded 60-case subset with LEAK/UNDER shifts as a secondary; M1 timed on 3 cases first with a 3.5 h stop rule and the window-skip optimisation allowed only after a 3-case token identity check) and committed before any run | GPU estimates: M1 2.2 to 4.5 h (1 to 2 h with window skipping), M2 about 2 to 2.5 h, M3 about 1.5 to 1.8 h | HASH_K |
+
+**Deviations.** None yet.
+**Verdict.** None yet.
+
 ## 5. Decisions log
 
 | Date | Decision | Why |
@@ -132,6 +148,7 @@ Log (append-only):
 | 2026-10-16 | Gate 3 launched only after the runtime estimate (about 45 min, under the 3 h bar); GPU idle noted at 23:34 UTC when all arms finished | Instance discipline |
 | 2026-10-16 | v2 design: three primary arms (kidney 133/1, HCC 26/3, HCC 133/1), replication defined like-for-like on the two zero-shot arms (the HCC 26/3 verdict reported separately); sensitivity including pilot lesions; auto-proceed to the main run only if all three primary arms pass the pilot gate, otherwise stop and report with overlays | v1 was invalid; the gate must show lesion-scale predictions before any analysis |
 | 2026-10-17 | v3: replace the v2 gate (which was correlated with brightness) with a dark-lesion gate and a Dice-gap primary on the unseen main set; drop the 26/1 arm (failed the gate); commit the analysis script and record its hash before the GPU run | A gate that fails more on bright lesions cannot validate an analysis of bright vs dark lesions; the script hash makes the analysis verifiably unchanged |
+| 2026-10-18 | W2-M: three-tier M1 verdict (SHARED / PARTIAL / ORGAN-SPECIFIC); controls are the HCC-trained random-init and raw-HU probes transferred like the trained probe; M2 branch fixed in advance (HCC direction primary if SHARED/PARTIAL, kidney-native LEACE on training folds primary if ORGAN-SPECIFIC, HCC direction secondary either way); organ check on a seeded 60-case subset (seed 133); M1 timed on 3 cases first with a 3.5 h stop rule; window-skip optimisation only after a 3-case token identity check | Avoids deciding the branch after seeing M1; keeps GPU time bounded; the optimisation must not change the tokens |
 | 2026-10-16 | gitleaks 8.30.1 installed (checksum-verified single binary) and run before each push, alongside the name-guard test | The earlier regex scan was a substitute |
 
 ## 6. Open questions and limitations
