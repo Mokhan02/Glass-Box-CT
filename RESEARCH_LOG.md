@@ -114,14 +114,14 @@ Log (append-only):
 ### W2-M: mechanism steps for the kidney result (M1 transfer, M2 erasure, M3 counterfactual)
 
 **Question.** Does the HCC mid-encoder tumour concept explain the kidney Dice gap found in W2 v3?
-**Pre-registration.** [PREREG.md](results/w2_mech/PREREG.md), committed HASH_K. M1: HCC-trained probe applied unchanged to kidney mid-encoder tokens, three-tier verdict SHARED / PARTIAL / ORGAN-SPECIFIC (transfer CI-lower beats both HCC-trained random-init and raw-HU transfer controls, > 0.5, and >= 70% of the kidney-native above-chance signal for SHARED). M2: LEACE erasure with a branch fixed in advance (HCC direction if M1 is SHARED or PARTIAL, kidney-native LEACE on training folds if ORGAN-SPECIFIC; HCC direction secondary either way), organ check on a seeded 60-case subset. M3: kidney contrast counterfactual, primary = change in LEAK rate. Kidney arm = label 133 + point label 1, main-set lesions only. Order: M1 only, then stop.
+**Pre-registration.** [PREREG.md](results/w2_mech/PREREG.md), committed a67de51. M1: HCC-trained probe applied unchanged to kidney mid-encoder tokens, three-tier verdict SHARED / PARTIAL / ORGAN-SPECIFIC (transfer CI-lower beats both HCC-trained random-init and raw-HU transfer controls, > 0.5, and >= 70% of the kidney-native above-chance signal for SHARED). M2: LEACE erasure with a branch fixed in advance (HCC direction if M1 is SHARED or PARTIAL, kidney-native LEACE on training folds if ORGAN-SPECIFIC; HCC direction secondary either way), organ check on a seeded 60-case subset. M3: kidney contrast counterfactual, primary = change in LEAK rate. Kidney arm = label 133 + point label 1, main-set lesions only. Order: M1 only, then stop.
 **Named confounds:** possible in-distribution images (AbdomenCT-1K), arterial phase, point prompts give location.
 
 Log (append-only):
 
 | Date | What was done | Result | Commit |
 |---|---|---|---|
-| 2026-10-18 | PREREG written, reviewed and approved with edits (three-tier M1 verdict; M2 branch pre-specified; M2 organ check on a seeded 60-case subset with LEAK/UNDER shifts as a secondary; M1 timed on 3 cases first with a 3.5 h stop rule and the window-skip optimisation allowed only after a 3-case token identity check) and committed before any run | GPU estimates: M1 2.2 to 4.5 h (1 to 2 h with window skipping), M2 about 2 to 2.5 h, M3 about 1.5 to 1.8 h | HASH_K |
+| 2026-10-18 | PREREG written, reviewed and approved with edits (three-tier M1 verdict; M2 branch pre-specified; M2 organ check on a seeded 60-case subset with LEAK/UNDER shifts as a secondary; M1 timed on 3 cases first with a 3.5 h stop rule and the window-skip optimisation allowed only after a 3-case token identity check) and committed before any run | GPU estimates: M1 2.2 to 4.5 h (1 to 2 h with window skipping), M2 about 2 to 2.5 h, M3 about 1.5 to 1.8 h | a67de51 |
 
 **Deviations.** None yet.
 **Verdict.** None yet.
