@@ -1,0 +1,12 @@
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/utils/deprecate_utils.py:320: FutureWarning: monai.transforms.spatial.dictionary Orientationd.__init__:labels: Current default value of argument `labels=(('L', 'R'), ('P', 'A'), ('I', 'S'))` was changed in version None from `labels=(('L', 'R'), ('P', 'A'), ('I', 'S'))` to `labels=None`. Default value changed to None meaning that the transform now uses the 'space' of a meta-tensor, if applicable, to determine appropriate axis labels.
+  warn_deprecated(argname, msg, warning_category)
+/lambda/nfs/CTGate/w1/venv_gpu/lib/python3.10/site-packages/monai/data/meta_tensor.py:196: UserWarning: Setting affine, but the applied meta contains an affine. This will be overwritten.
+  warnings.warn("Setting affine, but the applied meta contains an affine. This will be overwritten.")
+[route] 1/68 HCC_004_414785 elapsed 27s
+[route] 11/68 HCC_022_228695 elapsed 368s
+[route] 21/68 HCC_033_612153 elapsed 749s
+[route] 31/68 HCC_044_006910 elapsed 1152s
+[route] 41/68 HCC_056_505211 elapsed 1605s
+[route] 51/68 HCC_067_472967 elapsed 2119s
+[route] 61/68 HCC_080_216191 elapsed 2541s
+DONE route: 456 point-arm predictions, 304 automatic lesion-condition rows, 30 organ-check cases, 2838s
