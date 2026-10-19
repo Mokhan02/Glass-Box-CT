@@ -10,6 +10,7 @@ Append-only record of research results on branch `research/roadmap`. Past entrie
 | W2 kidney replication | v3 main run and pre-registered analysis done; stopped at the verdicts | **All three primary arms GAP; like-for-like replication True** (kidney 133/1 Dice gap +10.3 pts [+4.0, +17.6]; HCC 133/1 +24.4 [+14.0, +34.5]; HCC 26/3 +29.0 [+17.5, +40.9]); the mechanism differs (kidney: bright lesions LEAK more; HCC: bright lesions UNDER-segmented more) ([w2v3_results.md](results/w2_kidney/v3/w2v3_results.md)) | Researcher's review; mechanism steps (probe, LEACE, patching) only with their own approval | Researcher |
 | W2-M mechanism steps (kidney) | M1, M2, M3 all run and reported; stopped | M1 ORGAN-SPECIFIC; M2 NOT NECESSARY (kidney-native LEACE: lesion Dice -0.015 [-0.028, -0.002], organ Dice holds); M3 PARTIAL (brightening dark lesions raises LEAK by +24.3 pts [+17.8, +31.9]; darkening bright leaking lesions has no effect) ([write-up](results/w2_mech/M2_M3_WRITEUP.md)) | Researcher's review; nothing further pre-registered | Researcher |
 | W2-M route check | Run and reported: ORGAN DIFFERS | HCC erasure on the kidney route (133/1) drops lesion Dice by -0.104 [-0.139, -0.071] with the liver organ untouched; the positive control (class 26 automatic) reproduces mech B (-0.350 [-0.408, -0.298] vs -0.33); kidney under the same rule was -0.015 | Researcher's review; nothing further pre-registered | Researcher |
+| W3 other models | Scouting done (CPU only); no PREREG yet | Recommended models: CLIP-Driven Universal Model (A) and self-trained nnU-Net (D); SAT does not fit an A10 and has no licence, SegVol's tokens are too coarse ([SCOUTING.md](results/w3_models/SCOUTING.md)) | Researcher's decisions (licence for A, nnU-Net schedule and benchmark), then Gate 0 | Researcher |
 | W3-W7 | Not started | - | - | W1 and W2 |
 
 ## 2. Headline results so far (hackathon-era, model NV-Segment-CT / VISTA-3D `vista3d132`, frozen)
@@ -156,6 +157,20 @@ Log (append-only):
 
 **Deviations.** None (DEVIATIONS #5: executed as pre-registered; the time estimate was too high, actual 0.79 h).
 **Verdict (per the PREREG rule): ORGAN DIFFERS**, with the positive control passing (see the log and [ROUTE_WRITEUP.md](results/w2_mech/ROUTE_WRITEUP.md)).
+
+### W3: other models (replicating the audit on a different architecture and training data)
+
+**Question.** Does the brightness dependence (bright liver tumours segmented worse) and its mid-encoder mechanism appear in other open CT segmentation models?
+**Pre-registration.** None yet; scouting only ([SCOUTING.md](results/w3_models/SCOUTING.md)).
+
+Log (append-only):
+
+| Date | What was done | Result | Commit |
+|---|---|---|---|
+| 2026-10-18 | Model scouting from primary sources (CPU only, no weights downloaded): CLIP-Driven Universal Model, SAT, SegVol, nnU-Net v2 self-trained on MSD Task03 | Held-out status: HCC-TACE-Seg and CRLM-CT are not in the training lists of A, B, C and D; C4KC-KiTS is in or probably in the training data of A, B and C (KiTS/KiTS19/KiTS23, AbdomenCT-1K). Licences: A conflicting (GitHub CC BY-NC-ND vs HF MIT tag), B none stated, C MIT, D Apache-2.0. SAT's stated inference memory (about 24 GB Nano, 34 GB Pro) does not fit the A10. SegVol tokens are about 25 mm. Recommended A and D; nnU-Net 1000-epoch training estimated at 30 to 60 h on an A10 (estimate, not measured). Open decisions: confirm A's licence, nnU-Net schedule and benchmark GPU OK. Items marked TO VERIFY in the file (checkpoint shapes for A, exact class strings for B and C, Task03 plan for D) | HASH_T |
+
+**Deviations.** None.
+**Verdict.** None (no experiment run).
 
 ## 5. Decisions log
 
