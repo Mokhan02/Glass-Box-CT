@@ -90,3 +90,15 @@ def test_as_converted_rows_are_swapped_only_in_the_sensitivity():
     prim = A.split_asconv(rows, False); sens = A.split_asconv(rows, True)
     assert [(r["arm"], r["case"], r["bright"]) for r in prim] == [("m", "good", True), ("m", "fixed", True)]
     assert sorted((r["arm"], r["case"], r["bright"]) for r in sens) == [("m", "fixed", False), ("m", "good", True)]
+
+
+def test_alignment_report_gate():
+    seg = np.zeros((60, 120, 6), np.uint8); seg[10:40, 15:45, :] = 1; seg[20:30, 25:35, :] = 2; ann = np.ones(6, bool); sp = (1.0, 1.0, 2.5); gt = seg > 0
+    ok = L.alignment_report(gt.copy(), seg, ann, sp, seg.shape); assert ok["pass"] and ok["organ_dice"] == 1.0 and ok["centroid_offset_mm"] == 0.0
+    assert not L.alignment_report(np.roll(gt, 20, axis=1), seg, ann, sp, seg.shape)["pass"]                       # 20 mm displacement fails
+    assert L.alignment_report(np.roll(gt, 10, axis=1), seg, ann, sp, seg.shape)["pass"]                           # 10 mm is inside the 15 mm limit
+    under = gt.copy(); under[:, :, :] = False; under[10:40, 15:30, :] = True                                      # under-segmented but placed correctly: low Dice, still passes (offset 7.5 mm)
+    r = L.alignment_report(under, seg, ann, sp, seg.shape); assert r["low_dice_lt_0.85"] and r["pass"]
+    assert not L.alignment_report(gt.copy(), seg, ann, sp, (60, 120, 7))["pass"]                                   # shape mismatch fails
+    flipped = np.zeros_like(gt); flipped[10:40, 15:45, :] = True; seg2 = np.zeros_like(seg); seg2[10:40, 15:45, :] = 1; seg2[10:30, 15:45, :] = 0     # GT in the lower part only; prediction in the upper part: flip along x fixes it
+    assert L.alignment_report(np.flip(seg2 > 0, 0), seg2, ann, sp, seg2.shape)["flip_improves_dice"]

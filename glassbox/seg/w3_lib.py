@@ -10,8 +10,9 @@ import numpy as np
 
 from glassbox.seg.w2_lib import dice_within, lesion_metrics
 
-ALIGN_MIN_DICE = 0.85          # PREREG_stage1 edit 1: organ Dice vs the GT organ on every case, array indices; stop if more than 2 cases fail
-ALIGN_MAX_FAILURES = 2
+ALIGN_MIN_DICE = 0.85          # PREREG_stage1 edit 1 (superseded as the gate by Amendment 2; kept as a descriptive flag: cases below it are listed and form the sensitivity exclusion)
+ALIGN_MAX_FAILURES = 2         # stop if more than 2 cases fail the alignment check
+ALIGN_MAX_OFFSET_MM = 15.0     # Amendment 2: predicted-vs-GT organ centroid offset limit (the limit of the 2026-10-20 diagnostic rule, fixed before that diagnostic ran)
 HCC_ROOT = "/lambda/nfs/CTGate/glassbox/cache/heldout_nii/hcc_tace_seg"
 KITS_ROOT = "/lambda/nfs/CTGate/glassbox/cache/heldout_nii/c4kc_kits"
 FIELDS = ["arm", "organ", "case", "rank", "group", "stratum", "diam_mm", "contrast_hu", "coverage", "dice_full", "dice_within_10mm", "pred_diam_mm", "pred_over_lesion_volume", "pred_frac_in_lesion", "mode"]
@@ -55,6 +56,20 @@ def dice(a, b):
 def alignment(pred_organ_ann, seg_ann, organ):
     """Organ Dice on the annotated slices, array indices, no header used."""
     return dice(pred_organ_ann.astype(bool), gt_organ(seg_ann, organ))
+
+
+def alignment_report(pred_organ_full, seg, ann, spacing, input_shape):
+    """Amendment 2 alignment check, array indices, GT spacing for mm: (1) the output array has the input array's shape; (2) no axis flip of the predicted organ raises the organ Dice (orientation); (3) predicted-vs-GT organ centroid offset <= 15 mm on the annotated slices.
+    The organ Dice is reported (and flagged below 0.85) but is no longer the gate. pred_organ_full: bool array on the input grid (before any cropping)."""
+    shape_ok = tuple(pred_organ_full.shape) == tuple(input_shape); sh = seg.shape
+    pa = pred_organ_full[:sh[0], :sh[1], :sh[2]][:, :, ann].astype(bool); gt = gt_organ(seg[:, :, ann], "hcc"); d0 = dice(pa, gt)
+    flips = {f"flip_{a}": dice(np.flip(pa, a), gt) for a in (0, 1, 2)}; flip_better = any(v > d0 for v in flips.values())
+    if pa.any() and gt.any():
+        sp = np.array(spacing, float); off = np.argwhere(pa).mean(0) - np.argwhere(gt).mean(0); off_mm = off * sp; offset = float(np.linalg.norm(off_mm))
+    else:
+        off_mm, offset = np.full(3, np.nan), float("inf")
+    return {"organ_dice": round(d0, 4), "low_dice_lt_0.85": bool(d0 < ALIGN_MIN_DICE), "centroid_offset_mm": round(offset, 1), "centroid_offset_xyz_mm": [round(float(v), 1) for v in off_mm], "shape_ok": shape_ok, "flip_dice": {k: round(v, 4) for k, v in flips.items()},
+            "flip_improves_dice": bool(flip_better), "pass": bool(shape_ok and not flip_better and offset <= ALIGN_MAX_OFFSET_MM)}
 
 
 def lesion_rows(organ, case, root, table, preds):

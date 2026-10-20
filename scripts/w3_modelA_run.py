@@ -2,7 +2,7 @@
 Inference replicates the authors' shipped `pred_pseudo.py` `validation` function for ONE tumour class (the equivalence with the full 32-class run is asserted on the first case): shipped loader and transforms, 96^3 Gaussian sliding window,
 overlap 0.5, sigmoid, `threshold_organ`, `organ_post_process`, nearest-neighbour `Invertd`. Variants evaluated per lesion: raw thresholded sigmoid, (a) largest predicted-organ component, (a)+(b) closing, shipped (= (a)+(b)+(c) dilation).
 Cases whose label the original converter displaced (results/dq_hcc_labels/corrected_cases.json: HCC_019_773068) are scored against the corrected label and contrast, and additionally against the as-converted ones under arms `asconv__*` (sensitivity row).
-Alignment check on EVERY case (against the corrected label for those cases): predicted organ Dice vs the GT organ on the annotated slices (array indices) >= 0.85; the run stops if more than 2 cases fail. The saved header affine of the shipped output is NOT used (stale).
+Alignment check on EVERY case (Amendment 2; against the corrected label for corrected cases): output shape equals the input shape, no axis flip of the predicted organ raises its Dice vs the GT organ, centroid offset <= 15 mm (array indices, GT spacing); the run stops if more than 2 cases fail; organ Dice < 0.85 is listed (sensitivity exclusion), not gating. The saved header affine of the shipped output is NOT used (stale).
 Usage (cwd = repo checkout, PYTHONPATH not needed): python scripts/w3_modelA_run.py <repo_A> <weights> <swin|unet> <hcc|kidney> <outdir> [--limit N]"""
 import csv
 import glob
@@ -55,7 +55,9 @@ def invert(batch, mask, key):
     return out[key][0].numpy() > 0.5
 
 
-rows, aligns, t0, failures = [], [], time.time(), []; done = 0; extras = []
+rows, aligns, t0, failures, low_dice = [], [], time.time(), [], []; done = 0; extras = []
+import nibabel as nib
+nii_shape = {c: tuple(nib.load(os.path.join(L.case_root(organ, c, ROOT), c, 'ct.nii.gz')).shape) for c in cases}
 for batch in loader:
     name = batch["name"][0]
     if name not in cases:
@@ -79,19 +81,21 @@ for batch in loader:
     arms = {f"A_{bb}_{k}{SUF}": v for k, v in preds.items()}; case_rows, geo = L.lesion_rows(organ, name, L.case_root(organ, name, ROOT), table, arms); rows += case_rows
     if name in corrected:          # sensitivity: the same predictions scored against the as-converted (displaced) label and contrast
         rows += L.lesion_rows(organ, name, ROOT, table_asconv, {f"asconv__{a}": v for a, v in arms.items()})[0]
-    sh = tuple(geo["seg"].shape); ad = L.alignment(organ_inv[:sh[0], :sh[1], :sh[2]][:, :, geo["ann"]], geo["seg"][:, :, geo["ann"]], organ)
-    rec = {"case": name, "organ_dice": round(ad, 4), "pass": bool(ad >= L.ALIGN_MIN_DICE), "input_grid_shape": list(organ_inv.shape), "ct_shape": list(sh), "shipped_equals_last_step": steps_ok,
+    sh = tuple(geo["seg"].shape); al = L.alignment_report(organ_inv, geo["seg"], geo["ann"], geo["spacing"], nii_shape[name]); ad = al["organ_dice"]
+    rec = {"case": name, **al, "input_grid_shape": list(organ_inv.shape), "ct_shape": list(sh), "shipped_equals_last_step": steps_ok,
            "voxels_preprocessed": {k: int(v.sum()) for k, v in {"raw": raw, "step_a": step_a, "step_ab": step_ab, "shipped": shipped}.items()}, "seconds": round(time.time() - t1, 1)}
     aligns.append(rec)
     if not rec["pass"]:
         failures.append(name)
+    if rec["low_dice_lt_0.85"]:
+        low_dice.append(name)
     np.savez_compressed(os.path.join(outdir, "masks", f"{bb}__{name}.npz"), ann=geo["ann"], **{k: v[:sh[0], :sh[1], :sh[2]][:, :, geo["ann"]] for k, v in preds.items()})
-    done += 1; print(f"[{bb} {organ}] {done}/{len(cases)} {name} organ_dice {ad:.3f} {rec['seconds']}s elapsed {time.time() - t0:.0f}s", flush=True)
+    done += 1; print(f"[{bb} {organ}] {done}/{len(cases)} {name} organ_dice {ad:.3f} offset {rec['centroid_offset_mm']} mm {'PASS' if rec['pass'] else 'FAIL'} {rec['seconds']}s elapsed {time.time() - t0:.0f}s", flush=True)
     if len(failures) > L.ALIGN_MAX_FAILURES:
         print(f"STOP: alignment failed on {len(failures)} cases (> {L.ALIGN_MAX_FAILURES}): {failures}", flush=True); break
 if rows:
     with open(os.path.join(outdir, f"w3_lesions_A_{bb}_{organ}.csv"), "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=L.FIELDS); w.writeheader(); w.writerows(rows)
-json.dump({"backbone": bb, "organ": organ, "cases_run": done, "cases_expected": len(cases), "alignment_min_dice": L.ALIGN_MIN_DICE, "n_failures": len(failures), "failures": failures, "stopped_early": len(failures) > L.ALIGN_MAX_FAILURES,
+json.dump({"backbone": bb, "organ": organ, "cases_run": done, "cases_expected": len(cases), "gate": "Amendment 2: shape equals input, no axis flip raises Dice, centroid offset <= %.0f mm" % L.ALIGN_MAX_OFFSET_MM, "n_failures": len(failures), "failures": failures, "low_dice_lt_0.85": low_dice, "stopped_early": len(failures) > L.ALIGN_MAX_FAILURES,
            "extras": extras, "per_case": aligns, "torch": torch.__version__}, open(os.path.join(outdir, f"w3_alignment_A_{bb}_{organ}.json"), "w"), indent=1)
 print(f"DONE {bb} {organ}: {done} cases, {len(rows)} rows, {len(failures)} alignment failures, {time.time() - t0:.0f}s", flush=True)

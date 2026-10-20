@@ -13,3 +13,7 @@
 - **W1 CRML-CT:** same effective code path; header screen of all 197 patients: 0.0 mm offset everywhere, 0 flagged, nothing to re-convert or recompute.
 - **Demo data:** HCC_019 is in the candidate pool but not among the five shipped demos; the corrected row does not change the demo_2 pick (see `results/dq_hcc_labels/CRML_AND_CONVERTER.md`).
 - **Still pending:** the researcher's decision on the alignment gate for the remaining model A cases; after training, the two W2 v3 HCC_019 rows are re-run on the GPU, then model A's cases.
+
+## 3. Amendment 2: alignment gate becomes an alignment check (2026-10-20; researcher's approval; decided after seeing which cases failed, before any tumour metric)
+- The organ-Dice >= 0.85 gate is replaced by shape + flip + centroid-offset (<= 15 mm) with the same stop rule (more than 2 failures); organ Dice stays as a reported flag and the sensitivity exclusion list. See PREREG_stage1 Amendment 2 for the reasoning and the honest limits (HCC_022 passes at 13.4 mm of 15; the amendment's literal trigger condition was not met and it was applied on the researcher's instruction after the HCC_019 correction).
+- Code: `glassbox/seg/w3_lib.py` (`alignment_report`), `scripts/w3_modelA_run.py`, new `scripts/w3_modelD_eval.py`, new `scripts/w2v3_rerun_hcc019.py`; tests in `tests/test_w3_analyze.py`; re-hashed in `code_hashes.txt` ("Amendment 2").
