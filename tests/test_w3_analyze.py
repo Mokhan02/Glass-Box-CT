@@ -102,3 +102,21 @@ def test_alignment_report_gate():
     assert not L.alignment_report(gt.copy(), seg, ann, sp, (60, 120, 7))["pass"]                                   # shape mismatch fails
     flipped = np.zeros_like(gt); flipped[10:40, 15:45, :] = True; seg2 = np.zeros_like(seg); seg2[10:40, 15:45, :] = 1; seg2[10:30, 15:45, :] = 0     # GT in the lower part only; prediction in the upper part: flip along x fixes it
     assert L.alignment_report(np.flip(seg2 > 0, 0), seg2, ann, sp, seg2.shape)["flip_improves_dice"]
+
+
+def test_per_arm_seed_makes_an_arms_cis_independent_of_the_other_arms(tmp_path):
+    import json
+    assert A.arm_seed("A_swin_shipped") == A.arm_seed("A_swin_shipped") != A.arm_seed("A_swin_raw") and A.arm_seed("x") == int("2d711642", 16)       # sha256("x") = 2d711642b726...
+    rng = np.random.default_rng(5); rows = []
+    for arm in ("a", "b"):
+        for i in range(60):
+            br = i % 3 == 0; cov = float(np.clip(rng.normal(0.3 if br else 0.7, 0.2), 0, 1)); rows.append({"arm": arm, "organ": "hcc", "case": f"c{i}", "rank": 1, "group": "bright" if br else "dark", "stratum": "30-60 mm", "diam_mm": 40.0 + i % 7, "contrast_hu": 5.0 if br else -5.0,
+                                                                                                               "coverage": cov, "dice_full": cov * 0.8, "dice_within_10mm": cov * 0.8, "pred_diam_mm": 30.0, "pred_over_lesion_volume": 1.0, "pred_frac_in_lesion": 0.9, "mode": "OK"})
+    import csv
+    for name, arms in (("one", ("a",)), ("two", ("a", "b"))):
+        d = tmp_path / name; d.mkdir(); f = d / "l.csv"
+        with open(f, "w", newline="") as fh:
+            w = csv.DictWriter(fh, fieldnames=list(rows[0])); w.writeheader(); w.writerows([r for r in rows if r["arm"] in arms])
+        A.main(str(d), [str(f)])
+    a1 = json.load(open(tmp_path / "one" / "w3_results.json"))["a"]; a2 = json.load(open(tmp_path / "two" / "w3_results.json"))["a"]
+    assert a1["detection_gap"] == a2["detection_gap"] and a1["dice_gap"] == a2["dice_gap"] and a1["size_adjusted_dice"] == a2["size_adjusted_dice"]

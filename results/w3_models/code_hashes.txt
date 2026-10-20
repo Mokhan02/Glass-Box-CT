@@ -42,3 +42,7 @@ scripts/w3_analyze.py  git-blob-sha1 3983a2cf995113a7b1e84f49a08ae655d73a2184  s
 scripts/w3_vista_ref_run.py  git-blob-sha1 3749273b4561fc15c94acf3c075e8e036fb8197c  sha256 6c7f2eaa8a936960313a76f8ab653cc8e0b86947734167369b9e8e1620a14f47
 tests/test_w3_analyze.py  git-blob-sha1 e95acbbabec5cb258c67c6deec4c53fb242fadb2  sha256 5eb242fbe36a364d4291f9056d64e7ae61db577465dfcf26ae8697aa25b3cfbe
 results/w3_models/PREREG_stage1.md  git-blob-sha1 366f55b41a6f94de5b4b72d1bf6b42cbf61608a7  sha256 c969108e9fe50fa1457b07d3ec39bb6f8099d7e202ff04a296d24d8276cd4225
+
+## Deviation 4 (2026-10-20): per-arm bootstrap seed (hashes of the files as committed with this deviation)
+scripts/w3_analyze.py  git-blob-sha1 9058e887940f5e53409f5057ab496e01354db9d0  sha256 684abdc3b4d1e6284c5f51e4ddc4559bdc52f2d659c37bf9330ed736b0bfc9a9
+tests/test_w3_analyze.py  git-blob-sha1 f9d77b9723618fddc98bd4d4024da5d8e0f538cb  sha256 c6e8eaecbbde87ae4632812f54ee6dd1b4c4374ba4417a2dc1fcd507fe955b4c
