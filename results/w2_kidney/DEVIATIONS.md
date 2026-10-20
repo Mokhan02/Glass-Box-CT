@@ -18,3 +18,6 @@ The v2 pilot ran exactly as pre-registered (selection, arms, point labels, gate)
 
 ## 5. v3 main run executed as pre-registered (2026-10-17 UTC): no deviations
 The three primary arms were run on the main set (kidney 209 lesions, HCC 76 lesions x 2 arms) with all masks saved (361 masks), and `scripts/w2v3_analyze.py` was run unchanged: its git blob sha1 (`04a6a488e67bc795eedd8eeb0541766f11b3faa2`) and the commit (fa4a639) were verified before the run, and the copy on the GPU instance had the same blob hash. The HCC 26/1 arm was not run on the main set (dropped in the PREREG). No criterion, inclusion rule or analysis step was changed after seeing any main-set result.
+
+## Cross-reference (2026-10-20): HCC_019_773068 label displacement
+The HCC_019_773068 label was displaced 25 mm by the converter (see `results/w3_models/DEVIATIONS.md` entry 1 and `results/dq_hcc_labels/DQ_REPORT.md`). Published numbers here are as converted; effects of excluding or correcting the case are computed there and are within the pre-committed no-update bounds (provisional for the corrected W2 point-prompt re-run).

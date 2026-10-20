@@ -1,0 +1,2 @@
+arm,organ,case,rank,group,stratum,diam_mm,contrast_hu,coverage,dice_full,dice_within_10mm,pred_diam_mm,pred_over_lesion_volume,pred_frac_in_lesion,mode
+vista_26_auto,hcc,HCC_019_773068,1,bright,30-60 mm,58.933,8.202,0.00189,0.00378,0.00378,7.239,0.0025,0.7574,UNDER

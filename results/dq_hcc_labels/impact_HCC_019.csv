@@ -1,0 +1,3 @@
+conversion,case,rank,diam_mm,contrast_hu,bright,cover,detected,pred_diam_mm,n_annotated_slices
+original,HCC_019_773068,1,58.933,-49.191,False,0.00222,False,0.0,54
+corrected,HCC_019_773068,1,58.933,8.202,True,0.00189,False,0.0,54
