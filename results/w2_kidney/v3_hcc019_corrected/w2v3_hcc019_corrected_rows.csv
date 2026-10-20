@@ -1,0 +1,3 @@
+stage,arm,organ,label_prompt,point_label,case,rank,group,stratum,diam_mm,contrast_hu,coverage,dice_full,dice_within_10mm,pred_diam_mm,point_comp_diam_mm,pred_over_lesion_volume,pred_frac_in_lesion,point_x,point_y,point_z,t_inference_s
+main,hcc_26_3,hcc,26,3,HCC_019_773068,1,bright,30-60 mm,58.933,8.202,0.79429,0.83498,0.83498,57.26,57.26,0.9025,0.8801,143,320,53,1.2
+main,hcc_133_1,hcc,133,1,HCC_019_773068,1,bright,30-60 mm,58.933,8.202,0.68861,0.7849,0.80023,53.825,53.825,0.7546,0.9125,143,320,53,0.97

@@ -1,0 +1,20 @@
+[
+ {
+  "arm": "hcc_26_3",
+  "stored_coverage": 0.09026,
+  "new_coverage": 0.09026,
+  "stored_dice": 0.16558,
+  "new_dice": 0.16558,
+  "same_point": true,
+  "ok": true
+ },
+ {
+  "arm": "hcc_133_1",
+  "stored_coverage": 0.5607,
+  "new_coverage": 0.5607,
+  "stored_dice": 0.26643,
+  "new_dice": 0.26643,
+  "same_point": true,
+  "ok": true
+ }
+]
