@@ -1,0 +1,10 @@
+{
+    "instance__92400__2.14.1+cu130__NVIDIAA10__num_gpus_1": {
+        "cudnn_version": 92400,
+        "fastest_epoch": 60.55531072616577,
+        "gpu_name": "NVIDIA A10",
+        "hostname": "instance",
+        "num_gpus": 1,
+        "torch_version": "2.14.1+cu130"
+    }
+}

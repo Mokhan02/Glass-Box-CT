@@ -1,0 +1,79 @@
+{
+ "case": "HCC_004_414785",
+ "shipped_liver_tumor": {
+  "shape_equals_ct": true,
+  "affine_close": false,
+  "voxels": 65990,
+  "mL": 64.4,
+  "dtype": "float32"
+ },
+ "gt_lesions_on_annotated_slices": [
+  {
+   "voxels": 158538,
+   "coverage_by_shipped_output": 0.365
+  }
+ ],
+ "preprocessed_image_shape": [
+  1,
+  1,
+  210,
+  173,
+  131
+ ],
+ "windows_run": 24,
+ "output2_shape_all_windows_equal": true,
+ "output2_shape": [
+  1,
+  192,
+  12,
+  12,
+  12
+ ],
+ "all_five_shapes_first_window": [
+  [
+   1,
+   48,
+   48,
+   48,
+   48
+  ],
+  [
+   1,
+   96,
+   24,
+   24,
+   24
+  ],
+  [
+   1,
+   192,
+   12,
+   12,
+   12
+  ],
+  [
+   1,
+   384,
+   6,
+   6,
+   6
+  ],
+  [
+   1,
+   768,
+   3,
+   3,
+   3
+  ]
+ ],
+ "postproc_class27_only_equals_full_list": true,
+ "cumulative_steps_voxels_preprocessed_grid": {
+  "raw_threshold": 19108,
+  "intersect_raw_predicted_liver": 19108,
+  "intersect_largest_liver_component": 19108,
+  "intersect_closed_liver": 19108,
+  "shipped_closed_and_dilated_liver": 19108
+ },
+ "shipped_postprocessed_voxels_preprocessed_grid": 19108,
+ "shipped_equals_last_step": true
+}
