@@ -1,0 +1,4 @@
+{
+ "_note": "Cases whose ground-truth label was displaced by the original converter (DQ_REPORT.md). contrast_hu = W1 / exp8 contrast of the case's lesion(s) recomputed on the corrected label (scripts/dq_impact_case.py, impact_HCC_019.csv); the corrected label lives under heldout_nii_fixed on the instance.",
+ "HCC_019_773068": {"corrected_root": "/lambda/nfs/CTGate/glassbox/cache/heldout_nii_fixed/hcc_tace_seg", "contrast_hu": {"1": 8.202}}
+}

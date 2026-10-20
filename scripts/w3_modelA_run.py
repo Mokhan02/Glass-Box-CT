@@ -1,7 +1,8 @@
 """W3 Stage 1, model A (CLIP-Driven Universal Model; research use only) on the HCC UID cohort or the C4KC-KiTS kidney arm (results/w3_models/PREREG_stage1.md).
 Inference replicates the authors' shipped `pred_pseudo.py` `validation` function for ONE tumour class (the equivalence with the full 32-class run is asserted on the first case): shipped loader and transforms, 96^3 Gaussian sliding window,
 overlap 0.5, sigmoid, `threshold_organ`, `organ_post_process`, nearest-neighbour `Invertd`. Variants evaluated per lesion: raw thresholded sigmoid, (a) largest predicted-organ component, (a)+(b) closing, shipped (= (a)+(b)+(c) dilation).
-Alignment check on EVERY case: predicted organ Dice vs the GT organ on the annotated slices (array indices) >= 0.85; the run stops if more than 2 cases fail. The saved header affine of the shipped output is NOT used (stale).
+Cases whose label the original converter displaced (results/dq_hcc_labels/corrected_cases.json: HCC_019_773068) are scored against the corrected label and contrast, and additionally against the as-converted ones under arms `asconv__*` (sensitivity row).
+Alignment check on EVERY case (against the corrected label for those cases): predicted organ Dice vs the GT organ on the annotated slices (array indices) >= 0.85; the run stops if more than 2 cases fail. The saved header affine of the shipped output is NOT used (stale).
 Usage (cwd = repo checkout, PYTHONPATH not needed): python scripts/w3_modelA_run.py <repo_A> <weights> <swin|unet> <hcc|kidney> <outdir> [--limit N]"""
 import csv
 import glob
@@ -30,7 +31,7 @@ from glassbox.seg import w3_lib as L  # noqa: E402
 CLS = 27 if organ == "hcc" else 26                   # Liver Tumor / Kidney Tumor (1-based class index)
 ORGANS = [6] if organ == "hcc" else [2, 3]           # predicted-organ channels used for the alignment check
 ROOT = L.HCC_ROOT if organ == "hcc" else L.KITS_ROOT; SUF = "" if organ == "hcc" else "_kidney"
-table = L.lesion_table(organ); cases = sorted({k[0] for k in table})
+table = L.lesion_table(organ); table_asconv = L.lesion_table(organ, as_converted=True); corrected = L.corrected_cases() if organ == "hcc" else {}; cases = sorted({k[0] for k in table})
 if limit:
     cases = cases[:limit]
 os.makedirs(os.path.join(outdir, "masks"), exist_ok=True); indir = os.path.join(outdir, "in"); os.makedirs(indir, exist_ok=True)
@@ -75,7 +76,9 @@ for batch in loader:
         organ_pred |= post[0, o - 1].astype(bool)
     preds = {"raw": invert(batch, raw, "k_raw"), "step_a": invert(batch, step_a, "k_a"), "step_ab": invert(batch, step_ab, "k_ab"), "shipped": invert(batch, shipped, "k_ship")}
     organ_inv = invert(batch, organ_pred, "k_organ")
-    case_rows, geo = L.lesion_rows(organ, name, ROOT, table, {f"A_{bb}_{k}{SUF}": v for k, v in preds.items()}); rows += case_rows
+    arms = {f"A_{bb}_{k}{SUF}": v for k, v in preds.items()}; case_rows, geo = L.lesion_rows(organ, name, L.case_root(organ, name, ROOT), table, arms); rows += case_rows
+    if name in corrected:          # sensitivity: the same predictions scored against the as-converted (displaced) label and contrast
+        rows += L.lesion_rows(organ, name, ROOT, table_asconv, {f"asconv__{a}": v for a, v in arms.items()})[0]
     sh = tuple(geo["seg"].shape); ad = L.alignment(organ_inv[:sh[0], :sh[1], :sh[2]][:, :, geo["ann"]], geo["seg"][:, :, geo["ann"]], organ)
     rec = {"case": name, "organ_dice": round(ad, 4), "pass": bool(ad >= L.ALIGN_MIN_DICE), "input_grid_shape": list(organ_inv.shape), "ct_shape": list(sh), "shipped_equals_last_step": steps_ok,
            "voxels_preprocessed": {k: int(v.sum()) for k, v in {"raw": raw, "step_a": step_a, "step_ab": step_ab, "shipped": shipped}.items()}, "seconds": round(time.time() - t1, 1)}

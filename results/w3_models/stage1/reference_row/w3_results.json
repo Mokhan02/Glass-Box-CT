@@ -1,53 +1,53 @@
 {
  "vista_26_auto": {
   "detection_gap": {
-   "gap": 0.4125615763546798,
-   "lo": 0.19117179198861123,
-   "hi": 0.6199071661160477,
-   "n_dark": 58,
-   "n_bright": 28,
+   "gap": 0.4476709013914095,
+   "lo": 0.2397772988505747,
+   "hi": 0.6522157190635451,
+   "n_dark": 57,
+   "n_bright": 29,
    "n_cases": 75
   },
   "detection_verdict": "GAP",
   "dice_gap": {
-   "gap": 0.3993401477832511,
-   "lo": 0.2680224965538846,
-   "hi": 0.5137277789922002,
-   "n_dark": 58,
-   "n_bright": 28,
+   "gap": 0.4193344646098003,
+   "lo": 0.2916315281618023,
+   "hi": 0.5403433324940262,
+   "n_dark": 57,
+   "n_bright": 29,
    "n_cases": 75
   },
   "dice_verdict": "GAP",
   "label": "GAP (detection and Dice)",
   "coverage_gap": {
-   "gap": 0.42470027093596063,
-   "lo": 0.31581677235639055,
-   "hi": 0.5296596375530146,
-   "n_dark": 58,
-   "n_bright": 28,
+   "gap": 0.4428949546279491,
+   "lo": 0.338022509090909,
+   "hi": 0.5452090921782665,
+   "n_dark": 57,
+   "n_bright": 29,
    "n_cases": 75
   },
   "dice10_gap": {
-   "gap": 0.4206143719211822,
-   "lo": 0.2828655155852909,
-   "hi": 0.547828951161565,
-   "n_dark": 58,
-   "n_bright": 28,
+   "gap": 0.44255377495462783,
+   "lo": 0.3148011616214667,
+   "hi": 0.5636475738734745,
+   "n_dark": 57,
+   "n_bright": 29,
    "n_cases": 75
   },
   "size_adjusted_dice": {
-   "coef_bright": -0.3495407847800528,
-   "adjusted_gap": 0.3495407847800528,
-   "adjusted_lo": 0.2203056800218469,
-   "adjusted_hi": 0.48067984236900335,
+   "coef_bright": -0.3700576088577343,
+   "adjusted_gap": 0.3700576088577343,
+   "adjusted_lo": 0.23778773737112704,
+   "adjusted_hi": 0.49581640580618264,
    "adjusted_effect_gone": false
   },
   "size_adjusted_detection": {
-   "coef_bright_logit": -2.6270330241505513,
-   "adjusted_effect_logit": 2.6270330241505513,
-   "adjusted_lo": 1.3064873432344464,
-   "adjusted_hi": 4.283600316651588,
-   "n_valid_resamples": 953,
+   "coef_bright_logit": -3.119596937225783,
+   "adjusted_effect_logit": 3.119596937225783,
+   "adjusted_lo": 1.6908553678012128,
+   "adjusted_hi": 4.559193012057229,
+   "n_valid_resamples": 874,
    "adjusted_effect_gone": false
   },
   "strata": {
@@ -71,19 +71,19 @@
    },
    "30-60 mm": {
     "detection_gap": {
-     "gap": 0.3438914027149321,
-     "lo": -0.017886904761904805,
-     "hi": 0.6592489747095008,
-     "n_dark": 17,
-     "n_bright": 13,
+     "gap": 0.4375,
+     "lo": 0.0946520748987854,
+     "hi": 0.7192436974789914,
+     "n_dark": 16,
+     "n_bright": 14,
      "n_cases": 29
     },
     "dice_gap": {
-     "gap": 0.3295613122171945,
-     "lo": 0.13168346116427443,
-     "hi": 0.5108756776764354,
-     "n_dark": 17,
-     "n_bright": 13,
+     "gap": 0.3811672321428572,
+     "lo": 0.18187543891402713,
+     "hi": 0.5462511665776656,
+     "n_dark": 16,
+     "n_bright": 14,
      "n_cases": 29
     }
    },
@@ -108,16 +108,16 @@
   },
   "by_group": {
    "dark": {
-    "n": 58,
-    "detection": 0.9482758620689655,
-    "dice": 0.6529908620689655,
-    "coverage": 0.6332074137931035
+    "n": 57,
+    "detection": 0.9649122807017544,
+    "dice": 0.664368947368421,
+    "coverage": 0.6442773684210527
    },
    "bright": {
-    "n": 28,
-    "detection": 0.5357142857142857,
-    "dice": 0.25365071428571423,
-    "coverage": 0.20850714285714286
+    "n": 29,
+    "detection": 0.5172413793103449,
+    "dice": 0.24503448275862066,
+    "coverage": 0.20138241379310348
    }
   },
   "recist": {
@@ -134,13 +134,13 @@
    "detected_n_over_estimates": 9,
    "by_group": {
     "dark": {
-     "n": 58,
-     "median_rel_error_lesion_level_misses_as_0mm": -0.13279536094337524,
+     "n": 57,
+     "median_rel_error_lesion_level_misses_as_0mm": -0.13266864999597983,
      "detected_median_error_mm": -9.355
     },
     "bright": {
-     "n": 28,
-     "median_rel_error_lesion_level_misses_as_0mm": -0.47268337862150567,
+     "n": 29,
+     "median_rel_error_lesion_level_misses_as_0mm": -0.47338794286175456,
      "detected_median_error_mm": -16.830000000000002
     }
    }
@@ -158,7 +158,7 @@
  "_reference_check": {
   "n_lesions_matched": 86,
   "n_flag_disagreements": 0,
-  "max_abs_coverage_difference": 0.0002456954289904445,
+  "max_abs_coverage_difference": 0.00033397853217416863,
   "stored_detected": 70,
   "new_detected": 70,
   "stored_sld_median": -0.19443707636732444,

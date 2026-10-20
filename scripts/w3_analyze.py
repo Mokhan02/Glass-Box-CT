@@ -4,7 +4,7 @@ dice_within_10mm, pred_diam_mm, pred_over_lesion_volume, pred_frac_in_lesion).
 Per arm: detection gap (detection = coverage >= 0.10) and Dice gap (dark minus bright), each with the margin-0.10 verdict, the model-level label, size-adjusted secondaries (OLS Dice, unpenalised logistic detection),
 strata, coverage / Dice-within-10-mm gaps, per-case RECIST sum-of-diameters error (largest overlapping predicted component, a miss counts 0 mm), detected-lesion diameter error.
 Model A: if the shipped and raw variants disagree, the cumulative post-processing variants name the step with the largest change in each gap. Reference row: VISTA-3D class 26 reproduced against cache/pulled/recist_lesions.csv.
-Usage: python scripts/w3_analyze.py <outdir> <lesions csv> [<lesions csv> ...] [--reference-table cache/pulled/recist_lesions.csv --uid-table results/exp8_lesions/lesion_table.csv] [--exclude case1,case2]"""
+Usage: python scripts/w3_analyze.py <outdir> <lesions csv> [<lesions csv> ...] [--reference-table cache/pulled/recist_lesions.csv --uid-table results/exp8_lesions/lesion_table.csv] [--exclude case1,case2]  (always also writes the as-converted sensitivity)"""
 import csv
 import json
 import math
@@ -153,8 +153,17 @@ def reference_check(rows, ref_csv, uid_csv, rng):
     return out
 
 
-def main(out, csvs, ref=None, uid=None, exclude=()):
-    rows = [r for r in load(csvs) if r["case"] not in exclude]; tag = "_sensitivity_excl_alignment_failures" if exclude else ""; arms = sorted({r["arm"] for r in rows}); rng = np.random.default_rng(SEED); R = {}
+def split_asconv(rows, swap):
+    """Rows scored against the as-converted label of a corrected case carry arm `asconv__<arm>`. Primary analysis: corrected rows only. Sensitivity (swap): those cases use their as-converted rows instead."""
+    main_rows = [r for r in rows if not r["arm"].startswith("asconv__")]
+    if not swap:
+        return main_rows
+    asc = {(r["arm"][len("asconv__"):], r["case"]) for r in rows if r["arm"].startswith("asconv__")}
+    return [r for r in main_rows if (r["arm"], r["case"]) not in asc] + [{**r, "arm": r["arm"][len("asconv__"):]} for r in rows if r["arm"].startswith("asconv__")]
+
+
+def main(out, csvs, ref=None, uid=None, exclude=(), asconv=False):
+    rows = split_asconv([r for r in load(csvs) if r["case"] not in exclude], asconv); tag = ("_sensitivity_as_converted" if asconv else "") + ("_sensitivity_excl_alignment_failures" if exclude else ""); arms = sorted({r["arm"] for r in rows}); rng = np.random.default_rng(SEED); R = {}
     for arm in arms:
         R[arm] = analyse([r for r in rows if r["arm"] == arm], rng)
     R["_primary_models"] = {k: (R[v]["label"] if v in R else "not run") for k, v in PRIMARY_MODELS.items()}
@@ -191,3 +200,4 @@ if __name__ == "__main__":
     main(a[0], paths, ref, uid)
     if "--exclude" in a:                       # sensitivity: drop the (at most 2) cases that failed the alignment check; the primary above keeps them
         main(a[0], paths, ref, uid, tuple(a[a.index("--exclude") + 1].split(",")))
+    main(a[0], paths, ref, uid, asconv=True)          # sensitivity row: corrected cases scored against the as-converted label (HCC_019_773068)

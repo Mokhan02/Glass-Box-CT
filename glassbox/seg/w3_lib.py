@@ -3,6 +3,7 @@ and the alignment check. No torch / monai imports, so it can be tested anywhere.
 from __future__ import annotations
 
 import csv
+import json
 import os
 
 import numpy as np
@@ -20,10 +21,25 @@ def stratum(d):
     return "<30 mm" if d < 30 else ("30-60 mm" if d <= 60 else ">60 mm")
 
 
-def lesion_table(organ, repo="."):
-    """{(case, rank): row} of the cohort: HCC UID route (exp8 lesion table, 86 lesions) or C4KC-KiTS (gt_lesions.csv, two largest per case, 219 lesions)."""
+def corrected_cases(repo="."):
+    """Cases whose label the original converter displaced (results/dq_hcc_labels/corrected_cases.json; HCC_019_773068)."""
+    d = json.load(open(os.path.join(repo, "results/dq_hcc_labels/corrected_cases.json"))); return {k: v for k, v in d.items() if not k.startswith("_")}
+
+
+def case_root(organ, case, base, as_converted=False, repo="."):
+    """Directory of the converted case: the corrected conversion for the corrected cases (HCC only), otherwise `base`."""
+    return corrected_cases(repo)[case]["corrected_root"] if (organ == "hcc" and not as_converted and case in corrected_cases(repo)) else base
+
+
+def lesion_table(organ, repo=".", as_converted=False):
+    """{(case, rank): row} of the cohort: HCC UID route (exp8 lesion table, 86 lesions; the contrast of corrected cases recomputed on the corrected label unless as_converted) or C4KC-KiTS (gt_lesions.csv, two largest per case, 219 lesions)."""
     if organ == "hcc":
-        return {(r["case"], int(r["rank"])): r for r in csv.DictReader(open(os.path.join(repo, "results/exp8_lesions/lesion_table.csv"))) if r["route"] == "uid"}
+        t = {(r["case"], int(r["rank"])): dict(r) for r in csv.DictReader(open(os.path.join(repo, "results/exp8_lesions/lesion_table.csv"))) if r["route"] == "uid"}
+        if not as_converted:
+            for c, v in corrected_cases(repo).items():
+                for rank, contrast in v["contrast_hu"].items():
+                    t[(c, int(rank))]["contrast_hu"] = str(contrast)
+        return t
     return {(r["case"], int(r["rank"])): r for r in csv.DictReader(open(os.path.join(repo, "results/w2_kidney/gt_lesions.csv"))) if int(r["rank"]) <= 2}
 
 

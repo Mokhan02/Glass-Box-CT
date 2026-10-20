@@ -15,6 +15,9 @@ import numpy as np
 import pydicom
 import SimpleITK as sitk
 
+sys.path.insert(0, ".")
+from glassbox.data.seg_offset import read_uid_label  # noqa: E402
+
 logging.getLogger("highdicom").setLevel(logging.CRITICAL)  # it logs one line per unmatched source SOP
 
 
@@ -92,15 +95,12 @@ for pid in patients:
                     if len(ct_dirs) != 1:
                         raise RuntimeError("SEG references %d CT series" % len(ct_dirs))
                     meta, _ = sorted_ct(ct_dirs[0])
-                    sop = [m.SOPInstanceUID for m, _ in meta]
-                    label = np.zeros((len(meta), meta[0][0].Rows, meta[0][0].Columns), np.uint8)
-                    for num, name in segs:
-                        px = seg.get_pixels_by_source_instance(sop, segment_numbers=[num], combine_segments=False,
-                                                               assert_missing_frames_are_empty=False,
-                                                               ignore_spatial_locations=True)  # SEG matched to its CT by UID
-                        label[px[..., 0] > 0] = num
+                    label, placement = read_uid_label(seg_file, meta)       # applies the SEG's declared in-plane offset (non-zero offsets are logged by case ID) (HCC_019_773068 fix)
+                    if placement["mode"] != "matched":
+                        print(f"SEG-OFFSET FALLBACK {case}: declared SEG-minus-CT offset (x, y) = {placement['offset_mm'][0]:.3f}, {placement['offset_mm'][1]:.3f} mm, label shifted by (rows, cols) = {placement['shift_voxels']} voxels", flush=True)
                     ct_dir = ct_dirs[0]
-                except Exception:
+                except Exception as e:
+                    print(f"GEOMETRY FALLBACK {case}: UID route failed ({type(e).__name__}: {str(e)[:120]})", flush=True)
                     method = "geometry"
                     label, ct_dir, meta, frac = label_by_geometry(seg_file, glob.glob(f"{study}/CT_*"))
                 reader = sitk.ImageSeriesReader()
@@ -112,7 +112,7 @@ for pid in patients:
                 sitk.WriteImage(ct, os.path.join(dst, "ct.nii.gz"))
                 sitk.WriteImage(lab, os.path.join(dst, "seg.nii.gz"))
                 json.dump({"segments": {str(n): l for n, l in segs}, "ct_series": os.path.basename(ct_dir), "label_method": method, "frames_matched": frac,
-                           "seg_series": os.path.basename(seg_dir), "n_slices": len(meta)}, open(os.path.join(dst, "segments.json"), "w"))
+                           "seg_series": os.path.basename(seg_dir), "n_slices": len(meta), **({"seg_placement": placement} if method == "uid" else {})}, open(os.path.join(dst, "segments.json"), "w"))
                 open(os.path.join(dst, ".done"), "w").close()
                 print(f"{case}: {len(meta)} slices ({method}, matched {frac:.2f}), segments {segs}, voxels per segment "
                       + str({n: int((label == n).sum()) for n, _ in segs}), flush=True)

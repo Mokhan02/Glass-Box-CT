@@ -1,0 +1,903 @@
+{
+ "HCC_004_414785": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_005_936548": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_009_210975": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_012_311550": {
+  "mode": "matched",
+  "offset_mm": [
+   -0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_013_902874": {
+  "mode": "matched",
+  "offset_mm": [
+   -0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_014_949588": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_017_372380": {
+  "mode": "matched",
+  "offset_mm": [
+   -0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_018_350600": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_019_773068": {
+  "mode": "declared_offset",
+  "offset_mm": [
+   -0.0,
+   -25.0
+  ],
+  "shift_voxels": [
+   -36,
+   0
+  ],
+  "identical_to_stored_original": false,
+  "identical_to_corrected_conversion": true
+ },
+ "HCC_020_409800": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_021_043762": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_022_228695": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_023_800523": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_024_254376": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_025_534314": {
+  "mode": "matched",
+  "offset_mm": [
+   -0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_026_419034": {
+  "mode": "matched",
+  "offset_mm": [
+   -0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_027_967743": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_028_198668": {
+  "mode": "matched",
+  "offset_mm": [
+   -0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_029_683080": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_031_552418": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_032_522941": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_033_612153": {
+  "mode": "matched",
+  "offset_mm": [
+   -0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_034_704254": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_035_474044": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_036_158534": {
+  "mode": "matched",
+  "offset_mm": [
+   -0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_037_498894": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_038_354831": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_039_440665": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_040_953569": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_041_692758": {
+  "mode": "matched",
+  "offset_mm": [
+   -0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_042_785120": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_043_848214": {
+  "mode": "matched",
+  "offset_mm": [
+   -0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_044_006910": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   -0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_045_719516": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_046_819409": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_047_378313": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   -0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_049_849890": {
+  "mode": "matched",
+  "offset_mm": [
+   -0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_050_749732": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_051_502793": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_052_425020": {
+  "mode": "matched",
+  "offset_mm": [
+   -0.0,
+   -0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_053_504983": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_054_948648": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_055_287181": {
+  "mode": "matched",
+  "offset_mm": [
+   -0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_056_505211": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_057_698557": {
+  "mode": "matched",
+  "offset_mm": [
+   -0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_058_344861": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_059_480478": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_060_617044": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_061_179170": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_062_338436": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_063_661087": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_064_212554": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_065_835113": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_066_201578": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_067_472967": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_069_743712": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_070_401358": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_071_621596": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_072_979776": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_073_517149": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_074_379020": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_075_418794": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_076_084985": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_077_996191": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_078_958325": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_079_927214": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_080_216191": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_081_327663": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_083_703849": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_084_948398": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_086_615027": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_087_075940": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_088_476473": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_090_076872": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ },
+ "HCC_098_610748": {
+  "mode": "matched",
+  "offset_mm": [
+   0.0,
+   0.0
+  ],
+  "shift_voxels": [
+   0,
+   0
+  ],
+  "identical_to_stored_original": true
+ }
+}
