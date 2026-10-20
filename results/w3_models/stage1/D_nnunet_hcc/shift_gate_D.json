@@ -1,0 +1,1746 @@
+{
+ "model": "D",
+ "gate": "shape + no flip improves Dice + shift test (best Dice-maximising translation <= 5 mm per axis, else MISALIGNED only if gain >= 0.05)",
+ "n_cases": 75,
+ "n_misaligned_or_failed": 1,
+ "failures": [
+  "HCC_027_967743"
+ ],
+ "model_side": [],
+ "centroid_gt_15mm": [
+  "HCC_022_228695",
+  "HCC_028_198668",
+  "HCC_070_401358",
+  "HCC_074_379020",
+  "HCC_077_996191",
+  "HCC_090_076872"
+ ],
+ "status": "OK",
+ "per_case": [
+  {
+   "case": "HCC_004_414785",
+   "organ_dice": 0.8719,
+   "centroid_offset_mm": 11.5,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.8719,
+   "shift_best_dice": 0.8742,
+   "shift_gain": 0.0024,
+   "shift_best_shift_voxels": [
+    -1,
+    0,
+    0
+   ],
+   "shift_best_shift_mm": [
+    -0.6,
+    0.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.6,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_005_936548",
+   "organ_dice": 0.9118,
+   "centroid_offset_mm": 4.8,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9118,
+   "shift_best_dice": 0.9463,
+   "shift_gain": 0.0345,
+   "shift_best_shift_voxels": [
+    0,
+    -2,
+    -2
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -1.6,
+    -5.0
+   ],
+   "shift_max_axis_shift_mm": 5.0,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_009_210975",
+   "organ_dice": 0.9391,
+   "centroid_offset_mm": 4.1,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9391,
+   "shift_best_dice": 0.9574,
+   "shift_gain": 0.0183,
+   "shift_best_shift_voxels": [
+    -1,
+    1,
+    1
+   ],
+   "shift_best_shift_mm": [
+    -0.7,
+    0.7,
+    2.5
+   ],
+   "shift_max_axis_shift_mm": 2.5,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_012_311550",
+   "organ_dice": 0.8537,
+   "centroid_offset_mm": 5.6,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.8537,
+   "shift_best_dice": 0.875,
+   "shift_gain": 0.0212,
+   "shift_best_shift_voxels": [
+    2,
+    4,
+    1
+   ],
+   "shift_best_shift_mm": [
+    1.7,
+    3.4,
+    2.5
+   ],
+   "shift_max_axis_shift_mm": 3.4,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_013_902874",
+   "organ_dice": 0.9271,
+   "centroid_offset_mm": 10.9,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9271,
+   "shift_best_dice": 0.9292,
+   "shift_gain": 0.0022,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.7,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.7,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_014_949588",
+   "organ_dice": 0.9086,
+   "centroid_offset_mm": 2.4,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9086,
+   "shift_best_dice": 0.9286,
+   "shift_gain": 0.02,
+   "shift_best_shift_voxels": [
+    -1,
+    -3,
+    0
+   ],
+   "shift_best_shift_mm": [
+    -0.7,
+    -2.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 2.0,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_017_372380",
+   "organ_dice": 0.9388,
+   "centroid_offset_mm": 1.8,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9388,
+   "shift_best_dice": 0.9388,
+   "shift_gain": 0.0,
+   "shift_best_shift_voxels": [
+    0,
+    0,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.0,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_018_350600",
+   "organ_dice": 0.9678,
+   "centroid_offset_mm": 0.6,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9678,
+   "shift_best_dice": 0.9687,
+   "shift_gain": 0.0009,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.7,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.7,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_019_773068",
+   "organ_dice": 0.9157,
+   "centroid_offset_mm": 2.8,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9157,
+   "shift_best_dice": 0.9169,
+   "shift_gain": 0.0012,
+   "shift_best_shift_voxels": [
+    -1,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    -0.7,
+    -0.7,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.7,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_020_409800",
+   "organ_dice": 0.939,
+   "centroid_offset_mm": 4.3,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.939,
+   "shift_best_dice": 0.9392,
+   "shift_gain": 0.0002,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.8,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.8,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_021_043762",
+   "organ_dice": 0.9187,
+   "centroid_offset_mm": 2.0,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9187,
+   "shift_best_dice": 0.923,
+   "shift_gain": 0.0043,
+   "shift_best_shift_voxels": [
+    -1,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    -0.6,
+    -0.6,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.6,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_022_228695",
+   "organ_dice": 0.6922,
+   "centroid_offset_mm": 29.2,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.6922,
+   "shift_best_dice": 0.6933,
+   "shift_gain": 0.001,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.7,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.7,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_023_800523",
+   "organ_dice": 0.966,
+   "centroid_offset_mm": 1.0,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.966,
+   "shift_best_dice": 0.9673,
+   "shift_gain": 0.0013,
+   "shift_best_shift_voxels": [
+    -1,
+    0,
+    0
+   ],
+   "shift_best_shift_mm": [
+    -0.7,
+    0.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.7,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_024_254376",
+   "organ_dice": 0.8611,
+   "centroid_offset_mm": 8.6,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.8611,
+   "shift_best_dice": 0.8963,
+   "shift_gain": 0.0352,
+   "shift_best_shift_voxels": [
+    -1,
+    -1,
+    -1
+   ],
+   "shift_best_shift_mm": [
+    -0.7,
+    -0.7,
+    -2.5
+   ],
+   "shift_max_axis_shift_mm": 2.5,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_025_534314",
+   "organ_dice": 0.9739,
+   "centroid_offset_mm": 1.8,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9739,
+   "shift_best_dice": 0.9758,
+   "shift_gain": 0.0019,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.7,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.7,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_026_419034",
+   "organ_dice": 0.9254,
+   "centroid_offset_mm": 7.5,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9254,
+   "shift_best_dice": 0.9278,
+   "shift_gain": 0.0023,
+   "shift_best_shift_voxels": [
+    -1,
+    0,
+    0
+   ],
+   "shift_best_shift_mm": [
+    -0.7,
+    0.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.7,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_027_967743",
+   "organ_dice": 0.8539,
+   "centroid_offset_mm": 9.1,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.8539,
+   "shift_best_dice": 0.9463,
+   "shift_gain": 0.0924,
+   "shift_best_shift_voxels": [
+    1,
+    1,
+    -3
+   ],
+   "shift_best_shift_mm": [
+    0.7,
+    0.7,
+    -7.5
+   ],
+   "shift_max_axis_shift_mm": 7.5,
+   "shift_verdict": "MISALIGNED",
+   "pass": false
+  },
+  {
+   "case": "HCC_028_198668",
+   "organ_dice": 0.8147,
+   "centroid_offset_mm": 45.8,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.8147,
+   "shift_best_dice": 0.8307,
+   "shift_gain": 0.0161,
+   "shift_best_shift_voxels": [
+    -2,
+    -1,
+    -1
+   ],
+   "shift_best_shift_mm": [
+    -1.6,
+    -0.8,
+    -2.5
+   ],
+   "shift_max_axis_shift_mm": 2.5,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_029_683080",
+   "organ_dice": 0.89,
+   "centroid_offset_mm": 10.5,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.89,
+   "shift_best_dice": 0.8912,
+   "shift_gain": 0.0012,
+   "shift_best_shift_voxels": [
+    -1,
+    0,
+    0
+   ],
+   "shift_best_shift_mm": [
+    -0.7,
+    0.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.7,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_031_552418",
+   "organ_dice": 0.9634,
+   "centroid_offset_mm": 0.9,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9634,
+   "shift_best_dice": 0.9653,
+   "shift_gain": 0.0019,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.8,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.8,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_032_522941",
+   "organ_dice": 0.9198,
+   "centroid_offset_mm": 6.7,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9198,
+   "shift_best_dice": 0.9223,
+   "shift_gain": 0.0025,
+   "shift_best_shift_voxels": [
+    -1,
+    0,
+    0
+   ],
+   "shift_best_shift_mm": [
+    -0.7,
+    0.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.7,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_033_612153",
+   "organ_dice": 0.8651,
+   "centroid_offset_mm": 9.7,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.8651,
+   "shift_best_dice": 0.8655,
+   "shift_gain": 0.0005,
+   "shift_best_shift_voxels": [
+    -1,
+    0,
+    0
+   ],
+   "shift_best_shift_mm": [
+    -0.7,
+    0.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.7,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_034_704254",
+   "organ_dice": 0.9691,
+   "centroid_offset_mm": 0.6,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9691,
+   "shift_best_dice": 0.9703,
+   "shift_gain": 0.0012,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.8,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.8,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_035_474044",
+   "organ_dice": 0.9642,
+   "centroid_offset_mm": 0.5,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9642,
+   "shift_best_dice": 0.9657,
+   "shift_gain": 0.0015,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.8,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.8,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_036_158534",
+   "organ_dice": 0.9584,
+   "centroid_offset_mm": 1.1,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9584,
+   "shift_best_dice": 0.9584,
+   "shift_gain": -0.0,
+   "shift_best_shift_voxels": [
+    0,
+    0,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.0,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_037_498894",
+   "organ_dice": 0.9261,
+   "centroid_offset_mm": 4.6,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9261,
+   "shift_best_dice": 0.9284,
+   "shift_gain": 0.0022,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.9,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.9,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_038_354831",
+   "organ_dice": 0.9769,
+   "centroid_offset_mm": 0.9,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9769,
+   "shift_best_dice": 0.9782,
+   "shift_gain": 0.0013,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.8,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.8,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_039_440665",
+   "organ_dice": 0.9249,
+   "centroid_offset_mm": 2.4,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9249,
+   "shift_best_dice": 0.9387,
+   "shift_gain": 0.0138,
+   "shift_best_shift_voxels": [
+    -2,
+    -2,
+    0
+   ],
+   "shift_best_shift_mm": [
+    -1.3,
+    -1.3,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 1.3,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_040_953569",
+   "organ_dice": 0.9709,
+   "centroid_offset_mm": 0.9,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9709,
+   "shift_best_dice": 0.9714,
+   "shift_gain": 0.0004,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.7,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.7,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_041_692758",
+   "organ_dice": 0.9376,
+   "centroid_offset_mm": 3.9,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9376,
+   "shift_best_dice": 0.9433,
+   "shift_gain": 0.0057,
+   "shift_best_shift_voxels": [
+    -1,
+    -2,
+    -1
+   ],
+   "shift_best_shift_mm": [
+    -0.7,
+    -1.5,
+    -2.5
+   ],
+   "shift_max_axis_shift_mm": 2.5,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_042_785120",
+   "organ_dice": 0.9606,
+   "centroid_offset_mm": 3.1,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9606,
+   "shift_best_dice": 0.9615,
+   "shift_gain": 0.0009,
+   "shift_best_shift_voxels": [
+    -1,
+    0,
+    0
+   ],
+   "shift_best_shift_mm": [
+    -0.9,
+    0.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.9,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_043_848214",
+   "organ_dice": 0.8663,
+   "centroid_offset_mm": 3.7,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.8663,
+   "shift_best_dice": 0.9125,
+   "shift_gain": 0.0462,
+   "shift_best_shift_voxels": [
+    1,
+    1,
+    1
+   ],
+   "shift_best_shift_mm": [
+    0.7,
+    0.7,
+    2.5
+   ],
+   "shift_max_axis_shift_mm": 2.5,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_044_006910",
+   "organ_dice": 0.9706,
+   "centroid_offset_mm": 0.7,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9706,
+   "shift_best_dice": 0.9725,
+   "shift_gain": 0.0019,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.7,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.7,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_045_719516",
+   "organ_dice": 0.9753,
+   "centroid_offset_mm": 0.8,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9753,
+   "shift_best_dice": 0.9765,
+   "shift_gain": 0.0011,
+   "shift_best_shift_voxels": [
+    -1,
+    0,
+    0
+   ],
+   "shift_best_shift_mm": [
+    -0.7,
+    0.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.7,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_046_819409",
+   "organ_dice": 0.9712,
+   "centroid_offset_mm": 1.2,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9712,
+   "shift_best_dice": 0.9712,
+   "shift_gain": 0.0,
+   "shift_best_shift_voxels": [
+    0,
+    0,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.0,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_047_378313",
+   "organ_dice": 0.9706,
+   "centroid_offset_mm": 1.4,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9706,
+   "shift_best_dice": 0.9711,
+   "shift_gain": 0.0005,
+   "shift_best_shift_voxels": [
+    -1,
+    0,
+    0
+   ],
+   "shift_best_shift_mm": [
+    -0.9,
+    0.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.9,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_049_849890",
+   "organ_dice": 0.9705,
+   "centroid_offset_mm": 1.8,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9705,
+   "shift_best_dice": 0.9718,
+   "shift_gain": 0.0014,
+   "shift_best_shift_voxels": [
+    -1,
+    0,
+    0
+   ],
+   "shift_best_shift_mm": [
+    -0.8,
+    0.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.8,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_050_749732",
+   "organ_dice": 0.9686,
+   "centroid_offset_mm": 1.3,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9686,
+   "shift_best_dice": 0.9705,
+   "shift_gain": 0.002,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.9,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.9,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_051_502793",
+   "organ_dice": 0.966,
+   "centroid_offset_mm": 2.0,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.966,
+   "shift_best_dice": 0.9672,
+   "shift_gain": 0.0012,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.7,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.7,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_052_425020",
+   "organ_dice": 0.9354,
+   "centroid_offset_mm": 3.0,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9354,
+   "shift_best_dice": 0.9354,
+   "shift_gain": 0.0,
+   "shift_best_shift_voxels": [
+    0,
+    0,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.0,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_053_504983",
+   "organ_dice": 0.9488,
+   "centroid_offset_mm": 8.8,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9488,
+   "shift_best_dice": 0.949,
+   "shift_gain": 0.0002,
+   "shift_best_shift_voxels": [
+    -1,
+    0,
+    0
+   ],
+   "shift_best_shift_mm": [
+    -0.8,
+    0.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.8,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_054_948648",
+   "organ_dice": 0.9652,
+   "centroid_offset_mm": 1.2,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9652,
+   "shift_best_dice": 0.9671,
+   "shift_gain": 0.002,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.8,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.8,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_055_287181",
+   "organ_dice": 0.9406,
+   "centroid_offset_mm": 5.2,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9406,
+   "shift_best_dice": 0.9413,
+   "shift_gain": 0.0008,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.8,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.8,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_056_505211",
+   "organ_dice": 0.9641,
+   "centroid_offset_mm": 1.8,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9641,
+   "shift_best_dice": 0.9666,
+   "shift_gain": 0.0025,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.8,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.8,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_057_698557",
+   "organ_dice": 0.9624,
+   "centroid_offset_mm": 3.9,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9624,
+   "shift_best_dice": 0.9624,
+   "shift_gain": 0.0,
+   "shift_best_shift_voxels": [
+    0,
+    0,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.0,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_058_344861",
+   "organ_dice": 0.9665,
+   "centroid_offset_mm": 2.4,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9665,
+   "shift_best_dice": 0.9679,
+   "shift_gain": 0.0014,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.9,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.9,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_059_480478",
+   "organ_dice": 0.9519,
+   "centroid_offset_mm": 2.6,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9519,
+   "shift_best_dice": 0.9534,
+   "shift_gain": 0.0014,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.9,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.9,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_060_617044",
+   "organ_dice": 0.9473,
+   "centroid_offset_mm": 5.8,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9473,
+   "shift_best_dice": 0.9488,
+   "shift_gain": 0.0015,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.8,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.8,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_061_179170",
+   "organ_dice": 0.9568,
+   "centroid_offset_mm": 3.7,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9568,
+   "shift_best_dice": 0.9586,
+   "shift_gain": 0.0018,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.9,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.9,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_062_338436",
+   "organ_dice": 0.9558,
+   "centroid_offset_mm": 0.4,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9558,
+   "shift_best_dice": 0.957,
+   "shift_gain": 0.0012,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.7,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.7,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_063_661087",
+   "organ_dice": 0.9652,
+   "centroid_offset_mm": 1.6,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9652,
+   "shift_best_dice": 0.9654,
+   "shift_gain": 0.0002,
+   "shift_best_shift_voxels": [
+    -1,
+    0,
+    0
+   ],
+   "shift_best_shift_mm": [
+    -0.9,
+    0.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.9,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_064_212554",
+   "organ_dice": 0.9709,
+   "centroid_offset_mm": 2.3,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9709,
+   "shift_best_dice": 0.9722,
+   "shift_gain": 0.0013,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.8,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.8,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_065_835113",
+   "organ_dice": 0.9344,
+   "centroid_offset_mm": 2.7,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9344,
+   "shift_best_dice": 0.9348,
+   "shift_gain": 0.0003,
+   "shift_best_shift_voxels": [
+    1,
+    0,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.7,
+    0.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.7,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_066_201578",
+   "organ_dice": 0.9723,
+   "centroid_offset_mm": 1.1,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9723,
+   "shift_best_dice": 0.9736,
+   "shift_gain": 0.0013,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.7,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.7,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_067_472967",
+   "organ_dice": 0.9751,
+   "centroid_offset_mm": 0.6,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9751,
+   "shift_best_dice": 0.9766,
+   "shift_gain": 0.0015,
+   "shift_best_shift_voxels": [
+    -1,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    -0.7,
+    -0.7,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.7,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_069_743712",
+   "organ_dice": 0.9344,
+   "centroid_offset_mm": 3.1,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9344,
+   "shift_best_dice": 0.9352,
+   "shift_gain": 0.0008,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.9,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.9,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_070_401358",
+   "organ_dice": 0.9046,
+   "centroid_offset_mm": 23.0,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9046,
+   "shift_best_dice": 0.9046,
+   "shift_gain": 0.0,
+   "shift_best_shift_voxels": [
+    0,
+    0,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.0,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_071_621596",
+   "organ_dice": 0.964,
+   "centroid_offset_mm": 2.7,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.964,
+   "shift_best_dice": 0.9649,
+   "shift_gain": 0.0009,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.9,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.9,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_072_979776",
+   "organ_dice": 0.9594,
+   "centroid_offset_mm": 2.6,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9594,
+   "shift_best_dice": 0.9607,
+   "shift_gain": 0.0012,
+   "shift_best_shift_voxels": [
+    -1,
+    0,
+    0
+   ],
+   "shift_best_shift_mm": [
+    -0.8,
+    0.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.8,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_073_517149",
+   "organ_dice": 0.9732,
+   "centroid_offset_mm": 1.3,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9732,
+   "shift_best_dice": 0.9756,
+   "shift_gain": 0.0023,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.7,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.7,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_074_379020",
+   "organ_dice": 0.8546,
+   "centroid_offset_mm": 22.1,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.8546,
+   "shift_best_dice": 0.8559,
+   "shift_gain": 0.0013,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.7,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.7,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_075_418794",
+   "organ_dice": 0.9678,
+   "centroid_offset_mm": 2.0,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9678,
+   "shift_best_dice": 0.9684,
+   "shift_gain": 0.0006,
+   "shift_best_shift_voxels": [
+    -1,
+    0,
+    0
+   ],
+   "shift_best_shift_mm": [
+    -0.8,
+    0.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.8,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_076_084985",
+   "organ_dice": 0.94,
+   "centroid_offset_mm": 3.4,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.94,
+   "shift_best_dice": 0.9406,
+   "shift_gain": 0.0006,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.7,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.7,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_077_996191",
+   "organ_dice": 0.6555,
+   "centroid_offset_mm": 35.8,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.6555,
+   "shift_best_dice": 0.656,
+   "shift_gain": 0.0005,
+   "shift_best_shift_voxels": [
+    -1,
+    0,
+    0
+   ],
+   "shift_best_shift_mm": [
+    -0.6,
+    0.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.6,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_078_958325",
+   "organ_dice": 0.9578,
+   "centroid_offset_mm": 2.1,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9578,
+   "shift_best_dice": 0.9585,
+   "shift_gain": 0.0007,
+   "shift_best_shift_voxels": [
+    -1,
+    0,
+    0
+   ],
+   "shift_best_shift_mm": [
+    -0.8,
+    0.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.8,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_079_927214",
+   "organ_dice": 0.9669,
+   "centroid_offset_mm": 1.2,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9669,
+   "shift_best_dice": 0.9677,
+   "shift_gain": 0.0007,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.8,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.8,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_080_216191",
+   "organ_dice": 0.9718,
+   "centroid_offset_mm": 3.1,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9718,
+   "shift_best_dice": 0.9729,
+   "shift_gain": 0.0011,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.8,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.8,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_081_327663",
+   "organ_dice": 0.9681,
+   "centroid_offset_mm": 1.3,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9681,
+   "shift_best_dice": 0.9692,
+   "shift_gain": 0.0011,
+   "shift_best_shift_voxels": [
+    -1,
+    0,
+    0
+   ],
+   "shift_best_shift_mm": [
+    -0.8,
+    0.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.8,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_083_703849",
+   "organ_dice": 0.9703,
+   "centroid_offset_mm": 0.5,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9703,
+   "shift_best_dice": 0.9714,
+   "shift_gain": 0.001,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.7,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.7,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_084_948398",
+   "organ_dice": 0.9548,
+   "centroid_offset_mm": 3.0,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9548,
+   "shift_best_dice": 0.9548,
+   "shift_gain": 0.0001,
+   "shift_best_shift_voxels": [
+    -1,
+    0,
+    0
+   ],
+   "shift_best_shift_mm": [
+    -0.7,
+    0.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.7,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_086_615027",
+   "organ_dice": 0.9354,
+   "centroid_offset_mm": 11.7,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9354,
+   "shift_best_dice": 0.9364,
+   "shift_gain": 0.001,
+   "shift_best_shift_voxels": [
+    -1,
+    0,
+    0
+   ],
+   "shift_best_shift_mm": [
+    -0.8,
+    0.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.8,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_087_075940",
+   "organ_dice": 0.9697,
+   "centroid_offset_mm": 1.1,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.9697,
+   "shift_best_dice": 0.9712,
+   "shift_gain": 0.0015,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.9,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.9,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_088_476473",
+   "organ_dice": 0.8748,
+   "centroid_offset_mm": 11.4,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.8748,
+   "shift_best_dice": 0.8777,
+   "shift_gain": 0.0029,
+   "shift_best_shift_voxels": [
+    -1,
+    0,
+    0
+   ],
+   "shift_best_shift_mm": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 1.0,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_090_076872",
+   "organ_dice": 0.8868,
+   "centroid_offset_mm": 25.4,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.8868,
+   "shift_best_dice": 0.8869,
+   "shift_gain": 0.0,
+   "shift_best_shift_voxels": [
+    -1,
+    0,
+    0
+   ],
+   "shift_best_shift_mm": [
+    -0.7,
+    0.0,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.7,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  },
+  {
+   "case": "HCC_098_610748",
+   "organ_dice": 0.969,
+   "centroid_offset_mm": 1.6,
+   "shape_ok": true,
+   "flip_improves_dice": false,
+   "shift_dice_unshifted": 0.969,
+   "shift_best_dice": 0.9712,
+   "shift_gain": 0.0022,
+   "shift_best_shift_voxels": [
+    0,
+    -1,
+    0
+   ],
+   "shift_best_shift_mm": [
+    0.0,
+    -0.7,
+    0.0
+   ],
+   "shift_max_axis_shift_mm": 0.7,
+   "shift_verdict": "ALIGNED",
+   "pass": true
+  }
+ ]
+}
