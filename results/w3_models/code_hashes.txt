@@ -46,3 +46,11 @@ results/w3_models/PREREG_stage1.md  git-blob-sha1 366f55b41a6f94de5b4b72d1bf6b42
 ## Deviation 4 (2026-10-20): per-arm bootstrap seed (hashes of the files as committed with this deviation)
 scripts/w3_analyze.py  git-blob-sha1 9058e887940f5e53409f5057ab496e01354db9d0  sha256 684abdc3b4d1e6284c5f51e4ddc4559bdc52f2d659c37bf9330ed736b0bfc9a9
 tests/test_w3_analyze.py  git-blob-sha1 f9d77b9723618fddc98bd4d4024da5d8e0f538cb  sha256 c6e8eaecbbde87ae4632812f54ee6dd1b4c4374ba4417a2dc1fcd507fe955b4c
+
+## Deviation 5 (2026-10-20): Dice-maximising translation test as the Amendment 2 gate (hashes of the files as committed with this deviation)
+glassbox/seg/w3_lib.py  git-blob-sha1 69b00d8ef040dbb2daeaa2d5c84a904acbca8532  sha256 f2f6925692550adef7891a6b130fdb56748e31d636889e2b06e45f2b881b5f26
+scripts/w3_modelA_run.py  git-blob-sha1 75fbd9fda35f4fbc1df6fa962f1885d6a11c63a5  sha256 dad501b7db824575b4a376c3e231c96fd6fff2e66d75ae91bbd3d7e6eedfea32
+scripts/w3_shift_gate.py  git-blob-sha1 371df8bd55e00ace1b7c0aef78ef26d77bd7d844  sha256 b0f40033516120526a691971661b57647982ddabb21b66b94a05e1099644b158
+scripts/w3_modelD_eval.py  git-blob-sha1 be565b25c1e95ce42fd46957f90ab225c4536f03  sha256 092fd669fd77b790b3f72713aa4bf068926326ed989a6b0fe13bbfa3d330e6a8
+tests/test_w3_analyze.py  git-blob-sha1 b5fb8cae370f0f077b41df44e415ebf067473963  sha256 394f79fbd050b8d0cc957b4eb21468b3290e860a6e2bc41c0bd4e14374fa56e1
+results/w3_models/PREREG_stage1.md  git-blob-sha1 8eee063dbbb104f6022c724c899538515b4b59d4  sha256 4da78c9005ac8e30dea92c9a1107029b07340908085e096b5d2441fe84527d48

@@ -120,3 +120,13 @@ def test_per_arm_seed_makes_an_arms_cis_independent_of_the_other_arms(tmp_path):
         A.main(str(d), [str(f)])
     a1 = json.load(open(tmp_path / "one" / "w3_results.json"))["a"]; a2 = json.load(open(tmp_path / "two" / "w3_results.json"))["a"]
     assert a1["detection_gap"] == a2["detection_gap"] and a1["dice_gap"] == a2["dice_gap"] and a1["size_adjusted_dice"] == a2["size_adjusted_dice"]
+
+
+def test_shift_test_classifies_misaligned_aligned_and_model_side():
+    seg = np.zeros((80, 160, 8), np.uint8); seg[10:50, 40:100, :] = 1; ann = np.ones(8, bool); sp = (1.0, 1.0, 2.5); gt = seg > 0
+    a = L.shift_test(gt.copy(), seg, ann, sp); assert a["verdict"] == "ALIGNED" and a["best_shift_mm"] == [0.0, 0.0, 0.0] and a["dice_unshifted"] == 1.0
+    m = L.shift_test(np.roll(gt, 25, axis=1), seg, ann, sp); assert m["verdict"] == "MISALIGNED" and m["best_shift_mm"][1] == -25.0 and m["best_dice"] == 1.0 and m["gain"] > 0.3      # prediction 25 mm off: best translation brings it back
+    assert L.shift_test(np.roll(gt, 4, axis=1), seg, ann, sp)["verdict"] == "ALIGNED"                          # 4 mm is inside the 5 mm limit
+    under = np.zeros_like(gt); under[10:50, 40:60, :] = True; u = L.shift_test(under, seg, ann, sp)          # placed correctly but small: the best translation may move it, with a large gain only if it fits better
+    stray = gt.copy(); stray[60:78, 120:150, :] = True; s = L.shift_test(stray, seg, ann, sp); assert s["verdict"] in ("ALIGNED", "MODEL-SIDE") and s["gain"] < 0.05 and u["gain"] >= 0.0       # stray blob: no translation helps
+    other = np.zeros_like(gt); other[60:78, 120:150, :] = True; assert L.shift_test(other, seg, ann, sp)["verdict"] in ("MISALIGNED", "MODEL-SIDE")

@@ -72,6 +72,26 @@ def alignment_report(pred_organ_full, seg, ann, spacing, input_shape):
             "flip_improves_dice": bool(flip_better), "pass": bool(shape_ok and not flip_better and offset <= ALIGN_MAX_OFFSET_MM)}
 
 
+SHIFT_MAX_MM = 5.0             # Amendment 2 as stated by the researcher: best Dice-maximising translation <= 5 mm per axis
+SHIFT_MIN_GAIN = 0.05          # "substantially raises liver Dice": best-shift Dice minus unshifted Dice >= 0.05 (the margin of the 2026-10-20 diagnostic rule)
+
+
+def shift_test(pred_full, seg, ann, spacing, search_mm=(40.0, 40.0, 7.5)):
+    """Dice-maximising translation test of the predicted organ against the GT organ (labels 1 and 2, annotated slices), array indices, GT spacing for mm. Dice(s) = 2 sum_x G(x) P(x - s) / (|P_ann| + |G|) for every integer shift s inside the search window,
+    by FFT cross-correlation (P = predicted organ on the whole grid so z shifts can use unannotated slices, G = GT organ on the annotated slices). Returns the unshifted Dice, the best shift (voxels and mm per axis, smallest |s| among ties), the best Dice and the verdict:
+    ALIGNED if every axis shift <= 5 mm; MISALIGNED if some axis shift > 5 mm AND the best Dice exceeds the unshifted Dice by >= 0.05; otherwise MODEL-SIDE (no translation substantially fixes it)."""
+    from scipy.signal import fftconvolve
+    sh = seg.shape; P = np.asarray(pred_full)[:sh[0], :sh[1], :sh[2]].astype(np.float32); G = np.zeros(sh, np.float32); G[:, :, ann] = gt_organ(seg[:, :, ann], "hcc")
+    Pa = float(P[:, :, ann].sum()); Gs = float(G.sum()); den = max(Pa + Gs, 1.0)
+    if Pa == 0 or Gs == 0:
+        return {"dice_unshifted": 0.0, "best_dice": 0.0, "gain": 0.0, "best_shift_voxels": [0, 0, 0], "best_shift_mm": [0.0, 0.0, 0.0], "max_axis_shift_mm": 0.0, "verdict": "MODEL-SIDE"}
+    C = fftconvolve(G, P[::-1, ::-1, ::-1], mode="full"); ctr = np.array(sh) - 1; sp = np.array(spacing, float); lim = np.floor(np.array(search_mm) / sp).astype(int)
+    sl = tuple(slice(ctr[i] - lim[i], ctr[i] + lim[i] + 1) for i in range(3)); W = C[sl] * 2 / den; d0 = float(C[tuple(ctr)] * 2 / den); best = W.max()
+    cand = np.argwhere(W >= best - 1e-6); idx = cand[np.argmin(np.linalg.norm((cand - lim) * sp, axis=1))]; s = idx - lim; mm = s * sp; gain = float(best - d0); mx = float(np.abs(mm).max())
+    verdict = "ALIGNED" if mx <= SHIFT_MAX_MM else ("MISALIGNED" if gain >= SHIFT_MIN_GAIN else "MODEL-SIDE")
+    return {"dice_unshifted": round(d0, 4), "best_dice": round(float(best), 4), "gain": round(gain, 4), "best_shift_voxels": [int(v) for v in s], "best_shift_mm": [round(float(v), 1) for v in mm], "max_axis_shift_mm": round(mx, 1), "verdict": verdict}
+
+
 def lesion_rows(organ, case, root, table, preds):
     """preds: {arm: bool prediction on the ORIGINAL array grid (may be larger than the CT by padding; cropped)}. Returns (rows, geometry dict with seg, ann, spacing)."""
     from glassbox.seg.w2_lib import case_geometry

@@ -89,7 +89,7 @@ for batch in loader:
         failures.append(name)
     if rec["low_dice_lt_0.85"]:
         low_dice.append(name)
-    np.savez_compressed(os.path.join(outdir, "masks", f"{bb}__{name}.npz"), ann=geo["ann"], **{k: v[:sh[0], :sh[1], :sh[2]][:, :, geo["ann"]] for k, v in preds.items()})
+    np.savez_compressed(os.path.join(outdir, "masks", f"{bb}__{name}.npz"), ann=geo["ann"], organ_full=organ_inv[:sh[0], :sh[1], :sh[2]], **{k: v[:sh[0], :sh[1], :sh[2]][:, :, geo["ann"]] for k, v in preds.items()})      # organ_full: the shipped predicted organ on the whole input grid (added for the shift-test gate)
     done += 1; print(f"[{bb} {organ}] {done}/{len(cases)} {name} organ_dice {ad:.3f} offset {rec['centroid_offset_mm']} mm {'PASS' if rec['pass'] else 'FAIL'} {rec['seconds']}s elapsed {time.time() - t0:.0f}s", flush=True)
     if len(failures) > L.ALIGN_MAX_FAILURES:
         print(f"STOP: alignment failed on {len(failures)} cases (> {L.ALIGN_MAX_FAILURES}): {failures}", flush=True); break
