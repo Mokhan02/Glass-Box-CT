@@ -27,15 +27,22 @@ def corrected_cases(repo="."):
     d = json.load(open(os.path.join(repo, "results/dq_hcc_labels/corrected_cases.json"))); return {k: v for k, v in d.items() if not k.startswith("_")}
 
 
+def excluded_cases(repo="."):
+    """Data-quality exclusions (results/dq_hcc_labels/excluded_cases.json; HCC_027_967743): excluded from the primary analysis, included in the sensitivity."""
+    d = json.load(open(os.path.join(repo, "results/dq_hcc_labels/excluded_cases.json"))); return {k: v for k, v in d.items() if not k.startswith("_")}
+
+
 def case_root(organ, case, base, as_converted=False, repo="."):
     """Directory of the converted case: the corrected conversion for the corrected cases (HCC only), otherwise `base`."""
     return corrected_cases(repo)[case]["corrected_root"] if (organ == "hcc" and not as_converted and case in corrected_cases(repo)) else base
 
 
-def lesion_table(organ, repo=".", as_converted=False):
-    """{(case, rank): row} of the cohort: HCC UID route (exp8 lesion table, 86 lesions; the contrast of corrected cases recomputed on the corrected label unless as_converted) or C4KC-KiTS (gt_lesions.csv, two largest per case, 219 lesions)."""
+def lesion_table(organ, repo=".", as_converted=False, include_excluded=False):
+    """{(case, rank): row} of the cohort: HCC UID route (exp8 lesion table, 86 lesions, minus the data-quality exclusions unless include_excluded; the contrast of corrected cases recomputed on the corrected label unless as_converted) or C4KC-KiTS (gt_lesions.csv, two largest per case, 219 lesions)."""
     if organ == "hcc":
         t = {(r["case"], int(r["rank"])): dict(r) for r in csv.DictReader(open(os.path.join(repo, "results/exp8_lesions/lesion_table.csv"))) if r["route"] == "uid"}
+        if not include_excluded:
+            t = {k: v for k, v in t.items() if k[0] not in excluded_cases(repo)}
         if not as_converted:
             for c, v in corrected_cases(repo).items():
                 for rank, contrast in v["contrast_hu"].items():
@@ -76,7 +83,7 @@ SHIFT_MAX_MM = 5.0             # Amendment 2 as stated by the researcher: best D
 SHIFT_MIN_GAIN = 0.05          # "substantially raises liver Dice": best-shift Dice minus unshifted Dice >= 0.05 (the margin of the 2026-10-20 diagnostic rule)
 
 
-def shift_test(pred_full, seg, ann, spacing, search_mm=(40.0, 40.0, 7.5)):
+def shift_test(pred_full, seg, ann, spacing, search_mm=(40.0, 40.0, 7.5), search_vox=None):
     """Dice-maximising translation test of the predicted organ against the GT organ (labels 1 and 2, annotated slices), array indices, GT spacing for mm. Dice(s) = 2 sum_x G(x) P(x - s) / (|P_ann| + |G|) for every integer shift s inside the search window,
     by FFT cross-correlation (P = predicted organ on the whole grid so z shifts can use unannotated slices, G = GT organ on the annotated slices). Returns the unshifted Dice, the best shift (voxels and mm per axis, smallest |s| among ties), the best Dice and the verdict:
     ALIGNED if every axis shift <= 5 mm; MISALIGNED if some axis shift > 5 mm AND the best Dice exceeds the unshifted Dice by >= 0.05; otherwise MODEL-SIDE (no translation substantially fixes it)."""
@@ -85,7 +92,8 @@ def shift_test(pred_full, seg, ann, spacing, search_mm=(40.0, 40.0, 7.5)):
     Pa = float(P[:, :, ann].sum()); Gs = float(G.sum()); den = max(Pa + Gs, 1.0)
     if Pa == 0 or Gs == 0:
         return {"dice_unshifted": 0.0, "best_dice": 0.0, "gain": 0.0, "best_shift_voxels": [0, 0, 0], "best_shift_mm": [0.0, 0.0, 0.0], "max_axis_shift_mm": 0.0, "verdict": "MODEL-SIDE"}
-    C = fftconvolve(G, P[::-1, ::-1, ::-1], mode="full"); ctr = np.array(sh) - 1; sp = np.array(spacing, float); lim = np.floor(np.array(search_mm) / sp).astype(int)
+    C = fftconvolve(G, P[::-1, ::-1, ::-1], mode="full"); ctr = np.array(sh) - 1; sp = np.array(spacing, float); lim = np.array(search_vox, int) if search_vox is not None else np.floor(np.array(search_mm) / sp).astype(int)
+    lim = np.minimum(lim, np.array(sh) - 1)
     sl = tuple(slice(ctr[i] - lim[i], ctr[i] + lim[i] + 1) for i in range(3)); W = C[sl] * 2 / den; d0 = float(C[tuple(ctr)] * 2 / den); best = W.max()
     cand = np.argwhere(W >= best - 1e-6); idx = cand[np.argmin(np.linalg.norm((cand - lim) * sp, axis=1))]; s = idx - lim; mm = s * sp; gain = float(best - d0); mx = float(np.abs(mm).max())
     verdict = "ALIGNED" if mx <= SHIFT_MAX_MM else ("MISALIGNED" if gain >= SHIFT_MIN_GAIN else "MODEL-SIDE")

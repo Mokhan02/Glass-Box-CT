@@ -77,8 +77,11 @@ def test_reference_check_reproduces_and_detects_mismatch():
 
 def test_cohort_tables_and_alignment_rule():
     h = L.lesion_table("hcc"); k = L.lesion_table("kidney"); h0 = L.lesion_table("hcc", as_converted=True)
-    assert len(h) == 86 and sum(float(r["contrast_hu"]) > 0 for r in h.values()) == 29 and len({c for c, _ in h}) == 75          # HCC_019_773068 corrected: dark -> bright
-    assert sum(float(r["contrast_hu"]) > 0 for r in h0.values()) == 28 and float(h0[("HCC_019_773068", 1)]["contrast_hu"]) < 0 < float(h[("HCC_019_773068", 1)]["contrast_hu"])
+    hi = L.lesion_table("hcc", include_excluded=True)
+    assert len(hi) == 86 and sum(float(r["contrast_hu"]) > 0 for r in hi.values()) == 29 and len({c for c, _ in hi}) == 75          # HCC_019_773068 corrected: dark -> bright
+    assert "HCC_027_967743" in {c for c, _ in hi} and "HCC_027_967743" not in {c for c, _ in h} and len({c for c, _ in h}) == 74 and len(h) == 85          # HCC_027_967743 excluded from the primary (data-quality rule)
+    assert sum(float(r["contrast_hu"]) > 0 for r in h.values()) == 28
+    assert sum(float(r["contrast_hu"]) > 0 for r in L.lesion_table("hcc", as_converted=True, include_excluded=True).values()) == 28 and float(h0[("HCC_019_773068", 1)]["contrast_hu"]) < 0 < float(h[("HCC_019_773068", 1)]["contrast_hu"])
     assert L.case_root("hcc", "HCC_019_773068", "base").endswith("heldout_nii_fixed/hcc_tace_seg") and L.case_root("hcc", "HCC_019_773068", "base", as_converted=True) == "base" and L.case_root("hcc", "HCC_004_414785", "base") == "base"
     assert len(k) == 219 and sum(float(r["contrast_hu"]) > 0 for r in k.values()) == 53 and len({c for c, _ in k}) == 210
     seg = np.zeros((10, 10, 3), np.uint8); seg[2:8, 2:8] = 1; seg[4:6, 4:6] = 2; pred = (seg > 0)

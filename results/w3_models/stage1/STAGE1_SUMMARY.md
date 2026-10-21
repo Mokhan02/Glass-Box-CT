@@ -1,21 +1,21 @@
-# W3 Stage 1 summary (HCC UID cohort, 75 cases / 86 lesions: 29 bright, 57 dark after the HCC_019 correction)
+# W3 Stage 1 summary (HCC UID cohort after the data-quality rules: 74 cases / 85 lesions, 28 bright / 57 dark)
 
-Generated analyses: `STAGE1_SUMMARY/w3_results.md` (A, D and the VISTA-3D reference row together, pinned per-arm seeds); per-model folders hold their own sensitivities. Gaps = dark minus bright; verdict margin 0.10; CIs are case-level bootstrap 95%.
+HCC_019_773068 is scored against its corrected label (Amendment 1); HCC_027_967743 is excluded as a source-label error (Amendment 3, `results/dq_hcc_labels/hcc027/DQ_HCC027.md`) and appears only in the sensitivity row "including data-quality excluded". Analyses: `STAGE1_SUMMARY/w3_results.md` (A, D and the VISTA-3D reference row together, pinned per-arm seeds); per-model folders hold their own sensitivities. Gaps = dark minus bright (positive = bright worse); verdict margin 0.10; case-level bootstrap 95% CIs.
 
 | model | detection gap | Dice gap | label | bright / dark detection | bright / dark mean Dice | median case sum-of-diameters error |
 |---|---|---|---|---|---|---|
-| A: CLIP-Driven Universal Model, Swin UNETR, shipped pipeline | +56.6 pts [+37.2, +74.9] | +30.6 pts [+21.4, +39.2] | **GAP (detection and Dice)** | 27.6% / 84.2% | 0.133 / 0.439 | -29.4% |
-| D: nnU-Net v2, Task03 fold 0, 1000 epochs, default inference | +61.8 pts [+41.3, +78.3] | +41.0 pts [+29.9, +51.4] | **GAP (detection and Dice)** | 24.1% / 86.0% | 0.117 / 0.528 | -34.1% |
-| VISTA-3D class 26 (reference row, reproduces the stored numbers) | +44.8 pts [+22.9, +64.5] | +41.9 pts [+28.0, +54.2] | GAP (detection and Dice) | 51.7% / 96.5% | 0.245 / 0.664 | -19.4% |
+| A: CLIP-Driven Universal Model, Swin UNETR, shipped pipeline | +59.2 pts [+39.3, +77.6] | +31.1 pts [+21.3, +40.7] | **GAP (detection and Dice)** | 25.0% / 84.2% | 0.128 / 0.439 | -29.9% |
+| D: nnU-Net v2, Task03 fold 0, 1000 epochs, default inference | +64.5 pts [+44.1, +80.7] | +41.9 pts [+30.9, +52.5] | **GAP (detection and Dice)** | 21.4% / 86.0% | 0.109 / 0.528 | -34.3% |
+| VISTA-3D class 26 (reference row; reproduces the stored numbers on the published 86 lesions) | +46.5 pts [+24.5, +66.7] | +42.2 pts [+28.2, +53.6] | GAP (detection and Dice) | 50.0% / 96.5% | 0.242 / 0.664 | -19.0% |
 
-**Replication rule (both A and D "GAP (detection and Dice)"): met.** Size-adjusted: A Dice +28.3 / detection logit +2.55, D Dice +37.1 [+25.6, +48.9] / detection logit +2.98 [+1.92, +4.71]; none of the adjusted effects disappears. Model A's shipped and raw variants agree (post-processing inert); nnU-Net's default has no post-processing beyond its own inference (mirroring, step 0.5, no postprocessing file).
+**Replication rule (both A and D "GAP (detection and Dice)"): met.** Size-adjusted effects remain for every model (A Dice +28.9 [+19.1, +37.8], detection logit +2.72 [+1.66, +4.29]; D Dice +38.0 [+27.1, +49.1], detection logit +3.23 [+2.10, +5.09]). Model A's shipped and raw variants agree (post-processing inert). nnU-Net's default inference: test-time mirroring over all flips, sliding window step 0.5, no post-processing file.
 
-## Alignment gate (Amendment 2 with the Dice-maximising translation test, Deviation 5), every case
-- Model A (swin): 75 of 75 evaluated; **1 MISALIGNED, HCC_027_967743**; 0 model-side; centroid offset > 15 mm in none (max 13.4 mm, HCC_022). Status OK (limit 2).
-- Model D: **1 MISALIGNED, the same HCC_027_967743**; the 6 cases that fail the committed centroid rule (HCC_022, 028, 070, 074, 077, 090) are **MODEL-SIDE in the researcher's sense**: the best translation is at most 1.6 mm per axis and raises organ Dice by at most 0.016 (stray non-liver blobs in 028, 070, 074, 090; real liver failures in 022 and 077). Status OK (limit 2). Quality-flagged (kept in the primary, sensitivity excludes them): those 6 for D; HCC_022 and HCC_043 for A.
-- **HCC_027_967743 is MISALIGNED in both models, independently, by the same through-plane shift** (best translation -10.0 mm = 4 slices when the search window is widened; organ Dice 0.854 -> 0.947 for A and 0.854 -> 0.948 for D; both models place the liver on slices 18-78 while the GT liver spans 13-74). The source SEG for this case has zero offset against its CT (all 316 frames match their referenced instances, 0.0 mm), so this is not the HCC_019 converter bug; it looks like a label displaced by 4 slices at the source. It was NOT flagged by the earlier 89-case data-quality screen (its z search was limited to +-3 slices). It stays in the primary for now; see the decision below.
+## Alignment gate (Amendment 2 with the Dice-maximising translation test, Deviation 5)
+- A: only HCC_027_967743 MISALIGNED; D: only HCC_027_967743 MISALIGNED; D's 6 centroid failures (HCC_022, 028, 070, 074, 077, 090) are MODEL-SIDE (best shift <= 1.6 mm, gain <= 0.016): quality-flagged, kept in the primary, excluded in the sensitivity (A: HCC_022 and HCC_043). 89-case re-screen with both models over +-40 voxels per axis: only HCC_027, flagged by both.
 
-## Sensitivities (verdicts unchanged everywhere)
-- A: as converted +54.2 / +29.4 GAP; excluding HCC_022 and HCC_043 +57.3 / +30.0 GAP (26 bright / 57 dark); excluding those two and HCC_027 +60.2 / +30.6 GAP (25 / 57).
-- D: as converted +59.5 / +39.7 GAP; excluding the 6 quality-flagged +61.5 / +41.3 GAP (26 / 52); excluding the 6 and HCC_027 +64.5 / +42.2 GAP (25 / 52).
-- Model A repeat (organ masks saved): the lesion table is not bit-identical (max |coverage| difference 0.0003, |Dice| 0.0005, no detection flips, no group changes) because of GPU non-determinism; the verdict and gaps are identical to four decimals (`A_swin_hcc/repeat_v3/`). The first run's table is the reported one.
+## Sensitivities (all GAP (detection and Dice))
+- A: including HCC_027 +56.6 / +30.6 (29/57); as converted (HCC_019 displaced) +56.8 / +29.9 (27/58); excluding HCC_022 and HCC_043 +60.2 / +30.6 (25/57).
+- D: including HCC_027 +61.8 / +41.0; as converted +62.3 / +40.6; excluding the 6 flagged +64.5 / +42.2 (25/52).
+- VISTA reference row: including HCC_027 +44.8 / +41.9; as converted +43.0 / +40.2.
+- Model A repeat (organ masks saved): lesion table not bit-identical (max |coverage| difference 0.0003, |Dice| 0.0005, no flips); identical gaps to four decimals; the first run's table is the reported one.
+- The model A kidney arm was skipped by the researcher; the model A U-Net sensitivity is deferred to Stage 2.

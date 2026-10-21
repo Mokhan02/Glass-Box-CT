@@ -3,76 +3,76 @@
 Gaps = dark minus bright (positive = bright segmented worse); detection = coverage >= 0.10; verdict margin 0.10 (10 percentage points for detection).
 
 ## A_swin_raw
-- **Detection gap: +56.6 pts [+34.9, +74.9] (29 bright, 57 dark, 75 cases) -> GAP**
-- **Dice gap: +30.6 pts [+20.6, +38.8] (29 bright, 57 dark, 75 cases) -> GAP**
+- **Detection gap: +59.2 pts [+37.8, +78.0] (28 bright, 57 dark, 74 cases) -> GAP**
+- **Dice gap: +31.1 pts [+21.9, +39.9] (28 bright, 57 dark, 74 cases) -> GAP**
 - **Model-level label: GAP (detection and Dice)**
 - dark: n 57, detection 84.2%, mean Dice 0.439, coverage 0.367
-- bright: n 29, detection 27.6%, mean Dice 0.133, coverage 0.085
-- size-adjusted Dice gap +28.3 pts [+18.7, +37.5]; the adjusted effect remains
-- size-adjusted detection (logit, positive = bright detected less): +2.55 [+1.48, +4.03]; the adjusted effect remains
-- strata (detection gap; Dice gap): <30 mm: +50.0; +9.3 pts (n 4 bright, 2 dark); 30-60 mm: +66.1; +35.3 pts (n 14 bright, 16 dark); >60 mm: +39.2; +23.8 pts (n 11 bright, 39 dark)
-- coverage gap +28.2 pts [+20.7, +35.9] (29 bright, 57 dark, 75 cases); Dice within 10 mm gap +34.5 pts [+24.9, +44.3] (29 bright, 57 dark, 75 cases)
-- RECIST sum of diameters: median case error -29.4% [-35.9, -24.3] over 75 cases; detected lesions (n 56): median error -15.6 mm; by group: dark median lesion-level -20%; bright median lesion-level -65%
+- bright: n 28, detection 25.0%, mean Dice 0.128, coverage 0.082
+- size-adjusted Dice gap +28.9 pts [+19.9, +38.2]; the adjusted effect remains
+- size-adjusted detection (logit, positive = bright detected less): +2.72 [+1.62, +4.51]; the adjusted effect remains
+- strata (detection gap; Dice gap): <30 mm: +50.0; +9.3 pts (n 4 bright, 2 dark); 30-60 mm: +72.1; +36.7 pts (n 13 bright, 16 dark); >60 mm: +39.2; +23.8 pts (n 11 bright, 39 dark)
+- coverage gap +28.6 pts [+20.8, +36.3] (28 bright, 57 dark, 74 cases); Dice within 10 mm gap +35.1 pts [+25.4, +44.6] (28 bright, 57 dark, 74 cases)
+- RECIST sum of diameters: median case error -29.9% [-37.9, -24.3] over 74 cases; detected lesions (n 55): median error -16.1 mm; by group: dark median lesion-level -20%; bright median lesion-level -65%
 
 ## A_swin_shipped
-- **Detection gap: +56.6 pts [+37.2, +74.9] (29 bright, 57 dark, 75 cases) -> GAP**
-- **Dice gap: +30.6 pts [+21.4, +39.2] (29 bright, 57 dark, 75 cases) -> GAP**
+- **Detection gap: +59.2 pts [+39.3, +77.6] (28 bright, 57 dark, 74 cases) -> GAP**
+- **Dice gap: +31.1 pts [+21.3, +40.7] (28 bright, 57 dark, 74 cases) -> GAP**
 - **Model-level label: GAP (detection and Dice)**
 - dark: n 57, detection 84.2%, mean Dice 0.439, coverage 0.367
-- bright: n 29, detection 27.6%, mean Dice 0.133, coverage 0.085
-- size-adjusted Dice gap +28.3 pts [+18.7, +37.1]; the adjusted effect remains
-- size-adjusted detection (logit, positive = bright detected less): +2.55 [+1.52, +4.13]; the adjusted effect remains
-- strata (detection gap; Dice gap): <30 mm: +50.0; +9.3 pts (n 4 bright, 2 dark); 30-60 mm: +66.1; +35.3 pts (n 14 bright, 16 dark); >60 mm: +39.2; +23.8 pts (n 11 bright, 39 dark)
-- coverage gap +28.2 pts [+20.7, +36.2] (29 bright, 57 dark, 75 cases); Dice within 10 mm gap +34.5 pts [+24.8, +43.6] (29 bright, 57 dark, 75 cases)
-- RECIST sum of diameters: median case error -29.4% [-35.9, -24.3] over 75 cases; detected lesions (n 56): median error -15.6 mm; by group: dark median lesion-level -20%; bright median lesion-level -65%
+- bright: n 28, detection 25.0%, mean Dice 0.128, coverage 0.082
+- size-adjusted Dice gap +28.9 pts [+19.1, +37.8]; the adjusted effect remains
+- size-adjusted detection (logit, positive = bright detected less): +2.72 [+1.66, +4.29]; the adjusted effect remains
+- strata (detection gap; Dice gap): <30 mm: +50.0; +9.3 pts (n 4 bright, 2 dark); 30-60 mm: +72.1; +36.7 pts (n 13 bright, 16 dark); >60 mm: +39.2; +23.8 pts (n 11 bright, 39 dark)
+- coverage gap +28.6 pts [+20.3, +37.0] (28 bright, 57 dark, 74 cases); Dice within 10 mm gap +35.1 pts [+25.2, +44.6] (28 bright, 57 dark, 74 cases)
+- RECIST sum of diameters: median case error -29.9% [-36.9, -23.9] over 74 cases; detected lesions (n 55): median error -16.1 mm; by group: dark median lesion-level -20%; bright median lesion-level -65%
 
 ## A_swin_step_a
-- **Detection gap: +56.6 pts [+37.2, +75.4] (29 bright, 57 dark, 75 cases) -> GAP**
-- **Dice gap: +30.6 pts [+21.6, +39.3] (29 bright, 57 dark, 75 cases) -> GAP**
+- **Detection gap: +59.2 pts [+40.5, +77.4] (28 bright, 57 dark, 74 cases) -> GAP**
+- **Dice gap: +31.2 pts [+21.8, +40.4] (28 bright, 57 dark, 74 cases) -> GAP**
 - **Model-level label: GAP (detection and Dice)**
 - dark: n 57, detection 84.2%, mean Dice 0.440, coverage 0.367
-- bright: n 29, detection 27.6%, mean Dice 0.133, coverage 0.085
-- size-adjusted Dice gap +28.4 pts [+18.8, +38.0]; the adjusted effect remains
-- size-adjusted detection (logit, positive = bright detected less): +2.55 [+1.49, +4.03]; the adjusted effect remains
-- strata (detection gap; Dice gap): <30 mm: +50.0; +9.3 pts (n 4 bright, 2 dark); 30-60 mm: +66.1; +35.5 pts (n 14 bright, 16 dark); >60 mm: +39.2; +23.8 pts (n 11 bright, 39 dark)
-- coverage gap +28.2 pts [+20.3, +35.7] (29 bright, 57 dark, 75 cases); Dice within 10 mm gap +34.5 pts [+24.7, +43.9] (29 bright, 57 dark, 75 cases)
-- RECIST sum of diameters: median case error -29.4% [-35.9, -24.3] over 75 cases; detected lesions (n 56): median error -15.6 mm; by group: dark median lesion-level -20%; bright median lesion-level -65%
+- bright: n 28, detection 25.0%, mean Dice 0.128, coverage 0.082
+- size-adjusted Dice gap +29.0 pts [+20.1, +37.8]; the adjusted effect remains
+- size-adjusted detection (logit, positive = bright detected less): +2.72 [+1.66, +4.24]; the adjusted effect remains
+- strata (detection gap; Dice gap): <30 mm: +50.0; +9.3 pts (n 4 bright, 2 dark); 30-60 mm: +72.1; +36.9 pts (n 13 bright, 16 dark); >60 mm: +39.2; +23.8 pts (n 11 bright, 39 dark)
+- coverage gap +28.6 pts [+20.6, +36.3] (28 bright, 57 dark, 74 cases); Dice within 10 mm gap +35.1 pts [+25.6, +44.6] (28 bright, 57 dark, 74 cases)
+- RECIST sum of diameters: median case error -29.9% [-36.9, -23.5] over 74 cases; detected lesions (n 55): median error -16.1 mm; by group: dark median lesion-level -20%; bright median lesion-level -65%
 
 ## A_swin_step_ab
-- **Detection gap: +56.6 pts [+38.3, +75.0] (29 bright, 57 dark, 75 cases) -> GAP**
-- **Dice gap: +30.6 pts [+20.8, +39.6] (29 bright, 57 dark, 75 cases) -> GAP**
+- **Detection gap: +59.2 pts [+39.9, +77.2] (28 bright, 57 dark, 74 cases) -> GAP**
+- **Dice gap: +31.1 pts [+21.3, +40.6] (28 bright, 57 dark, 74 cases) -> GAP**
 - **Model-level label: GAP (detection and Dice)**
 - dark: n 57, detection 84.2%, mean Dice 0.439, coverage 0.367
-- bright: n 29, detection 27.6%, mean Dice 0.133, coverage 0.085
-- size-adjusted Dice gap +28.4 pts [+19.2, +37.2]; the adjusted effect remains
-- size-adjusted detection (logit, positive = bright detected less): +2.55 [+1.53, +4.02]; the adjusted effect remains
-- strata (detection gap; Dice gap): <30 mm: +50.0; +9.3 pts (n 4 bright, 2 dark); 30-60 mm: +66.1; +35.4 pts (n 14 bright, 16 dark); >60 mm: +39.2; +23.8 pts (n 11 bright, 39 dark)
-- coverage gap +28.2 pts [+20.0, +35.8] (29 bright, 57 dark, 75 cases); Dice within 10 mm gap +34.5 pts [+24.4, +43.8] (29 bright, 57 dark, 75 cases)
-- RECIST sum of diameters: median case error -29.4% [-35.9, -23.5] over 75 cases; detected lesions (n 56): median error -15.6 mm; by group: dark median lesion-level -20%; bright median lesion-level -65%
+- bright: n 28, detection 25.0%, mean Dice 0.128, coverage 0.082
+- size-adjusted Dice gap +29.0 pts [+19.2, +38.8]; the adjusted effect remains
+- size-adjusted detection (logit, positive = bright detected less): +2.72 [+1.68, +4.32]; the adjusted effect remains
+- strata (detection gap; Dice gap): <30 mm: +50.0; +9.3 pts (n 4 bright, 2 dark); 30-60 mm: +72.1; +36.8 pts (n 13 bright, 16 dark); >60 mm: +39.2; +23.8 pts (n 11 bright, 39 dark)
+- coverage gap +28.5 pts [+19.9, +36.0] (28 bright, 57 dark, 74 cases); Dice within 10 mm gap +35.1 pts [+25.7, +44.4] (28 bright, 57 dark, 74 cases)
+- RECIST sum of diameters: median case error -29.9% [-38.1, -23.9] over 74 cases; detected lesions (n 55): median error -16.1 mm; by group: dark median lesion-level -20%; bright median lesion-level -65%
 
 ## D_nnunet
-- **Detection gap: +61.8 pts [+41.3, +78.3] (29 bright, 57 dark, 75 cases) -> GAP**
-- **Dice gap: +41.0 pts [+29.9, +51.4] (29 bright, 57 dark, 75 cases) -> GAP**
+- **Detection gap: +64.5 pts [+44.1, +80.7] (28 bright, 57 dark, 74 cases) -> GAP**
+- **Dice gap: +41.9 pts [+30.9, +52.5] (28 bright, 57 dark, 74 cases) -> GAP**
 - **Model-level label: GAP (detection and Dice)**
 - dark: n 57, detection 86.0%, mean Dice 0.528, coverage 0.477
-- bright: n 29, detection 24.1%, mean Dice 0.117, coverage 0.080
-- size-adjusted Dice gap +37.1 pts [+25.6, +48.9]; the adjusted effect remains
-- size-adjusted detection (logit, positive = bright detected less): +2.98 [+1.92, +4.71]; the adjusted effect remains
-- strata (detection gap; Dice gap): <30 mm: +50.0; +1.6 pts (n 4 bright, 2 dark); 30-60 mm: +47.3; +33.5 pts (n 14 bright, 16 dark); >60 mm: +58.5; +43.4 pts (n 11 bright, 39 dark)
-- coverage gap +39.7 pts [+29.1, +49.3] (29 bright, 57 dark, 75 cases); Dice within 10 mm gap +44.4 pts [+32.6, +54.8] (29 bright, 57 dark, 75 cases)
-- RECIST sum of diameters: median case error -34.1% [-42.1, -18.2] over 75 cases; detected lesions (n 56): median error -13.9 mm; by group: dark median lesion-level -17%; bright median lesion-level -84%
+- bright: n 28, detection 21.4%, mean Dice 0.109, coverage 0.075
+- size-adjusted Dice gap +38.0 pts [+27.1, +49.1]; the adjusted effect remains
+- size-adjusted detection (logit, positive = bright detected less): +3.23 [+2.10, +5.09]; the adjusted effect remains
+- strata (detection gap; Dice gap): <30 mm: +50.0; +1.6 pts (n 4 bright, 2 dark); 30-60 mm: +53.4; +35.3 pts (n 13 bright, 16 dark); >60 mm: +58.5; +43.4 pts (n 11 bright, 39 dark)
+- coverage gap +40.2 pts [+30.5, +50.1] (28 bright, 57 dark, 74 cases); Dice within 10 mm gap +45.3 pts [+33.5, +55.6] (28 bright, 57 dark, 74 cases)
+- RECIST sum of diameters: median case error -34.3% [-42.6, -18.2] over 74 cases; detected lesions (n 55): median error -13.9 mm; by group: dark median lesion-level -17%; bright median lesion-level -87%
 
 ## vista_26_auto
-- **Detection gap: +44.8 pts [+22.9, +64.5] (29 bright, 57 dark, 75 cases) -> GAP**
-- **Dice gap: +41.9 pts [+28.0, +54.2] (29 bright, 57 dark, 75 cases) -> GAP**
+- **Detection gap: +46.5 pts [+24.5, +66.7] (28 bright, 57 dark, 74 cases) -> GAP**
+- **Dice gap: +42.2 pts [+28.2, +53.6] (28 bright, 57 dark, 74 cases) -> GAP**
 - **Model-level label: GAP (detection and Dice)**
 - dark: n 57, detection 96.5%, mean Dice 0.664, coverage 0.644
-- bright: n 29, detection 51.7%, mean Dice 0.245, coverage 0.201
-- size-adjusted Dice gap +37.0 pts [+23.1, +49.0]; the adjusted effect remains
-- size-adjusted detection (logit, positive = bright detected less): +3.12 [+1.77, +4.50]; the adjusted effect remains
-- strata (detection gap; Dice gap): <30 mm: +25.0; +5.6 pts (n 4 bright, 2 dark); 30-60 mm: +43.8; +38.1 pts (n 14 bright, 16 dark); >60 mm: +36.4; +35.9 pts (n 11 bright, 39 dark)
-- coverage gap +44.3 pts [+33.0, +54.8] (29 bright, 57 dark, 75 cases); Dice within 10 mm gap +44.3 pts [+31.5, +55.3] (29 bright, 57 dark, 75 cases)
-- RECIST sum of diameters: median case error -19.4% [-29.0, -12.8] over 75 cases; detected lesions (n 70): median error -11.4 mm; by group: dark median lesion-level -13%; bright median lesion-level -47%
+- bright: n 28, detection 50.0%, mean Dice 0.242, coverage 0.201
+- size-adjusted Dice gap +37.4 pts [+24.3, +49.1]; the adjusted effect remains
+- size-adjusted detection (logit, positive = bright detected less): +3.21 [+1.93, +4.63]; the adjusted effect remains
+- strata (detection gap; Dice gap): <30 mm: +25.0; +5.6 pts (n 4 bright, 2 dark); 30-60 mm: +47.6; +38.9 pts (n 13 bright, 16 dark); >60 mm: +36.4; +35.9 pts (n 11 bright, 39 dark)
+- coverage gap +44.3 pts [+31.9, +55.1] (28 bright, 57 dark, 74 cases); Dice within 10 mm gap +44.4 pts [+31.7, +56.5] (28 bright, 57 dark, 74 cases)
+- RECIST sum of diameters: median case error -19.0% [-26.9, -12.9] over 74 cases; detected lesions (n 69): median error -11.3 mm; by group: dark median lesion-level -13%; bright median lesion-level -48%
 
 ## Primary models
 - A: GAP (detection and Dice)
@@ -81,7 +81,7 @@ Gaps = dark minus bright (positive = bright segmented worse); detection = covera
 
 ## Model A: shipped vs raw
 - disagree: False
-- step attribution: {"changes": [{"step": "(a) intersect with the largest predicted-liver component", "delta_detection_gap": 0.0, "delta_dice_gap": 0.0006505928614640721}, {"step": "(b) closing", "delta_detection_gap": 0.0, "delta_dice_gap": -0.0005179854809438389}, {"step": "(c) dilation", "delta_detection_gap": 0.0, "delta_dice_gap": -6.698124621895563e-05}], "largest_detection": "(a) intersect with the largest predicted-liver component", "largest_dice": "(a) intersect with the largest predicted-liver component"}
+- step attribution: {"changes": [{"step": "(a) intersect with the largest predicted-liver component", "delta_detection_gap": 0.0, "delta_dice_gap": 0.0006529573934838107}, {"step": "(b) closing", "delta_detection_gap": 0.0, "delta_dice_gap": -0.0005170864661654395}, {"step": "(c) dilation", "delta_detection_gap": 0.0, "delta_dice_gap": -6.562656641612152e-05}], "largest_detection": "(a) intersect with the largest predicted-liver component", "largest_dice": "(a) intersect with the largest predicted-liver component"}
 
 ## Reference row (VISTA-3D class 26, automatic)
 - {"n_lesions_matched": 86, "n_flag_disagreements": 0, "max_abs_coverage_difference": 0.00033397853217416863, "stored_detected": 70, "new_detected": 70, "stored_sld_median": -0.19443707636732444, "new_sld_median": -0.19442423234444184, "stored_detected_median_error_mm": -11.387509350906452, "new_detected_median_error_mm": -11.3875, "tolerances": {"max_flag_disagreements": 2, "sld_median_pts": 0.015, "detected_median_mm": 1.0}, "reproduced": true}
