@@ -36,3 +36,6 @@ tests/test_w3s2_stats.py  git-blob-sha1 7dc7a1223230f18aece0ef884ef963b43b046957
 tests/test_w3s2_m4.py  git-blob-sha1 6d55072cc0c7b1aa36fddc136d0491d7fbd565a1  sha256 869ca7a1545a83633fc7dc8c5cbcbda28b98a1e7dc95504b43459582efe945a5
 tests/test_w3s2_engines.py  git-blob-sha1 686a98e61abc4c827ec3fccd33e55886cc0ab400  sha256 a8e6cce4243b2d04e0bed9bcf535f6b9ced9f9c2dcbc498b13eb86eaacc868bf
 tests/test_w3s2_m2_m3_scripts.py  git-blob-sha1 0b3c28bd4699e1d8790633432281612c3c45957d  sha256 f7a7b6ee68e3555a97ccdaa68686d31d8a698d9b90bb5bc2ffc02fa4838e6122
+
+# PREREG_stage2 hash refreshed after the approved M4 addition (2026-10-23); the earlier PREREG line above is superseded
+results/w3_models/PREREG_stage2.md  git-blob-sha1 09ef5abf13b70728d0457cacf233eee0ead5e1a3  sha256 43c35609d2f3722327d838a2a1dd898f31589d0338486954658872bd67171612
