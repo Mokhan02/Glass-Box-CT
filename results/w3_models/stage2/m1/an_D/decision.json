@@ -1,0 +1,76 @@
+{
+ "arm": "W3S2_M1_D",
+ "seed": 2057177682,
+ "n_cases": 74,
+ "primary_layer": "mid",
+ "verdict_categories": [
+  "LOST LATE",
+  "REPRESENTED",
+  "NEVER REPRESENTED",
+  "INCONCLUSIVE"
+ ],
+ "primary": {
+  "layer": "mid",
+  "verdict": "LOST LATE",
+  "R_enc": 0.5342659318920446,
+  "CI_enc": [
+   0.47469201231101654,
+   0.6124859468807536
+  ],
+  "R_hu": 0.16216263953652676,
+  "CI_hu": [
+   0.07385004674972087,
+   0.2302654921958362
+  ],
+  "represents": true,
+  "never": false,
+  "decoder_F_rate": 0.7365762328670341,
+  "decoder_minus_layer": [
+   0.20231030097498948,
+   0.16027423212585828,
+   0.24993252147627543
+  ],
+  "late_criterion_a": false,
+  "median_FN_margin": -7.109375,
+  "late_criterion_b": true,
+  "random_init_rate": 0.06846121237812633,
+  "random_init_CI": [
+   0.059222177014134236,
+   0.08344400249410401
+  ],
+  "random_note": "random-init CI separate from the trained CI"
+ },
+ "sensitivity_layers": {
+  "mid_s4": {
+   "layer": "mid_s4",
+   "verdict": "INCONCLUSIVE",
+   "R_enc": 0.3157234703970609,
+   "CI_enc": [
+    0.283020150883278,
+    0.36984874407691903
+   ],
+   "R_hu": 0.1578175780698036,
+   "CI_hu": [
+    0.068755786973716,
+    0.23247938320485761
+   ],
+   "represents": false,
+   "never": false,
+   "decoder_F_rate": 0.7365762328670341,
+   "decoder_minus_layer": [
+    0.4208527624699732,
+    0.35438877352831066,
+    0.5011920244041151
+   ],
+   "late_criterion_a": false,
+   "median_FN_margin": -7.109375,
+   "late_criterion_b": true,
+   "random_init_rate": 0.05883495831567048,
+   "random_init_CI": [
+    0.051502914060442315,
+    0.06996992291112152
+   ],
+   "random_note": "random-init CI separate from the trained CI"
+  }
+ }
+}

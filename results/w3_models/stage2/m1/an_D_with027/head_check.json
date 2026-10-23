@@ -1,0 +1,11 @@
+{
+ "interior_FN_voxels_sampled": 1253252,
+ "interior_FN_margin_median": -7.1875,
+ "interior_FN_margin_IQR": [
+  -11.25,
+  -3.6640625
+ ],
+ "share_FN_within_1_unit_below_0": 0.07055165282002343,
+ "share_FN_below_minus_2": 0.8631823448117378,
+ "interior_TP_margin_median": 5.328125
+}

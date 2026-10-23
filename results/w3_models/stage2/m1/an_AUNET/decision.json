@@ -1,0 +1,44 @@
+{
+ "arm": "W3S2_M1_AUNET",
+ "seed": 585921455,
+ "n_cases": 74,
+ "primary_layer": "mid",
+ "verdict_categories": [
+  "LOST LATE",
+  "REPRESENTED",
+  "NEVER REPRESENTED",
+  "INCONCLUSIVE"
+ ],
+ "primary": {
+  "layer": "mid",
+  "verdict": "LOST LATE",
+  "R_enc": 0.522051644265326,
+  "CI_enc": [
+   0.47161210740231807,
+   0.6236918536513425
+  ],
+  "R_hu": 0.170367908261836,
+  "CI_hu": [
+   0.06528929494476424,
+   0.2309722452508859
+  ],
+  "represents": true,
+  "never": false,
+  "decoder_F_rate": 0.761056983193801,
+  "decoder_minus_layer": [
+   0.23900533892847498,
+   0.15859136789482692,
+   0.28041882427004866
+  ],
+  "late_criterion_a": false,
+  "median_FN_margin": -3.234375,
+  "late_criterion_b": true,
+  "random_init_rate": 0.11026860834700958,
+  "random_init_CI": [
+   0.07110168915479598,
+   0.18363345568727202
+  ],
+  "random_note": "random-init CI separate from the trained CI"
+ },
+ "sensitivity_layers": {}
+}
