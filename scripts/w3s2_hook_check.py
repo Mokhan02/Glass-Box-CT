@@ -1,7 +1,7 @@
 """W3 Stage 2, first GPU session: real-case hook check for models A and D (results/w3_models/PREREG_stage2.md). STOP (non-zero exit) if any check fails.
 Checks per model, on real HCC cases with the trained checkpoints:
   1. SHAPES: the hooked tensors have the pre-registered channels / strides on a window centred on a real lesion (A: swinViT.layers2[0] output (1,192,12,12,12), hidden states 2 and 4, backbone.decoder1 (1,48,96,96,96); D: encoder stages 3/4/5 and decoder.stages[-1]; A U-Net: down_tr256[0], down_tr512[0], up_tr64).
-  2. PROPAGATION: an edit applied at the intervention tensor (A: layers2[0] output; D: encoder.stages[3] output) reaches BOTH consumers: the skip / hidden-state copy equals the edited tensor (A: hidden state 2 = LayerNorm(edited layers2[0] output); D: the encoder's returned skip 3 = edited stage 3 output exactly)
+  2. PROPAGATION: a channel-varying edit (seeded noise, 0.5 x std; a constant offset is invisible to LayerNorm / InstanceNorm) applied at the intervention tensor (A: layers2[0] output; D: encoder.stages[3] output) reaches BOTH consumers: the skip / hidden-state copy equals the edited tensor (A: hidden state 2 = LayerNorm(edited layers2[0] output); D: the encoder's returned skip 3 = edited stage 3 output exactly)
      AND the deeper path changes (A: hidden states 3 and 4; D: skip 4 and the first decoder stage), and the final logits change.
   3. TRAINED-CHECKPOINT SANITY: the unhooked pipeline reproduces Stage 1 on 3 fixed cases (the first 3 of the sorted cohort): lesion coverage within 1e-3 and identical detection flags (GPU non-determinism was measured at 3e-4).
 Model A (monai 0.9.0, numpy 1.26: venv_a) and model D (nnunetv2: venv_nnunet) need different interpreters, so the check runs once per model and the two result files are both required:
@@ -27,6 +27,11 @@ if repo_a:
 dev = torch.device("cuda"); R = {"checks": {}}; CASE = "HCC_004_414785"
 root = L.case_root("hcc", CASE, L.HCC_ROOT); ct = os.path.join(root, CASE, "ct.nii.gz"); seg = np.asarray(nib.load(os.path.join(root, CASE, "seg.nii.gz")).dataobj)
 ok_all = True
+
+
+def perturb(out):
+    """Channel-varying edit (fixed seed, 0.5 x the tensor's std). A constant offset would be a bad test: LayerNorm (A) and InstanceNorm after a convolution (D) are invariant to it."""
+    g = torch.Generator(device=out.device); g.manual_seed(0); return out + 0.5 * out.std() * torch.randn(out.shape, device=out.device, generator=g)
 
 
 def rec(name, ok, detail):
@@ -57,7 +62,7 @@ if RUN == "A":
 
     mA = load_universal("swinunetr", swin_w); caps = {}; mode = {"offset": None}
     sw = mA.backbone.swinViT
-    sw.layers2[0].register_forward_hook(lambda m, a, out: (caps.__setitem__("x2", out.detach().clone()) if mode["offset"] is None else None) or (out + mode["offset"] if mode["offset"] is not None else None))
+    sw.layers2[0].register_forward_hook(lambda m, a, out: (caps.__setitem__("x2", out.detach().clone()) if mode["offset"] is None else None) or (perturb(out) if mode["offset"] is not None else None))
     sw.register_forward_hook(lambda m, a, out: caps.__setitem__("hs", [t.detach().clone() for t in out]))
     mA.backbone.decoder1.register_forward_hook(lambda m, a, out: caps.__setitem__("dec", out.detach().clone()))
     with torch.no_grad():
@@ -67,12 +72,12 @@ if RUN == "A":
         {"layers2[0]": list(base["x2"].shape), "hs2": list(base["hs"][2].shape), "hs4": list(base["hs"][4].shape), "decoder1": list(base["dec"].shape)})
     ln = F.layer_norm(base["x2"].permute(0, 2, 3, 4, 1), [192]).permute(0, 4, 1, 2, 3)
     rec("A hidden-state-2 = LayerNorm(layers2[0] output)", torch.allclose(ln, base["hs"][2], atol=1e-4), {"max_abs_diff": float((ln - base["hs"][2]).abs().max())})
-    mode["offset"] = 1.0
+    mode["offset"] = True
     with torch.no_grad():
         ed_logits = mA(win)
-    hs_ed = caps["hs"]; ln_ed = F.layer_norm((base["x2"] + 1.0).permute(0, 2, 3, 4, 1), [192]).permute(0, 4, 1, 2, 3)
+    hs_ed = caps["hs"]; ln_ed = F.layer_norm(perturb(base["x2"]).permute(0, 2, 3, 4, 1), [192]).permute(0, 4, 1, 2, 3)
     skip_ok = torch.allclose(hs_ed[2], ln_ed, atol=1e-4); deeper = [float((hs_ed[i] - base["hs"][i]).abs().max()) for i in (3, 4)]; logit_change = float((ed_logits - base_logits).abs().max())
-    rec("A propagation (skip copy AND deeper path)", skip_ok and min(deeper) > 1e-3 and logit_change > 1e-3, {"hs2_equals_LN(edited)": bool(skip_ok), "hs3_hs4_max_abs_change": deeper, "logit_max_abs_change": logit_change})
+    rec("A propagation (skip copy AND deeper path)", skip_ok and min(deeper) > 1e-2 and logit_change > 1e-2, {"hs2_equals_LN(edited)": bool(skip_ok), "hs3_hs4_max_abs_change": deeper, "logit_max_abs_change": logit_change})
     mode["offset"] = None; del mA
     mU = load_universal("unet", unet_w); cu = {}
     mU.backbone.down_tr256.register_forward_hook(lambda m, a, out: cu.__setitem__("d256", tuple(out[0].shape))); mU.backbone.down_tr512.register_forward_hook(lambda m, a, out: cu.__setitem__("d512", tuple(out[0].shape)))
@@ -91,7 +96,7 @@ if RUN == "D":
     z = [int(round(f * n)) for f, n in zip(frac[::-1], data.shape[1:])]; lo = [max(0, min(zc - p // 2, n - p)) for zc, p, n in zip(z, ps, data.shape[1:])]
     patch = torch.from_numpy(np.ascontiguousarray(data[:, lo[0]:lo[0] + ps[0], lo[1]:lo[1] + ps[1], lo[2]:lo[2] + ps[2]])).float()[None].to(dev)
     cd = {}; dmode = {"offset": None}
-    net.encoder.stages[3].register_forward_hook(lambda m, a, out: (out + dmode["offset"]) if dmode["offset"] is not None else None)
+    net.encoder.stages[3].register_forward_hook(lambda m, a, out: perturb(out) if dmode["offset"] is not None else None)
     for i in (3, 4, 5):
         net.encoder.stages[i].register_forward_hook(lambda m, a, out, i=i: cd.__setitem__(f"s{i}", tuple(out.shape)))
     net.decoder.stages[-1].register_forward_hook(lambda m, a, out: cd.__setitem__("dec", tuple(out.shape))); net.decoder.stages[0].register_forward_hook(lambda m, a, out: cd.__setitem__("dec0", out.detach().clone()))
@@ -100,12 +105,12 @@ if RUN == "D":
         y0 = net(patch)
     y0 = y0[0] if isinstance(y0, (list, tuple)) else y0; b_skips, b_dec0 = cd["skips"], cd["dec0"]
     rec("D shapes", cd["s3"] == (1, 256, 16, 16, 16) and cd["s4"] == (1, 320, 8, 8, 8) and cd["s5"] == (1, 320, 4, 4, 4) and cd["dec"] == (1, 32, 128, 128, 128), {k: list(v) for k, v in cd.items() if isinstance(v, tuple)})
-    dmode["offset"] = 1.0
+    dmode["offset"] = True
     with torch.no_grad():
         y1 = net(patch)
     y1 = y1[0] if isinstance(y1, (list, tuple)) else y1; e_skips = cd["skips"]
-    skip3_ok = torch.allclose(e_skips[3], b_skips[3] + 1.0, atol=1e-5); deeper = [float((e_skips[i] - b_skips[i]).abs().max()) for i in (4, 5)]; d0 = float((cd["dec0"] - b_dec0).abs().max()); lc = float((y1 - y0).abs().max())
-    rec("D propagation (skip 3 AND deeper path)", skip3_ok and min(deeper) > 1e-3 and d0 > 1e-3 and lc > 1e-3, {"skip3_equals_edited_stage3": bool(skip3_ok), "skip4_skip5_max_abs_change": deeper, "first_decoder_stage_change": d0, "logit_max_abs_change": lc})
+    skip3_ok = torch.allclose(e_skips[3], perturb(b_skips[3]), atol=1e-5); deeper = [float((e_skips[i] - b_skips[i]).abs().max()) for i in (4, 5)]; d0 = float((cd["dec0"] - b_dec0).abs().max()); lc = float((y1 - y0).abs().max())
+    rec("D propagation (skip 3 AND deeper path)", skip3_ok and min(deeper) > 1e-2 and d0 > 1e-2 and lc > 1e-2, {"skip3_equals_edited_stage3": bool(skip3_ok), "skip4_skip5_max_abs_change": deeper, "first_decoder_stage_change": d0, "logit_max_abs_change": lc})
     dmode["offset"] = None
 
 # ---------------- trained-checkpoint sanity: unhooked output reproduces Stage 1 on 3 cases ----------------
@@ -127,7 +132,7 @@ for fam, csvp, runner in (("A", f"{stage1}/A_swin_hcc/w3_lesions_A_swin_hcc.csv"
             if not os.path.lexists(dst):
                 os.symlink(os.path.join(L.HCC_ROOT, c, "ct.nii.gz"), dst)
             lists.append([dst])
-        pred.predict_from_files(lists, [os.path.join(outp, c) for c in cases], save_probabilities=False, overwrite=True, num_processes_preprocessing=2, num_processes_segmentation_export=2)
+        subprocess.run(["nnUNetv2_predict", "-i", ind, "-o", outp, "-d", "3", "-c", "3d_fullres", "-tr", "nnUNetTrainerW3Seed", "-f", "0", "-chk", "checkpoint_final.pth"], check=True, capture_output=True)      # the Stage 1 command (a library call would spawn workers that re-import this script)
         for c in cases:
             lab = np.asarray(nib.load(os.path.join(outp, f"{c}.nii.gz")).dataobj); r_, _ = L.lesion_rows("hcc", c, L.case_root("hcc", c, L.HCC_ROOT), table, {"D_nnunet": lab == 2}); rows += [r for r in r_]
         key = lambda r: ("D_nnunet", r["case"], str(r["rank"]))      # noqa: E731

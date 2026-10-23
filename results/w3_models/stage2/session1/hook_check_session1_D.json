@@ -1,0 +1,56 @@
+{
+ "checks": {
+  "D shapes": {
+   "pass": true,
+   "s3": [
+    1,
+    256,
+    16,
+    16,
+    16
+   ],
+   "s4": [
+    1,
+    320,
+    8,
+    8,
+    8
+   ],
+   "s5": [
+    1,
+    320,
+    4,
+    4,
+    4
+   ],
+   "dec": [
+    1,
+    32,
+    128,
+    128,
+    128
+   ]
+  },
+  "D propagation (skip 3 AND deeper path)": {
+   "pass": true,
+   "skip3_equals_edited_stage3": true,
+   "skip4_skip5_max_abs_change": [
+    0.08977776765823364,
+    0.03726077079772949
+   ],
+   "first_decoder_stage_change": 0.0495104044675827,
+   "logit_max_abs_change": 7.241847991943359
+  },
+  "D unhooked output reproduces Stage 1 on 3 cases": {
+   "pass": true,
+   "cases": [
+    "HCC_004_414785",
+    "HCC_005_936548",
+    "HCC_009_210975"
+   ],
+   "n_lesions": 4,
+   "max_abs_coverage_diff": 3.999999999999837e-05
+  }
+ },
+ "all_pass": true
+}

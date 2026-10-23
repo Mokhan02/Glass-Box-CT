@@ -27,3 +27,9 @@ def test_roi_is_liver_plus_tumour_dilated_10mm_in_mm():
 def test_window_origins_flush_and_overlap():
     o = T.window_origins((100, 40, 96), (96, 96, 96), 0.5); assert (0, 0, 0) in o and any(a == 4 for a, _, _ in o)       # 100 > 96: starts 0 and 4 (flush), the small axes use one window
     g = T.window_origins((300,) * 3, (128,) * 3, 0.3); assert max(a for a, _, _ in g) == 300 - 128 and len({a for a, _, _ in g}) >= 3
+
+
+def test_hu14_subsampling_is_exact_for_8_voxel_cells_and_close_for_16():
+    rng = np.random.default_rng(0); L = np.zeros((70, 70, 70), np.int16); L[5:65, 5:65, 5:65] = 1; hu = rng.normal(60, 20, L.shape).astype(np.float32); st = T.GridStats(L, np.zeros(L.shape, bool), hu, (1.0, 1.0, 1.0)); xyz = np.array([[30, 30, 30]])
+    f8 = st.hu14(xyz, np.array([8, 8, 8])); lo, hi = 26, 34; exact = np.percentile(hu[lo:hi, lo:hi, lo:hi], [5, 25, 50, 75, 95]); assert np.allclose(f8[0, 2:7], exact, atol=1e-4)
+    f16 = st.hu14(xyz, np.array([16, 16, 16])); ex16 = np.percentile(hu[22:38, 22:38, 22:38], [5, 25, 50, 75, 95]); assert np.abs(f16[0, 2:7] - ex16).max() < 4.0          # 2x subsample of a 16^3 cell: sampling noise only

@@ -43,13 +43,14 @@ class GridStats:
         return {"is_tum": is_t, "is_liv": is_l, "cov_tum": ct, "cov_liv": cl, "pred_cov": pc, "edt": self.edt[c[:, 0], c[:, 1], c[:, 2]], "hu14": self.hu14(xyz, cell)}
 
     def hu14(self, xyz, cell):
-        """Cell and 3x-cell cube: mean, std, p5, p25, p50, p75, p95 of HU (the VISTA PREREG feature set)."""
-        S = self.shape; hf = np.zeros((len(xyz), 14), np.float32)
+        """Cell and 3x-cell cube: mean, std (exact, from integral images), p5, p25, p50, p75, p95 of HU (the VISTA PREREG feature set). The percentiles are taken over a regular subsample of every `cell // 8`-th voxel along each axis
+        (at most 8 samples per axis in the cell and 24 in the cube): identical to the exact percentiles for 8-voxel cells (model A, VISTA), an 2x subsample for 16-voxel cells (model D), which cuts the cost of the per-token percentile loop that dominated D's extraction (98 of 218 s per case)."""
+        S = self.shape; hf = np.zeros((len(xyz), 14), np.float32); sub = np.maximum(np.asarray(cell) // 8, 1)
         for scale, off in ((1, 0), (3, 7)):
             size = cell * scale; half = size // 2; lo = np.clip(xyz - half, 0, S); hi = np.clip(xyz + (size - half), 0, S); n = np.maximum(box_sums(self.II["one"], lo, hi), 1)
             m = box_sums(self.Ihu1, lo, hi) / n; v = box_sums(self.Ihu2, lo, hi) / n - m ** 2; hf[:, off] = m; hf[:, off + 1] = np.sqrt(np.maximum(v, 0))
             for k, (a, b) in enumerate(zip(lo, hi)):
-                hf[k, off + 2:off + 7] = np.percentile(self.hu[a[0]:b[0], a[1]:b[1], a[2]:b[2]], [5, 25, 50, 75, 95])
+                hf[k, off + 2:off + 7] = np.percentile(self.hu[a[0]:b[0]:sub[0], a[1]:b[1]:sub[1], a[2]:b[2]:sub[2]], [5, 25, 50, 75, 95])
         return hf
 
 

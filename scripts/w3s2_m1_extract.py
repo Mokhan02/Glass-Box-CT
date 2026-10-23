@@ -23,8 +23,11 @@ from glassbox.seg import w3s2 as T  # noqa: E402
 
 fam, outdir = sys.argv[1:3]; rest = [a for a in sys.argv[3:]]
 limit = int(rest[rest.index("--limit") + 1]) if "--limit" in rest else None; only = rest[rest.index("--cases") + 1:] if "--cases" in rest else None
-pos = [a for a in rest if not a.startswith("--") and a not in (only or []) and a != (str(limit) if limit else None)]
+shard = rest[rest.index("--shard") + 1] if "--shard" in rest else None
+pos = [a for a in rest if not a.startswith("--") and a not in (only or []) and a != (str(limit) if limit else None) and a != shard]
 table = L.lesion_table("hcc", include_excluded=True); cases = sorted({k[0] for k in table}); cases = only or cases[:limit]
+if "--shard" in rest:      # "--shard i/n": every n-th case starting at i (parallel processes on one GPU; outputs are per case, so shards never overlap)
+    si, sn = (int(v) for v in rest[rest.index("--shard") + 1].split("/")); cases = cases[si::sn]
 os.makedirs(os.path.join(outdir, "tokens"), exist_ok=True); os.makedirs(os.path.join(outdir, "tmp_labels"), exist_ok=True); dev = torch.device("cuda")
 
 
@@ -104,7 +107,9 @@ if fam in ("A", "AUNET"):
     recs = {k: mk(n) for k, n in nets.items()}
     if fam == "A":
         for k, n in nets.items():                 # hidden states come from the swinViT return value
-            n.backbone.swinViT.register_forward_hook(lambda m, a, o, r=recs[k]: (r.caps.__setitem__("hs2", o[2]), r.caps.__setitem__("hs4", o[4])))
+            def _hs(m, a, o, r=recs[k]):
+                r.caps["hs2"], r.caps["hs4"] = o[2], o[4]          # must return None: a forward hook that returns a value REPLACES the module output
+            n.backbone.swinViT.register_forward_hook(_hs)
     cells = {k: (v[1] * v[2],) * 3 for k, v in layers.items()}
     args = types.SimpleNamespace(log_name=os.path.join(outdir, "pp_log"))
     for ci, case in enumerate(cases, 1):
@@ -162,7 +167,7 @@ else:
         with torch.no_grad():
             lg = pred_.predict_logits_from_preprocessed_data(torch.from_numpy(data)).float().numpy()
         pred = lg.argmax(0) == 2; margin = lg[2] - np.maximum(lg[0], lg[1]); roi = T.roi_mask(Lmap, spacing); st = {"stats": T.GridStats(Lmap, pred, hu, spacing), "spacing": spacing}
-        xp, rev = pad_nd_image(torch.from_numpy(data), ps, "constant", {"value": 0}, True, None); pb = [s.start for s in rev[1:]]; slicers = pred_._internal_get_sliding_window_slicer(tuple(xp.shape[1:]))
+        xp, rev = pad_nd_image(torch.from_numpy(data), ps, "constant", {"value": 0}, True, None); pb = [s.start for s in rev[1:]]; slicers = pred_._internal_get_sliding_window_slicers(tuple(xp.shape[1:]))
         xyz_by = {n: [] for n in layers}; tok = {k: {n: [] for n in layers} for k in nets}
         for sl in slicers:
             o = [s.start for s in sl[1:]]; lo = np.maximum(np.array(o) - pb, 0); hi = np.minimum(np.array(o) - pb + ps, Z)

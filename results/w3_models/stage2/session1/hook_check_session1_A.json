@@ -1,0 +1,83 @@
+{
+ "checks": {
+  "A shapes": {
+   "pass": true,
+   "layers2[0]": [
+    1,
+    192,
+    12,
+    12,
+    12
+   ],
+   "hs2": [
+    1,
+    192,
+    12,
+    12,
+    12
+   ],
+   "hs4": [
+    1,
+    768,
+    3,
+    3,
+    3
+   ],
+   "decoder1": [
+    1,
+    48,
+    96,
+    96,
+    96
+   ]
+  },
+  "A hidden-state-2 = LayerNorm(layers2[0] output)": {
+   "pass": true,
+   "max_abs_diff": 0.0
+  },
+  "A propagation (skip copy AND deeper path)": {
+   "pass": true,
+   "hs2_equals_LN(edited)": true,
+   "hs3_hs4_max_abs_change": [
+    1.139075517654419,
+    0.9968996047973633
+   ],
+   "logit_max_abs_change": 22.357404708862305
+  },
+  "A U-Net shapes": {
+   "pass": true,
+   "d256": [
+    1,
+    256,
+    12,
+    12,
+    12
+   ],
+   "d512": [
+    1,
+    512,
+    12,
+    12,
+    12
+   ],
+   "u64": [
+    1,
+    64,
+    96,
+    96,
+    96
+   ]
+  },
+  "A unhooked output reproduces Stage 1 on 3 cases": {
+   "pass": true,
+   "cases": [
+    "HCC_004_414785",
+    "HCC_005_936548",
+    "HCC_009_210975"
+   ],
+   "n_lesions": 4,
+   "max_abs_coverage_diff": 3.0000000000030003e-05
+  }
+ },
+ "all_pass": true
+}

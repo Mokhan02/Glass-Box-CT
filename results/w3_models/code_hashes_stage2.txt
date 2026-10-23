@@ -12,3 +12,12 @@ tests/test_w3s2_m1_analyze.py  git-blob-sha1 bb470e2967d2f6339a0da0cd4b11dc2d136
 glassbox/seg/w3_lib.py  git-blob-sha1 e8c7d8064d9d5711231ebedc9ea8182b2985b046  sha256 89325bace0bb8a87bb815e0edab134274b946658996646fbd2ece49a6a53c8fd
 scripts/w3_modelA_run.py  git-blob-sha1 75fbd9fda35f4fbc1df6fa962f1885d6a11c63a5  sha256 dad501b7db824575b4a376c3e231c96fd6fff2e66d75ae91bbd3d7e6eedfea32
 model A repo commit 43c12399cc98a40f447342a8dc2cecae5edae84c; swin sha256 cde35d9c...; unet sha256 bfa7482e...; nnU-Net fold-0 checkpoint_final sha256 prefix 4c79123fdf454c77
+
+# Session 1 amendments (Deviation 8): files as committed with the M1 model A results; the code that produced the model A and model D tokens is the hashed version of these files (model A's extraction ran on the version before the hu14 subsample change, which is identical for 8-voxel cells)
+glassbox/seg/w3s2.py  git-blob-sha1 60d7f4c942b6c636271346807bd3d327fb3ed314  sha256 b651cfaed558c69c6971130e3d0fdae033f06e814f79f23c214db697094aedc8
+scripts/w3s2_m1_extract.py  git-blob-sha1 c63336bade5580213c77869ac75425582744771b  sha256 6dbf7b507775220617345460667661b51da8397979219d8ed825fe0f89ef9957
+scripts/w3s2_hook_check.py  git-blob-sha1 8ed54b1b4de4e74493ed113e3fd383d893b1cd09  sha256 892dfb6702b818e7f6db7baef30893190fa26b5773d77bf36dcd36f0da640488
+scripts/w3s2_m1_analyze.py  git-blob-sha1 51b7466c8fdefd4425d99274786f778849b97202  sha256 28a8edb6954bbff5655f3b9bf459d5dcc56e2a54c710b839ba43ccebe57d60ea
+scripts/w3s2_m1_report.py  git-blob-sha1 46134d5ff9d849df25ba37407ec455608d101081  sha256 124cb6aa80fba9b014d46d25a62394f69cab2de8e0532f230b251246809f9187
+scripts/w3s2_session1.sh  git-blob-sha1 729dd65e72e91c6a0353712135e6872103cb60fd  sha256 54d7e8b67e3eebe6ac872ad5ffe0fd3b7a51145709b0f64712d11d55a137026e
+tests/test_w3s2.py  git-blob-sha1 c10b10513a89539b604c5f38f064898043e5a6c9  sha256 43cc4dcd6510fd9689c78b247bbfb1edd513c06ab9f4611ac34dcdb22583aca8

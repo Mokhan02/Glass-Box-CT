@@ -1,0 +1,44 @@
+{
+ "arm": "vista",
+ "seed": 0,
+ "n_cases": 103,
+ "primary_layer": "mid",
+ "verdict_categories": [
+  "LOST LATE",
+  "REPRESENTED",
+  "NEVER REPRESENTED",
+  "INCONCLUSIVE"
+ ],
+ "primary": {
+  "layer": "mid",
+  "verdict": "LOST LATE",
+  "R_enc": 0.5872964433282022,
+  "CI_enc": [
+   0.5512690614638176,
+   0.656007789308348
+  ],
+  "R_hu": 0.11380944664992303,
+  "CI_hu": [
+   0.04967108852316145,
+   0.14606018813541133
+  ],
+  "represents": true,
+  "never": false,
+  "decoder_F_rate": 0.757737178967836,
+  "decoder_minus_layer": [
+   0.1704407356396338,
+   0.1366743067032803,
+   0.20007968668063095
+  ],
+  "late_criterion_a": false,
+  "median_FN_margin": -2.58984375,
+  "late_criterion_b": true,
+  "random_init_rate": NaN,
+  "random_init_CI": [
+   NaN,
+   NaN
+  ],
+  "random_note": "random-init control not available (empty FN group)"
+ },
+ "sensitivity_layers": {}
+}
