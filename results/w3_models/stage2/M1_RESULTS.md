@@ -2,6 +2,13 @@
 
 Cohort: W3 primary, 74 cases / 85 lesions after Amendment 3 (HCC_027 only in a sensitivity row). Probe = VISTA-3D voxel probe unchanged (5-fold GroupKFold by patient, `StandardScaler` + L2 logistic regression C = 0.1, balanced, training sets capped at 200 tokens per (patient, group), threshold = 95th percentile of the liver-token scores of the training folds). Numbers are the detection rate of interior false-negative tumour tokens (tokens the model's own prediction missed, more than 2 mm inside the GT tumour) at 95% specificity, with patient-level bootstrap 95% CIs (per-experiment seed = SHA-256 of the arm name). Analysis: `scripts/w3s2_m1_analyze.py` (code hashes in `code_hashes_stage2.txt`; extraction and probe-table reproduction as logged in `results/w3_models/DEVIATIONS.md` entry 8).
 
+## How to read M1 (write-up wording; the pre-registered verdicts above are unchanged)
+The pattern is **"represented in late features, not decoded by the head"**: in every model the decoder_F probe detects the missed tumour tokens at least as well as the mid-layer probe (decoder_F >= mid: A +0.001, D +0.202, U-Net +0.239), so the "lost late" verdict rests on pre-registered criterion (b) only (the median head margin of the missed voxels is far below the decision boundary), never on criterion (a) (a late drop in probe detection).
+- **Model A:** strong at mid (0.802 [0.724, 0.855] vs raw-HU 0.165 and random-init 0.063) and equally strong at decoder_F (0.802).
+- **Model D:** **borderline at mid** (0.534; the CI [0.475, 0.613] extends below 0.50, and the hook sensitivity at stage 4 is INCONCLUSIVE, 0.316), **strong at decoder_F** (0.737 [0.650, 0.830] vs raw-HU 0.156 and random-init 0.096).
+- **A U-Net (sensitivity):** borderline at mid (0.522 [0.472, 0.624]), strong at decoder_F (0.761).
+The probe shows linear separability of the missed tissue, not that the head or the network uses it; M2 tests use.
+
 ## Model A (CLIP-Driven Universal Model, Swin UNETR, shipped pipeline): VERDICT = LOST LATE
 Hook = `swinViT.layers2[0]` output (192 channels, stride 8, 12 mm tokens; the same tensor M2 will edit; propagation to the skip copy and the deeper layers verified on a real case before extraction). Tokens: 106,892 interior-FN tokens from 73 patients.
 
