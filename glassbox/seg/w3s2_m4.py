@@ -81,9 +81,9 @@ def nested_threshold(cases, maps, fold, t_grid=T_GRID, cache=None):
     return chosen, per_fold
 
 
-def m4_run(cases, maps, group, B=1000, arm="M4"):
+def m4_run(cases, maps, group, B=1000, arm="M4", t_grid=T_GRID):
     """Policies default (t = 0) and shifted (nested threshold); pooled tables; paired case-level bootstrap of the primary quantities (detection-gap change, change of |median signed error|, over-estimation change)."""
-    fold = fold_of_cases(cases); chosen, per_fold = nested_threshold(cases, maps, fold); d0 = {c: maps[c].at(0.0) for c in cases}; ds = {c: maps[c].at(chosen[c]) for c in cases}
+    fold = fold_of_cases(cases); chosen, per_fold = nested_threshold(cases, maps, fold, t_grid=t_grid); d0 = {c: maps[c].at(0.0) for c in cases}; ds = {c: maps[c].at(chosen[c]) for c in cases}
     tab = {"default": policy_table(cases, d0, group), "shifted": policy_table(cases, ds, group)}; rng = np.random.default_rng(arm_seed(arm)); n = len(cases); draws = {"gap": [], "absbias": [], "over": [], "bias_d": [], "bias_s": []}
     for row in rng.integers(0, n, (B, n)):
         cs = [cases[i] for i in row]; a = policy_table(cs, {c: d0[c] for c in set(cs)}, group); b = policy_table(cs, {c: ds[c] for c in set(cs)}, group)

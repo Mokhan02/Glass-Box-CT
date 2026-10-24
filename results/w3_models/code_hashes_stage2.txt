@@ -45,3 +45,7 @@ glassbox/seg/w3s2_engines.py  git-blob-sha1 2e393959694ab59ef4a74a68492fe7a514ae
 
 # M3 smoke-test checker (2026-10-24), committed before the M3 session
 scripts/w3s2_m3_smoke_check.py  git-blob-sha1 a982810432c527d5b52d9f5ea9f1366cdcb34d8c  sha256 6c593377c0dfc11ecd189d6b304ebbd2496863febd8c921005c7199300f690ff
+
+# M4 extended-grid support (2026-10-24): t_grid parameter / --grid-min, defaults unchanged
+glassbox/seg/w3s2_m4.py  sha256 a4e86c2dfc9a564f22cc8b7147fed9cbbdf5702829b1d1df9e8bd87d5fbfa6a7
+scripts/w3s2_m4_analyze.py  sha256 191acbc3cf727802185535287b3be514e55aecdc1f5c31f8491d29de298fff91

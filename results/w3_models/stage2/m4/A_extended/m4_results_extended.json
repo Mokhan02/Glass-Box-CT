@@ -1,0 +1,82 @@
+{
+ "tables": {
+  "default": {
+   "n_cases_with_target": 74,
+   "median_signed_error": -0.3144122838355636,
+   "mean_abs_error": 0.46177574541762306,
+   "over_20pct": 0.0,
+   "abs_ge_20pct": 0.6486486486486487,
+   "mean_dice": 0.373625473801062,
+   "detection_dark": 0.8421052631578947,
+   "detection_bright": 0.25,
+   "detection_gap": 0.5921052631578947
+  },
+  "shifted": {
+   "n_cases_with_target": 74,
+   "median_signed_error": -0.012806852534112513,
+   "mean_abs_error": 0.2704927426574595,
+   "over_20pct": 0.12162162162162163,
+   "abs_ge_20pct": 0.3783783783783784,
+   "mean_dice": 0.5581238135640553,
+   "detection_dark": 0.9649122807017544,
+   "detection_bright": 0.7142857142857143,
+   "detection_gap": 0.2506265664160401
+  }
+ },
+ "paired": {
+  "gap_change": [
+   -0.3414786967418546,
+   -0.5586224489795919,
+   -0.14561207583935945
+  ],
+  "abs_bias_change": [
+   -0.30160543130145107,
+   -0.35442900746178596,
+   -0.2077642918271313
+  ],
+  "over20_change": [
+   0.12162162162162163,
+   0.05405405405405406,
+   0.20270270270270271
+  ]
+ },
+ "chosen_thresholds_per_fold": {
+  "0": -7.5,
+  "1": -7.5,
+  "2": -7.5,
+  "3": -6.5,
+  "4": -7.5
+ },
+ "gap_criterion_met": true,
+ "bias_criterion_met": true,
+ "verdict": "FIX GENERALISES",
+ "over_estimation_cost_flag": true,
+ "grid": [
+  -0.5,
+  -1.0,
+  -1.5,
+  -2.0,
+  -2.5,
+  -3.0,
+  -3.5,
+  -4.0,
+  -4.5,
+  -5.0,
+  -5.5,
+  -6.0,
+  -6.5,
+  -7.0,
+  -7.5,
+  -8.0,
+  -8.5,
+  -9.0,
+  -9.5,
+  -10.0
+ ],
+ "exploratory_extended_grid": true,
+ "model": "A",
+ "n_cases": 74,
+ "n_lesions": 85,
+ "diameter_mismatches_gt_25pct": [],
+ "n_mismatch": 0
+}
