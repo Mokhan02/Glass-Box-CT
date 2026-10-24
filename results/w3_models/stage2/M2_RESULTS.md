@@ -17,4 +17,35 @@ Fraction of baseline-detected lesions still detected: LEACE 83.6%, random 100%, 
 
 **Interpretation note (labelled as interpretation; NOT a rule and no rule was changed):** the flag means the cross-fitted erasure left some linear tumour-vs-liver signal in the held-out tokens (AUROC 0.586 rather than 0.50). Residual signal means the erasure was incomplete, and an incomplete erasure can only leave more of the concept available to the network, so it can only shrink the measured effect on lesion Dice. Read this way, the -0.124 is a conservative estimate of what a complete erasure of the direction would cost, not an inflated one. This reading is an inference about the direction of the bias, not something the experiment tested; the pre-registered classification stands: model A is reported as USED, flagged "not testing necessity", and does not count toward "meets M2" in the cross-model rule.
 
-## Model D: PENDING (running; reported with the same rules, the same flag logic and the same note if the flag applies)
+## Model D (nnU-Net, mirroring on): USED, no flags: MEETS M2
+55 detected lesions in 51 cases.
+| change in lesion Dice (hooked minus base) | mean [95% CI] |
+|---|---|
+| **LEACE (tumour-vs-liver direction)** | **-0.121 [-0.150, -0.095]** |
+| random direction | -0.001 [-0.003, +0.000] |
+| local-HU LEACE | +0.006 [-0.028, +0.033] |
+| LEACE minus random | -0.120 [-0.150, -0.093] |
+| LEACE minus HU | -0.127 [-0.163, -0.094] |
+Fraction of baseline-detected lesions still detected: LEACE 85.5%, random 100%, HU 94.5%. Mean coverage change: LEACE -0.125, random -0.001, HU +0.008. **Liver guard:** mean change in liver Dice under LEACE -0.0028 [-0.0057, -0.0003] (far inside the -0.05 limit). **Probe check:** post-erasure AUROC 0.535 [0.500, 0.584] (before erasure 0.897 [0.869, 0.921]): the CI upper bound 0.584 <= 0.60, so the probe check passes ("near chance"). Verdict USED, not too blunt, probe check passed: **meets M2**. The base pass reproduces Stage 1 lesion coverage to <= 8e-5 over the 86 lesions with no detection-flag mismatch; the identity hook equals base exactly.
+
+## Sensitivity cohorts (same rule, same erasers; the probe check always uses the primary 74-case token set)
+| arm | verdict | LEACE change in lesion Dice | LEACE minus random | LEACE minus HU |
+|---|---|---|---|---|
+| A, with HCC_027 (56 lesions) | USED, flagged | -0.122 [-0.153, -0.093] | -0.120 [-0.151, -0.093] | -0.157 [-0.195, -0.120] |
+| A, excluding HCC_022 and HCC_043 (54 lesions) | USED, flagged | -0.125 [-0.156, -0.097] | -0.123 [-0.155, -0.095] | -0.164 [-0.203, -0.126] |
+| D, with HCC_027 (56 lesions) | USED, meets M2 | -0.119 [-0.146, -0.092] | -0.118 [-0.146, -0.093] | -0.126 [-0.160, -0.094] |
+| D, excluding the 6 flagged cases (52 lesions) | USED, meets M2 | -0.119 [-0.150, -0.094] | -0.118 [-0.149, -0.092] | -0.123 [-0.157, -0.092] |
+
+## M2 verdicts side by side, and the fixed cross-model reading (no rule changed)
+| | A | D |
+|---|---|---|
+| M1 | LOST LATE | LOST LATE |
+| M2 verdict | USED | USED |
+| lesion Dice change under LEACE | -0.124 [-0.155, -0.094] | -0.121 [-0.150, -0.095] |
+| random / HU control | -0.002 / +0.035 | -0.001 / +0.006 |
+| liver Dice change | -0.0001 | -0.0028 |
+| post-erasure probe AUROC [95% CI] | 0.586 [0.520, 0.666] | 0.535 [0.500, 0.584] |
+| flags | "not testing necessity" | none |
+| meets M2 (USED, not too blunt, probe check passed) | **no (flag)** | **yes** |
+- **Reading as pre-registered:** MECHANISM REPLICATES requires both models to meet M1 AND M2: not met, because A is flagged. The case that fits the PREREG's second category is **PARTIAL REPLICATION**: model D meets M1 and M2, model A meets M1 and shows the same USED effect but is flagged on the probe check.
+- **Descriptive:** the erasure costs both models almost exactly the same lesion Dice (-0.124 vs -0.121), is specific to the tumour direction (random and HU erasers do nothing), spares the liver, and leaves 84% (A) and 86% (D) of baseline-detected lesions detected. The A interpretation note above applies to the flag only; it does not change the classification. M3 (brightness counterfactual) and M4 (threshold-shift generality) are not yet run.
