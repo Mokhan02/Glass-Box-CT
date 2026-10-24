@@ -39,3 +39,6 @@ tests/test_w3s2_m2_m3_scripts.py  git-blob-sha1 0b3c28bd4699e1d8790633432281612c
 
 # PREREG_stage2 hash refreshed after the approved M4 addition (2026-10-23); the earlier PREREG line above is superseded
 results/w3_models/PREREG_stage2.md  git-blob-sha1 09ef5abf13b70728d0457cacf233eee0ead5e1a3  sha256 43c35609d2f3722327d838a2a1dd898f31589d0338486954658872bd67171612
+
+# Engine fix found in the M2 smoke test (2026-10-24): MONAI 0.9.0 images are plain tensors, so the original-grid inversion uses the dictionary-style meta (as the shipped save_results) instead of MetaTensor meta; hash of the file as run in the M2 cohort
+glassbox/seg/w3s2_engines.py  git-blob-sha1 2e393959694ab59ef4a74a68492fe7a514ae6bea  sha256 a86e61909cc6f4bf9abaa25409fc682440d1306f4fefbd38b5dc024912408c71

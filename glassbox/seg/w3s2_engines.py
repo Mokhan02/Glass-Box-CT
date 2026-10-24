@@ -76,16 +76,16 @@ class EngineA:
         self.args = type("A", (), {"log_name": os.path.join(scratch, "pp_log")})()
 
     def prepare(self, ct_path, label_path=None):
-        c = Ctx(); d = self.tf_img({"image": ct_path}); c.d_img = d["image"]; c.x = d["image"].unsqueeze(0).to(self.dev); c.Lmap = None
+        c = Ctx(); d = self.tf_img({"image": ct_path}); c.d = d; c.x = d["image"].unsqueeze(0).to(self.dev); c.Lmap = None
         if label_path is not None:
             dl = self.tf_lab({"image": ct_path, "label": label_path}); assert tuple(dl["image"].shape) == tuple(d["image"].shape), "image-only and image+label preprocessing disagree"; c.Lmap = dl["label"][0].numpy().round().astype(np.int16)
         c.grid_spacing = self.spacing; return c
 
     def _orig(self, ctx, mask):
-        from monai.data import MetaTensor
+        """Nearest-neighbour inversion to the original grid exactly as the shipped save_results (MONAI 0.9.0 dictionary-style meta: `image_meta_dict` and `image_transforms` travel in the dict; images here are plain tensors, not MetaTensors)."""
         from monai.transforms import Invertd
-        t = MetaTensor(self.torch.from_numpy(mask.astype(np.float32))[None], meta=ctx.d_img.meta, applied_operations=ctx.d_img.applied_operations)
-        return Invertd(keys="k", transform=self.tf_img, orig_keys="image", nearest_interp=True, to_tensor=True)({"k": t, "image": ctx.d_img})["k"].as_tensor()[0].numpy() > 0.5
+        dd = dict(ctx.d); dd["k"] = self.torch.from_numpy(mask.astype(np.float32))[None]
+        return Invertd(keys=["k"], transform=self.tf_img, orig_keys="image", nearest_interp=True, to_tensor=True)(dd)["k"][0].numpy() > 0.5
 
     def predict(self, ctx, eraser=None):
         from monai.inferers import sliding_window_inference
