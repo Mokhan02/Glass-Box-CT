@@ -1,0 +1,547 @@
+{
+ "base_vs_stage1": [
+  {
+   "case": "HCC_004_414785",
+   "rank": 1,
+   "abs_cov_diff": 3.0000000000030003e-05,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_005_936548",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_005_936548",
+   "rank": 2,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_009_210975",
+   "rank": 1,
+   "abs_cov_diff": 3.999999999998449e-05,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_012_311550",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_013_902874",
+   "rank": 1,
+   "abs_cov_diff": 4.999999999999449e-05,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_014_949588",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_017_372380",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_017_372380",
+   "rank": 2,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_018_350600",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_019_773068",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_020_409800",
+   "rank": 1,
+   "abs_cov_diff": 1.9999999999999185e-05,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_021_043762",
+   "rank": 1,
+   "abs_cov_diff": 2.0000000000020002e-05,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_022_228695",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_022_228695",
+   "rank": 2,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_023_800523",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_024_254376",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_025_534314",
+   "rank": 1,
+   "abs_cov_diff": 1.0000000000010001e-05,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_026_419034",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_027_967743",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_028_198668",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_028_198668",
+   "rank": 2,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_029_683080",
+   "rank": 1,
+   "abs_cov_diff": 2.0000000000006124e-05,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_031_552418",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_031_552418",
+   "rank": 2,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_032_522941",
+   "rank": 1,
+   "abs_cov_diff": 2.0000000000020002e-05,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_033_612153",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_034_704254",
+   "rank": 1,
+   "abs_cov_diff": 0.00012999999999996348,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_035_474044",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_036_158534",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_037_498894",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_038_354831",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_039_440665",
+   "rank": 1,
+   "abs_cov_diff": 3.0000000000002247e-05,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_040_953569",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_041_692758",
+   "rank": 1,
+   "abs_cov_diff": 1.0000000000010001e-05,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_041_692758",
+   "rank": 2,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_042_785120",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_043_848214",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_044_006910",
+   "rank": 1,
+   "abs_cov_diff": 0.00015999999999999348,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_045_719516",
+   "rank": 1,
+   "abs_cov_diff": 4.999999999999449e-05,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_046_819409",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_047_378313",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_049_849890",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_050_749732",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_051_502793",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_051_502793",
+   "rank": 2,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_052_425020",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_052_425020",
+   "rank": 2,
+   "abs_cov_diff": 0.00019999999999997797,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_053_504983",
+   "rank": 1,
+   "abs_cov_diff": 1.9999999999999185e-05,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_054_948648",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_055_287181",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_056_505211",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_057_698557",
+   "rank": 1,
+   "abs_cov_diff": 1.999999999996449e-05,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_057_698557",
+   "rank": 2,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_058_344861",
+   "rank": 1,
+   "abs_cov_diff": 7.00000000000145e-05,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_059_480478",
+   "rank": 1,
+   "abs_cov_diff": 2.0000000000020002e-05,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_060_617044",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_061_179170",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_062_338436",
+   "rank": 1,
+   "abs_cov_diff": 3.999999999992898e-05,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_063_661087",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_063_661087",
+   "rank": 2,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_064_212554",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_064_212554",
+   "rank": 2,
+   "abs_cov_diff": 0.000279999999999999,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_065_835113",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_066_201578",
+   "rank": 1,
+   "abs_cov_diff": 1.0000000000010001e-05,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_067_472967",
+   "rank": 1,
+   "abs_cov_diff": 1.9999999999992246e-05,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_069_743712",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_070_401358",
+   "rank": 1,
+   "abs_cov_diff": 9.99999999995449e-06,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_071_621596",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_072_979776",
+   "rank": 1,
+   "abs_cov_diff": 4.999999999999449e-05,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_073_517149",
+   "rank": 1,
+   "abs_cov_diff": 1.0000000000065512e-05,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_074_379020",
+   "rank": 1,
+   "abs_cov_diff": 4.999999999999449e-05,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_075_418794",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_076_084985",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_077_996191",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_078_958325",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_079_927214",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_080_216191",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_081_327663",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_083_703849",
+   "rank": 1,
+   "abs_cov_diff": 7.00000000000145e-05,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_084_948398",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_086_615027",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_087_075940",
+   "rank": 1,
+   "abs_cov_diff": 1.0000000000010001e-05,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_088_476473",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_090_076872",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  },
+  {
+   "case": "HCC_098_610748",
+   "rank": 1,
+   "abs_cov_diff": 0.0,
+   "flag_same": true
+  }
+ ],
+ "identity_vs_base": [
+  {
+   "case": "HCC_004_414785",
+   "rank": 1,
+   "abs_cov_diff": 0.0
+  },
+  {
+   "case": "HCC_005_936548",
+   "rank": 1,
+   "abs_cov_diff": 0.0
+  },
+  {
+   "case": "HCC_005_936548",
+   "rank": 2,
+   "abs_cov_diff": 0.0
+  },
+  {
+   "case": "HCC_009_210975",
+   "rank": 1,
+   "abs_cov_diff": 0.0
+  }
+ ],
+ "summary": {
+  "max_base_vs_stage1_cov_diff": 0.000279999999999999,
+  "detection_flag_mismatches": 0,
+  "max_identity_vs_base_cov_diff": 0.0
+ }
+}
