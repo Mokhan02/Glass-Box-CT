@@ -17,6 +17,10 @@ Fraction of baseline-detected lesions still detected: LEACE 83.6%, random 100%, 
 
 **Interpretation note (labelled as interpretation; NOT a rule and no rule was changed):** the flag means the cross-fitted erasure left some linear tumour-vs-liver signal in the held-out tokens (AUROC 0.586 rather than 0.50). Residual signal means the erasure was incomplete, and an incomplete erasure can only leave more of the concept available to the network, so it can only shrink the measured effect on lesion Dice. Read this way, the -0.124 is a conservative estimate of what a complete erasure of the direction would cost, not an inflated one. This reading is an inference about the direction of the bias, not something the experiment tested; the pre-registered classification stands: model A is reported as USED, flagged "not testing necessity", and does not count toward "meets M2" in the cross-model rule.
 
+**EXPLORATORY note (not a pre-registered test; no verdict depends on it):** in model A, erasing the LOCAL-HU direction (the cell-mean-HU concept) improved lesion Dice by +0.035 [+0.020, +0.052] and coverage by +0.033, with 98% of baseline-detected lesions still detected. This is consistent with the brightness hypothesis (removing brightness information from the tokens helps the model's handling of tumours that are brighter than the liver), but it was not tested as such: M2's controls were designed to show specificity of the tumour-vs-liver erasure, and the HU erasure is a control arm. In model D the same control did nothing (+0.006 [-0.028, +0.033]).
+
+**Scope of comparison:** these M2 numbers are reported separately and are NOT compared in magnitude with the VISTA-3D mechanism-B erasure (-0.33): that experiment used a different inference route (the class-26 automatic pass with prompts [1, 26] and a liver-ROI readout) and a different lesion-Dice definition context, so the sizes are not comparable.
+
 ## Model D (nnU-Net, mirroring on): USED, no flags: MEETS M2
 55 detected lesions in 51 cases.
 | change in lesion Dice (hooked minus base) | mean [95% CI] |
@@ -47,5 +51,5 @@ Fraction of baseline-detected lesions still detected: LEACE 85.5%, random 100%, 
 | post-erasure probe AUROC [95% CI] | 0.586 [0.520, 0.666] | 0.535 [0.500, 0.584] |
 | flags | "not testing necessity" | none |
 | meets M2 (USED, not too blunt, probe check passed) | **no (flag)** | **yes** |
-- **Reading as pre-registered:** MECHANISM REPLICATES requires both models to meet M1 AND M2: not met, because A is flagged. The case that fits the PREREG's second category is **PARTIAL REPLICATION**: model D meets M1 and M2, model A meets M1 and shows the same USED effect but is flagged on the probe check.
+- **Reading as pre-registered (confirmed by the researcher):** MECHANISM REPLICATES requires both models to meet M1 AND M2: not met, because A is flagged. The reading is **PARTIAL REPLICATION**: model D meets M1 and M2, model A meets M1 and shows the USED effect but is flagged on the probe check.
 - **Descriptive:** the erasure costs both models almost exactly the same lesion Dice (-0.124 vs -0.121), is specific to the tumour direction (random and HU erasers do nothing), spares the liver, and leaves 84% (A) and 86% (D) of baseline-detected lesions detected. The A interpretation note above applies to the flag only; it does not change the classification. M3 (brightness counterfactual) and M4 (threshold-shift generality) are not yet run.
