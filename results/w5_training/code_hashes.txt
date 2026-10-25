@@ -24,3 +24,9 @@ results/w5_training/PREREG.md  git-blob-sha1 ae2e1583242581fdcb5d5e82eb57e7c4cc6
 results/w5_training/ops/sham_smoke_then_train.sh  git-blob-sha1 f4558a0ee913615604e24bdf66205ceaeb81317b  sha256 f8e82500cd3991eea16f5d8abd3f6306775e21a0fcf1f73d209be61b584c4c08
 results/w5_training/smoke/smoke_Bright50.json  git-blob-sha1 d82077dac714c97dab13d255794875fc9118b09a  sha256 e443159326d614d049cf1c020897a684b8782074a73c7eba7a7aa0b390cec147
 results/w5_training/smoke/smoke_Sham50.json  git-blob-sha1 faab90d6361d413c51400c9287fa901a8dbc709d  sha256 452f0a4a41ee4a4775421619d2650176ba21a33406a96bec5b3a1b732a1d5085
+
+# W5 post-training pipeline and analysis (2026-10-25), committed before any W5 result
+scripts/w5_gate.py  git-blob-sha1 59636ef543c7256be2bfe9795119cecc87a09cb3  sha256 0203536a0f562388b38827c88b97fad49955a754184f2222ea52b0357d9248e6
+scripts/w5_post.sh  git-blob-sha1 9f7d55f85317f7a742ecafd62eacb5a86b52b40e  sha256 b6a7206e10d5ad56e0e2dfce5ffaf021533a55d1e113c1a7fd846ca2c20a7c2b
+scripts/w5_analyze.py  git-blob-sha1 8b24e7b6a9ae374f4c3370182a6af53d8d3a3142  sha256 e3f6673ae4543301eee276169b1b470b0b62ac2f7fadeba647bc2da2b67486f1
+tests/test_w5_analyze.py  git-blob-sha1 a85bfc76b07b510396d12f36933739837bd2d422  sha256 a83a66a0eb9ee363851448cfc2134f7ab70f736609846f69abac3250ddb010c0
