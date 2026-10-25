@@ -1,0 +1,6 @@
+# W5 code and PREREG hashes (2026-10-25), recorded before any W5 run
+results/w5_training/PREREG.md  git-blob-sha1 3433c12db407456e238d2a715b8d9a2a2251a6fc  sha256 737511b897151bfac05eb2a9968c53fe7945ec3565abec98eaa513ae8bf6104d
+scripts/w5_nnunet_trainer.py  git-blob-sha1 f022adb5226a8f7b67858e788058a1054168ed71  sha256 b747eeee104a0f84648b9a4e43949fe78070dec2361666f05343d12bd6b64ce1
+scripts/w5_aug_audit.py  git-blob-sha1 31fe0e767dbb51cf7eac87a5262581038ac4f745  sha256 c019888ca78e99a8ebd94e07c4fd243dab30fb1f35b296037d17d16c111a929d
+tests/test_w5_aug.py  git-blob-sha1 8bb78bbe4bfea49f007da72f965b5518e0b65582  sha256 48e48ddc0607ed66ec2c1f6f6b23e6957b7e2ccca5e3c6c84a9f283d4ab78146
+results/w5_training/aug_audit.json  git-blob-sha1 d087d738775b1106c59f9f545f2b77e689efe5fa  sha256 194fd7b58b972ada6470ca18d9b09216d072863b886ee8fab6140ca038405c5e

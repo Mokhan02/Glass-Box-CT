@@ -1,0 +1,103 @@
+{
+ "n_patches": 600,
+ "n_patches_with_tumour": 223,
+ "cases_in_train_split": 104,
+ "arms": {
+  "BRIGHT-50": {
+   "p": 0.5,
+   "range_HU": [
+    10.0,
+    60.0
+   ],
+   "patches_with_tumour": 223,
+   "patches_edited": 112,
+   "edit_rate_among_tumour_patches": 0.5022421524663677,
+   "edit_rate_all_patches": 0.18666666666666668,
+   "edited_components": 422,
+   "delta_mean": 34.97471535591025,
+   "delta_min": 10.365684726869969,
+   "delta_max": 59.959965913922915,
+   "delta_quantiles_5_50_95": [
+    13.270358735725223,
+    33.842264811656605,
+    57.847704603701274
+   ],
+   "liver_source": {
+    "local": 422,
+    "patch": 0
+   },
+   "components_skipped_no_liver": 0,
+   "realised_minus_target_HU_mean": -0.8334320936157805,
+   "realised_minus_target_HU_abs_p95": 3.649994659423826,
+   "share_realised_sign_as_intended": 1.0
+  },
+  "SHAM-50": {
+   "p": 0.5,
+   "range_HU": [
+    -60.0,
+    -10.0
+   ],
+   "patches_with_tumour": 223,
+   "patches_edited": 122,
+   "edit_rate_among_tumour_patches": 0.547085201793722,
+   "edit_rate_all_patches": 0.20333333333333334,
+   "edited_components": 559,
+   "delta_mean": -34.76685395077198,
+   "delta_min": -59.91108181612592,
+   "delta_max": -10.02243496511148,
+   "delta_quantiles_5_50_95": [
+    -56.73200667886778,
+    -35.21033473250093,
+    -12.679464131087833
+   ],
+   "liver_source": {
+    "local": 559,
+    "patch": 0
+   },
+   "components_skipped_no_liver": 0,
+   "realised_minus_target_HU_mean": 0.05185008176963956,
+   "realised_minus_target_HU_abs_p95": 0.25880374908447357,
+   "share_realised_sign_as_intended": 1.0
+  },
+  "BRIGHT-25": {
+   "p": 0.25,
+   "range_HU": [
+    10.0,
+    60.0
+   ],
+   "patches_with_tumour": 223,
+   "patches_edited": 51,
+   "edit_rate_among_tumour_patches": 0.22869955156950672,
+   "edit_rate_all_patches": 0.085,
+   "edited_components": 296,
+   "delta_mean": 34.585997068870185,
+   "delta_min": 10.113775516724669,
+   "delta_max": 59.99015141425991,
+   "delta_quantiles_5_50_95": [
+    12.64799599965639,
+    34.00622494892267,
+    57.30527885563503
+   ],
+   "liver_source": {
+    "local": 296,
+    "patch": 0
+   },
+   "components_skipped_no_liver": 0,
+   "realised_minus_target_HU_mean": -1.2917884620460305,
+   "realised_minus_target_HU_abs_p95": 6.139137268066406,
+   "share_realised_sign_as_intended": 1.0
+  }
+ },
+ "unedited_tumour_minus_patch_liver_HU": {
+  "n_components": 920,
+  "mean": -38.921420371014136,
+  "quantiles_5_25_50_75_95": [
+   -71.02147178649902,
+   -50.07311248779297,
+   -39.439456939697266,
+   -26.24338150024414,
+   -8.979534912109381
+  ],
+  "share_brighter_than_liver": 0.014130434782608696
+ }
+}
