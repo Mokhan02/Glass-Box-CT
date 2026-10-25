@@ -1,0 +1,39 @@
+{
+ "arm": "BRIGHT",
+ "epochs_logged": 5,
+ "epoch_times_s": [
+  151.89,
+  60.44,
+  61.61,
+  61.22,
+  61.38
+ ],
+ "mean_epoch_2_to_5_s": 61.162499999999994,
+ "reference_s": 61.0,
+ "train_loss": [
+  0.0866,
+  -0.1042,
+  -0.1017,
+  -0.1267,
+  -0.196
+ ],
+ "val_loss": [
+  0.079,
+  -0.0996,
+  -0.193,
+  -0.2111,
+  -0.2634
+ ],
+ "samples_logged": 2552,
+ "samples_with_tumour": 1447,
+ "edit_share_among_tumour_samples": 0.4609536973047685,
+ "deltas_logged": 3778,
+ "deltas_out_of_range": 0,
+ "checks": {
+  "five_epochs": true,
+  "losses_finite": true,
+  "epoch_time_within_10pct": true,
+  "transform_active": true
+ },
+ "pass": true
+}

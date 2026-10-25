@@ -1,0 +1,39 @@
+{
+ "arm": "SHAM",
+ "epochs_logged": 5,
+ "epoch_times_s": [
+  143.16,
+  59.44,
+  59.77,
+  60.14,
+  60.26
+ ],
+ "mean_epoch_2_to_5_s": 59.9025,
+ "reference_s": 61.0,
+ "train_loss": [
+  0.0834,
+  -0.0542,
+  -0.117,
+  -0.1841,
+  -0.2444
+ ],
+ "val_loss": [
+  -0.0482,
+  -0.0429,
+  -0.1918,
+  -0.3012,
+  -0.3596
+ ],
+ "samples_logged": 2552,
+ "samples_with_tumour": 1430,
+ "edit_share_among_tumour_samples": 0.46503496503496505,
+ "deltas_logged": 3455,
+ "deltas_out_of_range": 0,
+ "checks": {
+  "five_epochs": true,
+  "losses_finite": true,
+  "epoch_time_within_10pct": true,
+  "transform_active": true
+ },
+ "pass": true
+}
