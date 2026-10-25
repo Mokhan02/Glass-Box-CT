@@ -16,3 +16,6 @@ tests/test_w5_smoke_check.py  git-blob-sha1 649a2d013bc3ae05f6de6a9f4d156593c2ab
 scripts/w5_smoke_trainers.py  git-blob-sha1 76bfb71042f8a11114b80099a47335ce3929f491  sha256 3c0263a9b1c633e0f37e51b70828847760be8c6b62faa86a56e4f06ae7cf40db
 scripts/w5_alert.sh  git-blob-sha1 6a5c2f96edeca813557889881d6949fcf6467c52  sha256 f2d15ee47296227615f1665c0ee72d5a02001e04786fed83220a56e5860a4f9b
 results/w3_models/stage2/STAGE2_SUMMARY.md  git-blob-sha1 947d51c13914b3efb90adb8d9e45fcc877ad1703  sha256 349b14d8c120ce48bc5e247ed3769e96468554728bec6a75a9c735dfc782e199
+
+# W5 PREREG with Amendment 1 (2026-10-25), before any W5 training
+results/w5_training/PREREG.md  git-blob-sha1 ae2e1583242581fdcb5d5e82eb57e7c4cc668771  sha256 4e635c15c3f72580c36ec39e39d6bf4fae6d62f03272578d8a8827e1818f4d37
