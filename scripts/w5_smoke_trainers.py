@@ -3,6 +3,7 @@ Installed next to nnUNetTrainerW5.py as `nnUNetTrainerW5Smoke.py`; results land 
 nnUNetTrainerW5 module before the dataloader workers fork; the transform class itself is the real one."""
 import os
 
+import torch
 from nnunetv2.training.nnUNetTrainer import nnUNetTrainerW5 as W5
 from nnunetv2.training.nnUNetTrainer.nnUNetTrainerW5 import nnUNetTrainerW5Bright50, nnUNetTrainerW5Sham50
 
@@ -22,8 +23,8 @@ W5.shift_tumour_contrast = _logged
 
 
 class _Smoke:
-    def __init__(self, *a, **k):
-        super().__init__(*a, **k)
+    def __init__(self, plans, configuration, fold, dataset_json, device=torch.device("cuda")):      # explicit names: nnU-Net records constructor arguments from the signature via locals()
+        super().__init__(plans, configuration, fold, dataset_json, device)
         self.num_epochs = 5
         self.print_to_log_file("W5 SMOKE: 5 epochs; edit log $W5_EDIT_LOG")
 

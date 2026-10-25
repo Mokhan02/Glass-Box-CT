@@ -11,3 +11,8 @@ scripts/w5_smoke_check.py  git-blob-sha1 2628ec69d9d2043bbbd15e5c974e25ef6fc2dcb
 scripts/w5_train.sh  git-blob-sha1 220a3d43b038becc362f01fbde5337ad1e6f419b  sha256 c1268e46c367a20db1a742c86a8e32f6117b74de04a1b31e55766ba2ed8c4e08
 scripts/w5_overnight.sh  git-blob-sha1 6b055882bd5102b8a22e78892364a5debed9c90c  sha256 36e2e82fc90b82c6d711e3b3742c9a8bbf03912cd235c8ce0ec2017c09aaece2
 tests/test_w5_smoke_check.py  git-blob-sha1 649a2d013bc3ae05f6de6a9f4d156593c2ab9fe0  sha256 fb139f86573d759f0c4ae1b0138aa9a47bfb48d7910089ef2d1e93a875b3f024
+
+# W5 smoke-wrapper fix and alert poller (2026-10-25), committed before the relaunch
+scripts/w5_smoke_trainers.py  git-blob-sha1 76bfb71042f8a11114b80099a47335ce3929f491  sha256 3c0263a9b1c633e0f37e51b70828847760be8c6b62faa86a56e4f06ae7cf40db
+scripts/w5_alert.sh  git-blob-sha1 6a5c2f96edeca813557889881d6949fcf6467c52  sha256 f2d15ee47296227615f1665c0ee72d5a02001e04786fed83220a56e5860a4f9b
+results/w3_models/stage2/STAGE2_SUMMARY.md  git-blob-sha1 947d51c13914b3efb90adb8d9e45fcc877ad1703  sha256 349b14d8c120ce48bc5e247ed3769e96468554728bec6a75a9c735dfc782e199

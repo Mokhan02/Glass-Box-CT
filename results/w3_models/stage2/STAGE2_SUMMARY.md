@@ -1,0 +1,19 @@
+# W3 Stage 2 summary: does the VISTA-3D mechanism show up in two other segmenters? (models A and D; HCC cohort 74 cases / 85 lesions, 28 bright / 57 dark)
+
+Everything below is read from the committed result files named in each row, under the rules in `PREREG_stage1.md` and `PREREG_stage2.md` (deviations in `DEVIATIONS.md`, entries 1 to 12). Models are never pooled. Stage 1 (the behavioural finding) is `results/w3_models/stage1/STAGE1_SUMMARY.md`: **both A and D show a bright-versus-dark gap in detection and Dice (A +59.2 pts [+39.3, +77.6] detection, +31.1 pts Dice; D +64.5 pts [+44.1, +80.7], +41.9 pts), so the Stage 1 replication rule is met.**
+
+| step | model A (CLIP-Driven Universal Model, Swin UNETR) | model D (nnU-Net v2, Task03 fold 0) | file |
+|---|---|---|---|
+| **M1** voxel probe | **LOST LATE** (encoder recovers 0.802 of the missed tissue, CI lower 0.724; head margin about -6.3) | **LOST LATE** (0.534, CI lower 0.475; narrow REPRESENTED pass; head margin about -7.1) | [M1_RESULTS.md](stage2/M1_RESULTS.md) |
+| **M2** cross-fitted erasure | **USED**, flagged "not testing necessity" (post-erasure probe AUROC 0.586); does not count as meeting M2 | **USED**, no flags; meets M2 | [M2_RESULTS.md](stage2/M2_RESULTS.md) |
+| lesion Dice change under erasure | -0.124 [-0.155, -0.094] (random -0.002, local-HU +0.035) | -0.121 [-0.150, -0.095] (random -0.001, local-HU +0.006) | M2_RESULTS.md |
+| **M3** brightness counterfactual | **SUPPORTED** (Arm A n = 48: coverage change -0.275 [-0.363, -0.141]; Arm B n = 21: +0.124 [+0.024, +0.331]) | **SUPPORTED** (Arm A n = 49: -0.454 [-0.595, -0.270]; Arm B n = 22: +0.351 [+0.049, +0.583]) | [M3_RESULTS.md](stage2/M3_RESULTS.md) |
+| **M4** threshold shift (pre-registered grid to -4.0) | **PARTIAL** (bias -31.4% to -16.8%; gap change -0.144 [-0.311, +0.009]) | **PARTIAL** (bias -34.0% to -24.9%; gap change -0.055 [-0.191, +0.062]) | [M4_RESULTS.md](stage2/M4_RESULTS.md) |
+| M4 EXPLORATORY extended grid (to -10.0) | FIX GENERALISES, over-estimation cost flagged (+12.2 pts) | PARTIAL (gap change -0.056 [-0.235, +0.103]) | M4_RESULTS.md |
+
+**Cross-model readings (as fixed in the PREREG):**
+- **Mechanism: PARTIAL REPLICATION.** Both models are LOST LATE at M1 (the missed tissue is represented in the encoder and not decoded by the head), and the tumour-direction erasure costs both almost the same lesion Dice; D meets M2 fully, A shows the effect but is flagged on the post-erasure probe check, so "mechanism replicates" (both meet M1 and M2) is not met.
+- **Causal role of brightness in the image (M3, reported beside the reading, not part of its criterion): SUPPORTED in both models**, in both arms, beyond the sign-keeping control; it stays SUPPORTED when the 10 lesions per arm with imprecise edits are excluded (smaller effects, Arm B down to 11 and 12 lesions).
+- **Readout fix: does NOT generalise across both models** under the pre-registered grid (A and D both PARTIAL, the chosen threshold sat at the grid edge in every fold). EXPLORATORY, run after seeing that edge: with the grid extended to -10, A's bias is almost removed and A reaches FIX GENERALISES (with a 12-point over-estimation cost), D stays PARTIAL; the fix would still not generalise across both.
+
+**Limits:** one cohort (HCC-TACE-Seg), contrast phase unlabelled; 28 bright lesions make gap CIs wide; models differ in decoders, so "lost late" is defined per model and is not strictly comparable with VISTA-3D's (M2 magnitudes are not compared with VISTA mechanism B either); M3 edits change mean contrast only; D is one fold, one seed; hook choices (D stage 3, A the Swin layer-2 output) are the stated ones, and D's stage 4 hook is INCONCLUSIVE at M1. **Next (W5, PREREG approved, not yet run):** retrain D's recipe with bright-lesion contrast augmentation to test whether the training-data contrast distribution causes the gap (`results/w5_training/PREREG.md`).
