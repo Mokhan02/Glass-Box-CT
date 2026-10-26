@@ -1,0 +1,1427 @@
+{
+ "model": "D_nnunet",
+ "gate": "Amendment 2: shape equals input, no axis flip raises Dice, centroid offset <= 15 mm",
+ "cases": 74,
+ "n_failures": 5,
+ "failures": [
+  "HCC_022_228695",
+  "HCC_028_198668",
+  "HCC_070_401358",
+  "HCC_077_996191",
+  "HCC_090_076872"
+ ],
+ "low_dice_lt_0.85": [
+  "HCC_022_228695",
+  "HCC_028_198668",
+  "HCC_077_996191"
+ ],
+ "status": "STOP",
+ "per_case": [
+  {
+   "case": "HCC_004_414785",
+   "organ_dice": 0.9382,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 3.4,
+   "centroid_offset_xyz_mm": [
+    3.2,
+    -0.1,
+    -1.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1818,
+    "flip_1": 0.6361,
+    "flip_2": 0.5657
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_005_936548",
+   "organ_dice": 0.9131,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 4.9,
+   "centroid_offset_xyz_mm": [
+    -0.3,
+    1.9,
+    4.5
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2316,
+    "flip_1": 0.2705,
+    "flip_2": 0.4316
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_009_210975",
+   "organ_dice": 0.9435,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 3.8,
+   "centroid_offset_xyz_mm": [
+    -2.3,
+    -0.4,
+    -3.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.421,
+    "flip_1": 0.3711,
+    "flip_2": 0.7469
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_012_311550",
+   "organ_dice": 0.8651,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 7.2,
+   "centroid_offset_xyz_mm": [
+    -2.4,
+    -5.6,
+    -3.9
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.298,
+    "flip_1": 0.2681,
+    "flip_2": 0.5954
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_013_902874",
+   "organ_dice": 0.9337,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 8.3,
+   "centroid_offset_xyz_mm": [
+    6.2,
+    4.2,
+    -3.6
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1445,
+    "flip_1": 0.6505,
+    "flip_2": 0.5917
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_014_949588",
+   "organ_dice": 0.9111,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 2.0,
+   "centroid_offset_xyz_mm": [
+    1.9,
+    -0.2,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.3981,
+    "flip_1": 0.3277,
+    "flip_2": 0.3549
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_017_372380",
+   "organ_dice": 0.941,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.8,
+   "centroid_offset_xyz_mm": [
+    0.6,
+    -1.6,
+    -0.7
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1817,
+    "flip_1": 0.4469,
+    "flip_2": 0.4973
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_018_350600",
+   "organ_dice": 0.9661,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.5,
+   "centroid_offset_xyz_mm": [
+    0.4,
+    0.3,
+    -0.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1659,
+    "flip_1": 0.535,
+    "flip_2": 0.5597
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_019_773068",
+   "organ_dice": 0.9284,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.6,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    0.5,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.4548,
+    "flip_1": 0.5143,
+    "flip_2": 0.5601
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_020_409800",
+   "organ_dice": 0.952,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.5,
+   "centroid_offset_xyz_mm": [
+    -0.8,
+    0.8,
+    -0.9
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2682,
+    "flip_1": 0.3958,
+    "flip_2": 0.5263
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_021_043762",
+   "organ_dice": 0.9182,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 2.1,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    -0.4,
+    -2.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2514,
+    "flip_1": 0.5101,
+    "flip_2": 0.4102
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_022_228695",
+   "organ_dice": 0.8146,
+   "low_dice_lt_0.85": true,
+   "centroid_offset_mm": 17.5,
+   "centroid_offset_xyz_mm": [
+    7.5,
+    -6.3,
+    14.6
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1619,
+    "flip_1": 0.3368,
+    "flip_2": 0.4882
+   },
+   "flip_improves_dice": false,
+   "pass": false
+  },
+  {
+   "case": "HCC_023_800523",
+   "organ_dice": 0.9673,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.9,
+   "centroid_offset_xyz_mm": [
+    -0.1,
+    0.7,
+    -0.6
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0647,
+    "flip_1": 0.6019,
+    "flip_2": 0.488
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_024_254376",
+   "organ_dice": 0.8706,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 7.2,
+   "centroid_offset_xyz_mm": [
+    6.5,
+    1.1,
+    2.9
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.3489,
+    "flip_1": 0.2896,
+    "flip_2": 0.5434
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_025_534314",
+   "organ_dice": 0.9767,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.2,
+   "centroid_offset_xyz_mm": [
+    0.9,
+    0.8,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2521,
+    "flip_1": 0.6262,
+    "flip_2": 0.7299
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_026_419034",
+   "organ_dice": 0.9235,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 7.6,
+   "centroid_offset_xyz_mm": [
+    7.5,
+    0.8,
+    1.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2715,
+    "flip_1": 0.4119,
+    "flip_2": 0.5414
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_028_198668",
+   "organ_dice": 0.817,
+   "low_dice_lt_0.85": true,
+   "centroid_offset_mm": 45.1,
+   "centroid_offset_xyz_mm": [
+    43.0,
+    3.1,
+    -13.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.3406,
+    "flip_1": 0.5447,
+    "flip_2": 0.3521
+   },
+   "flip_improves_dice": false,
+   "pass": false
+  },
+  {
+   "case": "HCC_029_683080",
+   "organ_dice": 0.961,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.1,
+   "centroid_offset_xyz_mm": [
+    0.8,
+    -0.8,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.3118,
+    "flip_1": 0.6553,
+    "flip_2": 0.7794
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_031_552418",
+   "organ_dice": 0.9653,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.0,
+   "centroid_offset_xyz_mm": [
+    0.7,
+    0.6,
+    -0.3
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0794,
+    "flip_1": 0.4092,
+    "flip_2": 0.3953
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_032_522941",
+   "organ_dice": 0.9617,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 2.6,
+   "centroid_offset_xyz_mm": [
+    2.5,
+    -0.1,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.3574,
+    "flip_1": 0.2125,
+    "flip_2": 0.6373
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_033_612153",
+   "organ_dice": 0.9544,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.3,
+   "centroid_offset_xyz_mm": [
+    0.4,
+    -1.0,
+    -0.8
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0768,
+    "flip_1": 0.7453,
+    "flip_2": 0.5123
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_034_704254",
+   "organ_dice": 0.9692,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.6,
+   "centroid_offset_xyz_mm": [
+    0.4,
+    0.3,
+    -0.3
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2089,
+    "flip_1": 0.6363,
+    "flip_2": 0.6211
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_035_474044",
+   "organ_dice": 0.9644,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.3,
+    -0.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1718,
+    "flip_1": 0.4474,
+    "flip_2": 0.441
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_036_158534",
+   "organ_dice": 0.9575,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.2,
+   "centroid_offset_xyz_mm": [
+    -0.5,
+    0.7,
+    -0.7
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0677,
+    "flip_1": 0.4935,
+    "flip_2": 0.3712
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_037_498894",
+   "organ_dice": 0.9347,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 4.5,
+   "centroid_offset_xyz_mm": [
+    -2.7,
+    3.6,
+    -0.6
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.4245,
+    "flip_1": 0.2541,
+    "flip_2": 0.7427
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_038_354831",
+   "organ_dice": 0.9764,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.7,
+   "centroid_offset_xyz_mm": [
+    0.5,
+    0.5,
+    0.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1914,
+    "flip_1": 0.5681,
+    "flip_2": 0.5621
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_039_440665",
+   "organ_dice": 0.9263,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 2.4,
+   "centroid_offset_xyz_mm": [
+    2.1,
+    1.3,
+    0.3
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1689,
+    "flip_1": 0.5985,
+    "flip_2": 0.4712
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_040_953569",
+   "organ_dice": 0.9711,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.8,
+   "centroid_offset_xyz_mm": [
+    0.7,
+    0.1,
+    -0.5
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1701,
+    "flip_1": 0.5748,
+    "flip_2": 0.5889
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_041_692758",
+   "organ_dice": 0.9302,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 4.2,
+   "centroid_offset_xyz_mm": [
+    3.3,
+    1.3,
+    2.3
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1048,
+    "flip_1": 0.7123,
+    "flip_2": 0.8309
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_042_785120",
+   "organ_dice": 0.949,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 7.1,
+   "centroid_offset_xyz_mm": [
+    6.7,
+    1.5,
+    -1.9
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2551,
+    "flip_1": 0.5583,
+    "flip_2": 0.4781
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_043_848214",
+   "organ_dice": 0.8685,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 3.6,
+   "centroid_offset_xyz_mm": [
+    -1.2,
+    -1.2,
+    -3.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2835,
+    "flip_1": 0.465,
+    "flip_2": 0.4042
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_044_006910",
+   "organ_dice": 0.9705,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.6,
+   "centroid_offset_xyz_mm": [
+    0.4,
+    0.5,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0929,
+    "flip_1": 0.574,
+    "flip_2": 0.6127
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_045_719516",
+   "organ_dice": 0.974,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.9,
+   "centroid_offset_xyz_mm": [
+    0.8,
+    0.3,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1127,
+    "flip_1": 0.6438,
+    "flip_2": 0.5639
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_046_819409",
+   "organ_dice": 0.9651,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.7,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    -1.3,
+    1.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1232,
+    "flip_1": 0.6847,
+    "flip_2": 0.6389
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_047_378313",
+   "organ_dice": 0.9711,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.3,
+   "centroid_offset_xyz_mm": [
+    -1.0,
+    0.6,
+    -0.6
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0054,
+    "flip_1": 0.7291,
+    "flip_2": 0.4997
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_049_849890",
+   "organ_dice": 0.9708,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.7,
+   "centroid_offset_xyz_mm": [
+    1.2,
+    -0.7,
+    -1.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.4571,
+    "flip_1": 0.5332,
+    "flip_2": 0.6754
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_050_749732",
+   "organ_dice": 0.9692,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.4,
+   "centroid_offset_xyz_mm": [
+    1.4,
+    0.2,
+    0.3
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0892,
+    "flip_1": 0.6415,
+    "flip_2": 0.4487
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_051_502793",
+   "organ_dice": 0.9663,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.6,
+   "centroid_offset_xyz_mm": [
+    1.5,
+    0.6,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2774,
+    "flip_1": 0.5679,
+    "flip_2": 0.4799
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_052_425020",
+   "organ_dice": 0.9469,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 2.2,
+   "centroid_offset_xyz_mm": [
+    -1.6,
+    -0.4,
+    -1.4
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1123,
+    "flip_1": 0.5854,
+    "flip_2": 0.6155
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_053_504983",
+   "organ_dice": 0.9668,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.1,
+   "centroid_offset_xyz_mm": [
+    1.0,
+    0.2,
+    -0.5
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.277,
+    "flip_1": 0.5157,
+    "flip_2": 0.5374
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_054_948648",
+   "organ_dice": 0.9652,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.1,
+   "centroid_offset_xyz_mm": [
+    0.4,
+    1.0,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0405,
+    "flip_1": 0.6469,
+    "flip_2": 0.5336
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_055_287181",
+   "organ_dice": 0.9391,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 5.1,
+   "centroid_offset_xyz_mm": [
+    4.7,
+    0.4,
+    -2.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2968,
+    "flip_1": 0.455,
+    "flip_2": 0.4718
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_056_505211",
+   "organ_dice": 0.9647,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.6,
+   "centroid_offset_xyz_mm": [
+    0.7,
+    1.2,
+    -0.8
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1434,
+    "flip_1": 0.6398,
+    "flip_2": 0.7277
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_057_698557",
+   "organ_dice": 0.9623,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 3.1,
+   "centroid_offset_xyz_mm": [
+    -2.2,
+    1.3,
+    1.8
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.3206,
+    "flip_1": 0.5066,
+    "flip_2": 0.5545
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_058_344861",
+   "organ_dice": 0.965,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 2.7,
+   "centroid_offset_xyz_mm": [
+    2.6,
+    -0.2,
+    -0.4
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2051,
+    "flip_1": 0.7148,
+    "flip_2": 0.7157
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_059_480478",
+   "organ_dice": 0.9508,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 2.9,
+   "centroid_offset_xyz_mm": [
+    1.3,
+    0.5,
+    2.5
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0411,
+    "flip_1": 0.5843,
+    "flip_2": 0.4365
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_060_617044",
+   "organ_dice": 0.9454,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 6.3,
+   "centroid_offset_xyz_mm": [
+    6.2,
+    0.0,
+    -0.6
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.4969,
+    "flip_1": 0.4258,
+    "flip_2": 0.4082
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_061_179170",
+   "organ_dice": 0.9568,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 3.5,
+   "centroid_offset_xyz_mm": [
+    3.5,
+    0.1,
+    0.4
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2083,
+    "flip_1": 0.5653,
+    "flip_2": 0.3971
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_062_338436",
+   "organ_dice": 0.9558,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.7,
+   "centroid_offset_xyz_mm": [
+    -0.4,
+    0.3,
+    -0.4
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1558,
+    "flip_1": 0.4978,
+    "flip_2": 0.3193
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_063_661087",
+   "organ_dice": 0.9531,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 3.6,
+   "centroid_offset_xyz_mm": [
+    2.6,
+    -1.5,
+    2.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.25,
+    "flip_1": 0.3553,
+    "flip_2": 0.48
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_064_212554",
+   "organ_dice": 0.9738,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.3,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    1.2,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.139,
+    "flip_1": 0.5764,
+    "flip_2": 0.4454
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_065_835113",
+   "organ_dice": 0.9204,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 5.6,
+   "centroid_offset_xyz_mm": [
+    -0.3,
+    -1.1,
+    -5.4
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.413,
+    "flip_1": 0.4663,
+    "flip_2": 0.6825
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_066_201578",
+   "organ_dice": 0.9755,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.7,
+   "centroid_offset_xyz_mm": [
+    0.4,
+    0.4,
+    -0.4
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.3115,
+    "flip_1": 0.6669,
+    "flip_2": 0.7033
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_067_472967",
+   "organ_dice": 0.9745,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.6,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    0.5,
+    -0.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1881,
+    "flip_1": 0.5016,
+    "flip_2": 0.7554
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_069_743712",
+   "organ_dice": 0.9368,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 3.1,
+   "centroid_offset_xyz_mm": [
+    2.3,
+    -1.4,
+    -1.6
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1216,
+    "flip_1": 0.386,
+    "flip_2": 0.6611
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_070_401358",
+   "organ_dice": 0.9048,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 18.1,
+   "centroid_offset_xyz_mm": [
+    17.4,
+    3.7,
+    -3.6
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.3073,
+    "flip_1": 0.4179,
+    "flip_2": 0.7461
+   },
+   "flip_improves_dice": false,
+   "pass": false
+  },
+  {
+   "case": "HCC_071_621596",
+   "organ_dice": 0.9645,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 2.6,
+   "centroid_offset_xyz_mm": [
+    -0.7,
+    -0.1,
+    -2.5
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1398,
+    "flip_1": 0.4601,
+    "flip_2": 0.4392
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_072_979776",
+   "organ_dice": 0.9547,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 3.1,
+   "centroid_offset_xyz_mm": [
+    1.6,
+    -2.4,
+    -1.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1794,
+    "flip_1": 0.5833,
+    "flip_2": 0.5928
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_073_517149",
+   "organ_dice": 0.9737,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.2,
+   "centroid_offset_xyz_mm": [
+    -0.2,
+    0.8,
+    -0.9
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1991,
+    "flip_1": 0.4068,
+    "flip_2": 0.6865
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_074_379020",
+   "organ_dice": 0.87,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 14.5,
+   "centroid_offset_xyz_mm": [
+    13.4,
+    -0.2,
+    5.6
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1927,
+    "flip_1": 0.5631,
+    "flip_2": 0.321
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_075_418794",
+   "organ_dice": 0.9712,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.9,
+   "centroid_offset_xyz_mm": [
+    1.4,
+    -0.7,
+    -1.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.4709,
+    "flip_1": 0.3775,
+    "flip_2": 0.7553
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_076_084985",
+   "organ_dice": 0.9428,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 2.6,
+   "centroid_offset_xyz_mm": [
+    2.1,
+    -1.2,
+    -1.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1952,
+    "flip_1": 0.502,
+    "flip_2": 0.4087
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_077_996191",
+   "organ_dice": 0.6646,
+   "low_dice_lt_0.85": true,
+   "centroid_offset_mm": 35.3,
+   "centroid_offset_xyz_mm": [
+    28.3,
+    -20.0,
+    6.5
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.4494,
+    "flip_1": 0.1385,
+    "flip_2": 0.4469
+   },
+   "flip_improves_dice": false,
+   "pass": false
+  },
+  {
+   "case": "HCC_078_958325",
+   "organ_dice": 0.9546,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 2.1,
+   "centroid_offset_xyz_mm": [
+    0.4,
+    1.1,
+    -1.7
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.3168,
+    "flip_1": 0.4976,
+    "flip_2": 0.7101
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_079_927214",
+   "organ_dice": 0.9666,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.1,
+   "centroid_offset_xyz_mm": [
+    0.9,
+    -0.0,
+    -0.6
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2409,
+    "flip_1": 0.4564,
+    "flip_2": 0.5702
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_080_216191",
+   "organ_dice": 0.9644,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 4.7,
+   "centroid_offset_xyz_mm": [
+    -4.6,
+    0.6,
+    -0.9
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.4151,
+    "flip_1": 0.396,
+    "flip_2": 0.4365
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_081_327663",
+   "organ_dice": 0.9684,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.2,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    0.7,
+    -0.9
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0,
+    "flip_1": 0.0907,
+    "flip_2": 0.7293
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_083_703849",
+   "organ_dice": 0.9689,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.4,
+   "centroid_offset_xyz_mm": [
+    -0.2,
+    0.3,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2153,
+    "flip_1": 0.6563,
+    "flip_2": 0.6326
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_084_948398",
+   "organ_dice": 0.9554,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 2.6,
+   "centroid_offset_xyz_mm": [
+    2.6,
+    -0.4,
+    0.3
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.347,
+    "flip_1": 0.4589,
+    "flip_2": 0.3827
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_086_615027",
+   "organ_dice": 0.9561,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 3.4,
+   "centroid_offset_xyz_mm": [
+    3.0,
+    1.6,
+    -0.5
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.3302,
+    "flip_1": 0.5365,
+    "flip_2": 0.4092
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_087_075940",
+   "organ_dice": 0.9716,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.1,
+   "centroid_offset_xyz_mm": [
+    -0.2,
+    0.9,
+    -0.5
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.3251,
+    "flip_1": 0.4936,
+    "flip_2": 0.6841
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_088_476473",
+   "organ_dice": 0.8768,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 10.8,
+   "centroid_offset_xyz_mm": [
+    9.2,
+    -4.0,
+    -3.9
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2973,
+    "flip_1": 0.287,
+    "flip_2": 0.5506
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  },
+  {
+   "case": "HCC_090_076872",
+   "organ_dice": 0.8992,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 21.4,
+   "centroid_offset_xyz_mm": [
+    18.8,
+    10.3,
+    -0.5
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.3453,
+    "flip_1": 0.4595,
+    "flip_2": 0.4785
+   },
+   "flip_improves_dice": false,
+   "pass": false
+  },
+  {
+   "case": "HCC_098_610748",
+   "organ_dice": 0.9696,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.3,
+   "centroid_offset_xyz_mm": [
+    0.8,
+    0.9,
+    0.3
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2205,
+    "flip_1": 0.5081,
+    "flip_2": 0.4928
+   },
+   "flip_improves_dice": false,
+   "pass": true
+  }
+ ]
+}

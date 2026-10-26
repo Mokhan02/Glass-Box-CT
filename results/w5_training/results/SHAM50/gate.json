@@ -1,0 +1,10 @@
+{
+ "summary": "/lambda/nfs/CTGate/w3/nnunet/results/Dataset003_Liver/nnUNetTrainerW5Sham50__nnUNetPlans__3d_fullres/fold_0/validation/summary.json",
+ "liver_dice": 0.9651879628192715,
+ "tumour_dice": 0.6880446383986231,
+ "liver_min": 0.93,
+ "tumour_min": 0.597,
+ "liver_ok": true,
+ "tumour_ok": true,
+ "pass": true
+}
