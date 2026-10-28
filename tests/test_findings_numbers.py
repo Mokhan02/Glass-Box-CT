@@ -34,3 +34,13 @@ def test_every_displayed_number_is_inside_its_source_fragment():
                     continue
                 digits = s.lstrip("+")
                 assert digits in e["src"], f"{path}.{key}={s!r} is not in its source fragment {e['src']!r}"
+
+
+def test_numbers_in_the_why_block_text_are_in_summary():
+    """The wording on the Evidence page's 'Why does this happen?' block is hand-written; every percentage and lesion count in it must appear in results/SUMMARY.md."""
+    import re
+    why = FINDINGS["why"]
+    for key in ("main", "small", "followup"):
+        for m in re.findall(r"\d+(?:\.\d+)?%|\b\d{2,}(?= lesions)", why[key]):
+            assert m in SUMMARY, f"why.{key}: {m!r} is not in results/SUMMARY.md"
+    assert FINDINGS["training"]["train"]["n"] in why["small"] and FINDINGS["training"]["held"]["n"] in why["small"]

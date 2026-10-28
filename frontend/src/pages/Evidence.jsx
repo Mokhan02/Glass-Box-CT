@@ -19,7 +19,34 @@ function Section({ n, title, lede, children }) {
     </section>
   );
 }
-const Tag = ({ kind }) => <span className="num ml-2 rounded-full border px-2 py-0.5 align-middle text-[10px] uppercase tracking-wider" style={{ color: kind === "expl" ? C : A, borderColor: kind === "expl" ? "rgba(245,181,74,.4)" : "rgba(94,230,208,.4)" }}>{kind === "expl" ? "exploratory" : "pre-registered"}</span>;
+const Tag = ({ kind }) => <span className="num ml-2 rounded-full border px-2 py-0.5 align-middle text-[10px] uppercase tracking-wider" style={{ color: kind === "expl" || kind === "ongoing" ? C : A, borderColor: kind === "expl" || kind === "ongoing" ? "rgba(245,181,74,.4)" : "rgba(94,230,208,.4)", borderStyle: kind === "ongoing" ? "dashed" : "solid" }}>{kind === "expl" ? "exploratory" : kind === "ongoing" ? "ongoing research" : "pre-registered"}</span>;
+
+function Why() {
+  const t = f.training, w = f.why;
+  if (!w) return null;   // the wording lives in findings.json; without it the block is not shown
+  const q = w.main.indexOf("?") + 1, head = w.main.slice(0, q), body = w.main.slice(q).trim();   // the opening question is the heading; the text is shown unchanged
+  return (
+    <section className="grid gap-8 border-t border-white/[0.07] py-14 md:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] md:gap-14 md:py-20" aria-labelledby="why">
+      <Reveal>
+        <div className="eyebrow">Why</div>
+        <h2 id="why" className="mt-2 text-[28px] font-medium leading-tight tracking-tight sm:text-[34px]">{head}</h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-ink-dim">{body}</p>
+        <p className="mt-3 text-[12px] leading-relaxed text-ink-dim/80">{w.small}</p>
+      </Reveal>
+      <Reveal delay={0.08} className="glass self-start p-5 sm:p-6">
+        <div className="eyebrow mb-3">Tumours brighter than the liver, share of lesions<Tag kind="pre" /></div>
+        <RangeBars domain={[0, 50]} zero={false} unit="%" ariaLabel="Share of tumours brighter than the surrounding liver: in the public training labels versus the held-out cohort"
+          rows={[{ label: t.train.label, ...t.train, color: D }, { label: t.held.label, ...t.held, color: A }]} />
+        {w.followup ? (
+          <div className="mt-6 rounded-xl border border-dashed border-white/15 p-4">
+            <div className="eyebrow">Follow-up<Tag kind="ongoing" /></div>
+            <p className="mt-2 text-[13px] leading-relaxed text-ink-dim">{w.followup}</p>
+          </div>
+        ) : null}
+      </Reveal>
+    </section>
+  );
+}
 
 export default function Evidence() {
   const b = f.bias, p = f.probe, br = f.brightness, e = f.erasure, pa = f.patching;
@@ -60,6 +87,8 @@ export default function Evidence() {
         <p className="mt-4 text-[13px] leading-relaxed text-ink-dim">Strong in the dark-to-bright direction (<span className="num text-ink">{br.armA.hits}</span> tumours move as predicted). The reverse passes narrowly: the lower bound of its interval is <span className="num text-caution">{br.armB.ci[0]}</span>.</p>
         <p className="mt-3 text-[13px] leading-relaxed text-ink-dim">In the real scans, <span className="num text-ink">{br.bright_det.value}%</span> of bright-tumour lesions are found against <span className="num text-ink">{br.dark_det.value}%</span> of dark-tumour lesions.<Tag kind="expl" /></p>
       </Section>
+
+      <Why />
 
       <Section n={4} title="One direction decides it." lede="Remove a single direction in the middle of the network, the one that separates tumour from liver, and the model loses tumours it found before. Remove a random direction of the same size and nothing happens.">
         <div className="eyebrow mb-3">Change in overlap on tumours the model used to find<Tag kind="pre" /></div>
