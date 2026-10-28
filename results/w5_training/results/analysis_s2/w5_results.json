@@ -1,0 +1,100 @@
+{
+ "label": "SINGLE-SEED: one training run per arm; training-run variance is not measured and the patient bootstrap does not cover it",
+ "n_cases": 74,
+ "n_lesions": 85,
+ "arms": {
+  "D0": {
+   "detection_gap": 0.6453634085213033,
+   "dice_gap": 0.41885755012531334,
+   "n_dark": 57,
+   "n_bright": 28,
+   "detection_dark": 0.8596491228070176,
+   "detection_bright": 0.21428571428571427,
+   "dice_dark": 0.5277471929824562,
+   "dice_bright": 0.10888964285714285,
+   "mean_dice_all": 0.38977058823529426,
+   "median_signed_sld_error": -0.34294404236261533
+  },
+  "B50": {
+   "detection_gap": 0.12531328320802004,
+   "dice_gap": 0.19297947994987485,
+   "n_dark": 57,
+   "n_bright": 28,
+   "detection_dark": 0.9824561403508771,
+   "detection_bright": 0.8571428571428571,
+   "dice_dark": 0.7063291228070177,
+   "dice_bright": 0.5133496428571428,
+   "mean_dice_all": 0.6427594117647061,
+   "median_signed_sld_error": -0.09149369813382022
+  },
+  "S50": {
+   "detection_gap": 0.5200501253132832,
+   "dice_gap": 0.43135287593984956,
+   "n_dark": 57,
+   "n_bright": 28,
+   "detection_dark": 0.8771929824561403,
+   "detection_bright": 0.35714285714285715,
+   "dice_dark": 0.5795489473684211,
+   "dice_bright": 0.14819607142857144,
+   "mean_dice_all": 0.4374562352941178,
+   "median_signed_sld_error": -0.2553409693468893
+  }
+ },
+ "gates": {
+  "B50": {
+   "liver_dice": 0.9647250859631663,
+   "tumour_dice": 0.6731575242480097,
+   "pass": true
+  },
+  "S50": {
+   "liver_dice": 0.9651879628192715,
+   "tumour_dice": 0.6880446383986231,
+   "pass": true
+  }
+ },
+ "contrasts": {
+  "B50_minus_D0": {
+   "det": {
+    "delta": -0.5200501253132832,
+    "lo": -0.7375751044932078,
+    "hi": -0.31023098090785134
+   },
+   "dice": {
+    "delta": -0.22587807017543848,
+    "lo": -0.35348458368421065,
+    "hi": -0.10560949538309372
+   }
+  },
+  "B50_minus_S50": {
+   "det": {
+    "delta": -0.39473684210526316,
+    "lo": -0.6183264915161467,
+    "hi": -0.17652131356908063
+   },
+   "dice": {
+    "delta": -0.2383733959899747,
+    "lo": -0.3594620874493926,
+    "hi": -0.11423319332437276
+   }
+  }
+ },
+ "verdicts": {
+  "D0_det": "CLOSES",
+  "D0_dice": "CLOSES",
+  "S50_det": "CLOSES",
+  "S50_dice": "CLOSES"
+ },
+ "prediction": "CONFIRMED (detection and Dice)",
+ "procedure_effect_S50_minus_D0_EXPLORATORY": {
+  "det": {
+   "delta": -0.12531328320802004,
+   "lo": -0.29322907990449204,
+   "hi": 0.015422932330827087
+  },
+  "dice": {
+   "delta": 0.012495325814536218,
+   "lo": -0.04179370334256553,
+   "hi": 0.05938580558035698
+  }
+ }
+}

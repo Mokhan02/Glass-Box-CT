@@ -1,0 +1,58 @@
+{
+ "label": "SINGLE-SEED PER ARM (two BRIGHT seeds, one run each; no D0-seed2 was run, so no baseline variance estimate)",
+ "replicates": true,
+ "s2_prediction": "CONFIRMED (detection and Dice)",
+ "s2_verdicts": {
+  "D0_det": "CLOSES",
+  "D0_dice": "CLOSES",
+  "S50_det": "CLOSES",
+  "S50_dice": "CLOSES"
+ },
+ "s2_contrasts": {
+  "B50_minus_D0": {
+   "det": {
+    "delta": -0.5200501253132832,
+    "lo": -0.7375751044932078,
+    "hi": -0.31023098090785134
+   },
+   "dice": {
+    "delta": -0.22587807017543848,
+    "lo": -0.35348458368421065,
+    "hi": -0.10560949538309372
+   }
+  },
+  "B50_minus_S50": {
+   "det": {
+    "delta": -0.39473684210526316,
+    "lo": -0.6183264915161467,
+    "hi": -0.17652131356908063
+   },
+   "dice": {
+    "delta": -0.2383733959899747,
+    "lo": -0.3594620874493926,
+    "hi": -0.11423319332437276
+   }
+  }
+ },
+ "b50_prediction": "CONFIRMED (detection and Dice)",
+ "gaps": {
+  "B50_seed_20261020": {
+   "detection_gap": 0.08959899749373423,
+   "dice_gap": 0.18532669799498724,
+   "detection_bright": 0.8928571428571429,
+   "mean_dice_all": 0.6370761176470584,
+   "median_signed_sld_error": -0.09872202406873118
+  },
+  "B50_s2_seed_20261028": {
+   "detection_gap": 0.12531328320802004,
+   "dice_gap": 0.19297947994987485,
+   "detection_bright": 0.8571428571428571,
+   "mean_dice_all": 0.6427594117647061,
+   "median_signed_sld_error": -0.09149369813382022
+  }
+ },
+ "seed_variance_descriptive": {
+  "abs_detection_gap_difference": 0.03571428571428581,
+  "abs_dice_gap_difference": 0.007652781954887611
+ }
+}
