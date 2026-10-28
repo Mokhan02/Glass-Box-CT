@@ -3,10 +3,11 @@
 Usage: python scripts/w3s2_m3_smoke_check.py <model A|D> <m3 run dir> <out json>"""
 import csv
 import json
+import os
 import sys
 
 model, run, out = sys.argv[1:4]
-s1 = {(r["case"], r["rank"]): r for r in csv.DictReader(open("results/w3_models/stage1/A_swin_hcc/w3_lesions_A_swin_hcc.csv" if model == "A" else "results/w3_models/stage1/D_nnunet_hcc/w3_lesions_D_nnunet_hcc.csv")) if r["arm"] == ("A_swin_shipped" if model == "A" else "D_nnunet")}
+s1 = {(r["case"], r["rank"]): r for r in csv.DictReader(open("results/w3_models/stage1/A_swin_hcc/w3_lesions_A_swin_hcc.csv" if model == "A" else os.environ.get("W5A3_STAGE1_D_TABLE", "results/w3_models/stage1/D_nnunet_hcc/w3_lesions_D_nnunet_hcc.csv"))) if r["arm"] == ("A_swin_shipped" if model == "A" else "D_nnunet")}
 rows = list(csv.DictReader(open(f"{run}/m3_lesions.csv"))); R = {"model": model, "n_rows": len(rows), "problems": []}; arms = set(); flagged = 0; edited = 0; base_diffs = []
 for r in rows:
     key = (r["case"], r["rank"])

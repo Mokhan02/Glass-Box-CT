@@ -117,7 +117,7 @@ if RUN == "D":
 table = L.lesion_table("hcc"); cases = sorted({k[0] for k in table})[:3]; stage1 = "results/w3_models/stage1"
 import csv  # noqa: E402
 
-for fam, csvp, runner in (("A", f"{stage1}/A_swin_hcc/w3_lesions_A_swin_hcc.csv", None), ("D", f"{stage1}/D_nnunet_hcc/w3_lesions_D_nnunet_hcc.csv", None)):
+for fam, csvp, runner in (("A", f"{stage1}/A_swin_hcc/w3_lesions_A_swin_hcc.csv", None), ("D", os.environ.get("W5A3_STAGE1_D_TABLE", f"{stage1}/D_nnunet_hcc/w3_lesions_D_nnunet_hcc.csv"), None)):
     if fam != RUN:
         continue
     ref = {(r["arm"], r["case"], r["rank"]): r for r in csv.DictReader(open(csvp))}; rows = []
@@ -132,7 +132,7 @@ for fam, csvp, runner in (("A", f"{stage1}/A_swin_hcc/w3_lesions_A_swin_hcc.csv"
             if not os.path.lexists(dst):
                 os.symlink(os.path.join(L.HCC_ROOT, c, "ct.nii.gz"), dst)
             lists.append([dst])
-        subprocess.run(["nnUNetv2_predict", "-i", ind, "-o", outp, "-d", "3", "-c", "3d_fullres", "-tr", "nnUNetTrainerW3Seed", "-f", "0", "-chk", "checkpoint_final.pth"], check=True, capture_output=True)      # the Stage 1 command (a library call would spawn workers that re-import this script)
+        subprocess.run(["nnUNetv2_predict", "-i", ind, "-o", outp, "-d", "3", "-c", "3d_fullres", "-tr", os.environ.get("W5A3_D_TRAINER", "nnUNetTrainerW3Seed"), "-f", "0", "-chk", "checkpoint_final.pth"], check=True, capture_output=True)      # the Stage 1 command (a library call would spawn workers that re-import this script)
         for c in cases:
             lab = np.asarray(nib.load(os.path.join(outp, f"{c}.nii.gz")).dataobj); r_, _ = L.lesion_rows("hcc", c, L.case_root("hcc", c, L.HCC_ROOT), table, {"D_nnunet": lab == 2}); rows += [r for r in r_]
         key = lambda r: ("D_nnunet", r["case"], str(r["rank"]))      # noqa: E731

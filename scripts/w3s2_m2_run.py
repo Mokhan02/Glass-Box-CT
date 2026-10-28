@@ -40,7 +40,7 @@ def append(path, fields, rows):
 
 
 done = set(l.strip() for l in open(os.path.join(outdir, "done_cases.txt"))) if os.path.exists(os.path.join(outdir, "done_cases.txt")) else set()
-stage1 = {(r["arm"], r["case"], r["rank"]): r for r in csv.DictReader(open("results/w3_models/stage1/A_swin_hcc/w3_lesions_A_swin_hcc.csv" if model == "A" else "results/w3_models/stage1/D_nnunet_hcc/w3_lesions_D_nnunet_hcc.csv"))}
+stage1 = {(r["arm"], r["case"], r["rank"]): r for r in csv.DictReader(open("results/w3_models/stage1/A_swin_hcc/w3_lesions_A_swin_hcc.csv" if model == "A" else os.environ.get("W5A3_STAGE1_D_TABLE", "results/w3_models/stage1/D_nnunet_hcc/w3_lesions_D_nnunet_hcc.csv")))}
 s1arm = "A_swin_shipped" if model == "A" else "D_nnunet"; det = {"base_vs_stage1": [], "identity_vs_base": []}
 for ci, case in enumerate(cases, 1):
     if case in done:
