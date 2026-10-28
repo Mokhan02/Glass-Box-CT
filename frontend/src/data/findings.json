@@ -297,6 +297,6 @@
   "why": {
     "main": "Why does this happen? In the public liver-tumour data this model drew on for training, only about 1 in 20 tumours (5.2%) is brighter than the surrounding liver. In our held-out cohort it's about 1 in 3 (32.6%). Bright tumours are exactly the ones the model under-measures.",
     "small": "Pre-registered training-data audit: MSD Liver + CRLM-CT (485 lesions) vs held-out HCC-TACE-Seg (86 lesions). Tumour type (metastases vs HCC) and scan phase differ between the datasets and explain part of the gap, and the exact cases in the model's training split aren't public. This shows an imbalance in the labelled data, not by itself that the model learned the failure from it.",
-    "followup": "Ongoing research: the same blind spot appears in all 3 CT segmentation models we tested. Retraining one with synthetic bright tumours raised bright-tumour detection from 21% to 89% (single training run)."
+    "followup": "Ongoing research: the same blind spot appears in all 3 CT segmentation models we tested. Retraining one with synthetic bright tumours raised bright-tumour detection from 21% to 86–89% across two independent training runs."
   }
 }

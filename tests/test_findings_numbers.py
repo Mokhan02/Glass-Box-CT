@@ -41,6 +41,9 @@ def test_numbers_in_the_why_block_text_are_in_summary():
     import re
     why = FINDINGS["why"]
     for key in ("main", "small", "followup"):
-        for m in re.findall(r"\d+(?:\.\d+)?%|\b\d{2,}(?= lesions)", why[key]):
+        for lo, hi in re.findall(r"(\d+(?:\.\d+)?)(?:[–-](\d+(?:\.\d+)?))?%", why[key]):   # a range such as 86–89% is checked end by end
+            for v in (lo, hi):
+                assert not v or v + "%" in SUMMARY, f"why.{key}: {v}% is not in results/SUMMARY.md"
+        for m in re.findall(r"\b\d{2,}(?= lesions)", why[key]):
             assert m in SUMMARY, f"why.{key}: {m!r} is not in results/SUMMARY.md"
     assert FINDINGS["training"]["train"]["n"] in why["small"] and FINDINGS["training"]["held"]["n"] in why["small"]
