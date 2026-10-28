@@ -28,7 +28,7 @@ The model **represents tumours it fails to segment**. Its misses **depend causal
 ## How we built it
 - **Research:** pre-registered experiments (the rule and numbers committed before the result), a held-out cohort converted and re-verified from DICOM (including finding and fixing a series-mismatch in our own conversion), probes with random-init and raw-brightness controls, paired counterfactual edits, linear concept erasure (LEACE), activation patching, steering, and direct logit attribution. Deviations are logged with their timing.
 - **Model:** NVIDIA NV-Segment-CT (VISTA-3D, `vista3d132`), frozen. Compute on a rented A100.
-- **Agent:** an OpenAI-compatible client reading four environment variables, so Nemotron on NVIDIA's hosted API (development) and Nebius Token Factory (submission) are a config change. A grounding checker validates every number and unit; a rewrite loop and template fallback keep unchecked text off the page.
+- **Agent:** an OpenAI-compatible client; in production it calls **Nebius Token Factory only** (the server refuses to start with any other provider; `glassbox/agent/config.py`, `agent.py`, `ask.py`), with a reasoning Nemotron model for the report and a fast one for the tool-calling steps [FILL model IDs]. A grounding checker validates every number and unit; a rewrite loop and template fallback keep unchecked text off the page.
 - **App:** FastAPI + a React, Tailwind and Framer Motion front end with a NiiVue viewer. A slim Docker image carries the five pre-computed scans and their reports (no GPU needed). Verified in a real browser with Playwright, which found several real bugs (mis-aligned viewer coordinates, stale cached reports, a unit-check false failure).
 
 ## Challenges

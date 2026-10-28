@@ -1,5 +1,5 @@
 """List the models your configured provider offers, and optionally test that one can call tools (the agent's fast model must).
-Reads LLM_BASE_URL and LLM_API_KEY from .env / the environment; never prints the key.
+Reads NEBIUS_API_KEY (Token Factory, the default) or LLM_BASE_URL + LLM_API_KEY from .env / the environment; never prints the key.
 Usage: python scripts/list_models.py [--grep nemotron] [--test MODEL_ID]"""
 import argparse
 import json
@@ -7,13 +7,13 @@ import sys
 import urllib.request
 
 sys.path.insert(0, ".")
-from glassbox.agent.config import load_env  # noqa: E402
-import os  # noqa: E402
+from glassbox.agent.config import ConfigError, resolve_endpoint  # noqa: E402
 
 ap = argparse.ArgumentParser(); ap.add_argument("--grep", default=""); ap.add_argument("--test", default=""); a = ap.parse_args()
-load_env(); base = os.environ.get("LLM_BASE_URL", "").rstrip("/"); key = os.environ.get("LLM_API_KEY", "")
-if not base or not key:
-    sys.exit("set LLM_BASE_URL and LLM_API_KEY in .env first")
+try:
+    base, key = resolve_endpoint(); base = base.rstrip("/")
+except ConfigError as e:
+    sys.exit(str(e))
 host = base.split("//")[-1].split("/")[0]
 
 

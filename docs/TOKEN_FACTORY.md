@@ -1,58 +1,53 @@
-# Switching the agent to Nebius Token Factory
+# Nebius Token Factory in Glass-Box CT
 
-The agent only ever reads four environment variables (`glassbox/agent/config.py`). Swapping provider is a `.env` change; no code changes. The default (NVIDIA's hosted API, used for development) is **not** changed until you do the steps below.
+The submitted build calls **Nebius Token Factory** for every language-model request, and nothing else. This page says how it is configured, where in the code the calls happen, and how to check it.
 
-Facts from the Token Factory docs (checked 2026-10-11): OpenAI-compatible, base URL `https://api.tokenfactory.nebius.com/v1/`, Bearer-token auth, keys from <https://tokenfactory.nebius.com> (Google or GitHub login), models listed by `GET /v1/models`, model IDs carry a publisher namespace (for example `meta-llama/Llama-3.3-70B-Instruct`).
+Token Factory facts (Nebius docs): OpenAI-compatible, base URL `https://api.tokenfactory.nebius.com/v1/`, Bearer-token auth, models listed by `GET /v1/models`, model IDs carry a publisher namespace.
 
-## 1. Get the key and find model IDs
+## Models
+| Role | Variable | Model ID |
+|---|---|---|
+| Reasoning: writes the report, writes Ask answers | `LLM_MODEL` | [FILL from `python scripts/list_models.py --grep nemotron`] |
+| Fast: runs the tool-calling steps of the agent and of Ask | `LLM_FAST_MODEL` | [FILL; confirm with `python scripts/list_models.py --test <id>`] |
+
+The IDs are not defaulted in code: production refuses to start unless both are set, so the model that ran is always the one that was configured and logged.
+
+## Where the calls happen (all go through one client)
+| What | File | Model used |
+|---|---|---|
+| Client creation, provider rules | `glassbox/agent/config.py` (`resolve_endpoint`, `from_env`, `make_client`) | n/a |
+| Tool-calling loop that gathers the measurements | `glassbox/agent/agent.py`, `run_agent`, first `chat.completions.create` | `LLM_FAST_MODEL` |
+| Report writing, with number check and up to 3 rewrites | `glassbox/agent/agent.py`, `run_agent`, second `chat.completions.create` | `LLM_MODEL` |
+| Ask-a-question tool loop | `glassbox/agent/ask.py`, `ask_events` | `LLM_FAST_MODEL` (answer: `LLM_MODEL`) |
+| Server start-up (builds the one client) | `glassbox/app/main.py`, `build_app` | n/a |
+| Report cache and background warm-up | `glassbox/app/report.py` | whatever the client above is |
+
+Every report records `provider_host` and the models in its `models` field, and the audit record carries them (`glassbox/trust/audit.py`).
+
+## Production rule: Token Factory only, no fallback
+`GLASSBOX_ENV=production` (set in the `Dockerfile`) makes `glassbox/agent/config.py` accept only `https://api.tokenfactory.nebius.com/...`. Any other `LLM_BASE_URL` (NVIDIA's API included), a missing key or a missing model ID stops the server at start-up with the reason; it does not quietly use another provider or run without a model. `make_client` checks the host again at the single place a client is created. `NEBIUS_API_KEY` is only ever sent to the Token Factory host. Tests: `tests/test_provider_config.py`.
+If Token Factory is unreachable at request time, the report falls back to the deterministic template (labelled "template" under Evidence, `provider_host` null, not cached) and Ask returns an error. Nothing is sent to another provider.
+
+## Environment
 ```bash
-# in .env (kept out of git; mode 600): add the two lines you know, leave the model IDs for step 2
-LLM_BASE_URL=https://api.tokenfactory.nebius.com/v1/
-LLM_API_KEY=<your Token Factory key>
-python scripts/list_models.py                       # every model the key can use
-python scripts/list_models.py --grep nemotron       # is a Nemotron model offered?
+NEBIUS_API_KEY=<Token Factory key>            # secret; .env is git-ignored, Render holds it as an environment variable
+LLM_MODEL=<reasoning model id>
+LLM_FAST_MODEL=<fast tool-calling model id>
+# LLM_BASE_URL is not needed: Token Factory is the default. GLASSBOX_ENV=production is set by the Dockerfile.
 ```
-The docs I could read do not say whether a Nemotron model is hosted, so check the list. Pick:
-- `LLM_MODEL`: the **reasoning** model that writes reports and answers questions. Any strong instruction-following model is fine; prefer Nemotron if listed (the project's NVIDIA story).
-- `LLM_FAST_MODEL`: the model that **runs the tool-calling steps**. It must support function calling. Test the candidates:
+Local development against another OpenAI-compatible endpoint stays possible: leave `GLASSBOX_ENV` unset and set `LLM_BASE_URL`, `LLM_API_KEY`, `LLM_MODEL`, `LLM_FAST_MODEL` (see `.env.example`). A production image started with such a `.env` refuses to run, by design.
+
+## Check it
 ```bash
-python scripts/list_models.py --test <model id>      # prints "tool calling WORKS" or fails
+python scripts/list_models.py --grep nemotron         # models this key can use (never prints the key)
+python scripts/list_models.py --test <fast model id>   # "tool calling WORKS"
+python scripts/agent_smoke.py data/demo demo_2         # one real agent run, number check included
 ```
+At start-up the server logs `Glass-Box CT: language model provider=api.tokenfactory.nebius.com model=<id> fast_model=<id>; ...`; `GET /api/health` returns `{"provider": "api.tokenfactory.nebius.com", "token_factory_only": true, ...}`; the About page shows the same.
 
-## 2. The exact `.env` after the swap
+## Cached demo reports
+Cached reports are keyed on provider, models and prompt. Regenerate them through Token Factory, then rebuild the demo-data archive (`docs/DEPLOY.md`, section 0):
 ```bash
-# --- Submission: Nebius Token Factory ---
-LLM_BASE_URL=https://api.tokenfactory.nebius.com/v1/
-LLM_API_KEY=<Token Factory key>
-LLM_MODEL=<reasoning model id from /v1/models>
-LLM_FAST_MODEL=<tool-calling model id from /v1/models>
-
-# --- Development: NVIDIA hosted API (keep commented as the rollback) ---
-# LLM_BASE_URL=https://integrate.api.nvidia.com/v1
-# LLM_API_KEY=<NVIDIA key>
-# LLM_MODEL=nvidia/nemotron-3-super-120b-a12b
-# LLM_FAST_MODEL=nvidia/nemotron-3.5-lightning-30b-a3b
+python scripts/precompute_reports.py data/demo         # all five must print "number check ok"
 ```
-The NVIDIA key was pasted into a chat during development: rotate it after the hackathon.
-
-## 3. Verify (each step prints the provider; none prints the key)
-```bash
-python scripts/agent_smoke.py data/demo demo_2       # one real agent run against a demo scan, number check included
-uvicorn --factory glassbox.app.main:build_app --port 8000
-#   startup log:  Glass-Box CT: language model provider=api.tokenfactory.nebius.com model=<id> fast_model=<id>; demo_dir=...; live_segmentation=off
-curl -s localhost:8000/api/health                   # {"language_model": true, "provider": "api.tokenfactory.nebius.com", "model": ...}
-```
-The About page also shows the live provider and model. The hackathon requires a runtime Token Factory call in the submitted build: this log line and `/api/health` are the evidence, and every report records `provider_host`.
-
-## 4. Rebuild the cached demo reports with the new provider
-Cached reports are keyed on provider, models and prompt, so they are rebuilt for the new provider:
-```bash
-python scripts/precompute_reports.py data/demo       # builds the five demo reports with Token Factory; check "number check ok" on all five
-```
-Do this **before** building the Docker image so the baked reports are the Token Factory ones and load instantly.
-
-## 5. Cut over / roll back
-Cut over: the lines above. Roll back: comment the Token Factory block and uncomment the NVIDIA block, then restart. If the provider is down at request time the app falls back to the deterministic template (labelled under Evidence) and does not cache that fallback, so it retries the model next time.
-
-## 6. In a container
-Pass the same four variables as environment variables to the container or endpoint (never bake `.env` into the image; `.dockerignore` excludes it). See `docs/DEPLOY.md`.
+Reports keep the standing liver-report limitation note (`_verbatim_notes` in `glassbox/agent/agent.py` appends it when a model omits it).

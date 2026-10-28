@@ -64,12 +64,12 @@ def test_path_traversal_scan_id_is_rejected(tmp_path):
 
 def test_config_never_exposes_key_and_requires_vars(tmp_path, monkeypatch):
     assert "SECRET-KEY" not in repr(CFG)
-    for k in ("LLM_BASE_URL", "LLM_API_KEY", "LLM_MODEL", "LLM_FAST_MODEL"):
+    for k in ("LLM_BASE_URL", "LLM_API_KEY", "LLM_MODEL", "LLM_FAST_MODEL", "NEBIUS_API_KEY", "GLASSBOX_ENV"):
         monkeypatch.delenv(k, raising=False)
     try:
         from_env(str(tmp_path / "missing.env")); raise AssertionError("should fail")
     except ConfigError as e:
-        assert "LLM_API_KEY" in str(e)
+        assert "LLM_BASE_URL" in str(e)
     (tmp_path / ".env").write_text("LLM_BASE_URL=https://x.test/v1\nLLM_API_KEY=k\nLLM_MODEL=m\n")
     cfg = from_env(str(tmp_path / ".env"))
     assert cfg.fast_model == "m" and cfg.provider_host == "x.test"
@@ -116,12 +116,12 @@ def test_segment_everything_excludes_tumour_classes_but_report_prompts_include_t
 
 
 def test_provider_swap_is_a_config_change(tmp_path, monkeypatch):
-    for k in ("LLM_BASE_URL", "LLM_API_KEY", "LLM_MODEL", "LLM_FAST_MODEL"):
+    for k in ("LLM_BASE_URL", "LLM_API_KEY", "LLM_MODEL", "LLM_FAST_MODEL", "NEBIUS_API_KEY", "GLASSBOX_ENV"):
         monkeypatch.delenv(k, raising=False)
     env = tmp_path / ".env"
     env.write_text("LLM_BASE_URL=https://dev.example/v1\nLLM_API_KEY=k1\nLLM_MODEL=big-a\nLLM_FAST_MODEL=small-a\n")
     a = from_env(str(env)); assert a.provider_host == "dev.example" and a.model == "big-a" and a.fast_model == "small-a"
-    for k in ("LLM_BASE_URL", "LLM_API_KEY", "LLM_MODEL", "LLM_FAST_MODEL"):
+    for k in ("LLM_BASE_URL", "LLM_API_KEY", "LLM_MODEL", "LLM_FAST_MODEL", "NEBIUS_API_KEY", "GLASSBOX_ENV"):
         monkeypatch.delenv(k, raising=False)
     env.write_text("LLM_BASE_URL=https://tokenfactory.example/v1\nLLM_API_KEY=k2\nLLM_MODEL=big-b\n")
     b = from_env(str(env)); assert b.provider_host == "tokenfactory.example" and b.model == b.fast_model == "big-b" and "k2" not in repr(b)

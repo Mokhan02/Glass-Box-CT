@@ -29,7 +29,7 @@ python scripts/smoke_deployed.py http://localhost:8000          # all PASS
 ```
 `.dockerignore` is an allow-list: `.env`, `.git`, `results/`, caches and `node_modules` never enter the build context. Secrets are passed as environment variables at run time, never baked.
 1. Set the final language-model provider in `.env` (`docs/TOKEN_FACTORY.md`) and bake the reports with it **before cutting the data archive**: the cached reports in the archive were written with NVIDIA's hosted Nemotron. A server started with a *different* provider regenerates them on first use (about 35 s each); a server with no model keeps serving them. If you re-run `python scripts/precompute_reports.py data/demo` for the final provider, rebuild the archive (`tar` command in `release/`'s history is in this section's commit message), publish it as `v2`, and update the two build arguments.
-2. Run-time variables (all optional; without them the baked reports are served and "Ask" is off): `LLM_BASE_URL`, `LLM_API_KEY`, `LLM_MODEL`, `LLM_FAST_MODEL`. **`PORT` is honoured**: the container runs `uvicorn ... --host 0.0.0.0 --port ${PORT:-8000}` (checked with `PORT=9123` and with `PORT` unset). `GLASSBOX_WARM_REPORTS=0` skips the background cache check at start-up.
+2. Run-time variables: `NEBIUS_API_KEY`, `LLM_MODEL`, `LLM_FAST_MODEL`. The image sets `GLASSBOX_ENV=production`, so it **requires** them and accepts Nebius Token Factory only; it stops at start-up with the reason otherwise (docs/TOKEN_FACTORY.md). For a keyless local look, run with `-e GLASSBOX_ENV=development`. **`PORT` is honoured**: the container runs `uvicorn ... --host 0.0.0.0 --port ${PORT:-8000}` (checked with `PORT=9123` and with `PORT` unset). `GLASSBOX_WARM_REPORTS=0` skips the background cache check at start-up.
 3. The server logs one line at start: `Glass-Box CT: language model provider=<host> model=<id> ...`. Use it as the runtime evidence of the Token Factory call.
 
 ## A. Nebius AI Cloud (primary)
@@ -56,7 +56,7 @@ nebius ai endpoint create \
   --subnet-id <subnet id> \
   --auth token --token "$AUTH_TOKEN"        # see the two caveats below
 # environment variables for the language model: run `nebius ai endpoint create --help` for the exact flag name (not shown in the quickstart) and pass
-# LLM_BASE_URL, LLM_API_KEY, LLM_MODEL, LLM_FAST_MODEL
+# NEBIUS_API_KEY, LLM_MODEL, LLM_FAST_MODEL
 
 # 3. URL, test, logs, delete
 export ENDPOINT_ID=$(nebius ai endpoint get-by-name --name glassbox-ct --format jsonpath='{.metadata.id}')
@@ -72,8 +72,8 @@ Caveats to resolve when you run it:
 
 ## B. Fallback host (any container host)
 The image works anywhere that runs a Linux container and injects `PORT`. Two options; neither tried.
-- **Fly.io:** `fly launch --no-deploy` (accept the Dockerfile, internal port 8000), `fly secrets set LLM_API_KEY=... LLM_BASE_URL=... LLM_MODEL=... LLM_FAST_MODEL=...`, `fly deploy`. Use at least 512 MB RAM. Then `python scripts/smoke_deployed.py https://<app>.fly.dev`.
-- **Render (build from the repository):** New → Web Service → connect `Mokhan02/Glass-Box-CT` → Language: Docker (it finds the `Dockerfile`). Render injects `PORT` (the server listens on it) and passes environment variables to the Docker build as build arguments, so the demo-data URL and SHA-256 need no setting unless you want to override them. Set `LLM_BASE_URL`, `LLM_API_KEY`, `LLM_MODEL`, `LLM_FAST_MODEL` as environment variables (runtime secrets; never commit them). Health check path: `/api/health`. The build fails with a clear message if the data release is not published yet or the checksum differs; publish the release (section 0), then "Manual Deploy" → "Deploy latest commit". Memory: the image is about 500 MB; a 512 MB instance may be tight, try 1 GB if the service restarts (not tested on Render).
+- **Fly.io:** `fly launch --no-deploy` (accept the Dockerfile, internal port 8000), `fly secrets set NEBIUS_API_KEY=... LLM_MODEL=... LLM_FAST_MODEL=...`, `fly deploy`. Use at least 512 MB RAM. Then `python scripts/smoke_deployed.py https://<app>.fly.dev`.
+- **Render (build from the repository):** New → Web Service → connect `Mokhan02/Glass-Box-CT` → Language: Docker (it finds the `Dockerfile`). Render injects `PORT` (the server listens on it) and passes environment variables to the Docker build as build arguments, so the demo-data URL and SHA-256 need no setting unless you want to override them. Set `NEBIUS_API_KEY`, `LLM_MODEL`, `LLM_FAST_MODEL` as environment variables (runtime secrets; never commit them). Health check path: `/api/health`. The build fails with a clear message if the data release is not published yet or the checksum differs; publish the release (section 0), then "Manual Deploy" → "Deploy latest commit". Memory: the image is about 500 MB; a 512 MB instance may be tight, try 1 GB if the service restarts (not tested on Render).
 - Pushing the image to a public registry publishes the five scans (CC BY 4.0, attribution included) and the baked reports; it does not publish keys or the repo history.
 
 ## C. Keeping a key safe on a public page

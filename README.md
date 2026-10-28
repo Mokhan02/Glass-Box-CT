@@ -34,12 +34,12 @@ python -m venv .venv && .venv/bin/pip install -r requirements-serve.txt
 cp .env.example .env                                            # fill in the language model; without it reports use a template and "Ask" is off
 GLASSBOX_DEMO_DIR=data/demo .venv/bin/uvicorn --factory glassbox.app.main:build_app --port 8000
 ```
-The server logs which provider and model it uses at start-up. Deploying: [docs/DEPLOY.md](docs/DEPLOY.md). Switching to Nebius Token Factory: [docs/TOKEN_FACTORY.md](docs/TOKEN_FACTORY.md).
+The server logs which provider and model it uses at start-up. Deploying: [docs/DEPLOY.md](docs/DEPLOY.md). Nebius Token Factory setup and where it is called in the code: [docs/TOKEN_FACTORY.md](docs/TOKEN_FACTORY.md).
 
 ## How NVIDIA models and Nebius are used
 - **NVIDIA NV-Segment-CT (VISTA-3D, `vista3d132`)** is the model under study, used frozen under the NVIDIA Open Model License (weights are not in this repository). All research (probes, erasure, patching, steering) reads or edits its internal activations; the app serves its pre-computed outputs.
-- **NVIDIA Nemotron** is the agent's language model during development, through NVIDIA's hosted OpenAI-compatible API (reasoning model writes reports and answers; a smaller model runs the tool calls).
-- **Nebius Token Factory** is the agent's language model in the submitted build: the agent only reads `LLM_BASE_URL`, `LLM_API_KEY`, `LLM_MODEL`, `LLM_FAST_MODEL`, so the swap is a config change, and the server's start-up line and `/api/health` show the provider in use. `[TO CONFIRM before submission: the model IDs used, and that the deployed build calls Token Factory.]`
+- **NVIDIA Nemotron** is the agent's language model: a reasoning model writes the report and Ask answers, a smaller one runs the tool-calling steps. Model IDs: [FILL after `scripts/list_models.py`].
+- **Nebius Token Factory** serves those Nemotron models in the submitted build, and it is the only provider the production server accepts (`GLASSBOX_ENV=production` refuses any other host at start-up; no fallback). The calls are in `glassbox/agent/agent.py` (tool loop and report) and `glassbox/agent/ask.py`, through the client built in `glassbox/agent/config.py`. Details: [docs/TOKEN_FACTORY.md](docs/TOKEN_FACTORY.md). The server logs the provider and models at start-up and `/api/health` reports them.
 - **Nebius AI Cloud** hosts the container `[TO CONFIRM: deployed on Nebius AI Cloud / which fallback]`. The research ran on a rented A100 elsewhere (Lambda).
 
 ## Research summary

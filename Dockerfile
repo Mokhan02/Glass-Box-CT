@@ -25,7 +25,7 @@ ARG DEMO_DATA_URL=https://github.com/Mokhan02/Glass-Box-CT/releases/download/v1/
 ARG DEMO_DATA_SHA256=8391cd183116664dad64a79d48d9e2996ce5d4750a8219dca76e54f9d321cdb5
 COPY scripts/fetch_demo_data.py /tmp/fetch_demo_data.py
 RUN python /tmp/fetch_demo_data.py --url "$DEMO_DATA_URL" --sha256 "$DEMO_DATA_SHA256" --out /app && chown -R app:app /app/demo && rm /tmp/fetch_demo_data.py
-ENV GLASSBOX_DEMO_DIR=/app/demo GLASSBOX_FRONTEND_DIST=/app/frontend/dist
+ENV GLASSBOX_DEMO_DIR=/app/demo GLASSBOX_FRONTEND_DIST=/app/frontend/dist GLASSBOX_ENV=production
 USER app
 EXPOSE 8000
 HEALTHCHECK --interval=30s --timeout=5s --start-period=20s CMD python -c "import os,urllib.request; urllib.request.urlopen('http://127.0.0.1:%s/api/health' % os.environ.get('PORT','8000'), timeout=4)"

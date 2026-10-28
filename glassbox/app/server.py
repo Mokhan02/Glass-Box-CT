@@ -15,6 +15,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from glassbox.agent.ask import MAX_QUESTION, ask_events
+from glassbox.agent.config import is_production
 from glassbox.agent.backends import PrecomputedBackend
 from glassbox.agent.tools import ToolBox
 from glassbox.app.report import make_report
@@ -58,7 +59,7 @@ def create_app(demo_dir: str, live=None, llm=None) -> FastAPI:
 
     @app.get("/api/health")
     def health():
-        h = {"ok": True, "live_segmentation": live is not None, "language_model": llm is not None, "notice": BANNER}
+        h = {"ok": True, "live_segmentation": live is not None, "language_model": llm is not None, "token_factory_only": is_production(), "notice": BANNER}
         if llm is not None:  # which provider and model write reports (never the key)
             h.update({"provider": llm[1].provider_host, "model": llm[1].model, "fast_model": llm[1].fast_model})
         return h

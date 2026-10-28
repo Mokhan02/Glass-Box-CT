@@ -1,12 +1,13 @@
 """Server entry point: `uvicorn --factory glassbox.app.main:build_app --host 0.0.0.0 --port 8000`.
 Environment: GLASSBOX_DEMO_DIR (sample scans and results; default ./demo), GLASSBOX_LIVE=1 and GLASSBOX_WEIGHTS=/models/model.pt to enable live segmentation on a GPU,
-and LLM_BASE_URL / LLM_API_KEY / LLM_MODEL (optional LLM_FAST_MODEL) to have the agent write reports (otherwise the deterministic template is used)."""
+and NEBIUS_API_KEY + LLM_MODEL + LLM_FAST_MODEL (Nebius Token Factory) to have the agent write reports (development may use LLM_BASE_URL / LLM_API_KEY for another provider;
+without a model the deterministic template is used). GLASSBOX_ENV=production allows Token Factory only and refuses to start otherwise."""
 from __future__ import annotations
 
 import os
 import shutil
 
-from glassbox.agent.config import ConfigError, from_env, make_client
+from glassbox.agent.config import ConfigError, from_env, is_production, make_client
 import logging
 import threading
 
@@ -41,6 +42,8 @@ def build_app():
     try:
         cfg = from_env(); llm = (make_client(cfg), cfg)
     except ConfigError:
+        if is_production():  # no silent degradation: the runtime must call Token Factory, so a bad provider setting stops the server with the reason
+            raise
         llm = None
     log.info(startup_line(llm, demo, live is not None))
     app = create_app(demo, live=live, llm=llm)
