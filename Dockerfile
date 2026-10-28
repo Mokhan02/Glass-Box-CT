@@ -21,8 +21,8 @@ RUN useradd --create-home --uid 10001 app
 COPY LICENSE ./LICENSE
 COPY glassbox ./glassbox
 COPY --from=web /web/dist ./frontend/dist
-ARG DEMO_DATA_URL=https://github.com/Mokhan02/Glass-Box-CT/releases/download/v1/glassbox-demo-data-v1.tar.gz
-ARG DEMO_DATA_SHA256=8391cd183116664dad64a79d48d9e2996ce5d4750a8219dca76e54f9d321cdb5
+ARG DEMO_DATA_URL=https://github.com/Mokhan02/Glass-Box-CT/releases/download/v2/glassbox-demo-data-v2.tar.gz
+ARG DEMO_DATA_SHA256=dccf71fab9465f4dadecfb32bace4cc776f4f3bb8c486e281b42053b3665fd21
 COPY scripts/fetch_demo_data.py /tmp/fetch_demo_data.py
 RUN python /tmp/fetch_demo_data.py --url "$DEMO_DATA_URL" --sha256 "$DEMO_DATA_SHA256" --out /app && chown -R app:app /app/demo && rm /tmp/fetch_demo_data.py
 ENV GLASSBOX_DEMO_DIR=/app/demo GLASSBOX_FRONTEND_DIST=/app/frontend/dist GLASSBOX_ENV=production

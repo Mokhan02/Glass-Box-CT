@@ -7,10 +7,10 @@ Token Factory facts (Nebius docs): OpenAI-compatible, base URL `https://api.toke
 ## Models
 | Role | Variable | Model ID |
 |---|---|---|
-| Reasoning: writes the report, writes Ask answers | `LLM_MODEL` | [FILL from `python scripts/list_models.py --grep nemotron`] |
-| Fast: runs the tool-calling steps of the agent and of Ask | `LLM_FAST_MODEL` | [FILL; confirm with `python scripts/list_models.py --test <id>`] |
+| Reasoning: writes the report, writes Ask answers | `LLM_MODEL` | `nvidia/nemotron-3-super-120b-a12b` |
+| Fast: runs the tool-calling steps of the agent and of Ask | `LLM_FAST_MODEL` | `nvidia/Nemotron-3_5-Lightning` (tool calling confirmed with `list_models.py --test`) |
 
-The IDs are not defaulted in code: production refuses to start unless both are set, so the model that ran is always the one that was configured and logged.
+Other Nemotron models the key can use (listed 2026-10-27, all tool-calling tested): `nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B`, `nvidia/Nemotron-3-Ultra-550b-a55b`. The IDs are not defaulted in code: production refuses to start unless both are set, so the model that ran is always the one that was configured and logged.
 
 ## Where the calls happen (all go through one client)
 | What | File | Model used |
@@ -31,8 +31,8 @@ If Token Factory is unreachable at request time, the report falls back to the de
 ## Environment
 ```bash
 NEBIUS_API_KEY=<Token Factory key>            # secret; .env is git-ignored, Render holds it as an environment variable
-LLM_MODEL=<reasoning model id>
-LLM_FAST_MODEL=<fast tool-calling model id>
+LLM_MODEL=nvidia/nemotron-3-super-120b-a12b
+LLM_FAST_MODEL=nvidia/Nemotron-3_5-Lightning
 # LLM_BASE_URL is not needed: Token Factory is the default. GLASSBOX_ENV=production is set by the Dockerfile.
 ```
 Local development against another OpenAI-compatible endpoint stays possible: leave `GLASSBOX_ENV` unset and set `LLM_BASE_URL`, `LLM_API_KEY`, `LLM_MODEL`, `LLM_FAST_MODEL` (see `.env.example`). A production image started with such a `.env` refuses to run, by design.
@@ -42,6 +42,7 @@ Local development against another OpenAI-compatible endpoint stays possible: lea
 python scripts/list_models.py --grep nemotron         # models this key can use (never prints the key)
 python scripts/list_models.py --test <fast model id>   # "tool calling WORKS"
 python scripts/agent_smoke.py data/demo demo_2         # one real agent run, number check included
+GLASSBOX_ENV=production python scripts/live_smoke_roles.py data/demo demo_2   # one live call per role, prints model, host and latency
 ```
 At start-up the server logs `Glass-Box CT: language model provider=api.tokenfactory.nebius.com model=<id> fast_model=<id>; ...`; `GET /api/health` returns `{"provider": "api.tokenfactory.nebius.com", "token_factory_only": true, ...}`; the About page shows the same.
 

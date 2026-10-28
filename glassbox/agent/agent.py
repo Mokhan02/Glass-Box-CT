@@ -59,9 +59,10 @@ def run_agent(scan_id: str, client, cfg: LLMConfig, toolbox: ToolBox, max_steps:
     for attempts in range(1, MAX_ATTEMPTS + 1):  # a report whose numbers do not all match the tool results is rewritten, with the offending numbers named
         user = base if attempts == 1 else base + f"\n\nYour previous report contained numbers that do not match the tool results: {chk['unsupported_numbers'] + chk['missing_units']}. Rewrite it quoting only exact tool values with their units (write a difference as the signed tool value, for example -14.6 HU, not '14.6 HU lower')."
         final = client.chat.completions.create(model=cfg.model, messages=[{"role": "system", "content": REPORT_PROMPT}, {"role": "user", "content": user}])
-        report = _verbatim_notes((final.choices[0].message.content or "").strip(), toolbox.evidence)
-        if not report.endswith(DISCLAIMER):
-            report += "\n\n" + DISCLAIMER
+        report = (final.choices[0].message.content or "").strip()
+        if report.endswith(DISCLAIMER):  # the notes below go before the closing line, which is then written exactly once
+            report = report[: -len(DISCLAIMER)].rstrip()
+        report = _verbatim_notes(report, toolbox.evidence) + "\n\n" + DISCLAIMER
         chk = check_report(report, toolbox.evidence)
         if chk["ok"]:
             break

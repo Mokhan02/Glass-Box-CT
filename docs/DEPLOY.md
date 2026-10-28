@@ -3,22 +3,22 @@
 The image (`Dockerfile`, about 360 MB) is the React front end + FastAPI + the five demo scans and their reports baked in. It needs **no GPU and no PyTorch**. It was built and run (keyless) on a Lambda instance; it has not been run on Nebius or on a fallback host, so every cloud-specific step below is from the providers' docs and unverified until you run it. I did not create any account or deploy anything.
 
 ## 0. Demo data and the build (same for every host)
-**The five demo scans are not in git.** The Docker build downloads them from a public release asset, checks the SHA-256 and **fails the build on a mismatch** (`scripts/fetch_demo_data.py`, run by the `RUN` line in the `Dockerfile`; unpacked to `/app/demo`, owned by the non-root `app` user). Archive: `glassbox-demo-data-v1.tar.gz`, 56402560 bytes, SHA-256 `8391cd183116664dad64a79d48d9e2996ce5d4750a8219dca76e54f9d321cdb5`. The two build arguments and their defaults:
-- `DEMO_DATA_URL` = `https://github.com/Mokhan02/Glass-Box-CT/releases/download/v1/glassbox-demo-data-v1.tar.gz`
-- `DEMO_DATA_SHA256` = `8391cd183116664dad64a79d48d9e2996ce5d4750a8219dca76e54f9d321cdb5`
+**The five demo scans are not in git.** The Docker build downloads them from a public release asset, checks the SHA-256 and **fails the build on a mismatch** (`scripts/fetch_demo_data.py`, run by the `RUN` line in the `Dockerfile`; unpacked to `/app/demo`, owned by the non-root `app` user). Archive: `glassbox-demo-data-v2.tar.gz`, 56402527 bytes, SHA-256 `dccf71fab9465f4dadecfb32bace4cc776f4f3bb8c486e281b42053b3665fd21`. The two build arguments and their defaults:
+- `DEMO_DATA_URL` = `https://github.com/Mokhan02/Glass-Box-CT/releases/download/v2/glassbox-demo-data-v2.tar.gz`
+- `DEMO_DATA_SHA256` = `dccf71fab9465f4dadecfb32bace4cc776f4f3bb8c486e281b42053b3665fd21`
 The URL must be reachable **without credentials** from the build machine, so this repository must be **public** when the release is published (release assets of a private repository need a token). The data is a release asset of this repository, not a file in git. Until the release below is published the build stops with `HTTP 404 (has the release been published, and is the repository public?)`.
 
 ### Publishing the data (one time)
-The archive is `release/glassbox-demo-data-v1.tar.gz` on your Mac (git-ignored; keep a copy). **Upload that exact file**: rebuilding the tarball changes its hash, and then the SHA in the `Dockerfile` and here must change with it.
+The archive is `release/glassbox-demo-data-v2.tar.gz` on your Mac (git-ignored; keep a copy). **Upload that exact file**: rebuilding the tarball changes its hash, and then the SHA in the `Dockerfile` and here must change with it.
 1. Before making the repository public: `gitleaks detect` on the full history must report no leaks, and `git ls-files` must not list `.env` or anything under `release/`.
 2. GitHub → `Mokhan02/Glass-Box-CT` → Settings → General → Danger Zone → "Change visibility" → Public.
-3. Releases → "Create a new release" → "Choose a tag": type `v1` and select "Create new tag: v1 on publish" → Release title `Demo data v1` → description: paste the contents of `docs/demo-data-README.md` (it carries the CC BY 4.0 attribution and the SHA-256) → drag in `release/glassbox-demo-data-v1.tar.gz` (GitHub allows 2 GB per asset; this is about 56 MB) → leave pre-release and draft unticked → **Publish release**.
+3. Releases → "Create a new release" → "Choose a tag": type `v2` and select "Create new tag: v2 on publish" → Release title `Demo data v2` → description: paste the contents of `docs/demo-data-README.md` (it carries the CC BY 4.0 attribution and the SHA-256) → drag in `release/glassbox-demo-data-v2.tar.gz` (GitHub allows 2 GB per asset; this is about 56 MB) → leave pre-release and draft unticked → **Publish release**.
 4. Verify from any machine (no login):
    ```bash
-   curl -L -o /tmp/d.tgz https://github.com/Mokhan02/Glass-Box-CT/releases/download/v1/glassbox-demo-data-v1.tar.gz
-   shasum -a 256 /tmp/d.tgz        # must print 8391cd183116664dad64a79d48d9e2996ce5d4750a8219dca76e54f9d321cdb5
+   curl -L -o /tmp/d.tgz https://github.com/Mokhan02/Glass-Box-CT/releases/download/v2/glassbox-demo-data-v2.tar.gz
+   shasum -a 256 /tmp/d.tgz        # must print dccf71fab9465f4dadecfb32bace4cc776f4f3bb8c486e281b42053b3665fd21
    ```
-With the GitHub CLI instead (`brew install gh`, `gh auth login`): `gh repo edit Mokhan02/Glass-Box-CT --visibility public --accept-visibility-change-consequences`, then `gh release create v1 release/glassbox-demo-data-v1.tar.gz --repo Mokhan02/Glass-Box-CT --title "Demo data v1" --notes-file docs/demo-data-README.md`.
+With the GitHub CLI instead (`brew install gh`, `gh auth login`): `gh repo edit Mokhan02/Glass-Box-CT --visibility public --accept-visibility-change-consequences`, then `gh release create v2 release/glassbox-demo-data-v2.tar.gz --repo Mokhan02/Glass-Box-CT --title "Demo data v2" --notes-file docs/demo-data-README.md`.
 To use another copy (a new version, a mirror): `docker build --build-arg DEMO_DATA_URL=... --build-arg DEMO_DATA_SHA256=... .`
 
 ## 0b. Build and run
@@ -28,7 +28,7 @@ docker run --rm -p 8000:8000 --env-file .env glassbox-ct       # http://localhos
 python scripts/smoke_deployed.py http://localhost:8000          # all PASS
 ```
 `.dockerignore` is an allow-list: `.env`, `.git`, `results/`, caches and `node_modules` never enter the build context. Secrets are passed as environment variables at run time, never baked.
-1. Set the final language-model provider in `.env` (`docs/TOKEN_FACTORY.md`) and bake the reports with it **before cutting the data archive**: the cached reports in the archive were written with NVIDIA's hosted Nemotron. A server started with a *different* provider regenerates them on first use (about 35 s each); a server with no model keeps serving them. If you re-run `python scripts/precompute_reports.py data/demo` for the final provider, rebuild the archive (`tar` command in `release/`'s history is in this section's commit message), publish it as `v2`, and update the two build arguments.
+1. The cached reports in archive `v2` were written through Nebius Token Factory with `LLM_MODEL=nvidia/nemotron-3-super-120b-a12b` and `LLM_FAST_MODEL=nvidia/Nemotron-3_5-Lightning`. A report is reused only when provider, both model IDs and the prompt match, so **set exactly these two IDs on the server**; any other value makes it regenerate the reports on first use (about 35 s each). To change models: set them in `.env`, run `GLASSBOX_ENV=production python scripts/precompute_reports.py data/demo`, rebuild the archive as the next version, publish it, and update the two build arguments.
 2. Run-time variables: `NEBIUS_API_KEY`, `LLM_MODEL`, `LLM_FAST_MODEL`. The image sets `GLASSBOX_ENV=production`, so it **requires** them and accepts Nebius Token Factory only; it stops at start-up with the reason otherwise (docs/TOKEN_FACTORY.md). For a keyless local look, run with `-e GLASSBOX_ENV=development`. **`PORT` is honoured**: the container runs `uvicorn ... --host 0.0.0.0 --port ${PORT:-8000}` (checked with `PORT=9123` and with `PORT` unset). `GLASSBOX_WARM_REPORTS=0` skips the background cache check at start-up.
 3. The server logs one line at start: `Glass-Box CT: language model provider=<host> model=<id> ...`. Use it as the runtime evidence of the Token Factory call.
 
