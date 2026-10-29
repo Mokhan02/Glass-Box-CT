@@ -1,0 +1,59 @@
+{
+ "bright": {
+  "n_lesions": 25,
+  "n_cases": 23,
+  "leace": {
+   "mean_dice_change": {
+    "point": -0.03898719999999999,
+    "lo": -0.06482186583333333,
+    "hi": -0.015920871153846137
+   },
+   "still_detected": 1.0
+  },
+  "random": {
+   "mean_dice_change": {
+    "point": 0.00119160000000001,
+    "lo": -0.00024917300724635846,
+    "hi": 0.002951445000000007
+   },
+   "still_detected": 1.0
+  },
+  "hu": {
+   "mean_dice_change": {
+    "point": -0.05590919999999998,
+    "lo": -0.12737022172619045,
+    "hi": -0.00017748782608694615
+   },
+   "still_detected": 0.92
+  }
+ },
+ "dark": {
+  "n_lesions": 56,
+  "n_cases": 52,
+  "leace": {
+   "mean_dice_change": {
+    "point": -0.043685892857142854,
+    "lo": -0.05889478896103895,
+    "hi": -0.02889197002923976
+   },
+   "still_detected": 1.0
+  },
+  "random": {
+   "mean_dice_change": {
+    "point": 0.0007235714285714385,
+    "lo": 0.0002594632536815773,
+    "hi": 0.0011919174528301978
+   },
+   "still_detected": 1.0
+  },
+  "hu": {
+   "mean_dice_change": {
+    "point": -0.036180714285714274,
+    "lo": -0.06935951323621552,
+    "hi": -0.012100672669491523
+   },
+   "still_detected": 0.9821428571428571
+  }
+ },
+ "label": "EXPLORATORY, no verdict"
+}

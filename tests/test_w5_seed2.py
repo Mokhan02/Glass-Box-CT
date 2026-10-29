@@ -21,7 +21,8 @@ def test_seed2_is_bright50_with_only_the_seed_changed():
     assert len(body) == 1 and isinstance(body[0], ast.Assign) and [t.id for t in body[0].targets] == ["SEED"] and ast.unparse(body[0].value) == "SEED_B50_S2"      # no other attribute or method is overridden
     src = open(os.path.join(S, "w5_nnunet_trainer_seed2.py")).read(); assert "SEED_B50_S2 = 20261028" in src
     base = classes("w5_nnunet_trainer.py"); assert "nnUNetTrainerW5Bright50" in base      # the parent exists unchanged in the committed trainer file
-    b50 = base["nnUNetTrainerW5Bright50"]; assert [ast.unparse(n) for n in b50.body if isinstance(n, ast.Assign)] == ["(ARM, P) = ('BRIGHT', 0.5)"]
+    b50 = base["nnUNetTrainerW5Bright50"]; assigns = [n for n in b50.body if isinstance(n, ast.Assign)]      # compared structurally: ast.unparse writes the tuple target with or without parentheses depending on the Python version
+    assert len(assigns) == 1 and [t.id for t in assigns[0].targets[0].elts] == ["ARM", "P"] and ast.literal_eval(assigns[0].value) == ("BRIGHT", 0.5)
 
 
 def test_seed_values_distinct_from_the_other_fixed_seeds():

@@ -1,0 +1,53 @@
+A3_DRIVER_START 2026-10-28T22:49:26Z
+PREFLIGHT_PASS (checkpoint sha256 ok, validation Dice equals the logged gate, code hashes ok) 2026-10-28T22:49:27Z
+HOOK_CHECK_PASS 2026-10-28T22:52:49Z
+{
+ "model": "D",
+ "n_rows": 15,
+ "problems": [],
+ "max_base_vs_stage1_cov_diff": 0.0,
+ "edited_rows": 10,
+ "flagged_edits": 4,
+ "arms_exercised": [
+  "A",
+  "B"
+ ],
+ "pass": true
+}
+M3_SMOKE_PASS 2026-10-28T23:10:40Z
+M3_FULL_START 2026-10-28T23:10:40Z
+TIME_CHECK M3 done=18/75 elapsed=1800s projected_wall=8640s limit=18000s (estimate 4.0h x 1.25) 2026-10-28T23:40:40Z
+TIME_CHECK M3 done=27/75 elapsed=3601s projected_wall=10803s limit=18000s (estimate 4.0h x 1.25) 2026-10-29T00:10:41Z
+TIME_CHECK M3 done=35/75 elapsed=5401s projected_wall=12152s limit=18000s (estimate 4.0h x 1.25) 2026-10-29T00:40:41Z
+TIME_CHECK M3 done=43/75 elapsed=7201s projected_wall=12961s limit=18000s (estimate 4.0h x 1.25) 2026-10-29T01:10:41Z
+TIME_CHECK M3 done=47/75 elapsed=9001s projected_wall=14728s limit=18000s (estimate 4.0h x 1.25) 2026-10-29T01:40:41Z
+TIME_CHECK M3 done=51/75 elapsed=10802s projected_wall=16203s limit=18000s (estimate 4.0h x 1.25) 2026-10-29T02:10:42Z
+TIME_CHECK M3 done=58/75 elapsed=12602s projected_wall=16497s limit=18000s (estimate 4.0h x 1.25) 2026-10-29T02:40:42Z
+TIME_CHECK M3 done=65/75 elapsed=14402s projected_wall=16724s limit=18000s (estimate 4.0h x 1.25) 2026-10-29T03:10:42Z
+TIME_CHECK M3 done=72/75 elapsed=16203s projected_wall=16907s limit=18000s (estimate 4.0h x 1.25) 2026-10-29T03:40:43Z
+expected 75 done 75 rows 204 token files 59 problems in 0 cases -> OK
+M3_DONE (validated) 2026-10-29T03:52:44Z
+M3_CONTRAST_DONE 2026-10-29T03:52:47Z
+EXTRACT_START 2026-10-29T03:59:15Z
+TIME_CHECK EXTRACTION done=14/75 elapsed=780s projected_wall=5105s limit=9000s (estimate 2.0h x 1.25) 2026-10-29T04:12:15Z
+TIME_CHECK EXTRACTION done=35/75 elapsed=2580s projected_wall=5805s limit=9000s (estimate 2.0h x 1.25) 2026-10-29T04:42:15Z
+TIME_CHECK EXTRACTION done=52/75 elapsed=4381s projected_wall=6437s limit=9000s (estimate 2.0h x 1.25) 2026-10-29T05:12:16Z
+TIME_CHECK EXTRACTION done=69/75 elapsed=6181s projected_wall=6742s limit=9000s (estimate 2.0h x 1.25) 2026-10-29T05:42:16Z
+EXTRACT_DONE (75 token files) 2026-10-29T05:52:17Z
+ERASERS_FITTED 2026-10-29T05:52:41Z
+M2_SMOKE_PASS (smoke folder is separate and not part of the results) 2026-10-29T06:08:07Z
+M2_FULL_START 2026-10-29T06:08:07Z
+TIME_CHECK M2 done=8/75 elapsed=1861s projected_wall=17446s limit=29250s (estimate 6.5h x 1.25) 2026-10-29T06:39:08Z
+TIME_CHECK M2 done=17/75 elapsed=3661s projected_wall=16151s limit=29250s (estimate 6.5h x 1.25) 2026-10-29T07:09:08Z
+TIME_CHECK M2 done=25/75 elapsed=5461s projected_wall=16383s limit=29250s (estimate 6.5h x 1.25) 2026-10-29T07:39:08Z
+TIME_CHECK M2 done=31/75 elapsed=7262s projected_wall=17569s limit=29250s (estimate 6.5h x 1.25) 2026-10-29T08:09:09Z
+TIME_CHECK M2 done=38/75 elapsed=9062s projected_wall=17885s limit=29250s (estimate 6.5h x 1.25) 2026-10-29T08:39:09Z
+TIME_CHECK M2 done=45/75 elapsed=10862s projected_wall=18103s limit=29250s (estimate 6.5h x 1.25) 2026-10-29T09:09:09Z
+TIME_CHECK M2 done=50/75 elapsed=12663s projected_wall=18994s limit=29250s (estimate 6.5h x 1.25) 2026-10-29T09:39:10Z
+TIME_CHECK M2 done=57/75 elapsed=14463s projected_wall=19030s limit=29250s (estimate 6.5h x 1.25) 2026-10-29T10:09:10Z
+TIME_CHECK M2 done=62/75 elapsed=16263s projected_wall=19672s limit=29250s (estimate 6.5h x 1.25) 2026-10-29T10:39:10Z
+TIME_CHECK M2 done=68/75 elapsed=18064s projected_wall=19923s limit=29250s (estimate 6.5h x 1.25) 2026-10-29T11:09:11Z
+TIME_CHECK M2 done=75/75 elapsed=19864s projected_wall=19864s limit=29250s (estimate 6.5h x 1.25) 2026-10-29T11:39:11Z
+M2_DONE (75 cases merged and checked) 2026-10-29T11:40:34Z
+A3_ALL_DONE 2026-10-29T11:41:16Z
+DRIVER_PROC_EXIT rc=0 2026-10-29T11:41:16Z

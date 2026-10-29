@@ -1,0 +1,154 @@
+{
+ "contrast_arm_A": {
+  "arm": "A",
+  "n_eligible_d0": 49,
+  "n_eligible_bright50": 56,
+  "n_common": 49,
+  "n_cases_common": 46,
+  "d0_only": [],
+  "bright50_only_count": 7,
+  "margin": 0.1,
+  "seed_name": "w5a3_m3_contrast_A",
+  "delta": {
+   "point": 0.5098891836734695,
+   "ci": [
+    0.440999405,
+    0.5716691041666667
+   ]
+  },
+  "verdict": "REDUCED",
+  "mean_D_d0_common": -0.3783020408163265,
+  "mean_D_bright50_common": 0.13158714285714287,
+  "relative_reduction_vs_d0_harm": 1.3478361961072032,
+  "descriptive": {
+   "delta_cov_edit_alone": {
+    "point": 0.4286748979591837,
+    "lo": 0.3474404063562926,
+    "hi": 0.5049895709219858
+   },
+   "lesion_dice_D": {
+    "point": 0.5410910204081633,
+    "lo": 0.4776470024529042,
+    "hi": 0.6077692969148936
+   },
+   "median_difference_common": 0.5656
+  },
+  "sensitivity_excluding_flagged": {
+   "n": 39,
+   "point": 0.4880179487179488,
+   "ci": [
+    0.40923045625,
+    0.5657587715019257
+   ],
+   "verdict": "REDUCED"
+  },
+  "d0_own": {
+   "n": 49,
+   "n_cases": 46,
+   "median_edit": [
+    -0.45421,
+    -0.60817,
+    -0.26995
+   ],
+   "median_D": [
+    -0.33602,
+    -0.54171,
+    -0.18500999999999995
+   ],
+   "sign_test": {
+    "n": 48,
+    "k": 40,
+    "p": 3.3052667092192682e-06
+   },
+   "residual_harm": "PRESENT"
+  },
+  "bright50_own": {
+   "n": 56,
+   "n_cases": 52,
+   "median_edit": [
+    0.0002550000000000052,
+    -0.014131749999999998,
+    0.012597749999999982
+   ],
+   "median_D": [
+    -0.006450000000000011,
+    -0.04471999999999998,
+    0.14681999999999995
+   ],
+   "sign_test": {
+    "n": 56,
+    "k": 30,
+    "p": 0.6888797607233395
+   },
+   "residual_harm": "ABSENT"
+  },
+  "unpaired_median_difference": {
+   "point": 0.32957,
+   "ci": [
+    0.19406562499999994,
+    0.5207592499999999
+   ]
+  }
+ },
+ "arm_B": {
+  "n_bright50": 3,
+  "n_d0": 22,
+  "min_required": 10,
+  "verdict": "NONE (fewer than 10 lesions)",
+  "lesions": [
+   {
+    "case": "HCC_017_372380",
+    "rank": "1",
+    "bright50": {
+     "base_cov": 0.02379,
+     "dcov_edit": -0.006669999999999999,
+     "dcov_ctrl": 0.004470000000000002,
+     "D": -0.01114
+    },
+    "d0": {
+     "base_cov": 0.0,
+     "dcov_edit": 0.00023,
+     "dcov_ctrl": 0.0,
+     "D": 0.00023
+    }
+   },
+   {
+    "case": "HCC_017_372380",
+    "rank": "2",
+    "bright50": {
+     "base_cov": 0.03323,
+     "dcov_edit": -0.022400000000000003,
+     "dcov_ctrl": 0.34802,
+     "D": -0.37041999999999997
+    },
+    "d0": {
+     "base_cov": 0.0,
+     "dcov_edit": 0.0,
+     "dcov_ctrl": 0.0,
+     "D": 0.0
+    }
+   },
+   {
+    "case": "HCC_023_800523",
+    "rank": "1",
+    "bright50": {
+     "base_cov": 0.04851,
+     "dcov_edit": 0.024300000000000002,
+     "dcov_ctrl": 0.41475,
+     "D": -0.39045
+    },
+    "d0": {
+     "base_cov": 0.04083,
+     "dcov_edit": 0.030710000000000008,
+     "dcov_ctrl": -0.02776,
+     "D": 0.05847000000000001
+    }
+   }
+  ]
+ },
+ "cases": 74,
+ "inputs": {
+  "d0": "results/w3_models/stage2/m3/D/m3_lesions.csv",
+  "bright50": "/lambda/nfs/CTGate/w5a3/m3_B50/m3_lesions.csv"
+ }
+}
