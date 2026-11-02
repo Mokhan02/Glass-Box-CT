@@ -120,3 +120,18 @@ def test_early_check_d0seed2_needs_no_augmentation_and_the_reserved_seed(tmp_pat
     rc, j = _check(tmp_path, "D0S2", _log(tmp_path, 20261121, "None", 0.0), _edits(tmp_path, 10, 3)); assert rc == 1 and not j["checks"]["no_augmentation"]
     rc, j = _check(tmp_path, "D0S2", _log(tmp_path, 20261020, "None", 0.0), str(empty)); assert rc == 1 and not j["checks"]["seed_in_log"]
     rc, j = _check(tmp_path, "D0S2", _log(tmp_path, 20261121, "BRIGHT", 0.5), str(empty)); assert rc == 1 and not j["checks"]["arm_line_as_expected"]
+
+
+def test_dose_response_without_d0seed2_uses_d0_alone(tmp_path):
+    a = arms(tmp_path, GOOD); a.pop("D0S2")
+    out = tmp_path / "o4"; D.main(str(out), a, {}); r = json.load(open(out / "w5a4_results.json"))
+    assert r["p0_runs"] == ["D0"] and r["labels"]["overall"] == "DOSE-RESPONSE (detection and Dice)"
+    c = r["contrasts"]["det"]; assert c["g0"] == pytest.approx(r["arms"]["D0"]["detection_gap"]) and "baseline" in r["seed_variance"]["det"] and "abs_gap_D0_minus_D0S2" not in r["seed_variance"]["det"]
+    assert "B50_minus_D0" in r["w5_contrasts_vs_baselines"]["det"] and not any("D0S2" in k for k in r["w5_contrasts_vs_baselines"]["det"])
+    assert r["trend"]["det"]["slope"] < 0
+
+
+def test_dose_response_still_requires_the_other_four_arms(tmp_path):
+    a = arms(tmp_path, GOOD); a.pop("D0S2"); a.pop("B50S2")
+    with pytest.raises(SystemExit):
+        D.main(str(tmp_path / "o5"), a, {})

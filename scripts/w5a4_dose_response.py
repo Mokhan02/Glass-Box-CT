@@ -19,7 +19,7 @@ _spec = importlib.util.spec_from_file_location("w5_analyze", os.path.join(HERE, 
 
 B, RESOLVABLE = W5.B, 0.20
 P = {"D0": 0.0, "D0S2": 0.0, "B25": 0.25, "B50": 0.5, "B50S2": 0.5}
-NEEDED = tuple(P)
+REQUIRED = ("D0", "B25", "B50", "B50S2")      # D0-seed2 is optional: if it was not run (Amendment 4 note, 2026-11-02) the p = 0 side is D0 alone
 METRICS = ("det", "dice")
 
 
@@ -57,7 +57,8 @@ def trend(gs, ps):
 
 def analyse(tabs, gates=None, boot=B):
     """tabs: {arm: per-case table [n_cases x 6]} for the five arms (same cases). Returns the result dict."""
-    n = len(next(iter(tabs.values()))); res = {"n_cases": n, "arms": {}, "gates": gates or {}, "labels": {}, "contrasts": {}, "trend": {}, "seed_variance": {}, "w5_contrasts_vs_baselines": {}}
+    NEEDED = tuple(k for k in P if k in tabs); P0 = tuple(k for k in ("D0", "D0S2") if k in tabs); has_d0s2 = "D0S2" in tabs
+    n = len(next(iter(tabs.values()))); res = {"n_cases": n, "arms": {}, "gates": gates or {}, "labels": {}, "contrasts": {}, "trend": {}, "seed_variance": {}, "w5_contrasts_vs_baselines": {}, "p0_runs": list(P0)}
     ok = {k: (gates or {}).get(k, {}).get("pass", True) for k in NEEDED}; bad = [k for k, v in ok.items() if not v]
     G = {k: np.array([float(x[0]) for x in W5.gaps(tabs[k].sum(0))]) for k in NEEDED}      # [det gap, dice gap] per arm (full sample)
     for k in NEEDED:
@@ -65,7 +66,7 @@ def analyse(tabs, gates=None, boot=B):
     rng = np.random.default_rng(seed("w5a4_dose_response")); idx = rng.integers(0, n, (boot, n))
     Gb = {k: np.array([[float(x[0]) for x in W5.gaps(tabs[k][i].sum(0))] for i in idx]) for k in NEEDED}      # [boot, 2]
     g = lambda D, arms: np.mean([D[a] for a in arms], axis=0)      # noqa: E731
-    g0, g5, g25 = g(G, ("D0", "D0S2")), g(G, ("B50", "B50S2")), G["B25"]; g0b, g5b, g25b = g(Gb, ("D0", "D0S2")), g(Gb, ("B50", "B50S2")), Gb["B25"]
+    g0, g5, g25 = g(G, P0), g(G, ("B50", "B50S2")), G["B25"]; g0b, g5b, g25b = g(Gb, P0), g(Gb, ("B50", "B50S2")), Gb["B25"]
     lab = {}
     for mi, m in enumerate(METRICS):
         cl, ch = W5.ci(g25b[:, mi] - g0b[:, mi]), W5.ci(g25b[:, mi] - g5b[:, mi])
@@ -79,12 +80,16 @@ def analyse(tabs, gates=None, boot=B):
         sb = np.array([trend([Gb[k][b, mi] for k in NEEDED], ps)[0] for b in range(boot)]); ib = np.array([trend([Gb[k][b, mi] for k in NEEDED], ps)[1] for b in range(boot)])
         rb = np.array([Gb["B25"][b, mi] - (lambda t: t[1] + t[0] * 0.25)(trend([Gb[k][b, mi] for k in others], [P[k] for k in others])) for b in range(boot)])
         res["trend"][m] = {"slope": sl, "slope_ci": W5.ci(sb), "intercept": ic, "intercept_ci": W5.ci(ib), "leave_B25_out_prediction_at_0.25": float(pred), "B25_residual": float(G["B25"][mi] - pred), "B25_residual_ci": W5.ci(rb), "label": "descriptive, no verdict"}
-        d0, d0s = G["D0"][mi], G["D0S2"][mi]; b5, b5s = G["B50"][mi], G["B50S2"][mi]
-        res["seed_variance"][m] = {"abs_gap_D0_minus_D0S2": float(abs(d0 - d0s)), "diff_D0_minus_D0S2_ci": W5.ci(Gb["D0"][:, mi] - Gb["D0S2"][:, mi]), "abs_gap_B50_minus_B50S2": float(abs(b5 - b5s)), "diff_B50_minus_B50S2_ci": W5.ci(Gb["B50"][:, mi] - Gb["B50S2"][:, mi]),
+        b5, b5s = G["B50"][mi], G["B50S2"][mi]
+        res["seed_variance"][m] = {"abs_gap_B50_minus_B50S2": float(abs(b5 - b5s)), "diff_B50_minus_B50S2_ci": W5.ci(Gb["B50"][:, mi] - Gb["B50S2"][:, mi]),
                                    "note": "one pair of runs per dose end: a seed-variance estimate, not a bound; SHAM-50 still has one run"}
+        if has_d0s2:
+            res["seed_variance"][m].update({"abs_gap_D0_minus_D0S2": float(abs(G["D0"][mi] - G["D0S2"][mi])), "diff_D0_minus_D0S2_ci": W5.ci(Gb["D0"][:, mi] - Gb["D0S2"][:, mi])})
+        else:
+            res["seed_variance"][m]["baseline"] = "UNAVAILABLE: D0-seed2 was not run (Amendment 4 note, 2026-11-02); the p = 0 side is D0 alone"
         out = {}
         for bright in ("B50", "B50S2"):
-            for base, bg, bgb in (("D0", G["D0"][mi], Gb["D0"][:, mi]), ("D0S2", G["D0S2"][mi], Gb["D0S2"][:, mi]), ("mean_of_baselines", g0[mi], g0b[:, mi])):
+            for base, bg, bgb in [(k, G[k][mi], Gb[k][:, mi]) for k in P0] + ([("mean_of_baselines", g0[mi], g0b[:, mi])] if has_d0s2 else []):
                 c = W5.ci(Gb[bright][:, mi] - bgb); out[f"{bright}_minus_{base}"] = {"delta": float(G[bright][mi] - bg), "lo": c[0], "hi": c[1]}
         res["w5_contrasts_vs_baselines"][m] = out
     return res
@@ -92,7 +97,7 @@ def analyse(tabs, gates=None, boot=B):
 
 def main(outdir, arms, gates):
     os.makedirs(outdir, exist_ok=True); data = {k: W5.load(p) for k, p in arms.items()}
-    missing = [k for k in NEEDED if k not in data]
+    missing = [k for k in REQUIRED if k not in data]
     if missing:
         raise SystemExit("missing arms: " + ", ".join(missing))
     if len({frozenset(v) for v in data.values()}) != 1:
@@ -110,7 +115,7 @@ def main(outdir, arms, gates):
     L += ["", "Descriptive (no verdict):"]
     for m, name in (("det", "detection"), ("dice", "Dice")):
         t, s = res["trend"][m], res["seed_variance"][m]
-        L.append(f"- {name}: slope per unit p {t['slope']:+.3f} [{t['slope_ci'][0]:+.3f}, {t['slope_ci'][1]:+.3f}]; B25 residual from the leave-out line {t['B25_residual']:+.3f} [{t['B25_residual_ci'][0]:+.3f}, {t['B25_residual_ci'][1]:+.3f}]; |gap(D0) - gap(D0S2)| = {s['abs_gap_D0_minus_D0S2']:.3f}; |gap(B50) - gap(B50S2)| = {s['abs_gap_B50_minus_B50S2']:.3f}")
+        L.append(f"- {name}: slope per unit p {t['slope']:+.3f} [{t['slope_ci'][0]:+.3f}, {t['slope_ci'][1]:+.3f}]; B25 residual from the leave-out line {t['B25_residual']:+.3f} [{t['B25_residual_ci'][0]:+.3f}, {t['B25_residual_ci'][1]:+.3f}]; |gap(D0) - gap(D0S2)| = {s['abs_gap_D0_minus_D0S2']:.3f}; |gap(B50) - gap(B50S2)| = {s['abs_gap_B50_minus_B50S2']:.3f}" if "abs_gap_D0_minus_D0S2" in s else f"- {name}: slope per unit p {t['slope']:+.3f} [{t['slope_ci'][0]:+.3f}, {t['slope_ci'][1]:+.3f}]; B25 residual from the leave-out line {t['B25_residual']:+.3f} [{t['B25_residual_ci'][0]:+.3f}, {t['B25_residual_ci'][1]:+.3f}]; baseline seed variance unavailable (D0-seed2 not run); |gap(B50) - gap(B50S2)| = {s['abs_gap_B50_minus_B50S2']:.3f}")
     open(os.path.join(outdir, "w5a4_results.md"), "w").write("\n".join(L) + "\n"); print("\n".join(L))
 
 
