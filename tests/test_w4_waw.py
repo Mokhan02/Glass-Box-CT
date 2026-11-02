@@ -79,3 +79,13 @@ def test_reference_parenchyma_phantom_two_tumours_and_a_bright_vessel():
 def test_contrast_scripts_use_the_shared_reference():
     for name, needle in (("w4_waw_contrast.py", "exclude=(liver_lab == PORTAL_SPLENIC_VEIN)"), ("w4_waw_paired_contrast.py", "reference_parenchyma(org_m, lab > 0)")):
         assert needle in open(os.path.join(HERE, "scripts", name)).read(), name
+
+
+def test_field_of_view_fraction_identity_and_shift():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("pc", os.path.join(HERE, "scripts", "w4_waw_paired_contrast.py")); PC = importlib.util.module_from_spec(spec); spec.loader.exec_module(PC)
+    mov = sitk.GetImageFromArray(np.zeros((20, 30, 40), np.float32)); mov.SetSpacing((1.0, 1.0, 2.0)); fix = sitk.GetImageFromArray(np.zeros((10, 30, 40), np.float32)); fix.SetSpacing((1.0, 1.0, 2.0))      # the target scan covers z index 0..9 only (20 mm of 40 mm)
+    pts_in = np.argwhere(np.ones((5, 5, 3), bool)) + np.array([5, 5, 2]); pts_out = np.argwhere(np.ones((5, 5, 3), bool)) + np.array([5, 5, 14])      # [x, y, z] indices on the moving grid
+    ident = sitk.Transform(3, sitk.sitkIdentity)
+    assert PC.fov_inside_fraction(pts_in, mov, fix, ident) == 1.0 and PC.fov_inside_fraction(pts_out, mov, fix, ident) == 0.0
+    half = np.concatenate([pts_in, pts_out]); assert 0.4 < PC.fov_inside_fraction(half, mov, fix, ident) < 0.6
