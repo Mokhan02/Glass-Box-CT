@@ -55,3 +55,27 @@ def test_deformable_stage_runs_when_requested():
     fl = sitk.GetImageFromArray(liver.astype(np.uint8)); fl.CopyInformation(fixed); ml = sitk.GetImageFromArray(np.roll(liver, (1, 2, 2), axis=(0, 1, 2)).astype(np.uint8)); ml.CopyInformation(moving)
     final, qa = R.register(fixed, moving, fl, ml, deform_below=1.1)
     assert qa["final_transform"] == "deformable" and "deformable" in qa["liver_dice"]
+
+
+def test_reference_parenchyma_phantom_two_tumours_and_a_bright_vessel():
+    """A liver (label 5) holding two tumours (+30 HU and -40 HU against 100 HU parenchyma) and a bright (300 HU) portal vein (label 64) 8 mm from tumour 1, i.e. inside its 5 to 20 mm shell, plus a bright hepatic vein
+    (left inside label 5, as in exp8) far from both. Excluding label 64 gives the exact parenchyma reference; including the vessel as liver biases the contrast."""
+    from glassbox.audit.contrast import case_lesions
+    from glassbox.audit.waw import LIVER, PORTAL_SPLENIC_VEIN, reference_parenchyma
+    n = 90; ct = np.full((n, n, n), 100.0, np.float32); organ = np.zeros((n, n, n), np.uint8); organ[5:85, 5:85, 5:85] = LIVER
+    zz, yy, xx = np.mgrid[:n, :n, :n]
+    t1 = ((xx - 30) ** 2 + (yy - 30) ** 2 + (zz - 45) ** 2) <= 7 ** 2; t2 = ((xx - 65) ** 2 + (yy - 60) ** 2 + (zz - 45) ** 2) <= 7 ** 2; ct[t1] = 130.0; ct[t2] = 60.0
+    pv = (np.abs(yy - 30) <= 5) & (np.abs(zz - 45) <= 5) & (xx >= 45) & (xx <= 58); ct[pv] = 300.0; organ[pv] = PORTAL_SPLENIC_VEIN          # a thick vessel starting 8 mm from tumour 1's surface (inside its 5 to 20 mm shell), running along x
+    hv = (np.abs(yy - 78) <= 1) & (np.abs(zz - 78) <= 1) & (xx >= 20) & (xx <= 60); ct[hv] = 300.0                                         # hepatic vein, labelled liver (stays in the reference)
+    tumour = t1 | t2; ref = reference_parenchyma(organ, tumour)
+    assert not (ref & tumour).any() and not (ref & pv).any() and ref[hv].all() and not (ref & ~(organ > 0)).any()                  # tumours and the portal vein are out, the hepatic vein is in
+    rows = case_lesions(ct, tumour, organ == LIVER, (1.0, 1.0, 1.0), n_lesions=None, min_diam_mm=10.0, exclude=(organ == PORTAL_SPLENIC_VEIN))
+    c = sorted(r["contrast_hu"] for r in rows); assert len(rows) == 2 and c[0] == pytest.approx(60.0 - 100.0, abs=1.5) and c[1] == pytest.approx(130.0 - 100.0, abs=1.5)          # only the thin hepatic vein (far outside both shells) perturbs the mean slightly
+    organ_as_liver = organ.copy(); organ_as_liver[pv] = LIVER                                                                                # the failure the exclusion prevents: the vessel counted as parenchyma
+    biased = case_lesions(ct, tumour, organ_as_liver == LIVER, (1.0, 1.0, 1.0), n_lesions=None, min_diam_mm=10.0)
+    near = [r for r in biased if r["tumour_hu"] > 120][0]; assert near["contrast_hu"] < 30.0 - 3.0      # the bright vessel in tumour 1's shell raises the reference and lowers the contrast
+
+
+def test_contrast_scripts_use_the_shared_reference():
+    for name, needle in (("w4_waw_contrast.py", "exclude=(liver_lab == PORTAL_SPLENIC_VEIN)"), ("w4_waw_paired_contrast.py", "reference_parenchyma(org_m, lab > 0)")):
+        assert needle in open(os.path.join(HERE, "scripts", name)).read(), name

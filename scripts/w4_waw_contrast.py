@@ -15,8 +15,8 @@ import SimpleITK as sitk
 
 sys.path.insert(0, os.getcwd())
 from glassbox.audit.contrast import case_lesions  # noqa: E402
+from glassbox.audit.waw import LIVER, PORTAL_SPLENIC_VEIN  # noqa: E402
 
-LIVER = 5      # TotalSegmentator label of the liver (checked: 2.28 M voxels = about 1 L on a 0.79 x 0.79 x 0.7 mm scan)
 
 
 def find_ct(root, pid, ph):
@@ -51,7 +51,7 @@ def main():
         ct, liver_lab, sp, res_l = load_aligned(ctp, organ[0]); tumour = np.zeros(ct.shape, bool); resampled_t = False
         for f in files:
             _, t, _, r = load_aligned(ctp, f); tumour |= t > 0; resampled_t |= r
-        les = case_lesions(ct, tumour, liver_lab == LIVER, sp, n_lesions=None, min_diam_mm=10.0)
+        les = case_lesions(ct, tumour, liver_lab == LIVER, sp, n_lesions=None, min_diam_mm=10.0, exclude=(liver_lab == PORTAL_SPLENIC_VEIN))      # reference = label 5 minus all tumour voxels minus label 64 (glassbox/audit/waw.py)
         for r in les:
             rows.append({"patient": pid, "phase": ph, "rank": r["rank"], "top2": int(r["rank"] <= 2), "diam_mm": round(r["diam_mm"], 2), "volume_mm3": round(r["volume_mm3"], 1), "tumour_hu": round(r["tumour_hu"], 2), "liver_hu": round(r["liver_hu"], 2),
                          "contrast_hu": round(r["contrast_hu"], 2), "bright": int(r["contrast_hu"] > 0), "shell_fallback": int(r["fallback"]), "n_shell_vox": r["n_shell_vox"], "mask_files": len(files), "mask_resampled": int(resampled_t), "organ_resampled": int(res_l),
