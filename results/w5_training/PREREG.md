@@ -147,3 +147,52 @@ Hook check, identity check and 3-case smokes about **0.6 h**; **M3 about 2.7 h**
 5. **Smokes and sharding.** The M3 smoke (3 cases: HCC_017 and HCC_023, which hold BRIGHT-50's three Arm B lesions, and HCC_052, an Arm A case, so the committed smoke check can see both arms) and the extraction smoke (first 3 cases) write into the real output folders; the runners resume per case. The M2 smoke writes into its own folder (not part of the results) because M2 runs as two shards like D0 (`--shard 0/2`, `1/2`), merged by the new `scripts/w5a3_merge_m2.py` (concatenation, tested). M3 runs as one process; extraction as two shards writing per-case files into one folder.
 6. **Checkpoint verified before use (2026-10-28, on the A10 instance):** `nnUNetTrainerW5Bright50__nnUNetPlans__3d_fullres/fold_0/checkpoint_final.pth`, sha256 `0783e42fe5f3bbbe070cfa32e1715e88f6a37e1268ff3d73546c9d8b820621c4`, modified 2026-10-26 08:53; its nnU-Net validation `summary.json` gives liver Dice 0.9651 and tumour Dice 0.6779, equal to the logged sanity gate (`results/w5_training/results/BRIGHT50/gate.json`: 0.96513, 0.67795). The driver re-checks both before any run.
 
+
+
+## Amendment 4 (APPROVED by the researcher 2026-11-01 with one edit: the primary DOSE-RESPONSE label uses only g25 between g0 and g5 plus the C_low CI, C_high is descriptive and labels the curve graded or saturating; written AFTER the W5 results and the replication were seen and BEFORE any run of the new arms): dose-response (BRIGHT-25) and a baseline seed-variance estimate (D0-seed2)
+**Stated plainly: these two arms are added after the W5 results (BRIGHT-50, SHAM-50) and the BRIGHT-50 replication were seen.** What was fixed earlier: the original W5 PREREG already defined both as optional arms (BRIGHT-25, p = 0.25; D0-seed2, no augmentation, seed 20261121 reserved at that approval), ranked them, and Amendment 1 recorded that they were not run because only two GPUs were available. What is new and decided after the results: running them now, and the dose-response rule below. Nothing in the rule is tuned to a result that does not yet exist for these arms; the existing W5 numbers constrain it only through the feasibility check in "Resolvability".
+
+## Question and prediction (stated before any result of the new arms)
+Does the bright-versus-dark gap shrink gradually with the dose of bright-tumour augmentation (p = 0, 0.25, 0.5), as a training-data explanation predicts, rather than only at the full dose? **Prediction: DOSE-RESPONSE** (defined below) on detection and on Dice. And how large is the training-run noise of the baseline? D0-seed2 gives the first baseline seed-variance estimate (one pair of runs, descriptive).
+
+## Arms (everything else identical to D0 / BRIGHT-50)
+| arm | trainer class (already in the committed `scripts/w5_nnunet_trainer.py`, git blob f022adb5..., unchanged) | augmentation | seed |
+|---|---|---|---|
+| **BRIGHT-25** | `nnUNetTrainerW5Bright25` | BRIGHT, p = 0.25, shift U(+10, +60) HU relative to the local liver mean | **20261020** (same as D0, BRIGHT-50, SHAM-50) |
+| **D0-seed2** | `nnUNetTrainerW5D0Seed2` | none (model D's recipe) | **20261121** (reserved at the W5 approval) |
+
+Same plan (`nnUNetPlans`, Dataset003_Liver, fold 0, 3d_fullres, patch 128^3, batch 2), 1000 epochs x 250 iterations, nnU-Net 2.8.1, same GPU type (A10). Runs are not bitwise deterministic, so even the same seed would not reproduce a run; the dose-response contrast therefore carries training-run noise, which D0-seed2 and BRIGHT-50-s2 let us size (one pair each).
+
+## Same gates, cohort, scorer and analysis code (hashes unchanged)
+Sanity gate (`scripts/w5_gate.py`: liver Dice >= 0.93, tumour Dice >= 0.597; a failed arm is reported and excluded), Amendment 2 alignment gate (`scripts/w3_shift_gate.py`; STOP holds), scorer (`scripts/w3_modelD_eval.py`), W3 analysis (`scripts/w3_analyze.py`), post pipeline (`scripts/w5_post.sh`), W5 contrast analysis (`scripts/w5_analyze.py`), HCC cohort 74 cases / 85 lesions (28 bright / 57 dark), HCC_019 corrected, HCC_027 excluded from the primary. Blob hashes as in Amendment 2 (w3_modelD_eval.py be565b25..., w3_shift_gate.py 371df8bd..., w3_analyze.py ced4b3df..., w5_analyze.py 8b24e7b6..., w5_gate.py 59636ef5..., w5_post.sh 9f7d55f8..., w3_lib.py e8c7d806...).
+
+## Primary for BRIGHT-25: dose-response of the gap
+Gaps are the W5 gaps (dark minus bright; detection rate and mean Dice; positive = bright segmented worse), per run from the unchanged `w3_analyze.py` outputs (read through the unchanged `w5_analyze.py` functions). Let g0 = mean of the gaps of the two p = 0 runs (D0, D0-seed2), g5 = mean of the two p = 0.5 runs (BRIGHT-50, BRIGHT-50-s2), g25 = the gap of BRIGHT-25. Predicted order: g0 > g25 > g5.
+- **Contrasts** (paired patient-level bootstrap: the same resampled cases for all five runs in every replicate, 1000 resamples, 95% percentile CI, seed = first 8 hex digits of the SHA-256 of the contrast name): **C_low = g25 - g0** (predicted below 0) and **C_high = g25 - g5** (predicted above 0).
+- **Label per metric (primary), checked in this order:**
+  - **DOSE-RESPONSE:** the point estimate of g25 lies strictly between g5 and g0 AND the CI of **C_low = g25 - g0 lies entirely below 0**. (C_high is NOT part of the primary label.)
+  - **PARTIAL:** g25 lies strictly between g5 and g0 but the CI of C_low includes 0.
+  - **NONE:** g25 does not lie between g5 and g0.
+- **Resolvability ("where the margin allows"):** a metric can be labelled DOSE-RESPONSE only if g0 - g5 >= 0.20 (twice the W5 margin of 0.10); otherwise its label is capped at PARTIAL and says "not resolvable at this separation". (From the runs already seen, detection and Dice separations are about 0.55 and 0.23, so both are expected to clear this; it is checked on the new D0-seed2 run.)
+- **Shape of the curve (descriptive, B25 against p = 0.5; not part of the label):** **"graded"** if the CI of C_high lies entirely above 0 (BRIGHT-25 clearly worse than the p = 0.5 mean); **"saturating"** if it does not (BRIGHT-25 not distinguishable from full dose). Reported per metric whenever g25 lies between g5 and g0.
+- **Overall label:** "DOSE-RESPONSE (detection and Dice)" if both metrics are DOSE-RESPONSE; "DOSE-RESPONSE (detection only)" or "(Dice only)" if exactly one is; otherwise "PARTIAL" if at least one metric is PARTIAL; otherwise "NONE". An arm that fails a gate makes the affected comparison "NOT EVALUABLE".
+- **Descriptive trend fit (no verdict):** least-squares line of each gap on p across all five runs (p = 0, 0, 0.25, 0.5, 0.5), slope and intercept with the same patient-bootstrap CIs; the leave-BRIGHT-25-out prediction at p = 0.25 and the residual of BRIGHT-25 from it.
+
+## D0-seed2 (descriptive, no verdict)
+**|gap(D0) - gap(D0-seed2)|** for the detection gap and the Dice gap, printed beside every W5 contrast (BRIGHT-50 and BRIGHT-50-s2 against D0 and against SHAM-50, and the new dose contrasts), together with D0-seed2's own gaps, gate numbers and, as a sensitivity, each existing W5 contrast recomputed against D0-seed2 and against the mean of the two baselines. This is one pair of baseline runs: it gives a seed-variance estimate, not a bound, and SHAM-50 still has a single run.
+
+## Code to be written, tested and hashed BEFORE any GPU run (after your approval of this draft)
+`scripts/w5a4_dose_response.py` (the labels, contrasts and trend above, with unit tests on synthetic gaps), `scripts/w5a4_smoke_trainers.py` (2-epoch smoke classes `nnUNetTrainerW5SmokeBright25` and `nnUNetTrainerW5SmokeD0Seed2`, same pattern as `w5_smoke_trainers.py`), `scripts/w5a4_early_check.py` (as `w5_early_check.py` with arm-specific criteria below), `scripts/w5a4_run.sh` and `scripts/w5a4_final.sh` (the seed-2 driver and final-analysis waiter, parameterised by arm tag B25 / D0S2), hashes in `results/w5_training/code_hashes_a4.txt`. The trainer, gate, scorer, post-pipeline and analysis files above are not touched.
+
+## Run plan (two A10 instances in parallel; same procedure as Amendment 2)
+Instance 1: BRIGHT-25 (tag B25). Instance 2: D0-seed2 (tag D0S2). The same persistent filesystem; outputs do not collide (`nnUNetTrainerW5Bright25__nnUNetPlans__3d_fullres`, `nnUNetTrainerW5D0Seed2__nnUNetPlans__3d_fullres`, `train_B25.log`, `train_D0S2.log`, `stage1/W5_B25`, `stage1/W5_D0S2`).
+1. Install and verify the trainer files by sha256 against the committed ones; test the alert poller by forced failure on each instance before any GPU run.
+2. **Early 2-epoch smoke per arm** (separate smoke classes; stopped after "Training done"): PASS needs the expected seed in the log (B25 20261020, D0S2 20261121), the arm line (`augmentation BRIGHT p=0.25` / `augmentation None p=0.0`), finite train and validation losses, epoch-2 time within 10% of 61 s; B25 additionally an edit share of 0.15 to 0.35 among tumour-containing samples (p = 0.25 times the measured about 0.9 application fraction) with every delta inside +10 to +60 HU; D0S2 additionally an empty edit log (no augmentation). Any failure stops the run and is reported.
+3. Full training (1000 epochs, `scripts/w5_train.sh`, automatic resume), post pipeline (`scripts/w5_post.sh`), final CPU analysis (`scripts/w5a4_final.sh`, which waits for BOTH arms before the dose-response label is computed; a single arm's own gaps and gates are reported as soon as that arm finishes).
+4. Alerting: `scripts/w5_alert.sh` per instance with `W5_TAG` set; GPU-idle notice as in Amendment 3.
+5. Infrastructure failures (OOM, SSH loss, preemption) are resumed without asking if no code or config changes and no results were read, each logged as a deviation; any code change stops the run.
+
+**Time (A10, measured 61.1 s/epoch; not a commitment):** about 19.5 h from launch to the final report per arm, in parallel, so about **19.5 h wall and about 39 GPU-hours in total**; the GPU is idle about 1.5 h before the report is complete. Your sign-off is needed before any GPU run.
+
+## Limits (in addition to those of W5)
+One run of BRIGHT-25 (one seed) against two runs at each end; 28 bright lesions give wide CIs, so the two contrasts may not both resolve even if the trend is monotone (then PARTIAL, by design); the augmentation is a synthetic stand-in and acts inside the CT window; a dose-response over three doses tests monotonicity in this recipe only; the rule was written after the p = 0 and p = 0.5 results were known (the arms and seeds were not); D0-seed2 gives one pair of baseline runs.
