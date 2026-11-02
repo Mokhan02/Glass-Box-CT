@@ -1,0 +1,182 @@
+{
+ "n_cases": 74,
+ "arms": {
+  "D0": {
+   "p": 0.0,
+   "detection_gap": 0.6453634085213033,
+   "dice_gap": 0.41885755012531334
+  },
+  "B25": {
+   "p": 0.25,
+   "detection_gap": 0.1071428571428571,
+   "dice_gap": 0.2007104448621555
+  },
+  "B50": {
+   "p": 0.5,
+   "detection_gap": 0.08959899749373423,
+   "dice_gap": 0.18532669799498724
+  },
+  "B50S2": {
+   "p": 0.5,
+   "detection_gap": 0.12531328320802004,
+   "dice_gap": 0.19297947994987485
+  }
+ },
+ "gates": {
+  "B25": {
+   "liver_dice": 0.9649248165233968,
+   "tumour_dice": 0.6639881027968418,
+   "pass": true
+  },
+  "B50": {
+   "liver_dice": 0.9651309763224404,
+   "tumour_dice": 0.6779483152911692,
+   "pass": true
+  },
+  "B50S2": {
+   "liver_dice": 0.9647250859631663,
+   "tumour_dice": 0.6731575242480097,
+   "pass": true
+  }
+ },
+ "labels": {
+  "per_metric": {
+   "det": "NONE",
+   "dice": "DOSE-RESPONSE"
+  },
+  "overall": "DOSE-RESPONSE (Dice only)"
+ },
+ "contrasts": {
+  "det": {
+   "g0": 0.6453634085213033,
+   "g25": 0.1071428571428571,
+   "g5": 0.10745614035087714,
+   "separation_g0_minus_g5": 0.5379072681704261,
+   "C_low": {
+    "delta": -0.5382205513784462,
+    "lo": -0.7460944026733499,
+    "hi": -0.33007861635220137
+   },
+   "C_high": {
+    "delta": -0.00031328320802004317,
+    "lo": -0.04545454545454547,
+    "hi": 0.05002118644067799
+   },
+   "label": "NONE",
+   "shape": null
+  },
+  "dice": {
+   "g0": 0.41885755012531334,
+   "g25": 0.2007104448621555,
+   "g5": 0.18915308897243105,
+   "separation_g0_minus_g5": 0.2297044611528823,
+   "C_low": {
+    "delta": -0.21814710526315784,
+    "lo": -0.35803091226774364,
+    "hi": -0.08890958712836926
+   },
+   "C_high": {
+    "delta": 0.011557355889724452,
+    "lo": -0.019914093742810633,
+    "hi": 0.04661666911075056
+   },
+   "label": "DOSE-RESPONSE",
+   "shape": "saturating"
+  }
+ },
+ "trend": {
+  "det": {
+   "slope": -0.9778992936887674,
+   "slope_ci": [
+    -1.3432305697398579,
+    -0.6193001443001447
+   ],
+   "intercept": 0.5474481658692185,
+   "intercept_ci": [
+    0.38207244318181827,
+    0.691337467465798
+   ],
+   "leave_B25_out_prediction_at_0.25": 0.37640977443609014,
+   "B25_residual": -0.26926691729323304,
+   "B25_residual_ci": [
+    -0.3783888375752598,
+    -0.1492922652932141
+   ],
+   "label": "descriptive, no verdict"
+  },
+  "dice": {
+   "slope": -0.421847149692413,
+   "slope_ci": [
+    -0.6522061430107858,
+    -0.2081800948459251
+   ],
+   "intercept": 0.38129577751196175,
+   "intercept_ci": [
+    0.2743654763024923,
+    0.4781829651423141
+   ],
+   "leave_B25_out_prediction_at_0.25": 0.304005319548872,
+   "B25_residual": -0.1032948746867165,
+   "B25_residual_ci": [
+    -0.17929136661290337,
+    -0.02885959699344639
+   ],
+   "label": "descriptive, no verdict"
+  }
+ },
+ "seed_variance": {
+  "det": {
+   "abs_gap_B50_minus_B50S2": 0.03571428571428581,
+   "diff_B50_minus_B50S2_ci": [
+    -0.11121794871794875,
+    0.0
+   ],
+   "note": "one pair of runs per dose end: a seed-variance estimate, not a bound; SHAM-50 still has one run",
+   "baseline": "UNAVAILABLE: D0-seed2 was not run (Amendment 4 note, 2026-11-02); the p = 0 side is D0 alone"
+  },
+  "dice": {
+   "abs_gap_B50_minus_B50S2": 0.007652781954887611,
+   "diff_B50_minus_B50S2_ci": [
+    -0.02963885809869974,
+    0.015607794424541084
+   ],
+   "note": "one pair of runs per dose end: a seed-variance estimate, not a bound; SHAM-50 still has one run",
+   "baseline": "UNAVAILABLE: D0-seed2 was not run (Amendment 4 note, 2026-11-02); the p = 0 side is D0 alone"
+  }
+ },
+ "w5_contrasts_vs_baselines": {
+  "det": {
+   "B50_minus_D0": {
+    "delta": -0.555764411027569,
+    "lo": -0.7576965408805032,
+    "hi": -0.34901662935721145
+   },
+   "B50S2_minus_D0": {
+    "delta": -0.5200501253132832,
+    "lo": -0.7312164750957855,
+    "hi": -0.31992845117845115
+   }
+  },
+  "dice": {
+   "B50_minus_D0": {
+    "delta": -0.2335308521303261,
+    "lo": -0.3650201919864279,
+    "hi": -0.11237370175568503
+   },
+   "B50S2_minus_D0": {
+    "delta": -0.22587807017543848,
+    "lo": -0.3509099758457834,
+    "hi": -0.10521361405174286
+   }
+  }
+ },
+ "p0_runs": [
+  "D0"
+ ],
+ "inputs": {
+  "D0": "/lambda/nfs/CTGate/w3/stage1/D0_74/w3_lesions_D_nnunet_hcc.csv",
+  "B25": "/lambda/nfs/CTGate/w3/stage1/W5_B25/eval/w3_lesions_D_nnunet_hcc.csv",
+  "B50": "/lambda/nfs/CTGate/w3/stage1/W5_B50/eval/w3_lesions_D_nnunet_hcc.csv",
+  "B50S2": "/lambda/nfs/CTGate/w3/stage1/W5_B50S2/eval/w3_lesions_D_nnunet_hcc.csv"
+ }
+}

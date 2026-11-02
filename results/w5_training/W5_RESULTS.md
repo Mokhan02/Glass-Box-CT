@@ -104,3 +104,27 @@ Not run as a verdict (stated in advance): BRIGHT-50 misses 3 of 28 bright lesion
 3. One fold, one cohort, one disease, contrast phase unlabelled; 49 common Arm A lesions give wide intervals; constant-offset edits change mean contrast only; the controls also move HU; no multiplicity correction (one primary contrast); BRIGHT-50 detects 57 of 58 dark lesions unedited, so Arm A starts from a high baseline.
 4. M2 and the projection concern one linear direction at one layer (stage 3, 16 mm through-plane token); a null (NOT NECESSARY) is not evidence that the concept is unused.
 5. **Records:** the per-lesion tables (M3 `m3_lesions.csv`, M2 `lesions.csv` and `cases.csv`, token tables, margin maps, erasers) are on the persistent filesystem under the run folder and were not copied into the repository before the instance was terminated; the repository holds the analysis outputs (`m3_contrast.*`, `a3_m2_analysis`, `a3_m3_analysis`, `a3_m2_by_brightness`) and the driver log. Code and hashes: `results/w5_training/code_hashes_a3.txt`.
+
+
+---
+
+## Amendment 4: dose-response (BRIGHT-25) (PREREG Amendment 4 and its 2026-11-02 note; arms added after the W5 results and the replication were seen; run 2026-11-01 21:13 to 2026-11-02 16:34 America/New_York)
+**BRIGHT-25 only** (D0-seed2 was not run: dropped on GPU budget before any Amendment 4 result, to save GPU time for the WAW-TACE experiments; DEVIATIONS 16). Consequences: **no baseline seed-variance estimate**; the p = 0 side of the dose-response is **D0 alone**. Everything else as in W5: trainer `nnUNetTrainerW5Bright25` (BRIGHT, p = 0.25, +10 to +60 HU relative to the local liver mean), seed 20261020, nnU-Net 2.8.1, fold 0, 1000 epochs, one A10, same gates, scorer, cohort (74 cases / 85 lesions, 28 bright / 57 dark), HCC_019 corrected, HCC_027 excluded, hashes in `results/w5_training/code_hashes_a4.txt`. Smoke PASS (all six early-check criteria), training 21:13:56 to 14:24:42 EST (60 s per epoch, final EMA pseudo-Dice 0.907), final validation and post pipeline to 16:33 EST; nothing held, no infrastructure event.
+**Gates:** sanity gate PASS (liver Dice 0.9649, tumour Dice 0.6640 against the 0.93 / 0.597 floors); alignment gate: 0 misaligned or failed of 74. Files: `results/w5_training/results/BRIGHT25/`, dose-response `results/w5_training/results/analysis_a4/`.
+
+**BRIGHT-25 on its own (the unchanged W3 analysis):** bright detection 89.3% (25 of 28), dark 100% (57 of 57); detection gap +10.7 pts [+0.0, +26.1] (INCONCLUSIVE on the 0.10 margin); Dice gap +20.1 pts [+5.0, +34.4] (bright Dice 0.508, dark 0.708); W3 label **GAP (Dice only)**; median signed sum-of-diameters error -9.8% (BRIGHT-50 -9.9%, D0 -34.3%).
+
+### Pre-registered labels, as written
+| gap (dark minus bright) | D0 (p = 0) | BRIGHT-25 | BRIGHT-50 | BRIGHT-50-s2 | g0 | g5 |
+|---|---|---|---|---|---|---|
+| detection | +0.645 | +0.107 | +0.090 | +0.125 | +0.645 | +0.1075 |
+| Dice | +0.419 | +0.201 | +0.185 | +0.193 | +0.419 | +0.189 |
+
+- **Overall label: DOSE-RESPONSE (Dice only).**
+- **Dice: DOSE-RESPONSE.** g25 +0.201 lies strictly between g5 +0.189 and g0 +0.419; C_low = g25 - g0 = **-0.218 [-0.358, -0.089]** (CI entirely below 0); the p = 0 to p = 0.5 separation is 0.230, above the 0.20 resolvability bar. C_high = g25 - g5 = +0.012 [-0.020, +0.047]: BRIGHT-25 is not distinguishable from full dose, so the curve is **saturating** (descriptive).
+- **Detection: NONE, caused by the strict-between rule, not by an absent effect.** g25 +0.107 is not strictly between g5 +0.1075 and g0 +0.645 (it is 0.0005 below g5), so the rule returns NONE although C_low = g25 - g0 = **-0.538 [-0.746, -0.330]** is as clear as it can be. C_high = -0.000 [-0.045, +0.050]: at p = 0.25 the detection gap is already at the full-dose level, again a **saturating** curve. The label is reported as written; this paragraph is the description of what it hides.
+- **Descriptive trend fit (all four runs, no verdict):** slope per unit p -0.978 [-1.343, -0.619] (detection) and -0.422 [-0.652, -0.208] (Dice); BRIGHT-25's residual from the line fitted to the other three runs -0.269 [-0.378, -0.149] (detection) and -0.103 [-0.179, -0.029] (Dice), i.e. the gap at p = 0.25 is smaller than a straight line through the other runs predicts: the curve bends, it is not linear.
+- **Seed variance:** the only estimate is the BRIGHT-50 pair, |gap(B50) - gap(B50-s2)| = 0.036 (detection) and 0.008 (Dice). **There is no baseline seed-variance estimate** (D0-seed2 not run), so the C_low contrast carries one baseline run's training noise, and the 0.012 Dice difference between BRIGHT-25 and full dose is not distinguishable from the 0.008 to 0.036 run-to-run differences seen at p = 0.5.
+
+### Limits (in addition to those of W5 and Amendment 4)
+One BRIGHT-25 run against two at full dose and one at no dose; 28 bright lesions give wide CIs (the detection gap CI of BRIGHT-25 alone spans 0 to +26 pts); the augmentation is a synthetic stand-in and acts inside the CT window; the dose axis has only three levels, so "saturating" says only that p = 0.25 is already as effective as p = 0.5 in this recipe, not where the curve starts to bend; the rule was written after the p = 0 and p = 0.5 results were known (the arms and seeds were not).

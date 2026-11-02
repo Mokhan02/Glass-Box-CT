@@ -1,0 +1,36 @@
+{
+ "arm_tag": "B25",
+ "expected_seed": 20261020,
+ "log_seed": 20261020,
+ "log_arm": "BRIGHT",
+ "log_p": 0.25,
+ "epochs_logged": 2,
+ "epoch_times_s": [
+  149.66,
+  59.53
+ ],
+ "train_loss": [
+  0.1155,
+  -0.027
+ ],
+ "val_loss": [
+  -0.0271,
+  -0.0722
+ ],
+ "samples_logged": 1052,
+ "samples_with_tumour": 587,
+ "samples_edited": 161,
+ "edit_share_among_tumour_samples": 0.27427597955706984,
+ "deltas_logged": 811,
+ "deltas_out_of_range": 0,
+ "reference_s": 61.0,
+ "checks": {
+  "seed_in_log": true,
+  "arm_line_as_expected": true,
+  "two_epochs": true,
+  "losses_finite": true,
+  "epoch2_time_within_10pct": true,
+  "transform_active": true
+ },
+ "pass": true
+}

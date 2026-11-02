@@ -1,0 +1,7 @@
+W5A4_B25_DRIVER_START Mon Nov  2 02:09:08 UTC 2026
+W5A4_PREFLIGHT_PASS B25 Mon Nov  2 02:09:28 UTC 2026
+SMOKE_START B25 Mon Nov  2 02:09:28 UTC 2026
+PASS {"seed_in_log": true, "arm_line_as_expected": true, "two_epochs": true, "losses_finite": true, "epoch2_time_within_10pct": true, "transform_active": true} seed 20261020 epoch2 59.53 edit share 0.27427597955706984
+SMOKE_PASS B25 Mon Nov  2 02:13:51 UTC 2026
+W5_B25_TRAINING_STARTED Mon Nov  2 02:13:56 UTC 2026
+W5A4_B25_DRIVER_DONE (training and post pipeline waiters started) Mon Nov  2 02:13:56 UTC 2026
