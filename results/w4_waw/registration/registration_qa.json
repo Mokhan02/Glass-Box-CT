@@ -1,0 +1,117 @@
+[
+ {
+  "initial_translation_mm": [
+   -0.03807242120004162,
+   -8.225595664021995,
+   -13.581979380913822
+  ],
+  "liver_dice": {
+   "none": 0.7766867848618437,
+   "rigid": 0.9431659468939471,
+   "affine": 0.9513072700401154
+  },
+  "final_transform": "affine",
+  "seconds": 4.7,
+  "patient": "21",
+  "mask_phase": 1,
+  "target_phase": 2,
+  "mask_files": 1,
+  "tumour_volume_cm3_original": 11.483835081706768,
+  "tumour_volume_cm3_propagated": 11.335101021343831,
+  "tumour_centroid_shift_mm": 15.547829709898997,
+  "propagated_inside_fixed_liver": 1.0,
+  "propagated_voxels": 5792
+ },
+ {
+  "initial_translation_mm": [
+   0.012055212486160372,
+   0.3970185700527509,
+   -4.4017581866576165
+  ],
+  "liver_dice": {
+   "none": 0.9133825426670136,
+   "rigid": 0.9652926510409924,
+   "affine": 0.9649651518682723
+  },
+  "final_transform": "affine",
+  "seconds": 7.1,
+  "patient": "14",
+  "mask_phase": 1,
+  "target_phase": 2,
+  "mask_files": 3,
+  "tumour_volume_cm3_original": 37.74968573972887,
+  "tumour_volume_cm3_propagated": 37.39525343247525,
+  "tumour_centroid_shift_mm": 3.81987939003326,
+  "propagated_inside_fixed_liver": 0.9994813033432357,
+  "propagated_voxels": 21207
+ },
+ {
+  "initial_translation_mm": [
+   2.1981116622261823,
+   -1.5487457524853312,
+   1.9888235807977708
+  ],
+  "liver_dice": {
+   "none": 0.9645491693733041,
+   "rigid": 0.9690670051391495,
+   "affine": 0.9694202410767446
+  },
+  "final_transform": "affine",
+  "seconds": 7.0,
+  "patient": "455",
+  "mask_phase": 1,
+  "target_phase": 2,
+  "mask_files": 4,
+  "tumour_volume_cm3_original": 224.05336008565837,
+  "tumour_volume_cm3_propagated": 220.16675248574634,
+  "tumour_centroid_shift_mm": 0.796327938330408,
+  "propagated_inside_fixed_liver": 0.9784087707625264,
+  "propagated_voxels": 166827
+ },
+ {
+  "initial_translation_mm": [
+   -1.9794850237924493,
+   -1.4414454999290456,
+   -0.04959472321729663
+  ],
+  "liver_dice": {
+   "none": 0.9336449217376236,
+   "rigid": 0.9474553394851553,
+   "affine": 0.9455401870384621
+  },
+  "final_transform": "affine",
+  "seconds": 12.9,
+  "patient": "514",
+  "mask_phase": 2,
+  "target_phase": 1,
+  "mask_files": 1,
+  "tumour_volume_cm3_original": 34.12669392017008,
+  "tumour_volume_cm3_propagated": 33.92687508310541,
+  "tumour_centroid_shift_mm": 3.345574186996981,
+  "propagated_inside_fixed_liver": 1.0,
+  "propagated_voxels": 25291
+ },
+ {
+  "initial_translation_mm": [
+   -0.08065913635826405,
+   -5.8499274043726075,
+   -8.909925498767961
+  ],
+  "liver_dice": {
+   "none": 0.8585642160313789,
+   "rigid": 0.9507598767890596,
+   "affine": 0.9596337660705424
+  },
+  "final_transform": "affine",
+  "seconds": 8.4,
+  "patient": "521",
+  "mask_phase": 2,
+  "target_phase": 1,
+  "mask_files": 1,
+  "tumour_volume_cm3_original": 93.89236124732811,
+  "tumour_volume_cm3_propagated": 92.01766237163844,
+  "tumour_centroid_shift_mm": 10.683228621580705,
+  "propagated_inside_fixed_liver": 0.9945456565207732,
+  "propagated_voxels": 90020
+ }
+]

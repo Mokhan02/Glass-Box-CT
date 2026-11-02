@@ -124,7 +124,7 @@ def main():
         fl = to_grid(sitk.BinaryThreshold(read(glob.glob(os.path.join(odir, pid, f"{pid}_{pt}_total_segmentator*"))[0]), LIVER, LIVER, 1, 0), fix_ct)
         tum = None
         for f in mf:
-            t = to_grid(sitk.BinaryThreshold(read(f), 1, 65535, 1, 0), mov_ct); tum = t if tum is None else sitk.Or(tum, t)
+            t = to_grid(sitk.BinaryThreshold(read(f), 1, 32767, 1, 0), mov_ct); tum = t if tum is None else sitk.Or(tum, t)
         final, qa = register(fix_ct, mov_ct, fl, ml, thr)
         prop = sitk.Resample(tum, fix_ct, final, sitk.sitkNearestNeighbor, 0, sitk.sitkUInt8)
         c0, c1 = centroid_mm(tum), centroid_mm(prop); vox0 = float(np.prod(tum.GetSpacing())); vox1 = float(np.prod(fix_ct.GetSpacing()))
