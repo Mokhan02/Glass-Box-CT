@@ -1,0 +1,11 @@
+WAW-TACE download verification (md5 vs the Zenodo record, 2026-11-02T01:59:47Z)
+OK   supplementary_table_s1_definitions_v2.xlsx 10579
+OK   ct_hcc_metadata_v2.csv 16240
+OK   clinical_data_wawtace_v2_15_07_2024.xlsx 49182
+OK   tumor_masks_wawtace_v1_08_05_2024.zip 2295210
+OK   radiomics_data_wawtace_09_05_2024.xlsx 22442351
+OK   organ_masks_wawtace_09_05_2024.zip 1040633161
+OK   ct_scans_1_4_wawtace_09_05_24.zip 10358496494
+OK   ct_scans_2_4_wawtace_09_05_24.zip 10504420816
+OK   ct_scans_3_4_wawtace_09_05_24.zip 12800544288
+OK   ct_scans_4_4_wawtace_09_05_24.zip 13487114834

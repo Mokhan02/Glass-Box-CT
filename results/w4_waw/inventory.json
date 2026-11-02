@@ -1,0 +1,54 @@
+{
+ "patients": 233,
+ "scans_by_phase": {
+  "0": 200,
+  "1": 230,
+  "2": 231,
+  "3": 193
+ },
+ "mask_files": 377,
+ "metadata_mismatches": 0,
+ "phase_set_by_patient": {
+  "(0, 1, 2, 3)": 164,
+  "(0, 1, 2)": 34,
+  "(1, 2, 3)": 27,
+  "(1, 2)": 4,
+  "(3,)": 1,
+  "(0, 1)": 1,
+  "(2, 3)": 1,
+  "(0, 2)": 1
+ },
+ "masked_phase_by_patient": {
+  "(1,)": 126,
+  "(3,)": 30,
+  "(2,)": 74,
+  "(0,)": 3
+ },
+ "mask_files_by_phase": {
+  "2": 109,
+  "1": 230,
+  "3": 34,
+  "0": 4
+ },
+ "mask_files_ge10mm_by_phase": {
+  "2": 107,
+  "1": 228,
+  "3": 34,
+  "0": 4
+ },
+ "components_ge10mm_by_phase": {
+  "0": 4,
+  "1": 229,
+  "2": 107,
+  "3": 34
+ },
+ "patients_with_arterial_and_portal_scans": 229,
+ "of_those_with_a_mask_on_phase_1_or_2": 199,
+ "of_those_with_any_mask": 229,
+ "patients_arterial_AND_PV_scans_mask_on_arterial": 125,
+ "patients_arterial_AND_PV_scans_mask_on_PV": 74,
+ "patients_arterial_AND_PV_scans_mask_on_delayed_or_native_only": 30,
+ "lesions_ge10mm_in_those_patients(masked_phase_1_or_2)": 333,
+ "lesions_ge10mm_all_patients": 374,
+ "patients_with_ge1_lesion_ge10mm": 233
+}
