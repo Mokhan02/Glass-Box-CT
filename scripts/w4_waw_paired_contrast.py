@@ -3,7 +3,7 @@ Per patient: the mask drawn on phase m (1 arterial or 2 portal venous) is propag
 (nearest neighbour) so that every tumour keeps its identity. Per tumour (26-connected component of at least 10 mm longest axial diameter on the drawn phase): contrast on the drawn phase and on the other phase with the project's shared function
 (glassbox.audit.contrast, 5 to 20 mm shell, reference liver = TotalSegmentator label 5 of that phase minus ALL tumour voxels of that phase). Sensitivity columns: the liver eroded by 3 mm (mean contrast) and the median instead of the mean of the shell.
 Registration QA per patient (pass = ALL of: liver Dice >= 0.92; >= 90% of the propagated tumour volume inside the target liver; propagated/original tumour volume in 0.85 to 1.15) is written next to the tumours; failures are excluded downstream and counted.
-Usage (python -I): python -I scripts/w4_waw_paired_contrast.py <ct root> <tumour mask dir> <organ mask dir> <metadata csv> <out dir> [--workers 3] [--patients 14 21 ...]"""
+Usage (python -I): python -I scripts/w4_waw_paired_contrast.py <ct root> <tumour mask dir> <organ mask dir> <metadata csv> <out dir> [--workers 3] [--patients 14 21 ...] [--save-dir <dir>: also write the ground truth of both series for the detection scoring]"""
 import csv
 import glob
 import importlib.util
@@ -20,7 +20,7 @@ from scipy import ndimage
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, os.path.dirname(HERE))
 _spec = importlib.util.spec_from_file_location("w4reg", os.path.join(HERE, "w4_waw_register.py")); REG = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(REG)
 from glassbox.audit.contrast import SHELL_MM, lesion_contrast, select_lesions  # noqa: E402
-from glassbox.audit.waw import reference_parenchyma  # noqa: E402
+from glassbox.audit.waw import PORTAL_SPLENIC_VEIN, reference_parenchyma  # noqa: E402
 
 QA_DICE, QA_INSIDE, QA_VOL = 0.92, 0.90, (0.85, 1.15)
 ARGS = {}
@@ -55,6 +55,32 @@ def median_contrast(ct, lesion, liver, spacing):
     return float(np.median(ct[lesion])) - L
 
 
+def expand_labels(lab, spacing, mm):
+    """Each non-zero label grown by `mm` (physical units) into background, a voxel going to its nearest label (nearest-label expansion with the Euclidean distance transform)."""
+    dist, idx = ndimage.distance_transform_edt(lab == 0, sampling=spacing, return_indices=True); out = lab.copy(); m = (lab == 0) & (dist <= mm); out[m] = lab[tuple(i[m] for i in idx)]; return out
+
+
+def save_gt(save_dir, pid, series, ct_img, ct_path, organ, tumour_lab, ref_img_spacing, sel, fov, drawn_phase, propagated):
+    """Ground truth of one series for the detection scoring, in the layout `glassbox.seg.w2_lib.case_geometry` reads (`<dir>/<case>/ct.nii.gz`, `seg.nii.gz` with 1 reference parenchyma, 2 tumour, 3 portal/splenic vein)
+    plus `tumour_labels.nii.gz` (uint16: the component id of every tumour voxel, the same ids on both phases), `tumour_labels_dil2.nii.gz` (propagated series only: each label grown by 2 mm) and `tumours.csv`."""
+    d = os.path.join(save_dir, f"{pid}_{series}"); os.makedirs(d, exist_ok=True)
+
+    def write(a, name, dtype):
+        im = sitk.GetImageFromArray(a.transpose(2, 1, 0).astype(dtype)); im.CopyInformation(ct_img); sitk.WriteImage(im, os.path.join(d, name), True)
+    seg = np.zeros(organ.shape, np.uint8); seg[reference_parenchyma(organ, tumour_lab > 0)] = 1; seg[tumour_lab > 0] = 2; seg[(organ == PORTAL_SPLENIC_VEIN) & (seg == 0)] = 3
+    write(seg, "seg.nii.gz", np.uint8); write(tumour_lab, "tumour_labels.nii.gz", np.uint16)
+    if propagated:
+        write(expand_labels(tumour_lab, ref_img_spacing, 2.0), "tumour_labels_dil2.nii.gz", np.uint16)
+    link = os.path.join(d, "ct.nii.gz")
+    if os.path.lexists(link):
+        os.remove(link)
+    os.symlink(os.path.abspath(ct_path), link)
+    with open(os.path.join(d, "tumours.csv"), "w", newline="") as f:
+        w = csv.writer(f); w.writerow(["patient", "series_phase", "drawn_phase", "is_propagated", "rank_drawn_phase", "label_id", "diam_mm_drawn_phase", "fov_inside_fraction"])
+        for rank, (diam, i) in enumerate(sel, 1):
+            w.writerow([pid, series, drawn_phase, int(propagated), rank, i, round(diam, 2), round(fov[i], 4)])
+
+
 def _process(job):
     pid, ph = job; t0 = time.time(); ct_root, tdir, odir = ARGS["ct"], ARGS["tdir"], ARGS["odir"]; pt = 2 if ph == 1 else 1
     mov_ct, fix_ct = REG.read(REG.find_ct(ct_root, pid, ph), sitk.sitkFloat32), REG.read(REG.find_ct(ct_root, pid, pt), sitk.sitkFloat32)
@@ -87,6 +113,9 @@ def _process(job):
     cd0, cd1 = REG.centroid_mm(tum), REG.centroid_mm(sitk.Resample(tum, fix_ct, final, sitk.sitkNearestNeighbor, 0, sitk.sitkUInt8))
     q = {"patient": pid, "mask_phase": ph, "target_phase": pt, "liver_dice_none": qa["liver_dice"]["none"], "liver_dice_rigid": qa["liver_dice"]["rigid"], "liver_dice_final": d, "transform": qa["final_transform"], "propagated_inside_target_liver": inside, "volume_ratio": ratio,
          "tumour_centroid_shift_mm": None if cd1 is None else float(np.linalg.norm(cd1 - cd0)), "n_lesions_ge10mm": len(sel), "n_lesions_fov_clipped": sum(1 for _, i in sel if fov[i] < FOV_MIN), "n_components_fov_clipped": len(clipped), "qa_pass": int(ok), "seconds": round(time.time() - t0, 1), "drawn_inside_own_liver": float((tb & ml_a).sum() / max(tb.sum(), 1)), "error": ""}      # drawn_inside_own_liver separates a QA failure caused by the mask lying outside the TotalSegmentator liver from a registration failure (reported; not a pass criterion)
+    if ARGS.get("save_dir"):      # optional: write the ground truth of both series (the default run, which produced the scouting results, does not)
+        save_gt(ARGS["save_dir"], pid, ph, mov_ct, REG.find_ct(ct_root, pid, ph), org_m, lab, sp_m, sel, fov, ph, False)
+        save_gt(ARGS["save_dir"], pid, pt, fix_ct, REG.find_ct(ct_root, pid, pt), org_f, prop, sp_f, sel, fov, ph, True)
     return q, rows
 
 
@@ -111,7 +140,8 @@ def main():
         P.setdefault(r["patient_id"], {})[int(r["ct_phase"])] = int(r["tumor_count"])
     jobs = sorted(((p, 1 if v.get(1, 0) > 0 else 2) for p, v in P.items() if 1 in v and 2 in v and (v.get(1, 0) > 0 or v.get(2, 0) > 0) and (not only or p in only)), key=lambda j: int(j[0]))
     print(len(jobs), "patients", flush=True); qas, rows = [], []
-    with mp.get_context("spawn").Pool(workers, initializer=init, initargs=({"ct": ct, "tdir": tdir, "odir": odir},)) as pool:
+    save_dir = sys.argv[sys.argv.index("--save-dir") + 1] if "--save-dir" in sys.argv else None
+    with mp.get_context("spawn").Pool(workers, initializer=init, initargs=({"ct": ct, "tdir": tdir, "odir": odir, "save_dir": save_dir},)) as pool:
         for k, (q, r) in enumerate(pool.imap_unordered(process, jobs), 1):
             qas.append(q); rows += r; print(k, "/", len(jobs), q["patient"], (f"dice {q['liver_dice_final']:.3f} inside {q['propagated_inside_target_liver']:.3f} ratio {q['volume_ratio']:.3f}" if q["error"] == "" else "ERROR " + q["error"]), f"pass {q['qa_pass']} lesions {q['n_lesions_ge10mm']} {q['seconds']}s", flush=True)
     for name, data in (("patient_qa.csv", sorted(qas, key=lambda q: int(q["patient"]))), ("tumours_paired.csv", sorted(rows, key=lambda r: (int(r["patient"]), r["rank"])))):

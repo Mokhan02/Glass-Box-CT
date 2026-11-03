@@ -1,3 +1,4 @@
+import json
 import csv
 import importlib.util
 import os
@@ -111,3 +112,93 @@ def test_sign_count_rules_and_categories(tmp_path):
     assert r["categories"] == {"K": 2, "F": 1, "Q": 1, "E": 1} and r["category_check_sum"] == 5 and r["patients_E_error"] == ["5"]
     g = r["grid_all_kept"]["delta=5,rho=0.5"]; assert g == {"sign_flips": 1, "comparable_abs_contrast": 1, "flip_and_comparable (effective N)": 1}      # patient 1: 20 vs -10 flips, ratio 0.5; patient 2: 20 vs 5 does not
     assert r["Q_first_failed_criterion_per_tumour"] == {"liver_dice<0.92": 1}
+
+
+def _write_series(root, case, shape=(40, 40, 30), tumour_boxes=((10, 20, 10, 20, 10, 20),), propagated=False, dil=False):
+    """A tiny ground-truth series in the layout of scripts/w4_waw_paired_contrast.py --save-dir."""
+    nib = pytest.importorskip("nibabel"); d = root / case; d.mkdir(parents=True)
+    seg = np.zeros(shape, np.uint8); seg[2:38, 2:38, 3:27] = 1; lab = np.zeros(shape, np.uint16)
+    for i, (x0, x1, y0, y1, z0, z1) in enumerate(tumour_boxes, 1):
+        seg[x0:x1, y0:y1, z0:z1] = 2; lab[x0:x1, y0:y1, z0:z1] = i
+    aff = np.diag([1.0, 1.0, 2.0, 1.0]); nib.save(nib.Nifti1Image(np.zeros(shape, np.int16), aff), d / "ct.nii.gz"); nib.save(nib.Nifti1Image(seg, aff), d / "seg.nii.gz"); nib.save(nib.Nifti1Image(lab, aff), d / "tumour_labels.nii.gz")
+    if dil:
+        from scipy import ndimage
+        nib.save(nib.Nifti1Image(np.where(ndimage.binary_dilation(lab > 0, iterations=2), 1, 0).astype(np.uint16) * np.where(lab > 0, lab, 1), aff), d / "tumour_labels_dil2.nii.gz")
+    with open(d / "tumours.csv", "w", newline="") as f:
+        w = csv.writer(f); w.writerow(["patient", "series_phase", "drawn_phase", "is_propagated", "rank_drawn_phase", "label_id", "diam_mm_drawn_phase", "fov_inside_fraction"])
+        for i in range(1, len(tumour_boxes) + 1):
+            w.writerow(["7", case.split("_")[1], "1", int(propagated), i, i, 12.0, 1.0])
+    return seg, lab
+
+
+def test_detection_is_the_w3_coverage_rule_and_the_dilation_changes_only_the_propagated_series(tmp_path):
+    from glassbox.seg import w4_waw as W
+    seg, lab = _write_series(tmp_path, "7_1")
+    ser = W.read_series(str(tmp_path), "7_1"); pred = np.zeros(seg.shape, bool); pred[10:20, 10:20, 10:15] = True      # half of the tumour's slices: coverage 0.5
+    r = W.score_arrays("m", ser["seg"], ser["labels"], ser["labels_dil2"], ser["tumours"], pred, ser["spacing"])[0]
+    assert r["coverage"] == 0.5 and r["detected"] == 1 and r["coverage_dil2"] == r["coverage"] and r["is_propagated"] == 0       # a drawn mask is not dilated
+    pred2 = np.zeros(seg.shape, bool); pred2[10:20, 10:20, 10:11] = True      # one slice of ten: coverage exactly 0.10 -> detected (>= 0.10)
+    assert W.score_arrays("m", ser["seg"], ser["labels"], None, ser["tumours"], pred2, ser["spacing"])[0]["detected"] == 1
+    pred3 = np.zeros(seg.shape, bool); pred3[10:20, 10:20, 10:10] = True; pred3[19, 19, 19] = True      # one voxel of 1000: coverage 0.001 -> missed
+    assert W.score_arrays("m", ser["seg"], ser["labels"], None, ser["tumours"], pred3, ser["spacing"])[0]["detected"] == 0
+    seg2, lab2 = _write_series(tmp_path, "7_2", propagated=True, dil=True); s2 = W.read_series(str(tmp_path), "7_2")
+    r2 = W.score_arrays("m", s2["seg"], s2["labels"], s2["labels_dil2"], s2["tumours"], pred, s2["spacing"])[0]
+    assert r2["is_propagated"] == 1 and r2["coverage_dil2"] < r2["coverage"] and r2["diam_mm_series"] > 8      # the dilated reference has more voxels, so the same prediction covers a smaller share of it
+
+
+def test_score_script_writes_scores_and_the_alignment_gate(tmp_path):
+    import importlib.util
+    nib = pytest.importorskip("nibabel"); spec = importlib.util.spec_from_file_location("sc", os.path.join(HERE, "scripts", "w4_waw_score.py")); SC = importlib.util.module_from_spec(spec); spec.loader.exec_module(SC)
+    gt = tmp_path / "gt"; gt.mkdir(); seg, lab = _write_series(gt, "7_1", shape=(80, 40, 30)); pd = tmp_path / "pred"; pd.mkdir()
+    tum = np.zeros(seg.shape, bool); tum[10:20, 10:20, 10:20] = True; np.savez_compressed(pd / "7_1.npz", tumour=tum, liver=(seg > 0))
+    rows, align = SC.main([str(gt), str(pd), "m", str(tmp_path / "out")])
+    assert rows[0]["detected"] == 1 and align[0]["gate_pass"] and (tmp_path / "out" / "scores_m.csv").exists()
+    np.savez_compressed(pd / "7_1.npz", tumour=tum, liver=np.roll(seg > 0, 12, axis=0))      # a liver prediction shifted 12 voxels (12 mm) along x
+    rows, align = SC.main([str(gt), str(pd), "m", str(tmp_path / "out2")]); assert not align[0]["gate_pass"]
+
+
+def test_w4_stats_recover_known_effects_and_labels():
+    from glassbox.seg import w4_stats as S
+    rng = np.random.default_rng(3); n = 400; pat = np.repeat(np.arange(200), 2); sa = rng.random(n) < 0.6; sp = rng.random(n) < 0.4
+    al = rng.normal(0.5, 1.0, n); pa = 1 / (1 + np.exp(-(al + 0.0 + 1.5 * sa))); pp = 1 / (1 + np.exp(-(al + 1.5 * sp))); da = (rng.random(n) < pa).astype(int); dp = (rng.random(n) < pp).astype(int)
+    D = np.column_stack([sa.astype(float) - sp, rng.normal(size=n)])
+    r = S.cond_logit(pat, da, dp, D, ["sign", "mag"], "t", b=300); c = r["coef"]["sign"]
+    assert r["status"].startswith("OK") and c["boot_OR_lo"] < np.exp(1.5) < c["boot_OR_hi"] and S.sign_verdict(r) == "REAL-PHASE BRIGHTNESS EFFECT" and r["discordant"] > 50
+    r0 = S.cond_logit(pat, da, dp, np.column_stack([np.zeros(n), D[:, 1]]), ["sign", "mag"], "t0", b=100); assert r0["status"] == "NOT ESTIMABLE"      # a constant column is rank-deficient
+    X = np.column_stack([np.ones(8), np.r_[np.ones(4), np.zeros(4)]]); z = np.r_[np.ones(4), np.zeros(4)]; b, f = S.fit_robust(X, z); assert f and np.all(np.isfinite(b)) and abs(b[1]) < 12      # perfect separation -> Jeffreys
+    assert S.closes_verdict(-0.3, -0.5, -0.1) == "CLOSES" and S.closes_verdict(-0.05, -0.08, 0.0) == "DOES NOT CLOSE" and S.closes_verdict(-0.2, -0.4, 0.05) == "INCONCLUSIVE"
+    assert S.gap_label(0.3, 0.1, 0.5) == "GAP" and S.gap_label(0.02, -0.05, 0.08) == "NO GAP" and S.model_gap_label("GAP", "INCONCLUSIVE") == "GAP (detection only)"
+    pt = list(np.repeat(np.arange(100), 4)); br = [i % 2 == 0 for i in range(400)]; v1 = [1.0 if not b_ else 0.2 for b_ in br]; v0 = [1.0 if not b_ else 0.8 for b_ in br]
+    d = S.paired_delta(pt, br, {"a1": v1, "a0": v0}, "a1", "a0", "x", b=200); assert abs(d["delta"] - 0.6) < 1e-9 and d["gap_arm1"] > d["gap_arm0"]
+    e = S.effective_n_design(np.arange(20), np.ones(20), "e", b=200); assert e["label"] == "SIGN EFFECT" and S.effective_n_design([], [], "e")["n"] == 0
+
+
+def test_analysis_runs_end_to_end_on_synthetic_scores(tmp_path):
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("an", os.path.join(HERE, "scripts", "w4_waw_analyze.py")); AN = importlib.util.module_from_spec(spec); spec.loader.exec_module(AN)
+    from glassbox.seg import w4_waw as W
+    rng = np.random.default_rng(5); paired = tmp_path / "paired"; paired.mkdir(); tr = []; arms = {a: [] for a in AN.ARMS}
+    for p in range(1, 61):
+        for rk in (1, 2):
+            ca, cp = rng.normal(15, 20), rng.normal(5, 20); drawn = int(rng.integers(1, 3)); tr.append({"patient": p, "mask_phase": drawn, "target_phase": 3 - drawn, "rank": rk, "diam_mm": 20.0, "c_arterial": ca, "c_portal": cp, "c_arterial_eroded": ca, "c_portal_eroded": cp,
+                                                                                                         "c_arterial_median": ca, "c_portal_median": cp, "category": "K"})
+            for sp in (1, 2):
+                c = ca if sp == 1 else cp
+                for a in AN.ARMS:
+                    det = int(rng.random() < (0.9 if c <= 0 else 0.45)); arms[a].append({"arm": a, "patient": p, "series_phase": sp, "drawn_phase": drawn, "is_propagated": int(sp != drawn), "rank_drawn_phase": rk, "label_id": rk, "diam_mm_drawn_phase": 20.0, "diam_mm_series": 20.0,
+                                                                                         "fov_inside_fraction": 1.0, "n_voxels": 100, "coverage": 0.5 * det, "dice_full": 0.6 * det, "dice_within_10mm": 0.6 * det, "coverage_dil2": 0.5 * det, "detected": det, "detected_dil2": det, "pred_diam_mm": 1, "mode": "OK"})
+    with open(paired / "tumours_paired.csv", "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=list(tr[0])); w.writeheader(); w.writerows(tr)
+    sd = tmp_path / "s"; sd.mkdir()
+    for a, rows in arms.items():
+        with open(sd / f"scores_{a}.csv", "w", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=W.FIELDS); w.writeheader(); w.writerows(rows)
+        json.dump({"series_gate_fail": [], "per_series": []}, open(sd / f"alignment_{a}.json", "w"))
+    AN.main([str(paired), str(tmp_path / "out"), str(sd), "--b-scale", "0.05"]); pr = json.load(open(tmp_path / "out" / "primary.json"))
+    assert pr["a"]["vista"]["all"]["label"].startswith("GAP")
+    assert pr["b"]["vista"]["coef"]["sign"]["OR"] < 1 and (tmp_path / "out" / "sensitivity_table.json").exists() and "dilation_2mm_propagated" in json.load(open(tmp_path / "out" / "sensitivity_table.json"))["sensitivities"]
+
+
+def test_split_is_a_seeded_balanced_partition():
+    spec = importlib.util.spec_from_file_location("sp", os.path.join(HERE, "scripts", "w4_waw_split.py")); SP = importlib.util.module_from_spec(spec); spec.loader.exec_module(SP)
+    ids = [str(i) for i in range(1, 200)]; a, b = SP.split(ids); assert len(a) == 100 and len(b) == 99 and not set(a) & set(b) and set(a) | set(b) == set(ids) and SP.split(ids) == (a, b) and SP.split(ids[::-1]) == (a, b)
