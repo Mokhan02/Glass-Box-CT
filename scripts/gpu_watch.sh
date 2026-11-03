@@ -10,7 +10,7 @@ echo "$(date -u +%FT%TZ) WATCH_START hosts=$(grep -c . "$HOSTS")" >> "$LOG"
 while true; do
   while read -r label target; do
     [ -n "$label" ] || continue
-    out=$(ssh -i "$KEY" -o ConnectTimeout=10 -o BatchMode=yes -o ServerAliveInterval=10 -o ServerAliveCountMax=2 "$target" 'echo $(nvidia-smi --query-compute-apps=pid --format=csv,noheader | wc -l) $(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | head -1)' 2>/dev/null)
+    out=$(ssh -n -i "$KEY" -o ConnectTimeout=10 -o BatchMode=yes -o ServerAliveInterval=10 -o ServerAliveCountMax=2 "$target" 'echo $(nvidia-smi --query-compute-apps=pid --format=csv,noheader | wc -l) $(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | head -1)' 2>/dev/null)
     if [ -z "$out" ]; then
       fail[$label]=$(( ${fail[$label]:-0} + 1 ))
       [ "${fail[$label]}" = 3 ] && { emit "HOST_UNREACHABLE $label (3 failed polls; terminated or network)"; state[$label]=down; }
