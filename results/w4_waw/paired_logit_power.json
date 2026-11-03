@@ -1,0 +1,209 @@
+{
+ "kept_tumours": 297,
+ "patients": 181,
+ "tumours_non_flip": 212,
+ "flip_A_bright_P_dark": 80,
+ "flip_A_dark_P_bright": 5,
+ "scenarios": [
+  {
+   "b_mag_per_10HU": 0.3,
+   "OR_phase": 1.0,
+   "OR_propagated": 1.0,
+   "OR_sign": 1.0,
+   "power_CI_of_sign_OR_above_1": 0.018,
+   "fits_ok": 600,
+   "mean_discordant_tumours": 97.8,
+   "mean_discordant_among_sign_flippers": 28.2
+  },
+  {
+   "b_mag_per_10HU": 0.3,
+   "OR_phase": 1.0,
+   "OR_propagated": 1.0,
+   "OR_sign": 3.0,
+   "power_CI_of_sign_OR_above_1": 0.66,
+   "fits_ok": 600,
+   "mean_discordant_tumours": 98.2,
+   "mean_discordant_among_sign_flippers": 31.9
+  },
+  {
+   "b_mag_per_10HU": 0.3,
+   "OR_phase": 1.0,
+   "OR_propagated": 1.0,
+   "OR_sign": 5.0,
+   "power_CI_of_sign_OR_above_1": 0.93,
+   "fits_ok": 600,
+   "mean_discordant_tumours": 99.2,
+   "mean_discordant_among_sign_flippers": 35.2
+  },
+  {
+   "b_mag_per_10HU": 0.3,
+   "OR_phase": 1.0,
+   "OR_propagated": 1.0,
+   "OR_sign": 10.0,
+   "power_CI_of_sign_OR_above_1": 0.993,
+   "fits_ok": 600,
+   "mean_discordant_tumours": 99.4,
+   "mean_discordant_among_sign_flippers": 40.3
+  },
+  {
+   "b_mag_per_10HU": 0.3,
+   "OR_phase": 1.0,
+   "OR_propagated": 1.0,
+   "OR_sign": 25.0,
+   "power_CI_of_sign_OR_above_1": 1.0,
+   "fits_ok": 600,
+   "mean_discordant_tumours": 98.2,
+   "mean_discordant_among_sign_flippers": 48.1
+  },
+  {
+   "b_mag_per_10HU": 0.3,
+   "OR_phase": 1.0,
+   "OR_propagated": 0.7,
+   "OR_sign": 1.0,
+   "power_CI_of_sign_OR_above_1": 0.035,
+   "fits_ok": 600,
+   "mean_discordant_tumours": 99.0,
+   "mean_discordant_among_sign_flippers": 28.5
+  },
+  {
+   "b_mag_per_10HU": 0.3,
+   "OR_phase": 1.0,
+   "OR_propagated": 0.7,
+   "OR_sign": 3.0,
+   "power_CI_of_sign_OR_above_1": 0.663,
+   "fits_ok": 600,
+   "mean_discordant_tumours": 100.9,
+   "mean_discordant_among_sign_flippers": 33.2
+  },
+  {
+   "b_mag_per_10HU": 0.3,
+   "OR_phase": 1.0,
+   "OR_propagated": 0.7,
+   "OR_sign": 5.0,
+   "power_CI_of_sign_OR_above_1": 0.9,
+   "fits_ok": 600,
+   "mean_discordant_tumours": 100.7,
+   "mean_discordant_among_sign_flippers": 36.2
+  },
+  {
+   "b_mag_per_10HU": 0.3,
+   "OR_phase": 1.0,
+   "OR_propagated": 0.7,
+   "OR_sign": 10.0,
+   "power_CI_of_sign_OR_above_1": 0.997,
+   "fits_ok": 600,
+   "mean_discordant_tumours": 101.1,
+   "mean_discordant_among_sign_flippers": 41.4
+  },
+  {
+   "b_mag_per_10HU": 0.3,
+   "OR_phase": 1.0,
+   "OR_propagated": 0.7,
+   "OR_sign": 25.0,
+   "power_CI_of_sign_OR_above_1": 1.0,
+   "fits_ok": 600,
+   "mean_discordant_tumours": 100.5,
+   "mean_discordant_among_sign_flippers": 49.1
+  },
+  {
+   "b_mag_per_10HU": 0.3,
+   "OR_phase": 1.5,
+   "OR_propagated": 0.7,
+   "OR_sign": 1.0,
+   "power_CI_of_sign_OR_above_1": 0.02,
+   "fits_ok": 600,
+   "mean_discordant_tumours": 101.1,
+   "mean_discordant_among_sign_flippers": 29.4
+  },
+  {
+   "b_mag_per_10HU": 0.3,
+   "OR_phase": 1.5,
+   "OR_propagated": 0.7,
+   "OR_sign": 3.0,
+   "power_CI_of_sign_OR_above_1": 0.595,
+   "fits_ok": 600,
+   "mean_discordant_tumours": 103.1,
+   "mean_discordant_among_sign_flippers": 34.9
+  },
+  {
+   "b_mag_per_10HU": 0.3,
+   "OR_phase": 1.5,
+   "OR_propagated": 0.7,
+   "OR_sign": 5.0,
+   "power_CI_of_sign_OR_above_1": 0.875,
+   "fits_ok": 600,
+   "mean_discordant_tumours": 104.0,
+   "mean_discordant_among_sign_flippers": 38.8
+  },
+  {
+   "b_mag_per_10HU": 0.3,
+   "OR_phase": 1.5,
+   "OR_propagated": 0.7,
+   "OR_sign": 10.0,
+   "power_CI_of_sign_OR_above_1": 0.99,
+   "fits_ok": 600,
+   "mean_discordant_tumours": 103.9,
+   "mean_discordant_among_sign_flippers": 44.0
+  },
+  {
+   "b_mag_per_10HU": 0.3,
+   "OR_phase": 1.5,
+   "OR_propagated": 0.7,
+   "OR_sign": 25.0,
+   "power_CI_of_sign_OR_above_1": 1.0,
+   "fits_ok": 600,
+   "mean_discordant_tumours": 103.9,
+   "mean_discordant_among_sign_flippers": 51.8
+  },
+  {
+   "b_mag_per_10HU": 0.3,
+   "OR_phase": 1.5,
+   "OR_propagated": 1.0,
+   "OR_sign": 1.0,
+   "power_CI_of_sign_OR_above_1": 0.02,
+   "fits_ok": 600,
+   "mean_discordant_tumours": 99.5,
+   "mean_discordant_among_sign_flippers": 28.7
+  },
+  {
+   "b_mag_per_10HU": 0.3,
+   "OR_phase": 1.5,
+   "OR_propagated": 1.0,
+   "OR_sign": 3.0,
+   "power_CI_of_sign_OR_above_1": 0.587,
+   "fits_ok": 600,
+   "mean_discordant_tumours": 100.9,
+   "mean_discordant_among_sign_flippers": 34.0
+  },
+  {
+   "b_mag_per_10HU": 0.3,
+   "OR_phase": 1.5,
+   "OR_propagated": 1.0,
+   "OR_sign": 5.0,
+   "power_CI_of_sign_OR_above_1": 0.88,
+   "fits_ok": 600,
+   "mean_discordant_tumours": 101.4,
+   "mean_discordant_among_sign_flippers": 37.3
+  },
+  {
+   "b_mag_per_10HU": 0.3,
+   "OR_phase": 1.5,
+   "OR_propagated": 1.0,
+   "OR_sign": 10.0,
+   "power_CI_of_sign_OR_above_1": 0.992,
+   "fits_ok": 600,
+   "mean_discordant_tumours": 102.8,
+   "mean_discordant_among_sign_flippers": 43.3
+  },
+  {
+   "b_mag_per_10HU": 0.3,
+   "OR_phase": 1.5,
+   "OR_propagated": 1.0,
+   "OR_sign": 25.0,
+   "power_CI_of_sign_OR_above_1": 1.0,
+   "fits_ok": 600,
+   "mean_discordant_tumours": 101.7,
+   "mean_discordant_among_sign_flippers": 50.6
+  }
+ ]
+}
