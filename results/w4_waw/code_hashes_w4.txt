@@ -2,6 +2,7 @@
 # scripts/w4_waw_paired_contrast.py differs from the version in code_hashes_paired.txt (which the cohort run used) only by the optional --save-dir ground-truth writer; the default path is unchanged.
 # Re-recorded 2026-11-03T01:26:30Z after DEVIATIONS 18 (driver ground-truth check, scripts/w4_waw_gt_compare.py, host1-contrast sensitivity in the analysis); no GPU step had run.
 # Re-recorded 2026-11-03T02:03:54Z after DEVIATIONS 19 (time estimates, smoke skip in scripts/w4_waw_run_instance.sh only).
+# Re-recorded 2026-11-03T02:05:31Z after the watch() start-up exclusion (DEVIATIONS 19, extension).
 2edbefe3e92f65442199c9b7bc553d73c2b5d8ffe2b8b9dfdd9a45de3af5f4d2  glassbox/audit/waw.py
 d40580278370cedfeda09bb1607c89d49af983b66205a7723e54d8bc80dab477  glassbox/audit/contrast.py
 bdee36775a462ed973b9c8e4912584b9202a143380e6367782caeadb5dd2e585  glassbox/seg/w2_lib.py
@@ -18,5 +19,5 @@ bf01f7ef915a1933d102f647592a370208807dcedd86f6e99d10da199057c2e8  scripts/w4_waw
 8b3e42526028bc4a6d3416ed5316f4c1cd513136cd5f329a7844cbb5c3f4ccf1  scripts/w4_waw_split.py
 dcc43c9a725db98426121cc7678dc7198517c2bfa0f4c8e43acef4e5ac2f717f  scripts/w4_waw_analyze.py
 b4f39f4253162b45b71925c2f511c930265e1fed3be5ad4523fe31e2ebdd3cf1  scripts/w4_waw_gt_compare.py
-3049586bc930d1bf479d9d61fbffb1d0d6539ea8018e35ee3c390fdff0e66404  scripts/w4_waw_run_instance.sh
+042a43f7d1e41ba7b07f6339bec313a497661f5db258ea9c29cf1ac4baf56018  scripts/w4_waw_run_instance.sh
 fd394c2f7d49741bce9a7997aa500c6654be377c342d150125ba6fb0e46d7a01  tests/test_w4_waw.py

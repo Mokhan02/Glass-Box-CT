@@ -12,16 +12,19 @@ mkdir -p $WA; log() { echo "$1 $(date -u +%FT%TZ)" >> $L; }
 hold() { echo "W4_DRIVER_HOLD: half$H $1 $(date -u)" >> $L; exit 1; }
 cd $R || hold "repo checkout missing"; log "W4_DRIVER_START half$H"
 alive() { local p; for p in "$@"; do [ -d /proc/$p ] && ! grep -q '^State:.*Z' /proc/$p/status 2>/dev/null && return 0; done; return 1; }
-# watch NAME EST_S_PER_SERIES TOTAL COUNTFN PIDS...: HOLD (and kill) if the projected wall time for the series still to do at the start exceeds 1.25 x the estimate
+# watch NAME EST_S_PER_SERIES TOTAL COUNTFN PIDS...: HOLD (and kill) if the projected wall time of the series still to do exceeds 1.25 x the estimate for the series still to do at the start of the step.
+# The clock starts at the first NEW output (model load and start-up excluded: DEVIATIONS 19), the first check needs 5 new outputs after that, then every 30 min.
 watch() {
   local name=$1 per=$2 total=$3 cnt=$4; shift 4
-  local t0=$(date +%s) d0=$($cnt) lim nxt=0 d el dn proj
-  lim=$(awk -v e=$per -v n=$total 'BEGIN{printf "%d", e*n*1.25}')
+  local d0=$($cnt) lim tb=0 db=0 nxt=0 d el dn proj
+  lim=$(awk -v e=$per -v n=$(( total - d0 )) 'BEGIN{printf "%d", e*n*1.25}')
   while alive "$@"; do
-    sleep 60; d=$($cnt); el=$(( $(date +%s) - t0 )); dn=$(( d - d0 ))
+    sleep 30; d=$($cnt)
+    if [ $tb -eq 0 ]; then [ $d -gt $d0 ] && { tb=$(date +%s); db=$d; }; continue; fi
+    el=$(( $(date +%s) - tb )); dn=$(( d - db ))
     if [ $dn -ge 5 ] && [ $el -ge $nxt ]; then
-      proj=$(( el * (total - d0) / dn )); nxt=$(( el + 1800 ))
-      log "TIME_CHECK $name done=$d/$total elapsed=${el}s projected_wall=${proj}s limit=${lim}s (estimate ${per}s x ${total} x 1.25)"
+      proj=$(( el * (total - db) / dn )); nxt=$(( el + 1800 ))
+      log "TIME_CHECK $name done=$d/$total throughput_clock=${el}s projected_wall_remaining=${proj}s limit=${lim}s (estimate ${per}s x $(( total - d0 )) x 1.25)"
       if [ $proj -gt $lim ]; then kill "$@" 2>/dev/null; hold "TIME_RULE_EXCEEDED $name (projected ${proj}s > ${lim}s)"; fi
     fi
   done
