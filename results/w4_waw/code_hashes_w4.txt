@@ -3,6 +3,7 @@
 # Re-recorded 2026-11-03T01:26:30Z after DEVIATIONS 18 (driver ground-truth check, scripts/w4_waw_gt_compare.py, host1-contrast sensitivity in the analysis); no GPU step had run.
 # Re-recorded 2026-11-03T02:03:54Z after DEVIATIONS 19 (time estimates, smoke skip in scripts/w4_waw_run_instance.sh only).
 # Re-recorded 2026-11-03T02:39:23Z after the VISTA multiplier 1.5 (DEVIATIONS 19, second extension).
+# Re-recorded 2026-11-03T05:31:49Z after the Universal Model multiplier 1.5 (DEVIATIONS 19).
 2edbefe3e92f65442199c9b7bc553d73c2b5d8ffe2b8b9dfdd9a45de3af5f4d2  glassbox/audit/waw.py
 d40580278370cedfeda09bb1607c89d49af983b66205a7723e54d8bc80dab477  glassbox/audit/contrast.py
 bdee36775a462ed973b9c8e4912584b9202a143380e6367782caeadb5dd2e585  glassbox/seg/w2_lib.py
@@ -19,5 +20,5 @@ bf01f7ef915a1933d102f647592a370208807dcedd86f6e99d10da199057c2e8  scripts/w4_waw
 8b3e42526028bc4a6d3416ed5316f4c1cd513136cd5f329a7844cbb5c3f4ccf1  scripts/w4_waw_split.py
 dcc43c9a725db98426121cc7678dc7198517c2bfa0f4c8e43acef4e5ac2f717f  scripts/w4_waw_analyze.py
 b4f39f4253162b45b71925c2f511c930265e1fed3be5ad4523fe31e2ebdd3cf1  scripts/w4_waw_gt_compare.py
-d103f6cf1340c4330da439d6a19192cb1454824e3372cc7e04341d6da8e6406a  scripts/w4_waw_run_instance.sh
+3e7396dbbc02aabb24fcaaa7614f9c3919b62f65b78e74f6dc35471e294f4026  scripts/w4_waw_run_instance.sh
 fd394c2f7d49741bce9a7997aa500c6654be377c342d150125ba6fb0e46d7a01  tests/test_w4_waw.py

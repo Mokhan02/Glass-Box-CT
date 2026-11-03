@@ -12,7 +12,7 @@ mkdir -p $WA; log() { echo "$1 $(date -u +%FT%TZ)" >> $L; }
 hold() { echo "W4_DRIVER_HOLD: half$H $1 $(date -u)" >> $L; exit 1; }
 cd $R || hold "repo checkout missing"; log "W4_DRIVER_START half$H"
 alive() { local p; for p in "$@"; do [ -d /proc/$p ] && ! grep -q '^State:.*Z' /proc/$p/status 2>/dev/null && return 0; done; return 1; }
-declare -A MULT; MULT[vista]=1.5      # per-model multiplier of the time rule (default 1.25); VISTA-3D raised to 1.5 (DEVIATIONS 19, second extension)
+declare -A MULT; MULT[vista]=1.5; MULT[A]=1.5      # per-model multiplier of the time rule (default 1.25); VISTA-3D and the Universal Model raised to 1.5 (DEVIATIONS 19, second extension)
 # watch NAME EST_S_PER_SERIES TOTAL COUNTFN PIDS...: HOLD (and kill) if the projected wall time of the series still to do exceeds 1.25 x the estimate for the series still to do at the start of the step.
 # The clock starts at the first NEW output (model load and start-up excluded: DEVIATIONS 19), the first check needs 5 new outputs after that, then every 30 min.
 watch() {
