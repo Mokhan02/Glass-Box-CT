@@ -67,6 +67,7 @@ score() { cd $R && $PYV scripts/w4_waw_score.py $WA/gt $WA/pred_$1 $1 $WA/score 
 nfiles() { ls $WA/pred_$1 2>/dev/null | grep -c -E '^[0-9]+_[0-9]+\.(npz|nii\.gz)$'; }
 
 # ---- 3-series smoke of every model, scored (pipeline test only, never a result; its outputs are deleted)
+if grep -q '^SMOKE_PASS' $L; then mkdir -p $WA/score; log "SMOKE_SKIPPED (SMOKE_PASS already logged for this half; DEVIATIONS 19)"; else
 SM=$(cat $WA/smoke_cases.txt); log "SMOKE_START"
 predict_vista --limit 3 > $WA/smoke_vista.log 2>&1 || hold "smoke vista failed"; predict_A --limit 3 > $WA/smoke_A.log 2>&1 || hold "smoke A failed"
 for a in D0:nnUNetTrainerW3Seed B50:nnUNetTrainerW5Bright50 B25:nnUNetTrainerW5Bright25; do predict_nn ${a%%:*} ${a##*:} 3 > $WA/smoke_${a%%:*}.log 2>&1 || hold "smoke ${a%%:*} failed"; done
@@ -79,6 +80,7 @@ print("smoke ok")
 PYEOF
 for a in vista A D0 B50 B25; do rm -rf $WA/pred_$a $WA/score; done; rm -rf $WA/in_nn_*; mkdir -p $WA/score
 log "SMOKE_PASS"
+fi
 
 # ---- full predictions, model by model
 run_model() { # arm est_s_per_series launcher...
@@ -88,9 +90,11 @@ run_model() { # arm est_s_per_series launcher...
   [ "$(nfiles $arm)" -eq "$N" ] || hold "prediction $arm produced $(nfiles $arm) of $N series"
   score $arm > $WA/score_$arm.log 2>&1 || hold "scoring $arm failed (see score_$arm.log)"; log "MODEL_DONE $arm"
 }
-run_model vista 7 predict_vista
-run_model A 28 predict_A
-run_model D0 56 predict_nn D0 nnUNetTrainerW3Seed
-run_model B50 56 predict_nn B50 nnUNetTrainerW5Bright50
-run_model B25 56 predict_nn B25 nnUNetTrainerW5Bright25
+# per-series estimates (s) from measured full runs (DEVIATIONS 19): VISTA-3D 17 (tumour and liver class, this pipeline's first 6 series); Universal Model 16.6 (median of the 75 per-case times of the W3 Stage 1 HCC run, results/w3_models/stage1/A_swin_hcc/w3_alignment_A_swin_hcc.json);
+# nnU-Net 58 (median interval between the output files of the W5 BRIGHT-50 HCC inference, 58 s, and BRIGHT-25, 57 s; D0 is the same architecture)
+run_model vista 17 predict_vista
+run_model A 16.6 predict_A
+run_model D0 58 predict_nn D0 nnUNetTrainerW3Seed
+run_model B50 58 predict_nn B50 nnUNetTrainerW5Bright50
+run_model B25 58 predict_nn B25 nnUNetTrainerW5Bright25
 log "W4_HALF${H}_DONE (all five models predicted and scored; GPU idle)"
