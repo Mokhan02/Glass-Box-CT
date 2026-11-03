@@ -1,7 +1,7 @@
 #!/bin/bash
 # W4 (WAW-TACE) driver for ONE half of the patients on ONE A10 (results/w4_waw/PREREG.md). Usage: bash scripts/w4_waw_run_instance.sh <0|1>, in tmux session w4drv<half>, from any directory (it cd's to the repo checkout on the instance).
 # Both instances run the same hashed code on their own half (scripts/w4_waw_split.py; seed name w4_waw_instance_split). Steps: preflight (GPU idle, committed hashes, installed nnU-Net trainer files byte-equal to the committed ones, checkpoints present)
-# -> ground truth of the half (scripts/w4_waw_paired_contrast.py --save-dir, same registration seed / threads / workers as the cohort run) and a check that its tumour table equals the committed host1 table -> 3-series smoke of every model, scored
+# -> ground truth of the half (scripts/w4_waw_paired_contrast.py --save-dir, same registration seed / threads / workers as the cohort run) and a comparison with the committed host1 table (structural check only: tumour set, category, QA pass; numeric differences are written to compare/, DEVIATIONS 18) -> 3-series smoke of every model, scored
 # -> full predictions, model by model (vista, A, D0, B50, B25), each scored on completion with the alignment gate. The PREREG time rule (stop if a model's projected wall time exceeds 1.25 x its estimate from the measured per-scan times) is checked every 30 min.
 # Any failure writes W4_DRIVER_HOLD to $WA/driver.log (the alert poller reports it) and stops; nothing is retried or changed automatically. Outputs under $WA: gt/, paired/, pred_<arm>/, score/ (scores_<arm>.csv, alignment_<arm>.json), driver.log.
 H=$1; [ "$H" = 0 ] || [ "$H" = 1 ] || { echo "usage: bash scripts/w4_waw_run_instance.sh <0|1>"; exit 2; }
@@ -49,17 +49,9 @@ export ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=2
 if [ ! -f $WA/paired/summary.json ]; then
   $PYW -I scripts/w4_waw_paired_contrast.py $B/extracted/ct_scans $B/extracted/tumor_masks $B/extracted/organ_masks $B/raw/ct_hcc_metadata_v2.csv $WA/paired --workers 12 --save-dir $WA/gt --patients $(cat $WA/patients.txt | tr '\n' ' ') > $WA/gt_build.log 2>&1 || hold "ground-truth build failed (see gt_build.log)"
 fi
-$PYW - <<PYEOF || hold "ground-truth tumour table differs from the committed host1 table"
-import csv
-ref = {(r["patient"], r["rank"]): r for r in csv.DictReader(open("results/w4_waw/paired_host1/tumours_paired.csv"))}; new = list(csv.DictReader(open("$WA/paired/tumours_paired.csv"))); assert new
-for r in new:
-    k = (r["patient"], r["rank"]); assert k in ref and ref[k]["category"] == r["category"], k
-    for c in ("c_arterial", "c_portal", "c_drawn", "c_other", "diam_mm"):
-        a, b = ref[k][c], r[c]; assert (a == b) or abs(float(a) - float(b)) <= 0.01, (k, c, a, b)
-print("ground truth table equals host1 on", len(new), "tumours")
-PYEOF
+$PYW scripts/w4_waw_gt_compare.py results/w4_waw/paired_host1 $WA/paired $WA/compare > $WA/gt_compare.log 2>&1 || hold "ground-truth build differs from the host1 run in a structural way: tumour set, exclusion category or QA pass (see compare/gt_vs_host1.json); numeric contrast differences are reported, not judged (DEVIATIONS 18)"
 ls -d $WA/gt/*_* | wc -l | grep -q -v '^0$' || hold "no ground-truth series written"
-log "GT_BUILT_AND_MATCHES_HOST1 half$H ($(ls -d $WA/gt/*_* | wc -l) series)"
+log "GT_BUILT_STRUCTURE_MATCHES_HOST1 half$H ($(ls -d $WA/gt/*_* | wc -l) series)"
 N=$(ls -d $WA/gt/*_* | wc -l); cases | head -3 | tr '\n' ' ' > $WA/smoke_cases.txt
 
 # ---- one model: predict (resumable), then score

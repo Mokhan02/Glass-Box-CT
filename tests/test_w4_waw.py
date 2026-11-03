@@ -194,11 +194,25 @@ def test_analysis_runs_end_to_end_on_synthetic_scores(tmp_path):
         with open(sd / f"scores_{a}.csv", "w", newline="") as f:
             w = csv.DictWriter(f, fieldnames=W.FIELDS); w.writeheader(); w.writerows(rows)
         json.dump({"series_gate_fail": [], "per_series": []}, open(sd / f"alignment_{a}.json", "w"))
-    AN.main([str(paired), str(tmp_path / "out"), str(sd), "--b-scale", "0.05"]); pr = json.load(open(tmp_path / "out" / "primary.json"))
+    AN.main([str(paired), str(tmp_path / "out"), str(sd), "--b-scale", "0.05", "--host1-paired", str(paired)]); pr = json.load(open(tmp_path / "out" / "primary.json"))
     assert pr["a"]["vista"]["all"]["label"].startswith("GAP")
-    assert pr["b"]["vista"]["coef"]["sign"]["OR"] < 1 and (tmp_path / "out" / "sensitivity_table.json").exists() and "dilation_2mm_propagated" in json.load(open(tmp_path / "out" / "sensitivity_table.json"))["sensitivities"]
+    assert pr["b"]["vista"]["coef"]["sign"]["OR"] < 1 and (tmp_path / "out" / "sensitivity_table.json").exists() and "host1_scouting_contrasts" in json.load(open(tmp_path / "out" / "sensitivity_table.json"))["sensitivities"] and "dilation_2mm_propagated" in json.load(open(tmp_path / "out" / "sensitivity_table.json"))["sensitivities"]
 
 
 def test_split_is_a_seeded_balanced_partition():
     spec = importlib.util.spec_from_file_location("sp", os.path.join(HERE, "scripts", "w4_waw_split.py")); SP = importlib.util.module_from_spec(spec); spec.loader.exec_module(SP)
     ids = [str(i) for i in range(1, 200)]; a, b = SP.split(ids); assert len(a) == 100 and len(b) == 99 and not set(a) & set(b) and set(a) | set(b) == set(ids) and SP.split(ids) == (a, b) and SP.split(ids[::-1]) == (a, b)
+
+
+def test_gt_compare_fails_only_on_structure_and_reports_numeric_differences(tmp_path):
+    spec = importlib.util.spec_from_file_location("gc", os.path.join(HERE, "scripts", "w4_waw_gt_compare.py")); GC = importlib.util.module_from_spec(spec); spec.loader.exec_module(GC)
+    def write(d, c_portal, cat="K", qa="1", transform="affine"):
+        d.mkdir(parents=True, exist_ok=True); cols = ["patient", "rank", "category"] + GC.COLS
+        with open(d / "tumours_paired.csv", "w", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=cols); w.writeheader(); w.writerow({**{c: "5" for c in GC.COLS}, "patient": "1", "rank": "1", "category": cat, "c_portal": c_portal})
+        with open(d / "patient_qa.csv", "w", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=["patient", "qa_pass", "transform"] + GC.QCOLS); w.writeheader(); w.writerow({**{c: "0.9" for c in GC.QCOLS}, "patient": "1", "qa_pass": qa, "transform": transform})
+    write(tmp_path / "ref", "5"); write(tmp_path / "new", "-3", transform="deformable"); r = GC.compare(str(tmp_path / "ref"), str(tmp_path / "new"), str(tmp_path / "o1"))
+    assert r["structural_ok"] and len(r["sign_changes"]) == 1 and r["transform_changes"] and r["contrast_difference_HU"]["c_portal"]["max"] == 8.0
+    write(tmp_path / "new2", "5", cat="Q"); assert not GC.compare(str(tmp_path / "ref"), str(tmp_path / "new2"), str(tmp_path / "o2"))["structural_ok"]
+    write(tmp_path / "new3", "5", qa="0"); assert not GC.compare(str(tmp_path / "ref"), str(tmp_path / "new3"), str(tmp_path / "o3"))["structural_ok"]

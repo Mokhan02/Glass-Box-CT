@@ -1,0 +1,216 @@
+{
+ "universe_tumours_ge10mm_on_drawn_phase": 329,
+ "tumours_in_paired_csv": 325,
+ "patients": 199,
+ "patients_E_error": [
+  "439"
+ ],
+ "categories": {
+  "K": 297,
+  "F": 4,
+  "Q": 24,
+  "E": 4
+ },
+ "category_check_sum": 329,
+ "patients_qa_pass": 182,
+ "patients_with_any_fov_clipped_tumour": 2,
+ "kept_by_drawn_phase": {
+  "1": 202,
+  "2": 95
+ },
+ "Q_first_failed_criterion_per_tumour": {
+  "inside<0.90": 14,
+  "liver_dice<0.92": 6,
+  "volume_ratio": 4
+ },
+ "contrast_sign_concordance_kept(delta=0)": {
+  "A+/P-": 81,
+  "A+/P+": 161,
+  "A-/P-": 50,
+  "A-/P+": 5
+ },
+ "contrast_sign_concordance_kept(delta=5)": {
+  "A+/P-": 39,
+  "excluded_by_dead_zone": 127,
+  "A-/P-": 25,
+  "A+/P+": 104,
+  "A-/P+": 2
+ },
+ "bright_share_kept": {
+  "arterial_contrast>0": 0.8148,
+  "portal_contrast>0": 0.5589
+ },
+ "grid_all_kept": {
+  "delta=0,rho=0.33": {
+   "sign_flips": 86,
+   "comparable_abs_contrast": 174,
+   "flip_and_comparable (effective N)": 44
+  },
+  "delta=0,rho=0.5": {
+   "sign_flips": 86,
+   "comparable_abs_contrast": 122,
+   "flip_and_comparable (effective N)": 31
+  },
+  "delta=0,rho=0.67": {
+   "sign_flips": 86,
+   "comparable_abs_contrast": 72,
+   "flip_and_comparable (effective N)": 21
+  },
+  "delta=5,rho=0.33": {
+   "sign_flips": 41,
+   "comparable_abs_contrast": 141,
+   "flip_and_comparable (effective N)": 32
+  },
+  "delta=5,rho=0.5": {
+   "sign_flips": 41,
+   "comparable_abs_contrast": 99,
+   "flip_and_comparable (effective N)": 21
+  },
+  "delta=5,rho=0.67": {
+   "sign_flips": 41,
+   "comparable_abs_contrast": 58,
+   "flip_and_comparable (effective N)": 15
+  },
+  "delta=10,rho=0.33": {
+   "sign_flips": 15,
+   "comparable_abs_contrast": 83,
+   "flip_and_comparable (effective N)": 15
+  },
+  "delta=10,rho=0.5": {
+   "sign_flips": 15,
+   "comparable_abs_contrast": 66,
+   "flip_and_comparable (effective N)": 12
+  },
+  "delta=10,rho=0.67": {
+   "sign_flips": 15,
+   "comparable_abs_contrast": 43,
+   "flip_and_comparable (effective N)": 9
+  }
+ },
+ "by_drawn_phase": {
+  "1": {
+   "delta=0,rho=0.33": {
+    "sign_flips": 60,
+    "comparable_abs_contrast": 117,
+    "flip_and_comparable (effective N)": 27
+   },
+   "delta=0,rho=0.5": {
+    "sign_flips": 60,
+    "comparable_abs_contrast": 81,
+    "flip_and_comparable (effective N)": 18
+   },
+   "delta=0,rho=0.67": {
+    "sign_flips": 60,
+    "comparable_abs_contrast": 46,
+    "flip_and_comparable (effective N)": 13
+   },
+   "delta=5,rho=0.33": {
+    "sign_flips": 28,
+    "comparable_abs_contrast": 99,
+    "flip_and_comparable (effective N)": 21
+   },
+   "delta=5,rho=0.5": {
+    "sign_flips": 28,
+    "comparable_abs_contrast": 70,
+    "flip_and_comparable (effective N)": 14
+   },
+   "delta=5,rho=0.67": {
+    "sign_flips": 28,
+    "comparable_abs_contrast": 37,
+    "flip_and_comparable (effective N)": 10
+   },
+   "delta=10,rho=0.33": {
+    "sign_flips": 9,
+    "comparable_abs_contrast": 54,
+    "flip_and_comparable (effective N)": 9
+   },
+   "delta=10,rho=0.5": {
+    "sign_flips": 9,
+    "comparable_abs_contrast": 43,
+    "flip_and_comparable (effective N)": 7
+   },
+   "delta=10,rho=0.67": {
+    "sign_flips": 9,
+    "comparable_abs_contrast": 26,
+    "flip_and_comparable (effective N)": 5
+   }
+  },
+  "2": {
+   "delta=0,rho=0.33": {
+    "sign_flips": 26,
+    "comparable_abs_contrast": 57,
+    "flip_and_comparable (effective N)": 17
+   },
+   "delta=0,rho=0.5": {
+    "sign_flips": 26,
+    "comparable_abs_contrast": 41,
+    "flip_and_comparable (effective N)": 13
+   },
+   "delta=0,rho=0.67": {
+    "sign_flips": 26,
+    "comparable_abs_contrast": 26,
+    "flip_and_comparable (effective N)": 8
+   },
+   "delta=5,rho=0.33": {
+    "sign_flips": 13,
+    "comparable_abs_contrast": 42,
+    "flip_and_comparable (effective N)": 11
+   },
+   "delta=5,rho=0.5": {
+    "sign_flips": 13,
+    "comparable_abs_contrast": 29,
+    "flip_and_comparable (effective N)": 7
+   },
+   "delta=5,rho=0.67": {
+    "sign_flips": 13,
+    "comparable_abs_contrast": 21,
+    "flip_and_comparable (effective N)": 5
+   },
+   "delta=10,rho=0.33": {
+    "sign_flips": 6,
+    "comparable_abs_contrast": 29,
+    "flip_and_comparable (effective N)": 6
+   },
+   "delta=10,rho=0.5": {
+    "sign_flips": 6,
+    "comparable_abs_contrast": 23,
+    "flip_and_comparable (effective N)": 5
+   },
+   "delta=10,rho=0.67": {
+    "sign_flips": 6,
+    "comparable_abs_contrast": 17,
+    "flip_and_comparable (effective N)": 4
+   }
+  }
+ },
+ "sensitivity_primary_setting": {
+  "liver_eroded_3mm": {
+   "sign_flips": 51,
+   "comparable_abs_contrast": 96,
+   "flip_and_comparable (effective N)": 30
+  },
+  "shell_median": {
+   "sign_flips": 44,
+   "comparable_abs_contrast": 105,
+   "flip_and_comparable (effective N)": 20
+  }
+ },
+ "excluding_patients_with_value_2_tumour_files": {
+  "patients": [
+   "65",
+   "72",
+   "84",
+   "92",
+   "119",
+   "121",
+   "385",
+   "439"
+  ],
+  "kept_remaining": 289,
+  "primary": {
+   "sign_flips": 39,
+   "comparable_abs_contrast": 96,
+   "flip_and_comparable (effective N)": 20
+  }
+ }
+}

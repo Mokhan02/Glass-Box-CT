@@ -3,7 +3,7 @@ Inputs: paired dir (tumours_paired.csv, patient_qa.csv from scripts/w4_waw_paire
 arms: vista (VISTA-3D class 26), D0, A (Universal Model), B50, B25. Optional mask-check json (patients with value-2 tumour files).
 Families, never pooled: (a) replication per model on the drawn phase (+ strata by drawn phase); (c) D0 vs BRIGHT-50 (verdict) and BRIGHT-25 (descriptive) on the arterial series; (b) conditional logistic regression, sign OR per model, plus the
 5 A-dark/P-bright flippers per model; then the sensitivities (each recomputes the verdicts; a table lists any verdict that changes against the primary).
-Usage: python scripts/w4_waw_analyze.py <paired dir> <out dir> <scores dir> [<scores dir> ...] [--mask-check mask_check_cohort.json] [--b-scale 1.0]"""
+Usage: python scripts/w4_waw_analyze.py <paired dir> <out dir> <scores dir> [<scores dir> ...] [--mask-check mask_check_cohort.json] [--host1-paired <host1 paired dir>] [--b-scale 1.0]"""
 import csv
 import json
 import math
@@ -17,6 +17,7 @@ from glassbox.seg import w4_stats as S  # noqa: E402
 
 ARMS = ["vista", "D0", "A", "B50", "B25"]
 B_MODELS = ["vista", "D0", "A", "B50"]      # (b) verdict models; B25 descriptive
+CONTRAST_COLS = ["c_drawn", "c_other", "c_arterial", "c_portal", "c_drawn_eroded", "c_other_eroded", "c_arterial_eroded", "c_portal_eroded", "c_drawn_median", "c_other_median", "c_arterial_median", "c_portal_median"]
 FLT = lambda x: float(x) if x not in ("", None) else None      # noqa: E731
 
 
@@ -155,8 +156,9 @@ def run(tum, sc, o, b_scale=1.0, full=True):
 
 
 def main(argv):
-    mc = argv[argv.index("--mask-check") + 1] if "--mask-check" in argv else None; bs = float(argv[argv.index("--b-scale") + 1]) if "--b-scale" in argv else 1.0
-    pos = [a for i, a in enumerate(argv) if not a.startswith("--") and (i == 0 or argv[i - 1] not in ("--mask-check", "--b-scale"))]; paired, out, dirs = pos[0], pos[1], pos[2:]; os.makedirs(out, exist_ok=True)
+    opt = lambda n: argv[argv.index(n) + 1] if n in argv else None      # noqa: E731
+    mc, h1 = opt("--mask-check"), opt("--host1-paired"); bs = float(opt("--b-scale") or 1.0)
+    pos = [a for i, a in enumerate(argv) if not a.startswith("--") and (i == 0 or argv[i - 1] not in ("--mask-check", "--b-scale", "--host1-paired"))]; paired, out, dirs = pos[0], pos[1], pos[2:]; os.makedirs(out, exist_ok=True)
     tum, sc = load(paired, dirs); base = {"cats": {"K"}, "det": "detected", "excl_pat": set(), "top2": False, "min_diam": 0.0, "gate": False, "contrast": ""}
     v2 = set()
     if mc and os.path.exists(mc):
@@ -165,6 +167,10 @@ def main(argv):
     sens = {"dilation_2mm_propagated": {"det": "detected_dil2"}, "top2_per_series": {"top2": True}, "excl_value2_patients": {"excl_pat": v2}, "incl_Q": {"cats": {"K", "Q"}}, "excl_alignment_gate_failures": {"gate": True},
             "min_diam_15mm": {"min_diam": 15.0}, "liver_eroded_3mm": {"contrast": "_eroded"}, "shell_median": {"contrast": "_median"}}
     table = {}; sens_res = {}
+    if h1:      # pre-specified (DEVIATIONS 18): the scouting-run (host1) contrasts for the tumours present in both tables; masks and detections unchanged
+        ref = {(r["patient"], r["mask_phase"], r["rank"]): r for r in csv.DictReader(open(os.path.join(h1, "tumours_paired.csv")))}
+        swap = {k: ({**v, **{c: ref[k][c] for c in CONTRAST_COLS if c in ref[k] and c in v}} if k in ref else v) for k, v in tum.items()}; sens_res["host1_scouting_contrasts"], vv = run(swap, sc, base, bs, full=False)
+        table["host1_scouting_contrasts"] = {"verdicts": vv, "changed": {k: {"primary": pv[k], "sensitivity": vv.get(k)} for k in pv if vv.get(k) != pv[k]}, "tumours_with_a_host1_contrast": sum(1 for k in tum if k in ref)}
     for name, ch in sens.items():
         r, vv = run(tum, sc, {**base, **ch}, bs, full=False); sens_res[name] = r; table[name] = {"verdicts": vv, "changed": {k: {"primary": pv[k], "sensitivity": vv.get(k)} for k in pv if vv.get(k) != pv[k]}}
     json.dump({"primary_verdicts": pv, "sensitivities": table}, open(os.path.join(out, "sensitivity_table.json"), "w"), indent=1, default=float); json.dump(sens_res, open(os.path.join(out, "sensitivities.json"), "w"), indent=1, default=float)

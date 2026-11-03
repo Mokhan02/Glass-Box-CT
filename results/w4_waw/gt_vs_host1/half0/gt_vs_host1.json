@@ -1,0 +1,144 @@
+{
+ "patients": 100,
+ "tumours_new": 168,
+ "tumours_ref_of_these_patients": 168,
+ "tumours_missing_in_ref": [],
+ "tumours_missing_in_new": [],
+ "category_changes": [],
+ "qa_pass_changes": [],
+ "transform_changes": [
+  {
+   "patient": "515",
+   "ref": "deformable",
+   "new": "affine"
+  }
+ ],
+ "sign_changes": [
+  {
+   "tumour": "102:4",
+   "column": "c_portal",
+   "ref": "0.79",
+   "new": "-0.27"
+  }
+ ],
+ "contrast_difference_HU": {
+  "c_drawn": {
+   "n": 168,
+   "median": 0.0,
+   "p95": 0.0,
+   "max": 0.0,
+   "n_gt_0.01": 0,
+   "n_gt_1": 0
+  },
+  "c_other": {
+   "n": 164,
+   "median": 0.0,
+   "p95": 0.40699999999999986,
+   "max": 11.05,
+   "n_gt_0.01": 59,
+   "n_gt_1": 4
+  },
+  "c_arterial": {
+   "n": 165,
+   "median": 0.0,
+   "p95": 0.009999999999999787,
+   "max": 0.060000000000002274,
+   "n_gt_0.01": 7,
+   "n_gt_1": 0
+  },
+  "c_portal": {
+   "n": 167,
+   "median": 0.0,
+   "p95": 0.40399999999999975,
+   "max": 11.05,
+   "n_gt_0.01": 52,
+   "n_gt_1": 4
+  },
+  "c_arterial_eroded": {
+   "n": 165,
+   "median": 0.0,
+   "p95": 0.0,
+   "max": 0.060000000000002274,
+   "n_gt_0.01": 6,
+   "n_gt_1": 0
+  },
+  "c_portal_eroded": {
+   "n": 167,
+   "median": 0.0,
+   "p95": 0.3669999999999998,
+   "max": 10.760000000000002,
+   "n_gt_0.01": 52,
+   "n_gt_1": 4
+  },
+  "c_arterial_median": {
+   "n": 165,
+   "median": 0.0,
+   "p95": 0.0,
+   "max": 0.0,
+   "n_gt_0.01": 0,
+   "n_gt_1": 0
+  },
+  "c_portal_median": {
+   "n": 167,
+   "median": 0.0,
+   "p95": 1.0,
+   "max": 1.5,
+   "n_gt_0.01": 11,
+   "n_gt_1": 1
+  }
+ },
+ "largest_differences": [
+  {
+   "tumour": "515:1",
+   "column": "c_other",
+   "ref": "-6.43",
+   "new": "-17.48",
+   "abs_diff": 11.05,
+   "transform_ref": "deformable",
+   "transform_new": "affine"
+  },
+  {
+   "tumour": "515:1",
+   "column": "c_portal",
+   "ref": "-6.43",
+   "new": "-17.48",
+   "abs_diff": 11.05,
+   "transform_ref": "deformable",
+   "transform_new": "affine"
+  },
+  {
+   "tumour": "515:1",
+   "column": "c_portal_eroded",
+   "ref": "-8.93",
+   "new": "-19.69",
+   "abs_diff": 10.76,
+   "transform_ref": "deformable",
+   "transform_new": "affine"
+  },
+  {
+   "tumour": "102:6",
+   "column": "c_portal_median",
+   "ref": "11.5",
+   "new": "13.0",
+   "abs_diff": 1.5,
+   "transform_ref": "affine",
+   "transform_new": "affine"
+  },
+  {
+   "tumour": "102:6",
+   "column": "c_portal_eroded",
+   "ref": "8.15",
+   "new": "9.5",
+   "abs_diff": 1.35,
+   "transform_ref": "affine",
+   "transform_new": "affine"
+  }
+ ],
+ "qa_metric_max_abs_difference": {
+  "liver_dice_final": 0.03952978645882421,
+  "propagated_inside_target_liver": 0.07422727610268898,
+  "volume_ratio": 0.09110749743238622,
+  "tumour_centroid_shift_mm": 8.609720657058963
+ },
+ "structural_ok": true
+}
