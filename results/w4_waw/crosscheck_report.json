@@ -1,0 +1,87 @@
+{
+ "patients_compared": 15,
+ "patient_ids": [
+  "3",
+  "10",
+  "15",
+  "23",
+  "24",
+  "27",
+  "28",
+  "31",
+  "37",
+  "39",
+  "58",
+  "67",
+  "69",
+  "74",
+  "83"
+ ],
+ "tumours_compared": 23,
+ "tumours_only_in_one_run": 0,
+ "max_abs_contrast_difference_HU": {
+  "c_drawn": 0.0,
+  "c_other": 1.8000000000000114,
+  "c_arterial": 1.8000000000000114,
+  "c_portal": 0.3999999999999999,
+  "c_drawn_eroded": 0.0,
+  "c_other_eroded": 1.789999999999992,
+  "c_drawn_median": 0.0,
+  "c_other_median": 0.0
+ },
+ "largest_c_drawn_differences": [
+  {
+   "patient": "83",
+   "rank": "5",
+   "abs_diff_HU": 0.0
+  },
+  {
+   "patient": "83",
+   "rank": "4",
+   "abs_diff_HU": 0.0
+  },
+  {
+   "patient": "83",
+   "rank": "3",
+   "abs_diff_HU": 0.0
+  }
+ ],
+ "largest_c_other_differences": [
+  {
+   "patient": "31",
+   "rank": "1",
+   "abs_diff_HU": 1.8
+  },
+  {
+   "patient": "37",
+   "rank": "1",
+   "abs_diff_HU": 0.4
+  },
+  {
+   "patient": "83",
+   "rank": "2",
+   "abs_diff_HU": 0.36
+  }
+ ],
+ "max_abs_qa_difference": {
+  "liver_dice_none": 0.0,
+  "liver_dice_rigid": 0.0015398644150943497,
+  "liver_dice_final": 0.0012513748085548615,
+  "propagated_inside_target_liver": 0.0020872340722670746,
+  "volume_ratio": 0.019513865114686668,
+  "tumour_centroid_shift_mm": 0.5951024687746225,
+  "drawn_inside_own_liver": 0.0
+ },
+ "qa_pass_changes": [],
+ "transform_changes": [],
+ "category_changes": [],
+ "bright_dark_sign_changes": [],
+ "first_mac_run_log_vs_instance": {
+  "patients": 58,
+  "max_abs_dice_diff": 0.009722086092434523,
+  "max_abs_inside_diff": 0.13075823727249336,
+  "max_abs_ratio_diff": 0.3551972477064216,
+  "qa_pass_changes": [],
+  "note": "the first Mac run used the default ITK thread count (all cores per worker, 3 workers) and the same code; its log values are rounded to 3 decimals"
+ }
+}

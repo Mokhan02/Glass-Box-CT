@@ -89,3 +89,25 @@ def test_field_of_view_fraction_identity_and_shift():
     ident = sitk.Transform(3, sitk.sitkIdentity)
     assert PC.fov_inside_fraction(pts_in, mov, fix, ident) == 1.0 and PC.fov_inside_fraction(pts_out, mov, fix, ident) == 0.0
     half = np.concatenate([pts_in, pts_out]); assert 0.4 < PC.fov_inside_fraction(half, mov, fix, ident) < 0.6
+
+
+def test_sign_count_rules_and_categories(tmp_path):
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("sc", os.path.join(HERE, "scripts", "w4_waw_sign_counts.py")); SC = importlib.util.module_from_spec(spec); spec.loader.exec_module(SC)
+    assert SC.flip(10, -8, 5) and not SC.flip(10, -3, 5) and SC.flip(10, -3, 0) and not SC.flip(10, 8, 0) and not SC.flip(None, -8, 0)
+    assert SC.comparable(10, -6, 5, 0.5) and not SC.comparable(10, -4, 5, 0.5) and not SC.comparable(20, 8, 5, 0.5) and SC.comparable(20, 8, 5, 0.33) and not SC.comparable(0, 0, 0, 0.5)
+    fields = ["patient", "mask_phase", "target_phase", "rank", "c_arterial", "c_portal", "c_arterial_eroded", "c_portal_eroded", "c_arterial_median", "c_portal_median", "category"]
+    rows = [dict(zip(fields, ["1", "1", "2", "1", "20", "-10", "18", "-8", "20", "-9", "K"])), dict(zip(fields, ["2", "1", "2", "1", "20", "5", "18", "4", "20", "5", "K"])), dict(zip(fields, ["3", "2", "1", "1", "", "", "", "", "", "", "F"])), dict(zip(fields, ["4", "2", "1", "1", "15", "-14", "15", "-14", "15", "-14", "Q"]))]
+    pd = tmp_path / "p"; pd.mkdir()
+    with open(pd / "tumours_paired.csv", "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=fields); w.writeheader(); w.writerows(rows)
+    qf = ["patient", "mask_phase", "liver_dice_final", "propagated_inside_target_liver", "volume_ratio", "qa_pass", "n_lesions_fov_clipped", "error"]
+    with open(pd / "patient_qa.csv", "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=qf); w.writeheader()
+        for p, d in (("1", 0.96), ("2", 0.97), ("3", 0.96), ("4", 0.9), ("5", "")):
+            w.writerow({"patient": p, "mask_phase": 1, "liver_dice_final": d, "propagated_inside_target_liver": 0.99, "volume_ratio": 1.0, "qa_pass": int(p in "12"), "n_lesions_fov_clipped": int(p == "3"), "error": "RuntimeError: empty" if p == "5" else ""})
+    mc = tmp_path / "m.csv"; mc.write_text("patient,phase,rank\n1,1,1\n2,1,1\n3,2,1\n4,2,1\n5,2,1\n")
+    r = SC.main(str(pd), str(mc), str(tmp_path / "o"))
+    assert r["categories"] == {"K": 2, "F": 1, "Q": 1, "E": 1} and r["category_check_sum"] == 5 and r["patients_E_error"] == ["5"]
+    g = r["grid_all_kept"]["delta=5,rho=0.5"]; assert g == {"sign_flips": 1, "comparable_abs_contrast": 1, "flip_and_comparable (effective N)": 1}      # patient 1: 20 vs -10 flips, ratio 0.5; patient 2: 20 vs 5 does not
+    assert r["Q_first_failed_criterion_per_tumour"] == {"liver_dice<0.92": 1}

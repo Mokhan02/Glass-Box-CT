@@ -1,0 +1,17 @@
+{
+ "started_utc": "2026-11-02T23:31:12Z",
+ "python": "3.10.12",
+ "platform": "Linux-6.8.0-1046-nvidia-x86_64-with-glibc2.35",
+ "numpy": "2.2.6",
+ "scipy": "1.15.3",
+ "SimpleITK": "2.5.6",
+ "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "2",
+ "workers": 12,
+ "cpu_count": 30,
+ "registration_sampling_calls": [
+  "SetMetricSamplingPercentage(0.2, 1)",
+  "SetMetricSamplingPercentage(0.2, 1)"
+ ],
+ "code_hashes_file_sha256": "1ffdf9f5f621faf316096907ea799a6d99ae71f3626844dd249a0ef68778bf7f",
+ "wrapper_sha256": "ecc237283efc8ac5259d3518b0d52eeea0ec0b5f979d6f33eb54cf6cfdb5fc62"
+}

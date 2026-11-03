@@ -1,0 +1,582 @@
+{
+ "patients": {
+  "14": {
+   "organ": {
+    "1": {
+     "file": "14_1_total_segmentator.nii.nii.gz",
+     "dtype": "uint8",
+     "spacing_mm": [
+      0.84,
+      0.84,
+      1.25
+     ],
+     "n_labels_present": 58,
+     "labels_min_max": [
+      0,
+      117
+     ],
+     "liver_label5_voxels": 1491786,
+     "liver_litres": 1.315,
+     "spleen_label1_litres": 0.471,
+     "liver_centroid_mm_LPS": [
+      -72.38825172215266,
+      -16.079315443431653,
+      -15.419270089677752
+     ],
+     "spleen_centroid_mm_LPS": [
+      108.9195562879217,
+      30.60259586165705,
+      -53.41956645162257
+     ],
+     "liver_right_of_spleen": true,
+     "direction": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      -1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "2": {
+     "file": "14_2_total_segmentator.nii.nii.gz",
+     "dtype": "uint8",
+     "spacing_mm": [
+      0.84,
+      0.84,
+      2.5
+     ],
+     "n_labels_present": 68,
+     "labels_min_max": [
+      0,
+      117
+     ],
+     "liver_label5_voxels": 744979,
+     "liver_litres": 1.314,
+     "spleen_label1_litres": 0.477,
+     "liver_centroid_mm_LPS": [
+      -72.40030693463882,
+      -16.476334013484404,
+      -11.017511903020136
+     ],
+     "spleen_centroid_mm_LPS": [
+      109.01338971759748,
+      33.27008836452117,
+      -44.73797390648343
+     ],
+     "liver_right_of_spleen": true,
+     "direction": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      -1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "tumour": [
+    {
+     "file": "14_1_0_tumor_seg.nrrd",
+     "dtype": "int16",
+     "unique_values_voxel_counts": {
+      "0": 46884247,
+      "1": 39529
+     },
+     "tumour_voxels_gt0": 39529,
+     "values_exactly_0_1": true,
+     "tumour_volume_cm3": 34.85,
+     "inside_label5_fraction": 0.9997,
+     "tumour_voxels_on_organ_grid": 39529,
+     "phase": 1
+    },
+    {
+     "file": "14_1_1_tumor_seg.nrrd",
+     "dtype": "int16",
+     "unique_values_voxel_counts": {
+      "0": 46922305,
+      "1": 1471
+     },
+     "tumour_voxels_gt0": 1471,
+     "values_exactly_0_1": true,
+     "tumour_volume_cm3": 1.3,
+     "inside_label5_fraction": 1.0,
+     "tumour_voxels_on_organ_grid": 1471,
+     "phase": 1
+    },
+    {
+     "file": "14_1_2_tumor_seg.nrrd",
+     "dtype": "int16",
+     "unique_values_voxel_counts": {
+      "0": 46921960,
+      "1": 1816
+     },
+     "tumour_voxels_gt0": 1816,
+     "values_exactly_0_1": true,
+     "tumour_volume_cm3": 1.6,
+     "inside_label5_fraction": 0.9978,
+     "tumour_voxels_on_organ_grid": 1816,
+     "phase": 1
+    }
+   ]
+  },
+  "21": {
+   "organ": {
+    "1": {
+     "file": "21_1_total_segmentator.nii.nii.gz",
+     "dtype": "uint8",
+     "spacing_mm": [
+      0.885,
+      0.885,
+      2.5
+     ],
+     "n_labels_present": 73,
+     "labels_min_max": [
+      0,
+      117
+     ],
+     "liver_label5_voxels": 799514,
+     "liver_litres": 1.565,
+     "spleen_label1_litres": 0.257,
+     "liver_centroid_mm_LPS": [
+      -80.56920773207665,
+      14.919461571946641,
+      -61.85523518037206
+     ],
+     "spleen_centroid_mm_LPS": [
+      104.45261177537304,
+      83.74477811488853,
+      -81.03033528472594
+     ],
+     "liver_right_of_spleen": true,
+     "direction": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      -1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "2": {
+     "file": "21_2_total_segmentator.nii.nii.gz",
+     "dtype": "uint8",
+     "spacing_mm": [
+      0.885,
+      0.885,
+      2.5
+     ],
+     "n_labels_present": 72,
+     "labels_min_max": [
+      0,
+      117
+     ],
+     "liver_label5_voxels": 802187,
+     "liver_litres": 1.57,
+     "spleen_label1_litres": 0.271,
+     "liver_centroid_mm_LPS": [
+      -80.5311353108766,
+      23.145057235968636,
+      -48.27325579945824
+     ],
+     "spleen_centroid_mm_LPS": [
+      101.78807855106146,
+      86.5377214921152,
+      -67.42010004399918
+     ],
+     "liver_right_of_spleen": true,
+     "direction": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      -1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "tumour": [
+    {
+     "file": "21_1_0_tumor_seg.nrrd",
+     "dtype": "int16",
+     "unique_values_voxel_counts": {
+      "0": 33286420,
+      "1": 5868
+     },
+     "tumour_voxels_gt0": 5868,
+     "values_exactly_0_1": true,
+     "tumour_volume_cm3": 11.48,
+     "inside_label5_fraction": 0.9998,
+     "tumour_voxels_on_organ_grid": 5868,
+     "phase": 1
+    }
+   ]
+  },
+  "455": {
+   "organ": {
+    "1": {
+     "file": "455_1_total_segmentator.nii.nii.gz",
+     "dtype": "uint8",
+     "spacing_mm": [
+      0.727,
+      0.727,
+      1.25
+     ],
+     "n_labels_present": 57,
+     "labels_min_max": [
+      0,
+      117
+     ],
+     "liver_label5_voxels": 2041489,
+     "liver_litres": 1.347,
+     "spleen_label1_litres": 0.561,
+     "liver_centroid_mm_LPS": [
+      -70.35776748742126,
+      -34.40424858468191,
+      -88.5512503373763
+     ],
+     "spleen_centroid_mm_LPS": [
+      94.6804120153385,
+      -8.433064896946519,
+      -102.7410978164522
+     ],
+     "liver_right_of_spleen": true,
+     "direction": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      -1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "2": {
+     "file": "455_2_total_segmentator.nii.nii.gz",
+     "dtype": "uint8",
+     "spacing_mm": [
+      0.727,
+      0.727,
+      2.5
+     ],
+     "n_labels_present": 68,
+     "labels_min_max": [
+      0,
+      117
+     ],
+     "liver_label5_voxels": 978785,
+     "liver_litres": 1.292,
+     "spleen_label1_litres": 0.57,
+     "liver_centroid_mm_LPS": [
+      -72.55587914964744,
+      -32.85550283219658,
+      -90.54007391817407
+     ],
+     "spleen_centroid_mm_LPS": [
+      94.91039889349508,
+      -9.808541795426038,
+      -103.19615368589672
+     ],
+     "liver_right_of_spleen": true,
+     "direction": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      -1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "tumour": [
+    {
+     "file": "455_1_0_tumor_seg.nrrd",
+     "dtype": "uint8",
+     "unique_values_voxel_counts": {
+      "0": 45349596,
+      "1": 1316
+     },
+     "tumour_voxels_gt0": 1316,
+     "values_exactly_0_1": true,
+     "tumour_volume_cm3": 0.87,
+     "inside_label5_fraction": 0.9932,
+     "tumour_voxels_on_organ_grid": 1316,
+     "phase": 1
+    },
+    {
+     "file": "455_1_1_tumor_seg.nrrd",
+     "dtype": "int16",
+     "unique_values_voxel_counts": {
+      "0": 45014894,
+      "1": 336018
+     },
+     "tumour_voxels_gt0": 336018,
+     "values_exactly_0_1": true,
+     "tumour_volume_cm3": 221.73,
+     "inside_label5_fraction": 0.9877,
+     "tumour_voxels_on_organ_grid": 336018,
+     "phase": 1
+    },
+    {
+     "file": "455_1_2_tumor_seg.nrrd",
+     "dtype": "uint8",
+     "unique_values_voxel_counts": {
+      "0": 45350141,
+      "1": 771
+     },
+     "tumour_voxels_gt0": 771,
+     "values_exactly_0_1": true,
+     "tumour_volume_cm3": 0.51,
+     "inside_label5_fraction": 1.0,
+     "tumour_voxels_on_organ_grid": 771,
+     "phase": 1
+    },
+    {
+     "file": "455_1_3_tumor_seg.nrrd",
+     "dtype": "uint8",
+     "unique_values_voxel_counts": {
+      "0": 45349473,
+      "1": 1439
+     },
+     "tumour_voxels_gt0": 1439,
+     "values_exactly_0_1": true,
+     "tumour_volume_cm3": 0.95,
+     "inside_label5_fraction": 0.9861,
+     "tumour_voxels_on_organ_grid": 1439,
+     "phase": 1
+    }
+   ]
+  },
+  "514": {
+   "organ": {
+    "1": {
+     "file": "514_1_total_segmentator.nii.nii.gz",
+     "dtype": "uint8",
+     "spacing_mm": [
+      0.863,
+      0.863,
+      1.8
+     ],
+     "n_labels_present": 103,
+     "labels_min_max": [
+      0,
+      117
+     ],
+     "liver_label5_voxels": 1003716,
+     "liver_litres": 1.346,
+     "spleen_label1_litres": 0.3,
+     "liver_centroid_mm_LPS": [
+      -71.16746923899538,
+      -185.2174731938305,
+      -164.4419752470419
+     ],
+     "spleen_centroid_mm_LPS": [
+      90.85895762855353,
+      -97.65323042511051,
+      -110.0272470477631
+     ],
+     "liver_right_of_spleen": true,
+     "direction": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      -1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "2": {
+     "file": "514_2_total_segmentator.nii.nii.gz",
+     "dtype": "uint8",
+     "spacing_mm": [
+      0.863,
+      0.863,
+      1.8
+     ],
+     "n_labels_present": 83,
+     "labels_min_max": [
+      0,
+      117
+     ],
+     "liver_label5_voxels": 958274,
+     "liver_litres": 1.285,
+     "spleen_label1_litres": 0.318,
+     "liver_centroid_mm_LPS": [
+      -73.14695426278783,
+      -186.65891869375955,
+      -164.4915699702592
+     ],
+     "spleen_centroid_mm_LPS": [
+      92.76687674057553,
+      -98.29844159208153,
+      -109.62694677741831
+     ],
+     "liver_right_of_spleen": true,
+     "direction": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      -1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "tumour": [
+    {
+     "file": "514_2_0_tumor_seg.nrrd",
+     "dtype": "int16",
+     "unique_values_voxel_counts": {
+      "0": 77831328,
+      "1": 25440
+     },
+     "tumour_voxels_gt0": 25440,
+     "values_exactly_0_1": true,
+     "tumour_volume_cm3": 34.13,
+     "inside_label5_fraction": 0.9996,
+     "tumour_voxels_on_organ_grid": 25440,
+     "phase": 2
+    }
+   ]
+  },
+  "521": {
+   "organ": {
+    "1": {
+     "file": "521_1_total_segmentator.nii.nii.gz",
+     "dtype": "uint8",
+     "spacing_mm": [
+      0.904,
+      0.904,
+      1.25
+     ],
+     "n_labels_present": 74,
+     "labels_min_max": [
+      0,
+      117
+     ],
+     "liver_label5_voxels": 1861139,
+     "liver_litres": 1.902,
+     "spleen_label1_litres": 1.134,
+     "liver_centroid_mm_LPS": [
+      -105.92099735662745,
+      -19.593992949603745,
+      -43.34372459552992
+     ],
+     "spleen_centroid_mm_LPS": [
+      111.74817843094246,
+      -8.843572515664562,
+      -68.32582722990645
+     ],
+     "liver_right_of_spleen": true,
+     "direction": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      -1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "2": {
+     "file": "521_2_total_segmentator.nii.nii.gz",
+     "dtype": "uint8",
+     "spacing_mm": [
+      0.904,
+      0.904,
+      2.5
+     ],
+     "n_labels_present": 74,
+     "labels_min_max": [
+      0,
+      117
+     ],
+     "liver_label5_voxels": 933743,
+     "liver_litres": 1.909,
+     "spleen_label1_litres": 1.124,
+     "liver_centroid_mm_LPS": [
+      -106.00165649298572,
+      -25.443920353976353,
+      -52.25365009429788
+     ],
+     "spleen_centroid_mm_LPS": [
+      110.59544582866812,
+      -11.862889808562159,
+      -72.64476156010232
+     ],
+     "liver_right_of_spleen": true,
+     "direction": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      -1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "tumour": [
+    {
+     "file": "521_2_0_tumor_seg.nrrd",
+     "dtype": "int16",
+     "unique_values_voxel_counts": {
+      "0": 50285721,
+      "1": 45927
+     },
+     "tumour_voxels_gt0": 45927,
+     "values_exactly_0_1": true,
+     "tumour_volume_cm3": 93.89,
+     "inside_label5_fraction": 0.9988,
+     "tumour_voxels_on_organ_grid": 45927,
+     "phase": 2
+    }
+   ]
+  }
+ },
+ "summary": {
+  "patients_checked": 5,
+  "organ_masks_checked": 10,
+  "tumour_files_checked": 10,
+  "tumour_values_exactly_0_1": 10,
+  "organ_label_max_over_masks": 117,
+  "liver_litres_min_median_max": [
+   1.285,
+   1.3465,
+   1.909
+  ],
+  "liver_right_of_spleen": "10 of 10",
+  "tumour_inside_label5_fraction_min_median": [
+   0.9861,
+   0.9992000000000001
+  ],
+  "masks_with_inside_fraction_below_0.9": 0
+ }
+}

@@ -1,0 +1,8 @@
+# W4 scouting: code hashes of the paired-contrast run (2026-11-02), recorded before running it on the instance. sha256sum -c format; the Mac run and the instance run use these files.
+ba472a1dfaaf100e05ce5c113a59ea2e43c86cb5f37638c6d02f59c660e15b94  scripts/w4_waw_paired_contrast.py
+b0f0fa23fc1cca39d99f6823112d25868f0198ae9c164582c7c88af1ca2c55af  scripts/w4_waw_register.py
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  glassbox/__init__.py
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  glassbox/audit/__init__.py
+d40580278370cedfeda09bb1607c89d49af983b66205a7723e54d8bc80dab477  glassbox/audit/contrast.py
+2edbefe3e92f65442199c9b7bc553d73c2b5d8ffe2b8b9dfdd9a45de3af5f4d2  glassbox/audit/waw.py
+4a97e2396f49e03c68951eb13f35e5684f8c51ac69de4a98816fe28419ea7239  results/w4_waw/CONTRAST_RULES.md
