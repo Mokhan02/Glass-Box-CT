@@ -2,6 +2,7 @@ import json
 import csv
 import importlib.util
 import os
+import sys
 
 import pytest
 
@@ -216,3 +217,15 @@ def test_gt_compare_fails_only_on_structure_and_reports_numeric_differences(tmp_
     assert r["structural_ok"] and len(r["sign_changes"]) == 1 and r["transform_changes"] and r["contrast_difference_HU"]["c_portal"]["max"] == 8.0
     write(tmp_path / "new2", "5", cat="Q"); assert not GC.compare(str(tmp_path / "ref"), str(tmp_path / "new2"), str(tmp_path / "o2"))["structural_ok"]
     write(tmp_path / "new3", "5", qa="0"); assert not GC.compare(str(tmp_path / "ref"), str(tmp_path / "new3"), str(tmp_path / "o3"))["structural_ok"]
+
+
+def test_parallel_scoring_is_byte_identical_to_serial(tmp_path):
+    spec = importlib.util.spec_from_file_location("sc2", os.path.join(HERE, "scripts", "w4_waw_score.py")); SC = importlib.util.module_from_spec(spec); sys.modules["sc2"] = SC; spec.loader.exec_module(SC)      # registered so that the forked workers can unpickle score_case
+    gt = tmp_path / "gt"; gt.mkdir(); pd = tmp_path / "pred"; pd.mkdir(); rng = np.random.default_rng(2)
+    for pid in (3, 4, 5):
+        for sp in (1, 2):
+            seg, lab = _write_series(gt, f"{pid}_{sp}", shape=(60, 40, 30)); tum = np.zeros(seg.shape, bool); tum[10:20, 10:20, 10:10 + int(rng.integers(1, 10))] = True
+            np.savez_compressed(pd / f"{pid}_{sp}.npz", tumour=tum, liver=np.roll(seg > 0, int(rng.integers(0, 3)), axis=0))
+    SC.main([str(gt), str(pd), "m", str(tmp_path / "o1")]); SC.main([str(gt), str(pd), "m", str(tmp_path / "o3"), "--workers", "3"])
+    for f in ("scores_m.csv", "alignment_m.json"):
+        assert (tmp_path / "o1" / f).read_bytes() == (tmp_path / "o3" / f).read_bytes()

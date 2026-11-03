@@ -3,7 +3,7 @@
 # Re-recorded 2026-11-03T01:26:30Z after DEVIATIONS 18 (driver ground-truth check, scripts/w4_waw_gt_compare.py, host1-contrast sensitivity in the analysis); no GPU step had run.
 # Re-recorded 2026-11-03T02:03:54Z after DEVIATIONS 19 (time estimates, smoke skip in scripts/w4_waw_run_instance.sh only).
 # Re-recorded 2026-11-03T02:39:23Z after the VISTA multiplier 1.5 (DEVIATIONS 19, second extension).
-# Re-recorded 2026-11-03T05:31:49Z after the Universal Model multiplier 1.5 (DEVIATIONS 19).
+# Re-recorded 2026-11-03T11:22:38Z after DEVIATIONS 21 (warn-only time check, skip finished models, parallel scoring, BRIGHT-25 dropped).
 2edbefe3e92f65442199c9b7bc553d73c2b5d8ffe2b8b9dfdd9a45de3af5f4d2  glassbox/audit/waw.py
 d40580278370cedfeda09bb1607c89d49af983b66205a7723e54d8bc80dab477  glassbox/audit/contrast.py
 bdee36775a462ed973b9c8e4912584b9202a143380e6367782caeadb5dd2e585  glassbox/seg/w2_lib.py
@@ -14,11 +14,11 @@ bdee36775a462ed973b9c8e4912584b9202a143380e6367782caeadb5dd2e585  glassbox/seg/w
 b747eeee104a0f84648b9a4e43949fe78070dec2361666f05343d12bd6b64ce1  scripts/w5_nnunet_trainer.py
 b0f0fa23fc1cca39d99f6823112d25868f0198ae9c164582c7c88af1ca2c55af  scripts/w4_waw_register.py
 363358acd3e5786e51de96c64bd3530f72a6343e812fdbebcf3d435c29bbcb47  scripts/w4_waw_paired_contrast.py
-bf01f7ef915a1933d102f647592a370208807dcedd86f6e99d10da199057c2e8  scripts/w4_waw_score.py
+a4a1a1970429229858641a9aa40608814d6927b437d236560ee644e2d2be24b1  scripts/w4_waw_score.py
 994687c867012c5ac52b5324f95fd8d0ce6fa197dc6fa388a41ead8d061a86c0  scripts/w4_waw_predict.py
 52a87f816adc6acc36e796ac44b069f57dfd613baf797af0c5a84173a34c1eab  scripts/w4_waw_predict_A.py
 8b3e42526028bc4a6d3416ed5316f4c1cd513136cd5f329a7844cbb5c3f4ccf1  scripts/w4_waw_split.py
 dcc43c9a725db98426121cc7678dc7198517c2bfa0f4c8e43acef4e5ac2f717f  scripts/w4_waw_analyze.py
 b4f39f4253162b45b71925c2f511c930265e1fed3be5ad4523fe31e2ebdd3cf1  scripts/w4_waw_gt_compare.py
-3e7396dbbc02aabb24fcaaa7614f9c3919b62f65b78e74f6dc35471e294f4026  scripts/w4_waw_run_instance.sh
-fd394c2f7d49741bce9a7997aa500c6654be377c342d150125ba6fb0e46d7a01  tests/test_w4_waw.py
+ff63d6f1e8a8f2d1f053d67cf16ce155ee8acdb62365d642cd1c446008195239  scripts/w4_waw_run_instance.sh
+285f968db5983ab8dc24cc7461d2441eb8479e1dfa0764765ce4c198941e0248  tests/test_w4_waw.py

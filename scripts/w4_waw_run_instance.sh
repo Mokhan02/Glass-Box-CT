@@ -12,21 +12,24 @@ mkdir -p $WA; log() { echo "$1 $(date -u +%FT%TZ)" >> $L; }
 hold() { echo "W4_DRIVER_HOLD: half$H $1 $(date -u)" >> $L; exit 1; }
 cd $R || hold "repo checkout missing"; log "W4_DRIVER_START half$H"
 alive() { local p; for p in "$@"; do [ -d /proc/$p ] && ! grep -q '^State:.*Z' /proc/$p/status 2>/dev/null && return 0; done; return 1; }
-declare -A MULT; MULT[vista]=1.5; MULT[A]=1.5      # per-model multiplier of the time rule (default 1.25); VISTA-3D and the Universal Model raised to 1.5 (DEVIATIONS 19, second extension)
-# watch NAME EST_S_PER_SERIES TOTAL COUNTFN PIDS...: HOLD (and kill) if the projected wall time of the series still to do exceeds 1.25 x the estimate for the series still to do at the start of the step.
-# The clock starts at the first NEW output (model load and start-up excluded: DEVIATIONS 19), the first check needs 5 new outputs after that, then every 30 min.
+# watch NAME EST_S_PER_SERIES TOTAL COUNTFN LOGFILE PIDS...: WARN-ONLY time rule (DEVIATIONS 21): the projected time of the series still to do is logged (TIME_CHECK, TIME_WARN when it exceeds 1.25 x the estimate) and never stops the run.
+# HOLD (and kill) only on: an error in the prediction log (traceback, CUDA out of memory, killed), or a true stall (no new output file for 20 min). A non-zero exit of the prediction process is a hold in run_model (wait). The throughput clock starts at the first NEW output.
+STALL_S=1200
 watch() {
-  local name=$1 per=$2 total=$3 cnt=$4; shift 4
-  local d0=$($cnt) lim tb=0 db=0 nxt=0 d el dn proj m=${MULT[$name]:-1.25}
-  lim=$(awk -v e=$per -v n=$(( total - d0 )) -v m=$m 'BEGIN{printf "%d", e*n*m}')
+  local name=$1 per=$2 total=$3 cnt=$4 plog=$5; shift 5
+  local d0=$($cnt) lim tb=0 db=0 nxt=0 d el dn proj last=$($cnt) lastt=$(date +%s) now
+  lim=$(awk -v e=$per -v n=$(( total - d0 )) 'BEGIN{printf "%d", e*n*1.25}')
   while alive "$@"; do
-    sleep 30; d=$($cnt)
-    if [ $tb -eq 0 ]; then [ $d -gt $d0 ] && { tb=$(date +%s); db=$d; }; continue; fi
-    el=$(( $(date +%s) - tb )); dn=$(( d - db ))
+    sleep 30; d=$($cnt); now=$(date +%s)
+    if [ $d -gt $last ]; then last=$d; lastt=$now; fi
+    if [ $(( now - lastt )) -ge $STALL_S ]; then kill "$@" 2>/dev/null; hold "STALL $name (no new output file for $(( (now - lastt) / 60 )) min)"; fi
+    if grep -qE "Traceback \(most recent call last\)|CUDA out of memory|OutOfMemoryError|RuntimeError:|^Killed" $plog 2>/dev/null; then kill "$@" 2>/dev/null; hold "ERROR in the prediction log of $name (see $plog)"; fi
+    if [ $tb -eq 0 ]; then [ $d -gt $d0 ] && { tb=$now; db=$d; }; continue; fi
+    el=$(( now - tb )); dn=$(( d - db ))
     if [ $dn -ge 5 ] && [ $el -ge $nxt ]; then
       proj=$(( el * (total - db) / dn )); nxt=$(( el + 1800 ))
-      log "TIME_CHECK $name done=$d/$total throughput_clock=${el}s projected_wall_remaining=${proj}s limit=${lim}s (estimate ${per}s x $(( total - d0 )) x $m)"
-      if [ $proj -gt $lim ]; then kill "$@" 2>/dev/null; hold "TIME_RULE_EXCEEDED $name (projected ${proj}s > ${lim}s)"; fi
+      if [ $proj -gt $lim ]; then log "TIME_WARN $name done=$d/$total projected_wall_remaining=${proj}s warn_limit=${lim}s (estimate ${per}s x $(( total - d0 )) x 1.25); warn only, the run continues"
+      else log "TIME_CHECK $name done=$d/$total projected_wall_remaining=${proj}s warn_limit=${lim}s"; fi
     fi
   done
 }
@@ -67,7 +70,7 @@ predict_nn()    { # $1 arm, $2 trainer, [--limit n] : inputs _0000 symlinks for 
   [ -z "$(ls $WA/in_nn_$arm)" ] && return 0
   nnUNetv2_predict -i $WA/in_nn_$arm -o $WA/pred_$arm -d 3 -c 3d_fullres -tr $tr -f 0 -chk checkpoint_final.pth
 }
-score() { cd $R && $PYV scripts/w4_waw_score.py $WA/gt $WA/pred_$1 $1 $WA/score "${@:2}" ; }
+score() { cd $R && $PYV scripts/w4_waw_score.py $WA/gt $WA/pred_$1 $1 $WA/score --workers 12 "${@:2}" ; }
 nfiles() { ls $WA/pred_$1 2>/dev/null | grep -c -E '^[0-9]+_[0-9]+\.(npz|nii\.gz)$'; }
 
 # ---- 3-series smoke of every model, scored (pipeline test only, never a result; its outputs are deleted)
@@ -89,16 +92,16 @@ fi
 # ---- full predictions, model by model
 run_model() { # arm est_s_per_series launcher...
   local arm=$1 per=$2; shift 2
+  if grep -q "^MODEL_DONE $arm " $L && [ -f $WA/score/scores_$arm.csv ] && [ -f $WA/score/alignment_$arm.json ]; then log "MODEL_SKIPPED $arm (MODEL_DONE already logged and scores present)"; return; fi
   log "MODEL_START $arm"; "$@" > $WA/pred_$arm.log 2>&1 &
-  local pid=$!; watch $arm $per $N "nfiles $arm" $pid; wait $pid || hold "prediction $arm failed (see pred_$arm.log)"
+  local pid=$!; watch $arm $per $N "nfiles $arm" $WA/pred_$arm.log $pid; wait $pid || hold "prediction $arm exited with a non-zero status (see pred_$arm.log)"
   [ "$(nfiles $arm)" -eq "$N" ] || hold "prediction $arm produced $(nfiles $arm) of $N series"
   score $arm > $WA/score_$arm.log 2>&1 || hold "scoring $arm failed (see score_$arm.log)"; log "MODEL_DONE $arm"
 }
-# per-series estimates (s) from measured full runs (DEVIATIONS 19): VISTA-3D 17 (tumour and liver class, this pipeline's first 6 series); Universal Model 16.6 (median of the 75 per-case times of the W3 Stage 1 HCC run, results/w3_models/stage1/A_swin_hcc/w3_alignment_A_swin_hcc.json);
-# nnU-Net 58 (median interval between the output files of the W5 BRIGHT-50 HCC inference, 58 s, and BRIGHT-25, 57 s; D0 is the same architecture)
-run_model vista 17 predict_vista
-run_model A 16.6 predict_A
-run_model D0 58 predict_nn D0 nnUNetTrainerW3Seed
-run_model B50 58 predict_nn B50 nnUNetTrainerW5Bright50
-run_model B25 58 predict_nn B25 nnUNetTrainerW5Bright25
-log "W4_HALF${H}_DONE (all five models predicted and scored; GPU idle)"
+# estimates (s per series) now the MEASURED rates of this run (warnings only): VISTA-3D 21 (20 to 23 s), Universal Model 22, nnU-Net 112 (first six D0 series of half 1)
+run_model vista 21 predict_vista
+run_model A 22 predict_A
+run_model D0 112 predict_nn D0 nnUNetTrainerW3Seed
+run_model B50 112 predict_nn B50 nnUNetTrainerW5Bright50
+# BRIGHT-25 is not run in W4 (compute; PREREG amendment 1, DEVIATIONS 21)
+log "W4_HALF${H}_DONE (all four models predicted and scored; GPU idle)"
