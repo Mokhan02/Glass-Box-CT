@@ -4,6 +4,7 @@
 # Re-recorded 2026-11-03T02:03:54Z after DEVIATIONS 19 (time estimates, smoke skip in scripts/w4_waw_run_instance.sh only).
 # Re-recorded 2026-11-03T02:39:23Z after the VISTA multiplier 1.5 (DEVIATIONS 19, second extension).
 # Re-recorded 2026-11-03T11:22:38Z after DEVIATIONS 21 (warn-only time check, skip finished models, parallel scoring, BRIGHT-25 dropped).
+# Re-recorded 2026-11-04T02:05:12Z after DEVIATIONS 23 (reorient tool and runner added; the driver itself is unchanged since the 06:23 EST version; the instances' preflight checks this whole file).
 2edbefe3e92f65442199c9b7bc553d73c2b5d8ffe2b8b9dfdd9a45de3af5f4d2  glassbox/audit/waw.py
 d40580278370cedfeda09bb1607c89d49af983b66205a7723e54d8bc80dab477  glassbox/audit/contrast.py
 bdee36775a462ed973b9c8e4912584b9202a143380e6367782caeadb5dd2e585  glassbox/seg/w2_lib.py
@@ -21,4 +22,8 @@ a4a1a1970429229858641a9aa40608814d6927b437d236560ee644e2d2be24b1  scripts/w4_waw
 dcc43c9a725db98426121cc7678dc7198517c2bfa0f4c8e43acef4e5ac2f717f  scripts/w4_waw_analyze.py
 b4f39f4253162b45b71925c2f511c930265e1fed3be5ad4523fe31e2ebdd3cf1  scripts/w4_waw_gt_compare.py
 ff63d6f1e8a8f2d1f053d67cf16ce155ee8acdb62365d642cd1c446008195239  scripts/w4_waw_run_instance.sh
-285f968db5983ab8dc24cc7461d2441eb8479e1dfa0764765ce4c198941e0248  tests/test_w4_waw.py
+9ec74efd610cc2d6fd8e24cb57646a611ea5ac0f431f8422bf15cf0ab8be50db  scripts/w4_waw_align_diag.py
+ad1171aa72affe6ea1a51c8610aeb4ae3d5e2525202660f4775927f1d75b3504  scripts/w4_waw_align_overlay.py
+0ddb0ba20edf974cc91ab947efcfa53d0c9f7a3d895f02c141022f33094778e9  scripts/w4_waw_reorient.py
+a49fa43bb915e0a6542c02a906089e091907d633a25f45f7617b44db5c4dff3a  scripts/w4_waw_reorient_run.sh
+71a516f0ce03996fb939fd63fe5c3835d594acd80f607c4b1138930e1db3a336  tests/test_w4_waw.py

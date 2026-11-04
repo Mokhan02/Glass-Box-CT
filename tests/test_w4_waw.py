@@ -229,3 +229,16 @@ def test_parallel_scoring_is_byte_identical_to_serial(tmp_path):
     SC.main([str(gt), str(pd), "m", str(tmp_path / "o1")]); SC.main([str(gt), str(pd), "m", str(tmp_path / "o3"), "--workers", "3"])
     for f in ("scores_m.csv", "alignment_m.json"):
         assert (tmp_path / "o1" / f).read_bytes() == (tmp_path / "o3" / f).read_bytes()
+
+
+def test_reorient_round_trip_restores_the_original_grid_exactly(tmp_path):
+    nib = pytest.importorskip("nibabel"); spec = importlib.util.spec_from_file_location("ro", os.path.join(HERE, "scripts", "w4_waw_reorient.py")); RO = importlib.util.module_from_spec(spec); spec.loader.exec_module(RO)
+    rng = np.random.default_rng(4); data = rng.integers(0, 5, (12, 9, 7)).astype(np.int16)
+    # an LSP-like affine: array axis0 -> L, axis1 -> S, axis2 -> P
+    aff = np.array([[-0.8, 0, 0, 100.0], [0, 0, -3.0, 50.0], [0, 0.0, 0, 0], [0, 0, 0, 1]]); aff = np.array([[-0.8, 0, 0, 100.0], [0, 0, 3.0, -20.0], [0, -0.7, 0, 30.0], [0, 0, 0, 1]])      # x -> -x (L), axis2 -> +y... a permuted, non-LAS orientation
+    img = nib.Nifti1Image(data, aff); assert "".join(nib.aff2axcodes(aff)) != "LAS"
+    arr, aff2, _ = RO.to_target(img); assert "".join(nib.aff2axcodes(aff2)) == "LAS" and sorted(arr.shape) == sorted(data.shape) and np.sort(arr.ravel()).tolist() == np.sort(data.ravel()).tolist()
+    # voxel (i, j, k) of the original and its image in the new array have the same world position
+    for ijk in ((0, 0, 0), (3, 5, 2), (11, 8, 6)):
+        w = (aff @ np.r_[ijk, 1])[:3]; inv = np.linalg.inv(aff2) @ np.r_[w, 1]; assert arr[tuple(int(round(v)) for v in inv[:3])] == data[ijk]
+    back = RO.back_to_original(arr, img); assert back.shape == data.shape and np.array_equal(back, data)
