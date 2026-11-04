@@ -87,7 +87,7 @@ def family_c(Ts, o):
     bk = [i for i, b in enumerate(br) if b]
     if bk:
         res["bright_arterial_detection"] = {a: float(np.mean([vals["det"][a][i] for i in bk])) for a in vals["det"]}
-        pb = [pat[i] for i in bk]; res["bright_arterial_detection_B50_minus_D0"] = S.paired_delta(pb, [True] * len(bk), {"B50": [vals["det"]["B50"][i] for i in bk], "D0": [vals["det"]["D0"][i] for i in bk]}, "B50", "D0", "w4_c_bright_det")
+        pb = [pat[i] for i in bk]; res["bright_arterial_detection_B50_minus_D0"] = S.paired_mean_diff(pb, [vals["det"]["B50"][i] for i in bk], [vals["det"]["D0"][i] for i in bk], "w4_c_bright_det")
     return res
 
 

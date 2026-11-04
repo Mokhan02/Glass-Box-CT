@@ -84,6 +84,13 @@ def paired_delta(patients, bright, vals, arm1, arm0, seed_name, b=B_C):
     return {"delta": pt, "lo": lo, "hi": hi, "gap_arm1": float(_gap(c1.sum(0))), "gap_arm0": float(_gap(c0.sum(0))), "n_dark": int(c1[:, 2].sum()), "n_bright": int(c1[:, 3].sum()), "n_patients": len(ids)}
 
 
+def paired_mean_diff(patients, v1, v0, seed_name, b=B_C):
+    """Mean of (v1 - v0) over tumours, patient-clustered percentile bootstrap (the same resampled patients for both arms by construction)."""
+    patients = np.asarray(patients); d = np.asarray(v1, float) - np.asarray(v0, float); up = np.unique(patients); s = np.array([d[patients == p].sum() for p in up]); n = np.array([(patients == p).sum() for p in up], float)
+    rng = np.random.default_rng(name_seed(seed_name)); ix = rng.integers(0, len(up), (b, len(up))); draws = s[ix].sum(1) / n[ix].sum(1)
+    return {"delta": float(d.mean()), "lo": float(np.percentile(draws, 2.5)), "hi": float(np.percentile(draws, 97.5)), "n_tumours": int(len(d)), "n_patients": int(len(up))}
+
+
 def fit_logit(X, z, ridge=1e-6, iters=60):
     b = np.zeros(X.shape[1])
     for _ in range(iters):

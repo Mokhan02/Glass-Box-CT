@@ -1,0 +1,1783 @@
+{
+ "n_tumours": {
+  "vista": 297,
+  "D0": 297,
+  "A": 297,
+  "B50": 297
+ },
+ "a": {
+  "vista": {
+   "all": {
+    "detection_gap": {
+     "gap": 0.5745945945945946,
+     "lo": 0.46770546480520286,
+     "hi": 0.6669438490214352,
+     "n_dark": 75,
+     "n_bright": 222,
+     "n_patients": 181
+    },
+    "dice_gap": {
+     "gap": 0.34358741801801795,
+     "lo": 0.26768855659827884,
+     "hi": 0.42714766416426064,
+     "n_dark": 75,
+     "n_bright": 222,
+     "n_patients": 181
+    },
+    "detection_label": "GAP",
+    "dice_label": "GAP",
+    "bright_share": 0.7474747474747475,
+    "label": "GAP (detection and Dice)"
+   },
+   "arterial_drawn": {
+    "detection_gap": {
+     "gap": 0.44707992824397047,
+     "lo": 0.23259278536832217,
+     "hi": 0.6088382869926494,
+     "n_dark": 29,
+     "n_bright": 173,
+     "n_patients": 115
+    },
+    "dice_gap": {
+     "gap": 0.20644761411201917,
+     "lo": 0.10924766949521793,
+     "hi": 0.31897266631308296,
+     "n_dark": 29,
+     "n_bright": 173,
+     "n_patients": 115
+    },
+    "detection_label": "GAP",
+    "dice_label": "GAP",
+    "bright_share": 0.8564356435643564,
+    "label": "GAP (detection and Dice)"
+   },
+   "portal_drawn": {
+    "detection_gap": {
+     "gap": 0.5661047027506654,
+     "lo": 0.4061122090469917,
+     "hi": 0.7059231295380405,
+     "n_dark": 46,
+     "n_bright": 49,
+     "n_patients": 66
+    },
+    "dice_gap": {
+     "gap": 0.379576703637977,
+     "lo": 0.26661775622254585,
+     "hi": 0.5088580724758779,
+     "n_dark": 46,
+     "n_bright": 49,
+     "n_patients": 66
+    },
+    "detection_label": "GAP",
+    "dice_label": "GAP",
+    "bright_share": 0.5157894736842106,
+    "label": "GAP (detection and Dice)"
+   }
+  },
+  "D0": {
+   "all": {
+    "detection_gap": {
+     "gap": 0.723063063063063,
+     "lo": 0.6213484550978068,
+     "hi": 0.8134684677870962,
+     "n_dark": 75,
+     "n_bright": 222,
+     "n_patients": 181
+    },
+    "dice_gap": {
+     "gap": 0.37797980180180185,
+     "lo": 0.305547159813616,
+     "hi": 0.4539384534417809,
+     "n_dark": 75,
+     "n_bright": 222,
+     "n_patients": 181
+    },
+    "detection_label": "GAP",
+    "dice_label": "GAP",
+    "bright_share": 0.7474747474747475,
+    "label": "GAP (detection and Dice)"
+   },
+   "arterial_drawn": {
+    "detection_gap": {
+     "gap": 0.7121785927845327,
+     "lo": 0.4879025943795497,
+     "hi": 0.8718125230480684,
+     "n_dark": 29,
+     "n_bright": 173,
+     "n_patients": 115
+    },
+    "dice_gap": {
+     "gap": 0.2887157663942595,
+     "lo": 0.19446173564345642,
+     "hi": 0.38835524397952226,
+     "n_dark": 29,
+     "n_bright": 173,
+     "n_patients": 115
+    },
+    "detection_label": "GAP",
+    "dice_label": "GAP",
+    "bright_share": 0.8564356435643564,
+    "label": "GAP (detection and Dice)"
+   },
+   "portal_drawn": {
+    "detection_gap": {
+     "gap": 0.6641526175687666,
+     "lo": 0.5079884013804237,
+     "hi": 0.8043841981330417,
+     "n_dark": 46,
+     "n_bright": 49,
+     "n_patients": 66
+    },
+    "dice_gap": {
+     "gap": 0.392420230700976,
+     "lo": 0.28349137900641036,
+     "hi": 0.4919270108982109,
+     "n_dark": 46,
+     "n_bright": 49,
+     "n_patients": 66
+    },
+    "detection_label": "GAP",
+    "dice_label": "GAP",
+    "bright_share": 0.5157894736842106,
+    "label": "GAP (detection and Dice)"
+   }
+  },
+  "A": {
+   "all": {
+    "detection_gap": {
+     "gap": 0.5845045045045045,
+     "lo": 0.448874307504137,
+     "hi": 0.6927701429413758,
+     "n_dark": 75,
+     "n_bright": 222,
+     "n_patients": 181
+    },
+    "dice_gap": {
+     "gap": 0.2644289009009008,
+     "lo": 0.2025317466255197,
+     "hi": 0.3249784420837607,
+     "n_dark": 75,
+     "n_bright": 222,
+     "n_patients": 181
+    },
+    "detection_label": "GAP",
+    "dice_label": "GAP",
+    "bright_share": 0.7474747474747475,
+    "label": "GAP (detection and Dice)"
+   },
+   "arterial_drawn": {
+    "detection_gap": {
+     "gap": 0.43033685469404026,
+     "lo": 0.22242918801218137,
+     "hi": 0.6250700397178836,
+     "n_dark": 29,
+     "n_bright": 173,
+     "n_patients": 115
+    },
+    "dice_gap": {
+     "gap": 0.15766565278054623,
+     "lo": 0.08571519405582927,
+     "hi": 0.23850515859314717,
+     "n_dark": 29,
+     "n_bright": 173,
+     "n_patients": 115
+    },
+    "detection_label": "GAP",
+    "dice_label": "GAP",
+    "bright_share": 0.8564356435643564,
+    "label": "GAP (detection and Dice)"
+   },
+   "portal_drawn": {
+    "detection_gap": {
+     "gap": 0.5634427684117125,
+     "lo": 0.37497051886792454,
+     "hi": 0.7147648130290366,
+     "n_dark": 46,
+     "n_bright": 49,
+     "n_patients": 66
+    },
+    "dice_gap": {
+     "gap": 0.28298606921029285,
+     "lo": 0.19058268112749058,
+     "hi": 0.38025836760701626,
+     "n_dark": 46,
+     "n_bright": 49,
+     "n_patients": 66
+    },
+    "detection_label": "GAP",
+    "dice_label": "GAP",
+    "bright_share": 0.5157894736842106,
+    "label": "GAP (detection and Dice)"
+   }
+  },
+  "B50": {
+   "all": {
+    "detection_gap": {
+     "gap": -0.05261261261261263,
+     "lo": -0.13393533549783546,
+     "hi": 0.022712721537988048,
+     "n_dark": 75,
+     "n_bright": 222,
+     "n_patients": 181
+    },
+    "dice_gap": {
+     "gap": 0.09520079099099105,
+     "lo": 0.0027931157002070842,
+     "hi": 0.1871066568906034,
+     "n_dark": 75,
+     "n_bright": 222,
+     "n_patients": 181
+    },
+    "detection_label": "NO GAP",
+    "dice_label": "INCONCLUSIVE",
+    "bright_share": 0.7474747474747475,
+    "label": "INCONCLUSIVE"
+   },
+   "arterial_drawn": {
+    "detection_gap": {
+     "gap": -0.01116204903328688,
+     "lo": -0.17968843084218256,
+     "hi": 0.08571866783523227,
+     "n_dark": 29,
+     "n_bright": 173,
+     "n_patients": 115
+    },
+    "dice_gap": {
+     "gap": 0.044658279848515,
+     "lo": -0.0711171591189478,
+     "hi": 0.18117109770224482,
+     "n_dark": 29,
+     "n_bright": 173,
+     "n_patients": 115
+    },
+    "detection_label": "NO GAP",
+    "dice_label": "INCONCLUSIVE",
+    "bright_share": 0.8564356435643564,
+    "label": "INCONCLUSIVE"
+   },
+   "portal_drawn": {
+    "detection_gap": {
+     "gap": -0.08961845607808339,
+     "lo": -0.20682629870129868,
+     "hi": 0.02328583164812944,
+     "n_dark": 46,
+     "n_bright": 49,
+     "n_patients": 66
+    },
+    "dice_gap": {
+     "gap": 0.07565976486246667,
+     "lo": -0.07590050715999466,
+     "hi": 0.21516939394936202,
+     "n_dark": 46,
+     "n_bright": 49,
+     "n_patients": 66
+    },
+    "detection_label": "NO GAP",
+    "dice_label": "INCONCLUSIVE",
+    "bright_share": 0.5157894736842106,
+    "label": "INCONCLUSIVE"
+   }
+  }
+ },
+ "b": {
+  "vista": {
+   "discordant": 67,
+   "tumours": 297,
+   "columns": [
+    "phase",
+    "sign",
+    "abs_contrast",
+    "is_propagated",
+    "log_diameter"
+   ],
+   "status": "OK (point estimate Jeffreys-penalised)",
+   "bootstrap_replicates_ok": 2000,
+   "bootstrap_failed": 0,
+   "bootstrap_firth_replicates": 1508,
+   "coef": {
+    "phase": {
+     "beta": -2.690794243390254,
+     "OR": 0.06782704678908802,
+     "boot_OR_lo": 4.883120240545505e-05,
+     "boot_OR_hi": 0.13402721959976857,
+     "wald_OR_lo": 0.02744689877869425,
+     "wald_OR_hi": 0.16761486655462496
+    },
+    "sign": {
+     "beta": -0.9774309446425653,
+     "OR": 0.3762765334370631,
+     "boot_OR_lo": 0.00952626347629085,
+     "boot_OR_hi": 2.7487025629591937,
+     "wald_OR_lo": 0.07833798038845852,
+     "wald_OR_hi": 1.8073484778817803
+    },
+    "abs_contrast": {
+     "beta": 1.2442326931142302,
+     "OR": 3.4702710146523246,
+     "boot_OR_lo": 1.7949280334518902,
+     "boot_OR_hi": 116.93806351045492,
+     "wald_OR_lo": 1.5695544975375395,
+     "wald_OR_hi": 7.672738305060378
+    },
+    "is_propagated": {
+     "beta": -1.4165747186384892,
+     "OR": 0.2425433749954743,
+     "boot_OR_lo": 0.0004896231912380119,
+     "boot_OR_hi": 0.46380464272374966,
+     "wald_OR_lo": 0.13734019244948867,
+     "wald_OR_hi": 0.42833265124359654
+    },
+    "log_diameter": {
+     "beta": -11.496881259274218,
+     "OR": 1.0161736050747145e-05,
+     "boot_OR_lo": 3.3550053977052027e-82,
+     "boot_OR_hi": 2266922.036778963,
+     "wald_OR_lo": 1.5489387337880706e-22,
+     "wald_OR_hi": 666655674059.6207
+    }
+   },
+   "label": "INCONCLUSIVE",
+   "discordant_non_flip": 37,
+   "discordant_flip_A_bright_P_dark": 29,
+   "discordant_flip_A_dark_P_bright": 1,
+   "tumours_flip_A_bright_P_dark": 81,
+   "tumours_flip_A_dark_P_bright": 5
+  },
+  "D0": {
+   "discordant": 74,
+   "tumours": 297,
+   "columns": [
+    "phase",
+    "sign",
+    "abs_contrast",
+    "is_propagated",
+    "log_diameter"
+   ],
+   "status": "OK",
+   "bootstrap_replicates_ok": 2000,
+   "bootstrap_failed": 0,
+   "bootstrap_firth_replicates": 1535,
+   "coef": {
+    "phase": {
+     "beta": -1.8112548759453395,
+     "OR": 0.16344889996339387,
+     "boot_OR_lo": 0.0004246067471155403,
+     "boot_OR_hi": 0.3817879793128468,
+     "wald_OR_lo": 0.06243800380378208,
+     "wald_OR_hi": 0.4278731104729085
+    },
+    "sign": {
+     "beta": -2.311082982395076,
+     "OR": 0.09915381156000837,
+     "boot_OR_lo": 0.0220354820071966,
+     "boot_OR_hi": 1.0714232254292448,
+     "wald_OR_lo": 0.009126626443952394,
+     "wald_OR_hi": 1.0772302785978838
+    },
+    "abs_contrast": {
+     "beta": -0.038727555794420276,
+     "OR": 0.9620127682509072,
+     "boot_OR_lo": 0.5378212801205838,
+     "boot_OR_hi": 2.0382620138180934,
+     "wald_OR_lo": 0.568521768048492,
+     "wald_OR_hi": 1.6278507144142207
+    },
+    "is_propagated": {
+     "beta": -0.13410190003035377,
+     "OR": 0.8745009483897535,
+     "boot_OR_lo": 0.0015841935220763487,
+     "boot_OR_hi": 3.89270767918718,
+     "wald_OR_lo": 0.2790898099115723,
+     "wald_OR_hi": 2.740164210857016
+    },
+    "log_diameter": {
+     "beta": 1.4573469767466967,
+     "OR": 4.294550858014253,
+     "boot_OR_lo": 9.331441847255674e-17,
+     "boot_OR_hi": 9.708903351409667e+31,
+     "wald_OR_lo": 2.1398360919366348e-16,
+     "wald_OR_hi": 8.618962518469931e+16
+    }
+   },
+   "label": "INCONCLUSIVE",
+   "discordant_non_flip": 33,
+   "discordant_flip_A_bright_P_dark": 40,
+   "discordant_flip_A_dark_P_bright": 1,
+   "tumours_flip_A_bright_P_dark": 81,
+   "tumours_flip_A_dark_P_bright": 5
+  },
+  "A": {
+   "discordant": 85,
+   "tumours": 297,
+   "columns": [
+    "phase",
+    "sign",
+    "abs_contrast",
+    "is_propagated",
+    "log_diameter"
+   ],
+   "status": "OK (point estimate Jeffreys-penalised)",
+   "bootstrap_replicates_ok": 2000,
+   "bootstrap_failed": 0,
+   "bootstrap_firth_replicates": 1867,
+   "coef": {
+    "phase": {
+     "beta": -1.994760346013482,
+     "OR": 0.13604625428750955,
+     "boot_OR_lo": 0.005280121237102297,
+     "boot_OR_hi": 0.25383027292581645,
+     "wald_OR_lo": 0.05982713641594732,
+     "wald_OR_hi": 0.3093676952375097
+    },
+    "sign": {
+     "beta": -1.8781862199033397,
+     "OR": 0.15286712180080256,
+     "boot_OR_lo": 0.007515132343582192,
+     "boot_OR_hi": 0.477216396630262,
+     "wald_OR_lo": 0.04286635715567906,
+     "wald_OR_hi": 0.5451444554244212
+    },
+    "abs_contrast": {
+     "beta": 0.8863595026965821,
+     "OR": 2.426280685452122,
+     "boot_OR_lo": 1.4695794440817207,
+     "boot_OR_hi": 8.928825154580059,
+     "wald_OR_lo": 1.3934787911939106,
+     "wald_OR_hi": 4.2245622981848685
+    },
+    "is_propagated": {
+     "beta": -0.7192223058431296,
+     "OR": 0.4871309475793187,
+     "boot_OR_lo": 0.06332511903624738,
+     "boot_OR_hi": 1.1788649196088203,
+     "wald_OR_lo": 0.21106526224037958,
+     "wald_OR_hi": 1.1242805072265791
+    },
+    "log_diameter": {
+     "beta": -30.038870538167636,
+     "OR": 9.00086571934961e-14,
+     "boot_OR_lo": 2.718333913917866e-80,
+     "boot_OR_hi": 1426294423027.763,
+     "wald_OR_lo": 9.973360035256538e-35,
+     "wald_OR_hi": 81231985.42052738
+    }
+   },
+   "label": "OPPOSITE EFFECT",
+   "discordant_non_flip": 45,
+   "discordant_flip_A_bright_P_dark": 39,
+   "discordant_flip_A_dark_P_bright": 1,
+   "tumours_flip_A_bright_P_dark": 81,
+   "tumours_flip_A_dark_P_bright": 5
+  },
+  "B50": {
+   "discordant": 73,
+   "tumours": 297,
+   "columns": [
+    "phase",
+    "sign",
+    "abs_contrast",
+    "is_propagated",
+    "log_diameter"
+   ],
+   "status": "OK (point estimate Jeffreys-penalised)",
+   "bootstrap_replicates_ok": 2000,
+   "bootstrap_failed": 0,
+   "bootstrap_firth_replicates": 1983,
+   "coef": {
+    "phase": {
+     "beta": -0.5830934051085689,
+     "OR": 0.5581690502150134,
+     "boot_OR_lo": 0.017592692240908692,
+     "boot_OR_hi": 1.7491864950940352,
+     "wald_OR_lo": 0.22425701263328301,
+     "wald_OR_hi": 1.3892662038060661
+    },
+    "sign": {
+     "beta": 2.637311559630309,
+     "OR": 13.97558054179126,
+     "boot_OR_lo": 1.651244011851359,
+     "boot_OR_hi": 224506.70429793015,
+     "wald_OR_lo": 1.1822563459537718,
+     "wald_OR_hi": 165.20685395224066
+    },
+    "abs_contrast": {
+     "beta": 2.038614985017125,
+     "OR": 7.679964962825863,
+     "boot_OR_lo": 3.2752983940670943,
+     "boot_OR_hi": 1329.6694119917406,
+     "wald_OR_lo": 2.749598432728356,
+     "wald_OR_hi": 21.45108213918592
+    },
+    "is_propagated": {
+     "beta": -1.1820916003032265,
+     "OR": 0.3066367059701841,
+     "boot_OR_lo": 0.008193925037789339,
+     "boot_OR_hi": 0.9759015282753821,
+     "wald_OR_lo": 0.11883638804659775,
+     "wald_OR_hi": 0.7912228820971564
+    },
+    "log_diameter": {
+     "beta": 35.992341965097175,
+     "OR": 4278342080529525.5,
+     "boot_OR_lo": 44267.596325678955,
+     "boot_OR_hi": 1.0526995625523987e+53,
+     "wald_OR_lo": 336122.9735240999,
+     "wald_OR_hi": 5.445688750792067e+25
+    }
+   },
+   "label": "REAL-PHASE BRIGHTNESS EFFECT",
+   "discordant_non_flip": 55,
+   "discordant_flip_A_bright_P_dark": 17,
+   "discordant_flip_A_dark_P_bright": 1,
+   "tumours_flip_A_bright_P_dark": 81,
+   "tumours_flip_A_dark_P_bright": 5
+  }
+ },
+ "c": {
+  "n_tumours": 297,
+  "gap_D0": {
+   "det": {
+    "gap": 0.6264462809917355,
+    "lo": 0.47912514322285393,
+    "hi": 0.7600490350490351,
+    "n_dark": 55,
+    "n_bright": 242,
+    "n_patients": 181
+   },
+   "dice": {
+    "gap": 0.28477604132231404,
+    "lo": 0.21818594943154895,
+    "hi": 0.3579779095676837,
+    "n_dark": 55,
+    "n_bright": 242,
+    "n_patients": 181
+   }
+  },
+  "gap_B50": {
+   "det": {
+    "gap": -0.03223140495867771,
+    "lo": -0.13892317921107092,
+    "hi": 0.07049268459875406,
+    "n_dark": 55,
+    "n_bright": 242,
+    "n_patients": 181
+   },
+   "dice": {
+    "gap": 0.07085663636363643,
+    "lo": -0.018464935157474962,
+    "hi": 0.166393976663382,
+    "n_dark": 55,
+    "n_bright": 242,
+    "n_patients": 181
+   }
+  },
+  "B50_minus_D0_det": {
+   "delta": -0.6586776859504132,
+   "lo": -0.7750957599747923,
+   "hi": -0.530877282419307,
+   "gap_arm1": -0.03223140495867771,
+   "gap_arm0": 0.6264462809917355,
+   "n_dark": 55,
+   "n_bright": 242,
+   "n_patients": 181,
+   "verdict": "CLOSES"
+  },
+  "B50_minus_D0_dice": {
+   "delta": -0.21391940495867762,
+   "lo": -0.2888936555683107,
+   "hi": -0.13010386698897863,
+   "gap_arm1": 0.07085663636363643,
+   "gap_arm0": 0.28477604132231404,
+   "n_dark": 55,
+   "n_bright": 242,
+   "n_patients": 181,
+   "verdict": "CLOSES"
+  },
+  "label": "CONFIRMED (detection and Dice)",
+  "bright_arterial_detection": {
+   "D0": 0.08264462809917356,
+   "B50": 0.9049586776859504
+  },
+  "bright_arterial_detection_B50_minus_D0": {
+   "delta": 0.8223140495867769,
+   "lo": 0.7738929484837413,
+   "hi": 0.8704453441295547,
+   "n_tumours": 242,
+   "n_patients": 152
+  }
+ },
+ "b_variants": {
+  "vista": {
+   "no_logd": {
+    "discordant": 67,
+    "tumours": 297,
+    "columns": [
+     "phase",
+     "sign",
+     "abs_contrast",
+     "is_propagated"
+    ],
+    "status": "OK",
+    "bootstrap_replicates_ok": 2000,
+    "bootstrap_failed": 0,
+    "bootstrap_firth_replicates": 202,
+    "coef": {
+     "phase": {
+      "beta": -8.467197365645658,
+      "OR": 0.0002102533416276886,
+      "boot_OR_lo": 1.2423290414998523e-05,
+      "boot_OR_hi": 0.01651193290692572,
+      "wald_OR_lo": 6.424120313534147e-05,
+      "wald_OR_hi": 0.0006881326237380177
+     },
+     "sign": {
+      "beta": -1.2088536736642195,
+      "OR": 0.2985393068246072,
+      "boot_OR_lo": 0.0040777792987339604,
+      "boot_OR_hi": 3.7839575951557,
+      "wald_OR_lo": 0.04503402311540685,
+      "wald_OR_hi": 1.9790751870184493
+     },
+     "abs_contrast": {
+      "beta": 1.4736768549888257,
+      "OR": 4.365256083280119,
+      "boot_OR_lo": 2.0505143416271885,
+      "boot_OR_hi": 132.03829213245803,
+      "wald_OR_lo": 1.3966624388856936,
+      "wald_OR_hi": 13.643569227663347
+     },
+     "is_propagated": {
+      "beta": -7.016610373668326,
+      "OR": 0.0008968603679158129,
+      "boot_OR_lo": 0.0002899022595430571,
+      "boot_OR_hi": 0.28026589500749666,
+      "wald_OR_lo": 0.0004654902450718544,
+      "wald_OR_hi": 0.0017279814734118095
+     }
+    },
+    "label": "INCONCLUSIVE",
+    "discordant_non_flip": 37,
+    "discordant_flip_A_bright_P_dark": 29,
+    "discordant_flip_A_dark_P_bright": 1,
+    "tumours_flip_A_bright_P_dark": 81,
+    "tumours_flip_A_dark_P_bright": 5
+   },
+   "no_mag": {
+    "discordant": 67,
+    "tumours": 297,
+    "columns": [
+     "phase",
+     "sign",
+     "is_propagated",
+     "log_diameter"
+    ],
+    "status": "OK",
+    "bootstrap_replicates_ok": 2000,
+    "bootstrap_failed": 0,
+    "bootstrap_firth_replicates": 1288,
+    "coef": {
+     "phase": {
+      "beta": -7.706993027008713,
+      "OR": 0.0004496715965763806,
+      "boot_OR_lo": 0.0002573357199846483,
+      "boot_OR_hi": 0.1979603784882218,
+      "wald_OR_lo": 0.00023663119740589594,
+      "wald_OR_hi": 0.0008545134664585559
+     },
+     "sign": {
+      "beta": -0.7179306361259781,
+      "OR": 0.4877605664148473,
+      "boot_OR_lo": 0.08410685415887445,
+      "boot_OR_hi": 3.367266244481406,
+      "wald_OR_lo": 0.1141863200676029,
+      "wald_OR_hi": 2.0835277816859326
+     },
+     "is_propagated": {
+      "beta": -7.268352485151101,
+      "OR": 0.0006972597938553457,
+      "boot_OR_lo": 0.0005152277238478786,
+      "boot_OR_hi": 0.27703470869177566,
+      "wald_OR_lo": 0.000456413055450026,
+      "wald_OR_hi": 0.0010652000733147992
+     },
+     "log_diameter": {
+      "beta": -3.870852085739313,
+      "OR": 0.02084060387604261,
+      "boot_OR_lo": 5.897789019781777e-48,
+      "boot_OR_hi": 102833180415241.66,
+      "wald_OR_lo": 5.911284599659824e-20,
+      "wald_OR_hi": 7347485349345465.0
+     }
+    },
+    "label": "INCONCLUSIVE",
+    "discordant_non_flip": 37,
+    "discordant_flip_A_bright_P_dark": 29,
+    "discordant_flip_A_dark_P_bright": 1,
+    "tumours_flip_A_bright_P_dark": 81,
+    "tumours_flip_A_dark_P_bright": 5
+   },
+   "signed": {
+    "discordant": 67,
+    "tumours": 297,
+    "columns": [
+     "phase",
+     "signed_contrast",
+     "is_propagated",
+     "log_diameter"
+    ],
+    "status": "OK",
+    "bootstrap_replicates_ok": 2000,
+    "bootstrap_failed": 0,
+    "bootstrap_firth_replicates": 1435,
+    "coef": {
+     "phase": {
+      "beta": -8.184693520619218,
+      "OR": 0.00027888988802558627,
+      "boot_OR_lo": 0.00015811961654846077,
+      "boot_OR_hi": 0.17687415843198462,
+      "wald_OR_lo": 6.284342358732809e-05,
+      "wald_OR_hi": 0.0012376723800675894
+     },
+     "signed_contrast": {
+      "beta": 0.14988469528012316,
+      "OR": 1.161700285479482,
+      "boot_OR_lo": 0.6055642644789536,
+      "boot_OR_hi": 4.774748462920701,
+      "wald_OR_lo": 0.5137087191942188,
+      "wald_OR_hi": 2.627067641366788
+     },
+     "is_propagated": {
+      "beta": -7.284235244605895,
+      "OR": 0.0006862728665978571,
+      "boot_OR_lo": 0.0005147941645743911,
+      "boot_OR_hi": 0.26212755163570606,
+      "wald_OR_lo": 0.0004552403117896134,
+      "wald_OR_hi": 0.001034553476991063
+     },
+     "log_diameter": {
+      "beta": -8.845142919217139,
+      "OR": 0.0001440798469697502,
+      "boot_OR_lo": 9.053305087938253e-68,
+      "boot_OR_hi": 111779922592762.69,
+      "wald_OR_lo": 1.0469263074043808e-27,
+      "wald_OR_hi": 1.982852293997075e+19
+     }
+    },
+    "label": "INCONCLUSIVE",
+    "discordant_non_flip": 37,
+    "discordant_flip_A_bright_P_dark": 29,
+    "discordant_flip_A_dark_P_bright": 1,
+    "tumours_flip_A_bright_P_dark": 81,
+    "tumours_flip_A_dark_P_bright": 5
+   },
+   "deadzone5": {
+    "discordant": 34,
+    "tumours": 170,
+    "columns": [
+     "phase",
+     "sign",
+     "abs_contrast",
+     "is_propagated",
+     "log_diameter"
+    ],
+    "status": "OK (point estimate Jeffreys-penalised)",
+    "bootstrap_replicates_ok": 2000,
+    "bootstrap_failed": 0,
+    "bootstrap_firth_replicates": 1660,
+    "coef": {
+     "phase": {
+      "beta": -2.0942156828536596,
+      "OR": 0.12316680761970672,
+      "boot_OR_lo": 5.143580294646887e-05,
+      "boot_OR_hi": 0.3630920139662654,
+      "wald_OR_lo": 0.03650758920049123,
+      "wald_OR_hi": 0.41553175193024583
+     },
+     "sign": {
+      "beta": -0.10776527427645016,
+      "OR": 0.8978383174473394,
+      "boot_OR_lo": 0.011889532335786943,
+      "boot_OR_hi": 74.35465687916746,
+      "wald_OR_lo": 0.10635881119480507,
+      "wald_OR_hi": 7.579190056949816
+     },
+     "abs_contrast": {
+      "beta": 0.754341866989459,
+      "OR": 2.1262117326529304,
+      "boot_OR_lo": 0.5699074104507407,
+      "boot_OR_hi": 185.7681093230025,
+      "wald_OR_lo": 0.8617702694628586,
+      "wald_OR_hi": 5.245918189877653
+     },
+     "is_propagated": {
+      "beta": -1.2163594158594264,
+      "OR": 0.2963069360325284,
+      "boot_OR_lo": 0.0004249612384288534,
+      "boot_OR_hi": 0.7913096590886879,
+      "wald_OR_lo": 0.1559232970789847,
+      "wald_OR_hi": 0.5630832722611678
+     },
+     "log_diameter": {
+      "beta": -15.62845475144116,
+      "OR": 1.6317301596462137e-07,
+      "boot_OR_lo": 2.995743335841031e-106,
+      "boot_OR_hi": 2348606126.0366426,
+      "wald_OR_lo": 3.5717490523020373e-29,
+      "wald_OR_hi": 745445235628473.0
+     }
+    },
+    "label": "INCONCLUSIVE",
+    "discordant_non_flip": 17,
+    "discordant_flip_A_bright_P_dark": 17,
+    "discordant_flip_A_dark_P_bright": 0,
+    "tumours_flip_A_bright_P_dark": 39,
+    "tumours_flip_A_dark_P_bright": 2
+   }
+  },
+  "D0": {
+   "no_logd": {
+    "discordant": 74,
+    "tumours": 297,
+    "columns": [
+     "phase",
+     "sign",
+     "abs_contrast",
+     "is_propagated"
+    ],
+    "status": "OK",
+    "bootstrap_replicates_ok": 2000,
+    "bootstrap_failed": 0,
+    "bootstrap_firth_replicates": 760,
+    "coef": {
+     "phase": {
+      "beta": -1.8039416668325332,
+      "OR": 0.16464861749363274,
+      "boot_OR_lo": 0.000210348346853,
+      "boot_OR_hi": 0.38251799445304185,
+      "wald_OR_lo": 0.06217279287062066,
+      "wald_OR_hi": 0.43602942687451374
+     },
+     "sign": {
+      "beta": -2.3165215389538156,
+      "OR": 0.09861602167373841,
+      "boot_OR_lo": 0.020002458434205284,
+      "boot_OR_hi": 1.1644474507554736,
+      "wald_OR_lo": 0.008311284790375226,
+      "wald_OR_hi": 1.1701102748900252
+     },
+     "abs_contrast": {
+      "beta": -0.042790980473618255,
+      "OR": 0.9581116331787293,
+      "boot_OR_lo": 0.5143074122034661,
+      "boot_OR_hi": 2.0021319569674807,
+      "wald_OR_lo": 0.5839312299329491,
+      "wald_OR_hi": 1.57206509016108
+     },
+     "is_propagated": {
+      "beta": -0.14081187976469642,
+      "OR": 0.8686527074798878,
+      "boot_OR_lo": 0.0011578636696853446,
+      "boot_OR_hi": 3.902646129442194,
+      "wald_OR_lo": 0.28865881487100675,
+      "wald_OR_hi": 2.614011723665287
+     }
+    },
+    "label": "INCONCLUSIVE",
+    "discordant_non_flip": 33,
+    "discordant_flip_A_bright_P_dark": 40,
+    "discordant_flip_A_dark_P_bright": 1,
+    "tumours_flip_A_bright_P_dark": 81,
+    "tumours_flip_A_dark_P_bright": 5
+   },
+   "no_mag": {
+    "discordant": 74,
+    "tumours": 297,
+    "columns": [
+     "phase",
+     "sign",
+     "is_propagated",
+     "log_diameter"
+    ],
+    "status": "OK",
+    "bootstrap_replicates_ok": 2000,
+    "bootstrap_failed": 0,
+    "bootstrap_firth_replicates": 1521,
+    "coef": {
+     "phase": {
+      "beta": -1.824917611819865,
+      "OR": 0.16123092710525486,
+      "boot_OR_lo": 0.0003972590556093693,
+      "boot_OR_hi": 0.3780219543117258,
+      "wald_OR_lo": 0.06121441186881773,
+      "wald_OR_hi": 0.4246616288812525
+     },
+     "sign": {
+      "beta": -2.3099093791055196,
+      "OR": 0.09927024711063552,
+      "boot_OR_lo": 0.02297486982668578,
+      "boot_OR_hi": 1.1413941169182165,
+      "wald_OR_lo": 0.009042649884511903,
+      "wald_OR_hi": 1.0897891754368816
+     },
+     "is_propagated": {
+      "beta": -0.10792441919832757,
+      "OR": 0.8976954424076707,
+      "boot_OR_lo": 0.001917271959679106,
+      "boot_OR_hi": 2.721258179338567,
+      "wald_OR_lo": 0.33497110757620385,
+      "wald_OR_hi": 2.4057510904464383
+     },
+     "log_diameter": {
+      "beta": 2.015833289128376,
+      "OR": 7.506980260651045,
+      "boot_OR_lo": 6.419499376455115e-16,
+      "boot_OR_hi": 9.524590907379794e+29,
+      "wald_OR_lo": 2.9253079005039663e-15,
+      "wald_OR_hi": 1.926455421123207e+16
+     }
+    },
+    "label": "INCONCLUSIVE",
+    "discordant_non_flip": 33,
+    "discordant_flip_A_bright_P_dark": 40,
+    "discordant_flip_A_dark_P_bright": 1,
+    "tumours_flip_A_bright_P_dark": 81,
+    "tumours_flip_A_dark_P_bright": 5
+   },
+   "signed": {
+    "discordant": 74,
+    "tumours": 297,
+    "columns": [
+     "phase",
+     "signed_contrast",
+     "is_propagated",
+     "log_diameter"
+    ],
+    "status": "OK (point estimate Jeffreys-penalised)",
+    "bootstrap_replicates_ok": 2000,
+    "bootstrap_failed": 0,
+    "bootstrap_firth_replicates": 1778,
+    "coef": {
+     "phase": {
+      "beta": -0.716019448062806,
+      "OR": 0.4886936599616684,
+      "boot_OR_lo": 0.05027418748616451,
+      "boot_OR_hi": 1.6973711980117143,
+      "wald_OR_lo": 0.16975898328381409,
+      "wald_OR_hi": 1.4068268357112714
+     },
+     "signed_contrast": {
+      "beta": -1.7285046171859308,
+      "OR": 0.17754971634760883,
+      "boot_OR_lo": 0.014621301031957638,
+      "boot_OR_hi": 0.5116068089846878,
+      "wald_OR_lo": 0.07933974258021141,
+      "wald_OR_hi": 0.39732800674575064
+     },
+     "is_propagated": {
+      "beta": -0.11245080160723235,
+      "OR": 0.8936413117432607,
+      "boot_OR_lo": 0.1648089928387972,
+      "boot_OR_hi": 3.521732634415946,
+      "wald_OR_lo": 0.3611604857326537,
+      "wald_OR_hi": 2.2111909403216647
+     },
+     "log_diameter": {
+      "beta": -10.78702956953622,
+      "OR": 2.066581711985052e-05,
+      "boot_OR_lo": 4.936623925375943e-42,
+      "boot_OR_hi": 1.0083986578631991e+29,
+      "wald_OR_lo": 1.6111929653687877e-21,
+      "wald_OR_hi": 265068186375.4007
+     }
+    },
+    "label": "OPPOSITE EFFECT",
+    "discordant_non_flip": 33,
+    "discordant_flip_A_bright_P_dark": 40,
+    "discordant_flip_A_dark_P_bright": 1,
+    "tumours_flip_A_bright_P_dark": 81,
+    "tumours_flip_A_dark_P_bright": 5
+   },
+   "deadzone5": {
+    "discordant": 31,
+    "tumours": 170,
+    "columns": [
+     "phase",
+     "sign",
+     "abs_contrast",
+     "is_propagated",
+     "log_diameter"
+    ],
+    "status": "OK (point estimate Jeffreys-penalised)",
+    "bootstrap_replicates_ok": 2000,
+    "bootstrap_failed": 0,
+    "bootstrap_firth_replicates": 1944,
+    "coef": {
+     "phase": {
+      "beta": -0.9176284552001488,
+      "OR": 0.39946526841080454,
+      "boot_OR_lo": 0.0002726730785825359,
+      "boot_OR_hi": 2.3294479239510872,
+      "wald_OR_lo": 0.11802994316943136,
+      "wald_OR_hi": 1.3519662585743228
+     },
+     "sign": {
+      "beta": -2.719701756631067,
+      "OR": 0.0658944040651323,
+      "boot_OR_lo": 0.000368975654754445,
+      "boot_OR_hi": 0.7766223764883541,
+      "wald_OR_lo": 0.01136086431865947,
+      "wald_OR_hi": 0.3821956116461453
+     },
+     "abs_contrast": {
+      "beta": -0.456603351219223,
+      "OR": 0.6334315400884561,
+      "boot_OR_lo": 0.07524851382630691,
+      "boot_OR_hi": 1.7924643697243554,
+      "wald_OR_lo": 0.28940670839789157,
+      "wald_OR_hi": 1.3864071023094384
+     },
+     "is_propagated": {
+      "beta": 0.7965860603429663,
+      "OR": 2.2179560206340323,
+      "boot_OR_lo": 0.7726806487356447,
+      "boot_OR_hi": 10.579977852799557,
+      "wald_OR_lo": 0.9291465231698369,
+      "wald_OR_hi": 5.294459793794608
+     },
+     "log_diameter": {
+      "beta": 10.033511589796994,
+      "OR": 22777.11515937116,
+      "boot_OR_lo": 7.63624888457648e-13,
+      "boot_OR_hi": 7.959643039833021e+51,
+      "wald_OR_lo": 2.5765566140877773e-10,
+      "wald_OR_hi": 2.0135283352465134e+18
+     }
+    },
+    "label": "OPPOSITE EFFECT",
+    "discordant_non_flip": 12,
+    "discordant_flip_A_bright_P_dark": 19,
+    "discordant_flip_A_dark_P_bright": 0,
+    "tumours_flip_A_bright_P_dark": 39,
+    "tumours_flip_A_dark_P_bright": 2
+   }
+  },
+  "A": {
+   "no_logd": {
+    "discordant": 85,
+    "tumours": 297,
+    "columns": [
+     "phase",
+     "sign",
+     "abs_contrast",
+     "is_propagated"
+    ],
+    "status": "OK",
+    "bootstrap_replicates_ok": 2000,
+    "bootstrap_failed": 0,
+    "bootstrap_firth_replicates": 160,
+    "coef": {
+     "phase": {
+      "beta": -2.313197830997279,
+      "OR": 0.09894433784090265,
+      "boot_OR_lo": 0.00010731334976650629,
+      "boot_OR_hi": 0.21265699317774273,
+      "wald_OR_lo": 0.032158021343186086,
+      "wald_OR_hi": 0.30443359329534947
+     },
+     "sign": {
+      "beta": -2.4295860431096092,
+      "OR": 0.08807328357987848,
+      "boot_OR_lo": 0.005342581864951363,
+      "boot_OR_hi": 0.3492228047358864,
+      "wald_OR_lo": 0.017504576426309433,
+      "wald_OR_hi": 0.4431357315726329
+     },
+     "abs_contrast": {
+      "beta": 1.0369419914762403,
+      "OR": 2.8205784597248393,
+      "boot_OR_lo": 1.5402724549100026,
+      "boot_OR_hi": 12.83129015342891,
+      "wald_OR_lo": 1.4349037553424717,
+      "wald_OR_hi": 5.544387780604109
+     },
+     "is_propagated": {
+      "beta": -0.9172331578291985,
+      "OR": 0.39962320719552985,
+      "boot_OR_lo": 0.0006648510772323616,
+      "boot_OR_hi": 1.3917170266845555,
+      "wald_OR_lo": 0.12346141176073226,
+      "wald_OR_hi": 1.2935111096796532
+     }
+    },
+    "label": "OPPOSITE EFFECT",
+    "discordant_non_flip": 45,
+    "discordant_flip_A_bright_P_dark": 39,
+    "discordant_flip_A_dark_P_bright": 1,
+    "tumours_flip_A_bright_P_dark": 81,
+    "tumours_flip_A_dark_P_bright": 5
+   },
+   "no_mag": {
+    "discordant": 85,
+    "tumours": 297,
+    "columns": [
+     "phase",
+     "sign",
+     "is_propagated",
+     "log_diameter"
+    ],
+    "status": "OK (point estimate Jeffreys-penalised)",
+    "bootstrap_replicates_ok": 2000,
+    "bootstrap_failed": 0,
+    "bootstrap_firth_replicates": 1874,
+    "coef": {
+     "phase": {
+      "beta": -1.7362988627936917,
+      "OR": 0.17617122936248555,
+      "boot_OR_lo": 0.008302513863225282,
+      "boot_OR_hi": 0.3345432872627062,
+      "wald_OR_lo": 0.08026256527418613,
+      "wald_OR_hi": 0.3866846511703921
+     },
+     "sign": {
+      "beta": -1.4591572292672703,
+      "OR": 0.23243207916271258,
+      "boot_OR_lo": 0.023950775159295175,
+      "boot_OR_hi": 0.7229086512929256,
+      "wald_OR_lo": 0.06598411267660387,
+      "wald_OR_hi": 0.8187527153495711
+     },
+     "is_propagated": {
+      "beta": -1.090330515748679,
+      "OR": 0.33610538722283045,
+      "boot_OR_lo": 0.024427676527175007,
+      "boot_OR_hi": 0.6368220608351725,
+      "wald_OR_lo": 0.16034495970038246,
+      "wald_OR_hi": 0.7045237438788003
+     },
+     "log_diameter": {
+      "beta": -46.07093496400157,
+      "OR": 9.80950671945722e-21,
+      "boot_OR_lo": 3.080934352787303e-75,
+      "boot_OR_hi": 798.920488266702,
+      "wald_OR_lo": 8.763984381713445e-46,
+      "wald_OR_hi": 109797.57366964084
+     }
+    },
+    "label": "OPPOSITE EFFECT",
+    "discordant_non_flip": 45,
+    "discordant_flip_A_bright_P_dark": 39,
+    "discordant_flip_A_dark_P_bright": 1,
+    "tumours_flip_A_bright_P_dark": 81,
+    "tumours_flip_A_dark_P_bright": 5
+   },
+   "signed": {
+    "discordant": 85,
+    "tumours": 297,
+    "columns": [
+     "phase",
+     "signed_contrast",
+     "is_propagated",
+     "log_diameter"
+    ],
+    "status": "OK (point estimate Jeffreys-penalised)",
+    "bootstrap_replicates_ok": 2000,
+    "bootstrap_failed": 0,
+    "bootstrap_firth_replicates": 1936,
+    "coef": {
+     "phase": {
+      "beta": -2.353932744815402,
+      "OR": 0.0949948361841356,
+      "boot_OR_lo": 0.013789657786319175,
+      "boot_OR_hi": 0.23062238773806062,
+      "wald_OR_lo": 0.03093843343730065,
+      "wald_OR_hi": 0.2916766590635138
+     },
+     "signed_contrast": {
+      "beta": 0.10565017693194574,
+      "OR": 1.1114330035888857,
+      "boot_OR_lo": 0.6366859596364163,
+      "boot_OR_hi": 1.9222742512728723,
+      "wald_OR_lo": 0.7095529467499331,
+      "wald_OR_hi": 1.7409318460655505
+     },
+     "is_propagated": {
+      "beta": -0.9743627576887043,
+      "OR": 0.3774327930913285,
+      "boot_OR_lo": 0.13858026838559226,
+      "boot_OR_hi": 0.7328371865108081,
+      "wald_OR_lo": 0.17899117277186674,
+      "wald_OR_hi": 0.7958801045584986
+     },
+     "log_diameter": {
+      "beta": -39.198178731754574,
+      "OR": 9.47212184855951e-18,
+      "boot_OR_lo": 1.1673060234302654e-52,
+      "boot_OR_hi": 0.003862310775508415,
+      "wald_OR_lo": 1.6889673401448787e-34,
+      "wald_OR_hi": 0.5312186339036148
+     }
+    },
+    "label": "INCONCLUSIVE",
+    "discordant_non_flip": 45,
+    "discordant_flip_A_bright_P_dark": 39,
+    "discordant_flip_A_dark_P_bright": 1,
+    "tumours_flip_A_bright_P_dark": 81,
+    "tumours_flip_A_dark_P_bright": 5
+   },
+   "deadzone5": {
+    "discordant": 41,
+    "tumours": 170,
+    "columns": [
+     "phase",
+     "sign",
+     "abs_contrast",
+     "is_propagated",
+     "log_diameter"
+    ],
+    "status": "OK (point estimate Jeffreys-penalised)",
+    "bootstrap_replicates_ok": 2000,
+    "bootstrap_failed": 0,
+    "bootstrap_firth_replicates": 1808,
+    "coef": {
+     "phase": {
+      "beta": -1.0227279842801258,
+      "OR": 0.359612583380953,
+      "boot_OR_lo": 0.0006479930646484474,
+      "boot_OR_hi": 6.442931594270592,
+      "wald_OR_lo": 0.14226384963904282,
+      "wald_OR_hi": 0.909023694030785
+     },
+     "sign": {
+      "beta": -2.441232178465097,
+      "OR": 0.08705351987722379,
+      "boot_OR_lo": 2.1473841423737353e-06,
+      "boot_OR_hi": 3.0074487850295704,
+      "wald_OR_lo": 0.013804618584674787,
+      "wald_OR_hi": 0.5489695551188405
+     },
+     "abs_contrast": {
+      "beta": 0.9758953293921959,
+      "OR": 2.6535419418347557,
+      "boot_OR_lo": 0.20111905652711043,
+      "boot_OR_hi": 271.02224905887107,
+      "wald_OR_lo": 1.397667359958281,
+      "wald_OR_hi": 5.03788314644934
+     },
+     "is_propagated": {
+      "beta": -0.9758619804929916,
+      "OR": 0.37686736120094094,
+      "boot_OR_lo": 0.0007561207451597654,
+      "boot_OR_hi": 6.051261511383683,
+      "wald_OR_lo": 0.14710296494994834,
+      "wald_OR_hi": 0.9655074456649172
+     },
+     "log_diameter": {
+      "beta": -17.015346202523986,
+      "OR": 4.0768904018927165e-08,
+      "boot_OR_lo": 1.6939872228708394e-173,
+      "boot_OR_hi": 6.930224239601207e+83,
+      "wald_OR_lo": 9.656624552357691e-41,
+      "wald_OR_hi": 1.7212055060157522e+25
+     }
+    },
+    "label": "INCONCLUSIVE",
+    "discordant_non_flip": 19,
+    "discordant_flip_A_bright_P_dark": 21,
+    "discordant_flip_A_dark_P_bright": 1,
+    "tumours_flip_A_bright_P_dark": 39,
+    "tumours_flip_A_dark_P_bright": 2
+   }
+  },
+  "B50": {
+   "no_logd": {
+    "discordant": 73,
+    "tumours": 297,
+    "columns": [
+     "phase",
+     "sign",
+     "abs_contrast",
+     "is_propagated"
+    ],
+    "status": "OK",
+    "bootstrap_replicates_ok": 2000,
+    "bootstrap_failed": 0,
+    "bootstrap_firth_replicates": 221,
+    "coef": {
+     "phase": {
+      "beta": -0.6006086909829761,
+      "OR": 0.5484776810478074,
+      "boot_OR_lo": 0.0191528093253512,
+      "boot_OR_hi": 1.4458581972484699,
+      "wald_OR_lo": 0.20167723835434503,
+      "wald_OR_hi": 1.4916297399859706
+     },
+     "sign": {
+      "beta": 2.526499879212475,
+      "OR": 12.509644154779108,
+      "boot_OR_lo": 1.272001289007767,
+      "boot_OR_hi": 5148.960389640545,
+      "wald_OR_lo": 0.8593261444947088,
+      "wald_OR_hi": 182.1092001933879
+     },
+     "abs_contrast": {
+      "beta": 1.8312332981135981,
+      "OR": 6.241579642077011,
+      "boot_OR_lo": 2.7309829977503624,
+      "boot_OR_hi": 172.64605723216,
+      "wald_OR_lo": 2.0597236002736365,
+      "wald_OR_hi": 18.913856414139577
+     },
+     "is_propagated": {
+      "beta": -1.4446709792245171,
+      "OR": 0.2358236546744955,
+      "boot_OR_lo": 0.007163233402281604,
+      "boot_OR_hi": 0.8183536865399622,
+      "wald_OR_lo": 0.08247263213853376,
+      "wald_OR_hi": 0.6743181909196239
+     }
+    },
+    "label": "REAL-PHASE BRIGHTNESS EFFECT",
+    "discordant_non_flip": 55,
+    "discordant_flip_A_bright_P_dark": 17,
+    "discordant_flip_A_dark_P_bright": 1,
+    "tumours_flip_A_bright_P_dark": 81,
+    "tumours_flip_A_dark_P_bright": 5
+   },
+   "no_mag": {
+    "discordant": 73,
+    "tumours": 297,
+    "columns": [
+     "phase",
+     "sign",
+     "is_propagated",
+     "log_diameter"
+    ],
+    "status": "OK (point estimate Jeffreys-penalised)",
+    "bootstrap_replicates_ok": 2000,
+    "bootstrap_failed": 0,
+    "bootstrap_firth_replicates": 1433,
+    "coef": {
+     "phase": {
+      "beta": 0.05239954803002128,
+      "OR": 1.0537967008070865,
+      "boot_OR_lo": 0.41297812431262215,
+      "boot_OR_hi": 2.1387988210156132,
+      "wald_OR_lo": 0.5614424354571778,
+      "wald_OR_hi": 1.977918690324218
+     },
+     "sign": {
+      "beta": 1.5893932374297148,
+      "OR": 4.9007744195243985,
+      "boot_OR_lo": 0.8124929243087836,
+      "boot_OR_hi": 89.13312521648304,
+      "wald_OR_lo": 0.786634450829435,
+      "wald_OR_hi": 30.532084992896415
+     },
+     "is_propagated": {
+      "beta": -1.5878250771739961,
+      "OR": 0.2043696168654056,
+      "boot_OR_lo": 0.05943515012170705,
+      "boot_OR_hi": 0.34325729180894565,
+      "wald_OR_lo": 0.1057937390949921,
+      "wald_OR_hi": 0.39479595536565915
+     },
+     "log_diameter": {
+      "beta": 15.180309994292562,
+      "OR": 3914937.778951262,
+      "boot_OR_lo": 1.5571107265126053e-07,
+      "boot_OR_hi": 4.118976463861265e+22,
+      "wald_OR_lo": 0.00016574836934037533,
+      "wald_OR_hi": 9.246991613887518e+16
+     }
+    },
+    "label": "INCONCLUSIVE",
+    "discordant_non_flip": 55,
+    "discordant_flip_A_bright_P_dark": 17,
+    "discordant_flip_A_dark_P_bright": 1,
+    "tumours_flip_A_bright_P_dark": 81,
+    "tumours_flip_A_dark_P_bright": 5
+   },
+   "signed": {
+    "discordant": 73,
+    "tumours": 297,
+    "columns": [
+     "phase",
+     "signed_contrast",
+     "is_propagated",
+     "log_diameter"
+    ],
+    "status": "OK (point estimate Jeffreys-penalised)",
+    "bootstrap_replicates_ok": 2000,
+    "bootstrap_failed": 0,
+    "bootstrap_firth_replicates": 1868,
+    "coef": {
+     "phase": {
+      "beta": -0.7929898577422384,
+      "OR": 0.452489890403147,
+      "boot_OR_lo": 0.05522770166628866,
+      "boot_OR_hi": 1.2013390986174763,
+      "wald_OR_lo": 0.16772114491283555,
+      "wald_OR_hi": 1.2207590225040426
+     },
+     "signed_contrast": {
+      "beta": 1.2258694939115566,
+      "OR": 3.4071272716550176,
+      "boot_OR_lo": 1.9734738149776028,
+      "boot_OR_hi": 21.98447254345167,
+      "wald_OR_lo": 1.6736792584615323,
+      "wald_OR_hi": 6.935926454586085
+     },
+     "is_propagated": {
+      "beta": -1.6814557976944497,
+      "OR": 0.18610285063454007,
+      "boot_OR_lo": 0.03267149210584876,
+      "boot_OR_hi": 0.33796718121685043,
+      "wald_OR_lo": 0.08817194680908319,
+      "wald_OR_hi": 0.39280374617671504
+     },
+     "log_diameter": {
+      "beta": 25.403866692688936,
+      "OR": 107834846296.26088,
+      "boot_OR_lo": 3.1306743504478165,
+      "boot_OR_hi": 2.6155806966256022e+28,
+      "wald_OR_lo": 37.35258566008704,
+      "wald_OR_hi": 3.113132295996227e+20
+     }
+    },
+    "label": "REAL-PHASE BRIGHTNESS EFFECT",
+    "discordant_non_flip": 55,
+    "discordant_flip_A_bright_P_dark": 17,
+    "discordant_flip_A_dark_P_bright": 1,
+    "tumours_flip_A_bright_P_dark": 81,
+    "tumours_flip_A_dark_P_bright": 5
+   },
+   "deadzone5": {
+    "discordant": 30,
+    "tumours": 170,
+    "columns": [
+     "phase",
+     "sign",
+     "abs_contrast",
+     "is_propagated",
+     "log_diameter"
+    ],
+    "status": "OK (point estimate Jeffreys-penalised)",
+    "bootstrap_replicates_ok": 1991,
+    "bootstrap_failed": 9,
+    "bootstrap_firth_replicates": 1985,
+    "coef": {
+     "phase": {
+      "beta": -2.041599180040782,
+      "OR": 0.12982093773687053,
+      "boot_OR_lo": 0.0035434207668035163,
+      "boot_OR_hi": 24.14577343157934,
+      "wald_OR_lo": 0.020931664960302916,
+      "wald_OR_hi": 0.8051665219581516
+     },
+     "sign": {
+      "beta": 6.8415972698443674,
+      "OR": 935.9829587464342,
+      "boot_OR_lo": 0.03841924708252153,
+      "boot_OR_hi": 2433174.329000516,
+      "wald_OR_lo": 19.20462944059683,
+      "wald_OR_hi": 45617.33939066843
+     },
+     "abs_contrast": {
+      "beta": 3.6915964237008008,
+      "OR": 40.108826555749914,
+      "boot_OR_lo": 0.3017480772604235,
+      "boot_OR_hi": 24114.790415173735,
+      "wald_OR_lo": 5.313930861312869,
+      "wald_OR_hi": 302.73596131843107
+     },
+     "is_propagated": {
+      "beta": -2.781569752127149,
+      "OR": 0.06194119869367584,
+      "boot_OR_lo": 0.002143995430877943,
+      "boot_OR_hi": 4.717198075147981,
+      "wald_OR_lo": 0.020487392273823842,
+      "wald_OR_hi": 0.18727186185191008
+     },
+     "log_diameter": {
+      "beta": 58.1790614171303,
+      "OR": 1.8486101607295622e+25,
+      "boot_OR_lo": 1.1346252701997149e-12,
+      "boot_OR_hi": 6.401412958174198e+63,
+      "wald_OR_lo": 3038473803415.584,
+      "wald_OR_hi": 1.1246960636985198e+38
+     }
+    },
+    "label": "INCONCLUSIVE",
+    "discordant_non_flip": 23,
+    "discordant_flip_A_bright_P_dark": 7,
+    "discordant_flip_A_dark_P_bright": 0,
+    "tumours_flip_A_bright_P_dark": 39,
+    "tumours_flip_A_dark_P_bright": 2
+   }
+  }
+ },
+ "effective_n_v1": {
+  "vista": {
+   "n": 21,
+   "n_patients": 19,
+   "mean_diff": -0.2857142857142857,
+   "lo": -0.5266995614035087,
+   "hi": -0.047619047619047616,
+   "label": "NO SIGN EFFECT"
+  },
+  "D0": {
+   "n": 21,
+   "n_patients": 19,
+   "mean_diff": -0.5238095238095238,
+   "lo": -0.7368421052631579,
+   "hi": -0.30434782608695654,
+   "label": "NO SIGN EFFECT"
+  },
+  "A": {
+   "n": 21,
+   "n_patients": 19,
+   "mean_diff": -0.5714285714285714,
+   "lo": -0.7894736842105263,
+   "hi": -0.36363636363636365,
+   "label": "NO SIGN EFFECT"
+  },
+  "B50": {
+   "n": 21,
+   "n_patients": 19,
+   "mean_diff": 0.047619047619047616,
+   "lo": -0.10526315789473684,
+   "hi": 0.21739130434782608,
+   "label": "INCONCLUSIVE"
+  }
+ },
+ "reverse_flippers": {
+  "vista": [
+   {
+    "patient": "23",
+    "drawn_phase": 2,
+    "diam_mm": 29.45,
+    "c_arterial": -6.57,
+    "c_portal": 9.51,
+    "detected_arterial": 0,
+    "detected_portal": 0,
+    "coverage_arterial": 0.0,
+    "coverage_portal": 0.0
+   },
+   {
+    "patient": "325",
+    "drawn_phase": 2,
+    "diam_mm": 73.46,
+    "c_arterial": -6.4,
+    "c_portal": 27.46,
+    "detected_arterial": 1,
+    "detected_portal": 1,
+    "coverage_arterial": 0.27714,
+    "coverage_portal": 0.47931
+   },
+   {
+    "patient": "330",
+    "drawn_phase": 2,
+    "diam_mm": 83.67,
+    "c_arterial": -0.17,
+    "c_portal": 0.29,
+    "detected_arterial": 0,
+    "detected_portal": 0,
+    "coverage_arterial": 0.00019,
+    "coverage_portal": 0.00598
+   },
+   {
+    "patient": "36",
+    "drawn_phase": 1,
+    "diam_mm": 87.47,
+    "c_arterial": -9.58,
+    "c_portal": 0.79,
+    "detected_arterial": 1,
+    "detected_portal": 0,
+    "coverage_arterial": 0.65934,
+    "coverage_portal": 0.0408
+   },
+   {
+    "patient": "372",
+    "drawn_phase": 1,
+    "diam_mm": 40.64,
+    "c_arterial": -3.04,
+    "c_portal": 4.37,
+    "detected_arterial": 0,
+    "detected_portal": 0,
+    "coverage_arterial": 0.03948,
+    "coverage_portal": 0.09822
+   }
+  ],
+  "D0": [
+   {
+    "patient": "23",
+    "drawn_phase": 2,
+    "diam_mm": 29.45,
+    "c_arterial": -6.57,
+    "c_portal": 9.51,
+    "detected_arterial": 0,
+    "detected_portal": 0,
+    "coverage_arterial": 0.0,
+    "coverage_portal": 0.00397
+   },
+   {
+    "patient": "325",
+    "drawn_phase": 2,
+    "diam_mm": 73.46,
+    "c_arterial": -6.4,
+    "c_portal": 27.46,
+    "detected_arterial": 1,
+    "detected_portal": 1,
+    "coverage_arterial": 0.24828,
+    "coverage_portal": 0.20493
+   },
+   {
+    "patient": "330",
+    "drawn_phase": 2,
+    "diam_mm": 83.67,
+    "c_arterial": -0.17,
+    "c_portal": 0.29,
+    "detected_arterial": 0,
+    "detected_portal": 0,
+    "coverage_arterial": 0.01056,
+    "coverage_portal": 0.00016
+   },
+   {
+    "patient": "36",
+    "drawn_phase": 1,
+    "diam_mm": 87.47,
+    "c_arterial": -9.58,
+    "c_portal": 0.79,
+    "detected_arterial": 1,
+    "detected_portal": 0,
+    "coverage_arterial": 0.43847,
+    "coverage_portal": 0.0
+   },
+   {
+    "patient": "372",
+    "drawn_phase": 1,
+    "diam_mm": 40.64,
+    "c_arterial": -3.04,
+    "c_portal": 4.37,
+    "detected_arterial": 1,
+    "detected_portal": 1,
+    "coverage_arterial": 0.57739,
+    "coverage_portal": 0.53989
+   }
+  ],
+  "A": [
+   {
+    "patient": "23",
+    "drawn_phase": 2,
+    "diam_mm": 29.45,
+    "c_arterial": -6.57,
+    "c_portal": 9.51,
+    "detected_arterial": 0,
+    "detected_portal": 0,
+    "coverage_arterial": 0.00499,
+    "coverage_portal": 0.01297
+   },
+   {
+    "patient": "325",
+    "drawn_phase": 2,
+    "diam_mm": 73.46,
+    "c_arterial": -6.4,
+    "c_portal": 27.46,
+    "detected_arterial": 0,
+    "detected_portal": 1,
+    "coverage_arterial": 0.06852,
+    "coverage_portal": 0.59706
+   },
+   {
+    "patient": "330",
+    "drawn_phase": 2,
+    "diam_mm": 83.67,
+    "c_arterial": -0.17,
+    "c_portal": 0.29,
+    "detected_arterial": 0,
+    "detected_portal": 0,
+    "coverage_arterial": 0.01471,
+    "coverage_portal": 0.0053
+   },
+   {
+    "patient": "36",
+    "drawn_phase": 1,
+    "diam_mm": 87.47,
+    "c_arterial": -9.58,
+    "c_portal": 0.79,
+    "detected_arterial": 0,
+    "detected_portal": 0,
+    "coverage_arterial": 0.09155,
+    "coverage_portal": 0.00062
+   },
+   {
+    "patient": "372",
+    "drawn_phase": 1,
+    "diam_mm": 40.64,
+    "c_arterial": -3.04,
+    "c_portal": 4.37,
+    "detected_arterial": 1,
+    "detected_portal": 1,
+    "coverage_arterial": 0.22459,
+    "coverage_portal": 0.14676
+   }
+  ],
+  "B50": [
+   {
+    "patient": "23",
+    "drawn_phase": 2,
+    "diam_mm": 29.45,
+    "c_arterial": -6.57,
+    "c_portal": 9.51,
+    "detected_arterial": 1,
+    "detected_portal": 1,
+    "coverage_arterial": 0.37744,
+    "coverage_portal": 0.45731
+   },
+   {
+    "patient": "325",
+    "drawn_phase": 2,
+    "diam_mm": 73.46,
+    "c_arterial": -6.4,
+    "c_portal": 27.46,
+    "detected_arterial": 1,
+    "detected_portal": 1,
+    "coverage_arterial": 0.49248,
+    "coverage_portal": 0.7823
+   },
+   {
+    "patient": "330",
+    "drawn_phase": 2,
+    "diam_mm": 83.67,
+    "c_arterial": -0.17,
+    "c_portal": 0.29,
+    "detected_arterial": 1,
+    "detected_portal": 1,
+    "coverage_arterial": 0.67529,
+    "coverage_portal": 0.559
+   },
+   {
+    "patient": "36",
+    "drawn_phase": 1,
+    "diam_mm": 87.47,
+    "c_arterial": -9.58,
+    "c_portal": 0.79,
+    "detected_arterial": 1,
+    "detected_portal": 0,
+    "coverage_arterial": 0.70437,
+    "coverage_portal": 0.00641
+   },
+   {
+    "patient": "372",
+    "drawn_phase": 1,
+    "diam_mm": 40.64,
+    "c_arterial": -3.04,
+    "c_portal": 4.37,
+    "detected_arterial": 1,
+    "detected_portal": 1,
+    "coverage_arterial": 0.81586,
+    "coverage_portal": 0.81169
+   }
+  ]
+ }
+}

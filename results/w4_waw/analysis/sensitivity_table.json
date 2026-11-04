@@ -1,0 +1,269 @@
+{
+ "primary_verdicts": {
+  "a/vista": "GAP (detection and Dice)",
+  "a/vista/arterial_drawn": "GAP (detection and Dice)",
+  "a/vista/portal_drawn": "GAP (detection and Dice)",
+  "a/D0": "GAP (detection and Dice)",
+  "a/D0/arterial_drawn": "GAP (detection and Dice)",
+  "a/D0/portal_drawn": "GAP (detection and Dice)",
+  "a/A": "GAP (detection and Dice)",
+  "a/A/arterial_drawn": "GAP (detection and Dice)",
+  "a/A/portal_drawn": "GAP (detection and Dice)",
+  "a/B50": "INCONCLUSIVE",
+  "a/B50/arterial_drawn": "INCONCLUSIVE",
+  "a/B50/portal_drawn": "INCONCLUSIVE",
+  "c/B50_vs_D0": "CONFIRMED (detection and Dice)",
+  "b/vista": "INCONCLUSIVE",
+  "b/D0": "INCONCLUSIVE",
+  "b/A": "OPPOSITE EFFECT",
+  "b/B50": "REAL-PHASE BRIGHTNESS EFFECT"
+ },
+ "sensitivities": {
+  "host1_scouting_contrasts": {
+   "verdicts": {
+    "a/vista": "GAP (detection and Dice)",
+    "a/vista/arterial_drawn": "GAP (detection and Dice)",
+    "a/vista/portal_drawn": "GAP (detection and Dice)",
+    "a/D0": "GAP (detection and Dice)",
+    "a/D0/arterial_drawn": "GAP (detection and Dice)",
+    "a/D0/portal_drawn": "GAP (detection and Dice)",
+    "a/A": "GAP (detection and Dice)",
+    "a/A/arterial_drawn": "GAP (detection and Dice)",
+    "a/A/portal_drawn": "GAP (detection and Dice)",
+    "a/B50": "INCONCLUSIVE",
+    "a/B50/arterial_drawn": "INCONCLUSIVE",
+    "a/B50/portal_drawn": "INCONCLUSIVE",
+    "c/B50_vs_D0": "CONFIRMED (detection and Dice)",
+    "b/vista": "INCONCLUSIVE",
+    "b/D0": "INCONCLUSIVE",
+    "b/A": "OPPOSITE EFFECT",
+    "b/B50": "REAL-PHASE BRIGHTNESS EFFECT"
+   },
+   "changed": {},
+   "tumours_with_a_host1_contrast": 325
+  },
+  "dilation_2mm_propagated": {
+   "verdicts": {
+    "a/vista": "GAP (detection and Dice)",
+    "a/vista/arterial_drawn": "GAP (detection and Dice)",
+    "a/vista/portal_drawn": "GAP (detection and Dice)",
+    "a/D0": "GAP (detection and Dice)",
+    "a/D0/arterial_drawn": "GAP (detection and Dice)",
+    "a/D0/portal_drawn": "GAP (detection and Dice)",
+    "a/A": "GAP (detection and Dice)",
+    "a/A/arterial_drawn": "GAP (detection and Dice)",
+    "a/A/portal_drawn": "GAP (detection and Dice)",
+    "a/B50": "INCONCLUSIVE",
+    "a/B50/arterial_drawn": "INCONCLUSIVE",
+    "a/B50/portal_drawn": "INCONCLUSIVE",
+    "c/B50_vs_D0": "CONFIRMED (detection and Dice)",
+    "b/vista": "INCONCLUSIVE",
+    "b/D0": "OPPOSITE EFFECT",
+    "b/A": "OPPOSITE EFFECT",
+    "b/B50": "INCONCLUSIVE"
+   },
+   "changed": {
+    "b/D0": {
+     "primary": "INCONCLUSIVE",
+     "sensitivity": "OPPOSITE EFFECT"
+    },
+    "b/B50": {
+     "primary": "REAL-PHASE BRIGHTNESS EFFECT",
+     "sensitivity": "INCONCLUSIVE"
+    }
+   }
+  },
+  "top2_per_series": {
+   "verdicts": {
+    "a/vista": "GAP (detection and Dice)",
+    "a/vista/arterial_drawn": "GAP (detection and Dice)",
+    "a/vista/portal_drawn": "GAP (detection and Dice)",
+    "a/D0": "GAP (detection and Dice)",
+    "a/D0/arterial_drawn": "GAP (detection and Dice)",
+    "a/D0/portal_drawn": "GAP (detection and Dice)",
+    "a/A": "GAP (detection and Dice)",
+    "a/A/arterial_drawn": "GAP (detection and Dice)",
+    "a/A/portal_drawn": "GAP (detection and Dice)",
+    "a/B50": "INCONCLUSIVE",
+    "a/B50/arterial_drawn": "INCONCLUSIVE",
+    "a/B50/portal_drawn": "INCONCLUSIVE",
+    "c/B50_vs_D0": "CONFIRMED (detection and Dice)",
+    "b/vista": "INCONCLUSIVE",
+    "b/D0": "INCONCLUSIVE",
+    "b/A": "OPPOSITE EFFECT",
+    "b/B50": "INCONCLUSIVE"
+   },
+   "changed": {
+    "b/B50": {
+     "primary": "REAL-PHASE BRIGHTNESS EFFECT",
+     "sensitivity": "INCONCLUSIVE"
+    }
+   }
+  },
+  "excl_value2_patients": {
+   "verdicts": {
+    "a/vista": "GAP (detection and Dice)",
+    "a/vista/arterial_drawn": "GAP (detection and Dice)",
+    "a/vista/portal_drawn": "GAP (detection and Dice)",
+    "a/D0": "GAP (detection and Dice)",
+    "a/D0/arterial_drawn": "GAP (detection and Dice)",
+    "a/D0/portal_drawn": "GAP (detection and Dice)",
+    "a/A": "GAP (detection and Dice)",
+    "a/A/arterial_drawn": "GAP (detection and Dice)",
+    "a/A/portal_drawn": "GAP (detection and Dice)",
+    "a/B50": "GAP (Dice only)",
+    "a/B50/arterial_drawn": "INCONCLUSIVE",
+    "a/B50/portal_drawn": "INCONCLUSIVE",
+    "c/B50_vs_D0": "CONFIRMED (detection and Dice)",
+    "b/vista": "INCONCLUSIVE",
+    "b/D0": "INCONCLUSIVE",
+    "b/A": "OPPOSITE EFFECT",
+    "b/B50": "REAL-PHASE BRIGHTNESS EFFECT"
+   },
+   "changed": {
+    "a/B50": {
+     "primary": "INCONCLUSIVE",
+     "sensitivity": "GAP (Dice only)"
+    }
+   }
+  },
+  "incl_Q": {
+   "verdicts": {
+    "a/vista": "GAP (detection and Dice)",
+    "a/vista/arterial_drawn": "GAP (detection and Dice)",
+    "a/vista/portal_drawn": "GAP (detection and Dice)",
+    "a/D0": "GAP (detection and Dice)",
+    "a/D0/arterial_drawn": "GAP (detection and Dice)",
+    "a/D0/portal_drawn": "GAP (detection and Dice)",
+    "a/A": "GAP (detection and Dice)",
+    "a/A/arterial_drawn": "GAP (detection and Dice)",
+    "a/A/portal_drawn": "GAP (detection and Dice)",
+    "a/B50": "GAP (Dice only)",
+    "a/B50/arterial_drawn": "INCONCLUSIVE",
+    "a/B50/portal_drawn": "INCONCLUSIVE",
+    "c/B50_vs_D0": "CONFIRMED (detection and Dice)",
+    "b/vista": "INCONCLUSIVE",
+    "b/D0": "INCONCLUSIVE",
+    "b/A": "OPPOSITE EFFECT",
+    "b/B50": "REAL-PHASE BRIGHTNESS EFFECT"
+   },
+   "changed": {
+    "a/B50": {
+     "primary": "INCONCLUSIVE",
+     "sensitivity": "GAP (Dice only)"
+    }
+   }
+  },
+  "excl_alignment_gate_failures": {
+   "verdicts": {
+    "a/vista": "GAP (detection and Dice)",
+    "a/vista/arterial_drawn": "GAP (detection and Dice)",
+    "a/vista/portal_drawn": "GAP (detection and Dice)",
+    "a/D0": "GAP (detection and Dice)",
+    "a/D0/arterial_drawn": "GAP (detection and Dice)",
+    "a/D0/portal_drawn": "GAP (detection and Dice)",
+    "a/A": "GAP (detection and Dice)",
+    "a/A/arterial_drawn": "GAP (detection and Dice)",
+    "a/A/portal_drawn": "GAP (detection and Dice)",
+    "a/B50": "GAP (Dice only)",
+    "a/B50/arterial_drawn": "INCONCLUSIVE",
+    "a/B50/portal_drawn": "INCONCLUSIVE",
+    "c/B50_vs_D0": "CONFIRMED (detection and Dice)",
+    "b/vista": "INCONCLUSIVE",
+    "b/D0": "INCONCLUSIVE",
+    "b/A": "OPPOSITE EFFECT",
+    "b/B50": "INCONCLUSIVE"
+   },
+   "changed": {
+    "a/B50": {
+     "primary": "INCONCLUSIVE",
+     "sensitivity": "GAP (Dice only)"
+    },
+    "b/B50": {
+     "primary": "REAL-PHASE BRIGHTNESS EFFECT",
+     "sensitivity": "INCONCLUSIVE"
+    }
+   }
+  },
+  "min_diam_15mm": {
+   "verdicts": {
+    "a/vista": "GAP (detection and Dice)",
+    "a/vista/arterial_drawn": "GAP (detection and Dice)",
+    "a/vista/portal_drawn": "GAP (detection and Dice)",
+    "a/D0": "GAP (detection and Dice)",
+    "a/D0/arterial_drawn": "GAP (detection and Dice)",
+    "a/D0/portal_drawn": "GAP (detection and Dice)",
+    "a/A": "GAP (detection and Dice)",
+    "a/A/arterial_drawn": "GAP (detection and Dice)",
+    "a/A/portal_drawn": "GAP (detection and Dice)",
+    "a/B50": "INCONCLUSIVE",
+    "a/B50/arterial_drawn": "INCONCLUSIVE",
+    "a/B50/portal_drawn": "INCONCLUSIVE",
+    "c/B50_vs_D0": "CONFIRMED (detection and Dice)",
+    "b/vista": "INCONCLUSIVE",
+    "b/D0": "INCONCLUSIVE",
+    "b/A": "OPPOSITE EFFECT",
+    "b/B50": "REAL-PHASE BRIGHTNESS EFFECT"
+   },
+   "changed": {}
+  },
+  "liver_eroded_3mm": {
+   "verdicts": {
+    "a/vista": "GAP (detection and Dice)",
+    "a/vista/arterial_drawn": "GAP (detection and Dice)",
+    "a/vista/portal_drawn": "GAP (detection and Dice)",
+    "a/D0": "GAP (detection and Dice)",
+    "a/D0/arterial_drawn": "GAP (detection and Dice)",
+    "a/D0/portal_drawn": "GAP (detection and Dice)",
+    "a/A": "GAP (detection and Dice)",
+    "a/A/arterial_drawn": "GAP (detection and Dice)",
+    "a/A/portal_drawn": "GAP (detection and Dice)",
+    "a/B50": "INCONCLUSIVE",
+    "a/B50/arterial_drawn": "INCONCLUSIVE",
+    "a/B50/portal_drawn": "INCONCLUSIVE",
+    "c/B50_vs_D0": "CONFIRMED (detection and Dice)",
+    "b/vista": "INCONCLUSIVE",
+    "b/D0": "INCONCLUSIVE",
+    "b/A": "OPPOSITE EFFECT",
+    "b/B50": "INCONCLUSIVE"
+   },
+   "changed": {
+    "b/B50": {
+     "primary": "REAL-PHASE BRIGHTNESS EFFECT",
+     "sensitivity": "INCONCLUSIVE"
+    }
+   }
+  },
+  "shell_median": {
+   "verdicts": {
+    "a/vista": "GAP (detection and Dice)",
+    "a/vista/arterial_drawn": "GAP (detection and Dice)",
+    "a/vista/portal_drawn": "GAP (detection and Dice)",
+    "a/D0": "GAP (detection and Dice)",
+    "a/D0/arterial_drawn": "GAP (detection and Dice)",
+    "a/D0/portal_drawn": "GAP (detection and Dice)",
+    "a/A": "GAP (detection and Dice)",
+    "a/A/arterial_drawn": "GAP (detection and Dice)",
+    "a/A/portal_drawn": "GAP (detection and Dice)",
+    "a/B50": "GAP (Dice only)",
+    "a/B50/arterial_drawn": "INCONCLUSIVE",
+    "a/B50/portal_drawn": "INCONCLUSIVE",
+    "c/B50_vs_D0": "CONFIRMED (detection and Dice)",
+    "b/vista": "INCONCLUSIVE",
+    "b/D0": "OPPOSITE EFFECT",
+    "b/A": "OPPOSITE EFFECT",
+    "b/B50": "REAL-PHASE BRIGHTNESS EFFECT"
+   },
+   "changed": {
+    "a/B50": {
+     "primary": "INCONCLUSIVE",
+     "sensitivity": "GAP (Dice only)"
+    },
+    "b/D0": {
+     "primary": "INCONCLUSIVE",
+     "sensitivity": "OPPOSITE EFFECT"
+    }
+   }
+  }
+ }
+}

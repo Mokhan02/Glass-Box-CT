@@ -242,3 +242,9 @@ def test_reorient_round_trip_restores_the_original_grid_exactly(tmp_path):
     for ijk in ((0, 0, 0), (3, 5, 2), (11, 8, 6)):
         w = (aff @ np.r_[ijk, 1])[:3]; inv = np.linalg.inv(aff2) @ np.r_[w, 1]; assert arr[tuple(int(round(v)) for v in inv[:3])] == data[ijk]
     back = RO.back_to_original(arr, img); assert back.shape == data.shape and np.array_equal(back, data)
+
+
+def test_paired_mean_diff_matches_the_mean_and_covers_it():
+    from glassbox.seg import w4_stats as S
+    pat = np.repeat(np.arange(40), 2); v1 = np.ones(80); v0 = np.zeros(80); r = S.paired_mean_diff(pat, v1, v0, "t", b=200); assert r["delta"] == 1.0 and r["lo"] == 1.0 and r["hi"] == 1.0 and r["n_patients"] == 40
+    rng = np.random.default_rng(1); v1 = (rng.random(80) < 0.9).astype(float); v0 = (rng.random(80) < 0.1).astype(float); r = S.paired_mean_diff(pat, v1, v0, "t", b=500); assert r["lo"] < r["delta"] < r["hi"] and 0.6 < r["delta"] < 0.95

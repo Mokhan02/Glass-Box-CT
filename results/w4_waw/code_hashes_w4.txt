@@ -5,12 +5,13 @@
 # Re-recorded 2026-11-03T02:39:23Z after the VISTA multiplier 1.5 (DEVIATIONS 19, second extension).
 # Re-recorded 2026-11-03T11:22:38Z after DEVIATIONS 21 (warn-only time check, skip finished models, parallel scoring, BRIGHT-25 dropped).
 # Re-recorded 2026-11-04T02:05:12Z after DEVIATIONS 23 (reorient tool and runner added; the driver itself is unchanged since the 06:23 EST version; the instances' preflight checks this whole file).
+# Re-recorded 2026-11-04T03:06:59Z after DEVIATIONS 24 (analysis secondary fix in w4_stats.py / w4_waw_analyze.py; the instance scripts are unchanged since the runs).
 2edbefe3e92f65442199c9b7bc553d73c2b5d8ffe2b8b9dfdd9a45de3af5f4d2  glassbox/audit/waw.py
 d40580278370cedfeda09bb1607c89d49af983b66205a7723e54d8bc80dab477  glassbox/audit/contrast.py
 bdee36775a462ed973b9c8e4912584b9202a143380e6367782caeadb5dd2e585  glassbox/seg/w2_lib.py
 89325bace0bb8a87bb815e0edab134274b946658996646fbd2ece49a6a53c8fd  glassbox/seg/w3_lib.py
 0e096b194fb98f533ae784314b618c415b20f31c668862fe6bbab7d841dc2e97  glassbox/seg/w4_waw.py
-8199b697a060be54451cd4af6e82c38ba62162d6e40b8543a627c0197f7ffba8  glassbox/seg/w4_stats.py
+64638a22a6c501065102e0f5dacbdbdf3b4015562f5f2caa62abe2de7672aaea  glassbox/seg/w4_stats.py
 1a9c1fae57df59c18ade337955e1d087871a7b828a79e7b4e715cd092d9848f1  scripts/w3_nnunet_trainer.py
 b747eeee104a0f84648b9a4e43949fe78070dec2361666f05343d12bd6b64ce1  scripts/w5_nnunet_trainer.py
 b0f0fa23fc1cca39d99f6823112d25868f0198ae9c164582c7c88af1ca2c55af  scripts/w4_waw_register.py
@@ -19,11 +20,11 @@ a4a1a1970429229858641a9aa40608814d6927b437d236560ee644e2d2be24b1  scripts/w4_waw
 994687c867012c5ac52b5324f95fd8d0ce6fa197dc6fa388a41ead8d061a86c0  scripts/w4_waw_predict.py
 52a87f816adc6acc36e796ac44b069f57dfd613baf797af0c5a84173a34c1eab  scripts/w4_waw_predict_A.py
 8b3e42526028bc4a6d3416ed5316f4c1cd513136cd5f329a7844cbb5c3f4ccf1  scripts/w4_waw_split.py
-dcc43c9a725db98426121cc7678dc7198517c2bfa0f4c8e43acef4e5ac2f717f  scripts/w4_waw_analyze.py
+2a0ce598ac4e8b68f40269cf85b4fdd9225fbc1f86025951053a6784b6e62679  scripts/w4_waw_analyze.py
 b4f39f4253162b45b71925c2f511c930265e1fed3be5ad4523fe31e2ebdd3cf1  scripts/w4_waw_gt_compare.py
 ff63d6f1e8a8f2d1f053d67cf16ce155ee8acdb62365d642cd1c446008195239  scripts/w4_waw_run_instance.sh
 9ec74efd610cc2d6fd8e24cb57646a611ea5ac0f431f8422bf15cf0ab8be50db  scripts/w4_waw_align_diag.py
 ad1171aa72affe6ea1a51c8610aeb4ae3d5e2525202660f4775927f1d75b3504  scripts/w4_waw_align_overlay.py
 0ddb0ba20edf974cc91ab947efcfa53d0c9f7a3d895f02c141022f33094778e9  scripts/w4_waw_reorient.py
 a49fa43bb915e0a6542c02a906089e091907d633a25f45f7617b44db5c4dff3a  scripts/w4_waw_reorient_run.sh
-71a516f0ce03996fb939fd63fe5c3835d594acd80f607c4b1138930e1db3a336  tests/test_w4_waw.py
+e450c6c5ddcbec2821b716d9e3a66531b1fbd9bfdc8719c860690efc1a4deb63  tests/test_w4_waw.py
