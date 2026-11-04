@@ -1,0 +1,10874 @@
+{
+ "fails": {
+  "vista": [],
+  "A": [
+   "339_1",
+   "339_2",
+   "36_1",
+   "36_2"
+  ],
+  "D0": [
+   "119_2",
+   "168_1",
+   "168_2",
+   "25_1",
+   "350_1",
+   "350_2",
+   "363_1",
+   "36_1",
+   "36_2",
+   "37_1",
+   "383_1",
+   "383_2",
+   "404_1",
+   "404_2",
+   "438_1",
+   "508_1",
+   "508_2",
+   "510_1",
+   "515_1",
+   "539_1",
+   "65_2",
+   "80_1",
+   "80_2"
+  ],
+  "B50": [
+   "119_2",
+   "168_1",
+   "168_2",
+   "350_1",
+   "350_2",
+   "363_1",
+   "36_1",
+   "36_2",
+   "383_1",
+   "383_2",
+   "404_1",
+   "404_2",
+   "438_1",
+   "508_1",
+   "508_2",
+   "510_1",
+   "65_1",
+   "65_2",
+   "80_1",
+   "80_2",
+   "83_2"
+  ]
+ },
+ "union": [
+  "25_1",
+  "36_1",
+  "36_2",
+  "37_1",
+  "65_1",
+  "65_2",
+  "80_1",
+  "80_2",
+  "83_2",
+  "119_2",
+  "168_1",
+  "168_2",
+  "339_1",
+  "339_2",
+  "350_1",
+  "350_2",
+  "363_1",
+  "383_1",
+  "383_2",
+  "404_1",
+  "404_2",
+  "438_1",
+  "508_1",
+  "508_2",
+  "510_1",
+  "515_1",
+  "539_1"
+ ],
+ "rows": [
+  {
+   "arm": "vista",
+   "case": "25_1",
+   "phase": "1",
+   "patient": "25",
+   "spacing_mm": [
+    0.771,
+    0.771,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    63
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 743.5,
+   "gt_tumour_ml": 0.0,
+   "pred_organ_ml": 730.2,
+   "organ_dice": 0.9775,
+   "centroid_offset_mm": 0.8,
+   "centroid_offset_xyz_mm": [
+    -0.2,
+    0.6,
+    0.5
+   ],
+   "largest_component_offset_mm": [
+    -0.2,
+    0.6,
+    0.5
+   ],
+   "n_components": 1,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 10.0,
+   "missing_ml": 23.3,
+   "excess_centroid_offset_mm": [
+    24.8,
+    28.2,
+    13.4
+   ],
+   "missing_centroid_offset_mm": [
+    16.1,
+    -5.6,
+    -10.3
+   ],
+   "flip_dice": {
+    "flip_0": 0.1271,
+    "flip_1": 0.2538,
+    "flip_2": 0.6331
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9775,
+   "best_dice": 0.9785,
+   "gain": 0.001,
+   "best_shift_mm": [
+    0.0,
+    -0.8,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "vista",
+   "case": "36_1",
+   "phase": "1",
+   "patient": "36",
+   "spacing_mm": [
+    0.836,
+    0.836,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    101
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2654.0,
+   "gt_tumour_ml": 270.5,
+   "pred_organ_ml": 2588.9,
+   "organ_dice": 0.9763,
+   "centroid_offset_mm": 1.2,
+   "centroid_offset_xyz_mm": [
+    -0.8,
+    -0.9,
+    0.3
+   ],
+   "largest_component_offset_mm": [
+    -0.8,
+    -0.9,
+    0.3
+   ],
+   "n_components": 7,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 29.6,
+   "missing_ml": 94.7,
+   "excess_centroid_offset_mm": [
+    30.3,
+    -0.4,
+    11.6
+   ],
+   "missing_centroid_offset_mm": [
+    30.1,
+    24.2,
+    -5.3
+   ],
+   "flip_dice": {
+    "flip_0": 0.2266,
+    "flip_1": 0.6175,
+    "flip_2": 0.5017
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9763,
+   "best_dice": 0.9763,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "vista",
+   "case": "36_2",
+   "phase": "2",
+   "patient": "36",
+   "spacing_mm": [
+    0.836,
+    0.836,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    365
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2492.0,
+   "gt_tumour_ml": 257.1,
+   "pred_organ_ml": 2088.3,
+   "organ_dice": 0.8952,
+   "centroid_offset_mm": 2.3,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    -0.8,
+    2.2
+   ],
+   "largest_component_offset_mm": [
+    -0.3,
+    -1.2,
+    2.1
+   ],
+   "n_components": 64,
+   "largest_component_fraction": 0.993,
+   "excess_ml": 38.2,
+   "missing_ml": 441.9,
+   "excess_centroid_offset_mm": [
+    42.1,
+    31.0,
+    18.6
+   ],
+   "missing_centroid_offset_mm": [
+    3.7,
+    6.5,
+    -8.6
+   ],
+   "flip_dice": {
+    "flip_0": 0.2041,
+    "flip_1": 0.5695,
+    "flip_2": 0.4618
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.8952,
+   "best_dice": 0.8953,
+   "gain": 0.0001,
+   "best_shift_mm": [
+    0.0,
+    -0.8,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "vista",
+   "case": "37_1",
+   "phase": "1",
+   "patient": "37",
+   "spacing_mm": [
+    0.867,
+    0.867,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    225
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2186.4,
+   "gt_tumour_ml": 2.5,
+   "pred_organ_ml": 2142.7,
+   "organ_dice": 0.982,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "largest_component_offset_mm": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "n_components": 1,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 17.2,
+   "missing_ml": 60.9,
+   "excess_centroid_offset_mm": [
+    20.9,
+    2.7,
+    2.3
+   ],
+   "missing_centroid_offset_mm": [
+    3.6,
+    -3.6,
+    -1.4
+   ],
+   "flip_dice": {
+    "flip_0": 0.2944,
+    "flip_1": 0.1199,
+    "flip_2": 0.6278
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.982,
+   "best_dice": 0.982,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "vista",
+   "case": "65_1",
+   "phase": "1",
+   "patient": "65",
+   "spacing_mm": [
+    0.92,
+    0.92,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    419
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2084.1,
+   "gt_tumour_ml": 0.4,
+   "pred_organ_ml": 2042.2,
+   "organ_dice": 0.9811,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    -0.1,
+    0.1
+   ],
+   "largest_component_offset_mm": [
+    0.2,
+    -0.1,
+    0.1
+   ],
+   "n_components": 1,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 18.1,
+   "missing_ml": 60.0,
+   "excess_centroid_offset_mm": [
+    34.7,
+    -5.2,
+    20.8
+   ],
+   "missing_centroid_offset_mm": [
+    3.5,
+    2.9,
+    1.7
+   ],
+   "flip_dice": {
+    "flip_0": 0.0781,
+    "flip_1": 0.5492,
+    "flip_2": 0.502
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9811,
+   "best_dice": 0.9811,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "vista",
+   "case": "65_2",
+   "phase": "2",
+   "patient": "65",
+   "spacing_mm": [
+    0.92,
+    0.92,
+    1.5
+   ],
+   "shape": [
+    512,
+    512,
+    280
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2062.1,
+   "gt_tumour_ml": 0.4,
+   "pred_organ_ml": 2031.5,
+   "organ_dice": 0.9841,
+   "centroid_offset_mm": 0.4,
+   "centroid_offset_xyz_mm": [
+    0.4,
+    -0.0,
+    0.1
+   ],
+   "largest_component_offset_mm": [
+    0.4,
+    -0.0,
+    0.1
+   ],
+   "n_components": 1,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 17.2,
+   "missing_ml": 47.8,
+   "excess_centroid_offset_mm": [
+    35.8,
+    0.7,
+    13.7
+   ],
+   "missing_centroid_offset_mm": [
+    -3.1,
+    2.3,
+    -0.1
+   ],
+   "flip_dice": {
+    "flip_0": 0.072,
+    "flip_1": 0.5619,
+    "flip_2": 0.4983
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9841,
+   "best_dice": 0.9841,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "vista",
+   "case": "80_1",
+   "phase": "1",
+   "patient": "80",
+   "spacing_mm": [
+    0.822,
+    0.822,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    215
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2863.3,
+   "gt_tumour_ml": 38.0,
+   "pred_organ_ml": 2804.1,
+   "organ_dice": 0.9827,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    -0.1,
+    -0.1,
+    0.3
+   ],
+   "largest_component_offset_mm": [
+    -0.1,
+    -0.1,
+    0.3
+   ],
+   "n_components": 1,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 19.5,
+   "missing_ml": 78.7,
+   "excess_centroid_offset_mm": [
+    23.5,
+    11.9,
+    16.4
+   ],
+   "missing_centroid_offset_mm": [
+    11.1,
+    6.4,
+    -6.7
+   ],
+   "flip_dice": {
+    "flip_0": 0.1224,
+    "flip_1": 0.6748,
+    "flip_2": 0.4975
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9827,
+   "best_dice": 0.9827,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "vista",
+   "case": "80_2",
+   "phase": "2",
+   "patient": "80",
+   "spacing_mm": [
+    0.822,
+    0.822,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    194
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2862.8,
+   "gt_tumour_ml": 38.8,
+   "pred_organ_ml": 2803.5,
+   "organ_dice": 0.982,
+   "centroid_offset_mm": 0.6,
+   "centroid_offset_xyz_mm": [
+    -0.5,
+    -0.2,
+    0.4
+   ],
+   "largest_component_offset_mm": [
+    -0.5,
+    -0.2,
+    0.4
+   ],
+   "n_components": 1,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 21.3,
+   "missing_ml": 80.6,
+   "excess_centroid_offset_mm": [
+    17.6,
+    11.7,
+    14.9
+   ],
+   "missing_centroid_offset_mm": [
+    21.1,
+    8.7,
+    -9.7
+   ],
+   "flip_dice": {
+    "flip_0": 0.1297,
+    "flip_1": 0.6605,
+    "flip_2": 0.4979
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.982,
+   "best_dice": 0.982,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "vista",
+   "case": "83_2",
+   "phase": "2",
+   "patient": "83",
+   "spacing_mm": [
+    0.771,
+    0.771,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    176
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1616.2,
+   "gt_tumour_ml": 660.8,
+   "pred_organ_ml": 1582.9,
+   "organ_dice": 0.9774,
+   "centroid_offset_mm": 1.1,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    -0.5,
+    0.9
+   ],
+   "largest_component_offset_mm": [
+    0.2,
+    -0.5,
+    0.9
+   ],
+   "n_components": 1,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 19.5,
+   "missing_ml": 52.8,
+   "excess_centroid_offset_mm": [
+    22.0,
+    4.6,
+    17.2
+   ],
+   "missing_centroid_offset_mm": [
+    3.4,
+    18.2,
+    -20.6
+   ],
+   "flip_dice": {
+    "flip_0": 0.1112,
+    "flip_1": 0.655,
+    "flip_2": 0.4829
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9774,
+   "best_dice": 0.9775,
+   "gain": 0.0001,
+   "best_shift_mm": [
+    0.0,
+    0.8,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "vista",
+   "case": "119_2",
+   "phase": "2",
+   "patient": "119",
+   "spacing_mm": [
+    0.938,
+    0.938,
+    1.5
+   ],
+   "shape": [
+    512,
+    512,
+    242
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1441.0,
+   "gt_tumour_ml": 73.6,
+   "pred_organ_ml": 1432.2,
+   "organ_dice": 0.9824,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    -0.2,
+    -0.0
+   ],
+   "largest_component_offset_mm": [
+    -0.0,
+    -0.2,
+    -0.0
+   ],
+   "n_components": 1,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 20.9,
+   "missing_ml": 29.7,
+   "excess_centroid_offset_mm": [
+    11.2,
+    6.0,
+    -6.4
+   ],
+   "missing_centroid_offset_mm": [
+    8.9,
+    15.3,
+    -2.4
+   ],
+   "flip_dice": {
+    "flip_0": 0.0032,
+    "flip_1": 0.5233,
+    "flip_2": 0.4084
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9824,
+   "best_dice": 0.9824,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "vista",
+   "case": "168_1",
+   "phase": "1",
+   "patient": "168",
+   "spacing_mm": [
+    0.727,
+    0.727,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    183
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1018.0,
+   "gt_tumour_ml": 127.0,
+   "pred_organ_ml": 994.1,
+   "organ_dice": 0.9786,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    -0.2,
+    0.0
+   ],
+   "largest_component_offset_mm": [
+    0.0,
+    -0.2,
+    0.0
+   ],
+   "n_components": 1,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 9.6,
+   "missing_ml": 33.5,
+   "excess_centroid_offset_mm": [
+    19.9,
+    -4.6,
+    4.4
+   ],
+   "missing_centroid_offset_mm": [
+    5.2,
+    5.9,
+    0.3
+   ],
+   "flip_dice": {
+    "flip_0": 0.1691,
+    "flip_1": 0.619,
+    "flip_2": 0.4189
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9786,
+   "best_dice": 0.9786,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "vista",
+   "case": "168_2",
+   "phase": "2",
+   "patient": "168",
+   "spacing_mm": [
+    0.727,
+    0.727,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    172
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1006.5,
+   "gt_tumour_ml": 129.5,
+   "pred_organ_ml": 993.5,
+   "organ_dice": 0.9824,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    0.1,
+    0.2
+   ],
+   "largest_component_offset_mm": [
+    -0.0,
+    0.1,
+    0.2
+   ],
+   "n_components": 1,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 11.1,
+   "missing_ml": 24.0,
+   "excess_centroid_offset_mm": [
+    13.8,
+    11.1,
+    3.6
+   ],
+   "missing_centroid_offset_mm": [
+    6.6,
+    1.9,
+    -7.1
+   ],
+   "flip_dice": {
+    "flip_0": 0.1671,
+    "flip_1": 0.6165,
+    "flip_2": 0.4134
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9824,
+   "best_dice": 0.9824,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "vista",
+   "case": "339_1",
+   "phase": "1",
+   "patient": "339",
+   "spacing_mm": [
+    0.795,
+    0.795,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    384
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2644.8,
+   "gt_tumour_ml": 430.5,
+   "pred_organ_ml": 2751.5,
+   "organ_dice": 0.8828,
+   "centroid_offset_mm": 10.9,
+   "centroid_offset_xyz_mm": [
+    -6.5,
+    0.8,
+    -8.7
+   ],
+   "largest_component_offset_mm": [
+    1.2,
+    2.1,
+    2.7
+   ],
+   "n_components": 101,
+   "largest_component_fraction": 0.915,
+   "excess_ml": 369.5,
+   "missing_ml": 262.8,
+   "excess_centroid_offset_mm": [
+    -48.7,
+    5.5,
+    -93.8
+   ],
+   "missing_centroid_offset_mm": [
+    -0.2,
+    -0.2,
+    -41.2
+   ],
+   "flip_dice": {
+    "flip_0": 0.2465,
+    "flip_1": 0.4426,
+    "flip_2": 0.1757
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.8828,
+   "best_dice": 0.8829,
+   "gain": 0.0001,
+   "best_shift_mm": [
+    0.8,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "vista",
+   "case": "339_2",
+   "phase": "2",
+   "patient": "339",
+   "spacing_mm": [
+    0.795,
+    0.795,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    386
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2429.9,
+   "gt_tumour_ml": 431.9,
+   "pred_organ_ml": 2444.2,
+   "organ_dice": 0.9431,
+   "centroid_offset_mm": 6.1,
+   "centroid_offset_xyz_mm": [
+    -3.1,
+    -0.4,
+    -5.2
+   ],
+   "largest_component_offset_mm": [
+    -0.2,
+    -0.3,
+    0.9
+   ],
+   "n_components": 66,
+   "largest_component_fraction": 0.955,
+   "excess_ml": 145.7,
+   "missing_ml": 131.5,
+   "excess_centroid_offset_mm": [
+    -47.1,
+    1.3,
+    -101.7
+   ],
+   "missing_centroid_offset_mm": [
+    5.6,
+    8.1,
+    -16.5
+   ],
+   "flip_dice": {
+    "flip_0": 0.2615,
+    "flip_1": 0.4687,
+    "flip_2": 0.2292
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9431,
+   "best_dice": 0.9431,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "vista",
+   "case": "350_1",
+   "phase": "1",
+   "patient": "350",
+   "spacing_mm": [
+    0.777,
+    0.777,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    241
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1361.4,
+   "gt_tumour_ml": 20.1,
+   "pred_organ_ml": 1388.0,
+   "organ_dice": 0.9655,
+   "centroid_offset_mm": 1.8,
+   "centroid_offset_xyz_mm": [
+    -1.8,
+    -0.1,
+    0.4
+   ],
+   "largest_component_offset_mm": [
+    -1.8,
+    -0.1,
+    0.4
+   ],
+   "n_components": 10,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 60.8,
+   "missing_ml": 34.1,
+   "excess_centroid_offset_mm": [
+    -34.1,
+    -1.2,
+    -0.6
+   ],
+   "missing_centroid_offset_mm": [
+    12.4,
+    3.4,
+    -16.3
+   ],
+   "flip_dice": {
+    "flip_0": 0.2008,
+    "flip_1": 0.5638,
+    "flip_2": 0.4373
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9655,
+   "best_dice": 0.9676,
+   "gain": 0.0021,
+   "best_shift_mm": [
+    0.8,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "vista",
+   "case": "350_2",
+   "phase": "2",
+   "patient": "350",
+   "spacing_mm": [
+    0.777,
+    0.777,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    262
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1321.4,
+   "gt_tumour_ml": 20.6,
+   "pred_organ_ml": 1351.7,
+   "organ_dice": 0.965,
+   "centroid_offset_mm": 1.9,
+   "centroid_offset_xyz_mm": [
+    -1.3,
+    -0.0,
+    1.4
+   ],
+   "largest_component_offset_mm": [
+    -1.3,
+    0.1,
+    1.3
+   ],
+   "n_components": 7,
+   "largest_component_fraction": 0.999,
+   "excess_ml": 61.9,
+   "missing_ml": 31.6,
+   "excess_centroid_offset_mm": [
+    -22.7,
+    1.5,
+    19.7
+   ],
+   "missing_centroid_offset_mm": [
+    12.6,
+    4.5,
+    -21.1
+   ],
+   "flip_dice": {
+    "flip_0": 0.1968,
+    "flip_1": 0.5399,
+    "flip_2": 0.3917
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.965,
+   "best_dice": 0.9668,
+   "gain": 0.0018,
+   "best_shift_mm": [
+    0.8,
+    -0.8,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "vista",
+   "case": "363_1",
+   "phase": "1",
+   "patient": "363",
+   "spacing_mm": [
+    0.748,
+    0.748,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    283
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1551.1,
+   "gt_tumour_ml": 15.2,
+   "pred_organ_ml": 1532.4,
+   "organ_dice": 0.9808,
+   "centroid_offset_mm": 0.4,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    0.2,
+    0.2
+   ],
+   "largest_component_offset_mm": [
+    0.2,
+    0.2,
+    0.2
+   ],
+   "n_components": 1,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 20.2,
+   "missing_ml": 38.9,
+   "excess_centroid_offset_mm": [
+    19.1,
+    15.3,
+    5.6
+   ],
+   "missing_centroid_offset_mm": [
+    2.6,
+    -1.7,
+    -6.0
+   ],
+   "flip_dice": {
+    "flip_0": 0.2802,
+    "flip_1": 0.4889,
+    "flip_2": 0.4286
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9808,
+   "best_dice": 0.9808,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "vista",
+   "case": "383_1",
+   "phase": "1",
+   "patient": "383",
+   "spacing_mm": [
+    0.883,
+    0.883,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    247
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2335.1,
+   "gt_tumour_ml": 58.6,
+   "pred_organ_ml": 2303.9,
+   "organ_dice": 0.9723,
+   "centroid_offset_mm": 0.8,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    0.2,
+    0.8
+   ],
+   "largest_component_offset_mm": [
+    -0.1,
+    0.2,
+    0.9
+   ],
+   "n_components": 13,
+   "largest_component_fraction": 0.999,
+   "excess_ml": 48.7,
+   "missing_ml": 79.9,
+   "excess_centroid_offset_mm": [
+    46.3,
+    20.3,
+    0.5
+   ],
+   "missing_centroid_offset_mm": [
+    27.3,
+    6.9,
+    -23.4
+   ],
+   "flip_dice": {
+    "flip_0": 0.1619,
+    "flip_1": 0.6276,
+    "flip_2": 0.3472
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9723,
+   "best_dice": 0.9723,
+   "gain": 0.0001,
+   "best_shift_mm": [
+    0.9,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "vista",
+   "case": "383_2",
+   "phase": "2",
+   "patient": "383",
+   "spacing_mm": [
+    0.883,
+    0.883,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    204
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2277.0,
+   "gt_tumour_ml": 58.6,
+   "pred_organ_ml": 2266.1,
+   "organ_dice": 0.9684,
+   "centroid_offset_mm": 0.7,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    0.6,
+    0.2
+   ],
+   "largest_component_offset_mm": [
+    0.0,
+    0.6,
+    0.2
+   ],
+   "n_components": 3,
+   "largest_component_fraction": 0.999,
+   "excess_ml": 66.4,
+   "missing_ml": 77.2,
+   "excess_centroid_offset_mm": [
+    34.9,
+    27.5,
+    0.6
+   ],
+   "missing_centroid_offset_mm": [
+    24.4,
+    6.0,
+    -6.5
+   ],
+   "flip_dice": {
+    "flip_0": 0.1646,
+    "flip_1": 0.612,
+    "flip_2": 0.5592
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9684,
+   "best_dice": 0.9687,
+   "gain": 0.0003,
+   "best_shift_mm": [
+    0.9,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "vista",
+   "case": "404_1",
+   "phase": "1",
+   "patient": "404",
+   "spacing_mm": [
+    0.885,
+    0.885,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    209
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1968.0,
+   "gt_tumour_ml": 11.9,
+   "pred_organ_ml": 1898.2,
+   "organ_dice": 0.9711,
+   "centroid_offset_mm": 1.4,
+   "centroid_offset_xyz_mm": [
+    -1.0,
+    -0.9,
+    -0.4
+   ],
+   "largest_component_offset_mm": [
+    -1.8,
+    -0.7,
+    -0.4
+   ],
+   "n_components": 8,
+   "largest_component_fraction": 0.996,
+   "excess_ml": 20.9,
+   "missing_ml": 90.8,
+   "excess_centroid_offset_mm": [
+    70.2,
+    -29.3,
+    -1.0
+   ],
+   "missing_centroid_offset_mm": [
+    37.7,
+    12.8,
+    7.3
+   ],
+   "flip_dice": {
+    "flip_0": 0.0431,
+    "flip_1": 0.2139,
+    "flip_2": 0.4337
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9711,
+   "best_dice": 0.9711,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "vista",
+   "case": "404_2",
+   "phase": "2",
+   "patient": "404",
+   "spacing_mm": [
+    0.885,
+    0.885,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    244
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1929.7,
+   "gt_tumour_ml": 11.9,
+   "pred_organ_ml": 1873.9,
+   "organ_dice": 0.9764,
+   "centroid_offset_mm": 1.5,
+   "centroid_offset_xyz_mm": [
+    -1.3,
+    -0.6,
+    -0.3
+   ],
+   "largest_component_offset_mm": [
+    -1.3,
+    -0.6,
+    -0.3
+   ],
+   "n_components": 1,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 17.0,
+   "missing_ml": 72.8,
+   "excess_centroid_offset_mm": [
+    6.8,
+    4.3,
+    -2.2
+   ],
+   "missing_centroid_offset_mm": [
+    36.2,
+    15.9,
+    6.2
+   ],
+   "flip_dice": {
+    "flip_0": 0.0355,
+    "flip_1": 0.1973,
+    "flip_2": 0.4315
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9764,
+   "best_dice": 0.9764,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "vista",
+   "case": "438_1",
+   "phase": "1",
+   "patient": "438",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    195
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2039.4,
+   "gt_tumour_ml": 253.5,
+   "pred_organ_ml": 2002.5,
+   "organ_dice": 0.9724,
+   "centroid_offset_mm": 1.3,
+   "centroid_offset_xyz_mm": [
+    1.2,
+    0.3,
+    0.5
+   ],
+   "largest_component_offset_mm": [
+    1.2,
+    0.3,
+    0.5
+   ],
+   "n_components": 1,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 37.3,
+   "missing_ml": 74.2,
+   "excess_centroid_offset_mm": [
+    72.7,
+    7.9,
+    15.0
+   ],
+   "missing_centroid_offset_mm": [
+    4.5,
+    -4.7,
+    -5.0
+   ],
+   "flip_dice": {
+    "flip_0": 0.2761,
+    "flip_1": 0.5238,
+    "flip_2": 0.3793
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9724,
+   "best_dice": 0.9724,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "vista",
+   "case": "508_1",
+   "phase": "1",
+   "patient": "508",
+   "spacing_mm": [
+    0.877,
+    0.877,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    415
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 3410.9,
+   "gt_tumour_ml": 489.2,
+   "pred_organ_ml": 3196.1,
+   "organ_dice": 0.9597,
+   "centroid_offset_mm": 3.4,
+   "centroid_offset_xyz_mm": [
+    -1.0,
+    -3.2,
+    -0.5
+   ],
+   "largest_component_offset_mm": [
+    -1.0,
+    -3.2,
+    -0.5
+   ],
+   "n_components": 17,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 25.7,
+   "missing_ml": 240.5,
+   "excess_centroid_offset_mm": [
+    34.5,
+    -1.1,
+    8.8
+   ],
+   "missing_centroid_offset_mm": [
+    17.4,
+    42.5,
+    6.9
+   ],
+   "flip_dice": {
+    "flip_0": 0.3524,
+    "flip_1": 0.3833,
+    "flip_2": 0.5034
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9597,
+   "best_dice": 0.9597,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "vista",
+   "case": "508_2",
+   "phase": "2",
+   "patient": "508",
+   "spacing_mm": [
+    0.877,
+    0.877,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    415
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 3463.1,
+   "gt_tumour_ml": 501.1,
+   "pred_organ_ml": 3240.8,
+   "organ_dice": 0.9594,
+   "centroid_offset_mm": 4.2,
+   "centroid_offset_xyz_mm": [
+    -1.6,
+    -3.7,
+    -1.1
+   ],
+   "largest_component_offset_mm": [
+    -1.7,
+    -3.7,
+    -1.1
+   ],
+   "n_components": 26,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 24.9,
+   "missing_ml": 247.2,
+   "excess_centroid_offset_mm": [
+    33.8,
+    7.1,
+    -1.5
+   ],
+   "missing_centroid_offset_mm": [
+    24.7,
+    49.8,
+    14.6
+   ],
+   "flip_dice": {
+    "flip_0": 0.3338,
+    "flip_1": 0.4351,
+    "flip_2": 0.4376
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9594,
+   "best_dice": 0.9594,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "vista",
+   "case": "510_1",
+   "phase": "1",
+   "patient": "510",
+   "spacing_mm": [
+    0.736,
+    0.736,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    187
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 982.1,
+   "gt_tumour_ml": 19.4,
+   "pred_organ_ml": 912.4,
+   "organ_dice": 0.9415,
+   "centroid_offset_mm": 2.5,
+   "centroid_offset_xyz_mm": [
+    -1.6,
+    -1.9,
+    0.5
+   ],
+   "largest_component_offset_mm": [
+    -1.6,
+    -1.9,
+    0.5
+   ],
+   "n_components": 1,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 20.5,
+   "missing_ml": 90.3,
+   "excess_centroid_offset_mm": [
+    4.3,
+    -27.2,
+    5.4
+   ],
+   "missing_centroid_offset_mm": [
+    17.3,
+    12.6,
+    -3.4
+   ],
+   "flip_dice": {
+    "flip_0": 0.1089,
+    "flip_1": 0.3902,
+    "flip_2": 0.6177
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9415,
+   "best_dice": 0.9418,
+   "gain": 0.0003,
+   "best_shift_mm": [
+    0.7,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "vista",
+   "case": "515_1",
+   "phase": "1",
+   "patient": "515",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    199
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1733.4,
+   "gt_tumour_ml": 324.2,
+   "pred_organ_ml": 1673.6,
+   "organ_dice": 0.9738,
+   "centroid_offset_mm": 0.8,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    0.7,
+    0.5
+   ],
+   "largest_component_offset_mm": [
+    0.2,
+    0.7,
+    0.5
+   ],
+   "n_components": 5,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 14.8,
+   "missing_ml": 74.6,
+   "excess_centroid_offset_mm": [
+    23.7,
+    11.5,
+    27.4
+   ],
+   "missing_centroid_offset_mm": [
+    -0.7,
+    -12.5,
+    -5.0
+   ],
+   "flip_dice": {
+    "flip_0": 0.0194,
+    "flip_1": 0.4067,
+    "flip_2": 0.6828
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9738,
+   "best_dice": 0.9738,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "vista",
+   "case": "539_1",
+   "phase": "1",
+   "patient": "539",
+   "spacing_mm": [
+    0.781,
+    0.781,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    181
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1107.4,
+   "gt_tumour_ml": 39.6,
+   "pred_organ_ml": 1068.1,
+   "organ_dice": 0.9746,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    -0.1,
+    -0.1,
+    -0.0
+   ],
+   "largest_component_offset_mm": [
+    -0.1,
+    -0.1,
+    -0.0
+   ],
+   "n_components": 1,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 7.9,
+   "missing_ml": 47.3,
+   "excess_centroid_offset_mm": [
+    11.4,
+    6.5,
+    -0.3
+   ],
+   "missing_centroid_offset_mm": [
+    4.4,
+    2.3,
+    0.7
+   ],
+   "flip_dice": {
+    "flip_0": 0.11,
+    "flip_1": 0.4197,
+    "flip_2": 0.5447
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9746,
+   "best_dice": 0.9746,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "A",
+   "case": "25_1",
+   "phase": "1",
+   "patient": "25",
+   "spacing_mm": [
+    0.771,
+    0.771,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    63
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 743.5,
+   "gt_tumour_ml": 0.0,
+   "pred_organ_ml": 729.8,
+   "organ_dice": 0.9716,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    -0.0,
+    -0.1
+   ],
+   "largest_component_offset_mm": [
+    0.2,
+    -0.0,
+    -0.1
+   ],
+   "n_components": 1,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 14.1,
+   "missing_ml": 27.7,
+   "excess_centroid_offset_mm": [
+    27.4,
+    11.9,
+    1.5
+   ],
+   "missing_centroid_offset_mm": [
+    7.4,
+    6.3,
+    2.6
+   ],
+   "flip_dice": {
+    "flip_0": 0.1309,
+    "flip_1": 0.259,
+    "flip_2": 0.6377
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9716,
+   "best_dice": 0.9717,
+   "gain": 0.0001,
+   "best_shift_mm": [
+    0.8,
+    0.8,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "A",
+   "case": "36_1",
+   "phase": "1",
+   "patient": "36",
+   "spacing_mm": [
+    0.836,
+    0.836,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    101
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2654.0,
+   "gt_tumour_ml": 270.5,
+   "pred_organ_ml": 4097.8,
+   "organ_dice": 0.7614,
+   "centroid_offset_mm": 68.9,
+   "centroid_offset_xyz_mm": [
+    67.6,
+    -10.2,
+    -9.0
+   ],
+   "largest_component_offset_mm": [
+    67.6,
+    -10.2,
+    -9.0
+   ],
+   "n_components": 44,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 1527.5,
+   "missing_ml": 83.7,
+   "excess_centroid_offset_mm": [
+    182.1,
+    -26.6,
+    -25.0
+   ],
+   "missing_centroid_offset_mm": [
+    13.6,
+    14.4,
+    -14.0
+   ],
+   "flip_dice": {
+    "flip_0": 0.4444,
+    "flip_1": 0.4915,
+    "flip_2": 0.3942
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.7614,
+   "best_dice": 0.7614,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "A",
+   "case": "36_2",
+   "phase": "2",
+   "patient": "36",
+   "spacing_mm": [
+    0.836,
+    0.836,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    365
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2492.0,
+   "gt_tumour_ml": 257.1,
+   "pred_organ_ml": 5145.8,
+   "organ_dice": 0.468,
+   "centroid_offset_mm": 74.6,
+   "centroid_offset_xyz_mm": [
+    58.8,
+    41.8,
+    -18.8
+   ],
+   "largest_component_offset_mm": [
+    58.3,
+    41.7,
+    -19.1
+   ],
+   "n_components": 892,
+   "largest_component_fraction": 0.995,
+   "excess_ml": 3358.5,
+   "missing_ml": 704.7,
+   "excess_centroid_offset_mm": [
+    95.3,
+    64.8,
+    -27.3
+   ],
+   "missing_centroid_offset_mm": [
+    24.3,
+    3.6,
+    7.1
+   ],
+   "flip_dice": {
+    "flip_0": 0.3052,
+    "flip_1": 0.3245,
+    "flip_2": 0.2745
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.468,
+   "best_dice": 0.4715,
+   "gain": 0.0035,
+   "best_shift_mm": [
+    0.0,
+    -1.7,
+    -1.2
+   ],
+   "header_vs_input": null,
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "A",
+   "case": "37_1",
+   "phase": "1",
+   "patient": "37",
+   "spacing_mm": [
+    0.867,
+    0.867,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    225
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2186.4,
+   "gt_tumour_ml": 2.5,
+   "pred_organ_ml": 2130.2,
+   "organ_dice": 0.974,
+   "centroid_offset_mm": 0.6,
+   "centroid_offset_xyz_mm": [
+    0.3,
+    0.3,
+    0.4
+   ],
+   "largest_component_offset_mm": [
+    0.3,
+    0.3,
+    0.4
+   ],
+   "n_components": 1,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 27.9,
+   "missing_ml": 84.1,
+   "excess_centroid_offset_mm": [
+    32.9,
+    6.3,
+    12.2
+   ],
+   "missing_centroid_offset_mm": [
+    4.1,
+    -6.3,
+    -6.3
+   ],
+   "flip_dice": {
+    "flip_0": 0.297,
+    "flip_1": 0.1188,
+    "flip_2": 0.6256
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.974,
+   "best_dice": 0.974,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "A",
+   "case": "65_1",
+   "phase": "1",
+   "patient": "65",
+   "spacing_mm": [
+    0.92,
+    0.92,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    419
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2084.1,
+   "gt_tumour_ml": 0.4,
+   "pred_organ_ml": 2057.2,
+   "organ_dice": 0.9759,
+   "centroid_offset_mm": 1.0,
+   "centroid_offset_xyz_mm": [
+    0.6,
+    0.0,
+    0.7
+   ],
+   "largest_component_offset_mm": [
+    0.6,
+    0.0,
+    0.7
+   ],
+   "n_components": 2,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 36.4,
+   "missing_ml": 63.4,
+   "excess_centroid_offset_mm": [
+    40.4,
+    -0.4,
+    28.9
+   ],
+   "missing_centroid_offset_mm": [
+    2.9,
+    -1.4,
+    -6.9
+   ],
+   "flip_dice": {
+    "flip_0": 0.0797,
+    "flip_1": 0.5467,
+    "flip_2": 0.4975
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9759,
+   "best_dice": 0.9759,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "A",
+   "case": "65_2",
+   "phase": "2",
+   "patient": "65",
+   "spacing_mm": [
+    0.92,
+    0.92,
+    1.5
+   ],
+   "shape": [
+    512,
+    512,
+    280
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2062.1,
+   "gt_tumour_ml": 0.4,
+   "pred_organ_ml": 2035.1,
+   "organ_dice": 0.9815,
+   "centroid_offset_mm": 0.8,
+   "centroid_offset_xyz_mm": [
+    0.6,
+    0.2,
+    0.5
+   ],
+   "largest_component_offset_mm": [
+    0.6,
+    0.2,
+    0.5
+   ],
+   "n_components": 1,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 24.5,
+   "missing_ml": 51.4,
+   "excess_centroid_offset_mm": [
+    47.0,
+    9.3,
+    22.1
+   ],
+   "missing_centroid_offset_mm": [
+    -0.4,
+    -1.7,
+    -10.2
+   ],
+   "flip_dice": {
+    "flip_0": 0.0735,
+    "flip_1": 0.5605,
+    "flip_2": 0.495
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9815,
+   "best_dice": 0.9815,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "A",
+   "case": "80_1",
+   "phase": "1",
+   "patient": "80",
+   "spacing_mm": [
+    0.822,
+    0.822,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    215
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2863.3,
+   "gt_tumour_ml": 38.0,
+   "pred_organ_ml": 2823.2,
+   "organ_dice": 0.9789,
+   "centroid_offset_mm": 0.7,
+   "centroid_offset_xyz_mm": [
+    -0.2,
+    -0.1,
+    0.7
+   ],
+   "largest_component_offset_mm": [
+    -0.2,
+    -0.1,
+    0.7
+   ],
+   "n_components": 3,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 39.9,
+   "missing_ml": 80.0,
+   "excess_centroid_offset_mm": [
+    24.2,
+    8.8,
+    21.5
+   ],
+   "missing_centroid_offset_mm": [
+    19.0,
+    6.2,
+    -14.6
+   ],
+   "flip_dice": {
+    "flip_0": 0.1233,
+    "flip_1": 0.676,
+    "flip_2": 0.495
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9789,
+   "best_dice": 0.9789,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "A",
+   "case": "80_2",
+   "phase": "2",
+   "patient": "80",
+   "spacing_mm": [
+    0.822,
+    0.822,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    194
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2862.8,
+   "gt_tumour_ml": 38.8,
+   "pred_organ_ml": 2814.6,
+   "organ_dice": 0.9769,
+   "centroid_offset_mm": 0.6,
+   "centroid_offset_xyz_mm": [
+    -0.2,
+    0.0,
+    0.5
+   ],
+   "largest_component_offset_mm": [
+    -0.2,
+    0.0,
+    0.5
+   ],
+   "n_components": 4,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 41.4,
+   "missing_ml": 89.6,
+   "excess_centroid_offset_mm": [
+    27.2,
+    15.7,
+    15.8
+   ],
+   "missing_centroid_offset_mm": [
+    20.4,
+    6.8,
+    -8.3
+   ],
+   "flip_dice": {
+    "flip_0": 0.1321,
+    "flip_1": 0.6609,
+    "flip_2": 0.4978
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9769,
+   "best_dice": 0.9769,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "A",
+   "case": "83_2",
+   "phase": "2",
+   "patient": "83",
+   "spacing_mm": [
+    0.771,
+    0.771,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    176
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1616.2,
+   "gt_tumour_ml": 660.8,
+   "pred_organ_ml": 1615.0,
+   "organ_dice": 0.9719,
+   "centroid_offset_mm": 0.6,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.0,
+    0.5
+   ],
+   "largest_component_offset_mm": [
+    0.1,
+    0.0,
+    0.5
+   ],
+   "n_components": 3,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 44.9,
+   "missing_ml": 46.1,
+   "excess_centroid_offset_mm": [
+    13.4,
+    9.8,
+    5.9
+   ],
+   "missing_centroid_offset_mm": [
+    7.9,
+    9.4,
+    -13.1
+   ],
+   "flip_dice": {
+    "flip_0": 0.1119,
+    "flip_1": 0.6577,
+    "flip_2": 0.4857
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9719,
+   "best_dice": 0.9738,
+   "gain": 0.0019,
+   "best_shift_mm": [
+    0.8,
+    0.8,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "A",
+   "case": "119_2",
+   "phase": "2",
+   "patient": "119",
+   "spacing_mm": [
+    0.938,
+    0.938,
+    1.5
+   ],
+   "shape": [
+    512,
+    512,
+    242
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1441.0,
+   "gt_tumour_ml": 73.6,
+   "pred_organ_ml": 1426.5,
+   "organ_dice": 0.9716,
+   "centroid_offset_mm": 0.7,
+   "centroid_offset_xyz_mm": [
+    0.4,
+    -0.5,
+    0.1
+   ],
+   "largest_component_offset_mm": [
+    0.4,
+    -0.5,
+    0.1
+   ],
+   "n_components": 1,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 33.5,
+   "missing_ml": 48.0,
+   "excess_centroid_offset_mm": [
+    23.9,
+    0.9,
+    2.0
+   ],
+   "missing_centroid_offset_mm": [
+    4.9,
+    15.8,
+    -2.9
+   ],
+   "flip_dice": {
+    "flip_0": 0.0028,
+    "flip_1": 0.5254,
+    "flip_2": 0.407
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9716,
+   "best_dice": 0.9716,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "A",
+   "case": "168_1",
+   "phase": "1",
+   "patient": "168",
+   "spacing_mm": [
+    0.727,
+    0.727,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    183
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1018.0,
+   "gt_tumour_ml": 127.0,
+   "pred_organ_ml": 991.4,
+   "organ_dice": 0.9686,
+   "centroid_offset_mm": 0.5,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    -0.4,
+    0.1
+   ],
+   "largest_component_offset_mm": [
+    0.2,
+    -0.4,
+    0.1
+   ],
+   "n_components": 3,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 18.3,
+   "missing_ml": 44.8,
+   "excess_centroid_offset_mm": [
+    19.9,
+    -6.3,
+    4.0
+   ],
+   "missing_centroid_offset_mm": [
+    3.1,
+    5.6,
+    -1.2
+   ],
+   "flip_dice": {
+    "flip_0": 0.1703,
+    "flip_1": 0.6188,
+    "flip_2": 0.4161
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9686,
+   "best_dice": 0.9691,
+   "gain": 0.0005,
+   "best_shift_mm": [
+    -0.7,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "A",
+   "case": "168_2",
+   "phase": "2",
+   "patient": "168",
+   "spacing_mm": [
+    0.727,
+    0.727,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    172
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1006.5,
+   "gt_tumour_ml": 129.5,
+   "pred_organ_ml": 995.2,
+   "organ_dice": 0.9751,
+   "centroid_offset_mm": 0.4,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    -0.0,
+    0.3
+   ],
+   "largest_component_offset_mm": [
+    0.2,
+    -0.0,
+    0.3
+   ],
+   "n_components": 1,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 19.3,
+   "missing_ml": 30.6,
+   "excess_centroid_offset_mm": [
+    12.5,
+    3.4,
+    1.2
+   ],
+   "missing_centroid_offset_mm": [
+    -0.1,
+    2.2,
+    -9.9
+   ],
+   "flip_dice": {
+    "flip_0": 0.1674,
+    "flip_1": 0.6182,
+    "flip_2": 0.4115
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9751,
+   "best_dice": 0.9751,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "A",
+   "case": "339_1",
+   "phase": "1",
+   "patient": "339",
+   "spacing_mm": [
+    0.795,
+    0.795,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    384
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2644.8,
+   "gt_tumour_ml": 430.5,
+   "pred_organ_ml": 5114.1,
+   "organ_dice": 0.6634,
+   "centroid_offset_mm": 29.2,
+   "centroid_offset_xyz_mm": [
+    -22.0,
+    -3.1,
+    -19.0
+   ],
+   "largest_component_offset_mm": [
+    -22.0,
+    -3.1,
+    -19.0
+   ],
+   "n_components": 182,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 2540.4,
+   "missing_ml": 71.1,
+   "excess_centroid_offset_mm": [
+    -43.8,
+    -6.5,
+    -39.5
+   ],
+   "missing_centroid_offset_mm": [
+    16.7,
+    -6.9,
+    -42.7
+   ],
+   "flip_dice": {
+    "flip_0": 0.2021,
+    "flip_1": 0.3752,
+    "flip_2": 0.2624
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.6634,
+   "best_dice": 0.6684,
+   "gain": 0.005,
+   "best_shift_mm": [
+    2.4,
+    0.0,
+    -1.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "A",
+   "case": "339_2",
+   "phase": "2",
+   "patient": "339",
+   "spacing_mm": [
+    0.795,
+    0.795,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    386
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2429.9,
+   "gt_tumour_ml": 431.9,
+   "pred_organ_ml": 4386.2,
+   "organ_dice": 0.6974,
+   "centroid_offset_mm": 28.7,
+   "centroid_offset_xyz_mm": [
+    -21.4,
+    -2.1,
+    -18.9
+   ],
+   "largest_component_offset_mm": [
+    -21.4,
+    -2.1,
+    -18.9
+   ],
+   "n_components": 465,
+   "largest_component_fraction": 0.999,
+   "excess_ml": 2009.4,
+   "missing_ml": 53.2,
+   "excess_centroid_offset_mm": [
+    -46.0,
+    -4.9,
+    -41.8
+   ],
+   "missing_centroid_offset_mm": [
+    29.3,
+    -9.8,
+    -15.6
+   ],
+   "flip_dice": {
+    "flip_0": 0.2032,
+    "flip_1": 0.3635,
+    "flip_2": 0.277
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.6974,
+   "best_dice": 0.7018,
+   "gain": 0.0044,
+   "best_shift_mm": [
+    1.6,
+    -0.8,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "A",
+   "case": "350_1",
+   "phase": "1",
+   "patient": "350",
+   "spacing_mm": [
+    0.777,
+    0.777,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    241
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1361.4,
+   "gt_tumour_ml": 20.1,
+   "pred_organ_ml": 1552.9,
+   "organ_dice": 0.9061,
+   "centroid_offset_mm": 8.0,
+   "centroid_offset_xyz_mm": [
+    -7.6,
+    -0.3,
+    2.5
+   ],
+   "largest_component_offset_mm": [
+    -7.6,
+    -0.3,
+    2.5
+   ],
+   "n_components": 23,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 232.6,
+   "missing_ml": 41.1,
+   "excess_centroid_offset_mm": [
+    -49.7,
+    -1.2,
+    12.8
+   ],
+   "missing_centroid_offset_mm": [
+    6.7,
+    3.8,
+    -21.1
+   ],
+   "flip_dice": {
+    "flip_0": 0.1922,
+    "flip_1": 0.5396,
+    "flip_2": 0.4309
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9061,
+   "best_dice": 0.9125,
+   "gain": 0.0064,
+   "best_shift_mm": [
+    0.8,
+    0.8,
+    -1.2
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "A",
+   "case": "350_2",
+   "phase": "2",
+   "patient": "350",
+   "spacing_mm": [
+    0.777,
+    0.777,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    262
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1321.4,
+   "gt_tumour_ml": 20.6,
+   "pred_organ_ml": 1379.9,
+   "organ_dice": 0.9461,
+   "centroid_offset_mm": 4.1,
+   "centroid_offset_xyz_mm": [
+    -3.2,
+    -1.6,
+    1.9
+   ],
+   "largest_component_offset_mm": [
+    -3.2,
+    -1.6,
+    1.9
+   ],
+   "n_components": 12,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 102.0,
+   "missing_ml": 43.5,
+   "excess_centroid_offset_mm": [
+    -39.9,
+    -17.8,
+    15.9
+   ],
+   "missing_centroid_offset_mm": [
+    8.3,
+    9.5,
+    -22.0
+   ],
+   "flip_dice": {
+    "flip_0": 0.1955,
+    "flip_1": 0.5288,
+    "flip_2": 0.3921
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9461,
+   "best_dice": 0.9486,
+   "gain": 0.0025,
+   "best_shift_mm": [
+    0.8,
+    0.8,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "A",
+   "case": "363_1",
+   "phase": "1",
+   "patient": "363",
+   "spacing_mm": [
+    0.748,
+    0.748,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    283
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1551.1,
+   "gt_tumour_ml": 15.2,
+   "pred_organ_ml": 1502.9,
+   "organ_dice": 0.9726,
+   "centroid_offset_mm": 0.4,
+   "centroid_offset_xyz_mm": [
+    0.4,
+    0.1,
+    0.1
+   ],
+   "largest_component_offset_mm": [
+    0.4,
+    0.1,
+    0.1
+   ],
+   "n_components": 2,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 17.8,
+   "missing_ml": 66.0,
+   "excess_centroid_offset_mm": [
+    17.4,
+    12.2,
+    -4.5
+   ],
+   "missing_centroid_offset_mm": [
+    -3.4,
+    1.8,
+    -3.6
+   ],
+   "flip_dice": {
+    "flip_0": 0.2814,
+    "flip_1": 0.4811,
+    "flip_2": 0.4236
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9726,
+   "best_dice": 0.9726,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "A",
+   "case": "383_1",
+   "phase": "1",
+   "patient": "383",
+   "spacing_mm": [
+    0.883,
+    0.883,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    247
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2335.1,
+   "gt_tumour_ml": 58.6,
+   "pred_organ_ml": 2325.6,
+   "organ_dice": 0.9622,
+   "centroid_offset_mm": 1.8,
+   "centroid_offset_xyz_mm": [
+    0.8,
+    -0.8,
+    1.4
+   ],
+   "largest_component_offset_mm": [
+    0.8,
+    -0.8,
+    1.4
+   ],
+   "n_components": 4,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 83.3,
+   "missing_ml": 92.8,
+   "excess_centroid_offset_mm": [
+    42.5,
+    -3.3,
+    9.2
+   ],
+   "missing_centroid_offset_mm": [
+    18.5,
+    18.2,
+    -26.6
+   ],
+   "flip_dice": {
+    "flip_0": 0.1677,
+    "flip_1": 0.6239,
+    "flip_2": 0.3446
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9622,
+   "best_dice": 0.9641,
+   "gain": 0.0019,
+   "best_shift_mm": [
+    0.9,
+    0.9,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "A",
+   "case": "383_2",
+   "phase": "2",
+   "patient": "383",
+   "spacing_mm": [
+    0.883,
+    0.883,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    204
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2277.0,
+   "gt_tumour_ml": 58.6,
+   "pred_organ_ml": 2253.3,
+   "organ_dice": 0.9637,
+   "centroid_offset_mm": 0.9,
+   "centroid_offset_xyz_mm": [
+    0.6,
+    -0.4,
+    0.5
+   ],
+   "largest_component_offset_mm": [
+    0.6,
+    -0.4,
+    0.5
+   ],
+   "n_components": 5,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 70.5,
+   "missing_ml": 94.2,
+   "excess_centroid_offset_mm": [
+    40.3,
+    4.7,
+    7.2
+   ],
+   "missing_centroid_offset_mm": [
+    15.1,
+    13.9,
+    -7.8
+   ],
+   "flip_dice": {
+    "flip_0": 0.1725,
+    "flip_1": 0.6048,
+    "flip_2": 0.5576
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9637,
+   "best_dice": 0.9651,
+   "gain": 0.0014,
+   "best_shift_mm": [
+    0.9,
+    0.9,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "A",
+   "case": "404_1",
+   "phase": "1",
+   "patient": "404",
+   "spacing_mm": [
+    0.885,
+    0.885,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    209
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1968.0,
+   "gt_tumour_ml": 11.9,
+   "pred_organ_ml": 1934.5,
+   "organ_dice": 0.9706,
+   "centroid_offset_mm": 1.4,
+   "centroid_offset_xyz_mm": [
+    -1.4,
+    0.1,
+    0.3
+   ],
+   "largest_component_offset_mm": [
+    -1.4,
+    0.1,
+    0.3
+   ],
+   "n_components": 3,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 40.5,
+   "missing_ml": 74.1,
+   "excess_centroid_offset_mm": [
+    9.0,
+    15.7,
+    9.2
+   ],
+   "missing_centroid_offset_mm": [
+    41.4,
+    5.7,
+    -1.8
+   ],
+   "flip_dice": {
+    "flip_0": 0.0422,
+    "flip_1": 0.2115,
+    "flip_2": 0.4319
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9706,
+   "best_dice": 0.9716,
+   "gain": 0.0009,
+   "best_shift_mm": [
+    0.9,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "A",
+   "case": "404_2",
+   "phase": "2",
+   "patient": "404",
+   "spacing_mm": [
+    0.885,
+    0.885,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    244
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1929.7,
+   "gt_tumour_ml": 11.9,
+   "pred_organ_ml": 1918.3,
+   "organ_dice": 0.9681,
+   "centroid_offset_mm": 0.5,
+   "centroid_offset_xyz_mm": [
+    -0.4,
+    0.1,
+    0.2
+   ],
+   "largest_component_offset_mm": [
+    -0.4,
+    0.1,
+    0.2
+   ],
+   "n_components": 1,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 55.6,
+   "missing_ml": 67.0,
+   "excess_centroid_offset_mm": [
+    18.7,
+    12.2,
+    6.2
+   ],
+   "missing_centroid_offset_mm": [
+    27.9,
+    7.1,
+    0.8
+   ],
+   "flip_dice": {
+    "flip_0": 0.037,
+    "flip_1": 0.1941,
+    "flip_2": 0.4285
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9681,
+   "best_dice": 0.9681,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "A",
+   "case": "438_1",
+   "phase": "1",
+   "patient": "438",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    195
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2039.4,
+   "gt_tumour_ml": 253.5,
+   "pred_organ_ml": 2157.0,
+   "organ_dice": 0.9353,
+   "centroid_offset_mm": 12.1,
+   "centroid_offset_xyz_mm": [
+    11.6,
+    -2.0,
+    2.6
+   ],
+   "largest_component_offset_mm": [
+    11.6,
+    -2.0,
+    2.6
+   ],
+   "n_components": 12,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 194.6,
+   "missing_ml": 77.0,
+   "excess_centroid_offset_mm": [
+    129.0,
+    -21.0,
+    25.1
+   ],
+   "missing_centroid_offset_mm": [
+    0.8,
+    2.8,
+    -9.1
+   ],
+   "flip_dice": {
+    "flip_0": 0.3225,
+    "flip_1": 0.5306,
+    "flip_2": 0.3628
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9353,
+   "best_dice": 0.9355,
+   "gain": 0.0002,
+   "best_shift_mm": [
+    0.0,
+    0.7,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "A",
+   "case": "508_1",
+   "phase": "1",
+   "patient": "508",
+   "spacing_mm": [
+    0.877,
+    0.877,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    415
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 3410.9,
+   "gt_tumour_ml": 489.2,
+   "pred_organ_ml": 3311.7,
+   "organ_dice": 0.9743,
+   "centroid_offset_mm": 1.3,
+   "centroid_offset_xyz_mm": [
+    -1.0,
+    -0.5,
+    0.7
+   ],
+   "largest_component_offset_mm": [
+    -1.0,
+    -0.5,
+    0.7
+   ],
+   "n_components": 2,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 36.9,
+   "missing_ml": 136.1,
+   "excess_centroid_offset_mm": [
+    18.9,
+    -8.8,
+    16.1
+   ],
+   "missing_centroid_offset_mm": [
+    29.3,
+    9.1,
+    -12.5
+   ],
+   "flip_dice": {
+    "flip_0": 0.3769,
+    "flip_1": 0.3863,
+    "flip_2": 0.4976
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9743,
+   "best_dice": 0.9743,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "A",
+   "case": "508_2",
+   "phase": "2",
+   "patient": "508",
+   "spacing_mm": [
+    0.877,
+    0.877,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    415
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 3463.1,
+   "gt_tumour_ml": 501.1,
+   "pred_organ_ml": 3360.9,
+   "organ_dice": 0.9759,
+   "centroid_offset_mm": 0.7,
+   "centroid_offset_xyz_mm": [
+    -0.2,
+    -0.3,
+    0.6
+   ],
+   "largest_component_offset_mm": [
+    -0.2,
+    -0.3,
+    0.6
+   ],
+   "n_components": 3,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 31.3,
+   "missing_ml": 133.5,
+   "excess_centroid_offset_mm": [
+    24.0,
+    -1.0,
+    13.7
+   ],
+   "missing_centroid_offset_mm": [
+    11.5,
+    6.3,
+    -12.1
+   ],
+   "flip_dice": {
+    "flip_0": 0.363,
+    "flip_1": 0.4283,
+    "flip_2": 0.4294
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9759,
+   "best_dice": 0.9759,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "A",
+   "case": "510_1",
+   "phase": "1",
+   "patient": "510",
+   "spacing_mm": [
+    0.736,
+    0.736,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    187
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 982.1,
+   "gt_tumour_ml": 19.4,
+   "pred_organ_ml": 868.5,
+   "organ_dice": 0.9149,
+   "centroid_offset_mm": 1.9,
+   "centroid_offset_xyz_mm": [
+    -1.7,
+    0.0,
+    0.6
+   ],
+   "largest_component_offset_mm": [
+    -1.7,
+    0.0,
+    0.6
+   ],
+   "n_components": 7,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 22.0,
+   "missing_ml": 135.6,
+   "excess_centroid_offset_mm": [
+    2.4,
+    -13.0,
+    -1.1
+   ],
+   "missing_centroid_offset_mm": [
+    11.6,
+    -2.2,
+    -4.2
+   ],
+   "flip_dice": {
+    "flip_0": 0.1217,
+    "flip_1": 0.366,
+    "flip_2": 0.5909
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9149,
+   "best_dice": 0.917,
+   "gain": 0.0022,
+   "best_shift_mm": [
+    0.7,
+    0.7,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "A",
+   "case": "515_1",
+   "phase": "1",
+   "patient": "515",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    199
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1733.4,
+   "gt_tumour_ml": 324.2,
+   "pred_organ_ml": 1698.7,
+   "organ_dice": 0.9733,
+   "centroid_offset_mm": 0.6,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    -0.4,
+    0.5
+   ],
+   "largest_component_offset_mm": [
+    0.0,
+    -0.4,
+    0.5
+   ],
+   "n_components": 2,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 28.5,
+   "missing_ml": 63.2,
+   "excess_centroid_offset_mm": [
+    17.3,
+    -2.8,
+    18.9
+   ],
+   "missing_centroid_offset_mm": [
+    6.8,
+    9.9,
+    -3.6
+   ],
+   "flip_dice": {
+    "flip_0": 0.02,
+    "flip_1": 0.4114,
+    "flip_2": 0.6839
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9733,
+   "best_dice": 0.9737,
+   "gain": 0.0004,
+   "best_shift_mm": [
+    -0.7,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "A",
+   "case": "539_1",
+   "phase": "1",
+   "patient": "539",
+   "spacing_mm": [
+    0.781,
+    0.781,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    181
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1107.4,
+   "gt_tumour_ml": 39.6,
+   "pred_organ_ml": 1061.2,
+   "organ_dice": 0.9571,
+   "centroid_offset_mm": 1.5,
+   "centroid_offset_xyz_mm": [
+    0.7,
+    -0.1,
+    1.3
+   ],
+   "largest_component_offset_mm": [
+    0.7,
+    -0.1,
+    1.3
+   ],
+   "n_components": 7,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 23.4,
+   "missing_ml": 69.7,
+   "excess_centroid_offset_mm": [
+    62.8,
+    19.4,
+    24.6
+   ],
+   "missing_centroid_offset_mm": [
+    10.4,
+    8.3,
+    -12.2
+   ],
+   "flip_dice": {
+    "flip_0": 0.1197,
+    "flip_1": 0.4187,
+    "flip_2": 0.5349
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9571,
+   "best_dice": 0.9571,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": null,
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "D0",
+   "case": "25_1",
+   "phase": "1",
+   "patient": "25",
+   "spacing_mm": [
+    0.771,
+    0.771,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    63
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 743.5,
+   "gt_tumour_ml": 0.0,
+   "pred_organ_ml": 537.4,
+   "organ_dice": 0.8352,
+   "centroid_offset_mm": 18.9,
+   "centroid_offset_xyz_mm": [
+    -13.6,
+    -12.9,
+    -2.8
+   ],
+   "largest_component_offset_mm": [
+    -13.6,
+    -12.9,
+    -2.8
+   ],
+   "n_components": 2,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 2.6,
+   "missing_ml": 208.6,
+   "excess_centroid_offset_mm": [
+    13.4,
+    -9.9,
+    0.6
+   ],
+   "missing_centroid_offset_mm": [
+    35.1,
+    33.2,
+    7.2
+   ],
+   "flip_dice": {
+    "flip_0": 0.0027,
+    "flip_1": 0.2849,
+    "flip_2": 0.6171
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.8352,
+   "best_dice": 0.8352,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "D0",
+   "case": "36_1",
+   "phase": "1",
+   "patient": "36",
+   "spacing_mm": [
+    0.836,
+    0.836,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    101
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2654.0,
+   "gt_tumour_ml": 270.5,
+   "pred_organ_ml": 1869.9,
+   "organ_dice": 0.736,
+   "centroid_offset_mm": 19.7,
+   "centroid_offset_xyz_mm": [
+    19.1,
+    -4.6,
+    -0.9
+   ],
+   "largest_component_offset_mm": [
+    -2.9,
+    -0.4,
+    2.1
+   ],
+   "n_components": 16,
+   "largest_component_fraction": 0.893,
+   "excess_ml": 205.2,
+   "missing_ml": 989.3,
+   "excess_centroid_offset_mm": [
+    200.8,
+    -37.7,
+    -23.9
+   ],
+   "missing_centroid_offset_mm": [
+    5.5,
+    0.9,
+    -3.3
+   ],
+   "flip_dice": {
+    "flip_0": 0.2614,
+    "flip_1": 0.4987,
+    "flip_2": 0.3953
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.736,
+   "best_dice": 0.7361,
+   "gain": 0.0001,
+   "best_shift_mm": [
+    0.0,
+    -0.8,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "D0",
+   "case": "36_2",
+   "phase": "2",
+   "patient": "36",
+   "spacing_mm": [
+    0.836,
+    0.836,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    365
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2492.0,
+   "gt_tumour_ml": 257.1,
+   "pred_organ_ml": 790.5,
+   "organ_dice": 0.3354,
+   "centroid_offset_mm": 34.8,
+   "centroid_offset_xyz_mm": [
+    26.6,
+    6.8,
+    21.4
+   ],
+   "largest_component_offset_mm": [
+    17.1,
+    7.6,
+    23.7
+   ],
+   "n_components": 55,
+   "largest_component_fraction": 0.928,
+   "excess_ml": 239.9,
+   "missing_ml": 1941.4,
+   "excess_centroid_offset_mm": [
+    21.0,
+    -32.6,
+    41.1
+   ],
+   "missing_centroid_offset_mm": [
+    -8.2,
+    -6.8,
+    -3.6
+   ],
+   "flip_dice": {
+    "flip_0": 0.1591,
+    "flip_1": 0.1727,
+    "flip_2": 0.1209
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.3354,
+   "best_dice": 0.3381,
+   "gain": 0.0026,
+   "best_shift_mm": [
+    -1.7,
+    -1.7,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "D0",
+   "case": "37_1",
+   "phase": "1",
+   "patient": "37",
+   "spacing_mm": [
+    0.867,
+    0.867,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    225
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2186.4,
+   "gt_tumour_ml": 2.5,
+   "pred_organ_ml": 2414.0,
+   "organ_dice": 0.9131,
+   "centroid_offset_mm": 22.2,
+   "centroid_offset_xyz_mm": [
+    19.8,
+    -9.9,
+    -2.2
+   ],
+   "largest_component_offset_mm": [
+    -0.8,
+    -0.1,
+    0.4
+   ],
+   "n_components": 4,
+   "largest_component_fraction": 0.877,
+   "excess_ml": 313.6,
+   "missing_ml": 86.0,
+   "excess_centroid_offset_mm": [
+    157.5,
+    -75.6,
+    -19.5
+   ],
+   "missing_centroid_offset_mm": [
+    18.8,
+    1.8,
+    -8.7
+   ],
+   "flip_dice": {
+    "flip_0": 0.3452,
+    "flip_1": 0.1128,
+    "flip_2": 0.5873
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9131,
+   "best_dice": 0.9131,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "D0",
+   "case": "65_1",
+   "phase": "1",
+   "patient": "65",
+   "spacing_mm": [
+    0.92,
+    0.92,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    419
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2084.1,
+   "gt_tumour_ml": 0.4,
+   "pred_organ_ml": 1742.5,
+   "organ_dice": 0.9037,
+   "centroid_offset_mm": 11.5,
+   "centroid_offset_xyz_mm": [
+    5.6,
+    7.0,
+    7.2
+   ],
+   "largest_component_offset_mm": [
+    5.6,
+    7.0,
+    7.2
+   ],
+   "n_components": 4,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 13.4,
+   "missing_ml": 355.0,
+   "excess_centroid_offset_mm": [
+    40.8,
+    -2.5,
+    39.7
+   ],
+   "missing_centroid_offset_mm": [
+    -26.2,
+    -34.2,
+    -33.7
+   ],
+   "flip_dice": {
+    "flip_0": 0.083,
+    "flip_1": 0.4681,
+    "flip_2": 0.4327
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9037,
+   "best_dice": 0.9037,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "D0",
+   "case": "65_2",
+   "phase": "2",
+   "patient": "65",
+   "spacing_mm": [
+    0.92,
+    0.92,
+    1.5
+   ],
+   "shape": [
+    512,
+    512,
+    280
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2062.1,
+   "gt_tumour_ml": 0.4,
+   "pred_organ_ml": 1565.3,
+   "organ_dice": 0.8599,
+   "centroid_offset_mm": 15.1,
+   "centroid_offset_xyz_mm": [
+    6.4,
+    9.4,
+    9.9
+   ],
+   "largest_component_offset_mm": [
+    6.4,
+    9.5,
+    9.9
+   ],
+   "n_components": 4,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 5.8,
+   "missing_ml": 502.6,
+   "excess_centroid_offset_mm": [
+    48.8,
+    12.0,
+    48.2
+   ],
+   "missing_centroid_offset_mm": [
+    -19.4,
+    -29.2,
+    -30.2
+   ],
+   "flip_dice": {
+    "flip_0": 0.0753,
+    "flip_1": 0.4553,
+    "flip_2": 0.3978
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.8599,
+   "best_dice": 0.8599,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "D0",
+   "case": "80_1",
+   "phase": "1",
+   "patient": "80",
+   "spacing_mm": [
+    0.822,
+    0.822,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    215
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2863.3,
+   "gt_tumour_ml": 38.0,
+   "pred_organ_ml": 3435.4,
+   "organ_dice": 0.8635,
+   "centroid_offset_mm": 40.9,
+   "centroid_offset_xyz_mm": [
+    38.7,
+    -13.2,
+    -1.1
+   ],
+   "largest_component_offset_mm": [
+    -1.7,
+    -0.3,
+    0.9
+   ],
+   "n_components": 6,
+   "largest_component_fraction": 0.799,
+   "excess_ml": 715.9,
+   "missing_ml": 143.8,
+   "excess_centroid_offset_mm": [
+    192.1,
+    -61.7,
+    -7.9
+   ],
+   "missing_centroid_offset_mm": [
+    32.3,
+    7.0,
+    -13.2
+   ],
+   "flip_dice": {
+    "flip_0": 0.3028,
+    "flip_1": 0.6014,
+    "flip_2": 0.4394
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.8635,
+   "best_dice": 0.8635,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "D0",
+   "case": "80_2",
+   "phase": "2",
+   "patient": "80",
+   "spacing_mm": [
+    0.822,
+    0.822,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    194
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2862.8,
+   "gt_tumour_ml": 38.8,
+   "pred_organ_ml": 3188.3,
+   "organ_dice": 0.9109,
+   "centroid_offset_mm": 27.1,
+   "centroid_offset_xyz_mm": [
+    25.5,
+    -8.9,
+    -0.4
+   ],
+   "largest_component_offset_mm": [
+    -0.2,
+    -0.4,
+    0.5
+   ],
+   "n_components": 4,
+   "largest_component_fraction": 0.876,
+   "excess_ml": 432.3,
+   "missing_ml": 106.8,
+   "excess_centroid_offset_mm": [
+    192.9,
+    -62.8,
+    -5.4
+   ],
+   "missing_centroid_offset_mm": [
+    18.2,
+    11.1,
+    -8.5
+   ],
+   "flip_dice": {
+    "flip_0": 0.2445,
+    "flip_1": 0.6187,
+    "flip_2": 0.4648
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9109,
+   "best_dice": 0.9109,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "D0",
+   "case": "83_2",
+   "phase": "2",
+   "patient": "83",
+   "spacing_mm": [
+    0.771,
+    0.771,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    176
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1616.2,
+   "gt_tumour_ml": 660.8,
+   "pred_organ_ml": 1429.4,
+   "organ_dice": 0.9272,
+   "centroid_offset_mm": 6.9,
+   "centroid_offset_xyz_mm": [
+    0.7,
+    0.2,
+    6.9
+   ],
+   "largest_component_offset_mm": [
+    0.7,
+    0.2,
+    6.9
+   ],
+   "n_components": 7,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 17.4,
+   "missing_ml": 204.3,
+   "excess_centroid_offset_mm": [
+    21.8,
+    21.1,
+    15.2
+   ],
+   "missing_centroid_offset_mm": [
+    -2.7,
+    0.7,
+    -47.1
+   ],
+   "flip_dice": {
+    "flip_0": 0.1144,
+    "flip_1": 0.6493,
+    "flip_2": 0.4386
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9272,
+   "best_dice": 0.9272,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "D0",
+   "case": "119_2",
+   "phase": "2",
+   "patient": "119",
+   "spacing_mm": [
+    0.938,
+    0.938,
+    1.5
+   ],
+   "shape": [
+    512,
+    512,
+    242
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1441.0,
+   "gt_tumour_ml": 73.6,
+   "pred_organ_ml": 1632.4,
+   "organ_dice": 0.9094,
+   "centroid_offset_mm": 27.2,
+   "centroid_offset_xyz_mm": [
+    26.6,
+    0.6,
+    -5.8
+   ],
+   "largest_component_offset_mm": [
+    0.2,
+    -0.4,
+    0.3
+   ],
+   "n_components": 10,
+   "largest_component_fraction": 0.874,
+   "excess_ml": 234.9,
+   "missing_ml": 43.5,
+   "excess_centroid_offset_mm": [
+    186.6,
+    6.9,
+    -41.5
+   ],
+   "missing_centroid_offset_mm": [
+    9.0,
+    13.0,
+    -6.4
+   ],
+   "flip_dice": {
+    "flip_0": 0.0599,
+    "flip_1": 0.4921,
+    "flip_2": 0.3805
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9094,
+   "best_dice": 0.9094,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "D0",
+   "case": "168_1",
+   "phase": "1",
+   "patient": "168",
+   "spacing_mm": [
+    0.727,
+    0.727,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    183
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1018.0,
+   "gt_tumour_ml": 127.0,
+   "pred_organ_ml": 1064.1,
+   "organ_dice": 0.8975,
+   "centroid_offset_mm": 20.6,
+   "centroid_offset_xyz_mm": [
+    20.3,
+    -3.0,
+    -1.5
+   ],
+   "largest_component_offset_mm": [
+    0.4,
+    -0.2,
+    0.6
+   ],
+   "n_components": 7,
+   "largest_component_fraction": 0.887,
+   "excess_ml": 129.8,
+   "missing_ml": 83.7,
+   "excess_centroid_offset_mm": [
+    165.9,
+    -23.4,
+    -16.0
+   ],
+   "missing_centroid_offset_mm": [
+    -1.5,
+    1.8,
+    -6.0
+   ],
+   "flip_dice": {
+    "flip_0": 0.163,
+    "flip_1": 0.5646,
+    "flip_2": 0.3828
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.8975,
+   "best_dice": 0.8978,
+   "gain": 0.0003,
+   "best_shift_mm": [
+    -0.7,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "D0",
+   "case": "168_2",
+   "phase": "2",
+   "patient": "168",
+   "spacing_mm": [
+    0.727,
+    0.727,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    172
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1006.5,
+   "gt_tumour_ml": 129.5,
+   "pred_organ_ml": 1098.4,
+   "organ_dice": 0.9144,
+   "centroid_offset_mm": 21.5,
+   "centroid_offset_xyz_mm": [
+    21.0,
+    -3.1,
+    -3.0
+   ],
+   "largest_component_offset_mm": [
+    0.3,
+    0.1,
+    0.4
+   ],
+   "n_components": 2,
+   "largest_component_fraction": 0.884,
+   "excess_ml": 136.0,
+   "missing_ml": 44.1,
+   "excess_centroid_offset_mm": [
+    168.9,
+    -25.5,
+    -27.4
+   ],
+   "missing_centroid_offset_mm": [
+    -2.9,
+    -0.4,
+    -8.9
+   ],
+   "flip_dice": {
+    "flip_0": 0.157,
+    "flip_1": 0.5788,
+    "flip_2": 0.3884
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9144,
+   "best_dice": 0.9144,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "D0",
+   "case": "339_1",
+   "phase": "1",
+   "patient": "339",
+   "spacing_mm": [
+    0.795,
+    0.795,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    384
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2644.8,
+   "gt_tumour_ml": 430.5,
+   "pred_organ_ml": 2311.4,
+   "organ_dice": 0.8787,
+   "centroid_offset_mm": 10.3,
+   "centroid_offset_xyz_mm": [
+    -1.5,
+    8.8,
+    5.2
+   ],
+   "largest_component_offset_mm": [
+    -1.5,
+    8.8,
+    5.2
+   ],
+   "n_components": 37,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 133.9,
+   "missing_ml": 467.4,
+   "excess_centroid_offset_mm": [
+    -18.6,
+    64.7,
+    -14.9
+   ],
+   "missing_centroid_offset_mm": [
+    2.0,
+    -24.8,
+    -30.0
+   ],
+   "flip_dice": {
+    "flip_0": 0.2583,
+    "flip_1": 0.4222,
+    "flip_2": 0.1558
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.8787,
+   "best_dice": 0.8796,
+   "gain": 0.0009,
+   "best_shift_mm": [
+    0.0,
+    -0.8,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "D0",
+   "case": "339_2",
+   "phase": "2",
+   "patient": "339",
+   "spacing_mm": [
+    0.795,
+    0.795,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    386
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2429.9,
+   "gt_tumour_ml": 431.9,
+   "pred_organ_ml": 2342.0,
+   "organ_dice": 0.9597,
+   "centroid_offset_mm": 0.9,
+   "centroid_offset_xyz_mm": [
+    -0.2,
+    0.5,
+    0.7
+   ],
+   "largest_component_offset_mm": [
+    -0.2,
+    -0.1,
+    0.8
+   ],
+   "n_components": 7,
+   "largest_component_fraction": 0.994,
+   "excess_ml": 52.2,
+   "missing_ml": 140.1,
+   "excess_centroid_offset_mm": [
+    18.6,
+    25.9,
+    -7.4
+   ],
+   "missing_centroid_offset_mm": [
+    10.6,
+    1.7,
+    -14.3
+   ],
+   "flip_dice": {
+    "flip_0": 0.2681,
+    "flip_1": 0.4735,
+    "flip_2": 0.2231
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9597,
+   "best_dice": 0.9597,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "D0",
+   "case": "350_1",
+   "phase": "1",
+   "patient": "350",
+   "spacing_mm": [
+    0.777,
+    0.777,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    241
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1361.4,
+   "gt_tumour_ml": 20.1,
+   "pred_organ_ml": 1233.4,
+   "organ_dice": 0.8625,
+   "centroid_offset_mm": 16.2,
+   "centroid_offset_xyz_mm": [
+    14.5,
+    -6.8,
+    -2.3
+   ],
+   "largest_component_offset_mm": [
+    0.8,
+    0.2,
+    1.1
+   ],
+   "n_components": 4,
+   "largest_component_fraction": 0.915,
+   "excess_ml": 114.4,
+   "missing_ml": 242.3,
+   "excess_centroid_offset_mm": [
+    147.0,
+    -75.4,
+    -36.1
+   ],
+   "missing_centroid_offset_mm": [
+    -4.2,
+    -0.9,
+    -5.3
+   ],
+   "flip_dice": {
+    "flip_0": 0.2207,
+    "flip_1": 0.5104,
+    "flip_2": 0.3939
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.8625,
+   "best_dice": 0.8625,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "D0",
+   "case": "350_2",
+   "phase": "2",
+   "patient": "350",
+   "spacing_mm": [
+    0.777,
+    0.777,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    262
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1321.4,
+   "gt_tumour_ml": 20.6,
+   "pred_organ_ml": 1435.7,
+   "organ_dice": 0.9184,
+   "centroid_offset_mm": 18.8,
+   "centroid_offset_xyz_mm": [
+    16.2,
+    -9.1,
+    -3.1
+   ],
+   "largest_component_offset_mm": [
+    -0.2,
+    -0.7,
+    0.4
+   ],
+   "n_components": 8,
+   "largest_component_fraction": 0.895,
+   "excess_ml": 169.7,
+   "missing_ml": 55.4,
+   "excess_centroid_offset_mm": [
+    138.7,
+    -74.0,
+    -30.4
+   ],
+   "missing_centroid_offset_mm": [
+    5.8,
+    10.2,
+    -12.2
+   ],
+   "flip_dice": {
+    "flip_0": 0.2167,
+    "flip_1": 0.5053,
+    "flip_2": 0.3754
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9184,
+   "best_dice": 0.9184,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "D0",
+   "case": "363_1",
+   "phase": "1",
+   "patient": "363",
+   "spacing_mm": [
+    0.748,
+    0.748,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    283
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1551.1,
+   "gt_tumour_ml": 15.2,
+   "pred_organ_ml": 1127.7,
+   "organ_dice": 0.8311,
+   "centroid_offset_mm": 15.2,
+   "centroid_offset_xyz_mm": [
+    10.6,
+    -1.6,
+    10.8
+   ],
+   "largest_component_offset_mm": [
+    9.1,
+    -0.6,
+    11.3
+   ],
+   "n_components": 2,
+   "largest_component_fraction": 0.99,
+   "excess_ml": 14.5,
+   "missing_ml": 437.9,
+   "excess_centroid_offset_mm": [
+    131.6,
+    -78.2,
+    -21.1
+   ],
+   "missing_centroid_offset_mm": [
+    -23.0,
+    1.6,
+    -28.6
+   ],
+   "flip_dice": {
+    "flip_0": 0.2994,
+    "flip_1": 0.3623,
+    "flip_2": 0.3142
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.8311,
+   "best_dice": 0.8311,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "D0",
+   "case": "383_1",
+   "phase": "1",
+   "patient": "383",
+   "spacing_mm": [
+    0.883,
+    0.883,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    247
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2335.1,
+   "gt_tumour_ml": 58.6,
+   "pred_organ_ml": 3810.4,
+   "organ_dice": 0.6893,
+   "centroid_offset_mm": 85.0,
+   "centroid_offset_xyz_mm": [
+    83.7,
+    -10.1,
+    -11.2
+   ],
+   "largest_component_offset_mm": [
+    -2.2,
+    0.3,
+    2.3
+   ],
+   "n_components": 5,
+   "largest_component_fraction": 0.562,
+   "excess_ml": 1692.5,
+   "missing_ml": 217.2,
+   "excess_centroid_offset_mm": [
+    190.7,
+    -23.0,
+    -27.6
+   ],
+   "missing_centroid_offset_mm": [
+    17.3,
+    -2.9,
+    -17.6
+   ],
+   "flip_dice": {
+    "flip_0": 0.4384,
+    "flip_1": 0.4587,
+    "flip_2": 0.2422
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.6893,
+   "best_dice": 0.6893,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.9,
+    -1.2
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "D0",
+   "case": "383_2",
+   "phase": "2",
+   "patient": "383",
+   "spacing_mm": [
+    0.883,
+    0.883,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    204
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2277.0,
+   "gt_tumour_ml": 58.6,
+   "pred_organ_ml": 3489.4,
+   "organ_dice": 0.7425,
+   "centroid_offset_mm": 75.4,
+   "centroid_offset_xyz_mm": [
+    73.8,
+    -8.3,
+    -12.7
+   ],
+   "largest_component_offset_mm": [
+    -1.3,
+    -1.4,
+    0.9
+   ],
+   "n_components": 8,
+   "largest_component_fraction": 0.625,
+   "excess_ml": 1348.8,
+   "missing_ml": 136.3,
+   "excess_centroid_offset_mm": [
+    192.9,
+    -19.9,
+    -34.2
+   ],
+   "missing_centroid_offset_mm": [
+    17.9,
+    16.9,
+    -13.5
+   ],
+   "flip_dice": {
+    "flip_0": 0.3899,
+    "flip_1": 0.4694,
+    "flip_2": 0.4306
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.7425,
+   "best_dice": 0.7431,
+   "gain": 0.0007,
+   "best_shift_mm": [
+    0.9,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "D0",
+   "case": "404_1",
+   "phase": "1",
+   "patient": "404",
+   "spacing_mm": [
+    0.885,
+    0.885,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    209
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1968.0,
+   "gt_tumour_ml": 11.9,
+   "pred_organ_ml": 2166.5,
+   "organ_dice": 0.8756,
+   "centroid_offset_mm": 29.3,
+   "centroid_offset_xyz_mm": [
+    28.6,
+    -6.5,
+    -0.2
+   ],
+   "largest_component_offset_mm": [
+    1.0,
+    2.5,
+    2.3
+   ],
+   "n_components": 14,
+   "largest_component_fraction": 0.85,
+   "excess_ml": 356.5,
+   "missing_ml": 158.0,
+   "excess_centroid_offset_mm": [
+    168.4,
+    -48.7,
+    -12.6
+   ],
+   "missing_centroid_offset_mm": [
+    -12.1,
+    -20.8,
+    -25.2
+   ],
+   "flip_dice": {
+    "flip_0": 0.1318,
+    "flip_1": 0.1829,
+    "flip_2": 0.3885
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.8756,
+   "best_dice": 0.8772,
+   "gain": 0.0017,
+   "best_shift_mm": [
+    -0.9,
+    -0.9,
+    -1.2
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "D0",
+   "case": "404_2",
+   "phase": "2",
+   "patient": "404",
+   "spacing_mm": [
+    0.885,
+    0.885,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    244
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1929.7,
+   "gt_tumour_ml": 11.9,
+   "pred_organ_ml": 2430.6,
+   "organ_dice": 0.8565,
+   "centroid_offset_mm": 43.9,
+   "centroid_offset_xyz_mm": [
+    42.1,
+    -10.7,
+    -6.5
+   ],
+   "largest_component_offset_mm": [
+    -0.5,
+    0.2,
+    0.2
+   ],
+   "n_components": 4,
+   "largest_component_fraction": 0.782,
+   "excess_ml": 563.2,
+   "missing_ml": 62.3,
+   "excess_centroid_offset_mm": [
+    184.0,
+    -45.9,
+    -28.4
+   ],
+   "missing_centroid_offset_mm": [
+    22.5,
+    2.7,
+    -4.6
+   ],
+   "flip_dice": {
+    "flip_0": 0.1816,
+    "flip_1": 0.1698,
+    "flip_2": 0.3777
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.8565,
+   "best_dice": 0.8565,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "D0",
+   "case": "438_1",
+   "phase": "1",
+   "patient": "438",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    195
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2039.4,
+   "gt_tumour_ml": 253.5,
+   "pred_organ_ml": 2470.0,
+   "organ_dice": 0.8599,
+   "centroid_offset_mm": 33.8,
+   "centroid_offset_xyz_mm": [
+    32.0,
+    -7.6,
+    -7.7
+   ],
+   "largest_component_offset_mm": [
+    -0.9,
+    0.1,
+    -0.0
+   ],
+   "n_components": 24,
+   "largest_component_fraction": 0.799,
+   "excess_ml": 531.2,
+   "missing_ml": 100.6,
+   "excess_centroid_offset_mm": [
+    154.1,
+    -35.6,
+    -36.0
+   ],
+   "missing_centroid_offset_mm": [
+    27.1,
+    -1.9,
+    -0.1
+   ],
+   "flip_dice": {
+    "flip_0": 0.4077,
+    "flip_1": 0.4954,
+    "flip_2": 0.3434
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.8599,
+   "best_dice": 0.8599,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "D0",
+   "case": "508_1",
+   "phase": "1",
+   "patient": "508",
+   "spacing_mm": [
+    0.877,
+    0.877,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    415
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 3410.9,
+   "gt_tumour_ml": 489.2,
+   "pred_organ_ml": 4099.1,
+   "organ_dice": 0.7548,
+   "centroid_offset_mm": 53.6,
+   "centroid_offset_xyz_mm": [
+    49.8,
+    -19.8,
+    -1.6
+   ],
+   "largest_component_offset_mm": [
+    -0.2,
+    -1.3,
+    3.3
+   ],
+   "n_components": 7,
+   "largest_component_fraction": 0.694,
+   "excess_ml": 1264.8,
+   "missing_ml": 576.7,
+   "excess_centroid_offset_mm": [
+    162.1,
+    -61.5,
+    -12.4
+   ],
+   "missing_centroid_offset_mm": [
+    1.6,
+    6.0,
+    -16.0
+   ],
+   "flip_dice": {
+    "flip_0": 0.5761,
+    "flip_1": 0.3292,
+    "flip_2": 0.3844
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.7548,
+   "best_dice": 0.7548,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "D0",
+   "case": "508_2",
+   "phase": "2",
+   "patient": "508",
+   "spacing_mm": [
+    0.877,
+    0.877,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    415
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 3463.1,
+   "gt_tumour_ml": 501.1,
+   "pred_organ_ml": 4220.3,
+   "organ_dice": 0.8436,
+   "centroid_offset_mm": 41.8,
+   "centroid_offset_xyz_mm": [
+    37.9,
+    -17.6,
+    -1.8
+   ],
+   "largest_component_offset_mm": [
+    -0.0,
+    -0.1,
+    1.0
+   ],
+   "n_components": 10,
+   "largest_component_fraction": 0.773,
+   "excess_ml": 979.6,
+   "missing_ml": 222.4,
+   "excess_centroid_offset_mm": [
+    163.9,
+    -75.5,
+    -10.4
+   ],
+   "missing_centroid_offset_mm": [
+    3.7,
+    0.7,
+    -12.3
+   ],
+   "flip_dice": {
+    "flip_0": 0.5008,
+    "flip_1": 0.4065,
+    "flip_2": 0.3761
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.8436,
+   "best_dice": 0.8436,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "D0",
+   "case": "510_1",
+   "phase": "1",
+   "patient": "510",
+   "spacing_mm": [
+    0.736,
+    0.736,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    187
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 982.1,
+   "gt_tumour_ml": 19.4,
+   "pred_organ_ml": 47.5,
+   "organ_dice": 0.0905,
+   "centroid_offset_mm": 26.6,
+   "centroid_offset_xyz_mm": [
+    25.7,
+    -6.3,
+    2.7
+   ],
+   "largest_component_offset_mm": [
+    87.0,
+    44.3,
+    0.9
+   ],
+   "n_components": 5,
+   "largest_component_fraction": 0.54,
+   "excess_ml": 0.9,
+   "missing_ml": 935.5,
+   "excess_centroid_offset_mm": [
+    77.0,
+    38.2,
+    5.2
+   ],
+   "missing_centroid_offset_mm": [
+    -1.2,
+    0.4,
+    -0.1
+   ],
+   "flip_dice": {
+    "flip_0": 0.049,
+    "flip_1": 0.0393,
+    "flip_2": 0.058
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.0905,
+   "best_dice": 0.0915,
+   "gain": 0.001,
+   "best_shift_mm": [
+    -0.7,
+    0.7,
+    -1.2
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "D0",
+   "case": "515_1",
+   "phase": "1",
+   "patient": "515",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    199
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1733.4,
+   "gt_tumour_ml": 324.2,
+   "pred_organ_ml": 1108.7,
+   "organ_dice": 0.7756,
+   "centroid_offset_mm": 22.8,
+   "centroid_offset_xyz_mm": [
+    7.0,
+    21.6,
+    -1.6
+   ],
+   "largest_component_offset_mm": [
+    7.0,
+    21.6,
+    -1.6
+   ],
+   "n_components": 4,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 6.5,
+   "missing_ml": 631.1,
+   "excess_centroid_offset_mm": [
+    37.7,
+    31.9,
+    29.8
+   ],
+   "missing_centroid_offset_mm": [
+    -11.9,
+    -37.6,
+    3.1
+   ],
+   "flip_dice": {
+    "flip_0": 0.0197,
+    "flip_1": 0.2077,
+    "flip_2": 0.5021
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.7756,
+   "best_dice": 0.7762,
+   "gain": 0.0006,
+   "best_shift_mm": [
+    -0.7,
+    -0.7,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "D0",
+   "case": "539_1",
+   "phase": "1",
+   "patient": "539",
+   "spacing_mm": [
+    0.781,
+    0.781,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    181
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1107.4,
+   "gt_tumour_ml": 39.6,
+   "pred_organ_ml": 427.2,
+   "organ_dice": 0.5425,
+   "centroid_offset_mm": 32.6,
+   "centroid_offset_xyz_mm": [
+    24.7,
+    14.6,
+    15.6
+   ],
+   "largest_component_offset_mm": [
+    23.9,
+    15.3,
+    17.1
+   ],
+   "n_components": 7,
+   "largest_component_fraction": 0.957,
+   "excess_ml": 10.9,
+   "missing_ml": 691.2,
+   "excess_centroid_offset_mm": [
+    120.4,
+    36.4,
+    21.9
+   ],
+   "missing_centroid_offset_mm": [
+    -13.3,
+    -8.4,
+    -9.3
+   ],
+   "flip_dice": {
+    "flip_0": 0.1469,
+    "flip_1": 0.1428,
+    "flip_2": 0.184
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.5425,
+   "best_dice": 0.5428,
+   "gain": 0.0003,
+   "best_shift_mm": [
+    -0.8,
+    -0.8,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "B50",
+   "case": "25_1",
+   "phase": "1",
+   "patient": "25",
+   "spacing_mm": [
+    0.771,
+    0.771,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    63
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 743.5,
+   "gt_tumour_ml": 0.0,
+   "pred_organ_ml": 617.6,
+   "organ_dice": 0.9038,
+   "centroid_offset_mm": 8.1,
+   "centroid_offset_xyz_mm": [
+    -6.7,
+    -4.2,
+    -1.7
+   ],
+   "largest_component_offset_mm": [
+    -6.7,
+    -4.2,
+    -1.7
+   ],
+   "n_components": 1,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 2.6,
+   "missing_ml": 128.4,
+   "excess_centroid_offset_mm": [
+    9.6,
+    -5.0,
+    -2.0
+   ],
+   "missing_centroid_offset_mm": [
+    32.5,
+    20.3,
+    8.0
+   ],
+   "flip_dice": {
+    "flip_0": 0.0657,
+    "flip_1": 0.2632,
+    "flip_2": 0.6239
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9038,
+   "best_dice": 0.9046,
+   "gain": 0.0008,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    1.2
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "B50",
+   "case": "36_1",
+   "phase": "1",
+   "patient": "36",
+   "spacing_mm": [
+    0.836,
+    0.836,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    101
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2654.0,
+   "gt_tumour_ml": 270.5,
+   "pred_organ_ml": 1462.1,
+   "organ_dice": 0.6555,
+   "centroid_offset_mm": 20.3,
+   "centroid_offset_xyz_mm": [
+    19.7,
+    -1.0,
+    4.6
+   ],
+   "largest_component_offset_mm": [
+    5.1,
+    -0.0,
+    7.5
+   ],
+   "n_components": 10,
+   "largest_component_fraction": 0.901,
+   "excess_ml": 112.9,
+   "missing_ml": 1304.9,
+   "excess_centroid_offset_mm": [
+    183.7,
+    -40.1,
+    -19.9
+   ],
+   "missing_centroid_offset_mm": [
+    -6.2,
+    -2.3,
+    -6.8
+   ],
+   "flip_dice": {
+    "flip_0": 0.2476,
+    "flip_1": 0.4192,
+    "flip_2": 0.3438
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.6555,
+   "best_dice": 0.6558,
+   "gain": 0.0003,
+   "best_shift_mm": [
+    -0.8,
+    -0.8,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "B50",
+   "case": "36_2",
+   "phase": "2",
+   "patient": "36",
+   "spacing_mm": [
+    0.836,
+    0.836,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    365
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2492.0,
+   "gt_tumour_ml": 257.1,
+   "pred_organ_ml": 447.0,
+   "organ_dice": 0.2621,
+   "centroid_offset_mm": 66.8,
+   "centroid_offset_xyz_mm": [
+    50.6,
+    24.5,
+    36.1
+   ],
+   "largest_component_offset_mm": [
+    69.7,
+    38.8,
+    38.2
+   ],
+   "n_components": 29,
+   "largest_component_fraction": 0.8,
+   "excess_ml": 61.8,
+   "missing_ml": 2106.8,
+   "excess_centroid_offset_mm": [
+    -7.6,
+    -36.4,
+    56.0
+   ],
+   "missing_centroid_offset_mm": [
+    -11.0,
+    -6.3,
+    -6.0
+   ],
+   "flip_dice": {
+    "flip_0": 0.1819,
+    "flip_1": 0.0592,
+    "flip_2": 0.0323
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.2621,
+   "best_dice": 0.2627,
+   "gain": 0.0005,
+   "best_shift_mm": [
+    -1.7,
+    0.8,
+    -1.2
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "B50",
+   "case": "37_1",
+   "phase": "1",
+   "patient": "37",
+   "spacing_mm": [
+    0.867,
+    0.867,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    225
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2186.4,
+   "gt_tumour_ml": 2.5,
+   "pred_organ_ml": 2308.5,
+   "organ_dice": 0.9331,
+   "centroid_offset_mm": 14.9,
+   "centroid_offset_xyz_mm": [
+    13.2,
+    -6.6,
+    -1.3
+   ],
+   "largest_component_offset_mm": [
+    -0.7,
+    -0.1,
+    0.5
+   ],
+   "n_components": 17,
+   "largest_component_fraction": 0.915,
+   "excess_ml": 211.3,
+   "missing_ml": 89.2,
+   "excess_centroid_offset_mm": [
+    150.6,
+    -71.8,
+    -18.7
+   ],
+   "missing_centroid_offset_mm": [
+    14.2,
+    1.8,
+    -10.1
+   ],
+   "flip_dice": {
+    "flip_0": 0.3232,
+    "flip_1": 0.1155,
+    "flip_2": 0.6015
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9331,
+   "best_dice": 0.9331,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "B50",
+   "case": "65_1",
+   "phase": "1",
+   "patient": "65",
+   "spacing_mm": [
+    0.92,
+    0.92,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    419
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2084.1,
+   "gt_tumour_ml": 0.4,
+   "pred_organ_ml": 1617.0,
+   "organ_dice": 0.8676,
+   "centroid_offset_mm": 16.2,
+   "centroid_offset_xyz_mm": [
+    7.9,
+    10.6,
+    9.2
+   ],
+   "largest_component_offset_mm": [
+    7.9,
+    10.6,
+    9.2
+   ],
+   "n_components": 2,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 11.5,
+   "missing_ml": 478.6,
+   "excess_centroid_offset_mm": [
+    38.2,
+    -1.8,
+    38.0
+   ],
+   "missing_centroid_offset_mm": [
+    -25.9,
+    -35.9,
+    -30.3
+   ],
+   "flip_dice": {
+    "flip_0": 0.0857,
+    "flip_1": 0.4359,
+    "flip_2": 0.4125
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.8676,
+   "best_dice": 0.8676,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "B50",
+   "case": "65_2",
+   "phase": "2",
+   "patient": "65",
+   "spacing_mm": [
+    0.92,
+    0.92,
+    1.5
+   ],
+   "shape": [
+    512,
+    512,
+    280
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2062.1,
+   "gt_tumour_ml": 0.4,
+   "pred_organ_ml": 1102.6,
+   "organ_dice": 0.6941,
+   "centroid_offset_mm": 24.6,
+   "centroid_offset_xyz_mm": [
+    17.7,
+    14.9,
+    8.5
+   ],
+   "largest_component_offset_mm": [
+    17.7,
+    14.9,
+    8.5
+   ],
+   "n_components": 9,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 4.3,
+   "missing_ml": 963.8,
+   "excess_centroid_offset_mm": [
+    57.8,
+    11.8,
+    53.2
+   ],
+   "missing_centroid_offset_mm": [
+    -20.0,
+    -17.0,
+    -9.5
+   ],
+   "flip_dice": {
+    "flip_0": 0.0868,
+    "flip_1": 0.3097,
+    "flip_2": 0.3387
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.6941,
+   "best_dice": 0.6942,
+   "gain": 0.0001,
+   "best_shift_mm": [
+    -0.9,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "B50",
+   "case": "80_1",
+   "phase": "1",
+   "patient": "80",
+   "spacing_mm": [
+    0.822,
+    0.822,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    215
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2863.3,
+   "gt_tumour_ml": 38.0,
+   "pred_organ_ml": 3368.1,
+   "organ_dice": 0.8612,
+   "centroid_offset_mm": 39.3,
+   "centroid_offset_xyz_mm": [
+    37.0,
+    -13.1,
+    -0.9
+   ],
+   "largest_component_offset_mm": [
+    -2.5,
+    -0.2,
+    1.0
+   ],
+   "n_components": 8,
+   "largest_component_fraction": 0.804,
+   "excess_ml": 684.9,
+   "missing_ml": 180.1,
+   "excess_centroid_offset_mm": [
+    191.4,
+    -63.7,
+    -7.3
+   ],
+   "missing_centroid_offset_mm": [
+    35.9,
+    2.6,
+    -10.8
+   ],
+   "flip_dice": {
+    "flip_0": 0.2981,
+    "flip_1": 0.5988,
+    "flip_2": 0.4417
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.8612,
+   "best_dice": 0.8615,
+   "gain": 0.0003,
+   "best_shift_mm": [
+    0.8,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "B50",
+   "case": "80_2",
+   "phase": "2",
+   "patient": "80",
+   "spacing_mm": [
+    0.822,
+    0.822,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    194
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2862.8,
+   "gt_tumour_ml": 38.8,
+   "pred_organ_ml": 3242.9,
+   "organ_dice": 0.9044,
+   "centroid_offset_mm": 29.4,
+   "centroid_offset_xyz_mm": [
+    27.7,
+    -9.7,
+    -0.7
+   ],
+   "largest_component_offset_mm": [
+    0.0,
+    -0.4,
+    0.7
+   ],
+   "n_components": 9,
+   "largest_component_fraction": 0.865,
+   "excess_ml": 481.9,
+   "missing_ml": 101.8,
+   "excess_centroid_offset_mm": [
+    190.7,
+    -62.7,
+    -7.0
+   ],
+   "missing_centroid_offset_mm": [
+    18.9,
+    11.6,
+    -11.2
+   ],
+   "flip_dice": {
+    "flip_0": 0.2521,
+    "flip_1": 0.6137,
+    "flip_2": 0.4612
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9044,
+   "best_dice": 0.9044,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "B50",
+   "case": "83_2",
+   "phase": "2",
+   "patient": "83",
+   "spacing_mm": [
+    0.771,
+    0.771,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    176
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1616.2,
+   "gt_tumour_ml": 660.8,
+   "pred_organ_ml": 1192.1,
+   "organ_dice": 0.8392,
+   "centroid_offset_mm": 15.6,
+   "centroid_offset_xyz_mm": [
+    2.9,
+    8.0,
+    13.1
+   ],
+   "largest_component_offset_mm": [
+    2.9,
+    8.0,
+    13.1
+   ],
+   "n_components": 5,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 13.8,
+   "missing_ml": 437.9,
+   "excess_centroid_offset_mm": [
+    26.3,
+    24.2,
+    19.7
+   ],
+   "missing_centroid_offset_mm": [
+    -7.2,
+    -21.1,
+    -35.0
+   ],
+   "flip_dice": {
+    "flip_0": 0.1237,
+    "flip_1": 0.608,
+    "flip_2": 0.3882
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.8392,
+   "best_dice": 0.8392,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "B50",
+   "case": "119_2",
+   "phase": "2",
+   "patient": "119",
+   "spacing_mm": [
+    0.938,
+    0.938,
+    1.5
+   ],
+   "shape": [
+    512,
+    512,
+    242
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1441.0,
+   "gt_tumour_ml": 73.6,
+   "pred_organ_ml": 1699.9,
+   "organ_dice": 0.8844,
+   "centroid_offset_mm": 34.9,
+   "centroid_offset_xyz_mm": [
+    34.1,
+    -3.2,
+    -6.7
+   ],
+   "largest_component_offset_mm": [
+    0.3,
+    -0.5,
+    0.3
+   ],
+   "n_components": 4,
+   "largest_component_fraction": 0.834,
+   "excess_ml": 310.9,
+   "missing_ml": 52.1,
+   "excess_centroid_offset_mm": [
+    187.7,
+    -15.4,
+    -37.9
+   ],
+   "missing_centroid_offset_mm": [
+    7.3,
+    13.4,
+    -5.9
+   ],
+   "flip_dice": {
+    "flip_0": 0.0903,
+    "flip_1": 0.4798,
+    "flip_2": 0.3694
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.8844,
+   "best_dice": 0.8844,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "B50",
+   "case": "168_1",
+   "phase": "1",
+   "patient": "168",
+   "spacing_mm": [
+    0.727,
+    0.727,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    183
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1018.0,
+   "gt_tumour_ml": 127.0,
+   "pred_organ_ml": 1023.9,
+   "organ_dice": 0.8709,
+   "centroid_offset_mm": 24.0,
+   "centroid_offset_xyz_mm": [
+    23.8,
+    -2.8,
+    0.3
+   ],
+   "largest_component_offset_mm": [
+    2.0,
+    0.4,
+    3.0
+   ],
+   "n_components": 6,
+   "largest_component_fraction": 0.876,
+   "excess_ml": 134.8,
+   "missing_ml": 128.9,
+   "excess_centroid_offset_mm": [
+    168.5,
+    -23.8,
+    -17.5
+   ],
+   "missing_centroid_offset_mm": [
+    -13.2,
+    -2.5,
+    -20.4
+   ],
+   "flip_dice": {
+    "flip_0": 0.1648,
+    "flip_1": 0.542,
+    "flip_2": 0.366
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.8709,
+   "best_dice": 0.871,
+   "gain": 0.0001,
+   "best_shift_mm": [
+    -0.7,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "B50",
+   "case": "168_2",
+   "phase": "2",
+   "patient": "168",
+   "spacing_mm": [
+    0.727,
+    0.727,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    172
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1006.5,
+   "gt_tumour_ml": 129.5,
+   "pred_organ_ml": 1077.6,
+   "organ_dice": 0.9131,
+   "centroid_offset_mm": 20.7,
+   "centroid_offset_xyz_mm": [
+    20.4,
+    -2.6,
+    -2.2
+   ],
+   "largest_component_offset_mm": [
+    0.9,
+    0.3,
+    1.0
+   ],
+   "n_components": 2,
+   "largest_component_fraction": 0.891,
+   "excess_ml": 126.1,
+   "missing_ml": 55.0,
+   "excess_centroid_offset_mm": [
+    169.3,
+    -23.6,
+    -26.2
+   ],
+   "missing_centroid_offset_mm": [
+    -11.2,
+    -3.3,
+    -17.6
+   ],
+   "flip_dice": {
+    "flip_0": 0.1588,
+    "flip_1": 0.5779,
+    "flip_2": 0.3901
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9131,
+   "best_dice": 0.9131,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "B50",
+   "case": "339_1",
+   "phase": "1",
+   "patient": "339",
+   "spacing_mm": [
+    0.795,
+    0.795,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    384
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2644.8,
+   "gt_tumour_ml": 430.5,
+   "pred_organ_ml": 2707.3,
+   "organ_dice": 0.8543,
+   "centroid_offset_mm": 8.8,
+   "centroid_offset_xyz_mm": [
+    -6.4,
+    6.0,
+    0.7
+   ],
+   "largest_component_offset_mm": [
+    -6.4,
+    6.0,
+    0.7
+   ],
+   "n_components": 47,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 421.3,
+   "missing_ml": 358.7,
+   "excess_centroid_offset_mm": [
+    -29.7,
+    25.3,
+    -25.4
+   ],
+   "missing_centroid_offset_mm": [
+    13.3,
+    -15.4,
+    -34.9
+   ],
+   "flip_dice": {
+    "flip_0": 0.2376,
+    "flip_1": 0.43,
+    "flip_2": 0.2269
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.8543,
+   "best_dice": 0.8553,
+   "gain": 0.0011,
+   "best_shift_mm": [
+    0.8,
+    -0.8,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "B50",
+   "case": "339_2",
+   "phase": "2",
+   "patient": "339",
+   "spacing_mm": [
+    0.795,
+    0.795,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    386
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2429.9,
+   "gt_tumour_ml": 431.9,
+   "pred_organ_ml": 2555.7,
+   "organ_dice": 0.9233,
+   "centroid_offset_mm": 7.0,
+   "centroid_offset_xyz_mm": [
+    -4.2,
+    0.9,
+    -5.5
+   ],
+   "largest_component_offset_mm": [
+    -4.2,
+    0.9,
+    -5.5
+   ],
+   "n_components": 21,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 254.2,
+   "missing_ml": 128.4,
+   "excess_centroid_offset_mm": [
+    -27.7,
+    5.7,
+    -58.0
+   ],
+   "missing_centroid_offset_mm": [
+    29.3,
+    -6.6,
+    -6.0
+   ],
+   "flip_dice": {
+    "flip_0": 0.2474,
+    "flip_1": 0.4579,
+    "flip_2": 0.2706
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.9233,
+   "best_dice": 0.9233,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "B50",
+   "case": "350_1",
+   "phase": "1",
+   "patient": "350",
+   "spacing_mm": [
+    0.777,
+    0.777,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    241
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1361.4,
+   "gt_tumour_ml": 20.1,
+   "pred_organ_ml": 1378.7,
+   "organ_dice": 0.8635,
+   "centroid_offset_mm": 22.1,
+   "centroid_offset_xyz_mm": [
+    19.5,
+    -10.3,
+    -1.6
+   ],
+   "largest_component_offset_mm": [
+    -0.3,
+    -0.0,
+    2.3
+   ],
+   "n_components": 5,
+   "largest_component_fraction": 0.872,
+   "excess_ml": 195.7,
+   "missing_ml": 178.4,
+   "excess_centroid_offset_mm": [
+    137.5,
+    -73.3,
+    -24.0
+   ],
+   "missing_centroid_offset_mm": [
+    0.3,
+    -0.7,
+    -13.7
+   ],
+   "flip_dice": {
+    "flip_0": 0.2244,
+    "flip_1": 0.5174,
+    "flip_2": 0.4034
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.8635,
+   "best_dice": 0.8648,
+   "gain": 0.0013,
+   "best_shift_mm": [
+    0.0,
+    0.8,
+    -1.2
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "B50",
+   "case": "350_2",
+   "phase": "2",
+   "patient": "350",
+   "spacing_mm": [
+    0.777,
+    0.777,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    262
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1321.4,
+   "gt_tumour_ml": 20.6,
+   "pred_organ_ml": 1497.6,
+   "organ_dice": 0.901,
+   "centroid_offset_mm": 23.8,
+   "centroid_offset_xyz_mm": [
+    20.7,
+    -11.5,
+    -2.4
+   ],
+   "largest_component_offset_mm": [
+    0.0,
+    -0.7,
+    0.5
+   ],
+   "n_components": 4,
+   "largest_component_fraction": 0.862,
+   "excess_ml": 227.6,
+   "missing_ml": 51.4,
+   "excess_centroid_offset_mm": [
+    137.3,
+    -73.1,
+    -19.1
+   ],
+   "missing_centroid_offset_mm": [
+    4.2,
+    10.7,
+    -13.9
+   ],
+   "flip_dice": {
+    "flip_0": 0.2389,
+    "flip_1": 0.4964,
+    "flip_2": 0.3676
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.901,
+   "best_dice": 0.901,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "B50",
+   "case": "363_1",
+   "phase": "1",
+   "patient": "363",
+   "spacing_mm": [
+    0.748,
+    0.748,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    283
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1551.1,
+   "gt_tumour_ml": 15.2,
+   "pred_organ_ml": 962.8,
+   "organ_dice": 0.7578,
+   "centroid_offset_mm": 22.5,
+   "centroid_offset_xyz_mm": [
+    17.2,
+    0.6,
+    14.5
+   ],
+   "largest_component_offset_mm": [
+    16.1,
+    1.4,
+    14.8
+   ],
+   "n_components": 11,
+   "largest_component_fraction": 0.992,
+   "excess_ml": 10.3,
+   "missing_ml": 598.7,
+   "excess_centroid_offset_mm": [
+    125.7,
+    -75.8,
+    -14.1
+   ],
+   "missing_centroid_offset_mm": [
+    -25.5,
+    -2.2,
+    -23.6
+   ],
+   "flip_dice": {
+    "flip_0": 0.3124,
+    "flip_1": 0.3157,
+    "flip_2": 0.2563
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.7578,
+   "best_dice": 0.7579,
+   "gain": 0.0002,
+   "best_shift_mm": [
+    -0.7,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "B50",
+   "case": "383_1",
+   "phase": "1",
+   "patient": "383",
+   "spacing_mm": [
+    0.883,
+    0.883,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    247
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2335.1,
+   "gt_tumour_ml": 58.6,
+   "pred_organ_ml": 3874.4,
+   "organ_dice": 0.6526,
+   "centroid_offset_mm": 91.7,
+   "centroid_offset_xyz_mm": [
+    90.5,
+    -7.2,
+    -12.6
+   ],
+   "largest_component_offset_mm": [
+    0.0,
+    4.5,
+    3.7
+   ],
+   "n_components": 11,
+   "largest_component_fraction": 0.529,
+   "excess_ml": 1848.1,
+   "missing_ml": 308.8,
+   "excess_centroid_offset_mm": [
+    189.3,
+    -20.2,
+    -29.9
+   ],
+   "missing_centroid_offset_mm": [
+    -2.8,
+    -29.8,
+    -21.2
+   ],
+   "flip_dice": {
+    "flip_0": 0.4498,
+    "flip_1": 0.4279,
+    "flip_2": 0.2329
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.6526,
+   "best_dice": 0.6529,
+   "gain": 0.0003,
+   "best_shift_mm": [
+    0.0,
+    0.9,
+    -1.2
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "B50",
+   "case": "383_2",
+   "phase": "2",
+   "patient": "383",
+   "spacing_mm": [
+    0.883,
+    0.883,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    204
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2277.0,
+   "gt_tumour_ml": 58.6,
+   "pred_organ_ml": 3355.6,
+   "organ_dice": 0.7612,
+   "centroid_offset_mm": 70.5,
+   "centroid_offset_xyz_mm": [
+    69.0,
+    -5.8,
+    -13.3
+   ],
+   "largest_component_offset_mm": [
+    -0.1,
+    0.1,
+    1.3
+   ],
+   "n_components": 45,
+   "largest_component_fraction": 0.656,
+   "excess_ml": 1211.8,
+   "missing_ml": 133.1,
+   "excess_centroid_offset_mm": [
+    191.7,
+    -15.3,
+    -39.4
+   ],
+   "missing_centroid_offset_mm": [
+    5.5,
+    6.9,
+    -23.3
+   ],
+   "flip_dice": {
+    "flip_0": 0.3586,
+    "flip_1": 0.484,
+    "flip_2": 0.4464
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.7612,
+   "best_dice": 0.7612,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "B50",
+   "case": "404_1",
+   "phase": "1",
+   "patient": "404",
+   "spacing_mm": [
+    0.885,
+    0.885,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    209
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1968.0,
+   "gt_tumour_ml": 11.9,
+   "pred_organ_ml": 2238.1,
+   "organ_dice": 0.8476,
+   "centroid_offset_mm": 38.5,
+   "centroid_offset_xyz_mm": [
+    38.0,
+    -6.2,
+    0.1
+   ],
+   "largest_component_offset_mm": [
+    2.7,
+    3.3,
+    3.7
+   ],
+   "n_components": 6,
+   "largest_component_fraction": 0.809,
+   "excess_ml": 455.6,
+   "missing_ml": 185.5,
+   "excess_centroid_offset_mm": [
+    172.9,
+    -40.3,
+    -14.3
+   ],
+   "missing_centroid_offset_mm": [
+    -33.7,
+    -23.7,
+    -36.1
+   ],
+   "flip_dice": {
+    "flip_0": 0.1743,
+    "flip_1": 0.1759,
+    "flip_2": 0.3691
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.8476,
+   "best_dice": 0.8495,
+   "gain": 0.002,
+   "best_shift_mm": [
+    -0.9,
+    -0.9,
+    -1.2
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "B50",
+   "case": "404_2",
+   "phase": "2",
+   "patient": "404",
+   "spacing_mm": [
+    0.885,
+    0.885,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    244
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1929.7,
+   "gt_tumour_ml": 11.9,
+   "pred_organ_ml": 2333.3,
+   "organ_dice": 0.8808,
+   "centroid_offset_mm": 35.6,
+   "centroid_offset_xyz_mm": [
+    34.5,
+    -7.2,
+    -4.6
+   ],
+   "largest_component_offset_mm": [
+    -0.1,
+    0.2,
+    0.5
+   ],
+   "n_components": 13,
+   "largest_component_fraction": 0.82,
+   "excess_ml": 456.0,
+   "missing_ml": 52.4,
+   "excess_centroid_offset_mm": [
+    178.6,
+    -36.7,
+    -24.7
+   ],
+   "missing_centroid_offset_mm": [
+    17.4,
+    3.4,
+    -10.6
+   ],
+   "flip_dice": {
+    "flip_0": 0.16,
+    "flip_1": 0.1747,
+    "flip_2": 0.387
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.8808,
+   "best_dice": 0.8808,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "B50",
+   "case": "438_1",
+   "phase": "1",
+   "patient": "438",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    195
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2039.4,
+   "gt_tumour_ml": 253.5,
+   "pred_organ_ml": 2431.4,
+   "organ_dice": 0.8667,
+   "centroid_offset_mm": 32.4,
+   "centroid_offset_xyz_mm": [
+    31.0,
+    -7.0,
+    -6.2
+   ],
+   "largest_component_offset_mm": [
+    -0.3,
+    0.7,
+    0.4
+   ],
+   "n_components": 29,
+   "largest_component_fraction": 0.811,
+   "excess_ml": 494.0,
+   "missing_ml": 101.9,
+   "excess_centroid_offset_mm": [
+    155.9,
+    -37.0,
+    -31.8
+   ],
+   "missing_centroid_offset_mm": [
+    15.6,
+    -12.4,
+    -6.8
+   ],
+   "flip_dice": {
+    "flip_0": 0.3968,
+    "flip_1": 0.4928,
+    "flip_2": 0.3369
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.8667,
+   "best_dice": 0.8667,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "B50",
+   "case": "508_1",
+   "phase": "1",
+   "patient": "508",
+   "spacing_mm": [
+    0.877,
+    0.877,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    415
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 3410.9,
+   "gt_tumour_ml": 489.2,
+   "pred_organ_ml": 4015.1,
+   "organ_dice": 0.7114,
+   "centroid_offset_mm": 60.9,
+   "centroid_offset_xyz_mm": [
+    58.3,
+    -17.6,
+    -1.8
+   ],
+   "largest_component_offset_mm": [
+    3.9,
+    2.6,
+    4.9
+   ],
+   "n_components": 21,
+   "largest_component_fraction": 0.661,
+   "excess_ml": 1373.7,
+   "missing_ml": 769.6,
+   "excess_centroid_offset_mm": [
+    163.1,
+    -56.4,
+    -14.6
+   ],
+   "missing_centroid_offset_mm": [
+    -13.0,
+    -9.1,
+    -16.6
+   ],
+   "flip_dice": {
+    "flip_0": 0.61,
+    "flip_1": 0.3137,
+    "flip_2": 0.358
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.7114,
+   "best_dice": 0.7114,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "B50",
+   "case": "508_2",
+   "phase": "2",
+   "patient": "508",
+   "spacing_mm": [
+    0.877,
+    0.877,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    415
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 3463.1,
+   "gt_tumour_ml": 501.1,
+   "pred_organ_ml": 4275.4,
+   "organ_dice": 0.8405,
+   "centroid_offset_mm": 43.3,
+   "centroid_offset_xyz_mm": [
+    39.9,
+    -16.6,
+    -3.3
+   ],
+   "largest_component_offset_mm": [
+    0.8,
+    -0.1,
+    2.0
+   ],
+   "n_components": 12,
+   "largest_component_fraction": 0.766,
+   "excess_ml": 1023.3,
+   "missing_ml": 211.1,
+   "excess_centroid_offset_mm": [
+    164.6,
+    -69.2,
+    -19.8
+   ],
+   "missing_centroid_offset_mm": [
+    -9.1,
+    0.7,
+    -28.1
+   ],
+   "flip_dice": {
+    "flip_0": 0.5157,
+    "flip_1": 0.401,
+    "flip_2": 0.372
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.8405,
+   "best_dice": 0.8405,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "B50",
+   "case": "510_1",
+   "phase": "1",
+   "patient": "510",
+   "spacing_mm": [
+    0.736,
+    0.736,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    187
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 982.1,
+   "gt_tumour_ml": 19.4,
+   "pred_organ_ml": 185.0,
+   "organ_dice": 0.2982,
+   "centroid_offset_mm": 37.1,
+   "centroid_offset_xyz_mm": [
+    34.3,
+    -14.1,
+    -0.1
+   ],
+   "largest_component_offset_mm": [
+    -25.4,
+    -58.2,
+    4.0
+   ],
+   "n_components": 16,
+   "largest_component_fraction": 0.451,
+   "excess_ml": 11.0,
+   "missing_ml": 808.1,
+   "excess_centroid_offset_mm": [
+    174.6,
+    -56.2,
+    -12.4
+   ],
+   "missing_centroid_offset_mm": [
+    -5.5,
+    2.5,
+    -0.1
+   ],
+   "flip_dice": {
+    "flip_0": 0.1335,
+    "flip_1": 0.1375,
+    "flip_2": 0.2194
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.2982,
+   "best_dice": 0.2985,
+   "gain": 0.0003,
+   "best_shift_mm": [
+    -0.7,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": false,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "B50",
+   "case": "515_1",
+   "phase": "1",
+   "patient": "515",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    199
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1733.4,
+   "gt_tumour_ml": 324.2,
+   "pred_organ_ml": 1553.3,
+   "organ_dice": 0.94,
+   "centroid_offset_mm": 5.0,
+   "centroid_offset_xyz_mm": [
+    0.8,
+    3.7,
+    -3.3
+   ],
+   "largest_component_offset_mm": [
+    0.8,
+    3.7,
+    -3.3
+   ],
+   "n_components": 2,
+   "largest_component_fraction": 1.0,
+   "excess_ml": 8.5,
+   "missing_ml": 188.6,
+   "excess_centroid_offset_mm": [
+    26.8,
+    17.3,
+    18.3
+   ],
+   "missing_centroid_offset_mm": [
+    -5.5,
+    -29.7,
+    27.8
+   ],
+   "flip_dice": {
+    "flip_0": 0.0178,
+    "flip_1": 0.4138,
+    "flip_2": 0.6782
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.94,
+   "best_dice": 0.94,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  },
+  {
+   "arm": "B50",
+   "case": "539_1",
+   "phase": "1",
+   "patient": "539",
+   "spacing_mm": [
+    0.781,
+    0.781,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    181
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1107.4,
+   "gt_tumour_ml": 39.6,
+   "pred_organ_ml": 868.3,
+   "organ_dice": 0.8647,
+   "centroid_offset_mm": 5.8,
+   "centroid_offset_xyz_mm": [
+    0.7,
+    -1.1,
+    5.7
+   ],
+   "largest_component_offset_mm": [
+    -0.6,
+    -1.4,
+    5.5
+   ],
+   "n_components": 4,
+   "largest_component_fraction": 0.991,
+   "excess_ml": 14.1,
+   "missing_ml": 253.2,
+   "excess_centroid_offset_mm": [
+    76.6,
+    23.7,
+    23.4
+   ],
+   "missing_centroid_offset_mm": [
+    1.9,
+    5.0,
+    -18.2
+   ],
+   "flip_dice": {
+    "flip_0": 0.123,
+    "flip_1": 0.4034,
+    "flip_2": 0.4895
+   },
+   "flip_improves": false,
+   "shape_ok": true,
+   "dice_unshifted": 0.8647,
+   "best_dice": 0.8647,
+   "gain": 0.0,
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "header_vs_input": {
+    "shape_equal": true,
+    "orientation_equal": true,
+    "spacing_equal": true,
+    "affine_equal": true
+   },
+   "gate_pass": true,
+   "class": "MODEL-SIDE"
+  }
+ ],
+ "covariates_all_series": [
+  {
+   "case": "102_1",
+   "phase": "1",
+   "patient": "102",
+   "spacing_mm": [
+    0.666,
+    0.666,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    147
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1675.2,
+   "gt_tumour_ml": 369.1
+  },
+  {
+   "case": "102_2",
+   "phase": "2",
+   "patient": "102",
+   "spacing_mm": [
+    0.666,
+    0.666,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    149
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1691.9,
+   "gt_tumour_ml": 373.5
+  },
+  {
+   "case": "103_1",
+   "phase": "1",
+   "patient": "103",
+   "spacing_mm": [
+    0.74,
+    0.74,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    176
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1680.9,
+   "gt_tumour_ml": 39.0
+  },
+  {
+   "case": "103_2",
+   "phase": "2",
+   "patient": "103",
+   "spacing_mm": [
+    0.74,
+    0.74,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    178
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1629.9,
+   "gt_tumour_ml": 38.1
+  },
+  {
+   "case": "112_1",
+   "phase": "1",
+   "patient": "112",
+   "spacing_mm": [
+    0.748,
+    0.748,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    296
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1087.3,
+   "gt_tumour_ml": 1.6
+  },
+  {
+   "case": "112_2",
+   "phase": "2",
+   "patient": "112",
+   "spacing_mm": [
+    0.732,
+    0.732,
+    2.0
+   ],
+   "shape": [
+    512,
+    512,
+    204
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1070.1,
+   "gt_tumour_ml": 1.6
+  },
+  {
+   "case": "115_1",
+   "phase": "1",
+   "patient": "115",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    190
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1722.0,
+   "gt_tumour_ml": 40.3
+  },
+  {
+   "case": "115_2",
+   "phase": "2",
+   "patient": "115",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    159
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1691.0,
+   "gt_tumour_ml": 40.9
+  },
+  {
+   "case": "118_1",
+   "phase": "1",
+   "patient": "118",
+   "spacing_mm": [
+    0.713,
+    0.713,
+    0.7
+   ],
+   "shape": [
+    512,
+    512,
+    585
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1893.2,
+   "gt_tumour_ml": 21.6
+  },
+  {
+   "case": "118_2",
+   "phase": "2",
+   "patient": "118",
+   "spacing_mm": [
+    0.713,
+    0.713,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    410
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1951.9,
+   "gt_tumour_ml": 22.6
+  },
+  {
+   "case": "119_1",
+   "phase": "1",
+   "patient": "119",
+   "spacing_mm": [
+    0.938,
+    0.938,
+    1.5
+   ],
+   "shape": [
+    512,
+    512,
+    208
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1437.2,
+   "gt_tumour_ml": 73.4
+  },
+  {
+   "case": "119_2",
+   "phase": "2",
+   "patient": "119",
+   "spacing_mm": [
+    0.938,
+    0.938,
+    1.5
+   ],
+   "shape": [
+    512,
+    512,
+    242
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1441.0,
+   "gt_tumour_ml": 73.6
+  },
+  {
+   "case": "127_1",
+   "phase": "1",
+   "patient": "127",
+   "spacing_mm": [
+    0.771,
+    0.771,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    187
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1760.8,
+   "gt_tumour_ml": 31.4
+  },
+  {
+   "case": "127_2",
+   "phase": "2",
+   "patient": "127",
+   "spacing_mm": [
+    0.771,
+    0.771,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    159
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1760.8,
+   "gt_tumour_ml": 31.4
+  },
+  {
+   "case": "135_1",
+   "phase": "1",
+   "patient": "135",
+   "spacing_mm": [
+    0.859,
+    0.859,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    223
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2974.0,
+   "gt_tumour_ml": 173.2
+  },
+  {
+   "case": "135_2",
+   "phase": "2",
+   "patient": "135",
+   "spacing_mm": [
+    0.859,
+    0.859,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    223
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2850.0,
+   "gt_tumour_ml": 175.9
+  },
+  {
+   "case": "14_1",
+   "phase": "1",
+   "patient": "14",
+   "spacing_mm": [
+    0.84,
+    0.84,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    179
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1315.3,
+   "gt_tumour_ml": 37.7
+  },
+  {
+   "case": "14_2",
+   "phase": "2",
+   "patient": "14",
+   "spacing_mm": [
+    0.84,
+    0.84,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    167
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1313.7,
+   "gt_tumour_ml": 37.4
+  },
+  {
+   "case": "158_1",
+   "phase": "1",
+   "patient": "158",
+   "spacing_mm": [
+    0.77,
+    0.77,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    195
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1939.2,
+   "gt_tumour_ml": 80.8
+  },
+  {
+   "case": "158_2",
+   "phase": "2",
+   "patient": "158",
+   "spacing_mm": [
+    0.77,
+    0.77,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    261
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1905.7,
+   "gt_tumour_ml": 83.6
+  },
+  {
+   "case": "15_1",
+   "phase": "1",
+   "patient": "15",
+   "spacing_mm": [
+    0.801,
+    0.801,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    173
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1945.4,
+   "gt_tumour_ml": 171.4
+  },
+  {
+   "case": "15_2",
+   "phase": "2",
+   "patient": "15",
+   "spacing_mm": [
+    0.801,
+    0.801,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    173
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1931.7,
+   "gt_tumour_ml": 174.4
+  },
+  {
+   "case": "168_1",
+   "phase": "1",
+   "patient": "168",
+   "spacing_mm": [
+    0.727,
+    0.727,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    183
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1018.0,
+   "gt_tumour_ml": 127.0
+  },
+  {
+   "case": "168_2",
+   "phase": "2",
+   "patient": "168",
+   "spacing_mm": [
+    0.727,
+    0.727,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    172
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1006.5,
+   "gt_tumour_ml": 129.5
+  },
+  {
+   "case": "169_1",
+   "phase": "1",
+   "patient": "169",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    217
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1528.0,
+   "gt_tumour_ml": 12.9
+  },
+  {
+   "case": "169_2",
+   "phase": "2",
+   "patient": "169",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    186
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1501.0,
+   "gt_tumour_ml": 13.0
+  },
+  {
+   "case": "179_1",
+   "phase": "1",
+   "patient": "179",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    182
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1152.6,
+   "gt_tumour_ml": 19.1
+  },
+  {
+   "case": "179_2",
+   "phase": "2",
+   "patient": "179",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    221
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1184.4,
+   "gt_tumour_ml": 19.8
+  },
+  {
+   "case": "188_1",
+   "phase": "1",
+   "patient": "188",
+   "spacing_mm": [
+    0.648,
+    0.648,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    179
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2080.0,
+   "gt_tumour_ml": 35.8
+  },
+  {
+   "case": "188_2",
+   "phase": "2",
+   "patient": "188",
+   "spacing_mm": [
+    0.648,
+    0.648,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    252
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2090.0,
+   "gt_tumour_ml": 35.7
+  },
+  {
+   "case": "192_1",
+   "phase": "1",
+   "patient": "192",
+   "spacing_mm": [
+    0.766,
+    0.766,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    351
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1191.6,
+   "gt_tumour_ml": 3.4
+  },
+  {
+   "case": "192_2",
+   "phase": "2",
+   "patient": "192",
+   "spacing_mm": [
+    0.766,
+    0.766,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    351
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1201.7,
+   "gt_tumour_ml": 3.4
+  },
+  {
+   "case": "198_1",
+   "phase": "1",
+   "patient": "198",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    187
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1420.0,
+   "gt_tumour_ml": 184.6
+  },
+  {
+   "case": "198_2",
+   "phase": "2",
+   "patient": "198",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    164
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1418.8,
+   "gt_tumour_ml": 184.0
+  },
+  {
+   "case": "23_1",
+   "phase": "1",
+   "patient": "23",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    167
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 886.7,
+   "gt_tumour_ml": 12.7
+  },
+  {
+   "case": "23_2",
+   "phase": "2",
+   "patient": "23",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    138
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 940.7,
+   "gt_tumour_ml": 12.8
+  },
+  {
+   "case": "24_1",
+   "phase": "1",
+   "patient": "24",
+   "spacing_mm": [
+    0.74,
+    0.74,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    107
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1873.4,
+   "gt_tumour_ml": 9.7
+  },
+  {
+   "case": "24_2",
+   "phase": "2",
+   "patient": "24",
+   "spacing_mm": [
+    0.74,
+    0.74,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    263
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1878.4,
+   "gt_tumour_ml": 9.7
+  },
+  {
+   "case": "25_1",
+   "phase": "1",
+   "patient": "25",
+   "spacing_mm": [
+    0.771,
+    0.771,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    63
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 743.5,
+   "gt_tumour_ml": 0.0
+  },
+  {
+   "case": "25_2",
+   "phase": "2",
+   "patient": "25",
+   "spacing_mm": [
+    0.771,
+    0.771,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    144
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1422.9,
+   "gt_tumour_ml": 25.5
+  },
+  {
+   "case": "27_1",
+   "phase": "1",
+   "patient": "27",
+   "spacing_mm": [
+    0.699,
+    0.699,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    283
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2850.8,
+   "gt_tumour_ml": 22.0
+  },
+  {
+   "case": "27_2",
+   "phase": "2",
+   "patient": "27",
+   "spacing_mm": [
+    0.699,
+    0.699,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    280
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2835.0,
+   "gt_tumour_ml": 21.5
+  },
+  {
+   "case": "325_1",
+   "phase": "1",
+   "patient": "325",
+   "spacing_mm": [
+    0.782,
+    0.782,
+    0.8
+   ],
+   "shape": [
+    512,
+    512,
+    413
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1356.4,
+   "gt_tumour_ml": 121.0
+  },
+  {
+   "case": "325_2",
+   "phase": "2",
+   "patient": "325",
+   "spacing_mm": [
+    0.782,
+    0.782,
+    0.8
+   ],
+   "shape": [
+    512,
+    512,
+    569
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1537.8,
+   "gt_tumour_ml": 122.7
+  },
+  {
+   "case": "330_1",
+   "phase": "1",
+   "patient": "330",
+   "spacing_mm": [
+    0.831,
+    0.831,
+    0.8
+   ],
+   "shape": [
+    512,
+    512,
+    400
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1637.9,
+   "gt_tumour_ml": 168.2
+  },
+  {
+   "case": "330_2",
+   "phase": "2",
+   "patient": "330",
+   "spacing_mm": [
+    0.831,
+    0.831,
+    0.8
+   ],
+   "shape": [
+    512,
+    512,
+    631
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1632.5,
+   "gt_tumour_ml": 170.6
+  },
+  {
+   "case": "334_1",
+   "phase": "1",
+   "patient": "334",
+   "spacing_mm": [
+    0.763,
+    0.763,
+    0.8
+   ],
+   "shape": [
+    512,
+    512,
+    394
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1767.6,
+   "gt_tumour_ml": 34.8
+  },
+  {
+   "case": "334_2",
+   "phase": "2",
+   "patient": "334",
+   "spacing_mm": [
+    0.763,
+    0.763,
+    0.8
+   ],
+   "shape": [
+    512,
+    512,
+    857
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1787.9,
+   "gt_tumour_ml": 35.0
+  },
+  {
+   "case": "335_1",
+   "phase": "1",
+   "patient": "335",
+   "spacing_mm": [
+    0.832,
+    0.832,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    213
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2402.4,
+   "gt_tumour_ml": 12.7
+  },
+  {
+   "case": "335_2",
+   "phase": "2",
+   "patient": "335",
+   "spacing_mm": [
+    0.832,
+    0.832,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    196
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2382.7,
+   "gt_tumour_ml": 12.9
+  },
+  {
+   "case": "337_1",
+   "phase": "1",
+   "patient": "337",
+   "spacing_mm": [
+    0.664,
+    0.664,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    185
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 919.5,
+   "gt_tumour_ml": 7.3
+  },
+  {
+   "case": "337_2",
+   "phase": "2",
+   "patient": "337",
+   "spacing_mm": [
+    0.664,
+    0.664,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    155
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 911.3,
+   "gt_tumour_ml": 7.5
+  },
+  {
+   "case": "338_1",
+   "phase": "1",
+   "patient": "338",
+   "spacing_mm": [
+    0.699,
+    0.699,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    248
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1290.2,
+   "gt_tumour_ml": 103.2
+  },
+  {
+   "case": "338_2",
+   "phase": "2",
+   "patient": "338",
+   "spacing_mm": [
+    0.732,
+    0.732,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    248
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1284.9,
+   "gt_tumour_ml": 102.6
+  },
+  {
+   "case": "339_1",
+   "phase": "1",
+   "patient": "339",
+   "spacing_mm": [
+    0.795,
+    0.795,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    384
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2644.8,
+   "gt_tumour_ml": 430.5
+  },
+  {
+   "case": "339_2",
+   "phase": "2",
+   "patient": "339",
+   "spacing_mm": [
+    0.795,
+    0.795,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    386
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2429.9,
+   "gt_tumour_ml": 431.9
+  },
+  {
+   "case": "347_1",
+   "phase": "1",
+   "patient": "347",
+   "spacing_mm": [
+    0.74,
+    0.74,
+    0.8
+   ],
+   "shape": [
+    512,
+    512,
+    526
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1118.8,
+   "gt_tumour_ml": 106.2
+  },
+  {
+   "case": "347_2",
+   "phase": "2",
+   "patient": "347",
+   "spacing_mm": [
+    0.74,
+    0.74,
+    0.8
+   ],
+   "shape": [
+    512,
+    512,
+    526
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1117.2,
+   "gt_tumour_ml": 104.3
+  },
+  {
+   "case": "350_1",
+   "phase": "1",
+   "patient": "350",
+   "spacing_mm": [
+    0.777,
+    0.777,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    241
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1361.4,
+   "gt_tumour_ml": 20.1
+  },
+  {
+   "case": "350_2",
+   "phase": "2",
+   "patient": "350",
+   "spacing_mm": [
+    0.777,
+    0.777,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    262
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1321.4,
+   "gt_tumour_ml": 20.6
+  },
+  {
+   "case": "351_1",
+   "phase": "1",
+   "patient": "351",
+   "spacing_mm": [
+    0.657,
+    0.657,
+    1.5
+   ],
+   "shape": [
+    512,
+    512,
+    148
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1156.0,
+   "gt_tumour_ml": 17.5
+  },
+  {
+   "case": "351_2",
+   "phase": "2",
+   "patient": "351",
+   "spacing_mm": [
+    0.657,
+    0.657,
+    1.5
+   ],
+   "shape": [
+    512,
+    512,
+    148
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1142.9,
+   "gt_tumour_ml": 16.5
+  },
+  {
+   "case": "356_1",
+   "phase": "1",
+   "patient": "356",
+   "spacing_mm": [
+    0.738,
+    0.738,
+    0.799
+   ],
+   "shape": [
+    512,
+    512,
+    325
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1712.6,
+   "gt_tumour_ml": 14.1
+  },
+  {
+   "case": "356_2",
+   "phase": "2",
+   "patient": "356",
+   "spacing_mm": [
+    0.738,
+    0.738,
+    0.8
+   ],
+   "shape": [
+    512,
+    512,
+    326
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1698.5,
+   "gt_tumour_ml": 14.2
+  },
+  {
+   "case": "358_1",
+   "phase": "1",
+   "patient": "358",
+   "spacing_mm": [
+    0.742,
+    0.742,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    103
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1796.5,
+   "gt_tumour_ml": 4.4
+  },
+  {
+   "case": "358_2",
+   "phase": "2",
+   "patient": "358",
+   "spacing_mm": [
+    0.742,
+    0.742,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    103
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1834.7,
+   "gt_tumour_ml": 4.4
+  },
+  {
+   "case": "360_1",
+   "phase": "1",
+   "patient": "360",
+   "spacing_mm": [
+    0.839,
+    0.839,
+    0.8
+   ],
+   "shape": [
+    512,
+    512,
+    294
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2377.1,
+   "gt_tumour_ml": 115.5
+  },
+  {
+   "case": "360_2",
+   "phase": "2",
+   "patient": "360",
+   "spacing_mm": [
+    0.839,
+    0.839,
+    0.8
+   ],
+   "shape": [
+    512,
+    512,
+    331
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1087.7,
+   "gt_tumour_ml": 0.0
+  },
+  {
+   "case": "363_1",
+   "phase": "1",
+   "patient": "363",
+   "spacing_mm": [
+    0.748,
+    0.748,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    283
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1551.1,
+   "gt_tumour_ml": 15.2
+  },
+  {
+   "case": "363_2",
+   "phase": "2",
+   "patient": "363",
+   "spacing_mm": [
+    0.748,
+    0.748,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    283
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1548.7,
+   "gt_tumour_ml": 15.4
+  },
+  {
+   "case": "366_1",
+   "phase": "1",
+   "patient": "366",
+   "spacing_mm": [
+    0.963,
+    0.963,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    257
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1542.9,
+   "gt_tumour_ml": 13.7
+  },
+  {
+   "case": "366_2",
+   "phase": "2",
+   "patient": "366",
+   "spacing_mm": [
+    0.963,
+    0.963,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    258
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1559.0,
+   "gt_tumour_ml": 13.8
+  },
+  {
+   "case": "36_1",
+   "phase": "1",
+   "patient": "36",
+   "spacing_mm": [
+    0.836,
+    0.836,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    101
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2654.0,
+   "gt_tumour_ml": 270.5
+  },
+  {
+   "case": "36_2",
+   "phase": "2",
+   "patient": "36",
+   "spacing_mm": [
+    0.836,
+    0.836,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    365
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2492.0,
+   "gt_tumour_ml": 257.1
+  },
+  {
+   "case": "37_1",
+   "phase": "1",
+   "patient": "37",
+   "spacing_mm": [
+    0.867,
+    0.867,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    225
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2186.4,
+   "gt_tumour_ml": 2.5
+  },
+  {
+   "case": "37_2",
+   "phase": "2",
+   "patient": "37",
+   "spacing_mm": [
+    0.867,
+    0.867,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    182
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2143.1,
+   "gt_tumour_ml": 2.5
+  },
+  {
+   "case": "380_1",
+   "phase": "1",
+   "patient": "380",
+   "spacing_mm": [
+    0.889,
+    0.889,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    209
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2069.9,
+   "gt_tumour_ml": 177.7
+  },
+  {
+   "case": "380_2",
+   "phase": "2",
+   "patient": "380",
+   "spacing_mm": [
+    0.889,
+    0.889,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    159
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2033.2,
+   "gt_tumour_ml": 178.3
+  },
+  {
+   "case": "381_1",
+   "phase": "1",
+   "patient": "381",
+   "spacing_mm": [
+    0.855,
+    0.855,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    211
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1674.6,
+   "gt_tumour_ml": 38.7
+  },
+  {
+   "case": "381_2",
+   "phase": "2",
+   "patient": "381",
+   "spacing_mm": [
+    0.855,
+    0.855,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    370
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1696.3,
+   "gt_tumour_ml": 39.4
+  },
+  {
+   "case": "382_1",
+   "phase": "1",
+   "patient": "382",
+   "spacing_mm": [
+    0.759,
+    0.759,
+    0.8
+   ],
+   "shape": [
+    512,
+    512,
+    276
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1402.8,
+   "gt_tumour_ml": 109.9
+  },
+  {
+   "case": "382_2",
+   "phase": "2",
+   "patient": "382",
+   "spacing_mm": [
+    0.759,
+    0.759,
+    0.801
+   ],
+   "shape": [
+    512,
+    512,
+    544
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1399.0,
+   "gt_tumour_ml": 111.5
+  },
+  {
+   "case": "383_1",
+   "phase": "1",
+   "patient": "383",
+   "spacing_mm": [
+    0.883,
+    0.883,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    247
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2335.1,
+   "gt_tumour_ml": 58.6
+  },
+  {
+   "case": "383_2",
+   "phase": "2",
+   "patient": "383",
+   "spacing_mm": [
+    0.883,
+    0.883,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    204
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2277.0,
+   "gt_tumour_ml": 58.6
+  },
+  {
+   "case": "388_1",
+   "phase": "1",
+   "patient": "388",
+   "spacing_mm": [
+    0.789,
+    0.789,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    225
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2091.5,
+   "gt_tumour_ml": 202.9
+  },
+  {
+   "case": "388_2",
+   "phase": "2",
+   "patient": "388",
+   "spacing_mm": [
+    0.789,
+    0.789,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    170
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2101.7,
+   "gt_tumour_ml": 205.9
+  },
+  {
+   "case": "38_1",
+   "phase": "1",
+   "patient": "38",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    191
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1031.4,
+   "gt_tumour_ml": 6.0
+  },
+  {
+   "case": "38_2",
+   "phase": "2",
+   "patient": "38",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    169
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1015.4,
+   "gt_tumour_ml": 6.0
+  },
+  {
+   "case": "390_1",
+   "phase": "1",
+   "patient": "390",
+   "spacing_mm": [
+    0.807,
+    0.807,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    204
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1893.6,
+   "gt_tumour_ml": 54.8
+  },
+  {
+   "case": "390_2",
+   "phase": "2",
+   "patient": "390",
+   "spacing_mm": [
+    0.807,
+    0.807,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    172
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1888.1,
+   "gt_tumour_ml": 55.7
+  },
+  {
+   "case": "394_1",
+   "phase": "1",
+   "patient": "394",
+   "spacing_mm": [
+    0.672,
+    0.672,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    253
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1854.4,
+   "gt_tumour_ml": 94.4
+  },
+  {
+   "case": "394_2",
+   "phase": "2",
+   "patient": "394",
+   "spacing_mm": [
+    0.672,
+    0.672,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    253
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1863.8,
+   "gt_tumour_ml": 97.5
+  },
+  {
+   "case": "396_1",
+   "phase": "1",
+   "patient": "396",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    513
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1544.8,
+   "gt_tumour_ml": 13.3
+  },
+  {
+   "case": "396_2",
+   "phase": "2",
+   "patient": "396",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    325
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1486.0,
+   "gt_tumour_ml": 12.6
+  },
+  {
+   "case": "399_1",
+   "phase": "1",
+   "patient": "399",
+   "spacing_mm": [
+    0.906,
+    0.906,
+    3.0
+   ],
+   "shape": [
+    512,
+    512,
+    115
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 3042.1,
+   "gt_tumour_ml": 18.6
+  },
+  {
+   "case": "399_2",
+   "phase": "2",
+   "patient": "399",
+   "spacing_mm": [
+    0.906,
+    0.906,
+    3.0
+   ],
+   "shape": [
+    512,
+    512,
+    115
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 3019.1,
+   "gt_tumour_ml": 17.6
+  },
+  {
+   "case": "39_1",
+   "phase": "1",
+   "patient": "39",
+   "spacing_mm": [
+    0.637,
+    0.637,
+    1.5
+   ],
+   "shape": [
+    512,
+    512,
+    152
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1021.4,
+   "gt_tumour_ml": 8.9
+  },
+  {
+   "case": "39_2",
+   "phase": "2",
+   "patient": "39",
+   "spacing_mm": [
+    0.645,
+    0.645,
+    1.5
+   ],
+   "shape": [
+    512,
+    512,
+    153
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1027.1,
+   "gt_tumour_ml": 9.1
+  },
+  {
+   "case": "404_1",
+   "phase": "1",
+   "patient": "404",
+   "spacing_mm": [
+    0.885,
+    0.885,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    209
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1968.0,
+   "gt_tumour_ml": 11.9
+  },
+  {
+   "case": "404_2",
+   "phase": "2",
+   "patient": "404",
+   "spacing_mm": [
+    0.885,
+    0.885,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    244
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1929.7,
+   "gt_tumour_ml": 11.9
+  },
+  {
+   "case": "438_1",
+   "phase": "1",
+   "patient": "438",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    195
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2039.4,
+   "gt_tumour_ml": 253.5
+  },
+  {
+   "case": "438_2",
+   "phase": "2",
+   "patient": "438",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    266
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2062.2,
+   "gt_tumour_ml": 253.9
+  },
+  {
+   "case": "446_1",
+   "phase": "1",
+   "patient": "446",
+   "spacing_mm": [
+    0.727,
+    0.727,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    266
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2179.7,
+   "gt_tumour_ml": 368.9
+  },
+  {
+   "case": "446_2",
+   "phase": "2",
+   "patient": "446",
+   "spacing_mm": [
+    0.727,
+    0.727,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    266
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2179.5,
+   "gt_tumour_ml": 368.7
+  },
+  {
+   "case": "452_1",
+   "phase": "1",
+   "patient": "452",
+   "spacing_mm": [
+    0.862,
+    0.862,
+    0.8
+   ],
+   "shape": [
+    512,
+    512,
+    346
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2731.9,
+   "gt_tumour_ml": 54.7
+  },
+  {
+   "case": "452_2",
+   "phase": "2",
+   "patient": "452",
+   "spacing_mm": [
+    0.877,
+    0.877,
+    0.8
+   ],
+   "shape": [
+    512,
+    512,
+    568
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2703.1,
+   "gt_tumour_ml": 54.4
+  },
+  {
+   "case": "455_1",
+   "phase": "1",
+   "patient": "455",
+   "spacing_mm": [
+    0.727,
+    0.727,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    173
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1349.8,
+   "gt_tumour_ml": 224.1
+  },
+  {
+   "case": "455_2",
+   "phase": "2",
+   "patient": "455",
+   "spacing_mm": [
+    0.727,
+    0.727,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    164
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1296.5,
+   "gt_tumour_ml": 220.2
+  },
+  {
+   "case": "457_1",
+   "phase": "1",
+   "patient": "457",
+   "spacing_mm": [
+    0.877,
+    0.877,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    231
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2393.1,
+   "gt_tumour_ml": 8.0
+  },
+  {
+   "case": "457_2",
+   "phase": "2",
+   "patient": "457",
+   "spacing_mm": [
+    0.877,
+    0.877,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    186
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2365.7,
+   "gt_tumour_ml": 8.1
+  },
+  {
+   "case": "466_1",
+   "phase": "1",
+   "patient": "466",
+   "spacing_mm": [
+    0.898,
+    0.898,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    262
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2115.9,
+   "gt_tumour_ml": 1.8
+  },
+  {
+   "case": "466_2",
+   "phase": "2",
+   "patient": "466",
+   "spacing_mm": [
+    0.898,
+    0.898,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    247
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2060.9,
+   "gt_tumour_ml": 1.7
+  },
+  {
+   "case": "469_1",
+   "phase": "1",
+   "patient": "469",
+   "spacing_mm": [
+    0.93,
+    0.93,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    203
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1551.6,
+   "gt_tumour_ml": 11.1
+  },
+  {
+   "case": "469_2",
+   "phase": "2",
+   "patient": "469",
+   "spacing_mm": [
+    0.93,
+    0.93,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    200
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1517.0,
+   "gt_tumour_ml": 11.2
+  },
+  {
+   "case": "46_1",
+   "phase": "1",
+   "patient": "46",
+   "spacing_mm": [
+    0.883,
+    0.883,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    213
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1775.9,
+   "gt_tumour_ml": 119.0
+  },
+  {
+   "case": "46_2",
+   "phase": "2",
+   "patient": "46",
+   "spacing_mm": [
+    0.883,
+    0.883,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    187
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1773.7,
+   "gt_tumour_ml": 121.1
+  },
+  {
+   "case": "477_1",
+   "phase": "1",
+   "patient": "477",
+   "spacing_mm": [
+    0.805,
+    0.805,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    133
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2986.9,
+   "gt_tumour_ml": 13.5
+  },
+  {
+   "case": "477_2",
+   "phase": "2",
+   "patient": "477",
+   "spacing_mm": [
+    0.805,
+    0.805,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    133
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 3028.1,
+   "gt_tumour_ml": 13.4
+  },
+  {
+   "case": "47_1",
+   "phase": "1",
+   "patient": "47",
+   "spacing_mm": [
+    0.83,
+    0.83,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    189
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1354.8,
+   "gt_tumour_ml": 14.7
+  },
+  {
+   "case": "47_2",
+   "phase": "2",
+   "patient": "47",
+   "spacing_mm": [
+    0.83,
+    0.83,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    154
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1324.3,
+   "gt_tumour_ml": 15.0
+  },
+  {
+   "case": "483_1",
+   "phase": "1",
+   "patient": "483",
+   "spacing_mm": [
+    0.848,
+    0.848,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    183
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1369.9,
+   "gt_tumour_ml": 3.4
+  },
+  {
+   "case": "483_2",
+   "phase": "2",
+   "patient": "483",
+   "spacing_mm": [
+    0.848,
+    0.848,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    257
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1375.9,
+   "gt_tumour_ml": 3.4
+  },
+  {
+   "case": "484_1",
+   "phase": "1",
+   "patient": "484",
+   "spacing_mm": [
+    0.859,
+    0.859,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    227
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1914.5,
+   "gt_tumour_ml": 241.1
+  },
+  {
+   "case": "484_2",
+   "phase": "2",
+   "patient": "484",
+   "spacing_mm": [
+    0.859,
+    0.859,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    180
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1898.1,
+   "gt_tumour_ml": 241.2
+  },
+  {
+   "case": "485_1",
+   "phase": "1",
+   "patient": "485",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    171
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1476.1,
+   "gt_tumour_ml": 557.9
+  },
+  {
+   "case": "485_2",
+   "phase": "2",
+   "patient": "485",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    237
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1464.5,
+   "gt_tumour_ml": 554.4
+  },
+  {
+   "case": "487_1",
+   "phase": "1",
+   "patient": "487",
+   "spacing_mm": [
+    0.859,
+    0.859,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    199
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1178.5,
+   "gt_tumour_ml": 42.6
+  },
+  {
+   "case": "487_2",
+   "phase": "2",
+   "patient": "487",
+   "spacing_mm": [
+    0.859,
+    0.859,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    170
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1160.2,
+   "gt_tumour_ml": 42.0
+  },
+  {
+   "case": "491_1",
+   "phase": "1",
+   "patient": "491",
+   "spacing_mm": [
+    0.699,
+    0.699,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    239
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1418.0,
+   "gt_tumour_ml": 44.6
+  },
+  {
+   "case": "491_2",
+   "phase": "2",
+   "patient": "491",
+   "spacing_mm": [
+    0.699,
+    0.699,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    615
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1390.7,
+   "gt_tumour_ml": 44.7
+  },
+  {
+   "case": "492_1",
+   "phase": "1",
+   "patient": "492",
+   "spacing_mm": [
+    0.947,
+    0.947,
+    2.6
+   ],
+   "shape": [
+    512,
+    512,
+    190
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2164.1,
+   "gt_tumour_ml": 9.3
+  },
+  {
+   "case": "492_2",
+   "phase": "2",
+   "patient": "492",
+   "spacing_mm": [
+    0.947,
+    0.947,
+    1.2
+   ],
+   "shape": [
+    512,
+    512,
+    410
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2182.4,
+   "gt_tumour_ml": 9.4
+  },
+  {
+   "case": "498_1",
+   "phase": "1",
+   "patient": "498",
+   "spacing_mm": [
+    0.777,
+    0.777,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    459
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1585.4,
+   "gt_tumour_ml": 69.0
+  },
+  {
+   "case": "498_2",
+   "phase": "2",
+   "patient": "498",
+   "spacing_mm": [
+    0.777,
+    0.777,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    230
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1543.7,
+   "gt_tumour_ml": 69.0
+  },
+  {
+   "case": "503_1",
+   "phase": "1",
+   "patient": "503",
+   "spacing_mm": [
+    0.818,
+    0.818,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    207
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1887.3,
+   "gt_tumour_ml": 16.3
+  },
+  {
+   "case": "503_2",
+   "phase": "2",
+   "patient": "503",
+   "spacing_mm": [
+    0.818,
+    0.818,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    168
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1892.6,
+   "gt_tumour_ml": 16.4
+  },
+  {
+   "case": "508_1",
+   "phase": "1",
+   "patient": "508",
+   "spacing_mm": [
+    0.877,
+    0.877,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    415
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 3410.9,
+   "gt_tumour_ml": 489.2
+  },
+  {
+   "case": "508_2",
+   "phase": "2",
+   "patient": "508",
+   "spacing_mm": [
+    0.877,
+    0.877,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    415
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 3463.1,
+   "gt_tumour_ml": 501.1
+  },
+  {
+   "case": "50_1",
+   "phase": "1",
+   "patient": "50",
+   "spacing_mm": [
+    0.668,
+    0.668,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    159
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2304.2,
+   "gt_tumour_ml": 433.3
+  },
+  {
+   "case": "50_2",
+   "phase": "2",
+   "patient": "50",
+   "spacing_mm": [
+    0.668,
+    0.668,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    156
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2275.5,
+   "gt_tumour_ml": 442.6
+  },
+  {
+   "case": "510_1",
+   "phase": "1",
+   "patient": "510",
+   "spacing_mm": [
+    0.736,
+    0.736,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    187
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 982.1,
+   "gt_tumour_ml": 19.4
+  },
+  {
+   "case": "510_2",
+   "phase": "2",
+   "patient": "510",
+   "spacing_mm": [
+    0.736,
+    0.736,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    169
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 951.7,
+   "gt_tumour_ml": 19.0
+  },
+  {
+   "case": "514_1",
+   "phase": "1",
+   "patient": "514",
+   "spacing_mm": [
+    0.863,
+    0.863,
+    1.8
+   ],
+   "shape": [
+    512,
+    512,
+    267
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1346.4,
+   "gt_tumour_ml": 33.9
+  },
+  {
+   "case": "514_2",
+   "phase": "2",
+   "patient": "514",
+   "spacing_mm": [
+    0.863,
+    0.863,
+    1.8
+   ],
+   "shape": [
+    512,
+    512,
+    297
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1285.5,
+   "gt_tumour_ml": 34.1
+  },
+  {
+   "case": "515_1",
+   "phase": "1",
+   "patient": "515",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    199
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1733.4,
+   "gt_tumour_ml": 324.2
+  },
+  {
+   "case": "515_2",
+   "phase": "2",
+   "patient": "515",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    142
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1712.0,
+   "gt_tumour_ml": 317.0
+  },
+  {
+   "case": "519_1",
+   "phase": "1",
+   "patient": "519",
+   "spacing_mm": [
+    0.867,
+    0.867,
+    2.0
+   ],
+   "shape": [
+    512,
+    512,
+    346
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2718.2,
+   "gt_tumour_ml": 56.8
+  },
+  {
+   "case": "519_2",
+   "phase": "2",
+   "patient": "519",
+   "spacing_mm": [
+    0.867,
+    0.867,
+    2.0
+   ],
+   "shape": [
+    512,
+    512,
+    346
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2728.8,
+   "gt_tumour_ml": 56.5
+  },
+  {
+   "case": "524_1",
+   "phase": "1",
+   "patient": "524",
+   "spacing_mm": [
+    0.977,
+    0.977,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    384
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2616.0,
+   "gt_tumour_ml": 45.5
+  },
+  {
+   "case": "524_2",
+   "phase": "2",
+   "patient": "524",
+   "spacing_mm": [
+    0.977,
+    0.977,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    402
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2610.4,
+   "gt_tumour_ml": 44.9
+  },
+  {
+   "case": "531_1",
+   "phase": "1",
+   "patient": "531",
+   "spacing_mm": [
+    0.783,
+    0.783,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    241
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2001.7,
+   "gt_tumour_ml": 44.8
+  },
+  {
+   "case": "531_2",
+   "phase": "2",
+   "patient": "531",
+   "spacing_mm": [
+    0.783,
+    0.783,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    241
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1999.4,
+   "gt_tumour_ml": 45.0
+  },
+  {
+   "case": "533_1",
+   "phase": "1",
+   "patient": "533",
+   "spacing_mm": [
+    0.805,
+    0.805,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    381
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2322.4,
+   "gt_tumour_ml": 35.9
+  },
+  {
+   "case": "533_2",
+   "phase": "2",
+   "patient": "533",
+   "spacing_mm": [
+    0.805,
+    0.805,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    381
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2310.5,
+   "gt_tumour_ml": 36.0
+  },
+  {
+   "case": "539_1",
+   "phase": "1",
+   "patient": "539",
+   "spacing_mm": [
+    0.781,
+    0.781,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    181
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1107.4,
+   "gt_tumour_ml": 39.6
+  },
+  {
+   "case": "539_2",
+   "phase": "2",
+   "patient": "539",
+   "spacing_mm": [
+    0.781,
+    0.781,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    117
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1098.1,
+   "gt_tumour_ml": 39.5
+  },
+  {
+   "case": "543_1",
+   "phase": "1",
+   "patient": "543",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    163
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2152.8,
+   "gt_tumour_ml": 6.2
+  },
+  {
+   "case": "543_2",
+   "phase": "2",
+   "patient": "543",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    164
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2079.7,
+   "gt_tumour_ml": 6.0
+  },
+  {
+   "case": "56_1",
+   "phase": "1",
+   "patient": "56",
+   "spacing_mm": [
+    0.775,
+    0.775,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    191
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1596.7,
+   "gt_tumour_ml": 39.3
+  },
+  {
+   "case": "56_2",
+   "phase": "2",
+   "patient": "56",
+   "spacing_mm": [
+    0.775,
+    0.775,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    187
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1589.8,
+   "gt_tumour_ml": 40.5
+  },
+  {
+   "case": "58_1",
+   "phase": "1",
+   "patient": "58",
+   "spacing_mm": [
+    0.809,
+    0.809,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    203
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1856.3,
+   "gt_tumour_ml": 26.2
+  },
+  {
+   "case": "58_2",
+   "phase": "2",
+   "patient": "58",
+   "spacing_mm": [
+    0.809,
+    0.809,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    176
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1873.7,
+   "gt_tumour_ml": 26.2
+  },
+  {
+   "case": "60_1",
+   "phase": "1",
+   "patient": "60",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    251
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1859.5,
+   "gt_tumour_ml": 88.8
+  },
+  {
+   "case": "60_2",
+   "phase": "2",
+   "patient": "60",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    183
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1835.6,
+   "gt_tumour_ml": 91.3
+  },
+  {
+   "case": "62_1",
+   "phase": "1",
+   "patient": "62",
+   "spacing_mm": [
+    0.881,
+    0.881,
+    3.0
+   ],
+   "shape": [
+    512,
+    512,
+    209
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2108.9,
+   "gt_tumour_ml": 79.0
+  },
+  {
+   "case": "62_2",
+   "phase": "2",
+   "patient": "62",
+   "spacing_mm": [
+    0.873,
+    0.873,
+    3.0
+   ],
+   "shape": [
+    512,
+    512,
+    154
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2096.0,
+   "gt_tumour_ml": 78.9
+  },
+  {
+   "case": "65_1",
+   "phase": "1",
+   "patient": "65",
+   "spacing_mm": [
+    0.92,
+    0.92,
+    1.0
+   ],
+   "shape": [
+    512,
+    512,
+    419
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2084.1,
+   "gt_tumour_ml": 0.4
+  },
+  {
+   "case": "65_2",
+   "phase": "2",
+   "patient": "65",
+   "spacing_mm": [
+    0.92,
+    0.92,
+    1.5
+   ],
+   "shape": [
+    512,
+    512,
+    280
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2062.1,
+   "gt_tumour_ml": 0.4
+  },
+  {
+   "case": "67_1",
+   "phase": "1",
+   "patient": "67",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    193
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1165.5,
+   "gt_tumour_ml": 18.9
+  },
+  {
+   "case": "67_2",
+   "phase": "2",
+   "patient": "67",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    162
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 999.7,
+   "gt_tumour_ml": 14.4
+  },
+  {
+   "case": "69_1",
+   "phase": "1",
+   "patient": "69",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    193
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2324.3,
+   "gt_tumour_ml": 893.9
+  },
+  {
+   "case": "69_2",
+   "phase": "2",
+   "patient": "69",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    193
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2359.0,
+   "gt_tumour_ml": 910.0
+  },
+  {
+   "case": "73_1",
+   "phase": "1",
+   "patient": "73",
+   "spacing_mm": [
+    0.959,
+    0.959,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    230
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1686.5,
+   "gt_tumour_ml": 53.2
+  },
+  {
+   "case": "73_2",
+   "phase": "2",
+   "patient": "73",
+   "spacing_mm": [
+    0.959,
+    0.959,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    205
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1675.6,
+   "gt_tumour_ml": 53.5
+  },
+  {
+   "case": "74_1",
+   "phase": "1",
+   "patient": "74",
+   "spacing_mm": [
+    0.855,
+    0.855,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    315
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1254.4,
+   "gt_tumour_ml": 10.7
+  },
+  {
+   "case": "74_2",
+   "phase": "2",
+   "patient": "74",
+   "spacing_mm": [
+    0.855,
+    0.855,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    315
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1232.4,
+   "gt_tumour_ml": 10.7
+  },
+  {
+   "case": "79_1",
+   "phase": "1",
+   "patient": "79",
+   "spacing_mm": [
+    0.9,
+    0.9,
+    0.7
+   ],
+   "shape": [
+    512,
+    512,
+    392
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2270.6,
+   "gt_tumour_ml": 131.5
+  },
+  {
+   "case": "79_2",
+   "phase": "2",
+   "patient": "79",
+   "spacing_mm": [
+    0.9,
+    0.9,
+    0.7
+   ],
+   "shape": [
+    512,
+    512,
+    605
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2255.7,
+   "gt_tumour_ml": 131.5
+  },
+  {
+   "case": "80_1",
+   "phase": "1",
+   "patient": "80",
+   "spacing_mm": [
+    0.822,
+    0.822,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    215
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2863.3,
+   "gt_tumour_ml": 38.0
+  },
+  {
+   "case": "80_2",
+   "phase": "2",
+   "patient": "80",
+   "spacing_mm": [
+    0.822,
+    0.822,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    194
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2862.8,
+   "gt_tumour_ml": 38.8
+  },
+  {
+   "case": "81_1",
+   "phase": "1",
+   "patient": "81",
+   "spacing_mm": [
+    0.752,
+    0.752,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    208
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1686.8,
+   "gt_tumour_ml": 72.6
+  },
+  {
+   "case": "81_2",
+   "phase": "2",
+   "patient": "81",
+   "spacing_mm": [
+    0.752,
+    0.752,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    185
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1625.4,
+   "gt_tumour_ml": 70.9
+  },
+  {
+   "case": "83_1",
+   "phase": "1",
+   "patient": "83",
+   "spacing_mm": [
+    0.771,
+    0.771,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    237
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1617.8,
+   "gt_tumour_ml": 681.2
+  },
+  {
+   "case": "83_2",
+   "phase": "2",
+   "patient": "83",
+   "spacing_mm": [
+    0.771,
+    0.771,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    176
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1616.2,
+   "gt_tumour_ml": 660.8
+  },
+  {
+   "case": "84_1",
+   "phase": "1",
+   "patient": "84",
+   "spacing_mm": [
+    0.801,
+    0.801,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    159
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 744.4,
+   "gt_tumour_ml": 17.8
+  },
+  {
+   "case": "84_2",
+   "phase": "2",
+   "patient": "84",
+   "spacing_mm": [
+    0.801,
+    0.801,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    148
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 782.3,
+   "gt_tumour_ml": 19.2
+  },
+  {
+   "case": "88_1",
+   "phase": "1",
+   "patient": "88",
+   "spacing_mm": [
+    0.859,
+    0.859,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    187
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1881.4,
+   "gt_tumour_ml": 60.9
+  },
+  {
+   "case": "88_2",
+   "phase": "2",
+   "patient": "88",
+   "spacing_mm": [
+    0.859,
+    0.859,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    184
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1882.4,
+   "gt_tumour_ml": 62.2
+  },
+  {
+   "case": "89_1",
+   "phase": "1",
+   "patient": "89",
+   "spacing_mm": [
+    0.977,
+    0.977,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    184
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1335.7,
+   "gt_tumour_ml": 82.0
+  },
+  {
+   "case": "89_2",
+   "phase": "2",
+   "patient": "89",
+   "spacing_mm": [
+    0.977,
+    0.977,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    177
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1365.7,
+   "gt_tumour_ml": 84.4
+  },
+  {
+   "case": "8_1",
+   "phase": "1",
+   "patient": "8",
+   "spacing_mm": [
+    0.754,
+    0.754,
+    1.5
+   ],
+   "shape": [
+    512,
+    512,
+    193
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1855.6,
+   "gt_tumour_ml": 498.9
+  },
+  {
+   "case": "8_2",
+   "phase": "2",
+   "patient": "8",
+   "spacing_mm": [
+    0.754,
+    0.754,
+    1.5
+   ],
+   "shape": [
+    512,
+    512,
+    188
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1822.8,
+   "gt_tumour_ml": 483.5
+  },
+  {
+   "case": "91_1",
+   "phase": "1",
+   "patient": "91",
+   "spacing_mm": [
+    0.633,
+    0.633,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    177
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1274.9,
+   "gt_tumour_ml": 61.6
+  },
+  {
+   "case": "91_2",
+   "phase": "2",
+   "patient": "91",
+   "spacing_mm": [
+    0.633,
+    0.633,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    168
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1273.0,
+   "gt_tumour_ml": 61.8
+  },
+  {
+   "case": "92_1",
+   "phase": "1",
+   "patient": "92",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    161
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1219.0,
+   "gt_tumour_ml": 42.6
+  },
+  {
+   "case": "92_2",
+   "phase": "2",
+   "patient": "92",
+   "spacing_mm": [
+    0.703,
+    0.703,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    150
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1165.8,
+   "gt_tumour_ml": 42.0
+  },
+  {
+   "case": "93_1",
+   "phase": "1",
+   "patient": "93",
+   "spacing_mm": [
+    0.791,
+    0.791,
+    1.25
+   ],
+   "shape": [
+    512,
+    512,
+    223
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1757.4,
+   "gt_tumour_ml": 15.3
+  },
+  {
+   "case": "93_2",
+   "phase": "2",
+   "patient": "93",
+   "spacing_mm": [
+    0.791,
+    0.791,
+    2.5
+   ],
+   "shape": [
+    512,
+    512,
+    198
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 1745.9,
+   "gt_tumour_ml": 15.3
+  },
+  {
+   "case": "94_1",
+   "phase": "1",
+   "patient": "94",
+   "spacing_mm": [
+    0.887,
+    0.887,
+    1.4
+   ],
+   "shape": [
+    512,
+    512,
+    331
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2661.4,
+   "gt_tumour_ml": 80.9
+  },
+  {
+   "case": "94_2",
+   "phase": "2",
+   "patient": "94",
+   "spacing_mm": [
+    0.885,
+    0.885,
+    1.4
+   ],
+   "shape": [
+    512,
+    512,
+    215
+   ],
+   "orientation": "LAS",
+   "gt_organ_ml": 2638.9,
+   "gt_tumour_ml": 80.8
+  }
+ ]
+}

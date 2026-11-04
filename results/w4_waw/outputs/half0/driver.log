@@ -1,0 +1,78 @@
+W4_DRIVER_START half0 2026-11-03T00:52:05Z
+PREFLIGHT_PASS half0 (100 patients) 2026-11-03T00:52:07Z
+W4_DRIVER_HOLD: half0 ground-truth tumour table differs from the committed host1 table Tue Nov  3 01:16:48 UTC 2026
+W4_DRIVER_START half0 2026-11-03T01:28:44Z
+PREFLIGHT_PASS half0 (100 patients) 2026-11-03T01:28:44Z
+GT_BUILT_STRUCTURE_MATCHES_HOST1 half0 (200 series) 2026-11-03T01:28:45Z
+SMOKE_START 2026-11-03T01:28:45Z
+SMOKE_PASS 2026-11-03T01:50:24Z
+MODEL_START vista 2026-11-03T01:50:24Z
+TIME_CHECK vista done=6/200 elapsed=120s projected_wall=4000s limit=1750s (estimate 7s x 200 x 1.25) 2026-11-03T01:52:24Z
+W4_DRIVER_HOLD: half0 TIME_RULE_EXCEEDED vista (projected 4000s > 1750s) Tue Nov  3 01:52:24 UTC 2026
+W4_DRIVER_START half0 2026-11-03T02:05:38Z
+PREFLIGHT_PASS half0 (100 patients) 2026-11-03T02:05:39Z
+GT_BUILT_STRUCTURE_MATCHES_HOST1 half0 (200 series) 2026-11-03T02:05:40Z
+SMOKE_SKIPPED (SMOKE_PASS already logged for this half; DEVIATIONS 19) 2026-11-03T02:05:40Z
+MODEL_START vista 2026-11-03T02:05:40Z
+TIME_CHECK vista done=13/200 throughput_clock=120s projected_wall_remaining=3860s limit=4122s (estimate 17s x 194 x 1.25) 2026-11-03T02:08:10Z
+TIME_CHECK vista done=99/200 throughput_clock=1921s projected_wall_remaining=4029s limit=4122s (estimate 17s x 194 x 1.25) 2026-11-03T02:38:11Z
+TIME_CHECK vista done=175/200 throughput_clock=3723s projected_wall_remaining=4277s limit=4122s (estimate 17s x 194 x 1.25) 2026-11-03T03:08:13Z
+W4_DRIVER_HOLD: half0 TIME_RULE_EXCEEDED vista (projected 4277s > 4122s) Tue Nov  3 03:08:13 UTC 2026
+W4_DRIVER_START half0 2026-11-03T03:09:00Z
+PREFLIGHT_PASS half0 (100 patients) 2026-11-03T03:09:00Z
+GT_BUILT_STRUCTURE_MATCHES_HOST1 half0 (200 series) 2026-11-03T03:09:01Z
+SMOKE_SKIPPED (SMOKE_PASS already logged for this half; DEVIATIONS 19) 2026-11-03T03:09:01Z
+MODEL_START vista 2026-11-03T03:09:01Z
+TIME_CHECK vista done=181/200 throughput_clock=150s projected_wall_remaining=720s limit=637s (estimate 17s x 25 x 1.5) 2026-11-03T03:12:31Z
+W4_DRIVER_HOLD: half0 TIME_RULE_EXCEEDED vista (projected 720s > 637s) Tue Nov  3 03:12:31 UTC 2026
+W4_DRIVER_START half0 2026-11-03T11:24:07Z
+PREFLIGHT_PASS half0 (100 patients) 2026-11-03T11:24:08Z
+GT_BUILT_STRUCTURE_MATCHES_HOST1 half0 (200 series) 2026-11-03T11:24:09Z
+SMOKE_SKIPPED (SMOKE_PASS already logged for this half; DEVIATIONS 19) 2026-11-03T11:24:09Z
+MODEL_START vista 2026-11-03T11:24:09Z
+TIME_CHECK vista done=187/200 projected_wall_remaining=432s warn_limit=498s 2026-11-03T11:27:09Z
+MODEL_DONE vista 2026-11-03T11:40:33Z
+MODEL_START A 2026-11-03T11:40:33Z
+TIME_CHECK A done=6/200 projected_wall_remaining=3582s warn_limit=5500s 2026-11-03T11:43:03Z
+TIME_CHECK A done=94/200 projected_wall_remaining=4048s warn_limit=5500s 2026-11-03T12:13:05Z
+TIME_CHECK A done=171/200 projected_wall_remaining=4324s warn_limit=5500s 2026-11-03T12:43:07Z
+MODEL_DONE A 2026-11-03T13:04:36Z
+MODEL_START D0 2026-11-03T13:04:36Z
+TIME_CHECK D0 done=6/200 projected_wall_remaining=16755s warn_limit=28000s 2026-11-03T13:13:07Z
+TIME_CHECK D0 done=24/200 projected_wall_remaining=19233s warn_limit=28000s 2026-11-03T13:43:09Z
+TIME_CHECK D0 done=43/200 projected_wall_remaining=19070s warn_limit=28000s 2026-11-03T14:13:11Z
+TIME_CHECK D0 done=61/200 projected_wall_remaining=19326s warn_limit=28000s 2026-11-03T14:43:13Z
+TIME_CHECK D0 done=78/200 projected_wall_remaining=19716s warn_limit=28000s 2026-11-03T15:13:15Z
+TIME_CHECK D0 done=93/200 projected_wall_remaining=20401s warn_limit=28000s 2026-11-03T15:43:18Z
+TIME_CHECK D0 done=109/200 projected_wall_remaining=20699s warn_limit=28000s 2026-11-03T16:13:20Z
+TIME_CHECK D0 done=121/200 projected_wall_remaining=21619s warn_limit=28000s 2026-11-03T16:43:23Z
+TIME_CHECK D0 done=135/200 projected_wall_remaining=22039s warn_limit=28000s 2026-11-03T17:13:27Z
+TIME_CHECK D0 done=147/200 projected_wall_remaining=22686s warn_limit=28000s 2026-11-03T17:43:30Z
+TIME_CHECK D0 done=159/200 projected_wall_remaining=23237s warn_limit=28000s 2026-11-03T18:13:36Z
+TIME_CHECK D0 done=173/200 projected_wall_remaining=23432s warn_limit=28000s 2026-11-03T18:43:39Z
+TIME_CHECK D0 done=189/200 projected_wall_remaining=23345s warn_limit=28000s 2026-11-03T19:13:41Z
+MODEL_DONE D0 2026-11-03T19:40:19Z
+MODEL_START B50 2026-11-03T19:40:19Z
+TIME_CHECK B50 done=6/200 projected_wall_remaining=15522s warn_limit=28000s 2026-11-03T19:48:49Z
+TIME_CHECK B50 done=23/200 projected_wall_remaining=19845s warn_limit=28000s 2026-11-03T20:18:53Z
+TIME_CHECK B50 done=43/200 projected_wall_remaining=18947s warn_limit=28000s 2026-11-03T20:48:58Z
+TIME_CHECK B50 done=60/200 projected_wall_remaining=19562s warn_limit=28000s 2026-11-03T21:18:59Z
+TIME_CHECK B50 done=77/200 projected_wall_remaining=19905s warn_limit=28000s 2026-11-03T21:49:01Z
+TIME_CHECK B50 done=93/200 projected_wall_remaining=20341s warn_limit=28000s 2026-11-03T22:19:03Z
+TIME_CHECK B50 done=109/200 projected_wall_remaining=20648s warn_limit=28000s 2026-11-03T22:49:05Z
+TIME_CHECK B50 done=121/200 projected_wall_remaining=21571s warn_limit=28000s 2026-11-03T23:19:07Z
+TIME_CHECK B50 done=135/200 projected_wall_remaining=21993s warn_limit=28000s 2026-11-03T23:49:09Z
+TIME_CHECK B50 done=147/200 projected_wall_remaining=22642s warn_limit=28000s 2026-11-04T00:19:11Z
+TIME_CHECK B50 done=159/200 projected_wall_remaining=23192s warn_limit=28000s 2026-11-04T00:49:13Z
+W4_DRIVER_START half0 2026-11-04T01:12:55Z
+PREFLIGHT_PASS half0 (100 patients) 2026-11-04T01:12:55Z
+GT_BUILT_STRUCTURE_MATCHES_HOST1 half0 (200 series) 2026-11-04T01:12:56Z
+SMOKE_SKIPPED (SMOKE_PASS already logged for this half; DEVIATIONS 19) 2026-11-04T01:12:56Z
+MODEL_SKIPPED vista (MODEL_DONE already logged and scores present) 2026-11-04T01:12:56Z
+MODEL_SKIPPED A (MODEL_DONE already logged and scores present) 2026-11-04T01:12:56Z
+MODEL_SKIPPED D0 (MODEL_DONE already logged and scores present) 2026-11-04T01:12:56Z
+MODEL_START B50 2026-11-04T01:12:56Z
+TIME_CHECK B50 done=175/200 projected_wall_remaining=3246s warn_limit=4340s 2026-11-04T01:25:27Z
+TIME_CHECK B50 done=189/200 projected_wall_remaining=3697s warn_limit=4340s 2026-11-04T01:55:28Z
+MODEL_DONE B50 2026-11-04T02:19:14Z
+W4_HALF0_DONE (all four models predicted and scored; GPU idle) 2026-11-04T02:19:14Z

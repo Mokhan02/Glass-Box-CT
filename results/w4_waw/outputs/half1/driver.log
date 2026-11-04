@@ -1,0 +1,84 @@
+W4_DRIVER_START half1 2026-11-03T00:53:23Z
+PREFLIGHT_PASS half1 (99 patients) 2026-11-03T00:53:25Z
+W4_DRIVER_HOLD: half1 ground-truth tumour table differs from the committed host1 table Tue Nov  3 01:17:19 UTC 2026
+W4_DRIVER_START half1 2026-11-03T01:28:45Z
+PREFLIGHT_PASS half1 (99 patients) 2026-11-03T01:28:45Z
+GT_BUILT_STRUCTURE_MATCHES_HOST1 half1 (196 series) 2026-11-03T01:28:46Z
+SMOKE_START 2026-11-03T01:28:46Z
+SMOKE_PASS 2026-11-03T01:52:38Z
+MODEL_START vista 2026-11-03T01:52:38Z
+TIME_CHECK vista done=5/196 elapsed=120s projected_wall=4704s limit=1715s (estimate 7s x 196 x 1.25) 2026-11-03T01:54:38Z
+W4_DRIVER_HOLD: half1 TIME_RULE_EXCEEDED vista (projected 4704s > 1715s) Tue Nov  3 01:54:38 UTC 2026
+W4_DRIVER_START half1 2026-11-03T02:05:39Z
+PREFLIGHT_PASS half1 (99 patients) 2026-11-03T02:05:39Z
+GT_BUILT_STRUCTURE_MATCHES_HOST1 half1 (196 series) 2026-11-03T02:05:40Z
+SMOKE_SKIPPED (SMOKE_PASS already logged for this half; DEVIATIONS 19) 2026-11-03T02:05:40Z
+MODEL_START vista 2026-11-03T02:05:40Z
+TIME_CHECK vista done=11/196 throughput_clock=90s projected_wall_remaining=3420s limit=4058s (estimate 17s x 191 x 1.25) 2026-11-03T02:08:10Z
+TIME_CHECK vista done=93/196 throughput_clock=1891s projected_wall_remaining=4129s limit=4058s (estimate 17s x 191 x 1.25) 2026-11-03T02:38:11Z
+W4_DRIVER_HOLD: half1 TIME_RULE_EXCEEDED vista (projected 4129s > 4058s) Tue Nov  3 02:38:11 UTC 2026
+W4_DRIVER_START half1 2026-11-03T02:39:26Z
+PREFLIGHT_PASS half1 (99 patients) 2026-11-03T02:39:27Z
+GT_BUILT_STRUCTURE_MATCHES_HOST1 half1 (196 series) 2026-11-03T02:39:28Z
+SMOKE_SKIPPED (SMOKE_PASS already logged for this half; DEVIATIONS 19) 2026-11-03T02:39:28Z
+MODEL_START vista 2026-11-03T02:39:28Z
+W4_DRIVER_START half1 2026-11-03T02:40:52Z
+PREFLIGHT_PASS half1 (99 patients) 2026-11-03T02:40:52Z
+GT_BUILT_STRUCTURE_MATCHES_HOST1 half1 (196 series) 2026-11-03T02:40:53Z
+SMOKE_SKIPPED (SMOKE_PASS already logged for this half; DEVIATIONS 19) 2026-11-03T02:40:53Z
+MODEL_START vista 2026-11-03T02:40:53Z
+TIME_CHECK vista done=99/196 throughput_clock=120s projected_wall_remaining=2448s limit=2626s (estimate 17s x 103 x 1.5) 2026-11-03T02:43:53Z
+TIME_CHECK vista done=189/196 throughput_clock=1921s projected_wall_remaining=2062s limit=2626s (estimate 17s x 103 x 1.5) 2026-11-03T03:13:54Z
+MODEL_DONE vista 2026-11-03T04:14:14Z
+MODEL_START A 2026-11-03T04:14:14Z
+TIME_CHECK A done=7/196 throughput_clock=90s projected_wall_remaining=3492s limit=4067s (estimate 16.6s x 196 x 1.25) 2026-11-03T04:17:14Z
+TIME_CHECK A done=88/196 throughput_clock=1891s projected_wall_remaining=4265s limit=4067s (estimate 16.6s x 196 x 1.25) 2026-11-03T04:47:15Z
+W4_DRIVER_HOLD: half1 TIME_RULE_EXCEEDED A (projected 4265s > 4067s) Tue Nov  3 04:47:15 UTC 2026
+W4_DRIVER_START half1 2026-11-03T05:31:55Z
+PREFLIGHT_PASS half1 (99 patients) 2026-11-03T05:31:55Z
+GT_BUILT_STRUCTURE_MATCHES_HOST1 half1 (196 series) 2026-11-03T05:31:56Z
+SMOKE_SKIPPED (SMOKE_PASS already logged for this half; DEVIATIONS 19) 2026-11-03T05:31:56Z
+MODEL_START vista 2026-11-03T05:31:56Z
+MODEL_DONE vista 2026-11-03T06:29:41Z
+MODEL_START A 2026-11-03T06:29:41Z
+TIME_CHECK A done=95/196 throughput_clock=150s projected_wall_remaining=2675s limit=2689s (estimate 16.6s x 108 x 1.5) 2026-11-03T06:35:11Z
+TIME_CHECK A done=182/196 throughput_clock=1952s projected_wall_remaining=2245s limit=2689s (estimate 16.6s x 108 x 1.5) 2026-11-03T07:05:13Z
+MODEL_DONE A 2026-11-03T08:08:53Z
+MODEL_START D0 2026-11-03T08:08:53Z
+TIME_CHECK D0 done=6/196 throughput_clock=541s projected_wall_remaining=21099s limit=14210s (estimate 58s x 196 x 1.25) 2026-11-03T08:20:54Z
+W4_DRIVER_HOLD: half1 TIME_RULE_EXCEEDED D0 (projected 21099s > 14210s) Tue Nov  3 08:20:54 UTC 2026
+W4_DRIVER_START half1 2026-11-03T11:24:07Z
+PREFLIGHT_PASS half1 (99 patients) 2026-11-03T11:24:07Z
+GT_BUILT_STRUCTURE_MATCHES_HOST1 half1 (196 series) 2026-11-03T11:24:08Z
+SMOKE_SKIPPED (SMOKE_PASS already logged for this half; DEVIATIONS 19) 2026-11-03T11:24:08Z
+MODEL_SKIPPED vista (MODEL_DONE already logged and scores present) 2026-11-03T11:24:08Z
+MODEL_SKIPPED A (MODEL_DONE already logged and scores present) 2026-11-03T11:24:08Z
+MODEL_START D0 2026-11-03T11:24:09Z
+TIME_CHECK D0 done=12/196 projected_wall_remaining=26082s warn_limit=26600s 2026-11-03T11:38:09Z
+TIME_CHECK D0 done=25/196 projected_wall_remaining=26166s warn_limit=26600s 2026-11-03T12:08:11Z
+TIME_CHECK D0 done=41/196 projected_wall_remaining=23869s warn_limit=26600s 2026-11-03T12:38:13Z
+TIME_CHECK D0 done=58/196 projected_wall_remaining=22591s warn_limit=26600s 2026-11-03T13:08:15Z
+TIME_CHECK D0 done=77/196 projected_wall_remaining=21324s warn_limit=26600s 2026-11-03T13:38:17Z
+TIME_CHECK D0 done=93/196 projected_wall_remaining=21317s warn_limit=26600s 2026-11-03T14:08:19Z
+TIME_CHECK D0 done=108/196 projected_wall_remaining=21523s warn_limit=26600s 2026-11-03T14:38:21Z
+TIME_CHECK D0 done=124/196 projected_wall_remaining=21491s warn_limit=26600s 2026-11-03T15:08:23Z
+TIME_CHECK D0 done=146/196 projected_wall_remaining=20543s warn_limit=26600s 2026-11-03T15:38:28Z
+TIME_CHECK D0 done=159/196 projected_wall_remaining=21028s warn_limit=26600s 2026-11-03T16:08:31Z
+TIME_CHECK D0 done=176/196 projected_wall_remaining=20928s warn_limit=26600s 2026-11-03T16:38:33Z
+TIME_CHECK D0 done=191/196 projected_wall_remaining=21074s warn_limit=26600s 2026-11-03T17:08:36Z
+MODEL_DONE D0 2026-11-03T17:22:11Z
+MODEL_START B50 2026-11-03T17:22:11Z
+TIME_CHECK B50 done=6/196 projected_wall_remaining=21099s warn_limit=27440s 2026-11-03T17:34:13Z
+TIME_CHECK B50 done=20/196 projected_wall_remaining=24046s warn_limit=27440s 2026-11-03T18:04:15Z
+TIME_CHECK B50 done=33/196 projected_wall_remaining=25258s warn_limit=27440s 2026-11-03T18:34:17Z
+TIME_CHECK B50 done=51/196 projected_wall_remaining=23193s warn_limit=27440s 2026-11-03T19:04:19Z
+TIME_CHECK B50 done=67/196 projected_wall_remaining=22894s warn_limit=27440s 2026-11-03T19:34:21Z
+TIME_CHECK B50 done=85/196 projected_wall_remaining=22176s warn_limit=27440s 2026-11-03T20:04:25Z
+TIME_CHECK B50 done=102/196 projected_wall_remaining=21930s warn_limit=27440s 2026-11-03T20:34:31Z
+TIME_CHECK B50 done=117/196 projected_wall_remaining=22125s warn_limit=27440s 2026-11-03T21:04:34Z
+TIME_CHECK B50 done=136/196 projected_wall_remaining=21616s warn_limit=27440s 2026-11-03T21:34:37Z
+TIME_CHECK B50 done=154/196 projected_wall_remaining=21369s warn_limit=27440s 2026-11-03T22:04:39Z
+TIME_CHECK B50 done=169/196 projected_wall_remaining=21554s warn_limit=27440s 2026-11-03T22:34:42Z
+TIME_CHECK B50 done=184/196 projected_wall_remaining=21708s warn_limit=27440s 2026-11-03T23:04:45Z
+MODEL_DONE B50 2026-11-03T23:31:15Z
+W4_HALF1_DONE (all four models predicted and scored; GPU idle) 2026-11-03T23:31:15Z
