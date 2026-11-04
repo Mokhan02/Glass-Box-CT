@@ -128,3 +128,5 @@ Not run as a verdict (stated in advance): BRIGHT-50 misses 3 of 28 bright lesion
 
 ### Limits (in addition to those of W5 and Amendment 4)
 One BRIGHT-25 run against two at full dose and one at no dose; 28 bright lesions give wide CIs (the detection gap CI of BRIGHT-25 alone spans 0 to +26 pts); the augmentation is a synthetic stand-in and acts inside the CT window; the dose axis has only three levels, so "saturating" says only that p = 0.25 is already as effective as p = 0.5 in this recipe, not where the curve starts to bend; the rule was written after the p = 0 and p = 0.5 results were known (the arms and seeds were not).
+
+**See also W4 (second cohort, WAW-TACE):** BRIGHT-50 against D0 on real arterial tumours of an independent cohort: CONFIRMED (detection and Dice); detection among bright arterial tumours 8.3% (D0) against 90.9% (BRIGHT-50); the bright-versus-dark failure replicates in VISTA-3D, the Universal Model and D0. BRIGHT-25 was not run there. The within-tumour sign analysis (b) is exploratory only (PREREG Erratum 1). See `results/README.md` and `results/w4_waw/W4_RESULTS.md`.
