@@ -1,6 +1,6 @@
-# W6 code hashes (sha256), recorded 2026-11-08T20:06:56Z, before any W6 run (after Amendment 1); bundle commit cb921f5c58837c0f42a713855d68b32af88e1cdd (NVIDIA-Medtech/NV-Segment-CTMR, NV-Segment-CT/{configs,scripts})
+# W6 code hashes (sha256), recorded 2026-11-08T20:51:30Z, before any W6 arm (after Amendment 1 and the smoke-mode epoch fix); bundle commit cb921f5c58837c0f42a713855d68b32af88e1cdd (NVIDIA-Medtech/NV-Segment-CTMR, NV-Segment-CT/{configs,scripts})
 416b7f34154a7595dd42cf3708f6cce872d11e1baca460f4cd7d64963e879364  glassbox/seg/w6_bright.py
-1e0635f9306bb39dd1cae956d51e7dbea85e5dd15f2799c3bee33d7fcfff22ce  scripts/w6_train.py
+dead1d38a7968ba8c61ee82cfe170e5beae9025d20d73f2036753f2c26ab5ab6  scripts/w6_train.py
 dc6f17d35b1382f421ab3e2d5162fe606c98e5b32921b76605b71baff546e783  scripts/w6_make_datalist.py
 cbd5ea7ef5280d95145e3b4273e218e71333962d357d1d1310e172c9ca6808b5  scripts/w6_overlay.json
 99ebbcb1fa3b3d29f7b8957fb10910500bd9700f1f34ad6538cf9a2f2f517c26  scripts/w6_parity_gate.py

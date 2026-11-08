@@ -41,14 +41,14 @@ def main(argv=None):
     sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     mapping = parse_mapping(a.mapping); arm_edit, decoder_only = ARMS[a.arm]
     datalist = json.load(open(a.data_list)); n_train = sum(1 for r in datalist["training"] if r["fold"] != 0)
-    epochs = max(1, math.ceil(a.iterations / max(n_train, 1))); overlay = os.path.join(os.path.dirname(os.path.abspath(__file__)), "w6_overlay.json")
+    n_used = min(n_train, 8) if a.smoke else n_train; epochs = max(1, math.ceil(a.iterations / max(n_used, 1))); overlay = os.path.join(os.path.dirname(os.path.abspath(__file__)), "w6_overlay.json")
     p = ConfigParser(); p.read_config([os.path.join(bundle, "configs", "train.json"), os.path.join(bundle, "configs", "train_continual.json"), overlay])
     p["dataset_dir"] = a.dataset_dir; p["data_list_file_path"] = os.path.abspath(a.data_list); p["finetune"] = bool(a.weights); p["finetune_model_path"] = a.weights or ""
     p["device"] = f"$torch.device('{a.device}')"; p["patch_size"] = [a.patch] * 3; p["label_mappings"] = {"default": mapping}; p["epochs"] = epochs; p["initialize"] = [f"$monai.utils.set_determinism(seed={a.seed})"]
     p["ckpt_dir"] = os.path.join(out, "ckpt"); p["output_dir"] = os.path.join(out, "eval"); p["n_val_samples"] = a.val_cases; p["val_interval"] = 10 ** 6 if a.smoke else a.val_every_epochs
     p["train#dataloader#num_workers"] = a.workers; p["train#dataloader#persistent_workers"] = a.workers > 0; p["validate#dataloader#num_workers"] = min(a.workers, 2)
     if a.smoke:
-        p["n_train_samples"] = min(n_train, 8)
+        p["n_train_samples"] = n_used      # the smoke test caches only n_used cases; `epochs` above is sized from n_used so that --iterations iterations really run
     # ---- transform order (PREREG W6 amendment 1): the edit runs on HU BEFORE the bundle's intensity clip / rescale (`ScaleIntensityRanged`), which is moved from the cached deterministic chain to right after the crop (and the edit), for ALL arms (PLAIN too), so that every
     # arm sees the same order; the validation preprocessing keeps the official order. Every other intensity augmentation (zoom, low-resolution, smoothing, scale / shift, noise) comes after the rescale.
     det = list(p["train#deterministic_transforms"]); k = next(i for i, t in enumerate(det) if "ScaleIntensityRanged" in t["_target_"]); scale_cfg = det[k]; p["w6_det_full"] = json.loads(json.dumps(det)); del det[k]
