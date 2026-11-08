@@ -78,9 +78,36 @@ def test_parity_with_the_w5_function():
 def test_dictionary_transform_roundtrip_on_the_scaled_patch():
     import torch
     hu, seg = phantom(tum_hu=70.0); scaled = ((np.clip(hu, B.A_MIN, B.A_MAX) - B.A_MIN) / (B.A_MAX - B.A_MIN)).astype(np.float32)
-    t = B.BrightTumourShiftd(arm="BRIGHT", p=1.0); t.set_random_state(seed=3)
+    t = B.BrightTumourShiftd(arm="BRIGHT", p=1.0, scaled=True); t.set_random_state(seed=3)
     d = t({"image": torch.from_numpy(scaled[None]), "label": torch.from_numpy(seg[None].astype(np.int64))})
     new_hu = d["image"].numpy()[0].astype(np.float64) * (B.A_MAX - B.A_MIN) + B.A_MIN
     assert d["image"].shape == (1, 60, 60, 60) and d["image"].dtype == torch.float32 and torch.equal(d["label"], torch.from_numpy(seg[None].astype(np.int64)))
     for c in comps(seg):
         assert new_hu[c].mean() - hu[c].mean() > 5      # the tumours are brighter after the edit (scaled-patch round trip)
+
+
+@pytest.mark.skipif(B.MapTransform is None, reason="MONAI/torch not installed")
+def test_dictionary_transform_in_hu_mode_does_not_clip_and_leaves_the_clip_to_the_bundle():
+    import torch
+    hu, seg = phantom(liver_hu=1040.0, tum_hu=1000.0); t = B.BrightTumourShiftd(arm="BRIGHT", p=1.0); t.set_random_state(seed=4)
+    d = t({"image": torch.from_numpy(hu.astype(np.float32)[None]), "label": torch.from_numpy(seg[None].astype(np.int64))}); new = d["image"].numpy()[0]
+    assert d["bright_applied"] == 1 and new.max() > B.A_MAX      # an edited value above the bundle window is NOT clipped here: ScaleIntensityRanged(clip=True) does that next
+    from monai.transforms import ScaleIntensityRanged
+    sc = ScaleIntensityRanged(keys="image", a_min=B.A_MIN, a_max=B.A_MAX, b_min=0.0, b_max=1.0, clip=True)(d)["image"]
+    assert float(sc.max()) <= 1.0 and float(sc.min()) >= 0.0
+
+
+def test_parity_gate_pure_parts_choose_seeded_nontrivial_cases_and_compare():
+    spec = importlib.util.spec_from_file_location("pg", os.path.join(HERE, "scripts", "w6_parity_gate.py")); PG = importlib.util.module_from_spec(spec); spec.loader.exec_module(PG)
+    cands = [("half0", f"{i}_1", 500 if i % 3 == 0 else 5000 + i) for i in range(1, 40)]; a = PG.choose_cases(cands, 3); assert a == PG.choose_cases(cands, 3) and len(a) == 3 and all(c[2] >= 1000 for c in a)
+    m = np.zeros((20, 20, 20), bool); m[5:10, 5:10, 5:10] = True; r = PG.compare(m, m); assert r["byte_identical"] and r["pass"] and r["dice"] == 1.0
+    m2 = m.copy(); m2[5, 5, 5] = False; r2 = PG.compare(m2, m); assert not r2["byte_identical"] and r2["pass"] and r2["dice"] > 0.99      # one voxel of 125: Dice 0.996
+    m3 = np.zeros_like(m); m3[5:10, 5:10, 5:7] = True; assert not PG.compare(m3, m)["pass"]      # a real difference fails
+    assert PG.dice(np.zeros(5), np.zeros(5)) == 1.0
+
+
+def test_liver_rule_pooled_fraction_and_decision():
+    spec = importlib.util.spec_from_file_location("lr", os.path.join(HERE, "scripts", "w6_liver_rule.py")); LR = importlib.util.module_from_spec(spec); spec.loader.exec_module(LR)
+    t = np.zeros((10, 10, 10), bool); t[2:6, 2:6, 2:6] = True; full = np.ones_like(t); none = np.zeros_like(t); half = np.zeros_like(t); half[2:4, 2:6, 2:6] = True
+    f, per = LR.pooled_fraction([(full, t), (none, t), (half, np.zeros_like(t))]); assert abs(f - 0.5) < 1e-9 and len(per) == 2      # a case without tumour voxels is skipped
+    assert LR.decide(0.5) == "[[2,26]]" and LR.decide(0.49) == "[[1,1],[2,26]]"

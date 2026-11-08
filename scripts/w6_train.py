@@ -49,11 +49,19 @@ def main(argv=None):
     p["train#dataloader#num_workers"] = a.workers; p["train#dataloader#persistent_workers"] = a.workers > 0; p["validate#dataloader#num_workers"] = min(a.workers, 2)
     if a.smoke:
         p["n_train_samples"] = min(n_train, 8)
+    # ---- transform order (PREREG W6 amendment 1): the edit runs on HU BEFORE the bundle's intensity clip / rescale (`ScaleIntensityRanged`), which is moved from the cached deterministic chain to right after the crop (and the edit), for ALL arms (PLAIN too), so that every
+    # arm sees the same order; the validation preprocessing keeps the official order. Every other intensity augmentation (zoom, low-resolution, smoothing, scale / shift, noise) comes after the rescale.
+    det = list(p["train#deterministic_transforms"]); k = next(i for i, t in enumerate(det) if "ScaleIntensityRanged" in t["_target_"]); scale_cfg = det[k]; p["w6_det_full"] = json.loads(json.dumps(det)); del det[k]
+    # official behaviour kept: the official chain pads AFTER the rescale, i.e. with 0 in scaled units = a_min in HU; now that the rescale follows, the image is padded with a_min and the label with 0 (two SpatialPadd instead of one)
+    kp = next(i for i, t in enumerate(det) if "SpatialPadd" in t["_target_"]); sp = det[kp]
+    det[kp:kp + 1] = [{"_target_": "SpatialPadd", "keys": ["image"], "spatial_size": sp["spatial_size"], "mode": "constant", "constant_values": float(scale_cfg["a_min"])}, {"_target_": "SpatialPadd", "keys": ["label"], "spatial_size": sp["spatial_size"], "mode": "constant"}]
+    p["train#deterministic_transforms"] = det; p["validate#preprocessing#transforms"] = "$@w6_det_full + [@valid_remap]"
+    tl = list(p["train#random_transforms"]); i = next(k2 for k2, t in enumerate(tl) if "RandCropByLabelClassesd" in t["_target_"]); ins = []
+    if arm_edit:
+        ins.append({"_target_": "glassbox.seg.w6_bright.BrightTumourShiftd", "keys": ["image", "label"], "arm": arm_edit, "p": a.p})
+    ins.append(json.loads(json.dumps(scale_cfg))); tl[i + 1:i + 1] = ins; p["train#random_transforms"] = tl
     if decoder_only:
         p["optimizer#params"] = "$[q for q in @network.parameters() if q.requires_grad]"
-    if arm_edit:
-        tl = list(p["train#random_transforms"]); i = next(k for k, t in enumerate(tl) if "RandCropByLabelClassesd" in t["_target_"])
-        tl.insert(i + 1, {"_target_": "glassbox.seg.w6_bright.BrightTumourShiftd", "keys": ["image", "label"], "arm": arm_edit, "p": a.p}); p["train#random_transforms"] = tl
     p.parse()
     # ---- preflight asserts (PREREG section 4)
     label_set = p.get_parsed_content("label_set"); expect = [0] + [m[1] for m in mapping]; assert list(label_set) == expect, (label_set, expect)
@@ -68,6 +76,15 @@ def main(argv=None):
         if pc is not None:
             seen |= set(int(v) for v in pc.flatten().tolist())
     assert seen <= set(expect), f"prompted classes outside the label set: {sorted(seen - set(expect))}"
+    names_tr = [type(t).__name__ for t in p.get_parsed_content("train#preprocessing").transforms]; names_va = [type(t).__name__ for t in p.get_parsed_content("validate#preprocessing").transforms]
+    ic = names_tr.index("RandCropByLabelClassesd"); isc = names_tr.index("ScaleIntensityRanged")
+    assert names_tr.count("ScaleIntensityRanged") == 1 and isc == ic + (2 if arm_edit else 1), names_tr      # crop, [edit], rescale, in this order, and nothing else between
+    if arm_edit:
+        assert names_tr[ic + 1] == "BrightTumourShiftd" and names_tr.index("BrightTumourShiftd") < isc, names_tr
+    later = [x for x in ("RandZoomd", "RandSimulateLowResolutiond", "RandGaussianSmoothd", "RandScaleIntensityd", "RandShiftIntensityd", "RandGaussianNoised") if x in names_tr]; assert later and all(names_tr.index(x) > isc for x in later), names_tr      # every other intensity augmentation after the rescale
+    assert names_tr.index("Orientationd") < ic and names_tr.index("Spacingd") < ic, names_tr      # the edit sees the resampled (1.5 mm) HU patch
+    assert names_va.index("ScaleIntensityRanged") < names_va.index("Orientationd") < names_va.index("Spacingd") and names_va[-1] == "Relabeld", names_va      # validation: official order
+    print("[w6] train transform order:", names_tr, flush=True); print("[w6] validation transform order:", names_va, flush=True)
     network = p.get_parsed_content("network")
     if decoder_only:
         for n, q in network.named_parameters():
@@ -95,7 +112,7 @@ def main(argv=None):
     trainer.run()
     done = trainer.state.iteration; torch.save(network.state_dict(), os.path.join(out, "final_model.pt"))
     dt = np.diff(stats["sec"]) if len(stats["sec"]) > 1 else np.array([float("nan")])
-    rep = {"arm": a.arm, "seed": a.seed, "iterations_done": int(done), "iterations_requested": a.iterations, "patch": a.patch, "mapping": mapping, "label_set": list(label_set), "trainable_params": int(n_tr), "all_params": int(n_all),
+    rep = {"arm": a.arm, "seed": a.seed, "iterations_done": int(done), "iterations_requested": a.iterations, "patch": a.patch, "mapping": mapping, "label_set": list(label_set), "transform_order_train": names_tr, "transform_order_validation": names_va, "trainable_params": int(n_tr), "all_params": int(n_all),
            "final_model_sha256": sha256(os.path.join(out, "final_model.pt")), "weights_sha256": sha256(a.weights) if a.weights else None, "driver_sha256": sha256(os.path.abspath(__file__)), "overlay_sha256": sha256(overlay), "monai": monai.__version__, "torch": torch.__version__,
            "seconds_per_iteration_median": float(np.nanmedian(dt)), "loss_first": stats["loss"][:5], "loss_last": stats["loss"][-5:], "loss_all_finite": bool(np.all(np.isfinite(stats["loss"]))) if stats["loss"] else None,
            "edited_patch_fraction": (float(np.mean(stats["edited"])) if stats["edited"] else None), "n_batches_seen": len(stats["edited"]), "wall_seconds": time.time() - stats["t0"]}

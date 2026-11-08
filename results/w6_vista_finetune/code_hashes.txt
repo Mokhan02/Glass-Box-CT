@@ -1,7 +1,9 @@
-# W6 code hashes (sha256), recorded 2026-11-08T18:17:54Z, before any W6 run; bundle commit cb921f5c58837c0f42a713855d68b32af88e1cdd (NVIDIA-Medtech/NV-Segment-CTMR, NV-Segment-CT/{configs,scripts})
-fa83faf070372d4c626667d2021d28a500326f9446321f5c3bf143811990eaea  glassbox/seg/w6_bright.py
-45145725013a7871d6ed57f7841c76b6d0f8f77b88b0316c437447ab2ab3c3ec  scripts/w6_train.py
+# W6 code hashes (sha256), recorded 2026-11-08T20:06:56Z, before any W6 run (after Amendment 1); bundle commit cb921f5c58837c0f42a713855d68b32af88e1cdd (NVIDIA-Medtech/NV-Segment-CTMR, NV-Segment-CT/{configs,scripts})
+416b7f34154a7595dd42cf3708f6cce872d11e1baca460f4cd7d64963e879364  glassbox/seg/w6_bright.py
+1e0635f9306bb39dd1cae956d51e7dbea85e5dd15f2799c3bee33d7fcfff22ce  scripts/w6_train.py
 dc6f17d35b1382f421ab3e2d5162fe606c98e5b32921b76605b71baff546e783  scripts/w6_make_datalist.py
 cbd5ea7ef5280d95145e3b4273e218e71333962d357d1d1310e172c9ca6808b5  scripts/w6_overlay.json
-3d7297aeb807c726bb29711542fef2d1f968eaf9df33946ace2b5def33101fdf  tests/test_w6_bright.py
+99ebbcb1fa3b3d29f7b8957fb10910500bd9700f1f34ad6538cf9a2f2f517c26  scripts/w6_parity_gate.py
+afa2ca960930adc94e86f221607a34a674e9c5b6e89991935a9f6c90a7e87d58  scripts/w6_liver_rule.py
+975a640e78506134a89075fa2d48c95ce1934b34226323066dace90b91d822e0  tests/test_w6_bright.py
 b747eeee104a0f84648b9a4e43949fe78070dec2361666f05343d12bd6b64ce1  scripts/w5_nnunet_trainer.py

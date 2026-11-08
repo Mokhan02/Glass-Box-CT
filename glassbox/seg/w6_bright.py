@@ -62,19 +62,22 @@ except ImportError:      # unit tests of the pure function do not need torch / M
 
 if MapTransform is not None:
     class BrightTumourShiftd(Randomizable, MapTransform):
-        """MONAI dictionary transform: image (1, X, Y, Z) scaled to [0, 1] by `ScaleIntensityRanged`, label (1, X, Y, Z) local labels (1 liver, 2 tumour)."""
+        """MONAI dictionary transform on a patch of HU values (PREREG W6 amendment 1: the edit runs on HU, BEFORE the bundle's `ScaleIntensityRanged` clip / rescale and before every other intensity augmentation; the transform itself does not clip,
+        the following `ScaleIntensityRanged(clip=True)` does). image (1, X, Y, Z) in HU; label (1, X, Y, Z) local labels (1 liver, 2 tumour). `scaled=True` is the legacy mode for an image already scaled to [0, 1] (kept for the tests): it inverts the scaling,
+        edits, clips to the window and rescales."""
 
-        def __init__(self, keys=("image", "label"), arm="BRIGHT", p=0.25, shell=SHELL_VOXELS, a_min=A_MIN, a_max=A_MAX, seed_offset=0):
-            MapTransform.__init__(self, keys); self.arm, self.p, self.shell, self.a_min, self.a_max = arm, p, shell, a_min, a_max
+        def __init__(self, keys=("image", "label"), arm="BRIGHT", p=0.25, shell=SHELL_VOXELS, a_min=A_MIN, a_max=A_MAX, scaled=False):
+            MapTransform.__init__(self, keys); self.arm, self.p, self.shell, self.a_min, self.a_max, self.scaled = arm, p, shell, a_min, a_max, scaled
             if arm not in ARMS:
                 raise ValueError(arm)
 
         def __call__(self, data):
             d = dict(data); img = d[self.keys[0]]; lab = d[self.keys[1]]
             x = img.detach().cpu().numpy() if hasattr(img, "detach") else np.asarray(img); s = lab.detach().cpu().numpy() if hasattr(lab, "detach") else np.asarray(lab)
-            hu = x[0].astype(np.float64) * (self.a_max - self.a_min) + self.a_min
+            hu = x[0].astype(np.float64) * (self.a_max - self.a_min) + self.a_min if self.scaled else x[0].astype(np.float64)
+            lo, hi = (self.a_min, self.a_max) if self.scaled else (-np.inf, np.inf)
             rng = np.random.default_rng(int(self.R.randint(0, 2**31 - 1)))      # Randomizable.R: seeded per worker by MONAI's set_determinism / worker init
-            new, info = shift_tumour_contrast_hu(hu, s[0], self.arm, rng, self.p, self.shell, self.a_min, self.a_max); d["bright_applied"] = int(info["applied"])
-            out = ((new - self.a_min) / (self.a_max - self.a_min)).astype(x.dtype)[None]
-            d[self.keys[0]] = type(img)(out) if hasattr(img, "detach") and not hasattr(img, "meta") else (img.new_tensor(out) if hasattr(img, "new_tensor") else out)
+            new, info = shift_tumour_contrast_hu(hu, s[0], self.arm, rng, self.p, self.shell, lo, hi); d["bright_applied"] = int(info["applied"])
+            out = (((new - self.a_min) / (self.a_max - self.a_min)) if self.scaled else new).astype(x.dtype)[None]
+            d[self.keys[0]] = img.new_tensor(out) if hasattr(img, "new_tensor") else out
             return d
