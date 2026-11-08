@@ -1,0 +1,10 @@
+{
+  "use_mlflow": false,
+  "use_tensorboard": false,
+  "val_at_start": false,
+  "show_cache_progress": false,
+  "drop_point_prob": 1.0,
+  "drop_label_prob": 0.0,
+  "n_train_samples": null,
+  "num_cache_workers": 4
+}
