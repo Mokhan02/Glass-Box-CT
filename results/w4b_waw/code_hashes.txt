@@ -1,0 +1,3 @@
+# W4b code hashes (sha256), recorded 2026-11-08T18:08:23Z, before any W4b run
+bf9667a72ee8c0518f85075ff783b3f549f69308c64fc71882150704b315b57e  results/w4b_waw/w4b_did_power.py
+618834212f2da7194efc98c6e131ae344be28041d014e29c941a58a900b76aba  results/w4b_waw/w4b_primary_power.py

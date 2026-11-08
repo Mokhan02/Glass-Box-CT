@@ -1,0 +1,49 @@
+{
+ "tumours": 297,
+ "patients": 181,
+ "F1_A_bright_P_dark": 81,
+ "NF": 211,
+ "A_dark_P_bright_descriptive_only": 5,
+ "scenarios": [
+  {
+   "b_sign_logit": 0.0,
+   "OR_sign_bright_vs_dark": 1.0,
+   "mean_theta": -0.004,
+   "P_BRIGHT_PENALTY_label": 0.003,
+   "P_NO_PENALTY_label_(CI within +-0.20)": 0.483,
+   "P_NO_PENALTY_label_(CI within +-0.25)": 0.777,
+   "P_REVERSED_label": 0.007,
+   "sims": 300
+  },
+  {
+   "b_sign_logit": -0.5,
+   "OR_sign_bright_vs_dark": 0.607,
+   "mean_theta": 0.079,
+   "P_BRIGHT_PENALTY_label": 0.053,
+   "P_NO_PENALTY_label_(CI within +-0.20)": 0.37,
+   "P_NO_PENALTY_label_(CI within +-0.25)": 0.623,
+   "P_REVERSED_label": 0.0,
+   "sims": 300
+  },
+  {
+   "b_sign_logit": -1.0,
+   "OR_sign_bright_vs_dark": 0.368,
+   "mean_theta": 0.169,
+   "P_BRIGHT_PENALTY_label": 0.307,
+   "P_NO_PENALTY_label_(CI within +-0.20)": 0.067,
+   "P_NO_PENALTY_label_(CI within +-0.25)": 0.193,
+   "P_REVERSED_label": 0.0,
+   "sims": 300
+  },
+  {
+   "b_sign_logit": -2.3,
+   "OR_sign_bright_vs_dark": 0.1,
+   "mean_theta": 0.356,
+   "P_BRIGHT_PENALTY_label": 0.993,
+   "P_NO_PENALTY_label_(CI within +-0.20)": 0.0,
+   "P_NO_PENALTY_label_(CI within +-0.25)": 0.003,
+   "P_REVERSED_label": 0.0,
+   "sims": 300
+  }
+ ]
+}

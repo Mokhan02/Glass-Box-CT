@@ -1,0 +1,33 @@
+{
+ "tumours": 297,
+ "scenarios": [
+  {
+   "BRIGHT_FT_true_sign_OR": 1.0,
+   "SHAM_FT_true_sign_OR": 0.1,
+   "mean_d_theta": -0.353,
+   "P_REDUCES_label": 0.94,
+   "sims": 200
+  },
+  {
+   "BRIGHT_FT_true_sign_OR": 0.61,
+   "SHAM_FT_true_sign_OR": 0.1,
+   "mean_d_theta": -0.273,
+   "P_REDUCES_label": 0.815,
+   "sims": 200
+  },
+  {
+   "BRIGHT_FT_true_sign_OR": 0.37,
+   "SHAM_FT_true_sign_OR": 0.1,
+   "mean_d_theta": -0.187,
+   "P_REDUCES_label": 0.53,
+   "sims": 200
+  },
+  {
+   "BRIGHT_FT_true_sign_OR": 0.1,
+   "SHAM_FT_true_sign_OR": 0.1,
+   "mean_d_theta": -0.009,
+   "P_REDUCES_label": 0.025,
+   "sims": 200
+  }
+ ]
+}
