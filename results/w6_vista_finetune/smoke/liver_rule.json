@@ -1,0 +1,32 @@
+{
+ "pooled_fraction_of_tumour_voxels_inside_baseline_liver": 0.9838998029809926,
+ "n_cases_with_tumour": 24,
+ "per_case": {
+  "imagesTr/liver_64.nii.gz": 0.9902397078612788,
+  "imagesTr/liver_77.nii.gz": 0.9877184695323571,
+  "imagesTr/liver_44.nii.gz": 0.8991021022635626,
+  "imagesTr/liver_40.nii.gz": 0.9861773350751143,
+  "imagesTr/liver_75.nii.gz": 0.9951905290418054,
+  "imagesTr/liver_70.nii.gz": 0.9717896656031161,
+  "imagesTr/liver_128.nii.gz": 0.9991364342082296,
+  "imagesTr/liver_25.nii.gz": 1.0,
+  "imagesTr/liver_51.nii.gz": 0.9900636534689139,
+  "imagesTr/liver_12.nii.gz": 1.0,
+  "imagesTr/liver_58.nii.gz": 0.9071379071379071,
+  "imagesTr/liver_24.nii.gz": 1.0,
+  "imagesTr/liver_120.nii.gz": 0.9512521506404129,
+  "imagesTr/liver_101.nii.gz": 0.9985440189832443,
+  "imagesTr/liver_27.nii.gz": 0.9947587926047842,
+  "imagesTr/liver_3.nii.gz": 1.0,
+  "imagesTr/liver_52.nii.gz": 0.9874289462177526,
+  "imagesTr/liver_112.nii.gz": 0.9881456392887383,
+  "imagesTr/liver_19.nii.gz": 0.9905008635578584,
+  "imagesTr/liver_82.nii.gz": 0.9955087917519949,
+  "imagesTr/liver_11.nii.gz": 1.0,
+  "imagesTr/liver_17.nii.gz": 0.9997876632338889,
+  "imagesTr/liver_42.nii.gz": 1.0,
+  "imagesTr/liver_5.nii.gz": 1.0
+ },
+ "threshold": 0.5,
+ "mapping_decision": "[[2,26]]"
+}

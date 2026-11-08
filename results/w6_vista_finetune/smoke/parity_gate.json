@@ -1,0 +1,65 @@
+{
+ "pass": true,
+ "dice_min": 0.99,
+ "cases": [
+  {
+   "half": "half0",
+   "case": "347_2",
+   "class26": {
+    "byte_identical": true,
+    "dice": 1.0,
+    "pass": true,
+    "voxels_new": 8022,
+    "voxels_stored": 8022
+   },
+   "class1_info": {
+    "byte_identical": true,
+    "dice": 1.0,
+    "pass": true,
+    "voxels_new": 2533387,
+    "voxels_stored": 2533387
+   }
+  },
+  {
+   "half": "half0",
+   "case": "360_1",
+   "class26": {
+    "byte_identical": true,
+    "dice": 1.0,
+    "pass": true,
+    "voxels_new": 82432,
+    "voxels_stored": 82432
+   },
+   "class1_info": {
+    "byte_identical": true,
+    "dice": 1.0,
+    "pass": true,
+    "voxels_new": 3965307,
+    "voxels_stored": 3965307
+   }
+  },
+  {
+   "half": "half0",
+   "case": "452_2",
+   "class26": {
+    "byte_identical": true,
+    "dice": 1.0,
+    "pass": true,
+    "voxels_new": 23591,
+    "voxels_stored": 23591
+   },
+   "class1_info": {
+    "byte_identical": true,
+    "dice": 1.0,
+    "pass": true,
+    "voxels_new": 4293134,
+    "voxels_stored": 4293134
+   }
+  }
+ ],
+ "monai": "1.4.0",
+ "torch": "2.14.1+cu130",
+ "cuda_device": "NVIDIA A10",
+ "n_candidates": 396,
+ "ignite": "0.5.1"
+}
