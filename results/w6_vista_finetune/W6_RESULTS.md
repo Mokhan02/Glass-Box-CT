@@ -63,9 +63,17 @@ Paired tests (W5 CLOSES rule): BRIGHT vs SHAM CONFIRMED (detection delta -0.612 
 
 The baseline reference row has 87 lesions and the arms 86 (85 common); one baseline-only lesion was dropped. No confidence intervals here (descriptive; the per-arm gap analyses are in each arm's `hcc/analysis`).
 
-## 3c. Over-segmentation check (descriptive)
+## 3c. Over-segmentation check (descriptive; `overseg/`, 396 WAW-TACE series, 394 with a ground-truth tumour)
 
-Pending: `scripts/w6_overseg.py` (false-positive tumour volume strictly outside the ground-truth tumours, median mL per series; predicted/GT tumour volume ratio) is running. The 10 mm guard measure so far: median 0.05 mL (baseline), 0.55 (BRIGHT), 0.18 (SHAM).
+| Arm | False-positive tumour volume strictly outside the GT: median / mean mL per series | Predicted / GT tumour volume: median ratio | Median predicted tumour volume (mL) |
+|---|---|---|---|
+| BASELINE | 0.51 / 3.49 | 0.16 | 6.1 |
+| SHAM | 0.74 / 5.51 | 0.23 | 9.9 |
+| PLAIN | 0.28 / 2.40 | 0.11 | 5.0 |
+| **BRIGHT** | **2.56 / 10.79** | **0.68** | 28.0 |
+| BRIGHT-DEC | 1.94 / 8.07 | 0.57 | 21.0 |
+
+BRIGHT predicts about four times the baseline's tumour volume per series and about five times its false-positive volume outside the ground truth (median 2.56 vs 0.51 mL). Its median predicted/GT ratio is 0.68, still below 1, so across series it is not over-segmenting in total volume; the baseline and SHAM under-segment strongly (0.16, 0.23). The guard's 10 mm false-positive measure (median 0.05 baseline, 0.55 BRIGHT, 0.18 SHAM) passes for both. The extra volume is partly the tumour boundary (the ground truth is a drawn mask) and partly real extra prediction; this table cannot separate the two.
 
 ## 4. Forgetting
 

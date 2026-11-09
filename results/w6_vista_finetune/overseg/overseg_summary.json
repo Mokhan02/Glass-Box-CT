@@ -1,0 +1,42 @@
+{
+ "BASELINE": {
+  "n_series": 396,
+  "n_series_with_gt_tumour": 394,
+  "median_fp_outside_gt_ml": 0.507,
+  "mean_fp_outside_gt_ml": 3.4916616161616156,
+  "median_pred_over_gt_volume": 0.1577,
+  "median_pred_ml": 6.1305
+ },
+ "SHAM": {
+  "n_series": 396,
+  "n_series_with_gt_tumour": 394,
+  "median_fp_outside_gt_ml": 0.738,
+  "mean_fp_outside_gt_ml": 5.505239898989899,
+  "median_pred_over_gt_volume": 0.2259,
+  "median_pred_ml": 9.927
+ },
+ "PLAIN": {
+  "n_series": 396,
+  "n_series_with_gt_tumour": 394,
+  "median_fp_outside_gt_ml": 0.2845,
+  "mean_fp_outside_gt_ml": 2.396386363636364,
+  "median_pred_over_gt_volume": 0.10894999999999999,
+  "median_pred_ml": 5.039
+ },
+ "BRIGHT": {
+  "n_series": 396,
+  "n_series_with_gt_tumour": 394,
+  "median_fp_outside_gt_ml": 2.556,
+  "mean_fp_outside_gt_ml": 10.78720202020202,
+  "median_pred_over_gt_volume": 0.6757,
+  "median_pred_ml": 27.9565
+ },
+ "BRIGHT-DEC": {
+  "n_series": 396,
+  "n_series_with_gt_tumour": 394,
+  "median_fp_outside_gt_ml": 1.936,
+  "mean_fp_outside_gt_ml": 8.072396464646465,
+  "median_pred_over_gt_volume": 0.5721499999999999,
+  "median_pred_ml": 21.012
+ }
+}
