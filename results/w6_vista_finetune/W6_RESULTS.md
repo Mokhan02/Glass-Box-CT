@@ -1,6 +1,6 @@
 # W6 / W4b results (living file; research use only, no clinical claims)
 
-Last updated 2026-11-09 11:10 EST. Frozen analysis (`code_hashes_analysis.txt`); every number below comes from files in this folder. Single training runs per arm (seed 2 pending). Models are internal derivatives of NV-Segment-CT and are never published.
+Last updated 2026-11-09 15:10 EST. Frozen analysis (`code_hashes_analysis.txt`); every number below comes from files in this folder. Single training runs per arm (seed 2 pending). Models are internal derivatives of NV-Segment-CT and are never published.
 
 ## Arm status
 
@@ -10,7 +10,7 @@ Last updated 2026-11-09 11:10 EST. Frozen analysis (`code_hashes_analysis.txt`);
 | SHAM (darkened) | yes | yes | yes | yes | done: FAILS (29 of 48) |
 | PLAIN (no edit) | yes | yes | yes | yes | done: FAILS (29 of 48) |
 | BRIGHT-DEC (decoder only) | yes | yes | yes | yes | done: FAILS (20 of 48 classes) |
-| BRIGHT seed 2 | yes (08:07 EST) | yes (10:47 EST) | running | pending | pending |
+| BRIGHT seed 2 | yes (08:07 EST) | yes (10:47 EST) | yes | yes | done: FAILS (31 of 48 classes) |
 | TotalSegmentator | running (176 of 200 series of half 0 at 10:45 EST; ~95 s per series) | - | - | not applicable | - |
 
 The frozen forgetting script cannot hold the drift masks of 20 series in memory (DEVIATIONS 31). The researcher approved a streaming version (memory only; byte-identical output on a real 2-series test; DEVIATIONS 33), now running for the drift check.
@@ -62,6 +62,7 @@ Paired tests (W5 CLOSES rule): BRIGHT vs SHAM CONFIRMED (detection delta -0.612 
 | SHAM | 82.4% / 0.535 | 51.9% / 0.248 | 96.6% / 0.669 |
 | PLAIN | 76.5% / 0.478 | 37.0% / 0.178 | 94.8% / 0.618 |
 | **BRIGHT** | 94.1% / 0.622 | 85.2% / 0.447 | 98.3% / 0.704 |
+| BRIGHT seed 2 | 90.6% / 0.607 | 77.8% / 0.431 | 96.6% / 0.689 |
 | BRIGHT-DEC | 91.8% / 0.604 | 77.8% / 0.401 | 98.3% / 0.698 |
 
 The baseline reference row has 87 lesions and the arms 86 (85 common); one baseline-only lesion was dropped. No confidence intervals here (descriptive; the per-arm gap analyses are in each arm's `hcc/analysis`).
@@ -130,11 +131,11 @@ Guard rules (PREREG): organ Dice drop at most 0.02 (mean) with the CI bound abov
 | Drift: lowest class mean Dice above the floor | 0.748 | 0.811 | 0.783 | 0.785 |
 | Guard result | FORGETTING COST: drift, organ_kidneys | FORGETTING COST: drift, organ_kidneys | FORGETTING COST: drift, organ_kidneys | FORGETTING COST: drift, organ_kidneys |
 
-All three fine-tuned arms, including the unedited PLAIN arm, fail the drift criterion on 29 to 32 of the 48 classes above the floor and lose kidney Dice. The failure is therefore a property of the tumour-only fine-tuning recipe, not of the brightening edit. BRIGHT is slightly worse than SHAM and PLAIN on drift (32 vs 29 classes); the decoder-only arm drifts least (20 classes) and loses the least kidney Dice (-0.030). DEC's kidney-tumour side-check file is byte-identical to the baseline's: the point route used for that check apparently does not use the parameters the decoder-only arm trained (checked in the code: the point path calls the shared encoder's `up_layers` and `point_head`, while the decoder-only arm trains only `image_encoder.up_layers_auto` and `class_head`, so it cannot change the point route; MONAI `vista3d.py`, `segresnet_ds.py`). No arm passes the guard, so every result is tagged "fix with forgetting cost". Files: `guard/stream/`, `guard/forget_analysis_*_nodrift.json`.
+All three fine-tuned arms, including the unedited PLAIN arm, fail the drift criterion on 29 to 32 of the 48 classes above the floor and lose kidney Dice. The failure is therefore a property of the tumour-only fine-tuning recipe, not of the brightening edit. BRIGHT seed 2 behaves like seed 1 on the guard: spleen 0.9547 pass, kidney 0.8246 fail (-0.050 [-0.057, -0.043]), liver 0.9644 pass, false positives median 0.42 mL pass, side check 0.4950, 31 of 48 classes failing the drift criterion (lowest class mean Dice 0.749): FORGETTING COST: drift, organ_kidneys. BRIGHT is slightly worse than SHAM and PLAIN on drift (32 vs 29 classes); the decoder-only arm drifts least (20 classes) and loses the least kidney Dice (-0.030). DEC's kidney-tumour side-check file is byte-identical to the baseline's: the point route used for that check apparently does not use the parameters the decoder-only arm trained (checked in the code: the point path calls the shared encoder's `up_layers` and `point_head`, while the decoder-only arm trains only `image_encoder.up_layers_auto` and `class_head`, so it cannot change the point route; MONAI `vista3d.py`, `segresnet_ds.py`). No arm passes the guard, so every result is tagged "fix with forgetting cost". Files: `guard/stream/`, `guard/forget_analysis_*_nodrift.json`.
 
 ## 5. Limits
 
-Single runs per arm (BRIGHT seed 2 pending); drift not yet checked; WAW-TACE is the validation set for the primary, and the HCC-TACE-Seg results are computed on the instance but not yet summarised here; seed 2 forgetting and HCC are pending; the HCC table has no uncertainty intervals; the second-half W4 models labelled "already seen" were analysed before W4b existed.
+Single runs per arm (BRIGHT seed 2 pending); drift not yet checked; WAW-TACE is the validation set for the primary, and the HCC-TACE-Seg results are computed on the instance but not yet summarised here;  the HCC table has no uncertainty intervals; the second-half W4 models labelled "already seen" were analysed before W4b existed.
 
 ## 6. Deviations from tonight
 
