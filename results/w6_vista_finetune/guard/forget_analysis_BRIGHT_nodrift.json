@@ -1,0 +1,61 @@
+{
+ "BRIGHT": {
+  "organ": {
+   "spleen": {
+    "n": 41,
+    "base_mean": 0.9624330895577017,
+    "arm_mean": 0.9612006851863897,
+    "change": -0.0012324043713122209,
+    "lo": -0.003362154732457229,
+    "hi": 0.0010690641958195266,
+    "pass": true
+   },
+   "kidneys": {
+    "n": 60,
+    "base_mean": 0.8742378222878838,
+    "arm_mean": 0.8181837077407292,
+    "change": -0.05605411454715483,
+    "lo": -0.06501356283497163,
+    "hi": -0.04753701452555951,
+    "pass": false
+   },
+   "liver": {
+    "n": 27,
+    "base_mean": 0.9692335252554953,
+    "arm_mean": 0.9598247410083786,
+    "change": -0.009408784247116778,
+    "lo": -0.012325676136754653,
+    "hi": -0.0066912320374168405,
+    "pass": true
+   }
+  },
+  "drift": null,
+  "false_positives": {
+   "n_series": 396,
+   "median_ml_baseline": 0.05198185015719037,
+   "median_ml_arm": 0.5505875203040623,
+   "mean_ml_baseline": 1.7104871168618125,
+   "mean_ml_arm": 6.433608107783644,
+   "pass": true
+  },
+  "side_check_kidney_tumour": {
+   "n": 65,
+   "base_mean": 0.516456436309095,
+   "arm_mean": 0.49413041869230845,
+   "change": -0.022326017616786435,
+   "lo": -0.046025860942659653,
+   "hi": -0.001951787574784013,
+   "pass": false
+  },
+  "measures": {
+   "organ_spleen": true,
+   "organ_kidneys": false,
+   "organ_liver": true,
+   "false_positives": true
+  },
+  "failed": [
+   "organ_kidneys"
+  ],
+  "guard": "FORGETTING COST: organ_kidneys"
+ }
+}
