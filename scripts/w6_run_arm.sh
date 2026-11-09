@@ -18,7 +18,7 @@ run_step() { # LOGFILE cmd... : warn-only time rule; hold on non-zero exit, erro
   wait $pid || hold "non-zero exit of $(basename $lf)"
 }
 # ---- preflight
-[ -z "$(nvidia-smi --query-compute-apps=pid --format=csv,noheader)" ] || hold "GPU not idle"
+[ -n "$W6_SHARED_GPU" ] || [ -z "$(nvidia-smi --query-compute-apps=pid --format=csv,noheader)" ] || hold "GPU not idle"  # W6_SHARED_GPU=1: explicit opt-in to share a GPU with another step (DEVIATIONS 32, scheduling only)
 for f in results/w6_vista_finetune/code_hashes.txt results/w4_waw/code_hashes_w4.txt results/w4b_waw/code_hashes.txt results/w6_vista_finetune/code_hashes_analysis.txt; do [ -f $f ] || continue; grep -v '^#' $f | sha256sum -c --quiet - >> $O/preflight.log 2>&1 || hold "code hashes differ ($f)"; done
 MAPPING=$($PY -c "import json;print(json.load(open('$W/liver_rule.json'))['mapping_decision'])" 2>/dev/null); [ "$MAPPING" = "[[2,26]]" ] || hold "mapping decision is not [[2,26]] ($MAPPING)"
 log "W6_ARM_START $ARM seed=$SEED mapping=$MAPPING"

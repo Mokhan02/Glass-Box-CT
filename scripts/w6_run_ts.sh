@@ -9,7 +9,7 @@ run_step() { local lf=$1; shift; : > $lf; "$@" >> $lf 2>&1 & local pid=$!
     if [ $age -ge 1200 ]; then kill $pid 2>/dev/null; hold "STALL ($(basename $lf): no new line for $((age/60)) min)"; fi
     if grep -qE "^Traceback \(most recent call last\)|CUDA out of memory|OutOfMemoryError|^RuntimeError" $lf 2>/dev/null; then kill $pid 2>/dev/null; hold "ERROR in $(basename $lf)"; fi
   done; wait $pid || hold "non-zero exit of $(basename $lf)"; }
-[ -z "$(nvidia-smi --query-compute-apps=pid --format=csv,noheader)" ] || hold "GPU not idle"
+[ -n "$W6_SHARED_GPU" ] || [ -z "$(nvidia-smi --query-compute-apps=pid --format=csv,noheader)" ] || hold "GPU not idle"  # W6_SHARED_GPU=1: explicit opt-in to share a GPU with another step (DEVIATIONS 32, scheduling only)
 grep -v '^#' results/w6_vista_finetune/code_hashes_ts.txt | sha256sum -c --quiet - >> $O/preflight.log 2>&1 || hold "code hashes differ (code_hashes_ts.txt)"
 log "W6_TS_START"
 for H in 0 1; do

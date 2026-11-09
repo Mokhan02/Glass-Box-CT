@@ -1,6 +1,6 @@
 # W4b TotalSegmentator code hashes (sha256), recorded 2026-11-09T01:30:20Z, before the TotalSegmentator run; TotalSegmentator 2.18.0 (installed in venv_ts); held-out status inferred, not author-confirmed (DEVIATIONS 25)
 3f9a08c8036c486323db6618356d543d675826d7950ccf956f6dc63273435a6d  scripts/w6_ts_run.py
-e6f95f5d6ab216b934e59bcbfb8cc51f2c888653eace1b708763dd9e35146f6d  scripts/w6_run_ts.sh
+9cfb88fe9ac52c504c774a09edd9fdd1346dca12c1a372766e9fe63074518edd  scripts/w6_run_ts.sh
 a4a1a1970429229858641a9aa40608814d6927b437d236560ee644e2d2be24b1  scripts/w4_waw_score.py
 0e096b194fb98f533ae784314b618c415b20f31c668862fe6bbab7d841dc2e97  glassbox/seg/w4_waw.py
 37a1eefe6f0929e2a2ee56a77007bfd770afada4213840c3892cd776eefd3276  tests/test_w6_ts.py
