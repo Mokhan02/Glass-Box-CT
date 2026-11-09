@@ -29,3 +29,12 @@ def test_drift_floor_and_pass_and_fp():
     shifted = np.roll(big, 4, axis=0); r2 = F.drift_summary(base, {"1": [shifted, big], "2": base["2"]}, vol); assert not r2["pass"] and r2["failing_above_floor"] == ["1"]
     gt = np.zeros((40, 40, 40), bool); gt[10:14, 10:14, 10:14] = True; pred = np.zeros_like(gt); pred[10:14, 10:14, 10:14] = True; pred[30:32, 30:32, 30:32] = True
     assert abs(F.fp_ml(pred, gt, (1.0, 1.0, 1.0)) - 8 / 1000.0) < 1e-9 and F.fp_ml(np.zeros_like(gt), gt, (1.0, 1.0, 1.0)) == 0.0
+
+
+def test_ts_runner_mask_extraction_and_failure_on_missing_class():
+    import pytest
+    spec = importlib.util.spec_from_file_location("tsr", os.path.join(HERE, "scripts", "w6_ts_run.py")); T = importlib.util.module_from_spec(spec); spec.loader.exec_module(T)
+    arr = np.zeros((6, 6, 6), np.int16); arr[1:3, 1:3, 1:3] = 1; arr[4:6, 4:6, 4:6] = 2; cm = {1: "liver_vessels", 2: "liver_tumor"}
+    m = T.mask_from_multilabel(arr, cm, "liver_tumor"); assert m.sum() == 8 and m.dtype == bool and m[4, 4, 4] and not m[1, 1, 1]
+    with pytest.raises(KeyError):
+        T.mask_from_multilabel(arr, {1: "liver_vessels"}, "liver_tumor")      # a class map without the class is an error, never an empty mask
