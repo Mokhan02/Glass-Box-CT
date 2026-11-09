@@ -1,0 +1,2 @@
+# Streaming drift script (memory-only change of the frozen forgetting analysis), approved by the researcher 2026-11-09
+f0c928156e3995e9630e55e5ae9744ff0ed2bef9ee8dba53403f8c344ad6a8c3  scripts/w6_forget_analyze_streaming_candidate.py
