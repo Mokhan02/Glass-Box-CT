@@ -23,7 +23,8 @@ def dice(a, b):
 
 def drift_classes(label_dict):
     """All class indices of the bundle's label_dict except 0 and 26 (26 is the class the fine-tune is meant to change)."""
-    return sorted(int(k) for k in label_dict if int(k) not in (0, 26))
+    vals = list(label_dict.values()) if label_dict and all(isinstance(v, int) for v in label_dict.values()) else list(label_dict.keys())      # the bundle's file maps class NAME -> index; an index -> name mapping is also accepted
+    return sorted({int(v) for v in vals} - {0, 26})
 
 
 def main(argv):
