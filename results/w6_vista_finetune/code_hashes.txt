@@ -1,11 +1,11 @@
-# W6 code hashes (sha256), recorded 2026-11-08T22:26:50Z, before any W6 arm; bundle commit cb921f5c58837c0f42a713855d68b32af88e1cdd (NVIDIA-Medtech/NV-Segment-CTMR, NV-Segment-CT/{configs,scripts})
+# W6 code hashes (sha256), recorded 2026-11-09T00:25:12Z, before any W6 arm; updated after DEVIATIONS 27 (logging-only change of scripts/w6_forget_eval.py); bundle commit cb921f5c58837c0f42a713855d68b32af88e1cdd (NVIDIA-Medtech/NV-Segment-CTMR, NV-Segment-CT/{configs,scripts})
 416b7f34154a7595dd42cf3708f6cce872d11e1baca460f4cd7d64963e879364  glassbox/seg/w6_bright.py
 dead1d38a7968ba8c61ee82cfe170e5beae9025d20d73f2036753f2c26ab5ab6  scripts/w6_train.py
 dc6f17d35b1382f421ab3e2d5162fe606c98e5b32921b76605b71baff546e783  scripts/w6_make_datalist.py
 cbd5ea7ef5280d95145e3b4273e218e71333962d357d1d1310e172c9ca6808b5  scripts/w6_overlay.json
 99ebbcb1fa3b3d29f7b8957fb10910500bd9700f1f34ad6538cf9a2f2f517c26  scripts/w6_parity_gate.py
 afa2ca960930adc94e86f221607a34a674e9c5b6e89991935a9f6c90a7e87d58  scripts/w6_liver_rule.py
-565951983b1236d84560627166b48b355637860dcf00b0841db9efabed6d72dd  scripts/w6_forget_eval.py
+c191142c8e759a340120734d2f7520397ae0a898a9f01f9f0f4bd7f705fc1c4b  scripts/w6_forget_eval.py
 46829e365595bad8a2f0bd82620e4d0b833117474aeecf5f33e1ea5960c6fd69  scripts/w6_run_arm.sh
 2829bca6c4876436263ffd620d3f945a983b05161c47d8ea08bc179d29ba86c4  scripts/w6_queue.sh
 4aa6fe1d39beeb8ac8e508e63907100495c48fead2ae1e6c720cfa5747b050a3  scripts/w6_fetch_task09.sh

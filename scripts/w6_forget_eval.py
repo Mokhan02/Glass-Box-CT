@@ -38,30 +38,31 @@ def main(argv):
         d, im, M = R.prep(path); return d, im, M
     if "spleen" in tasks:
         root = opt("--spleen"); cases = sorted(f for f in os.listdir(os.path.join(root, "imagesTr")) if f.endswith(".nii.gz") and not f.startswith("._")); rows = []
-        for f in cases:
+        for i, f in enumerate(cases, 1):
             d, im, _ = prep(os.path.join(root, "imagesTr", f)); gt = np.asarray(nib.load(os.path.join(root, "labelsTr", f)).dataobj) == 1; pr = np.asarray(R.predict_auto(d, im, 3)).astype(bool)[:gt.shape[0], :gt.shape[1], :gt.shape[2]]
-            rows.append({"case": f, "dice": dice(pr, gt), "pred_voxels": int(pr.sum()), "gt_voxels": int(gt.sum())})
+            rows.append({"case": f, "dice": dice(pr, gt), "pred_voxels": int(pr.sum()), "gt_voxels": int(gt.sum())}); log(f"spleen {i}/{len(cases)} {f} dice {rows[-1]['dice']:.4f}")
         with open(os.path.join(out, "spleen.csv"), "w", newline="") as fh:
             w = csv.DictWriter(fh, fieldnames=list(rows[0])); w.writeheader(); w.writerows(rows)
         log(f"spleen {len(rows)} cases, mean dice {np.mean([r['dice'] for r in rows]):.4f}")
     if "kidney" in tasks:
         root = opt("--kits"); cases = seeded_sample([d for d in os.listdir(root) if os.path.isdir(os.path.join(root, d))], 60, "w6_kits"); krows, trows = [], []
-        for c in cases:
+        for ci, c in enumerate(cases, 1):
             nii, sp, seg, ann, zidx, lab, sel = case_geometry(root, c); d, im, M = prep(os.path.join(root, c, "ct.nii.gz")); sh = seg.shape
             k = (np.asarray(R.predict_auto(d, im, 5)).astype(bool) | np.asarray(R.predict_auto(d, im, 14)).astype(bool))[:sh[0], :sh[1], :sh[2]]; krows.append({"case": c, "dice": dice(k, seg > 0)})
             for rank, (diam, cid) in enumerate(sel[:2], 1):
                 comp_c = lab == cid; pc = interior_point(comp_c, sp); comp = np.zeros(sh, bool); comp[:, :, ann] = comp_c; pt = (pc[0], pc[1], int(zidx[pc[2]]))
                 pr = np.asarray(R.predict(d, im, M, 133, 1, pt)).astype(bool)[:sh[0], :sh[1], :sh[2]]; trows.append({"case": c, "rank": rank, "diam_mm": diam, "dice": dice(pr, comp)})
+            log(f"kidney {ci}/{len(cases)} {c} kidney dice {krows[-1]['dice']:.4f}")
         for nm, rows in (("kidney.csv", krows), ("kidney_tumour_side_check.csv", trows)):
             with open(os.path.join(out, nm), "w", newline="") as fh:
                 w = csv.DictWriter(fh, fieldnames=list(rows[0])); w.writeheader(); w.writerows(rows)
         log(f"kidney {len(krows)} cases mean dice {np.mean([r['dice'] for r in krows]):.4f}; tumour side check {len(trows)} lesions mean dice {np.mean([r['dice'] for r in trows]):.4f}")
     if "liver" in tasks:
         root = opt("--task03"); rws = [r for r in json.load(open(opt("--datalist")))["training"] if r["fold"] == 0]; rows = []
-        for r in rws:
+        for ri, r in enumerate(rws, 1):
             lab = np.asarray(nib.load(os.path.join(root, r["label"])).dataobj); d, im, _ = prep(os.path.join(root, r["image"])); sh = lab.shape
             liv = np.asarray(R.predict_auto(d, im, 1)).astype(bool)[:sh[0], :sh[1], :sh[2]]; tum = np.asarray(R.predict_auto(d, im, 26)).astype(bool)[:sh[0], :sh[1], :sh[2]]
-            rows.append({"case": r["image"], "liver_dice": dice(liv, lab > 0), "tumour_dice_descriptive": dice(tum, lab == 2), "has_tumour": int((lab == 2).any()), "pred_tumour_voxels": int(tum.sum())})
+            rows.append({"case": r["image"], "liver_dice": dice(liv, lab > 0), "tumour_dice_descriptive": dice(tum, lab == 2), "has_tumour": int((lab == 2).any()), "pred_tumour_voxels": int(tum.sum())}); log(f"liver {ri}/{len(rws)} {r['image']} dice {rows[-1]['liver_dice']:.4f}")
         with open(os.path.join(out, "liver.csv"), "w", newline="") as fh:
             w = csv.DictWriter(fh, fieldnames=list(rows[0])); w.writeheader(); w.writerows(rows)
         log(f"liver {len(rows)} validation cases mean dice {np.mean([r['liver_dice'] for r in rows]):.4f}")
