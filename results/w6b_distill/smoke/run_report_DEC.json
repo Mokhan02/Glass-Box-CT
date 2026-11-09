@@ -1,0 +1,150 @@
+{
+ "arm": "W6b-DEC",
+ "seed": 20261110,
+ "iterations_done": 50,
+ "iterations_requested": 50,
+ "patch": 128,
+ "mapping": [
+  [
+   2,
+   26
+  ]
+ ],
+ "label_set": [
+  0,
+  26
+ ],
+ "transform_order_train": [
+  "LoadImaged",
+  "CropForegroundd",
+  "Orientationd",
+  "Spacingd",
+  "CastToTyped",
+  "EnsureTyped",
+  "SpatialPadd",
+  "SpatialPadd",
+  "ClassesToIndicesd",
+  "RandCropByLabelClassesd",
+  "BrightTumourShiftd",
+  "ScaleIntensityRanged",
+  "RandZoomd",
+  "RandSimulateLowResolutiond",
+  "RandGaussianSmoothd",
+  "RandScaleIntensityd",
+  "RandShiftIntensityd",
+  "RandGaussianNoised",
+  "Relabeld"
+ ],
+ "transform_order_validation": [
+  "LoadImaged",
+  "CropForegroundd",
+  "ScaleIntensityRanged",
+  "Orientationd",
+  "Spacingd",
+  "CastToTyped",
+  "EnsureTyped",
+  "SpatialPadd",
+  "Relabeld"
+ ],
+ "trainable_params": 21434064,
+ "all_params": 217964982,
+ "final_model_sha256": "5c9307fd652efe4032407faea211106a3aebefb7cfb1beb864ef3d805d49469d",
+ "weights_sha256": "c92bab26d00b4a5d89fa8a383900cdeb88302fd318e5e816df0bbec7106d9a1b",
+ "driver_sha256": "9570715cb7f4c899f39a81a6355b41a450c23ac55b0014a5eb23d4eb30e62b83",
+ "overlay_sha256": "cbd5ea7ef5280d95145e3b4273e218e71333962d357d1d1310e172c9ca6808b5",
+ "monai": "1.4.0",
+ "torch": "2.14.1+cu130",
+ "seconds_per_iteration_median": 0.6065518856048584,
+ "loss_first": [
+  1.0020703077316284,
+  1.001412272453308,
+  0.09609849005937576,
+  0.6442987322807312,
+  0.07419928908348083
+ ],
+ "loss_last": [
+  1.0015203952789307,
+  0.5770015120506287,
+  1.0007621049880981,
+  1.0017279386520386,
+  1.001463532447815
+ ],
+ "loss_all_finite": true,
+ "edited_patch_fraction": 0.08,
+ "n_batches_seen": 50,
+ "wall_seconds": 50.914002895355225,
+ "lam": 1.0,
+ "k": 16,
+ "distill_classes_n": 123,
+ "loss_task_mean": 0.5777927389740944,
+ "loss_distill_bce_mean": 0.0019247979612555355,
+ "loss_distill_kl_mean": 2.3232673993334174e-06,
+ "loss_distill_kl_last100_mean": 2.3232673993334174e-06,
+ "loss_task_first5": [
+  1.0006821155548096,
+  0.9993127584457397,
+  0.09441512078046799,
+  0.6411044597625732,
+  0.07177481055259705
+ ],
+ "loss_distill_kl_first5": [
+  0.0,
+  2.8335489332675934e-07,
+  3.289896994829178e-07,
+  2.584420144557953e-07,
+  3.478489816188812e-07
+ ],
+ "checks": {
+  "teacher_param_abs_sum_start": 6262402.166708589,
+  "outputs_shape": [
+   18,
+   1,
+   128,
+   128,
+   128
+  ],
+  "student_distill_shape": [
+   16,
+   1,
+   128,
+   128,
+   128
+  ],
+  "teacher_shape": [
+   16,
+   1,
+   128,
+   128,
+   128
+  ],
+  "n_task_prompts": 2,
+  "distilled_classes_it1": [
+   1,
+   4,
+   6,
+   22,
+   34,
+   39,
+   54,
+   57,
+   66,
+   71,
+   94,
+   104,
+   108,
+   109,
+   120,
+   132
+  ],
+  "it1_distill_bce": 0.0013881456106901169,
+  "it1_distill_kl": 0.0,
+  "it1_distill_grad_norm": 0.0,
+  "it1_task_loss": 1.0006821155548096,
+  "it1_task_loss_without_extra_prompts": 1.0006821155548096,
+  "teacher_param_abs_sum_end": 6262402.166708589
+ },
+ "trainer_sha256": "6def6f1ee9e62d7d7b6b4a1bb615c61bca0f361bc19245a981427c5c3768284f",
+ "loss_sha256": "e91880ed1c06737030f9e33451610ca1714831e82df6be70acaa88e2afbd64ba",
+ "max_memory_allocated_gb": 6.985752576,
+ "max_memory_reserved_gb": 7.348420608
+}

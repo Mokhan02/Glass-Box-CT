@@ -1,0 +1,870 @@
+{
+ "n_patches": 200,
+ "patch": 128,
+ "threshold": "logit > 0 (p > 0.5)",
+ "classes": {
+  "1": {
+   "name": "liver",
+   "share_ge_1000_voxels": 0.82,
+   "share_ge_100_voxels": 0.845,
+   "mean_voxels": 269555.175,
+   "student_kl_mean": 0.01628045762219699
+  },
+  "3": {
+   "name": "spleen",
+   "share_ge_1000_voxels": 0.26,
+   "share_ge_100_voxels": 0.325,
+   "mean_voxels": 9964.275,
+   "student_kl_mean": 0.0007096965690288926
+  },
+  "4": {
+   "name": "pancreas",
+   "share_ge_1000_voxels": 0.73,
+   "share_ge_100_voxels": 0.775,
+   "mean_voxels": 10109.01,
+   "student_kl_mean": 0.0023732370360812637
+  },
+  "5": {
+   "name": "right kidney",
+   "share_ge_1000_voxels": 0.715,
+   "share_ge_100_voxels": 0.75,
+   "mean_voxels": 25007.615,
+   "student_kl_mean": 0.0042207778419833634
+  },
+  "6": {
+   "name": "aorta",
+   "share_ge_1000_voxels": 0.69,
+   "share_ge_100_voxels": 0.705,
+   "mean_voxels": 11855.51,
+   "student_kl_mean": 0.0005390081790392288
+  },
+  "7": {
+   "name": "inferior vena cava",
+   "share_ge_1000_voxels": 0.76,
+   "share_ge_100_voxels": 0.81,
+   "mean_voxels": 13006.355,
+   "student_kl_mean": 0.0011332259845221416
+  },
+  "8": {
+   "name": "right adrenal gland",
+   "share_ge_1000_voxels": 0.385,
+   "share_ge_100_voxels": 0.675,
+   "mean_voxels": 760.795,
+   "student_kl_mean": 0.0001887041925510857
+  },
+  "9": {
+   "name": "left adrenal gland",
+   "share_ge_1000_voxels": 0.24,
+   "share_ge_100_voxels": 0.39,
+   "mean_voxels": 480.865,
+   "student_kl_mean": 6.934571618330665e-05
+  },
+  "10": {
+   "name": "gallbladder",
+   "share_ge_1000_voxels": 0.53,
+   "share_ge_100_voxels": 0.6,
+   "mean_voxels": 3831.805,
+   "student_kl_mean": 0.0012139196330826962
+  },
+  "11": {
+   "name": "esophagus",
+   "share_ge_1000_voxels": 0.495,
+   "share_ge_100_voxels": 0.575,
+   "mean_voxels": 1800.265,
+   "student_kl_mean": 0.0002979021352075506
+  },
+  "12": {
+   "name": "stomach",
+   "share_ge_1000_voxels": 0.705,
+   "share_ge_100_voxels": 0.78,
+   "mean_voxels": 23655.49,
+   "student_kl_mean": 0.003257939070754219
+  },
+  "13": {
+   "name": "duodenum",
+   "share_ge_1000_voxels": 0.765,
+   "share_ge_100_voxels": 0.825,
+   "mean_voxels": 8347.14,
+   "student_kl_mean": 0.0015004579607921188
+  },
+  "14": {
+   "name": "left kidney",
+   "share_ge_1000_voxels": 0.35,
+   "share_ge_100_voxels": 0.425,
+   "mean_voxels": 8002.59,
+   "student_kl_mean": 0.0009006669544032775
+  },
+  "15": {
+   "name": "bladder",
+   "share_ge_1000_voxels": 0.125,
+   "share_ge_100_voxels": 0.185,
+   "mean_voxels": 2926.63,
+   "student_kl_mean": 0.0009653820321545936
+  },
+  "17": {
+   "name": "portal vein and splenic vein",
+   "share_ge_1000_voxels": 0.735,
+   "share_ge_100_voxels": 0.795,
+   "mean_voxels": 4318.825,
+   "student_kl_mean": 0.0010396909266273723
+  },
+  "19": {
+   "name": "small bowel",
+   "share_ge_1000_voxels": 0.785,
+   "share_ge_100_voxels": 0.865,
+   "mean_voxels": 38257.685,
+   "student_kl_mean": 0.003934580846107565
+  },
+  "22": {
+   "name": "brain",
+   "share_ge_1000_voxels": 0.01,
+   "share_ge_100_voxels": 0.055,
+   "mean_voxels": 51.86,
+   "student_kl_mean": 0.0009582704090280458
+  },
+  "23": {
+   "name": "lung tumor",
+   "share_ge_1000_voxels": 0.09,
+   "share_ge_100_voxels": 0.28,
+   "mean_voxels": 340.105,
+   "student_kl_mean": 0.00203131563088391
+  },
+  "24": {
+   "name": "pancreatic tumor",
+   "share_ge_1000_voxels": 0.04,
+   "share_ge_100_voxels": 0.25,
+   "mean_voxels": 154.315,
+   "student_kl_mean": 0.005847590833946014
+  },
+  "25": {
+   "name": "hepatic vessel",
+   "share_ge_1000_voxels": 0.67,
+   "share_ge_100_voxels": 0.75,
+   "mean_voxels": 3087.705,
+   "student_kl_mean": 0.0023622559516661566
+  },
+  "27": {
+   "name": "colon cancer primaries",
+   "share_ge_1000_voxels": 0.19,
+   "share_ge_100_voxels": 0.415,
+   "mean_voxels": 716.505,
+   "student_kl_mean": 0.0020034372874579275
+  },
+  "28": {
+   "name": "left lung upper lobe",
+   "share_ge_1000_voxels": 0.22,
+   "share_ge_100_voxels": 0.27,
+   "mean_voxels": 8153.855,
+   "student_kl_mean": 0.0009705628077790607
+  },
+  "29": {
+   "name": "left lung lower lobe",
+   "share_ge_1000_voxels": 0.43,
+   "share_ge_100_voxels": 0.495,
+   "mean_voxels": 23679.025,
+   "student_kl_mean": 0.002410787701810477
+  },
+  "30": {
+   "name": "right lung upper lobe",
+   "share_ge_1000_voxels": 0.18,
+   "share_ge_100_voxels": 0.265,
+   "mean_voxels": 12854.64,
+   "student_kl_mean": 0.0019423511705826968
+  },
+  "31": {
+   "name": "right lung middle lobe",
+   "share_ge_1000_voxels": 0.61,
+   "share_ge_100_voxels": 0.68,
+   "mean_voxels": 26339.035,
+   "student_kl_mean": 0.0017623806113260798
+  },
+  "32": {
+   "name": "right lung lower lobe",
+   "share_ge_1000_voxels": 0.77,
+   "share_ge_100_voxels": 0.785,
+   "mean_voxels": 77290.945,
+   "student_kl_mean": 0.007347668209404219
+  },
+  "33": {
+   "name": "vertebrae L5",
+   "share_ge_1000_voxels": 0.245,
+   "share_ge_100_voxels": 0.33,
+   "mean_voxels": 2126.21,
+   "student_kl_mean": 0.00027641891780149307
+  },
+  "34": {
+   "name": "vertebrae L4",
+   "share_ge_1000_voxels": 0.345,
+   "share_ge_100_voxels": 0.48,
+   "mean_voxels": 3258.49,
+   "student_kl_mean": 0.0012674619665995123
+  },
+  "35": {
+   "name": "vertebrae L3",
+   "share_ge_1000_voxels": 0.535,
+   "share_ge_100_voxels": 0.665,
+   "mean_voxels": 5644.405,
+   "student_kl_mean": 0.001985038849088596
+  },
+  "36": {
+   "name": "vertebrae L2",
+   "share_ge_1000_voxels": 0.6,
+   "share_ge_100_voxels": 0.695,
+   "mean_voxels": 6662.58,
+   "student_kl_mean": 0.0025306637263702216
+  },
+  "37": {
+   "name": "vertebrae L1",
+   "share_ge_1000_voxels": 0.6,
+   "share_ge_100_voxels": 0.67,
+   "mean_voxels": 6147.29,
+   "student_kl_mean": 0.001495562359195901
+  },
+  "38": {
+   "name": "vertebrae T12",
+   "share_ge_1000_voxels": 0.575,
+   "share_ge_100_voxels": 0.605,
+   "mean_voxels": 5069.405,
+   "student_kl_mean": 0.0007301348451255762
+  },
+  "39": {
+   "name": "vertebrae T11",
+   "share_ge_1000_voxels": 0.51,
+   "share_ge_100_voxels": 0.58,
+   "mean_voxels": 3965.72,
+   "student_kl_mean": 0.000476124272809102
+  },
+  "40": {
+   "name": "vertebrae T10",
+   "share_ge_1000_voxels": 0.4,
+   "share_ge_100_voxels": 0.48,
+   "mean_voxels": 2955.66,
+   "student_kl_mean": 0.0004973424000672822
+  },
+  "41": {
+   "name": "vertebrae T9",
+   "share_ge_1000_voxels": 0.305,
+   "share_ge_100_voxels": 0.425,
+   "mean_voxels": 1718.745,
+   "student_kl_mean": 0.0004052434418554185
+  },
+  "42": {
+   "name": "vertebrae T8",
+   "share_ge_1000_voxels": 0.17,
+   "share_ge_100_voxels": 0.285,
+   "mean_voxels": 765.585,
+   "student_kl_mean": 0.00021621605399559484
+  },
+  "43": {
+   "name": "vertebrae T7",
+   "share_ge_1000_voxels": 0.105,
+   "share_ge_100_voxels": 0.135,
+   "mean_voxels": 442.21,
+   "student_kl_mean": 0.00010840960373570852
+  },
+  "44": {
+   "name": "vertebrae T6",
+   "share_ge_1000_voxels": 0.06,
+   "share_ge_100_voxels": 0.08,
+   "mean_voxels": 226.37,
+   "student_kl_mean": 7.244248769893601e-05
+  },
+  "45": {
+   "name": "vertebrae T5",
+   "share_ge_1000_voxels": 0.045,
+   "share_ge_100_voxels": 0.075,
+   "mean_voxels": 179.57,
+   "student_kl_mean": 4.85611992826307e-05
+  },
+  "46": {
+   "name": "vertebrae T4",
+   "share_ge_1000_voxels": 0.04,
+   "share_ge_100_voxels": 0.045,
+   "mean_voxels": 180.175,
+   "student_kl_mean": 2.4646134925205842e-05
+  },
+  "47": {
+   "name": "vertebrae T3",
+   "share_ge_1000_voxels": 0.04,
+   "share_ge_100_voxels": 0.05,
+   "mean_voxels": 182.21,
+   "student_kl_mean": 5.7010522968994334e-05
+  },
+  "48": {
+   "name": "vertebrae T2",
+   "share_ge_1000_voxels": 0.035,
+   "share_ge_100_voxels": 0.095,
+   "mean_voxels": 214.58,
+   "student_kl_mean": 6.458037983975373e-05
+  },
+  "49": {
+   "name": "vertebrae T1",
+   "share_ge_1000_voxels": 0.045,
+   "share_ge_100_voxels": 0.165,
+   "mean_voxels": 233.16,
+   "student_kl_mean": 0.0001777448965003714
+  },
+  "50": {
+   "name": "vertebrae C7",
+   "share_ge_1000_voxels": 0.025,
+   "share_ge_100_voxels": 0.04,
+   "mean_voxels": 100.54,
+   "student_kl_mean": 2.359030221668945e-05
+  },
+  "51": {
+   "name": "vertebrae C6",
+   "share_ge_1000_voxels": 0.0,
+   "share_ge_100_voxels": 0.035,
+   "mean_voxels": 16.32,
+   "student_kl_mean": 5.717158880088391e-05
+  },
+  "52": {
+   "name": "vertebrae C5",
+   "share_ge_1000_voxels": 0.0,
+   "share_ge_100_voxels": 0.075,
+   "mean_voxels": 27.68,
+   "student_kl_mean": 4.311936419981066e-05
+  },
+  "53": {
+   "name": "vertebrae C4",
+   "share_ge_1000_voxels": 0.015,
+   "share_ge_100_voxels": 0.095,
+   "mean_voxels": 50.25,
+   "student_kl_mean": 0.000209133560929331
+  },
+  "54": {
+   "name": "vertebrae C3",
+   "share_ge_1000_voxels": 0.015,
+   "share_ge_100_voxels": 0.125,
+   "mean_voxels": 58.795,
+   "student_kl_mean": 0.00011082023520430085
+  },
+  "55": {
+   "name": "vertebrae C2",
+   "share_ge_1000_voxels": 0.0,
+   "share_ge_100_voxels": 0.045,
+   "mean_voxels": 18.265,
+   "student_kl_mean": 0.00012084038942475673
+  },
+  "56": {
+   "name": "vertebrae C1",
+   "share_ge_1000_voxels": 0.0,
+   "share_ge_100_voxels": 0.02,
+   "mean_voxels": 11.63,
+   "student_kl_mean": 5.9823163755936545e-05
+  },
+  "57": {
+   "name": "trachea",
+   "share_ge_1000_voxels": 0.06,
+   "share_ge_100_voxels": 0.08,
+   "mean_voxels": 398.895,
+   "student_kl_mean": 5.543952844163868e-05
+  },
+  "58": {
+   "name": "left iliac artery",
+   "share_ge_1000_voxels": 0.12,
+   "share_ge_100_voxels": 0.235,
+   "mean_voxels": 369.905,
+   "student_kl_mean": 6.301942344180133e-05
+  },
+  "59": {
+   "name": "right iliac artery",
+   "share_ge_1000_voxels": 0.195,
+   "share_ge_100_voxels": 0.38,
+   "mean_voxels": 565.61,
+   "student_kl_mean": 0.00025180774129694326
+  },
+  "60": {
+   "name": "left iliac vena",
+   "share_ge_1000_voxels": 0.155,
+   "share_ge_100_voxels": 0.23,
+   "mean_voxels": 617.39,
+   "student_kl_mean": 0.00013975518466395444
+  },
+  "61": {
+   "name": "right iliac vena",
+   "share_ge_1000_voxels": 0.175,
+   "share_ge_100_voxels": 0.36,
+   "mean_voxels": 775.83,
+   "student_kl_mean": 0.0001865537040794152
+  },
+  "62": {
+   "name": "colon",
+   "share_ge_1000_voxels": 0.86,
+   "share_ge_100_voxels": 0.885,
+   "mean_voxels": 48586.025,
+   "student_kl_mean": 0.004891268248902634
+  },
+  "63": {
+   "name": "left rib 1",
+   "share_ge_1000_voxels": 0.015,
+   "share_ge_100_voxels": 0.015,
+   "mean_voxels": 32.535,
+   "student_kl_mean": 4.046222484248574e-05
+  },
+  "64": {
+   "name": "left rib 2",
+   "share_ge_1000_voxels": 0.01,
+   "share_ge_100_voxels": 0.015,
+   "mean_voxels": 38.755,
+   "student_kl_mean": 4.942822655721102e-05
+  },
+  "65": {
+   "name": "left rib 3",
+   "share_ge_1000_voxels": 0.065,
+   "share_ge_100_voxels": 0.205,
+   "mean_voxels": 206.065,
+   "student_kl_mean": 6.721303885115048e-05
+  },
+  "66": {
+   "name": "left rib 4",
+   "share_ge_1000_voxels": 0.02,
+   "share_ge_100_voxels": 0.06,
+   "mean_voxels": 72.21,
+   "student_kl_mean": 2.3478802722820548e-05
+  },
+  "67": {
+   "name": "left rib 5",
+   "share_ge_1000_voxels": 0.045,
+   "share_ge_100_voxels": 0.09,
+   "mean_voxels": 124.545,
+   "student_kl_mean": 4.766389086398703e-05
+  },
+  "68": {
+   "name": "left rib 6",
+   "share_ge_1000_voxels": 0.065,
+   "share_ge_100_voxels": 0.105,
+   "mean_voxels": 188.965,
+   "student_kl_mean": 5.579519009188516e-05
+  },
+  "69": {
+   "name": "left rib 7",
+   "share_ge_1000_voxels": 0.08,
+   "share_ge_100_voxels": 0.125,
+   "mean_voxels": 240.76,
+   "student_kl_mean": 0.00015957703388266964
+  },
+  "70": {
+   "name": "left rib 8",
+   "share_ge_1000_voxels": 0.085,
+   "share_ge_100_voxels": 0.115,
+   "mean_voxels": 244.405,
+   "student_kl_mean": 7.99230273332796e-05
+  },
+  "71": {
+   "name": "left rib 9",
+   "share_ge_1000_voxels": 0.09,
+   "share_ge_100_voxels": 0.15,
+   "mean_voxels": 304.5,
+   "student_kl_mean": 5.4562428458666546e-05
+  },
+  "72": {
+   "name": "left rib 10",
+   "share_ge_1000_voxels": 0.105,
+   "share_ge_100_voxels": 0.165,
+   "mean_voxels": 322.175,
+   "student_kl_mean": 5.797184796392685e-05
+  },
+  "73": {
+   "name": "left rib 11",
+   "share_ge_1000_voxels": 0.095,
+   "share_ge_100_voxels": 0.18,
+   "mean_voxels": 266.12,
+   "student_kl_mean": 5.409526649600594e-05
+  },
+  "74": {
+   "name": "left rib 12",
+   "share_ge_1000_voxels": 0.05,
+   "share_ge_100_voxels": 0.19,
+   "mean_voxels": 138.23,
+   "student_kl_mean": 3.34299223322887e-05
+  },
+  "75": {
+   "name": "right rib 1",
+   "share_ge_1000_voxels": 0.035,
+   "share_ge_100_voxels": 0.1,
+   "mean_voxels": 104.8,
+   "student_kl_mean": 0.000244411538442364
+  },
+  "76": {
+   "name": "right rib 2",
+   "share_ge_1000_voxels": 0.03,
+   "share_ge_100_voxels": 0.065,
+   "mean_voxels": 120.015,
+   "student_kl_mean": 0.00024562175463870516
+  },
+  "77": {
+   "name": "right rib 3",
+   "share_ge_1000_voxels": 0.04,
+   "share_ge_100_voxels": 0.07,
+   "mean_voxels": 142.59,
+   "student_kl_mean": 3.3906829512488914e-05
+  },
+  "78": {
+   "name": "right rib 4",
+   "share_ge_1000_voxels": 0.07,
+   "share_ge_100_voxels": 0.17,
+   "mean_voxels": 247.74,
+   "student_kl_mean": 5.644668523018481e-05
+  },
+  "79": {
+   "name": "right rib 5",
+   "share_ge_1000_voxels": 0.165,
+   "share_ge_100_voxels": 0.305,
+   "mean_voxels": 508.5,
+   "student_kl_mean": 0.00021742133674706565
+  },
+  "80": {
+   "name": "right rib 6",
+   "share_ge_1000_voxels": 0.325,
+   "share_ge_100_voxels": 0.465,
+   "mean_voxels": 973.555,
+   "student_kl_mean": 0.0003133193866869988
+  },
+  "81": {
+   "name": "right rib 7",
+   "share_ge_1000_voxels": 0.4,
+   "share_ge_100_voxels": 0.545,
+   "mean_voxels": 1315.675,
+   "student_kl_mean": 0.00027999750034723547
+  },
+  "82": {
+   "name": "right rib 8",
+   "share_ge_1000_voxels": 0.46,
+   "share_ge_100_voxels": 0.56,
+   "mean_voxels": 1421.27,
+   "student_kl_mean": 0.00022495088416690123
+  },
+  "83": {
+   "name": "right rib 9",
+   "share_ge_1000_voxels": 0.465,
+   "share_ge_100_voxels": 0.555,
+   "mean_voxels": 1502.34,
+   "student_kl_mean": 0.0003190699321021384
+  },
+  "84": {
+   "name": "right rib 10",
+   "share_ge_1000_voxels": 0.44,
+   "share_ge_100_voxels": 0.565,
+   "mean_voxels": 1328.78,
+   "student_kl_mean": 0.0002571308136975858
+  },
+  "85": {
+   "name": "right rib 11",
+   "share_ge_1000_voxels": 0.305,
+   "share_ge_100_voxels": 0.515,
+   "mean_voxels": 819.645,
+   "student_kl_mean": 0.00015107965629795216
+  },
+  "86": {
+   "name": "right rib 12",
+   "share_ge_1000_voxels": 0.125,
+   "share_ge_100_voxels": 0.36,
+   "mean_voxels": 332.715,
+   "student_kl_mean": 7.079235707351473e-05
+  },
+  "87": {
+   "name": "left humerus",
+   "share_ge_1000_voxels": 0.095,
+   "share_ge_100_voxels": 0.145,
+   "mean_voxels": 713.92,
+   "student_kl_mean": 0.00022905910603185475
+  },
+  "88": {
+   "name": "right humerus",
+   "share_ge_1000_voxels": 0.085,
+   "share_ge_100_voxels": 0.14,
+   "mean_voxels": 619.685,
+   "student_kl_mean": 0.00032819844384903265
+  },
+  "89": {
+   "name": "left scapula",
+   "share_ge_1000_voxels": 0.03,
+   "share_ge_100_voxels": 0.065,
+   "mean_voxels": 321.56,
+   "student_kl_mean": 0.00010668605518731056
+  },
+  "90": {
+   "name": "right scapula",
+   "share_ge_1000_voxels": 0.11,
+   "share_ge_100_voxels": 0.19,
+   "mean_voxels": 952.675,
+   "student_kl_mean": 0.00012277746620384278
+  },
+  "91": {
+   "name": "left clavicula",
+   "share_ge_1000_voxels": 0.02,
+   "share_ge_100_voxels": 0.04,
+   "mean_voxels": 108.615,
+   "student_kl_mean": 0.0001502540008732467
+  },
+  "92": {
+   "name": "right clavicula",
+   "share_ge_1000_voxels": 0.03,
+   "share_ge_100_voxels": 0.035,
+   "mean_voxels": 190.08,
+   "student_kl_mean": 9.575967422279064e-05
+  },
+  "93": {
+   "name": "left femur",
+   "share_ge_1000_voxels": 0.29,
+   "share_ge_100_voxels": 0.6,
+   "mean_voxels": 2616.39,
+   "student_kl_mean": 0.00023972727403815953
+  },
+  "94": {
+   "name": "right femur",
+   "share_ge_1000_voxels": 0.095,
+   "share_ge_100_voxels": 0.2,
+   "mean_voxels": 1868.405,
+   "student_kl_mean": 0.0003218678160192212
+  },
+  "95": {
+   "name": "left hip",
+   "share_ge_1000_voxels": 0.145,
+   "share_ge_100_voxels": 0.18,
+   "mean_voxels": 5882.385,
+   "student_kl_mean": 0.00023727428539132233
+  },
+  "96": {
+   "name": "right hip",
+   "share_ge_1000_voxels": 0.285,
+   "share_ge_100_voxels": 0.435,
+   "mean_voxels": 7569.11,
+   "student_kl_mean": 0.0006226167693239404
+  },
+  "97": {
+   "name": "sacrum",
+   "share_ge_1000_voxels": 0.2,
+   "share_ge_100_voxels": 0.245,
+   "mean_voxels": 3958.02,
+   "student_kl_mean": 0.00029718052777752744
+  },
+  "98": {
+   "name": "left gluteus maximus",
+   "share_ge_1000_voxels": 0.085,
+   "share_ge_100_voxels": 0.13,
+   "mean_voxels": 6739.91,
+   "student_kl_mean": 0.001310358012233337
+  },
+  "99": {
+   "name": "right gluteus maximus",
+   "share_ge_1000_voxels": 0.115,
+   "share_ge_100_voxels": 0.135,
+   "mean_voxels": 5597.01,
+   "student_kl_mean": 0.00037886375645030057
+  },
+  "100": {
+   "name": "left gluteus medius",
+   "share_ge_1000_voxels": 0.08,
+   "share_ge_100_voxels": 0.105,
+   "mean_voxels": 3823.62,
+   "student_kl_mean": 0.000695284062085193
+  },
+  "101": {
+   "name": "right gluteus medius",
+   "share_ge_1000_voxels": 0.16,
+   "share_ge_100_voxels": 0.205,
+   "mean_voxels": 5034.115,
+   "student_kl_mean": 0.0010699153737368761
+  },
+  "102": {
+   "name": "left gluteus minimus",
+   "share_ge_1000_voxels": 0.07,
+   "share_ge_100_voxels": 0.08,
+   "mean_voxels": 809.79,
+   "student_kl_mean": 0.0003337426693542511
+  },
+  "103": {
+   "name": "right gluteus minimus",
+   "share_ge_1000_voxels": 0.1,
+   "share_ge_100_voxels": 0.11,
+   "mean_voxels": 1209.395,
+   "student_kl_mean": 0.00015388749752673903
+  },
+  "104": {
+   "name": "left autochthon",
+   "share_ge_1000_voxels": 0.415,
+   "share_ge_100_voxels": 0.49,
+   "mean_voxels": 12433.545,
+   "student_kl_mean": 0.001010725619707955
+  },
+  "105": {
+   "name": "right autochthon",
+   "share_ge_1000_voxels": 0.565,
+   "share_ge_100_voxels": 0.595,
+   "mean_voxels": 21807.425,
+   "student_kl_mean": 0.0015171080836444161
+  },
+  "106": {
+   "name": "left iliopsoas",
+   "share_ge_1000_voxels": 0.42,
+   "share_ge_100_voxels": 0.485,
+   "mean_voxels": 7086.66,
+   "student_kl_mean": 0.0008250293341188808
+  },
+  "107": {
+   "name": "right iliopsoas",
+   "share_ge_1000_voxels": 0.68,
+   "share_ge_100_voxels": 0.775,
+   "mean_voxels": 11966.035,
+   "student_kl_mean": 0.0015016003978962544
+  },
+  "108": {
+   "name": "left atrial appendage",
+   "share_ge_1000_voxels": 0.05,
+   "share_ge_100_voxels": 0.1,
+   "mean_voxels": 118.2,
+   "student_kl_mean": 0.0003083312718081288
+  },
+  "109": {
+   "name": "brachiocephalic trunk",
+   "share_ge_1000_voxels": 0.03,
+   "share_ge_100_voxels": 0.09,
+   "mean_voxels": 82.365,
+   "student_kl_mean": 0.00015738159324428126
+  },
+  "110": {
+   "name": "left brachiocephalic vein",
+   "share_ge_1000_voxels": 0.115,
+   "share_ge_100_voxels": 0.22,
+   "mean_voxels": 399.035,
+   "student_kl_mean": 0.00042433802685991394
+  },
+  "111": {
+   "name": "right brachiocephalic vein",
+   "share_ge_1000_voxels": 0.03,
+   "share_ge_100_voxels": 0.04,
+   "mean_voxels": 57.99,
+   "student_kl_mean": 0.0002447553750607767
+  },
+  "112": {
+   "name": "left common carotid artery",
+   "share_ge_1000_voxels": 0.01,
+   "share_ge_100_voxels": 0.03,
+   "mean_voxels": 28.72,
+   "student_kl_mean": 6.193647284817416e-05
+  },
+  "113": {
+   "name": "right common carotid artery",
+   "share_ge_1000_voxels": 0.005,
+   "share_ge_100_voxels": 0.035,
+   "mean_voxels": 20.925,
+   "student_kl_mean": 5.262368844341836e-05
+  },
+  "114": {
+   "name": "costal cartilages",
+   "share_ge_1000_voxels": 0.655,
+   "share_ge_100_voxels": 0.775,
+   "mean_voxels": 8165.135,
+   "student_kl_mean": 0.0011146387172630058
+  },
+  "115": {
+   "name": "heart",
+   "share_ge_1000_voxels": 0.68,
+   "share_ge_100_voxels": 0.765,
+   "mean_voxels": 31621.58,
+   "student_kl_mean": 0.0017087181683746167
+  },
+  "116": {
+   "name": "left kidney cyst",
+   "share_ge_1000_voxels": 0.065,
+   "share_ge_100_voxels": 0.19,
+   "mean_voxels": 223.895,
+   "student_kl_mean": 0.00039995742896280716
+  },
+  "117": {
+   "name": "right kidney cyst",
+   "share_ge_1000_voxels": 0.065,
+   "share_ge_100_voxels": 0.17,
+   "mean_voxels": 401.195,
+   "student_kl_mean": 0.0011203271470731123
+  },
+  "118": {
+   "name": "prostate",
+   "share_ge_1000_voxels": 0.125,
+   "share_ge_100_voxels": 0.46,
+   "mean_voxels": 1225.92,
+   "student_kl_mean": 0.000795330770779401
+  },
+  "119": {
+   "name": "pulmonary vein",
+   "share_ge_1000_voxels": 0.295,
+   "share_ge_100_voxels": 0.5,
+   "mean_voxels": 1008.08,
+   "student_kl_mean": 0.0004606842029897962
+  },
+  "120": {
+   "name": "skull",
+   "share_ge_1000_voxels": 0.05,
+   "share_ge_100_voxels": 0.19,
+   "mean_voxels": 171.11,
+   "student_kl_mean": 0.0004187762453511823
+  },
+  "121": {
+   "name": "spinal cord",
+   "share_ge_1000_voxels": 0.56,
+   "share_ge_100_voxels": 0.63,
+   "mean_voxels": 4556.32,
+   "student_kl_mean": 0.0002860250885714777
+  },
+  "122": {
+   "name": "sternum",
+   "share_ge_1000_voxels": 0.23,
+   "share_ge_100_voxels": 0.305,
+   "mean_voxels": 1158.85,
+   "student_kl_mean": 9.590413434125367e-05
+  },
+  "123": {
+   "name": "left subclavian artery",
+   "share_ge_1000_voxels": 0.03,
+   "share_ge_100_voxels": 0.07,
+   "mean_voxels": 149.795,
+   "student_kl_mean": 0.0010046991769922897
+  },
+  "124": {
+   "name": "right subclavian artery",
+   "share_ge_1000_voxels": 0.03,
+   "share_ge_100_voxels": 0.065,
+   "mean_voxels": 87.57,
+   "student_kl_mean": 5.645839566113864e-05
+  },
+  "125": {
+   "name": "superior vena cava",
+   "share_ge_1000_voxels": 0.25,
+   "share_ge_100_voxels": 0.42,
+   "mean_voxels": 1102.045,
+   "student_kl_mean": 0.000277765278951847
+  },
+  "126": {
+   "name": "thyroid gland",
+   "share_ge_1000_voxels": 0.03,
+   "share_ge_100_voxels": 0.045,
+   "mean_voxels": 152.945,
+   "student_kl_mean": 4.7416703941962624e-05
+  },
+  "127": {
+   "name": "vertebrae S1",
+   "share_ge_1000_voxels": 0.17,
+   "share_ge_100_voxels": 0.23,
+   "mean_voxels": 1412.565,
+   "student_kl_mean": 0.00013658645319083006
+  },
+  "128": {
+   "name": "bone lesion",
+   "share_ge_1000_voxels": 0.35,
+   "share_ge_100_voxels": 0.71,
+   "mean_voxels": 1556.16,
+   "student_kl_mean": 0.0006495846010511741
+  },
+  "132": {
+   "name": "airway",
+   "share_ge_1000_voxels": 0.105,
+   "share_ge_100_voxels": 0.375,
+   "mean_voxels": 599.6,
+   "student_kl_mean": 0.0001343369846290443
+  }
+ },
+ "student": "/lambda/nfs/CTGate/w6/arms/BRIGHT/train/final_model.pt",
+ "student_kl_mean_over_classes": 0.0008743886141074817
+}
