@@ -1,6 +1,6 @@
 # W6 / W4b results (living file; research use only, no clinical claims)
 
-Last updated 2026-11-09 10:55 EST. Frozen analysis (`code_hashes_analysis.txt`); every number below comes from files in this folder. Single training runs per arm (seed 2 pending). Models are internal derivatives of NV-Segment-CT and are never published.
+Last updated 2026-11-09 11:10 EST. Frozen analysis (`code_hashes_analysis.txt`); every number below comes from files in this folder. Single training runs per arm (seed 2 pending). Models are internal derivatives of NV-Segment-CT and are never published.
 
 ## Arm status
 
@@ -9,8 +9,8 @@ Last updated 2026-11-09 10:55 EST. Frozen analysis (`code_hashes_analysis.txt`);
 | BRIGHT (full fine-tune) | yes | yes | yes | yes | done: FAILS (32 of 48 classes) |
 | SHAM (darkened) | yes | yes | yes | yes | done: FAILS (29 of 48) |
 | PLAIN (no edit) | yes | yes | yes | yes | done: FAILS (29 of 48) |
-| BRIGHT-DEC (decoder only) | yes | yes | yes | inference done (12:14Z); analysis pending | streaming run in progress |
-| BRIGHT seed 2 | yes (08:07 EST) | inference running (all 396 predictions written, scoring next) | - | - | - |
+| BRIGHT-DEC (decoder only) | yes | yes | yes | yes | done: FAILS (20 of 48 classes) |
+| BRIGHT seed 2 | yes (08:07 EST) | yes (10:47 EST) | running | pending | pending |
 | TotalSegmentator | running (176 of 200 series of half 0 at 10:45 EST; ~95 s per series) | - | - | not applicable | - |
 
 The frozen forgetting script cannot hold the drift masks of 20 series in memory (DEVIATIONS 31). The researcher approved a streaming version (memory only; byte-identical output on a real 2-series test; DEVIATIONS 33), now running for the drift check.
@@ -31,12 +31,14 @@ theta difference d = **-0.277 [-0.418, -0.135]: REDUCES THE PENALTY** (297 tumou
 | SHAM | +0.245 [+0.121, +0.379] | BRIGHT PENALTY | INCONCLUSIVE |
 | PLAIN | +0.209 [+0.089, +0.338] | BRIGHT PENALTY | INCONCLUSIVE |
 | BRIGHT-DEC | +0.013 [-0.127, +0.152] | INCONCLUSIVE | NO PENALTY |
+| BRIGHT seed 2 | -0.059 [-0.191, +0.090] | INCONCLUSIVE | NO PENALTY |
 
 Secondary S1, BRIGHT minus PLAIN: **d = -0.241 [-0.384, -0.090], REDUCES THE PENALTY.** Fine-tuning without the edit (PLAIN) keeps the penalty, so the reduction is not just an effect of fine-tuning on this task.
 Secondary S2, BRIGHT-DEC minus SHAM: **d = -0.233 [-0.375, -0.079], REDUCES THE PENALTY.**
 Decoder-only ratio R (share of BRIGHT's gap-closing that the decoder-only arm achieves): detection 0.82 [0.70, 0.95], Dice 0.88 [0.77, 1.00]; both DECODER SUFFICES. S3 (BRIGHT NO PENALTY): NO PENALTY under the primary contrast definition.
 
-Files: `analysis_with_plain_dec/` (primary.json, sensitivity_table.json, ANALYSIS.md, detection_table.json). Sensitivities that change a verdict (checked with PLAIN; rerun with DEC to confirm): with the liver eroded by 3 mm, BRIGHT's NO PENALTY becomes INCONCLUSIVE, and PLAIN's BRIGHT PENALTY becomes INCONCLUSIVE. All other sensitivities change nothing. So "BRIGHT has no penalty" is not robust to that sensitivity.
+**Replication (BRIGHT seed 2 vs SHAM): CONFIRMED (detection delta -0.640 [-0.745, -0.539], Dice -0.269 [-0.321, -0.216]).** The two BRIGHT seeds do not differ in their gap closing (detection difference of gaps +0.028 [-0.021, +0.084]; Dice -0.002 [-0.015, +0.012]).
+Files: `analysis_all_arms/` (all arms including seed 2) and `analysis_with_plain_dec/` (primary.json, sensitivity_table.json, ANALYSIS.md, detection_table.json). Sensitivities that change a verdict (checked with PLAIN; rerun with DEC to confirm): with the liver eroded by 3 mm, BRIGHT's NO PENALTY becomes INCONCLUSIVE, and PLAIN's BRIGHT PENALTY becomes INCONCLUSIVE. All other sensitivities change nothing. So "BRIGHT has no penalty" is not robust to that sensitivity.
 
 ## 3. Detection by contrast group (297 tumours; bright = contrast on that series above 0; detection = W4 `detected`)
 
@@ -46,6 +48,7 @@ Files: `analysis_with_plain_dec/` (primary.json, sensitivity_table.json, ANALYSI
 | SHAM | 80.0% (44) | 21.5% (52) | 27.1% (45) | 78.6% (103) |
 | PLAIN | 65.5% (36) | 14.0% (34) | 18.7% (31) | 67.9% (89) |
 | **BRIGHT** | 74.5% (41) | **77.3% (187)** | 65.7% (109) | 78.6% (103) |
+| BRIGHT seed 2 | 70.9% (39) | 76.4% (185) | 60.2% (100) | 78.6% (103) |
 | BRIGHT-DEC | 74.5% (41) | 67.8% (164) | 55.4% (92) | 78.6% (103) |
 
 BRIGHT detects fewer dark arterial tumours than SHAM (41 vs 44 of 55); its gain on bright tumours carries over to the portal-venous series (65.7% vs 21.1% at baseline). Baseline and SHAM happen to have the same arterial-bright count; their dark-minus-bright gaps differ (0.35 vs 0.59).
@@ -118,20 +121,20 @@ Guard rules (PREREG): organ Dice drop at most 0.02 (mean) with the CI bound abov
 
 | Measure (baseline) | BRIGHT | SHAM | PLAIN | BRIGHT-DEC |
 |---|---|---|---|---|
-| Spleen Dice (0.9624, n 41) | 0.9612 pass | 0.9505 pass | 0.9466 pass | pending |
-| Kidney Dice (0.8742, n 60) | 0.8182 **fail** (-0.056 [-0.065, -0.048]) | 0.8297 **fail** (-0.045 [-0.053, -0.037]) | 0.8420 **fail** (-0.032) | 0.844 (-0.030, provisional) |
-| Liver Dice (0.9692, n 27) | 0.9598 pass | 0.9622 pass | 0.9628 pass | pending |
-| Kidney-tumour side check (0.5165, 65 lesions, no criterion) | 0.4941 | 0.5006 | 0.4879 | pending |
-| False positives, 10 mm, median mL (baseline 0.05) | 0.55 pass | 0.18 pass | 0.10 pass | pending |
-| Drift: classes above 10 mL failing 0.95 (of 48) | **32** fail | **29** fail | **29** fail | running |
-| Drift: lowest class mean Dice above the floor | 0.748 | 0.811 | 0.783 | - |
-| Guard result | FORGETTING COST: drift, organ_kidneys | FORGETTING COST: drift, organ_kidneys | FORGETTING COST: drift, organ_kidneys | pending |
+| Spleen Dice (0.9624, n 41) | 0.9612 pass | 0.9505 pass | 0.9466 pass | 0.9623 pass |
+| Kidney Dice (0.8742, n 60) | 0.8182 **fail** (-0.056 [-0.065, -0.048]) | 0.8297 **fail** (-0.045 [-0.053, -0.037]) | 0.8420 **fail** (-0.032) | 0.8444 **fail** (-0.030 [-0.033, -0.027]) |
+| Liver Dice (0.9692, n 27) | 0.9598 pass | 0.9622 pass | 0.9628 pass | 0.9639 pass |
+| Kidney-tumour side check (0.5165, 65 lesions, no criterion) | 0.4941 | 0.5006 | 0.4879 | 0.5165 (identical to baseline, see note) |
+| False positives, 10 mm, median mL (baseline 0.05) | 0.55 pass | 0.18 pass | 0.10 pass | 0.56 pass |
+| Drift: classes above 10 mL failing 0.95 (of 48) | **32** fail | **29** fail | **29** fail | **20** fail |
+| Drift: lowest class mean Dice above the floor | 0.748 | 0.811 | 0.783 | 0.785 |
+| Guard result | FORGETTING COST: drift, organ_kidneys | FORGETTING COST: drift, organ_kidneys | FORGETTING COST: drift, organ_kidneys | FORGETTING COST: drift, organ_kidneys |
 
-All three fine-tuned arms, including the unedited PLAIN arm, fail the drift criterion on 29 to 32 of the 48 classes above the floor and lose kidney Dice. The failure is therefore a property of the tumour-only fine-tuning recipe, not of the brightening edit. BRIGHT is slightly worse than SHAM and PLAIN on drift (32 vs 29 classes). No arm passes the guard, so every result is tagged "fix with forgetting cost". Files: `guard/stream/`, `guard/forget_analysis_*_nodrift.json`.
+All three fine-tuned arms, including the unedited PLAIN arm, fail the drift criterion on 29 to 32 of the 48 classes above the floor and lose kidney Dice. The failure is therefore a property of the tumour-only fine-tuning recipe, not of the brightening edit. BRIGHT is slightly worse than SHAM and PLAIN on drift (32 vs 29 classes); the decoder-only arm drifts least (20 classes) and loses the least kidney Dice (-0.030). DEC's kidney-tumour side-check file is byte-identical to the baseline's: the point route used for that check apparently does not use the parameters the decoder-only arm trained (an inference, not verified). No arm passes the guard, so every result is tagged "fix with forgetting cost". Files: `guard/stream/`, `guard/forget_analysis_*_nodrift.json`.
 
 ## 5. Limits
 
-Single runs per arm (BRIGHT seed 2 pending); drift not yet checked; WAW-TACE is the validation set for the primary, and the HCC-TACE-Seg results are computed on the instance but not yet summarised here; BRIGHT-DEC forgetting is provisional until its drift run finishes; the HCC table has no uncertainty intervals; the second-half W4 models labelled "already seen" were analysed before W4b existed.
+Single runs per arm (BRIGHT seed 2 pending); drift not yet checked; WAW-TACE is the validation set for the primary, and the HCC-TACE-Seg results are computed on the instance but not yet summarised here; seed 2 forgetting and HCC are pending; the HCC table has no uncertainty intervals; the second-half W4 models labelled "already seen" were analysed before W4b existed.
 
 ## 6. Deviations from tonight
 
