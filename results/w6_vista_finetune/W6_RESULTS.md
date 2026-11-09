@@ -1,17 +1,17 @@
 # W6 / W4b results (living file; research use only, no clinical claims)
 
-Last updated 2026-11-09 09:15 EST. Frozen analysis (`code_hashes_analysis.txt`); every number below comes from files in this folder. Single training runs per arm (seed 2 pending). Models are internal derivatives of NV-Segment-CT and are never published.
+Last updated 2026-11-09 10:55 EST. Frozen analysis (`code_hashes_analysis.txt`); every number below comes from files in this folder. Single training runs per arm (seed 2 pending). Models are internal derivatives of NV-Segment-CT and are never published.
 
 ## Arm status
 
 | Arm | Trained | WAW scored | HCC | Forgetting (organs, side check, false positives) | Drift check |
 |---|---|---|---|---|---|
-| BRIGHT (full fine-tune) | yes | yes | yes | yes | streaming run in progress |
-| SHAM (darkened) | yes | yes | yes | yes | streaming run in progress |
-| PLAIN (no edit) | yes | yes | yes | inference done; analysis pending | streaming run in progress |
+| BRIGHT (full fine-tune) | yes | yes | yes | yes | done: FAILS (32 of 48 classes) |
+| SHAM (darkened) | yes | yes | yes | yes | done: FAILS (29 of 48) |
+| PLAIN (no edit) | yes | yes | yes | yes | done: FAILS (29 of 48) |
 | BRIGHT-DEC (decoder only) | yes | yes | yes | inference done (12:14Z); analysis pending | streaming run in progress |
-| BRIGHT seed 2 | yes (08:07 EST) | inference running | - | - | - |
-| TotalSegmentator | running (109 of 200 series of half 0 at 09:05 EST; ~80 s per series) | - | - | not applicable | - |
+| BRIGHT seed 2 | yes (08:07 EST) | inference running (all 396 predictions written, scoring next) | - | - | - |
+| TotalSegmentator | running (176 of 200 series of half 0 at 10:45 EST; ~95 s per series) | - | - | not applicable | - |
 
 The frozen forgetting script cannot hold the drift masks of 20 series in memory (DEVIATIONS 31). The researcher approved a streaming version (memory only; byte-identical output on a real 2-series test; DEVIATIONS 33), now running for the drift check.
 
@@ -99,26 +99,40 @@ False-positive volume (predicted voxels outside every GT tumour voxel) by distan
 
 Reading: BRIGHT's extra false-positive volume sits both next to the tumours (0-5 mm: median 0.63 vs 0.00 mL at baseline) and far from them (>10 mm: median 0.55 vs 0.05, mean 6.43 vs 1.71). About 40% of series carry at least one separate predicted component of 0.5 mL or more with no overlap with the GT, against 28% at baseline. The >10 mm band reproduces the guard's false-positive medians (0.05, 0.18, 0.55). Some of these components may be real tumour tissue that the drawn ground truth does not cover; this table cannot tell.
 
+## 3e. EXPLORATORY: detection at matched false-alarm rate (descriptive; `matched_fa/`; `scripts/w6_matched_fa.py`)
+
+The W4-route predictions keep only masks (no probability maps), so a minimum component size stands in for a threshold. Reference: the baseline has a no-overlap predicted component of at least 0.5 mL in 111 of 396 series (28.0%). For each arm the cut s is the smallest size at which at most 111 series keep a no-overlap component larger than s; all components of size at most s are removed (overlapping or not, blind to the ground truth), and the predictions are rescored with the unchanged W4 scorer. Cuts: BRIGHT 1.43 mL, BRIGHT-DEC 1.21 mL, SHAM 0.68 mL (unfiltered rates 157, 162 and 124 series; PLAIN is already at 108).
+
+| Arm (matched) | Arterial dark (n 55) | Arterial bright (n 242) | Portal bright (n 166) | Portal dark (n 131) |
+|---|---|---|---|---|
+| BASELINE (unfiltered) | 56.4% (31) | 21.5% (52) | 21.1% (35) | 69.5% (91) |
+| SHAM, s 0.68 mL | 76.4% (42) | 20.7% (50) | 26.5% (44) | 72.5% (95) |
+| BRIGHT, s 1.43 mL | 70.9% (39) | 68.2% (165) | 56.6% (94) | 71.8% (94) |
+| BRIGHT-DEC, s 1.21 mL | 69.1% (38) | 57.9% (140) | 47.0% (78) | 71.8% (94) |
+
+At the baseline's false-alarm rate BRIGHT still detects 68.2% of arterial-bright tumours (77.3% unfiltered) against 21.5% for the baseline, and DEC 57.9% (67.8% unfiltered). The size filter costs BRIGHT about 9 points and DEC about 10 points of bright detection. This is a size-cut proxy, not a threshold sweep, it is not pre-registered, and no uncertainty intervals are given.
+
 ## 4. Forgetting
 
-Guard rules (PREREG): organ Dice drop at most 0.02 (mean) with the CI bound above -0.03; drift Dice at least 0.95 only above 10 mL; false positives median at most 1.25 times baseline plus 0.5 mL.
+Guard rules (PREREG): organ Dice drop at most 0.02 (mean) with the CI bound above -0.03; drift Dice at least 0.95 for every class above the 10 mL floor; false positives median at most 1.25 times baseline plus 0.5 mL. Streaming drift script (DEVIATIONS 33); its non-drift parts are identical to the earlier no-drift runs.
 
 | Measure (baseline) | BRIGHT | SHAM | PLAIN | BRIGHT-DEC |
 |---|---|---|---|---|
-| Spleen Dice (0.9624, n 41) | 0.9612 pass | 0.9505 pass | pending | pending |
-| Kidney Dice (0.8742, n 60) | 0.8182 **fail** (-0.056 [-0.065, -0.048]) | 0.8297 **fail** (-0.045 [-0.053, -0.037]) | 0.842 (-0.032, provisional) | 0.844 (-0.030, provisional) |
-| Liver Dice (0.9692, n 27) | 0.9598 pass | 0.9622 pass | pending | pending |
-| Kidney-tumour side check (0.5165, 65 lesions, no criterion) | 0.4941 | 0.5006 | pending | pending |
-| False positives, median mL (baseline 0.05) | 0.55 pass | 0.18 pass | pending | pending |
-| Drift (20 series) | not run | not run | not run | not run |
+| Spleen Dice (0.9624, n 41) | 0.9612 pass | 0.9505 pass | 0.9466 pass | pending |
+| Kidney Dice (0.8742, n 60) | 0.8182 **fail** (-0.056 [-0.065, -0.048]) | 0.8297 **fail** (-0.045 [-0.053, -0.037]) | 0.8420 **fail** (-0.032) | 0.844 (-0.030, provisional) |
+| Liver Dice (0.9692, n 27) | 0.9598 pass | 0.9622 pass | 0.9628 pass | pending |
+| Kidney-tumour side check (0.5165, 65 lesions, no criterion) | 0.4941 | 0.5006 | 0.4879 | pending |
+| False positives, 10 mm, median mL (baseline 0.05) | 0.55 pass | 0.18 pass | 0.10 pass | pending |
+| Drift: classes above 10 mL failing 0.95 (of 48) | **32** fail | **29** fail | **29** fail | running |
+| Drift: lowest class mean Dice above the floor | 0.748 | 0.811 | 0.783 | - |
+| Guard result | FORGETTING COST: drift, organ_kidneys | FORGETTING COST: drift, organ_kidneys | FORGETTING COST: drift, organ_kidneys | pending |
 
-BRIGHT and SHAM both carry the tag **FORGETTING COST: organ_kidneys**. The unedited PLAIN arm also loses kidney Dice, so the loss comes from tumour-only fine-tuning with the kidney class unsupervised and not from the brightening edit.
-Files: `guard/forget_analysis_{BRIGHT,SHAM}_nodrift.json`.
+All three fine-tuned arms, including the unedited PLAIN arm, fail the drift criterion on 29 to 32 of the 48 classes above the floor and lose kidney Dice. The failure is therefore a property of the tumour-only fine-tuning recipe, not of the brightening edit. BRIGHT is slightly worse than SHAM and PLAIN on drift (32 vs 29 classes). No arm passes the guard, so every result is tagged "fix with forgetting cost". Files: `guard/stream/`, `guard/forget_analysis_*_nodrift.json`.
 
 ## 5. Limits
 
-Single runs per arm (BRIGHT seed 2 pending); drift not yet checked; WAW-TACE is the validation set for the primary, and the HCC-TACE-Seg results are computed on the instance but not yet summarised here; PLAIN and BRIGHT-DEC forgetting are provisional until the frozen analysis runs; the HCC table has no uncertainty intervals; the second-half W4 models labelled "already seen" were analysed before W4b existed.
+Single runs per arm (BRIGHT seed 2 pending); drift not yet checked; WAW-TACE is the validation set for the primary, and the HCC-TACE-Seg results are computed on the instance but not yet summarised here; BRIGHT-DEC forgetting is provisional until its drift run finishes; the HCC table has no uncertainty intervals; the second-half W4 models labelled "already seen" were analysed before W4b existed.
 
 ## 6. Deviations from tonight
 
-DEVIATIONS 26 to 33 in `../w3_models/DEVIATIONS.md` (false stall hold, logging-only fix, TotalSegmentator test, drift class names, HCC analysis folder, drift memory problem, shared-GPU scheduling, streaming drift script).
+DEVIATIONS 26 to 35 in `../w3_models/DEVIATIONS.md` (false stall hold, logging-only fix, TotalSegmentator test, drift class names, HCC analysis folder, drift memory problem, shared-GPU scheduling, streaming drift script).

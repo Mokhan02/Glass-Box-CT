@@ -1,0 +1,33 @@
+{
+ "waw": "/lambda/nfs/CTGate/w4_waw",
+ "baseline_series": 396,
+ "baseline_series_with_fp_component_ge_0p5ml": 111,
+ "baseline_rate_pct": 28.03,
+ "arms": {
+  "BASELINE": {
+   "s_ml": 0.0,
+   "series_with_fp_component_gt_s": 240,
+   "series_with_fp_component_ge_0p5ml_unfiltered": 111
+  },
+  "SHAM": {
+   "s_ml": 0.6829,
+   "series_with_fp_component_gt_s": 111,
+   "series_with_fp_component_ge_0p5ml_unfiltered": 124
+  },
+  "PLAIN": {
+   "s_ml": 0.4771,
+   "series_with_fp_component_gt_s": 110,
+   "series_with_fp_component_ge_0p5ml_unfiltered": 108
+  },
+  "BRIGHT": {
+   "s_ml": 1.4278,
+   "series_with_fp_component_gt_s": 111,
+   "series_with_fp_component_ge_0p5ml_unfiltered": 157
+  },
+  "BRIGHT-DEC": {
+   "s_ml": 1.2146,
+   "series_with_fp_component_gt_s": 111,
+   "series_with_fp_component_ge_0p5ml_unfiltered": 162
+  }
+ }
+}

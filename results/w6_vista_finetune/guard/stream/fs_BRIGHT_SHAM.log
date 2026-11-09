@@ -1,0 +1,17 @@
+{
+ "BRIGHT": {
+  "guard": "FORGETTING COST: drift, organ_kidneys",
+  "failed": [
+   "drift",
+   "organ_kidneys"
+  ]
+ },
+ "SHAM": {
+  "guard": "FORGETTING COST: drift, organ_kidneys",
+  "failed": [
+   "drift",
+   "organ_kidneys"
+  ]
+ }
+}
+FSTREAM_EXIT=0
