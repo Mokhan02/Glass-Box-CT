@@ -1,0 +1,2 @@
+# Streaming drift script v2 (progress lines only; DEVIATIONS 35)
+d4d177e7cb98f06077a7362355220434a3285476e23a37537ffb35d9285c3ea3  scripts/w6_forget_analyze_streaming_v2.py
