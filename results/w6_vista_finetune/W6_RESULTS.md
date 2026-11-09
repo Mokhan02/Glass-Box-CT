@@ -1,6 +1,6 @@
 # W6 / W4b results (living file; research use only, no clinical claims)
 
-Last updated 2026-11-09 07:00 EST. Frozen analysis (`code_hashes_analysis.txt`); every number below comes from files in this folder. Single training runs per arm (seed 2 pending). Models are internal derivatives of NV-Segment-CT and are never published.
+Last updated 2026-11-09 09:15 EST. Frozen analysis (`code_hashes_analysis.txt`); every number below comes from files in this folder. Single training runs per arm (seed 2 pending). Models are internal derivatives of NV-Segment-CT and are never published.
 
 ## Arm status
 
@@ -8,10 +8,10 @@ Last updated 2026-11-09 07:00 EST. Frozen analysis (`code_hashes_analysis.txt`);
 |---|---|---|---|---|---|
 | BRIGHT (full fine-tune) | yes | yes | yes | yes | streaming run in progress |
 | SHAM (darkened) | yes | yes | yes | yes | streaming run in progress |
-| PLAIN (no edit) | yes | yes | yes | done on the instance, analysis pending | pending |
-| BRIGHT-DEC (decoder only) | yes | yes | yes | drift inference running (11 of 20 series) | pending |
-| BRIGHT seed 2 | training (epoch 10 of 77 at 06:50 EST) | - | - | - | - |
-| TotalSegmentator | running (10 of 200 series of half 0 at 06:50 EST) | - | - | not applicable | - |
+| PLAIN (no edit) | yes | yes | yes | inference done; analysis pending | streaming run in progress |
+| BRIGHT-DEC (decoder only) | yes | yes | yes | inference done (12:14Z); analysis pending | streaming run in progress |
+| BRIGHT seed 2 | yes (08:07 EST) | inference running | - | - | - |
+| TotalSegmentator | running (109 of 200 series of half 0 at 09:05 EST; ~80 s per series) | - | - | not applicable | - |
 
 The frozen forgetting script cannot hold the drift masks of 20 series in memory (DEVIATIONS 31). The researcher approved a streaming version (memory only; byte-identical output on a real 2-series test; DEVIATIONS 33), now running for the drift check.
 
@@ -74,6 +74,30 @@ The baseline reference row has 87 lesions and the arms 86 (85 common); one basel
 | BRIGHT-DEC | 1.94 / 8.07 | 0.57 | 21.0 |
 
 BRIGHT predicts about four times the baseline's tumour volume per series and about five times its false-positive volume outside the ground truth (median 2.56 vs 0.51 mL). Its median predicted/GT ratio is 0.68, still below 1, so across series it is not over-segmenting in total volume; the baseline and SHAM under-segment strongly (0.16, 0.23). The guard's 10 mm false-positive measure (median 0.05 baseline, 0.55 BRIGHT, 0.18 SHAM) passes for both. The extra volume is partly the tumour boundary (the ground truth is a drawn mask) and partly real extra prediction; this table cannot separate the two.
+
+## 3d. Over-segmentation detail (descriptive; `overseg2/`, 396 series; `scripts/w6_overseg2.py`)
+
+Predicted connected components (26-connectivity) with no overlap with any GT tumour voxel and a size of at least 0.5 mL:
+
+| Arm | Per series: median / mean | % of series with at least one |
+|---|---|---|
+| BASELINE | 0 / 0.38 | 28.0% |
+| SHAM | 0 / 0.50 | 31.3% |
+| PLAIN | 0 / 0.39 | 27.3% |
+| **BRIGHT** | 0 / 0.70 | **39.6%** |
+| BRIGHT-DEC | 0 / 0.71 | 40.9% |
+
+False-positive volume (predicted voxels outside every GT tumour voxel) by distance to the nearest GT tumour voxel, median / mean mL per series:
+
+| Arm | 0-5 mm | 5-10 mm | >10 mm |
+|---|---|---|---|
+| BASELINE | 0.00 / 1.40 | 0.00 / 0.38 | 0.05 / 1.71 |
+| SHAM | 0.02 / 1.70 | 0.00 / 0.56 | 0.18 / 3.25 |
+| PLAIN | 0.00 / 0.81 | 0.00 / 0.22 | 0.10 / 1.36 |
+| **BRIGHT** | 0.63 / 3.26 | 0.00 / 1.09 | 0.55 / 6.43 |
+| BRIGHT-DEC | 0.42 / 3.01 | 0.00 / 0.96 | 0.56 / 4.10 |
+
+Reading: BRIGHT's extra false-positive volume sits both next to the tumours (0-5 mm: median 0.63 vs 0.00 mL at baseline) and far from them (>10 mm: median 0.55 vs 0.05, mean 6.43 vs 1.71). About 40% of series carry at least one separate predicted component of 0.5 mL or more with no overlap with the GT, against 28% at baseline. The >10 mm band reproduces the guard's false-positive medians (0.05, 0.18, 0.55). Some of these components may be real tumour tissue that the drawn ground truth does not cover; this table cannot tell.
 
 ## 4. Forgetting
 
