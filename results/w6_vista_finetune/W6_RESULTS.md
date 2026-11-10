@@ -142,3 +142,7 @@ Single runs per arm (BRIGHT seed 2 pending); drift not yet checked; WAW-TACE is 
 ## 6. Deviations from tonight
 
 DEVIATIONS 26 to 35 in `../w3_models/DEVIATIONS.md` (false stall hold, logging-only fix, TotalSegmentator test, drift class names, HCC analysis folder, drift memory problem, shared-GPU scheduling, streaming drift script).
+
+## Files kept in the repo (added 2026-11-10 before the instances were terminated)
+
+Small per-case result files of every arm (per-case CSVs of the forgetting evaluation, HCC-TACE-Seg lesion tables and analyses, WAW score CSVs, training run reports, step logs, queue logs; no model weights, predictions or drift masks) are in `arm_files/` here (W6 arms, BASELINE_GUARD, TotalSegmentator, queue logs) and in `../w6b_distill/arm_files/` (W6b arms). The large files (final models, per-series predictions, drift masks, about 16 GB) stay on the CTGate filesystem only.

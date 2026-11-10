@@ -1,0 +1,1 @@
+{"arm": "W6b-FULL-L573", "weights": "final_model.pt", "tasks": ["spleen", "kidney", "liver", "drift"], "wall_seconds": 6784.054514408112}

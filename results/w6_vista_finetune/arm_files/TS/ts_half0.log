@@ -1,0 +1,229 @@
+TotalSegmentator sends anonymous usage statistics. If you want to disable it check the documentation.
+Downloading model for Task 8 ...
+Downloading:   0%|          | 0.00/230M [00:00<?, ?B/s]Downloading:   6%|▌         | 13.9M/230M [00:00<00:01, 139MB/s]Downloading:  18%|█▊        | 40.8M/230M [00:00<00:00, 215MB/s]Downloading:  30%|███       | 69.2M/230M [00:00<00:00, 246MB/s]Downloading:  42%|████▏     | 95.7M/230M [00:00<00:00, 252MB/s]Downloading:  53%|█████▎    | 122M/230M [00:00<00:00, 257MB/s] Downloading:  64%|██████▍   | 148M/230M [00:00<00:00, 236MB/s]Downloading:  75%|███████▌  | 173M/230M [00:00<00:00, 240MB/s]Downloading:  88%|████████▊ | 203M/230M [00:00<00:00, 258MB/s]Downloading: 100%|██████████| 230M/230M [00:00<00:00, 249MB/s]
+Download finished. Extracting...
+Downloading model for Task 298 ...
+Downloading:   0%|          | 0.00/135M [00:00<?, ?B/s]Downloading:  19%|█▉        | 25.4M/135M [00:00<00:00, 253MB/s]Downloading:  38%|███▊      | 50.9M/135M [00:00<00:00, 243MB/s]Downloading:  60%|██████    | 81.4M/135M [00:00<00:00, 271MB/s]Downloading:  81%|████████  | 109M/135M [00:00<00:00, 273MB/s] Downloading: 100%|██████████| 135M/135M [00:00<00:00, 268MB/s]
+/lambda/nfs/CTGate/venv_ts/lib/python3.10/site-packages/torch/jit/_script.py:1643: FutureWarning: `torch.jit.interface` is deprecated. Please use `torch.compile` instead.
+  warnings.warn(
+Download finished. Extracting...
+Download finished. Extracting...
+Download finished. Extracting...
+Downloading model for Task 291 ...
+Downloading:   0%|          | 0.00/234M [00:00<?, ?B/s]Downloading:   8%|▊         | 19.0M/234M [00:00<00:01, 189MB/s]Downloading:  18%|█▊        | 42.1M/234M [00:00<00:00, 212MB/s]Downloading:  27%|██▋       | 63.3M/234M [00:00<00:00, 209MB/s]Downloading:  36%|███▌      | 84.7M/234M [00:00<00:00, 211MB/s]Downloading:  48%|████▊     | 113M/234M [00:00<00:00, 236MB/s] Downloading:  58%|█████▊    | 137M/234M [00:00<00:00, 217MB/s]Downloading:  69%|██████▉   | 161M/234M [00:00<00:00, 226MB/s]Downloading:  81%|████████  | 188M/234M [00:00<00:00, 239MB/s]Downloading:  93%|█████████▎| 218M/234M [00:00<00:00, 257MB/s]Downloading: 100%|██████████| 234M/234M [00:00<00:00, 239MB/s]
+Download finished. Extracting...
+Downloading model for Task 292 ...
+Downloading:   0%|          | 0.00/234M [00:00<?, ?B/s]Downloading:   7%|▋         | 16.5M/234M [00:00<00:01, 164MB/s]Downloading:  18%|█▊        | 42.7M/234M [00:00<00:00, 221MB/s]Downloading:  30%|██▉       | 69.1M/234M [00:00<00:00, 240MB/s]Downloading:  42%|████▏     | 99.4M/234M [00:00<00:00, 264MB/s]Downloading:  54%|█████▍    | 126M/234M [00:00<00:00, 257MB/s] Downloading:  65%|██████▌   | 152M/234M [00:00<00:00, 259MB/s]Downloading:  76%|███████▋  | 179M/234M [00:00<00:00, 261MB/s]Downloading:  88%|████████▊ | 205M/234M [00:00<00:00, 262MB/s]Downloading:  99%|█████████▉| 231M/234M [00:00<00:00, 244MB/s]Downloading: 100%|██████████| 234M/234M [00:00<00:00, 248MB/s]
+Download finished. Extracting...
+Downloading model for Task 293 ...
+Downloading:   0%|          | 0.00/234M [00:00<?, ?B/s]Downloading:   8%|▊         | 19.5M/234M [00:00<00:01, 195MB/s]Downloading:  20%|██        | 48.0M/234M [00:00<00:00, 247MB/s]Downloading:  32%|███▏      | 75.5M/234M [00:00<00:00, 260MB/s]Downloading:  43%|████▎     | 102M/234M [00:00<00:00, 247MB/s] Downloading:  54%|█████▍    | 126M/234M [00:00<00:00, 224MB/s]Downloading:  66%|██████▌   | 155M/234M [00:00<00:00, 243MB/s]Downloading:  77%|███████▋  | 180M/234M [00:00<00:00, 214MB/s]Downloading:  86%|████████▌ | 202M/234M [00:00<00:00, 170MB/s]Downloading:  99%|█████████▊| 231M/234M [00:01<00:00, 199MB/s]Downloading: 100%|██████████| 234M/234M [00:01<00:00, 213MB/s]
+Download finished. Extracting...
+Downloading model for Task 294 ...
+Downloading:   0%|          | 0.00/234M [00:00<?, ?B/s]Downloading:   7%|▋         | 15.9M/234M [00:00<00:01, 159MB/s]Downloading:  18%|█▊        | 43.1M/234M [00:00<00:00, 225MB/s]Downloading:  28%|██▊       | 65.7M/234M [00:00<00:00, 214MB/s]Downloading:  41%|████      | 96.2M/234M [00:00<00:00, 248MB/s]Downloading:  55%|█████▍    | 128M/234M [00:00<00:00, 273MB/s] Downloading:  68%|██████▊   | 158M/234M [00:00<00:00, 283MB/s]Downloading:  81%|████████  | 188M/234M [00:00<00:00, 288MB/s]Downloading:  93%|█████████▎| 218M/234M [00:00<00:00, 291MB/s]Downloading: 100%|██████████| 234M/234M [00:00<00:00, 270MB/s]
+Download finished. Extracting...
+Downloading model for Task 295 ...
+Downloading:   0%|          | 0.00/234M [00:00<?, ?B/s]Downloading:   8%|▊         | 18.1M/234M [00:00<00:01, 178MB/s]Downloading:  19%|█▉        | 45.2M/234M [00:00<00:00, 233MB/s]Downloading:  31%|███       | 71.4M/234M [00:00<00:00, 246MB/s]Downloading:  43%|████▎     | 100M/234M [00:00<00:00, 263MB/s] Downloading:  56%|█████▌    | 130M/234M [00:00<00:00, 274MB/s]Downloading:  68%|██████▊   | 159M/234M [00:00<00:00, 277MB/s]Downloading:  80%|████████  | 188M/234M [00:00<00:00, 282MB/s]Downloading:  93%|█████████▎| 217M/234M [00:00<00:00, 285MB/s]Downloading: 100%|██████████| 234M/234M [00:00<00:00, 271MB/s]
+Download finished. Extracting...
+Download finished. Extracting...
+Download finished. Extracting...
+[ts] 1/200 8_1 tumour voxels 222253 elapsed 162s
+[ts] 2/200 8_2 tumour voxels 463843 elapsed 240s
+[ts] 3/200 14_1 tumour voxels 35031 elapsed 313s
+[ts] 4/200 14_2 tumour voxels 20485 elapsed 386s
+[ts] 5/200 15_1 tumour voxels 219690 elapsed 470s
+[ts] 6/200 15_2 tumour voxels 192939 elapsed 552s
+[ts] 7/200 23_1 tumour voxels 5890 elapsed 630s
+[ts] 8/200 23_2 tumour voxels 7621 elapsed 705s
+[ts] 9/200 24_1 tumour voxels 894 elapsed 783s
+[ts] 10/200 24_2 tumour voxels 3889 elapsed 867s
+[ts] 11/200 25_1 tumour voxels 452 elapsed 934s
+[ts] 12/200 25_2 tumour voxels 6351 elapsed 1005s
+[ts] 13/200 27_1 tumour voxels 23682 elapsed 1098s
+[ts] 14/200 27_2 tumour voxels 10038 elapsed 1199s
+[ts] 15/200 36_1 tumour voxels 151381 elapsed 1280s
+[ts] 16/200 36_2 tumour voxels 431978 elapsed 1372s
+[ts] 17/200 37_1 tumour voxels 9014 elapsed 1460s
+[ts] 18/200 37_2 tumour voxels 7506 elapsed 1540s
+[ts] 19/200 38_1 tumour voxels 0 elapsed 1621s
+[ts] 20/200 38_2 tumour voxels 687 elapsed 1701s
+[ts] 21/200 39_1 tumour voxels 5722 elapsed 1786s
+[ts] 22/200 39_2 tumour voxels 8624 elapsed 1873s
+[ts] 23/200 46_1 tumour voxels 66688 elapsed 1959s
+[ts] 24/200 46_2 tumour voxels 56976 elapsed 2041s
+[ts] 25/200 47_1 tumour voxels 7765 elapsed 2125s
+[ts] 26/200 47_2 tumour voxels 6109 elapsed 2204s
+[ts] 27/200 50_1 tumour voxels 709460 elapsed 2288s
+[ts] 28/200 50_2 tumour voxels 388538 elapsed 2366s
+[ts] 29/200 56_1 tumour voxels 31863 elapsed 2451s
+[ts] 30/200 56_2 tumour voxels 29904 elapsed 2527s
+[ts] 31/200 58_1 tumour voxels 35418 elapsed 2612s
+[ts] 32/200 58_2 tumour voxels 18665 elapsed 2689s
+[ts] 33/200 60_1 tumour voxels 66300 elapsed 2776s
+[ts] 34/200 60_2 tumour voxels 69143 elapsed 2853s
+[ts] 35/200 62_1 tumour voxels 23341 elapsed 2931s
+[ts] 36/200 62_2 tumour voxels 32628 elapsed 3004s
+[ts] 37/200 65_1 tumour voxels 309173 elapsed 3096s
+[ts] 38/200 65_2 tumour voxels 347288 elapsed 3178s
+[ts] 39/200 67_1 tumour voxels 13667 elapsed 3256s
+[ts] 40/200 67_2 tumour voxels 5725 elapsed 3327s
+[ts] 41/200 69_1 tumour voxels 1408251 elapsed 3414s
+[ts] 42/200 69_2 tumour voxels 1389603 elapsed 3503s
+[ts] 43/200 73_1 tumour voxels 55728 elapsed 3585s
+[ts] 44/200 73_2 tumour voxels 1459 elapsed 3662s
+[ts] 45/200 74_1 tumour voxels 6476 elapsed 3743s
+[ts] 46/200 74_2 tumour voxels 6182 elapsed 3824s
+[ts] 47/200 79_1 tumour voxels 172970 elapsed 3919s
+[ts] 48/200 79_2 tumour voxels 209499 elapsed 4026s
+[ts] 49/200 80_1 tumour voxels 42256 elapsed 4110s
+[ts] 50/200 80_2 tumour voxels 18421 elapsed 4189s
+[ts] 51/200 81_1 tumour voxels 86112 elapsed 4275s
+[ts] 52/200 81_2 tumour voxels 55102 elapsed 4352s
+[ts] 53/200 83_1 tumour voxels 49373 elapsed 4435s
+[ts] 54/200 83_2 tumour voxels 299602 elapsed 4509s
+[ts] 55/200 84_1 tumour voxels 29135 elapsed 4581s
+[ts] 56/200 84_2 tumour voxels 24214 elapsed 4649s
+[ts] 57/200 88_1 tumour voxels 198510 elapsed 4729s
+[ts] 58/200 88_2 tumour voxels 18784 elapsed 4808s
+[ts] 59/200 89_1 tumour voxels 2996 elapsed 4885s
+[ts] 60/200 89_2 tumour voxels 18548 elapsed 4963s
+[ts] 61/200 91_1 tumour voxels 47901 elapsed 5039s
+[ts] 62/200 91_2 tumour voxels 44405 elapsed 5112s
+[ts] 63/200 92_1 tumour voxels 54898 elapsed 5188s
+[ts] 64/200 92_2 tumour voxels 34144 elapsed 5263s
+[ts] 65/200 93_1 tumour voxels 15692 elapsed 5347s
+[ts] 66/200 93_2 tumour voxels 8706 elapsed 5428s
+[ts] 67/200 94_1 tumour voxels 0 elapsed 5519s
+[ts] 68/200 94_2 tumour voxels 53300 elapsed 5610s
+[ts] 69/200 102_1 tumour voxels 270384 elapsed 5686s
+[ts] 70/200 102_2 tumour voxels 163306 elapsed 5761s
+[ts] 71/200 103_1 tumour voxels 41933 elapsed 5841s
+[ts] 72/200 103_2 tumour voxels 58516 elapsed 5920s
+[ts] 73/200 112_1 tumour voxels 412 elapsed 6001s
+[ts] 74/200 112_2 tumour voxels 2297 elapsed 6078s
+[ts] 75/200 115_1 tumour voxels 77307 elapsed 6158s
+[ts] 76/200 115_2 tumour voxels 34015 elapsed 6236s
+[ts] 77/200 118_1 tumour voxels 31315 elapsed 6338s
+[ts] 78/200 118_2 tumour voxels 12802 elapsed 6430s
+[ts] 79/200 119_1 tumour voxels 59005 elapsed 6512s
+[ts] 80/200 119_2 tumour voxels 53387 elapsed 6593s
+[ts] 81/200 127_1 tumour voxels 18923 elapsed 6672s
+[ts] 82/200 127_2 tumour voxels 19428 elapsed 6747s
+[ts] 83/200 135_1 tumour voxels 123737 elapsed 6836s
+[ts] 84/200 135_2 tumour voxels 64033 elapsed 6923s
+[ts] 85/200 158_1 tumour voxels 131059 elapsed 7005s
+[ts] 86/200 158_2 tumour voxels 61988 elapsed 7085s
+[ts] 87/200 168_1 tumour voxels 21 elapsed 7165s
+[ts] 88/200 168_2 tumour voxels 8382 elapsed 7238s
+[ts] 89/200 169_1 tumour voxels 7899 elapsed 7317s
+[ts] 90/200 169_2 tumour voxels 11946 elapsed 7393s
+[ts] 91/200 179_1 tumour voxels 4907 elapsed 7469s
+[ts] 92/200 179_2 tumour voxels 4671 elapsed 7547s
+[ts] 93/200 188_1 tumour voxels 5477 elapsed 7633s
+[ts] 94/200 188_2 tumour voxels 37161 elapsed 7716s
+[ts] 95/200 192_1 tumour voxels 3910 elapsed 7800s
+[ts] 96/200 192_2 tumour voxels 363 elapsed 7884s
+[ts] 97/200 198_1 tumour voxels 260781 elapsed 7964s
+[ts] 98/200 198_2 tumour voxels 154590 elapsed 8038s
+[ts] 99/200 325_1 tumour voxels 34926 elapsed 8128s
+[ts] 100/200 325_2 tumour voxels 190333 elapsed 8225s
+[ts] 101/200 330_1 tumour voxels 226709 elapsed 8313s
+[ts] 102/200 330_2 tumour voxels 188887 elapsed 8411s
+[ts] 103/200 334_1 tumour voxels 45290 elapsed 8501s
+[ts] 104/200 334_2 tumour voxels 47109 elapsed 8615s
+[ts] 105/200 335_1 tumour voxels 5455 elapsed 8695s
+[ts] 106/200 335_2 tumour voxels 6586 elapsed 8772s
+[ts] 107/200 337_1 tumour voxels 0 elapsed 8849s
+[ts] 108/200 337_2 tumour voxels 4812 elapsed 8925s
+[ts] 109/200 338_1 tumour voxels 0 elapsed 9007s
+[ts] 110/200 338_2 tumour voxels 362 elapsed 9087s
+[ts] 111/200 339_1 tumour voxels 962441 elapsed 9194s
+[ts] 112/200 339_2 tumour voxels 626181 elapsed 9292s
+[ts] 113/200 347_1 tumour voxels 43200 elapsed 9390s
+[ts] 114/200 347_2 tumour voxels 23025 elapsed 9486s
+[ts] 115/200 350_1 tumour voxels 3288 elapsed 9574s
+[ts] 116/200 350_2 tumour voxels 4967 elapsed 9659s
+[ts] 117/200 351_1 tumour voxels 393448 elapsed 9743s
+[ts] 118/200 351_2 tumour voxels 18797 elapsed 9828s
+[ts] 119/200 356_1 tumour voxels 44 elapsed 9925s
+[ts] 120/200 356_2 tumour voxels 1336 elapsed 10020s
+[ts] 121/200 358_1 tumour voxels 49019 elapsed 10098s
+[ts] 122/200 358_2 tumour voxels 120113 elapsed 10178s
+[ts] 123/200 360_1 tumour voxels 1470 elapsed 10276s
+[ts] 124/200 360_2 tumour voxels 1236 elapsed 10360s
+[ts] 125/200 363_1 tumour voxels 71523 elapsed 10456s
+[ts] 126/200 363_2 tumour voxels 26554 elapsed 10558s
+[ts] 127/200 366_1 tumour voxels 183 elapsed 10648s
+[ts] 128/200 366_2 tumour voxels 3398 elapsed 10739s
+[ts] 129/200 380_1 tumour voxels 96421 elapsed 10832s
+[ts] 130/200 380_2 tumour voxels 53569 elapsed 10918s
+[ts] 131/200 381_1 tumour voxels 673 elapsed 11008s
+[ts] 132/200 381_2 tumour voxels 26831 elapsed 11106s
+[ts] 133/200 382_1 tumour voxels 177252 elapsed 11198s
+[ts] 134/200 382_2 tumour voxels 175082 elapsed 11304s
+[ts] 135/200 383_1 tumour voxels 14059 elapsed 11402s
+[ts] 136/200 383_2 tumour voxels 29558 elapsed 11493s
+[ts] 137/200 388_1 tumour voxels 159947 elapsed 11590s
+[ts] 138/200 388_2 tumour voxels 105298 elapsed 11677s
+[ts] 139/200 390_1 tumour voxels 18784 elapsed 11767s
+[ts] 140/200 390_2 tumour voxels 20775 elapsed 11853s
+[ts] 141/200 394_1 tumour voxels 8533 elapsed 11943s
+[ts] 142/200 394_2 tumour voxels 67261 elapsed 12033s
+[ts] 143/200 396_1 tumour voxels 1603 elapsed 12136s
+[ts] 144/200 396_2 tumour voxels 182 elapsed 12227s
+[ts] 145/200 399_1 tumour voxels 36580 elapsed 12315s
+[ts] 146/200 399_2 tumour voxels 4659 elapsed 12404s
+[ts] 147/200 404_1 tumour voxels 5877 elapsed 12496s
+[ts] 148/200 404_2 tumour voxels 1034 elapsed 12586s
+[ts] 149/200 438_1 tumour voxels 108316 elapsed 12684s
+[ts] 150/200 438_2 tumour voxels 82453 elapsed 12780s
+[ts] 151/200 446_1 tumour voxels 390820 elapsed 12876s
+[ts] 152/200 446_2 tumour voxels 501651 elapsed 12972s
+[ts] 153/200 452_1 tumour voxels 35788 elapsed 13080s
+[ts] 154/200 452_2 tumour voxels 30415 elapsed 13199s
+[ts] 155/200 455_1 tumour voxels 7211 elapsed 13282s
+[ts] 156/200 455_2 tumour voxels 9966 elapsed 13363s
+[ts] 157/200 457_1 tumour voxels 0 elapsed 13454s
+[ts] 158/200 457_2 tumour voxels 0 elapsed 13542s
+[ts] 159/200 466_1 tumour voxels 92457 elapsed 13639s
+[ts] 160/200 466_2 tumour voxels 6241 elapsed 13729s
+[ts] 161/200 469_1 tumour voxels 4286 elapsed 13814s
+[ts] 162/200 469_2 tumour voxels 10620 elapsed 13895s
+[ts] 163/200 477_1 tumour voxels 9 elapsed 13974s
+[ts] 164/200 477_2 tumour voxels 6553 elapsed 14054s
+[ts] 165/200 483_1 tumour voxels 0 elapsed 14133s
+[ts] 166/200 483_2 tumour voxels 1014 elapsed 14215s
+[ts] 167/200 484_1 tumour voxels 143634 elapsed 14299s
+[ts] 168/200 484_2 tumour voxels 44558 elapsed 14380s
+[ts] 169/200 485_1 tumour voxels 96092 elapsed 14458s
+[ts] 170/200 485_2 tumour voxels 376768 elapsed 14536s
+[ts] 171/200 487_1 tumour voxels 10043 elapsed 14615s
+[ts] 172/200 487_2 tumour voxels 19604 elapsed 14692s
+[ts] 173/200 491_1 tumour voxels 13984 elapsed 14775s
+[ts] 174/200 491_2 tumour voxels 53360 elapsed 14876s
+[ts] 175/200 492_1 tumour voxels 75 elapsed 14960s
+[ts] 176/200 492_2 tumour voxels 1 elapsed 15051s
+[ts] 177/200 498_1 tumour voxels 120029 elapsed 15145s
+[ts] 178/200 498_2 tumour voxels 52499 elapsed 15227s
+[ts] 179/200 503_1 tumour voxels 26510 elapsed 15316s
+[ts] 180/200 503_2 tumour voxels 7110 elapsed 15399s
+[ts] 181/200 508_1 tumour voxels 20975 elapsed 15506s
+[ts] 182/200 508_2 tumour voxels 297599 elapsed 15613s
+[ts] 183/200 510_1 tumour voxels 0 elapsed 15691s
+[ts] 184/200 510_2 tumour voxels 1996 elapsed 15766s
+[ts] 185/200 514_1 tumour voxels 244 elapsed 15851s
+[ts] 186/200 514_2 tumour voxels 31556 elapsed 15939s
+[ts] 187/200 515_1 tumour voxels 215690 elapsed 16024s
+[ts] 188/200 515_2 tumour voxels 271850 elapsed 16108s
+[ts] 189/200 519_1 tumour voxels 24174 elapsed 16206s
+[ts] 190/200 519_2 tumour voxels 9755 elapsed 16303s
+[ts] 191/200 524_1 tumour voxels 26695 elapsed 16402s
+[ts] 192/200 524_2 tumour voxels 31748 elapsed 16500s
+[ts] 193/200 531_1 tumour voxels 22495 elapsed 16584s
+[ts] 194/200 531_2 tumour voxels 18003 elapsed 16671s
+[ts] 195/200 533_1 tumour voxels 29969 elapsed 16771s
+[ts] 196/200 533_2 tumour voxels 28389 elapsed 16871s
+[ts] 197/200 539_1 tumour voxels 42809 elapsed 16956s
+[ts] 198/200 539_2 tumour voxels 24624 elapsed 17030s
+[ts] 199/200 543_1 tumour voxels 76249 elapsed 17117s
+[ts] 200/200 543_2 tumour voxels 1790 elapsed 17201s
+DONE ts: 200 new series of 200, 17201s

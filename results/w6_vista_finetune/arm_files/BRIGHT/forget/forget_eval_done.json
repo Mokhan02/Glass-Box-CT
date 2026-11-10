@@ -1,0 +1,1 @@
+{"arm": "BRIGHT", "weights": "final_model.pt", "tasks": ["spleen", "kidney", "liver", "drift"], "wall_seconds": 6975.488651752472}

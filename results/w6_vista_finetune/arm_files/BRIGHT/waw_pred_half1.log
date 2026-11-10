@@ -1,0 +1,371 @@
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/torch/jit/_script.py:1643: FutureWarning: `torch.jit.interface` is deprecated. Please use `torch.compile` instead.
+  warnings.warn(
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 1/196 2_1 elapsed 23s
+[vista w4] 2/196 2_2 elapsed 55s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 3/196 3_1 elapsed 86s
+[vista w4] 4/196 3_2 elapsed 116s
+[vista w4] 5/196 5_1 elapsed 132s
+[vista w4] 6/196 5_2 elapsed 168s
+[vista w4] 7/196 7_1 elapsed 194s
+[vista w4] 8/196 7_2 elapsed 224s
+[vista w4] 9/196 10_1 elapsed 249s
+[vista w4] 10/196 10_2 elapsed 286s
+[vista w4] 11/196 16_1 elapsed 313s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 12/196 16_2 elapsed 341s
+[vista w4] 13/196 18_1 elapsed 365s
+[vista w4] 14/196 18_2 elapsed 409s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 15/196 20_1 elapsed 438s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 16/196 20_2 elapsed 474s
+[vista w4] 17/196 21_1 elapsed 496s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 18/196 21_2 elapsed 521s
+[vista w4] 19/196 26_1 elapsed 550s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 20/196 26_2 elapsed 576s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 21/196 28_1 elapsed 609s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 22/196 28_2 elapsed 657s
+[vista w4] 23/196 29_1 elapsed 685s
+[vista w4] 24/196 29_2 elapsed 721s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 25/196 31_1 elapsed 749s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 26/196 31_2 elapsed 767s
+[vista w4] 27/196 33_1 elapsed 785s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 28/196 33_2 elapsed 848s
+[vista w4] 29/196 35_1 elapsed 868s
+[vista w4] 30/196 35_2 elapsed 914s
+[vista w4] 31/196 42_1 elapsed 935s
+[vista w4] 32/196 42_2 elapsed 962s
+[vista w4] 33/196 43_1 elapsed 981s
+[vista w4] 34/196 43_2 elapsed 1013s
+[vista w4] 35/196 44_1 elapsed 1037s
+[vista w4] 36/196 44_2 elapsed 1070s
+[vista w4] 37/196 45_1 elapsed 1095s
+[vista w4] 38/196 45_2 elapsed 1125s
+[vista w4] 39/196 48_1 elapsed 1146s
+[vista w4] 40/196 48_2 elapsed 1179s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 41/196 53_1 elapsed 1207s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 42/196 53_2 elapsed 1241s
+[vista w4] 43/196 54_1 elapsed 1261s
+[vista w4] 44/196 54_2 elapsed 1298s
+[vista w4] 45/196 59_1 elapsed 1341s
+[vista w4] 46/196 59_2 elapsed 1386s
+[vista w4] 47/196 61_1 elapsed 1412s
+[vista w4] 48/196 61_2 elapsed 1438s
+[vista w4] 49/196 63_1 elapsed 1464s
+[vista w4] 50/196 63_2 elapsed 1497s
+[vista w4] 51/196 66_1 elapsed 1527s
+[vista w4] 52/196 66_2 elapsed 1560s
+[vista w4] 53/196 72_1 elapsed 1589s
+[vista w4] 54/196 72_2 elapsed 1647s
+[vista w4] 55/196 77_1 elapsed 1675s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 56/196 77_2 elapsed 1710s
+[vista w4] 57/196 85_1 elapsed 1740s
+[vista w4] 58/196 85_2 elapsed 1785s
+[vista w4] 59/196 86_1 elapsed 1817s
+[vista w4] 60/196 86_2 elapsed 1858s
+[vista w4] 61/196 87_1 elapsed 1886s
+[vista w4] 62/196 87_2 elapsed 1922s
+[vista w4] 63/196 90_1 elapsed 1939s
+[vista w4] 64/196 90_2 elapsed 1966s
+[vista w4] 65/196 96_1 elapsed 1985s
+[vista w4] 66/196 96_2 elapsed 2020s
+[vista w4] 67/196 101_1 elapsed 2045s
+[vista w4] 68/196 101_2 elapsed 2075s
+[vista w4] 69/196 104_1 elapsed 2099s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 70/196 104_2 elapsed 2121s
+[vista w4] 71/196 108_1 elapsed 2146s
+[vista w4] 72/196 108_2 elapsed 2187s
+[vista w4] 73/196 111_1 elapsed 2204s
+[vista w4] 74/196 111_2 elapsed 2233s
+[vista w4] 75/196 114_1 elapsed 2255s
+[vista w4] 76/196 114_2 elapsed 2297s
+[vista w4] 77/196 116_1 elapsed 2326s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 78/196 116_2 elapsed 2354s
+[vista w4] 79/196 121_1 elapsed 2382s
+[vista w4] 80/196 121_2 elapsed 2417s
+[vista w4] 81/196 125_1 elapsed 2445s
+[vista w4] 82/196 125_2 elapsed 2482s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 83/196 139_1 elapsed 2507s
+[vista w4] 84/196 139_2 elapsed 2578s
+[vista w4] 85/196 144_1 elapsed 2616s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 86/196 144_2 elapsed 2633s
+[vista w4] 87/196 146_1 elapsed 2669s
+[vista w4] 88/196 146_2 elapsed 2715s
+[vista w4] 89/196 149_1 elapsed 2748s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 90/196 149_2 elapsed 2788s
+[vista w4] 91/196 150_1 elapsed 2811s
+[vista w4] 92/196 150_2 elapsed 2847s
+[vista w4] 93/196 165_1 elapsed 2907s
+[vista w4] 94/196 165_2 elapsed 2958s
+[vista w4] 95/196 167_1 elapsed 2984s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 96/196 167_2 elapsed 3018s
+[vista w4] 97/196 171_1 elapsed 3052s
+[vista w4] 98/196 171_2 elapsed 3083s
+[vista w4] 99/196 184_1 elapsed 3111s
+[vista w4] 100/196 184_2 elapsed 3157s
+[vista w4] 101/196 190_1 elapsed 3176s
+[vista w4] 102/196 190_2 elapsed 3207s
+[vista w4] 103/196 193_1 elapsed 3222s
+[vista w4] 104/196 193_2 elapsed 3244s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 105/196 197_1 elapsed 3282s
+[vista w4] 106/196 197_2 elapsed 3309s
+[vista w4] 107/196 303_1 elapsed 3333s
+[vista w4] 108/196 303_2 elapsed 3385s
+[vista w4] 109/196 304_1 elapsed 3427s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 110/196 304_2 elapsed 3469s
+[vista w4] 111/196 310_1 elapsed 3495s
+[vista w4] 112/196 310_2 elapsed 3526s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 113/196 318_1 elapsed 3551s
+[vista w4] 114/196 318_2 elapsed 3568s
+[vista w4] 115/196 319_1 elapsed 3590s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 116/196 319_2 elapsed 3614s
+[vista w4] 117/196 324_1 elapsed 3632s
+[vista w4] 118/196 324_2 elapsed 3639s
+[vista w4] 119/196 327_1 elapsed 3663s
+[vista w4] 120/196 327_2 elapsed 3687s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 121/196 332_1 elapsed 3710s
+[vista w4] 122/196 332_2 elapsed 3735s
+[vista w4] 123/196 333_1 elapsed 3753s
+[vista w4] 124/196 333_2 elapsed 3787s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 125/196 342_1 elapsed 3798s
+[vista w4] 126/196 342_2 elapsed 3808s
+[vista w4] 127/196 343_1 elapsed 3834s
+[vista w4] 128/196 343_2 elapsed 3868s
+[vista w4] 129/196 344_1 elapsed 3889s
+[vista w4] 130/196 344_2 elapsed 3916s
+[vista w4] 131/196 345_1 elapsed 3932s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 132/196 345_2 elapsed 3953s
+[vista w4] 133/196 349_1 elapsed 3980s
+[vista w4] 134/196 349_2 elapsed 4001s
+[vista w4] 135/196 353_1 elapsed 4023s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 136/196 353_2 elapsed 4052s
+[vista w4] 137/196 354_1 elapsed 4076s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 138/196 354_2 elapsed 4104s
+[vista w4] 139/196 367_1 elapsed 4128s
+[vista w4] 140/196 367_2 elapsed 4158s
+[vista w4] 141/196 369_1 elapsed 4172s
+[vista w4] 142/196 369_2 elapsed 4193s
+[vista w4] 143/196 370_1 elapsed 4207s
+[vista w4] 144/196 370_2 elapsed 4234s
+[vista w4] 145/196 371_1 elapsed 4285s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 146/196 371_2 elapsed 4293s
+[vista w4] 147/196 372_1 elapsed 4311s
+[vista w4] 148/196 372_2 elapsed 4334s
+[vista w4] 149/196 373_1 elapsed 4359s
+[vista w4] 150/196 373_2 elapsed 4384s
+[vista w4] 151/196 379_1 elapsed 4423s
+[vista w4] 152/196 379_2 elapsed 4470s
+[vista w4] 153/196 385_1 elapsed 4493s
+[vista w4] 154/196 385_2 elapsed 4515s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 155/196 434_1 elapsed 4543s
+[vista w4] 156/196 434_2 elapsed 4565s
+[vista w4] 157/196 437_1 elapsed 4593s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 158/196 437_2 elapsed 4613s
+[vista w4] 159/196 440_1 elapsed 4627s
+[vista w4] 160/196 440_2 elapsed 4649s
+[vista w4] 161/196 442_1 elapsed 4670s
+[vista w4] 162/196 442_2 elapsed 4692s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 163/196 443_1 elapsed 4711s
+[vista w4] 164/196 443_2 elapsed 4728s
+[vista w4] 165/196 447_1 elapsed 4738s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 166/196 447_2 elapsed 4748s
+[vista w4] 167/196 450_1 elapsed 4783s
+[vista w4] 168/196 450_2 elapsed 4812s
+[vista w4] 169/196 453_1 elapsed 4824s
+[vista w4] 170/196 453_2 elapsed 4840s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 171/196 465_1 elapsed 4851s
+[vista w4] 172/196 465_2 elapsed 4861s
+[vista w4] 173/196 474_1 elapsed 4899s
+[vista w4] 174/196 474_2 elapsed 4911s
+[vista w4] 175/196 486_1 elapsed 4921s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 176/196 486_2 elapsed 4931s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 177/196 494_1 elapsed 4947s
+[vista w4] 178/196 494_2 elapsed 4961s
+[vista w4] 179/196 496_1 elapsed 4980s
+[vista w4] 180/196 496_2 elapsed 5020s
+[vista w4] 181/196 500_1 elapsed 5051s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 182/196 500_2 elapsed 5090s
+[vista w4] 183/196 512_1 elapsed 5110s
+[vista w4] 184/196 512_2 elapsed 5141s
+[vista w4] 185/196 517_1 elapsed 5167s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 186/196 517_2 elapsed 5183s
+[vista w4] 187/196 518_1 elapsed 5230s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 188/196 518_2 elapsed 5266s
+[vista w4] 189/196 521_1 elapsed 5316s
+[vista w4] 190/196 521_2 elapsed 5363s
+[vista w4] 191/196 522_1 elapsed 5405s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 192/196 522_2 elapsed 5440s
+[vista w4] 193/196 527_1 elapsed 5470s
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista w4] 194/196 527_2 elapsed 5484s
+[vista w4] 195/196 540_1 elapsed 5496s
+[vista w4] 196/196 540_2 elapsed 5523s
+DONE vista w4: 196 new series of 196, 5523s

@@ -1,0 +1,105 @@
+{
+ "arm": "W6b-FULL",
+ "seed": 20261110,
+ "iterations_done": 8000,
+ "iterations_requested": 8000,
+ "patch": 128,
+ "mapping": [
+  [
+   2,
+   26
+  ]
+ ],
+ "label_set": [
+  0,
+  26
+ ],
+ "transform_order_train": [
+  "LoadImaged",
+  "CropForegroundd",
+  "Orientationd",
+  "Spacingd",
+  "CastToTyped",
+  "EnsureTyped",
+  "SpatialPadd",
+  "SpatialPadd",
+  "ClassesToIndicesd",
+  "RandCropByLabelClassesd",
+  "BrightTumourShiftd",
+  "ScaleIntensityRanged",
+  "RandZoomd",
+  "RandSimulateLowResolutiond",
+  "RandGaussianSmoothd",
+  "RandScaleIntensityd",
+  "RandShiftIntensityd",
+  "RandGaussianNoised",
+  "Relabeld"
+ ],
+ "transform_order_validation": [
+  "LoadImaged",
+  "CropForegroundd",
+  "ScaleIntensityRanged",
+  "Orientationd",
+  "Spacingd",
+  "CastToTyped",
+  "EnsureTyped",
+  "SpatialPadd",
+  "Relabeld"
+ ],
+ "trainable_params": 217964982,
+ "all_params": 217964982,
+ "final_model_sha256": "162ae68d04b4c4113eeaf09f06fca665e36e0574e19b21dce36a0e66de2a83b5",
+ "weights_sha256": "c92bab26d00b4a5d89fa8a383900cdeb88302fd318e5e816df0bbec7106d9a1b",
+ "driver_sha256": "9570715cb7f4c899f39a81a6355b41a450c23ac55b0014a5eb23d4eb30e62b83",
+ "overlay_sha256": "cbd5ea7ef5280d95145e3b4273e218e71333962d357d1d1310e172c9ca6808b5",
+ "monai": "1.4.0",
+ "torch": "2.14.1+cu130",
+ "seconds_per_iteration_median": 0.8139305114746094,
+ "loss_first": [
+  1.5231562852859497,
+  1.3368970155715942,
+  1.5508391857147217,
+  0.818200945854187,
+  1.3153910636901855
+ ],
+ "loss_last": [
+  0.3863632380962372,
+  1.2780649662017822,
+  1.166210412979126,
+  1.1657414436340332,
+  0.684117317199707
+ ],
+ "loss_all_finite": true,
+ "edited_patch_fraction": 0.172625,
+ "n_batches_seen": 8000,
+ "wall_seconds": 6848.182207107544,
+ "lam": 143.0,
+ "k": 16,
+ "distill_classes_n": 123,
+ "loss_task_mean": 0.5266185520738363,
+ "loss_distill_bce_mean": 0.0018921736891898036,
+ "loss_distill_kl_mean": 9.166517773337546e-05,
+ "loss_distill_kl_last100_mean": 0.00010007217148086056,
+ "loss_task_first5": [
+  0.999799907207489,
+  0.9963854551315308,
+  0.9654636383056641,
+  0.3276451528072357,
+  1.0009287595748901
+ ],
+ "loss_distill_kl_first5": [
+  0.0,
+  3.5623088479042053e-07,
+  1.6456469893455505e-06,
+  4.2782630771398544e-06,
+  8.335569873452187e-06
+ ],
+ "checks": {
+  "teacher_param_abs_sum_start": 6262402.166708589,
+  "teacher_param_abs_sum_end": 6262402.166708589
+ },
+ "trainer_sha256": "6def6f1ee9e62d7d7b6b4a1bb615c61bca0f361bc19245a981427c5c3768284f",
+ "loss_sha256": "e91880ed1c06737030f9e33451610ca1714831e82df6be70acaa88e2afbd64ba",
+ "max_memory_allocated_gb": 11.390052864,
+ "max_memory_reserved_gb": 11.834228736
+}

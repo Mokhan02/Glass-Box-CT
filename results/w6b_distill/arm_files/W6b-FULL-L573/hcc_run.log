@@ -1,0 +1,81 @@
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/torch/jit/_script.py:1643: FutureWarning: `torch.jit.interface` is deprecated. Please use `torch.compile` instead.
+  warnings.warn(
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:225: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  win_data = inputs[unravel_slice[0]].to(sw_device)
+/lambda/nfs/CTGate/venv_w6/lib/python3.10/site-packages/monai/inferers/utils.py:361: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_variable_indexing.cpp:356.)
+  out[idx_zm] += p
+[vista ref] 1/74 HCC_004_414785 elapsed 5s
+[vista ref] 2/74 HCC_005_936548 elapsed 14s
+[vista ref] 3/74 HCC_009_210975 elapsed 20s
+[vista ref] 4/74 HCC_012_311550 elapsed 25s
+[vista ref] 5/74 HCC_013_902874 elapsed 33s
+[vista ref] 6/74 HCC_014_949588 elapsed 37s
+[vista ref] 7/74 HCC_017_372380 elapsed 41s
+[vista ref] 8/74 HCC_018_350600 elapsed 48s
+[vista ref] 9/74 HCC_019_773068 elapsed 54s
+[vista ref] 10/74 HCC_020_409800 elapsed 62s
+[vista ref] 11/74 HCC_021_043762 elapsed 67s
+[vista ref] 12/74 HCC_022_228695 elapsed 72s
+[vista ref] 13/74 HCC_023_800523 elapsed 77s
+[vista ref] 14/74 HCC_024_254376 elapsed 82s
+[vista ref] 15/74 HCC_025_534314 elapsed 87s
+[vista ref] 16/74 HCC_026_419034 elapsed 91s
+[vista ref] 17/74 HCC_028_198668 elapsed 100s
+[vista ref] 18/74 HCC_029_683080 elapsed 108s
+[vista ref] 19/74 HCC_031_552418 elapsed 117s
+[vista ref] 20/74 HCC_032_522941 elapsed 121s
+[vista ref] 21/74 HCC_033_612153 elapsed 125s
+[vista ref] 22/74 HCC_034_704254 elapsed 130s
+[vista ref] 23/74 HCC_035_474044 elapsed 139s
+[vista ref] 24/74 HCC_036_158534 elapsed 142s
+[vista ref] 25/74 HCC_037_498894 elapsed 152s
+[vista ref] 26/74 HCC_038_354831 elapsed 161s
+[vista ref] 27/74 HCC_039_440665 elapsed 166s
+[vista ref] 28/74 HCC_040_953569 elapsed 172s
+[vista ref] 29/74 HCC_041_692758 elapsed 181s
+[vista ref] 30/74 HCC_042_785120 elapsed 190s
+[vista ref] 31/74 HCC_043_848214 elapsed 194s
+[vista ref] 32/74 HCC_044_006910 elapsed 202s
+[vista ref] 33/74 HCC_045_719516 elapsed 206s
+[vista ref] 34/74 HCC_046_819409 elapsed 214s
+[vista ref] 35/74 HCC_047_378313 elapsed 223s
+[vista ref] 36/74 HCC_049_849890 elapsed 230s
+[vista ref] 37/74 HCC_050_749732 elapsed 239s
+[vista ref] 38/74 HCC_051_502793 elapsed 247s
+[vista ref] 39/74 HCC_052_425020 elapsed 257s
+[vista ref] 40/74 HCC_053_504983 elapsed 266s
+[vista ref] 41/74 HCC_054_948648 elapsed 275s
+[vista ref] 42/74 HCC_055_287181 elapsed 280s
+[vista ref] 43/74 HCC_056_505211 elapsed 289s
+[vista ref] 44/74 HCC_057_698557 elapsed 300s
+[vista ref] 45/74 HCC_058_344861 elapsed 309s
+[vista ref] 46/74 HCC_059_480478 elapsed 317s
+[vista ref] 47/74 HCC_060_617044 elapsed 326s
+[vista ref] 48/74 HCC_061_179170 elapsed 335s
+[vista ref] 49/74 HCC_062_338436 elapsed 342s
+[vista ref] 50/74 HCC_063_661087 elapsed 351s
+[vista ref] 51/74 HCC_064_212554 elapsed 361s
+[vista ref] 52/74 HCC_065_835113 elapsed 376s
+[vista ref] 53/74 HCC_066_201578 elapsed 384s
+[vista ref] 54/74 HCC_067_472967 elapsed 389s
+[vista ref] 55/74 HCC_069_743712 elapsed 397s
+[vista ref] 56/74 HCC_070_401358 elapsed 403s
+[vista ref] 57/74 HCC_071_621596 elapsed 415s
+[vista ref] 58/74 HCC_072_979776 elapsed 420s
+[vista ref] 59/74 HCC_073_517149 elapsed 429s
+[vista ref] 60/74 HCC_074_379020 elapsed 442s
+[vista ref] 61/74 HCC_075_418794 elapsed 452s
+[vista ref] 62/74 HCC_076_084985 elapsed 459s
+[vista ref] 63/74 HCC_077_996191 elapsed 464s
+[vista ref] 64/74 HCC_078_958325 elapsed 470s
+[vista ref] 65/74 HCC_079_927214 elapsed 475s
+[vista ref] 66/74 HCC_080_216191 elapsed 485s
+[vista ref] 67/74 HCC_081_327663 elapsed 493s
+[vista ref] 68/74 HCC_083_703849 elapsed 500s
+[vista ref] 69/74 HCC_084_948398 elapsed 507s
+[vista ref] 70/74 HCC_086_615027 elapsed 515s
+[vista ref] 71/74 HCC_087_075940 elapsed 526s
+[vista ref] 72/74 HCC_088_476473 elapsed 536s
+[vista ref] 73/74 HCC_090_076872 elapsed 543s
+[vista ref] 74/74 HCC_098_610748 elapsed 550s
+DONE vista ref: 74 cases, 86 lesions, 550s

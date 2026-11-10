@@ -1,0 +1,78 @@
+{
+ "arm": "BRIGHT",
+ "seed": 20261110,
+ "iterations_done": 8000,
+ "iterations_requested": 8000,
+ "patch": 128,
+ "mapping": [
+  [
+   2,
+   26
+  ]
+ ],
+ "label_set": [
+  0,
+  26
+ ],
+ "transform_order_train": [
+  "LoadImaged",
+  "CropForegroundd",
+  "Orientationd",
+  "Spacingd",
+  "CastToTyped",
+  "EnsureTyped",
+  "SpatialPadd",
+  "SpatialPadd",
+  "ClassesToIndicesd",
+  "RandCropByLabelClassesd",
+  "BrightTumourShiftd",
+  "ScaleIntensityRanged",
+  "RandZoomd",
+  "RandSimulateLowResolutiond",
+  "RandGaussianSmoothd",
+  "RandScaleIntensityd",
+  "RandShiftIntensityd",
+  "RandGaussianNoised",
+  "Relabeld"
+ ],
+ "transform_order_validation": [
+  "LoadImaged",
+  "CropForegroundd",
+  "ScaleIntensityRanged",
+  "Orientationd",
+  "Spacingd",
+  "CastToTyped",
+  "EnsureTyped",
+  "SpatialPadd",
+  "Relabeld"
+ ],
+ "trainable_params": 217964982,
+ "all_params": 217964982,
+ "final_model_sha256": "83622b3675cfd230213694c33083edb6490e787ca56134150d5ebaa26f104766",
+ "weights_sha256": "c92bab26d00b4a5d89fa8a383900cdeb88302fd318e5e816df0bbec7106d9a1b",
+ "driver_sha256": "dead1d38a7968ba8c61ee82cfe170e5beae9025d20d73f2036753f2c26ab5ab6",
+ "overlay_sha256": "cbd5ea7ef5280d95145e3b4273e218e71333962d357d1d1310e172c9ca6808b5",
+ "monai": "1.4.0",
+ "torch": "2.14.1+cu130",
+ "seconds_per_iteration_median": 0.6219439506530762,
+ "loss_first": [
+  0.05507117882370949,
+  1.0000969171524048,
+  0.9999881982803345,
+  0.1224924772977829,
+  1.0001370906829834
+ ],
+ "loss_last": [
+  1.0000441074371338,
+  0.18920312821865082,
+  1.0000208616256714,
+  0.7726537585258484,
+  0.47876107692718506
+ ],
+ "loss_all_finite": true,
+ "edited_patch_fraction": 0.16175,
+ "n_batches_seen": 8000,
+ "wall_seconds": 5328.053274869919,
+ "max_memory_allocated_gb": 9.74292224,
+ "max_memory_reserved_gb": 10.114564096
+}
