@@ -1,0 +1,69 @@
+[progress] drift W6b-FULL-L143 series 1/20 half0/119_2
+[progress] drift W6b-FULL-L143 series 2/20 half0/330_1
+[progress] drift W6b-FULL-L143 series 3/20 half0/338_2
+[progress] drift W6b-FULL-L143 series 4/20 half0/358_2
+[progress] drift W6b-FULL-L143 series 5/20 half0/360_1
+[progress] drift W6b-FULL-L143 series 6/20 half0/380_2
+[progress] drift W6b-FULL-L143 series 7/20 half0/39_1
+[progress] drift W6b-FULL-L143 series 8/20 half0/492_2
+[progress] drift W6b-FULL-L143 series 9/20 half0/503_1
+[progress] drift W6b-FULL-L143 series 10/20 half0/56_2
+[progress] drift W6b-FULL-L143 series 11/20 half0/69_1
+[progress] drift W6b-FULL-L143 series 12/20 half0/93_1
+[progress] drift W6b-FULL-L143 series 13/20 half1/324_2
+[progress] drift W6b-FULL-L143 series 14/20 half1/327_1
+[progress] drift W6b-FULL-L143 series 15/20 half1/333_1
+[progress] drift W6b-FULL-L143 series 16/20 half1/333_2
+[progress] drift W6b-FULL-L143 series 17/20 half1/443_2
+[progress] drift W6b-FULL-L143 series 18/20 half1/527_2
+[progress] drift W6b-FULL-L143 series 19/20 half1/5_2
+[progress] drift W6b-FULL-L143 series 20/20 half1/72_2
+[progress] false positives half0/pred_vista 0/200
+[progress] false positives half0/pred_vista 20/200
+[progress] false positives half0/pred_vista 40/200
+[progress] false positives half0/pred_vista 60/200
+[progress] false positives half0/pred_vista 80/200
+[progress] false positives half0/pred_vista 100/200
+[progress] false positives half0/pred_vista 120/200
+[progress] false positives half0/pred_vista 140/200
+[progress] false positives half0/pred_vista 160/200
+[progress] false positives half0/pred_vista 180/200
+[progress] false positives half1/pred_vista 0/196
+[progress] false positives half1/pred_vista 20/196
+[progress] false positives half1/pred_vista 40/196
+[progress] false positives half1/pred_vista 60/196
+[progress] false positives half1/pred_vista 80/196
+[progress] false positives half1/pred_vista 100/196
+[progress] false positives half1/pred_vista 120/196
+[progress] false positives half1/pred_vista 140/196
+[progress] false positives half1/pred_vista 160/196
+[progress] false positives half1/pred_vista 180/196
+[progress] false positives waw/pred_half0 0/200
+[progress] false positives waw/pred_half0 20/200
+[progress] false positives waw/pred_half0 40/200
+[progress] false positives waw/pred_half0 60/200
+[progress] false positives waw/pred_half0 80/200
+[progress] false positives waw/pred_half0 100/200
+[progress] false positives waw/pred_half0 120/200
+[progress] false positives waw/pred_half0 140/200
+[progress] false positives waw/pred_half0 160/200
+[progress] false positives waw/pred_half0 180/200
+[progress] false positives waw/pred_half1 0/196
+[progress] false positives waw/pred_half1 20/196
+[progress] false positives waw/pred_half1 40/196
+[progress] false positives waw/pred_half1 60/196
+[progress] false positives waw/pred_half1 80/196
+[progress] false positives waw/pred_half1 100/196
+[progress] false positives waw/pred_half1 120/196
+[progress] false positives waw/pred_half1 140/196
+[progress] false positives waw/pred_half1 160/196
+[progress] false positives waw/pred_half1 180/196
+{
+ "W6b-FULL-L143": {
+  "guard": "FORGETTING COST: drift",
+  "failed": [
+   "drift"
+  ]
+ }
+}
+FSTREAM_EXIT=0
