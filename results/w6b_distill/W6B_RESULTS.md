@@ -1,6 +1,6 @@
 # W6b results (living file; research use only, no clinical claims)
 
-Last updated 2026-11-10 05:20 EST. PREREG: `PREREG.md` (amended; lambda 143 and 573 set by the scale rule from training data; no WAW-TACE tuning). Frozen evaluation code; single runs, seed 20261110. Both full-network arms are reported, no selection between them. The forgetting guard (criterion 2) is not finished for either arm yet.
+Last updated 2026-11-10 05:55 EST. PREREG: `PREREG.md` (amended; lambda 143 and 573 set by the scale rule from training data; no WAW-TACE tuning). Frozen evaluation code; single runs, seed 20261110. Both full-network arms are reported, no selection between them. The forgetting guard (criterion 2) is not finished for either arm yet.
 
 ## Primary, per arm (PREREG section 6; an arm SUCCEEDS only if BOTH criteria hold)
 
@@ -18,7 +18,7 @@ FULL-L573 guard in detail (`guard/forget_analysis_W6b-FULL-L573_stream.json`): s
 
 The decoder-only arm (DEC-L143) loses more: 59.9% against 77.3% (its W6 counterpart BRIGHT-DEC was 67.8%), -0.174 [-0.226, -0.124], so it also fails criterion 1, by a wider margin; its guard is pending.
 
-DEC-L143 guard in detail (`guard/forget_analysis_W6b-DEC-L143_stream.json`): spleen 0.9612 (change -0.0012, pass); kidney Dice 0.8732 (change -0.0010 [-0.0022, +0.0001], pass; BRIGHT-DEC in W6: -0.030); liver 0.9687 (-0.0005, pass); false positives median 0.26 mL against 0.05 baseline (pass); kidney-tumour side check 0.5165, identical to the baseline as for BRIGHT-DEC (the decoder-only arm cannot change the point route); drift: **1 of the 48 classes above the floor fails 0.95: gallbladder 0.920 (BRIGHT-DEC in W6: 20; lowest class mean Dice 0.920 against 0.785)**. The decoder-only arm with distillation is therefore the cleanest on forgetting (one class short of a full guard pass) and the weakest on bright-tumour detection (59.9%). Graded secondaries with CIs follow from `scripts/w6b_secondary.py`.
+DEC-L143 guard in detail (`guard/forget_analysis_W6b-DEC-L143_stream.json`): spleen 0.9612 (change -0.0012, pass); kidney Dice 0.8732 (change -0.0010 [-0.0022, +0.0001], pass; BRIGHT-DEC in W6: -0.030); liver 0.9687 (-0.0005, pass); false positives median 0.26 mL against 0.05 baseline (pass); kidney-tumour side check 0.5165, identical to the baseline as for BRIGHT-DEC (the decoder-only arm cannot change the point route); drift: **1 of the 48 classes above the floor fails 0.95: gallbladder 0.920 (BRIGHT-DEC in W6: 20; lowest class mean Dice 0.920 against 0.785)**. The decoder-only arm with distillation is therefore the cleanest on forgetting (one class short of a full guard pass) and the weakest on bright-tumour detection (59.9%). **DEC-L143 graded secondaries (`guard/w6b_secondary_W6b-DEC-L143.json`):** failing drift classes 1 [0, 2] against BRIGHT's 32 [28, 37]; paired difference -31 [-36, -26]; kidney Dice change against BRIGHT +0.055 [+0.047, +0.064]; against the baseline -0.001 [-0.002, +0.0001].
 
 Both full-network arms fail criterion 1 under the strict rule written in the PREREG: the point estimates (-0.074 and -0.083) are inside the 0.10 margin, but the CI lower bounds (-0.116 and -0.121) are not above -0.10. So whatever the guard shows, neither arm can be labelled SUCCEEDS; the best possible outcome is GUARD ONLY (guard passes, detection non-inferiority not shown). Reference noise from the PREREG: BRIGHT seed 2 minus BRIGHT = -0.008 [-0.036, +0.016]; W6 BRIGHT-DEC minus BRIGHT = -0.095 [-0.137, -0.056]. The strict rule was kept as agreed; no margin or rule was changed after seeing these numbers. File: `primary_criterion1.json`; script `scripts/w6b_primary.py` (hashed; DEVIATIONS 36).
 
@@ -35,6 +35,16 @@ Both full-network arms fail criterion 1 under the strict rule written in the PRE
 
 Both W6b arms keep most of the bright-tumour gain (about 70% of arterial-bright tumours detected against 21.5% at baseline) but lose about 8 points against BRIGHT (77.3%); their theta values are INCONCLUSIVE like BRIGHT's, with the margin-0.25 equivalence reading NO PENALTY as for BRIGHT. Full analysis files: `analysis_full/` (all arms, frozen script) and `detection_table_w6b.json`.
 
-## Pending
+## Summary table (all three W6b arms, final; single runs, seed 20261110; lambda set by the training-data rule, no selection between arms)
 
-Forgetting guard for both arms (organs, side check, false positives, drift of the 123-class list), HCC-TACE-Seg, graded secondaries (`scripts/w6b_secondary.py`: failing-class count against BRIGHT's 32, kidney Dice change against BRIGHT, both with CIs), and DEC-L143 (starts on instance 1 after FULL-L143's evaluation). Training notes (FULL-L143): mean KL to the baseline over training 9.2e-5 against 8.7e-4 for BRIGHT's final model; mean task loss 0.527 (BRIGHT 0.52).
+| Arm | Criterion 1: bright arterial detection vs BRIGHT 77.3% | Criterion 2: guard | Failing drift classes (BRIGHT 32 [28, 37]) | Paired diff vs BRIGHT | Kidney Dice change vs BRIGHT | Kidney change vs baseline (BRIGHT -0.056) | Outcome |
+|---|---|---|---|---|---|---|---|
+| FULL-L143 | 69.8%, -0.074 [-0.116, -0.037], not shown | fails on drift only | 6 [2, 9] | -26 [-31, -22] | +0.060 [+0.051, +0.071] | +0.004 [+0.001, +0.008] | NEITHER |
+| FULL-L573 | 69.0%, -0.083 [-0.121, -0.046], not shown | fails on drift only | 11 [5, 15] | -21 [-27, -18] | +0.051 [+0.043, +0.060] | -0.005 [-0.008, -0.003] | NEITHER |
+| DEC-L143 | 59.9%, -0.174 [-0.226, -0.124], not shown | fails on drift only | 1 [0, 2] | -31 [-36, -26] | +0.055 [+0.047, +0.064] | -0.001 [-0.002, +0.0001] | NEITHER |
+
+Reading: self-distillation to the frozen baseline removes most of the forgetting (organs pass in all three arms; drift failures fall from 32 to 1 to 11 classes) but costs bright-tumour detection (about 8 points for the full network, 17 for the decoder-only arm), and no arm passes both pre-registered criteria. The strict rules were not changed after seeing results.
+
+## Not covered here
+
+HCC-TACE-Seg results for the W6b arms are on the instance and not summarised in this file; the W6 file has the W6 arms. Over-segmentation and matched false-alarm tables were not run for the W6b arms.

@@ -1,0 +1,53 @@
+{
+ "n_series": 20,
+ "n_above_floor": 48,
+ "reference": "BRIGHT",
+ "arms": {
+  "BRIGHT": {
+   "failing_classes": 32,
+   "failing_ci": [
+    28.0,
+    37.0
+   ],
+   "lowest_class_mean_dice_above_floor": 0.7480649312677171,
+   "kidney_change_vs_baseline": {
+    "mean": -0.05605411454715483,
+    "ci": [
+     -0.06521434143105223,
+     -0.047593279982635475
+    ],
+    "arm_mean": 0.8181837077407292,
+    "baseline_mean": 0.8742378222878838
+   }
+  },
+  "W6b-DEC-L143": {
+   "failing_classes": 1,
+   "failing_ci": [
+    0.0,
+    2.0
+   ],
+   "lowest_class_mean_dice_above_floor": 0.9204193614646476,
+   "failing_minus_reference": -31,
+   "failing_minus_reference_ci": [
+    -36.0,
+    -26.0
+   ],
+   "kidney_change_vs_baseline": {
+    "mean": -0.0010008518391697654,
+    "ci": [
+     -0.002309725579871281,
+     6.353181068277643e-05
+    ],
+    "arm_mean": 0.8732369704487141,
+    "baseline_mean": 0.8742378222878838
+   },
+   "kidney_change_vs_reference": {
+    "mean": 0.05505326270798506,
+    "ci": [
+     0.047013950356922136,
+     0.06396351415320463
+    ]
+   }
+  }
+ }
+}
