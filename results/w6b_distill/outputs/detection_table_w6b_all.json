@@ -1,0 +1,91 @@
+{
+ "n_tumours": 297,
+ "BASELINE": {
+  "arterial_bright": {
+   "n": 242,
+   "detected": 52,
+   "pct": 21.5
+  },
+  "arterial_dark": {
+   "n": 55,
+   "detected": 31,
+   "pct": 56.4
+  },
+  "portal_bright": {
+   "n": 166,
+   "detected": 35,
+   "pct": 21.1
+  },
+  "portal_dark": {
+   "n": 131,
+   "detected": 91,
+   "pct": 69.5
+  }
+ },
+ "BRIGHT": {
+  "arterial_bright": {
+   "n": 242,
+   "detected": 187,
+   "pct": 77.3
+  },
+  "arterial_dark": {
+   "n": 55,
+   "detected": 41,
+   "pct": 74.5
+  },
+  "portal_bright": {
+   "n": 166,
+   "detected": 109,
+   "pct": 65.7
+  },
+  "portal_dark": {
+   "n": 131,
+   "detected": 103,
+   "pct": 78.6
+  }
+ },
+ "BRIGHT-DEC": {
+  "arterial_bright": {
+   "n": 242,
+   "detected": 164,
+   "pct": 67.8
+  },
+  "arterial_dark": {
+   "n": 55,
+   "detected": 41,
+   "pct": 74.5
+  },
+  "portal_bright": {
+   "n": 166,
+   "detected": 92,
+   "pct": 55.4
+  },
+  "portal_dark": {
+   "n": 131,
+   "detected": 103,
+   "pct": 78.6
+  }
+ },
+ "W6b-DEC-L143": {
+  "arterial_bright": {
+   "n": 242,
+   "detected": 145,
+   "pct": 59.9
+  },
+  "arterial_dark": {
+   "n": 55,
+   "detected": 37,
+   "pct": 67.3
+  },
+  "portal_bright": {
+   "n": 166,
+   "detected": 79,
+   "pct": 47.6
+  },
+  "portal_dark": {
+   "n": 131,
+   "detected": 100,
+   "pct": 76.3
+  }
+ }
+}

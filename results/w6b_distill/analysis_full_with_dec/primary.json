@@ -1,0 +1,2781 @@
+{
+ "n_tumours": {
+  "BASELINE": 297,
+  "A": 297,
+  "D0": 297,
+  "B50": 297,
+  "BRIGHT": 297,
+  "SHAM": 297,
+  "PLAIN": 297,
+  "BRIGHT-DEC": 297,
+  "BRIGHT-s2": 297,
+  "TS": 297,
+  "W6b-FULL-L143": 297,
+  "W6b-FULL-L573": 297,
+  "W6b-DEC-L143": 297
+ },
+ "w4b": {
+  "models": {
+   "BASELINE": {
+    "theta": 0.1590448038022373,
+    "lo": 0.03610214922901173,
+    "hi": 0.2796543184824435,
+    "n_F1": 81,
+    "n_NF": 211,
+    "boot_ok": 2000,
+    "label": "INCONCLUSIVE",
+    "equivalence_label_margin_0.25": "INCONCLUSIVE",
+    "already_seen": true,
+    "raw": {
+     "F1": {
+      "n": 81,
+      "P_det_arterial": 0.3333333333333333,
+      "P_det_portal": 0.5925925925925926
+     },
+     "NF": {
+      "n": 211,
+      "P_det_arterial": 0.2559241706161137,
+      "P_det_portal": 0.36492890995260663
+     }
+    },
+    "n_F2_excluded": 5
+   },
+   "A": {
+    "theta": 0.3144960296759984,
+    "lo": 0.1881594876351762,
+    "hi": 0.4392202910314321,
+    "n_F1": 81,
+    "n_NF": 211,
+    "boot_ok": 2000,
+    "label": "BRIGHT PENALTY",
+    "equivalence_label_margin_0.25": "INCONCLUSIVE",
+    "already_seen": true,
+    "raw": {
+     "F1": {
+      "n": 81,
+      "P_det_arterial": 0.18518518518518517,
+      "P_det_portal": 0.6172839506172839
+     },
+     "NF": {
+      "n": 211,
+      "P_det_arterial": 0.1895734597156398,
+      "P_det_portal": 0.3175355450236967
+     }
+    },
+    "n_F2_excluded": 5
+   },
+   "D0": {
+    "theta": 0.35234451979365905,
+    "lo": 0.2218053148053148,
+    "hi": 0.4834395679402424,
+    "n_F1": 81,
+    "n_NF": 211,
+    "boot_ok": 2000,
+    "label": "BRIGHT PENALTY",
+    "equivalence_label_margin_0.25": "INCONCLUSIVE",
+    "already_seen": true,
+    "raw": {
+     "F1": {
+      "n": 81,
+      "P_det_arterial": 0.13580246913580246,
+      "P_det_portal": 0.6049382716049383
+     },
+     "NF": {
+      "n": 211,
+      "P_det_arterial": 0.2132701421800948,
+      "P_det_portal": 0.33175355450236965
+     }
+    },
+    "n_F2_excluded": 5
+   },
+   "B50": {
+    "theta": -0.05952587955717844,
+    "lo": -0.18436063760923507,
+    "hi": 0.055754248970164295,
+    "n_F1": 81,
+    "n_NF": 211,
+    "boot_ok": 2000,
+    "label": "INCONCLUSIVE",
+    "equivalence_label_margin_0.25": "NO PENALTY",
+    "already_seen": true,
+    "raw": {
+     "F1": {
+      "n": 81,
+      "P_det_arterial": 0.9259259259259259,
+      "P_det_portal": 0.7654320987654321
+     },
+     "NF": {
+      "n": 211,
+      "P_det_arterial": 0.8909952606635071,
+      "P_det_portal": 0.8056872037914692
+     }
+    },
+    "n_F2_excluded": 5
+   },
+   "BRIGHT": {
+    "theta": -0.03176259201298326,
+    "lo": -0.16445174978991384,
+    "hi": 0.10044596231032663,
+    "n_F1": 81,
+    "n_NF": 211,
+    "boot_ok": 2000,
+    "label": "INCONCLUSIVE",
+    "equivalence_label_margin_0.25": "NO PENALTY",
+    "already_seen": false,
+    "raw": {
+     "F1": {
+      "n": 81,
+      "P_det_arterial": 0.8024691358024691,
+      "P_det_portal": 0.7160493827160493
+     },
+     "NF": {
+      "n": 211,
+      "P_det_arterial": 0.7535545023696683,
+      "P_det_portal": 0.7109004739336493
+     }
+    },
+    "n_F2_excluded": 5
+   },
+   "SHAM": {
+    "theta": 0.24534863501999649,
+    "lo": 0.12059776470193136,
+    "hi": 0.3788384712786421,
+    "n_F1": 81,
+    "n_NF": 211,
+    "boot_ok": 2000,
+    "label": "BRIGHT PENALTY",
+    "equivalence_label_margin_0.25": "INCONCLUSIVE",
+    "already_seen": false,
+    "raw": {
+     "F1": {
+      "n": 81,
+      "P_det_arterial": 0.345679012345679,
+      "P_det_portal": 0.7037037037037037
+     },
+     "NF": {
+      "n": 211,
+      "P_det_arterial": 0.3033175355450237,
+      "P_det_portal": 0.41706161137440756
+     }
+    },
+    "n_F2_excluded": 5
+   },
+   "PLAIN": {
+    "theta": 0.20883324639193182,
+    "lo": 0.08931685189187683,
+    "hi": 0.3381859546217716,
+    "n_F1": 81,
+    "n_NF": 211,
+    "boot_ok": 2000,
+    "label": "BRIGHT PENALTY",
+    "equivalence_label_margin_0.25": "INCONCLUSIVE",
+    "already_seen": false,
+    "raw": {
+     "F1": {
+      "n": 81,
+      "P_det_arterial": 0.2222222222222222,
+      "P_det_portal": 0.5432098765432098
+     },
+     "NF": {
+      "n": 211,
+      "P_det_arterial": 0.23222748815165878,
+      "P_det_portal": 0.35071090047393366
+     }
+    },
+    "n_F2_excluded": 5
+   },
+   "BRIGHT-DEC": {
+    "theta": 0.012577522749666717,
+    "lo": -0.12722847331255327,
+    "hi": 0.15236393093204606,
+    "n_F1": 81,
+    "n_NF": 211,
+    "boot_ok": 2000,
+    "label": "INCONCLUSIVE",
+    "equivalence_label_margin_0.25": "NO PENALTY",
+    "already_seen": false,
+    "raw": {
+     "F1": {
+      "n": 81,
+      "P_det_arterial": 0.7530864197530864,
+      "P_det_portal": 0.7160493827160493
+     },
+     "NF": {
+      "n": 211,
+      "P_det_arterial": 0.6682464454976303,
+      "P_det_portal": 0.6303317535545023
+     }
+    },
+    "n_F2_excluded": 5
+   },
+   "BRIGHT-s2": {
+    "theta": -0.0587144264765548,
+    "lo": -0.1914527559888426,
+    "hi": 0.0898231795950336,
+    "n_F1": 81,
+    "n_NF": 211,
+    "boot_ok": 2000,
+    "label": "INCONCLUSIVE",
+    "equivalence_label_margin_0.25": "NO PENALTY",
+    "already_seen": false,
+    "raw": {
+     "F1": {
+      "n": 81,
+      "P_det_arterial": 0.8271604938271605,
+      "P_det_portal": 0.7037037037037037
+     },
+     "NF": {
+      "n": 211,
+      "P_det_arterial": 0.7251184834123223,
+      "P_det_portal": 0.6729857819905213
+     }
+    },
+    "n_F2_excluded": 5
+   },
+   "TS": {
+    "theta": -0.033559380977221345,
+    "lo": -0.15042211010877232,
+    "hi": 0.08033149810867164,
+    "n_F1": 81,
+    "n_NF": 211,
+    "boot_ok": 2000,
+    "label": "INCONCLUSIVE",
+    "equivalence_label_margin_0.25": "NO PENALTY",
+    "already_seen": false,
+    "raw": {
+     "F1": {
+      "n": 81,
+      "P_det_arterial": 0.6049382716049383,
+      "P_det_portal": 0.7037037037037037
+     },
+     "NF": {
+      "n": 211,
+      "P_det_arterial": 0.4834123222748815,
+      "P_det_portal": 0.6208530805687204
+     }
+    },
+    "n_F2_excluded": 5
+   },
+   "W6b-FULL-L143": {
+    "theta": 0.03089317799802933,
+    "lo": -0.11919726748420673,
+    "hi": 0.18891468959547422,
+    "n_F1": 81,
+    "n_NF": 211,
+    "boot_ok": 2000,
+    "label": "INCONCLUSIVE",
+    "equivalence_label_margin_0.25": "NO PENALTY",
+    "already_seen": false,
+    "raw": {
+     "F1": {
+      "n": 81,
+      "P_det_arterial": 0.7654320987654321,
+      "P_det_portal": 0.7283950617283951
+     },
+     "NF": {
+      "n": 211,
+      "P_det_arterial": 0.6919431279620853,
+      "P_det_portal": 0.6350710900473934
+     }
+    },
+    "n_F2_excluded": 5
+   },
+   "W6b-FULL-L573": {
+    "theta": -0.03587781835043181,
+    "lo": -0.17943008994676504,
+    "hi": 0.11925054525107628,
+    "n_F1": 81,
+    "n_NF": 211,
+    "boot_ok": 2000,
+    "label": "INCONCLUSIVE",
+    "equivalence_label_margin_0.25": "NO PENALTY",
+    "already_seen": false,
+    "raw": {
+     "F1": {
+      "n": 81,
+      "P_det_arterial": 0.7654320987654321,
+      "P_det_portal": 0.6790123456790124
+     },
+     "NF": {
+      "n": 211,
+      "P_det_arterial": 0.6635071090047393,
+      "P_det_portal": 0.6255924170616114
+     }
+    },
+    "n_F2_excluded": 5
+   },
+   "W6b-DEC-L143": {
+    "theta": 0.03726888077435808,
+    "lo": -0.10669879079574944,
+    "hi": 0.20052036733359765,
+    "n_F1": 81,
+    "n_NF": 211,
+    "boot_ok": 2000,
+    "label": "INCONCLUSIVE",
+    "equivalence_label_margin_0.25": "NO PENALTY",
+    "already_seen": false,
+    "raw": {
+     "F1": {
+      "n": 81,
+      "P_det_arterial": 0.6790123456790124,
+      "P_det_portal": 0.6790123456790124
+     },
+     "NF": {
+      "n": 211,
+      "P_det_arterial": 0.5876777251184834,
+      "P_det_portal": 0.5639810426540285
+     }
+    },
+    "n_F2_excluded": 5
+   }
+  },
+  "primary": {
+   "d": -0.27711122703297975,
+   "lo": -0.4181084813781723,
+   "hi": -0.1348419264896157,
+   "boot_ok": 2000,
+   "label": "REDUCES THE PENALTY",
+   "n_tumours": 297
+  },
+  "secondary": {
+   "S1_BRIGHT_minus_PLAIN": {
+    "d": -0.24059583840491508,
+    "lo": -0.3842978804424996,
+    "hi": -0.08978705325682082,
+    "boot_ok": 2000,
+    "label": "REDUCES THE PENALTY",
+    "n_tumours": 297
+   },
+   "S2_DEC_minus_SHAM": {
+    "d": -0.23277111227032976,
+    "lo": -0.3754310876934073,
+    "hi": -0.07894729150517965,
+    "boot_ok": 2000,
+    "label": "REDUCES THE PENALTY",
+    "n_tumours": 297
+   },
+   "S3_BRIGHT_NO_PENALTY": "NO PENALTY"
+  }
+ },
+ "w6": {
+  "BRIGHT_vs_SHAM (PRIMARY, W6)": {
+   "n_tumours": 297,
+   "det": {
+    "delta": -0.6123966942148761,
+    "lo": -0.707763859976049,
+    "hi": -0.529841403329328,
+    "gap_arm1": -0.027272727272727226,
+    "gap_arm0": 0.5851239669421489,
+    "n_dark": 55,
+    "n_bright": 242,
+    "n_patients": 181,
+    "verdict": "CLOSES"
+   },
+   "dice": {
+    "delta": -0.2708473719008263,
+    "lo": -0.3254130793950121,
+    "hi": -0.21638171108971715,
+    "gap_arm1": 0.014877462809917474,
+    "gap_arm0": 0.2857248347107438,
+    "n_dark": 55,
+    "n_bright": 242,
+    "n_patients": 181,
+    "verdict": "CLOSES"
+   },
+   "label": "CONFIRMED (detection and Dice)",
+   "bright_arterial_detection": {
+    "BRIGHT": 0.7727272727272727,
+    "SHAM": 0.21487603305785125
+   }
+  },
+  "BRIGHT_vs_PLAIN": {
+   "n_tumours": 297,
+   "det": {
+    "delta": -0.5413223140495868,
+    "lo": -0.6370385309710846,
+    "hi": -0.43217195858836077,
+    "gap_arm1": -0.027272727272727226,
+    "gap_arm0": 0.5140495867768595,
+    "n_dark": 55,
+    "n_bright": 242,
+    "n_patients": 181,
+    "verdict": "CLOSES"
+   },
+   "dice": {
+    "delta": -0.23304028099173538,
+    "lo": -0.29185732349122506,
+    "hi": -0.17277137873581416,
+    "gap_arm1": 0.014877462809917474,
+    "gap_arm0": 0.24791774380165285,
+    "n_dark": 55,
+    "n_bright": 242,
+    "n_patients": 181,
+    "verdict": "CLOSES"
+   },
+   "label": "CONFIRMED (detection and Dice)",
+   "bright_arterial_detection": {
+    "BRIGHT": 0.7727272727272727,
+    "PLAIN": 0.14049586776859505
+   }
+  },
+  "BRIGHT_vs_BASELINE (descriptive, confounded with fine-tuning)": {
+   "n_tumours": 297,
+   "det": {
+    "delta": -0.3760330578512396,
+    "lo": -0.49089523811493796,
+    "hi": -0.241412301248953,
+    "gap_arm1": -0.027272727272727226,
+    "gap_arm0": 0.34876033057851236,
+    "n_dark": 55,
+    "n_bright": 242,
+    "n_patients": 181,
+    "verdict": "CLOSES"
+   },
+   "dice": {
+    "delta": -0.16482877685950403,
+    "lo": -0.22451279958828832,
+    "hi": -0.09806266417703073,
+    "gap_arm1": 0.014877462809917474,
+    "gap_arm0": 0.1797062396694215,
+    "n_dark": 55,
+    "n_bright": 242,
+    "n_patients": 181,
+    "verdict": "CLOSES"
+   },
+   "label": "CONFIRMED (detection and Dice)",
+   "bright_arterial_detection": {
+    "BRIGHT": 0.7727272727272727,
+    "BASELINE": 0.21487603305785125
+   }
+  },
+  "BRIGHT-s2_vs_SHAM (replication)": {
+   "n_tumours": 297,
+   "det": {
+    "delta": -0.6404958677685951,
+    "lo": -0.7450306098407176,
+    "hi": -0.5388354657471911,
+    "gap_arm1": -0.055371900826446274,
+    "gap_arm0": 0.5851239669421489,
+    "n_dark": 55,
+    "n_bright": 242,
+    "n_patients": 181,
+    "verdict": "CLOSES"
+   },
+   "dice": {
+    "delta": -0.2687143553719007,
+    "lo": -0.32099575726832846,
+    "hi": -0.21554863076662023,
+    "gap_arm1": 0.017010479338843087,
+    "gap_arm0": 0.2857248347107438,
+    "n_dark": 55,
+    "n_bright": 242,
+    "n_patients": 181,
+    "verdict": "CLOSES"
+   },
+   "label": "CONFIRMED (detection and Dice)",
+   "bright_arterial_detection": {
+    "BRIGHT-s2": 0.7644628099173554,
+    "SHAM": 0.21487603305785125
+   }
+  },
+  "DEC_vs_SHAM": {
+   "n_tumours": 297,
+   "det": {
+    "delta": -0.5173553719008265,
+    "lo": -0.6116426679450062,
+    "hi": -0.4357935967512816,
+    "gap_arm1": 0.06776859504132238,
+    "gap_arm0": 0.5851239669421489,
+    "n_dark": 55,
+    "n_bright": 242,
+    "n_patients": 181,
+    "verdict": "CLOSES"
+   },
+   "dice": {
+    "delta": -0.24313751239669434,
+    "lo": -0.2913453887487083,
+    "hi": -0.19217752288727002,
+    "gap_arm1": 0.042587322314049436,
+    "gap_arm0": 0.2857248347107438,
+    "n_dark": 55,
+    "n_bright": 242,
+    "n_patients": 181,
+    "verdict": "CLOSES"
+   },
+   "label": "CONFIRMED (detection and Dice)",
+   "bright_arterial_detection": {
+    "BRIGHT-DEC": 0.6776859504132231,
+    "SHAM": 0.21487603305785125
+   }
+  },
+  "Q2_decoder_only_ratio": {
+   "det": {
+    "denominator": 0.5413223140495868,
+    "den_lo": 0.4306509888438133,
+    "den_hi": 0.6361335293834961,
+    "numerator": 0.44628099173553715,
+    "R": 0.8244274809160305,
+    "R_lo": 0.6981190681113455,
+    "R_hi": 0.9471898537558281,
+    "label": "DECODER SUFFICES"
+   },
+   "dice": {
+    "denominator": 0.23304028099173538,
+    "den_lo": 0.17321141670032447,
+    "den_hi": 0.2908527865935043,
+    "numerator": 0.20533042148760342,
+    "R": 0.8810941207837168,
+    "R_lo": 0.7688284158200144,
+    "R_hi": 1.0034517651434944,
+    "label": "DECODER SUFFICES"
+   }
+  },
+  "seed_difference_of_gaps (BRIGHT vs BRIGHT-s2, arterial)": {
+   "det": {
+    "delta": 0.028099173553719048,
+    "lo": -0.021010619437648405,
+    "hi": 0.08449235520072314,
+    "gap_arm1": -0.027272727272727226,
+    "gap_arm0": -0.055371900826446274,
+    "n_dark": 55,
+    "n_bright": 242,
+    "n_patients": 181
+   },
+   "dice": {
+    "delta": -0.002133016528925613,
+    "lo": -0.015499527929866325,
+    "hi": 0.01150896443704587,
+    "gap_arm1": 0.014877462809917474,
+    "gap_arm0": 0.017010479338843087,
+    "n_dark": 55,
+    "n_bright": 242,
+    "n_patients": 181
+   }
+  }
+ },
+ "descriptive": {
+  "BASELINE": {
+   "a_gap": {
+    "all": {
+     "detection_gap": {
+      "gap": 0.5745945945945946,
+      "lo": 0.46650745308716707,
+      "hi": 0.6708759833356608,
+      "n_dark": 75,
+      "n_bright": 222,
+      "n_patients": 181
+     },
+     "dice_gap": {
+      "gap": 0.34358741801801795,
+      "lo": 0.2719333480746781,
+      "hi": 0.4265864438708186,
+      "n_dark": 75,
+      "n_bright": 222,
+      "n_patients": 181
+     },
+     "detection_label": "GAP",
+     "dice_label": "GAP",
+     "bright_share": 0.7474747474747475,
+     "label": "GAP (detection and Dice)"
+    },
+    "arterial_drawn": {
+     "detection_gap": {
+      "gap": 0.44707992824397047,
+      "lo": 0.24854100410759733,
+      "hi": 0.6125297424178617,
+      "n_dark": 29,
+      "n_bright": 173,
+      "n_patients": 115
+     },
+     "dice_gap": {
+      "gap": 0.20644761411201917,
+      "lo": 0.10467060480666159,
+      "hi": 0.3173248472168597,
+      "n_dark": 29,
+      "n_bright": 173,
+      "n_patients": 115
+     },
+     "detection_label": "GAP",
+     "dice_label": "GAP",
+     "bright_share": 0.8564356435643564,
+     "label": "GAP (detection and Dice)"
+    },
+    "portal_drawn": {
+     "detection_gap": {
+      "gap": 0.5661047027506654,
+      "lo": 0.4062890179431756,
+      "hi": 0.7166427929446129,
+      "n_dark": 46,
+      "n_bright": 49,
+      "n_patients": 66
+     },
+     "dice_gap": {
+      "gap": 0.379576703637977,
+      "lo": 0.25122341305513346,
+      "hi": 0.5015544641540385,
+      "n_dark": 46,
+      "n_bright": 49,
+      "n_patients": 66
+     },
+     "detection_label": "GAP",
+     "dice_label": "GAP",
+     "bright_share": 0.5157894736842106,
+     "label": "GAP (detection and Dice)"
+    }
+   },
+   "v1_contrast": {
+    "n": 21,
+    "n_patients": 19,
+    "mean_diff": -0.2857142857142857,
+    "lo": -0.5238095238095238,
+    "hi": -0.047619047619047616,
+    "label": "NO SIGN EFFECT"
+   },
+   "F2_tumours": [
+    {
+     "patient": "23",
+     "drawn_phase": 2,
+     "diam_mm": 29.45,
+     "c_arterial": -6.57,
+     "c_portal": 9.51,
+     "detected_arterial": 0,
+     "detected_portal": 0,
+     "coverage_arterial": 0.0,
+     "coverage_portal": 0.0
+    },
+    {
+     "patient": "325",
+     "drawn_phase": 2,
+     "diam_mm": 73.46,
+     "c_arterial": -6.4,
+     "c_portal": 27.46,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.27714,
+     "coverage_portal": 0.47931
+    },
+    {
+     "patient": "330",
+     "drawn_phase": 2,
+     "diam_mm": 83.67,
+     "c_arterial": -0.17,
+     "c_portal": 0.29,
+     "detected_arterial": 0,
+     "detected_portal": 0,
+     "coverage_arterial": 0.00019,
+     "coverage_portal": 0.00598
+    },
+    {
+     "patient": "36",
+     "drawn_phase": 1,
+     "diam_mm": 87.47,
+     "c_arterial": -9.58,
+     "c_portal": 0.79,
+     "detected_arterial": 1,
+     "detected_portal": 0,
+     "coverage_arterial": 0.65934,
+     "coverage_portal": 0.0408
+    },
+    {
+     "patient": "372",
+     "drawn_phase": 1,
+     "diam_mm": 40.64,
+     "c_arterial": -3.04,
+     "c_portal": 4.37,
+     "detected_arterial": 0,
+     "detected_portal": 0,
+     "coverage_arterial": 0.03948,
+     "coverage_portal": 0.09822
+    }
+   ],
+   "conditional_logit_penalised": {
+    "status": "OK (penalised)",
+    "discordant": 67,
+    "bootstrap_ok": 1000,
+    "coef": {
+     "phase": {
+      "OR": 0.06984718001887891,
+      "boot_OR_lo": 0.0021348007142995232,
+      "boot_OR_hi": 0.14344711069243687,
+      "wald_OR_lo": 0.02974455296101889,
+      "wald_OR_hi": 0.16401754509416439
+     },
+     "sign": {
+      "OR": 0.3607886953540449,
+      "boot_OR_lo": 0.018096081211265082,
+      "boot_OR_hi": 2.3568110090058796,
+      "wald_OR_lo": 0.07485427463609325,
+      "wald_OR_hi": 1.7389585742176057
+     },
+     "abs_contrast": {
+      "OR": 3.3829812984207352,
+      "boot_OR_lo": 1.8668010939484179,
+      "boot_OR_hi": 65.06559359185508,
+      "wald_OR_lo": 1.5563053166698244,
+      "wald_OR_hi": 7.353674335543279
+     },
+     "is_propagated": {
+      "OR": 0.24450099678046244,
+      "boot_OR_lo": 0.053611926578846135,
+      "boot_OR_hi": 0.5032359708536881,
+      "wald_OR_lo": 0.14035836745095998,
+      "wald_OR_hi": 0.4259150238942939
+     }
+    }
+   },
+   "already_seen": true
+  },
+  "A": {
+   "a_gap": {
+    "all": {
+     "detection_gap": {
+      "gap": 0.5845045045045045,
+      "lo": 0.448874307504137,
+      "hi": 0.6927701429413758,
+      "n_dark": 75,
+      "n_bright": 222,
+      "n_patients": 181
+     },
+     "dice_gap": {
+      "gap": 0.2644289009009008,
+      "lo": 0.2025317466255197,
+      "hi": 0.3249784420837607,
+      "n_dark": 75,
+      "n_bright": 222,
+      "n_patients": 181
+     },
+     "detection_label": "GAP",
+     "dice_label": "GAP",
+     "bright_share": 0.7474747474747475,
+     "label": "GAP (detection and Dice)"
+    },
+    "arterial_drawn": {
+     "detection_gap": {
+      "gap": 0.43033685469404026,
+      "lo": 0.22242918801218137,
+      "hi": 0.6250700397178836,
+      "n_dark": 29,
+      "n_bright": 173,
+      "n_patients": 115
+     },
+     "dice_gap": {
+      "gap": 0.15766565278054623,
+      "lo": 0.08571519405582927,
+      "hi": 0.23850515859314717,
+      "n_dark": 29,
+      "n_bright": 173,
+      "n_patients": 115
+     },
+     "detection_label": "GAP",
+     "dice_label": "GAP",
+     "bright_share": 0.8564356435643564,
+     "label": "GAP (detection and Dice)"
+    },
+    "portal_drawn": {
+     "detection_gap": {
+      "gap": 0.5634427684117125,
+      "lo": 0.37497051886792454,
+      "hi": 0.7147648130290366,
+      "n_dark": 46,
+      "n_bright": 49,
+      "n_patients": 66
+     },
+     "dice_gap": {
+      "gap": 0.28298606921029285,
+      "lo": 0.19058268112749058,
+      "hi": 0.38025836760701626,
+      "n_dark": 46,
+      "n_bright": 49,
+      "n_patients": 66
+     },
+     "detection_label": "GAP",
+     "dice_label": "GAP",
+     "bright_share": 0.5157894736842106,
+     "label": "GAP (detection and Dice)"
+    }
+   },
+   "v1_contrast": {
+    "n": 21,
+    "n_patients": 19,
+    "mean_diff": -0.5714285714285714,
+    "lo": -0.7894736842105263,
+    "hi": -0.36363636363636365,
+    "label": "NO SIGN EFFECT"
+   },
+   "F2_tumours": [
+    {
+     "patient": "23",
+     "drawn_phase": 2,
+     "diam_mm": 29.45,
+     "c_arterial": -6.57,
+     "c_portal": 9.51,
+     "detected_arterial": 0,
+     "detected_portal": 0,
+     "coverage_arterial": 0.00499,
+     "coverage_portal": 0.01297
+    },
+    {
+     "patient": "325",
+     "drawn_phase": 2,
+     "diam_mm": 73.46,
+     "c_arterial": -6.4,
+     "c_portal": 27.46,
+     "detected_arterial": 0,
+     "detected_portal": 1,
+     "coverage_arterial": 0.06852,
+     "coverage_portal": 0.59706
+    },
+    {
+     "patient": "330",
+     "drawn_phase": 2,
+     "diam_mm": 83.67,
+     "c_arterial": -0.17,
+     "c_portal": 0.29,
+     "detected_arterial": 0,
+     "detected_portal": 0,
+     "coverage_arterial": 0.01471,
+     "coverage_portal": 0.0053
+    },
+    {
+     "patient": "36",
+     "drawn_phase": 1,
+     "diam_mm": 87.47,
+     "c_arterial": -9.58,
+     "c_portal": 0.79,
+     "detected_arterial": 0,
+     "detected_portal": 0,
+     "coverage_arterial": 0.09155,
+     "coverage_portal": 0.00062
+    },
+    {
+     "patient": "372",
+     "drawn_phase": 1,
+     "diam_mm": 40.64,
+     "c_arterial": -3.04,
+     "c_portal": 4.37,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.22459,
+     "coverage_portal": 0.14676
+    }
+   ],
+   "conditional_logit_penalised": {
+    "status": "OK (penalised)",
+    "discordant": 85,
+    "bootstrap_ok": 1000,
+    "coef": {
+     "phase": {
+      "OR": 0.13633657516370246,
+      "boot_OR_lo": 0.0384649272788388,
+      "boot_OR_hi": 0.23982203187546108,
+      "wald_OR_lo": 0.060599630211296496,
+      "wald_OR_hi": 0.3067289629088021
+     },
+     "sign": {
+      "OR": 0.11878406225338817,
+      "boot_OR_lo": 0.015251366114519778,
+      "boot_OR_hi": 0.41905636816326897,
+      "wald_OR_lo": 0.031394188042100694,
+      "wald_OR_hi": 0.4494352084053029
+     },
+     "abs_contrast": {
+      "OR": 2.4803563334907093,
+      "boot_OR_lo": 1.5287905768841556,
+      "boot_OR_hi": 7.061371455104814,
+      "wald_OR_lo": 1.3965977584823963,
+      "wald_OR_hi": 4.4051105651012135
+     },
+     "is_propagated": {
+      "OR": 0.48019041217122593,
+      "boot_OR_lo": 0.16986359037756085,
+      "boot_OR_hi": 1.0650381403420632,
+      "wald_OR_lo": 0.2040254117916883,
+      "wald_OR_hi": 1.1301672174866086
+     }
+    }
+   },
+   "already_seen": true
+  },
+  "D0": {
+   "a_gap": {
+    "all": {
+     "detection_gap": {
+      "gap": 0.723063063063063,
+      "lo": 0.6213484550978068,
+      "hi": 0.8134684677870962,
+      "n_dark": 75,
+      "n_bright": 222,
+      "n_patients": 181
+     },
+     "dice_gap": {
+      "gap": 0.37797980180180185,
+      "lo": 0.305547159813616,
+      "hi": 0.4539384534417809,
+      "n_dark": 75,
+      "n_bright": 222,
+      "n_patients": 181
+     },
+     "detection_label": "GAP",
+     "dice_label": "GAP",
+     "bright_share": 0.7474747474747475,
+     "label": "GAP (detection and Dice)"
+    },
+    "arterial_drawn": {
+     "detection_gap": {
+      "gap": 0.7121785927845327,
+      "lo": 0.4879025943795497,
+      "hi": 0.8718125230480684,
+      "n_dark": 29,
+      "n_bright": 173,
+      "n_patients": 115
+     },
+     "dice_gap": {
+      "gap": 0.2887157663942595,
+      "lo": 0.19446173564345642,
+      "hi": 0.38835524397952226,
+      "n_dark": 29,
+      "n_bright": 173,
+      "n_patients": 115
+     },
+     "detection_label": "GAP",
+     "dice_label": "GAP",
+     "bright_share": 0.8564356435643564,
+     "label": "GAP (detection and Dice)"
+    },
+    "portal_drawn": {
+     "detection_gap": {
+      "gap": 0.6641526175687666,
+      "lo": 0.5079884013804237,
+      "hi": 0.8043841981330417,
+      "n_dark": 46,
+      "n_bright": 49,
+      "n_patients": 66
+     },
+     "dice_gap": {
+      "gap": 0.392420230700976,
+      "lo": 0.28349137900641036,
+      "hi": 0.4919270108982109,
+      "n_dark": 46,
+      "n_bright": 49,
+      "n_patients": 66
+     },
+     "detection_label": "GAP",
+     "dice_label": "GAP",
+     "bright_share": 0.5157894736842106,
+     "label": "GAP (detection and Dice)"
+    }
+   },
+   "v1_contrast": {
+    "n": 21,
+    "n_patients": 19,
+    "mean_diff": -0.5238095238095238,
+    "lo": -0.7368421052631579,
+    "hi": -0.30434782608695654,
+    "label": "NO SIGN EFFECT"
+   },
+   "F2_tumours": [
+    {
+     "patient": "23",
+     "drawn_phase": 2,
+     "diam_mm": 29.45,
+     "c_arterial": -6.57,
+     "c_portal": 9.51,
+     "detected_arterial": 0,
+     "detected_portal": 0,
+     "coverage_arterial": 0.0,
+     "coverage_portal": 0.00397
+    },
+    {
+     "patient": "325",
+     "drawn_phase": 2,
+     "diam_mm": 73.46,
+     "c_arterial": -6.4,
+     "c_portal": 27.46,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.24828,
+     "coverage_portal": 0.20493
+    },
+    {
+     "patient": "330",
+     "drawn_phase": 2,
+     "diam_mm": 83.67,
+     "c_arterial": -0.17,
+     "c_portal": 0.29,
+     "detected_arterial": 0,
+     "detected_portal": 0,
+     "coverage_arterial": 0.01056,
+     "coverage_portal": 0.00016
+    },
+    {
+     "patient": "36",
+     "drawn_phase": 1,
+     "diam_mm": 87.47,
+     "c_arterial": -9.58,
+     "c_portal": 0.79,
+     "detected_arterial": 1,
+     "detected_portal": 0,
+     "coverage_arterial": 0.43847,
+     "coverage_portal": 0.0
+    },
+    {
+     "patient": "372",
+     "drawn_phase": 1,
+     "diam_mm": 40.64,
+     "c_arterial": -3.04,
+     "c_portal": 4.37,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.57739,
+     "coverage_portal": 0.53989
+    }
+   ],
+   "conditional_logit_penalised": {
+    "status": "OK (penalised)",
+    "discordant": 74,
+    "bootstrap_ok": 1000,
+    "coef": {
+     "phase": {
+      "OR": 0.20263816746553445,
+      "boot_OR_lo": 0.054831846776904745,
+      "boot_OR_hi": 0.435582667348998,
+      "wald_OR_lo": 0.08612515306676254,
+      "wald_OR_hi": 0.47677392087720705
+     },
+     "sign": {
+      "OR": 0.14735856331519942,
+      "boot_OR_lo": 0.024952463061131747,
+      "boot_OR_hi": 1.177961813043067,
+      "wald_OR_lo": 0.02701385814744167,
+      "wald_OR_hi": 0.8038298736819307
+     },
+     "abs_contrast": {
+      "OR": 0.9753976964513441,
+      "boot_OR_lo": 0.5483543463638512,
+      "boot_OR_hi": 1.8541469736073624,
+      "wald_OR_lo": 0.6244479381232375,
+      "wald_OR_hi": 1.523586848732336
+     },
+     "is_propagated": {
+      "OR": 0.91142677642966,
+      "boot_OR_lo": 0.28304668272475025,
+      "boot_OR_hi": 2.8838964074706457,
+      "wald_OR_lo": 0.3763851677802217,
+      "wald_OR_hi": 2.2070443787466725
+     }
+    }
+   },
+   "already_seen": true
+  },
+  "B50": {
+   "a_gap": {
+    "all": {
+     "detection_gap": {
+      "gap": -0.05261261261261263,
+      "lo": -0.13393533549783546,
+      "hi": 0.022712721537988048,
+      "n_dark": 75,
+      "n_bright": 222,
+      "n_patients": 181
+     },
+     "dice_gap": {
+      "gap": 0.09520079099099105,
+      "lo": 0.0027931157002070842,
+      "hi": 0.1871066568906034,
+      "n_dark": 75,
+      "n_bright": 222,
+      "n_patients": 181
+     },
+     "detection_label": "NO GAP",
+     "dice_label": "INCONCLUSIVE",
+     "bright_share": 0.7474747474747475,
+     "label": "INCONCLUSIVE"
+    },
+    "arterial_drawn": {
+     "detection_gap": {
+      "gap": -0.01116204903328688,
+      "lo": -0.17968843084218256,
+      "hi": 0.08571866783523227,
+      "n_dark": 29,
+      "n_bright": 173,
+      "n_patients": 115
+     },
+     "dice_gap": {
+      "gap": 0.044658279848515,
+      "lo": -0.0711171591189478,
+      "hi": 0.18117109770224482,
+      "n_dark": 29,
+      "n_bright": 173,
+      "n_patients": 115
+     },
+     "detection_label": "NO GAP",
+     "dice_label": "INCONCLUSIVE",
+     "bright_share": 0.8564356435643564,
+     "label": "INCONCLUSIVE"
+    },
+    "portal_drawn": {
+     "detection_gap": {
+      "gap": -0.08961845607808339,
+      "lo": -0.20682629870129868,
+      "hi": 0.02328583164812944,
+      "n_dark": 46,
+      "n_bright": 49,
+      "n_patients": 66
+     },
+     "dice_gap": {
+      "gap": 0.07565976486246667,
+      "lo": -0.07590050715999466,
+      "hi": 0.21516939394936202,
+      "n_dark": 46,
+      "n_bright": 49,
+      "n_patients": 66
+     },
+     "detection_label": "NO GAP",
+     "dice_label": "INCONCLUSIVE",
+     "bright_share": 0.5157894736842106,
+     "label": "INCONCLUSIVE"
+    }
+   },
+   "v1_contrast": {
+    "n": 21,
+    "n_patients": 19,
+    "mean_diff": 0.047619047619047616,
+    "lo": -0.10526315789473684,
+    "hi": 0.21739130434782608,
+    "label": "INCONCLUSIVE"
+   },
+   "F2_tumours": [
+    {
+     "patient": "23",
+     "drawn_phase": 2,
+     "diam_mm": 29.45,
+     "c_arterial": -6.57,
+     "c_portal": 9.51,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.37744,
+     "coverage_portal": 0.45731
+    },
+    {
+     "patient": "325",
+     "drawn_phase": 2,
+     "diam_mm": 73.46,
+     "c_arterial": -6.4,
+     "c_portal": 27.46,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.49248,
+     "coverage_portal": 0.7823
+    },
+    {
+     "patient": "330",
+     "drawn_phase": 2,
+     "diam_mm": 83.67,
+     "c_arterial": -0.17,
+     "c_portal": 0.29,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.67529,
+     "coverage_portal": 0.559
+    },
+    {
+     "patient": "36",
+     "drawn_phase": 1,
+     "diam_mm": 87.47,
+     "c_arterial": -9.58,
+     "c_portal": 0.79,
+     "detected_arterial": 1,
+     "detected_portal": 0,
+     "coverage_arterial": 0.70437,
+     "coverage_portal": 0.00641
+    },
+    {
+     "patient": "372",
+     "drawn_phase": 1,
+     "diam_mm": 40.64,
+     "c_arterial": -3.04,
+     "c_portal": 4.37,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.81586,
+     "coverage_portal": 0.81169
+    }
+   ],
+   "conditional_logit_penalised": {
+    "status": "OK (penalised)",
+    "discordant": 72,
+    "bootstrap_ok": 1000,
+    "coef": {
+     "phase": {
+      "OR": 0.7379053276000098,
+      "boot_OR_lo": 0.09583835491847062,
+      "boot_OR_hi": 1.778754947507197,
+      "wald_OR_lo": 0.3361523522287294,
+      "wald_OR_hi": 1.6198139590288474
+     },
+     "sign": {
+      "OR": 6.943233784003007,
+      "boot_OR_lo": 0.80734836060671,
+      "boot_OR_hi": 1066.097085530028,
+      "wald_OR_lo": 0.9222047282600926,
+      "wald_OR_hi": 52.27526372617371
+     },
+     "abs_contrast": {
+      "OR": 4.714725944964016,
+      "boot_OR_lo": 2.604568020358881,
+      "boot_OR_hi": 112.55054460459267,
+      "wald_OR_lo": 2.060099798858322,
+      "wald_OR_hi": 10.790079562376361
+     },
+     "is_propagated": {
+      "OR": 0.32173734415305255,
+      "boot_OR_lo": 0.03597833183691083,
+      "boot_OR_hi": 1.338142658423078,
+      "wald_OR_lo": 0.13099383364216113,
+      "wald_OR_hi": 0.790227415631135
+     }
+    }
+   },
+   "already_seen": true
+  },
+  "BRIGHT": {
+   "a_gap": {
+    "all": {
+     "detection_gap": {
+      "gap": 0.09171171171171166,
+      "lo": 0.0028663541191010083,
+      "hi": 0.17236916079318046,
+      "n_dark": 75,
+      "n_bright": 222,
+      "n_patients": 181
+     },
+     "dice_gap": {
+      "gap": 0.11267625765765771,
+      "lo": 0.03867158477948859,
+      "hi": 0.1943819806266016,
+      "n_dark": 75,
+      "n_bright": 222,
+      "n_patients": 181
+     },
+     "detection_label": "INCONCLUSIVE",
+     "dice_label": "GAP",
+     "bright_share": 0.7474747474747475,
+     "label": "GAP (Dice only)"
+    },
+    "arterial_drawn": {
+     "detection_gap": {
+      "gap": 0.04723938608730316,
+      "lo": -0.1527147140715357,
+      "hi": 0.18607660658307207,
+      "n_dark": 29,
+      "n_bright": 173,
+      "n_patients": 115
+     },
+     "dice_gap": {
+      "gap": 0.029616123181184006,
+      "lo": -0.08148971841584096,
+      "hi": 0.15683686163714392,
+      "n_dark": 29,
+      "n_bright": 173,
+      "n_patients": 115
+     },
+     "detection_label": "INCONCLUSIVE",
+     "dice_label": "INCONCLUSIVE",
+     "bright_share": 0.8564356435643564,
+     "label": "INCONCLUSIVE"
+    },
+    "portal_drawn": {
+     "detection_gap": {
+      "gap": 0.0967169476486246,
+      "lo": -0.04062499999999997,
+      "hi": 0.21453921568627446,
+      "n_dark": 46,
+      "n_bright": 49,
+      "n_patients": 66
+     },
+     "dice_gap": {
+      "gap": 0.1386309228039042,
+      "lo": -0.00012299524312869167,
+      "hi": 0.2763772377348197,
+      "n_dark": 46,
+      "n_bright": 49,
+      "n_patients": 66
+     },
+     "detection_label": "INCONCLUSIVE",
+     "dice_label": "INCONCLUSIVE",
+     "bright_share": 0.5157894736842106,
+     "label": "INCONCLUSIVE"
+    }
+   },
+   "v1_contrast": {
+    "n": 21,
+    "n_patients": 19,
+    "mean_diff": 0.09523809523809523,
+    "lo": -0.13636363636363635,
+    "hi": 0.3333333333333333,
+    "label": "INCONCLUSIVE"
+   },
+   "F2_tumours": [
+    {
+     "patient": "23",
+     "drawn_phase": 2,
+     "diam_mm": 29.45,
+     "c_arterial": -6.57,
+     "c_portal": 9.51,
+     "detected_arterial": 0,
+     "detected_portal": 1,
+     "coverage_arterial": 0.0,
+     "coverage_portal": 0.44037
+    },
+    {
+     "patient": "325",
+     "drawn_phase": 2,
+     "diam_mm": 73.46,
+     "c_arterial": -6.4,
+     "c_portal": 27.46,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.57562,
+     "coverage_portal": 0.96463
+    },
+    {
+     "patient": "330",
+     "drawn_phase": 2,
+     "diam_mm": 83.67,
+     "c_arterial": -0.17,
+     "c_portal": 0.29,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.20218,
+     "coverage_portal": 0.63645
+    },
+    {
+     "patient": "36",
+     "drawn_phase": 1,
+     "diam_mm": 87.47,
+     "c_arterial": -9.58,
+     "c_portal": 0.79,
+     "detected_arterial": 1,
+     "detected_portal": 0,
+     "coverage_arterial": 0.75317,
+     "coverage_portal": 0.01982
+    },
+    {
+     "patient": "372",
+     "drawn_phase": 1,
+     "diam_mm": 40.64,
+     "c_arterial": -3.04,
+     "c_portal": 4.37,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.65421,
+     "coverage_portal": 0.27925
+    }
+   ],
+   "conditional_logit_penalised": {
+    "status": "OK (penalised)",
+    "discordant": 78,
+    "bootstrap_ok": 1000,
+    "coef": {
+     "phase": {
+      "OR": 0.32421296245449666,
+      "boot_OR_lo": 0.07984436787471182,
+      "boot_OR_hi": 0.6300727910493843,
+      "wald_OR_lo": 0.14895597163847785,
+      "wald_OR_hi": 0.7056719100771394
+     },
+     "sign": {
+      "OR": 0.4244625912278898,
+      "boot_OR_lo": 0.01882061325622181,
+      "boot_OR_hi": 1.8815405539263528,
+      "wald_OR_lo": 0.09472701301989275,
+      "wald_OR_hi": 1.9019758525908457
+     },
+     "abs_contrast": {
+      "OR": 12.887279051425235,
+      "boot_OR_lo": 4.370499626440665,
+      "boot_OR_hi": 750.4223885337901,
+      "wald_OR_lo": 2.9983456496923395,
+      "wald_OR_hi": 55.39119926561683
+     },
+     "is_propagated": {
+      "OR": 0.43094379147675566,
+      "boot_OR_lo": 0.08773353554100613,
+      "boot_OR_hi": 0.9437403360355163,
+      "wald_OR_lo": 0.19133482365876203,
+      "wald_OR_hi": 0.9706155307283337
+     }
+    }
+   },
+   "already_seen": false
+  },
+  "SHAM": {
+   "a_gap": {
+    "all": {
+     "detection_gap": {
+      "gap": 0.6681081081081081,
+      "lo": 0.566971959710792,
+      "hi": 0.7588900966183574,
+      "n_dark": 75,
+      "n_bright": 222,
+      "n_patients": 181
+     },
+     "dice_gap": {
+      "gap": 0.3740590864864866,
+      "lo": 0.3028752929966638,
+      "hi": 0.46045252445861556,
+      "n_dark": 75,
+      "n_bright": 222,
+      "n_patients": 181
+     },
+     "detection_label": "GAP",
+     "dice_label": "GAP",
+     "bright_share": 0.7474747474747475,
+     "label": "GAP (detection and Dice)"
+    },
+    "arterial_drawn": {
+     "detection_gap": {
+      "gap": 0.6770978672513454,
+      "lo": 0.49009875738555053,
+      "hi": 0.8170731707317074,
+      "n_dark": 29,
+      "n_bright": 173,
+      "n_patients": 115
+     },
+     "dice_gap": {
+      "gap": 0.2985907235399641,
+      "lo": 0.1899714228852355,
+      "hi": 0.41008957963085757,
+      "n_dark": 29,
+      "n_bright": 173,
+      "n_patients": 115
+     },
+     "detection_label": "GAP",
+     "dice_label": "GAP",
+     "bright_share": 0.8564356435643564,
+     "label": "GAP (detection and Dice)"
+    },
+    "portal_drawn": {
+     "detection_gap": {
+      "gap": 0.5456965394853592,
+      "lo": 0.37449880289953824,
+      "hi": 0.6905664200140945,
+      "n_dark": 46,
+      "n_bright": 49,
+      "n_patients": 66
+     },
+     "dice_gap": {
+      "gap": 0.36707184117125113,
+      "lo": 0.2526384966301844,
+      "hi": 0.48564773980761555,
+      "n_dark": 46,
+      "n_bright": 49,
+      "n_patients": 66
+     },
+     "detection_label": "GAP",
+     "dice_label": "GAP",
+     "bright_share": 0.5157894736842106,
+     "label": "GAP (detection and Dice)"
+    }
+   },
+   "v1_contrast": {
+    "n": 21,
+    "n_patients": 19,
+    "mean_diff": -0.47619047619047616,
+    "lo": -0.6846052631578947,
+    "hi": -0.2727272727272727,
+    "label": "NO SIGN EFFECT"
+   },
+   "F2_tumours": [
+    {
+     "patient": "23",
+     "drawn_phase": 2,
+     "diam_mm": 29.45,
+     "c_arterial": -6.57,
+     "c_portal": 9.51,
+     "detected_arterial": 0,
+     "detected_portal": 0,
+     "coverage_arterial": 0.0,
+     "coverage_portal": 0.0
+    },
+    {
+     "patient": "325",
+     "drawn_phase": 2,
+     "diam_mm": 73.46,
+     "c_arterial": -6.4,
+     "c_portal": 27.46,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.86183,
+     "coverage_portal": 0.54414
+    },
+    {
+     "patient": "330",
+     "drawn_phase": 2,
+     "diam_mm": 83.67,
+     "c_arterial": -0.17,
+     "c_portal": 0.29,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.1479,
+     "coverage_portal": 0.1445
+    },
+    {
+     "patient": "36",
+     "drawn_phase": 1,
+     "diam_mm": 87.47,
+     "c_arterial": -9.58,
+     "c_portal": 0.79,
+     "detected_arterial": 1,
+     "detected_portal": 0,
+     "coverage_arterial": 0.7274,
+     "coverage_portal": 0.03583
+    },
+    {
+     "patient": "372",
+     "drawn_phase": 1,
+     "diam_mm": 40.64,
+     "c_arterial": -3.04,
+     "c_portal": 4.37,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.65308,
+     "coverage_portal": 0.22188
+    }
+   ],
+   "conditional_logit_penalised": {
+    "status": "OK (penalised)",
+    "discordant": 70,
+    "bootstrap_ok": 1000,
+    "coef": {
+     "phase": {
+      "OR": 0.22504542311643247,
+      "boot_OR_lo": 0.033022964200288565,
+      "boot_OR_hi": 0.45914898715827007,
+      "wald_OR_lo": 0.08540237809658291,
+      "wald_OR_hi": 0.5930214543718955
+     },
+     "sign": {
+      "OR": 0.14616656274219259,
+      "boot_OR_lo": 0.025226205335375566,
+      "boot_OR_hi": 0.7036367074430744,
+      "wald_OR_lo": 0.032789350022527274,
+      "wald_OR_hi": 0.6515732714795855
+     },
+     "abs_contrast": {
+      "OR": 1.3528418308328187,
+      "boot_OR_lo": 0.5772330632952347,
+      "boot_OR_hi": 3.6501481572511563,
+      "wald_OR_lo": 0.6818559184655789,
+      "wald_OR_hi": 2.6841169368591222
+     },
+     "is_propagated": {
+      "OR": 1.0006418719320347,
+      "boot_OR_lo": 0.3862890936474479,
+      "boot_OR_hi": 2.3971404236651437,
+      "wald_OR_lo": 0.4951782012743068,
+      "wald_OR_hi": 2.022068324669606
+     }
+    }
+   },
+   "already_seen": false
+  },
+  "PLAIN": {
+   "a_gap": {
+    "all": {
+     "detection_gap": {
+      "gap": 0.6821621621621622,
+      "lo": 0.5821884193819449,
+      "hi": 0.7663358589218243,
+      "n_dark": 75,
+      "n_bright": 222,
+      "n_patients": 181
+     },
+     "dice_gap": {
+      "gap": 0.3796488234234233,
+      "lo": 0.305040935416057,
+      "hi": 0.46294028703774964,
+      "n_dark": 75,
+      "n_bright": 222,
+      "n_patients": 181
+     },
+     "detection_label": "GAP",
+     "dice_label": "GAP",
+     "bright_share": 0.7474747474747475,
+     "label": "GAP (detection and Dice)"
+    },
+    "arterial_drawn": {
+     "detection_gap": {
+      "gap": 0.6256727127765597,
+      "lo": 0.39942239858906525,
+      "hi": 0.7981714423239938,
+      "n_dark": 29,
+      "n_bright": 173,
+      "n_patients": 115
+     },
+     "dice_gap": {
+      "gap": 0.2705704923260913,
+      "lo": 0.17238164836543138,
+      "hi": 0.3968946462961196,
+      "n_dark": 29,
+      "n_bright": 173,
+      "n_patients": 115
+     },
+     "detection_label": "GAP",
+     "dice_label": "GAP",
+     "bright_share": 0.8564356435643564,
+     "label": "GAP (detection and Dice)"
+    },
+    "portal_drawn": {
+     "detection_gap": {
+      "gap": 0.6069210292812777,
+      "lo": 0.43643417053271477,
+      "hi": 0.743400377624168,
+      "n_dark": 46,
+      "n_bright": 49,
+      "n_patients": 66
+     },
+     "dice_gap": {
+      "gap": 0.40117970718722273,
+      "lo": 0.2977828551777171,
+      "hi": 0.5166370381871138,
+      "n_dark": 46,
+      "n_bright": 49,
+      "n_patients": 66
+     },
+     "detection_label": "GAP",
+     "dice_label": "GAP",
+     "bright_share": 0.5157894736842106,
+     "label": "GAP (detection and Dice)"
+    }
+   },
+   "v1_contrast": {
+    "n": 21,
+    "n_patients": 19,
+    "mean_diff": -0.38095238095238093,
+    "lo": -0.6,
+    "hi": -0.18181818181818182,
+    "label": "NO SIGN EFFECT"
+   },
+   "F2_tumours": [
+    {
+     "patient": "23",
+     "drawn_phase": 2,
+     "diam_mm": 29.45,
+     "c_arterial": -6.57,
+     "c_portal": 9.51,
+     "detected_arterial": 0,
+     "detected_portal": 0,
+     "coverage_arterial": 0.0,
+     "coverage_portal": 0.0
+    },
+    {
+     "patient": "325",
+     "drawn_phase": 2,
+     "diam_mm": 73.46,
+     "c_arterial": -6.4,
+     "c_portal": 27.46,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.7579,
+     "coverage_portal": 0.3202
+    },
+    {
+     "patient": "330",
+     "drawn_phase": 2,
+     "diam_mm": 83.67,
+     "c_arterial": -0.17,
+     "c_portal": 0.29,
+     "detected_arterial": 0,
+     "detected_portal": 0,
+     "coverage_arterial": 0.0027,
+     "coverage_portal": 0.01731
+    },
+    {
+     "patient": "36",
+     "drawn_phase": 1,
+     "diam_mm": 87.47,
+     "c_arterial": -9.58,
+     "c_portal": 0.79,
+     "detected_arterial": 1,
+     "detected_portal": 0,
+     "coverage_arterial": 0.56633,
+     "coverage_portal": 0.00426
+    },
+    {
+     "patient": "372",
+     "drawn_phase": 1,
+     "diam_mm": 40.64,
+     "c_arterial": -3.04,
+     "c_portal": 4.37,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.48143,
+     "coverage_portal": 0.138
+    }
+   ],
+   "conditional_logit_penalised": {
+    "status": "OK (penalised)",
+    "discordant": 64,
+    "bootstrap_ok": 1000,
+    "coef": {
+     "phase": {
+      "OR": 0.1445782994306818,
+      "boot_OR_lo": 0.004927577517202494,
+      "boot_OR_hi": 0.31843092392200023,
+      "wald_OR_lo": 0.048443903104623764,
+      "wald_OR_hi": 0.43148638583320076
+     },
+     "sign": {
+      "OR": 0.24204103319526601,
+      "boot_OR_lo": 0.039151209313968864,
+      "boot_OR_hi": 2.4521430862837703,
+      "wald_OR_lo": 0.04519697576445155,
+      "wald_OR_hi": 1.2961898613647818
+     },
+     "abs_contrast": {
+      "OR": 1.7965101462334518,
+      "boot_OR_lo": 0.9796617418312671,
+      "boot_OR_hi": 12.524444960307695,
+      "wald_OR_lo": 0.8729894329131851,
+      "wald_OR_hi": 3.697007757298585
+     },
+     "is_propagated": {
+      "OR": 0.6149797375410736,
+      "boot_OR_lo": 0.2150380308246843,
+      "boot_OR_hi": 1.5537697023185801,
+      "wald_OR_lo": 0.2949935855455055,
+      "wald_OR_hi": 1.2820620383548877
+     }
+    }
+   },
+   "already_seen": false
+  },
+  "BRIGHT-DEC": {
+   "a_gap": {
+    "all": {
+     "detection_gap": {
+      "gap": 0.18180180180180183,
+      "lo": 0.08119204880328994,
+      "hi": 0.276210407239819,
+      "n_dark": 75,
+      "n_bright": 222,
+      "n_patients": 181
+     },
+     "dice_gap": {
+      "gap": 0.16258170630630653,
+      "lo": 0.07753156350082445,
+      "hi": 0.24947793440305466,
+      "n_dark": 75,
+      "n_bright": 222,
+      "n_patients": 181
+     },
+     "detection_label": "GAP",
+     "dice_label": "GAP",
+     "bright_share": 0.7474747474747475,
+     "label": "GAP (detection and Dice)"
+    },
+    "arterial_drawn": {
+     "detection_gap": {
+      "gap": 0.1339445883994419,
+      "lo": -0.0677990323629859,
+      "hi": 0.2840237713675214,
+      "n_dark": 29,
+      "n_bright": 173,
+      "n_patients": 115
+     },
+     "dice_gap": {
+      "gap": 0.05542342435718556,
+      "lo": -0.04650030884961695,
+      "hi": 0.1868828809338312,
+      "n_dark": 29,
+      "n_bright": 173,
+      "n_patients": 115
+     },
+     "detection_label": "INCONCLUSIVE",
+     "dice_label": "INCONCLUSIVE",
+     "bright_share": 0.8564356435643564,
+     "label": "INCONCLUSIVE"
+    },
+    "portal_drawn": {
+     "detection_gap": {
+      "gap": 0.1987577639751552,
+      "lo": 0.042923312068048905,
+      "hi": 0.3426653633105246,
+      "n_dark": 46,
+      "n_bright": 49,
+      "n_patients": 66
+     },
+     "dice_gap": {
+      "gap": 0.2215983496007099,
+      "lo": 0.0694963826041022,
+      "hi": 0.3497463789319829,
+      "n_dark": 46,
+      "n_bright": 49,
+      "n_patients": 66
+     },
+     "detection_label": "GAP",
+     "dice_label": "GAP",
+     "bright_share": 0.5157894736842106,
+     "label": "GAP (detection and Dice)"
+    }
+   },
+   "v1_contrast": {
+    "n": 21,
+    "n_patients": 19,
+    "mean_diff": -0.09523809523809523,
+    "lo": -0.3157894736842105,
+    "hi": 0.14285714285714285,
+    "label": "NO SIGN EFFECT"
+   },
+   "F2_tumours": [
+    {
+     "patient": "23",
+     "drawn_phase": 2,
+     "diam_mm": 29.45,
+     "c_arterial": -6.57,
+     "c_portal": 9.51,
+     "detected_arterial": 0,
+     "detected_portal": 1,
+     "coverage_arterial": 0.0,
+     "coverage_portal": 0.23291
+    },
+    {
+     "patient": "325",
+     "drawn_phase": 2,
+     "diam_mm": 73.46,
+     "c_arterial": -6.4,
+     "c_portal": 27.46,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.58064,
+     "coverage_portal": 0.9458
+    },
+    {
+     "patient": "330",
+     "drawn_phase": 2,
+     "diam_mm": 83.67,
+     "c_arterial": -0.17,
+     "c_portal": 0.29,
+     "detected_arterial": 0,
+     "detected_portal": 1,
+     "coverage_arterial": 0.01298,
+     "coverage_portal": 0.51683
+    },
+    {
+     "patient": "36",
+     "drawn_phase": 1,
+     "diam_mm": 87.47,
+     "c_arterial": -9.58,
+     "c_portal": 0.79,
+     "detected_arterial": 1,
+     "detected_portal": 0,
+     "coverage_arterial": 0.74124,
+     "coverage_portal": 0.09106
+    },
+    {
+     "patient": "372",
+     "drawn_phase": 1,
+     "diam_mm": 40.64,
+     "c_arterial": -3.04,
+     "c_portal": 4.37,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.49166,
+     "coverage_portal": 0.26583
+    }
+   ],
+   "conditional_logit_penalised": {
+    "status": "OK (penalised)",
+    "discordant": 90,
+    "bootstrap_ok": 1000,
+    "coef": {
+     "phase": {
+      "OR": 0.26080523010207635,
+      "boot_OR_lo": 0.07090332683004882,
+      "boot_OR_hi": 0.4572852278643561,
+      "wald_OR_lo": 0.1361592147289565,
+      "wald_OR_hi": 0.4995575817912789
+     },
+     "sign": {
+      "OR": 0.33196559336389847,
+      "boot_OR_lo": 0.005893001389768169,
+      "boot_OR_hi": 1.2168366100736143,
+      "wald_OR_lo": 0.08111750999332373,
+      "wald_OR_hi": 1.3585372034535472
+     },
+     "abs_contrast": {
+      "OR": 15.413993997272758,
+      "boot_OR_lo": 5.748680486565219,
+      "boot_OR_hi": 1715.8266524483963,
+      "wald_OR_lo": 3.876101131821477,
+      "wald_OR_hi": 61.29644270563974
+     },
+     "is_propagated": {
+      "OR": 0.5485410379200177,
+      "boot_OR_lo": 0.11728109680508764,
+      "boot_OR_hi": 1.0668877789936424,
+      "wald_OR_lo": 0.2816909888688582,
+      "wald_OR_hi": 1.0681820937568354
+     }
+    }
+   },
+   "already_seen": false
+  },
+  "BRIGHT-s2": {
+   "a_gap": {
+    "all": {
+     "detection_gap": {
+      "gap": 0.10972972972972972,
+      "lo": 0.02118864051949129,
+      "hi": 0.18893580457824333,
+      "n_dark": 75,
+      "n_bright": 222,
+      "n_patients": 181
+     },
+     "dice_gap": {
+      "gap": 0.12295773513513536,
+      "lo": 0.03529670117911367,
+      "hi": 0.21362937470639007,
+      "n_dark": 75,
+      "n_bright": 222,
+      "n_patients": 181
+     },
+     "detection_label": "GAP",
+     "dice_label": "GAP",
+     "bright_share": 0.7474747474747475,
+     "label": "GAP (detection and Dice)"
+    },
+    "arterial_drawn": {
+     "detection_gap": {
+      "gap": 0.024317321108232037,
+      "lo": -0.1404579831932773,
+      "hi": 0.17263754321354796,
+      "n_dark": 29,
+      "n_bright": 173,
+      "n_patients": 115
+     },
+     "dice_gap": {
+      "gap": 0.0360175264102055,
+      "lo": -0.0754900342940124,
+      "hi": 0.15995869107055158,
+      "n_dark": 29,
+      "n_bright": 173,
+      "n_patients": 115
+     },
+     "detection_label": "INCONCLUSIVE",
+     "dice_label": "INCONCLUSIVE",
+     "bright_share": 0.8564356435643564,
+     "label": "INCONCLUSIVE"
+    },
+    "portal_drawn": {
+     "detection_gap": {
+      "gap": 0.1592724046140196,
+      "lo": 0.020349348072562386,
+      "hi": 0.2995187180963235,
+      "n_dark": 46,
+      "n_bright": 49,
+      "n_patients": 66
+     },
+     "dice_gap": {
+      "gap": 0.1543746672582076,
+      "lo": 0.008936505942651751,
+      "hi": 0.2970942776255501,
+      "n_dark": 46,
+      "n_bright": 49,
+      "n_patients": 66
+     },
+     "detection_label": "GAP",
+     "dice_label": "GAP",
+     "bright_share": 0.5157894736842106,
+     "label": "GAP (detection and Dice)"
+    }
+   },
+   "v1_contrast": {
+    "n": 21,
+    "n_patients": 19,
+    "mean_diff": 0.14285714285714285,
+    "lo": -0.05,
+    "hi": 0.34782608695652173,
+    "label": "INCONCLUSIVE"
+   },
+   "F2_tumours": [
+    {
+     "patient": "23",
+     "drawn_phase": 2,
+     "diam_mm": 29.45,
+     "c_arterial": -6.57,
+     "c_portal": 9.51,
+     "detected_arterial": 0,
+     "detected_portal": 1,
+     "coverage_arterial": 0.0,
+     "coverage_portal": 0.42924
+    },
+    {
+     "patient": "325",
+     "drawn_phase": 2,
+     "diam_mm": 73.46,
+     "c_arterial": -6.4,
+     "c_portal": 27.46,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.59722,
+     "coverage_portal": 0.96267
+    },
+    {
+     "patient": "330",
+     "drawn_phase": 2,
+     "diam_mm": 83.67,
+     "c_arterial": -0.17,
+     "c_portal": 0.29,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.23576,
+     "coverage_portal": 0.61869
+    },
+    {
+     "patient": "36",
+     "drawn_phase": 1,
+     "diam_mm": 87.47,
+     "c_arterial": -9.58,
+     "c_portal": 0.79,
+     "detected_arterial": 1,
+     "detected_portal": 0,
+     "coverage_arterial": 0.65579,
+     "coverage_portal": 0.01182
+    },
+    {
+     "patient": "372",
+     "drawn_phase": 1,
+     "diam_mm": 40.64,
+     "c_arterial": -3.04,
+     "c_portal": 4.37,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.62029,
+     "coverage_portal": 0.3277
+    }
+   ],
+   "conditional_logit_penalised": {
+    "status": "OK (penalised)",
+    "discordant": 91,
+    "bootstrap_ok": 1000,
+    "coef": {
+     "phase": {
+      "OR": 0.5484226110209677,
+      "boot_OR_lo": 0.19945993015124838,
+      "boot_OR_hi": 1.1365472144345272,
+      "wald_OR_lo": 0.2975489453498909,
+      "wald_OR_hi": 1.0108164219012106
+     },
+     "sign": {
+      "OR": 0.2620857418203809,
+      "boot_OR_lo": 0.005131258325584892,
+      "boot_OR_hi": 1.2514010435779068,
+      "wald_OR_lo": 0.04061566694261607,
+      "wald_OR_hi": 1.6911931093631103
+     },
+     "abs_contrast": {
+      "OR": 21.237567121640325,
+      "boot_OR_lo": 6.595554417968423,
+      "boot_OR_hi": 4634.945157602898,
+      "wald_OR_lo": 3.4694646110425484,
+      "wald_OR_hi": 130.00111193255424
+     },
+     "is_propagated": {
+      "OR": 0.5050895967321849,
+      "boot_OR_lo": 0.0983135957300251,
+      "boot_OR_hi": 1.1365917465458448,
+      "wald_OR_lo": 0.2203162413804458,
+      "wald_OR_hi": 1.1579514026228477
+     }
+    }
+   },
+   "already_seen": false
+  },
+  "TS": {
+   "a_gap": {
+    "all": {
+     "detection_gap": {
+      "gap": 0.22846846846846847,
+      "lo": 0.08565190103833714,
+      "hi": 0.3586254021813438,
+      "n_dark": 75,
+      "n_bright": 222,
+      "n_patients": 181
+     },
+     "dice_gap": {
+      "gap": 0.19288710990990993,
+      "lo": 0.0852721049109816,
+      "hi": 0.2894250177648823,
+      "n_dark": 75,
+      "n_bright": 222,
+      "n_patients": 181
+     },
+     "detection_label": "GAP",
+     "dice_label": "GAP",
+     "bright_share": 0.7474747474747475,
+     "label": "GAP (detection and Dice)"
+    },
+    "arterial_drawn": {
+     "detection_gap": {
+      "gap": 0.1867649990033885,
+      "lo": -0.03385390229917476,
+      "hi": 0.4190199984127649,
+      "n_dark": 29,
+      "n_bright": 173,
+      "n_patients": 115
+     },
+     "dice_gap": {
+      "gap": 0.11765470400637812,
+      "lo": -0.017073928670962545,
+      "hi": 0.28469649814272435,
+      "n_dark": 29,
+      "n_bright": 173,
+      "n_patients": 115
+     },
+     "detection_label": "INCONCLUSIVE",
+     "dice_label": "INCONCLUSIVE",
+     "bright_share": 0.8564356435643564,
+     "label": "INCONCLUSIVE"
+    },
+    "portal_drawn": {
+     "detection_gap": {
+      "gap": 0.1716947648624667,
+      "lo": -0.02732204116638085,
+      "hi": 0.3457065699537335,
+      "n_dark": 46,
+      "n_bright": 49,
+      "n_patients": 66
+     },
+     "dice_gap": {
+      "gap": 0.12056233806566108,
+      "lo": -0.05219533172711271,
+      "hi": 0.277384311168031,
+      "n_dark": 46,
+      "n_bright": 49,
+      "n_patients": 66
+     },
+     "detection_label": "INCONCLUSIVE",
+     "dice_label": "INCONCLUSIVE",
+     "bright_share": 0.5157894736842106,
+     "label": "INCONCLUSIVE"
+    }
+   },
+   "v1_contrast": {
+    "n": 21,
+    "n_patients": 19,
+    "mean_diff": -0.09523809523809523,
+    "lo": -0.22727272727272727,
+    "hi": 0.0,
+    "label": "NO SIGN EFFECT"
+   },
+   "F2_tumours": [
+    {
+     "patient": "23",
+     "drawn_phase": 2,
+     "diam_mm": 29.45,
+     "c_arterial": -6.57,
+     "c_portal": 9.51,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.27601,
+     "coverage_portal": 0.70116
+    },
+    {
+     "patient": "325",
+     "drawn_phase": 2,
+     "diam_mm": 73.46,
+     "c_arterial": -6.4,
+     "c_portal": 27.46,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.13224,
+     "coverage_portal": 0.74238
+    },
+    {
+     "patient": "330",
+     "drawn_phase": 2,
+     "diam_mm": 83.67,
+     "c_arterial": -0.17,
+     "c_portal": 0.29,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.71148,
+     "coverage_portal": 0.60939
+    },
+    {
+     "patient": "36",
+     "drawn_phase": 1,
+     "diam_mm": 87.47,
+     "c_arterial": -9.58,
+     "c_portal": 0.79,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.7924,
+     "coverage_portal": 0.83433
+    },
+    {
+     "patient": "372",
+     "drawn_phase": 1,
+     "diam_mm": 40.64,
+     "c_arterial": -3.04,
+     "c_portal": 4.37,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.85935,
+     "coverage_portal": 0.87425
+    }
+   ],
+   "conditional_logit_penalised": {
+    "status": "OK (penalised)",
+    "discordant": 73,
+    "bootstrap_ok": 1000,
+    "coef": {
+     "phase": {
+      "OR": 0.22878685061143336,
+      "boot_OR_lo": 0.07749496270050629,
+      "boot_OR_hi": 0.3820079452862115,
+      "wald_OR_lo": 0.11769956443708651,
+      "wald_OR_hi": 0.4447206178122881
+     },
+     "sign": {
+      "OR": 0.8795938868588358,
+      "boot_OR_lo": 0.11311708429023268,
+      "boot_OR_hi": 3.8842727358894944,
+      "wald_OR_lo": 0.2070358148873474,
+      "wald_OR_hi": 3.7369640910700057
+     },
+     "abs_contrast": {
+      "OR": 1.4284424673738845,
+      "boot_OR_lo": 0.9175186684828728,
+      "boot_OR_hi": 2.879272846331843,
+      "wald_OR_lo": 0.890484016066138,
+      "wald_OR_hi": 2.2913919236992153
+     },
+     "is_propagated": {
+      "OR": 0.6479623017434655,
+      "boot_OR_lo": 0.21466468645240624,
+      "boot_OR_hi": 1.244700773778803,
+      "wald_OR_lo": 0.30459792454652423,
+      "wald_OR_hi": 1.378391350189785
+     }
+    }
+   },
+   "already_seen": false
+  },
+  "W6b-FULL-L143": {
+   "a_gap": {
+    "all": {
+     "detection_gap": {
+      "gap": 0.17711711711711708,
+      "lo": 0.079361968021513,
+      "hi": 0.2640440344591887,
+      "n_dark": 75,
+      "n_bright": 222,
+      "n_patients": 181
+     },
+     "dice_gap": {
+      "gap": 0.14787729549549578,
+      "lo": 0.062171389460120206,
+      "hi": 0.23663956974962833,
+      "n_dark": 75,
+      "n_bright": 222,
+      "n_patients": 181
+     },
+     "detection_label": "GAP",
+     "dice_label": "GAP",
+     "bright_share": 0.7474747474747475,
+     "label": "GAP (detection and Dice)"
+    },
+    "arterial_drawn": {
+     "detection_gap": {
+      "gap": 0.11660354793701411,
+      "lo": -0.07903461564015685,
+      "hi": 0.2482424295161851,
+      "n_dark": 29,
+      "n_bright": 173,
+      "n_patients": 115
+     },
+     "dice_gap": {
+      "gap": 0.04919497707793491,
+      "lo": -0.061892837028769784,
+      "hi": 0.18427657086400062,
+      "n_dark": 29,
+      "n_bright": 173,
+      "n_patients": 115
+     },
+     "detection_label": "INCONCLUSIVE",
+     "dice_label": "INCONCLUSIVE",
+     "bright_share": 0.8564356435643564,
+     "label": "INCONCLUSIVE"
+    },
+    "portal_drawn": {
+     "detection_gap": {
+      "gap": 0.20008873114463177,
+      "lo": 0.07239923332696879,
+      "hi": 0.3100311574810275,
+      "n_dark": 46,
+      "n_bright": 49,
+      "n_patients": 66
+     },
+     "dice_gap": {
+      "gap": 0.19661724046140217,
+      "lo": 0.06112820482246965,
+      "hi": 0.32931983334608883,
+      "n_dark": 46,
+      "n_bright": 49,
+      "n_patients": 66
+     },
+     "detection_label": "GAP",
+     "dice_label": "GAP",
+     "bright_share": 0.5157894736842106,
+     "label": "GAP (detection and Dice)"
+    }
+   },
+   "v1_contrast": {
+    "n": 21,
+    "n_patients": 19,
+    "mean_diff": 0.0,
+    "lo": -0.22727272727272727,
+    "hi": 0.22727272727272727,
+    "label": "INCONCLUSIVE"
+   },
+   "F2_tumours": [
+    {
+     "patient": "23",
+     "drawn_phase": 2,
+     "diam_mm": 29.45,
+     "c_arterial": -6.57,
+     "c_portal": 9.51,
+     "detected_arterial": 0,
+     "detected_portal": 1,
+     "coverage_arterial": 0.0,
+     "coverage_portal": 0.13553
+    },
+    {
+     "patient": "325",
+     "drawn_phase": 2,
+     "diam_mm": 73.46,
+     "c_arterial": -6.4,
+     "c_portal": 27.46,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.42971,
+     "coverage_portal": 0.93725
+    },
+    {
+     "patient": "330",
+     "drawn_phase": 2,
+     "diam_mm": 83.67,
+     "c_arterial": -0.17,
+     "c_portal": 0.29,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.18418,
+     "coverage_portal": 0.65947
+    },
+    {
+     "patient": "36",
+     "drawn_phase": 1,
+     "diam_mm": 87.47,
+     "c_arterial": -9.58,
+     "c_portal": 0.79,
+     "detected_arterial": 1,
+     "detected_portal": 0,
+     "coverage_arterial": 0.65628,
+     "coverage_portal": 0.04625
+    },
+    {
+     "patient": "372",
+     "drawn_phase": 1,
+     "diam_mm": 40.64,
+     "c_arterial": -3.04,
+     "c_portal": 4.37,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.71839,
+     "coverage_portal": 0.31863
+    }
+   ],
+   "conditional_logit_penalised": {
+    "status": "OK (penalised)",
+    "discordant": 85,
+    "bootstrap_ok": 1000,
+    "coef": {
+     "phase": {
+      "OR": 0.2929454375495116,
+      "boot_OR_lo": 0.05296378445633915,
+      "boot_OR_hi": 0.5520664717958399,
+      "wald_OR_lo": 0.1323260988183518,
+      "wald_OR_hi": 0.6485268601387434
+     },
+     "sign": {
+      "OR": 0.41635140780915886,
+      "boot_OR_lo": 0.006532401351842642,
+      "boot_OR_hi": 1.6493918237908112,
+      "wald_OR_lo": 0.09506546101113984,
+      "wald_OR_hi": 1.8234645153023072
+     },
+     "abs_contrast": {
+      "OR": 12.2676099394322,
+      "boot_OR_lo": 4.67986864305873,
+      "boot_OR_hi": 2502.823436678268,
+      "wald_OR_lo": 2.903067032110166,
+      "wald_OR_hi": 51.839744642983746
+     },
+     "is_propagated": {
+      "OR": 0.45606327120205553,
+      "boot_OR_lo": 0.13983724225602914,
+      "boot_OR_hi": 0.8341303044312504,
+      "wald_OR_lo": 0.22998829776271884,
+      "wald_OR_hi": 0.9043664802202622
+     }
+    }
+   },
+   "already_seen": false
+  },
+  "W6b-FULL-L573": {
+   "a_gap": {
+    "all": {
+     "detection_gap": {
+      "gap": 0.17729729729729726,
+      "lo": 0.07950885536442895,
+      "hi": 0.27191707516851343,
+      "n_dark": 75,
+      "n_bright": 222,
+      "n_patients": 181
+     },
+     "dice_gap": {
+      "gap": 0.13793574414414406,
+      "lo": 0.050921710538280755,
+      "hi": 0.22977303806826166,
+      "n_dark": 75,
+      "n_bright": 222,
+      "n_patients": 181
+     },
+     "detection_label": "GAP",
+     "dice_label": "GAP",
+     "bright_share": 0.7474747474747475,
+     "label": "GAP (detection and Dice)"
+    },
+    "arterial_drawn": {
+     "detection_gap": {
+      "gap": 0.12238389475782341,
+      "lo": -0.07187341691995945,
+      "hi": 0.26088377379937483,
+      "n_dark": 29,
+      "n_bright": 173,
+      "n_patients": 115
+     },
+     "dice_gap": {
+      "gap": 0.03244851106238783,
+      "lo": -0.07345260225021447,
+      "hi": 0.16676529116352184,
+      "n_dark": 29,
+      "n_bright": 173,
+      "n_patients": 115
+     },
+     "detection_label": "INCONCLUSIVE",
+     "dice_label": "INCONCLUSIVE",
+     "bright_share": 0.8564356435643564,
+     "label": "INCONCLUSIVE"
+    },
+    "portal_drawn": {
+     "detection_gap": {
+      "gap": 0.21916592724046136,
+      "lo": 0.07410449604743084,
+      "hi": 0.3395938524227123,
+      "n_dark": 46,
+      "n_bright": 49,
+      "n_patients": 66
+     },
+     "dice_gap": {
+      "gap": 0.19113608695652196,
+      "lo": 0.048428145833333394,
+      "hi": 0.3236380091817812,
+      "n_dark": 46,
+      "n_bright": 49,
+      "n_patients": 66
+     },
+     "detection_label": "GAP",
+     "dice_label": "GAP",
+     "bright_share": 0.5157894736842106,
+     "label": "GAP (detection and Dice)"
+    }
+   },
+   "v1_contrast": {
+    "n": 21,
+    "n_patients": 19,
+    "mean_diff": -0.047619047619047616,
+    "lo": -0.2857142857142857,
+    "hi": 0.19047619047619047,
+    "label": "NO SIGN EFFECT"
+   },
+   "F2_tumours": [
+    {
+     "patient": "23",
+     "drawn_phase": 2,
+     "diam_mm": 29.45,
+     "c_arterial": -6.57,
+     "c_portal": 9.51,
+     "detected_arterial": 0,
+     "detected_portal": 1,
+     "coverage_arterial": 0.0,
+     "coverage_portal": 0.29409
+    },
+    {
+     "patient": "325",
+     "drawn_phase": 2,
+     "diam_mm": 73.46,
+     "c_arterial": -6.4,
+     "c_portal": 27.46,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.70368,
+     "coverage_portal": 0.94543
+    },
+    {
+     "patient": "330",
+     "drawn_phase": 2,
+     "diam_mm": 83.67,
+     "c_arterial": -0.17,
+     "c_portal": 0.29,
+     "detected_arterial": 0,
+     "detected_portal": 1,
+     "coverage_arterial": 0.00676,
+     "coverage_portal": 0.63169
+    },
+    {
+     "patient": "36",
+     "drawn_phase": 1,
+     "diam_mm": 87.47,
+     "c_arterial": -9.58,
+     "c_portal": 0.79,
+     "detected_arterial": 1,
+     "detected_portal": 0,
+     "coverage_arterial": 0.65747,
+     "coverage_portal": 0.05011
+    },
+    {
+     "patient": "372",
+     "drawn_phase": 1,
+     "diam_mm": 40.64,
+     "c_arterial": -3.04,
+     "c_portal": 4.37,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.6043,
+     "coverage_portal": 0.2794
+    }
+   ],
+   "conditional_logit_penalised": {
+    "status": "OK (penalised)",
+    "discordant": 88,
+    "bootstrap_ok": 1000,
+    "coef": {
+     "phase": {
+      "OR": 0.31358580477751613,
+      "boot_OR_lo": 0.06464831408686861,
+      "boot_OR_hi": 0.5821595094245536,
+      "wald_OR_lo": 0.15535763088389043,
+      "wald_OR_hi": 0.6329657345988743
+     },
+     "sign": {
+      "OR": 0.35784745786910876,
+      "boot_OR_lo": 0.0037669854471037594,
+      "boot_OR_hi": 1.3560675615150208,
+      "wald_OR_lo": 0.0793187042582705,
+      "wald_OR_hi": 1.6144338753495384
+     },
+     "abs_contrast": {
+      "OR": 16.147398684427973,
+      "boot_OR_lo": 5.264533896481447,
+      "boot_OR_hi": 6268.160517803748,
+      "wald_OR_lo": 3.3000543752552534,
+      "wald_OR_hi": 79.01036001980987
+     },
+     "is_propagated": {
+      "OR": 0.4696014476745574,
+      "boot_OR_lo": 0.09551484099882249,
+      "boot_OR_hi": 1.0180626933149797,
+      "wald_OR_lo": 0.22581637996604656,
+      "wald_OR_hi": 0.976570077384103
+     }
+    }
+   },
+   "already_seen": false
+  },
+  "W6b-DEC-L143": {
+   "a_gap": {
+    "all": {
+     "detection_gap": {
+      "gap": 0.28072072072072074,
+      "lo": 0.1842094100421934,
+      "hi": 0.365952380952381,
+      "n_dark": 75,
+      "n_bright": 222,
+      "n_patients": 181
+     },
+     "dice_gap": {
+      "gap": 0.18422061981982008,
+      "lo": 0.1068757418118292,
+      "hi": 0.27058750118595787,
+      "n_dark": 75,
+      "n_bright": 222,
+      "n_patients": 181
+     },
+     "detection_label": "GAP",
+     "dice_label": "GAP",
+     "bright_share": 0.7474747474747475,
+     "label": "GAP (detection and Dice)"
+    },
+    "arterial_drawn": {
+     "detection_gap": {
+      "gap": 0.20908909706996215,
+      "lo": 0.018607623655035554,
+      "hi": 0.34950635485962467,
+      "n_dark": 29,
+      "n_bright": 173,
+      "n_patients": 115
+     },
+     "dice_gap": {
+      "gap": 0.06987301773968507,
+      "lo": -0.04241936858204174,
+      "hi": 0.19820819181469873,
+      "n_dark": 29,
+      "n_bright": 173,
+      "n_patients": 115
+     },
+     "detection_label": "GAP",
+     "dice_label": "INCONCLUSIVE",
+     "bright_share": 0.8564356435643564,
+     "label": "GAP (detection only)"
+    },
+    "portal_drawn": {
+     "detection_gap": {
+      "gap": 0.3429458740017747,
+      "lo": 0.17857050715022854,
+      "hi": 0.4815197928765002,
+      "n_dark": 46,
+      "n_bright": 49,
+      "n_patients": 66
+     },
+     "dice_gap": {
+      "gap": 0.24599842058562565,
+      "lo": 0.11894710749922491,
+      "hi": 0.37747728219220306,
+      "n_dark": 46,
+      "n_bright": 49,
+      "n_patients": 66
+     },
+     "detection_label": "GAP",
+     "dice_label": "GAP",
+     "bright_share": 0.5157894736842106,
+     "label": "GAP (detection and Dice)"
+    }
+   },
+   "v1_contrast": {
+    "n": 21,
+    "n_patients": 19,
+    "mean_diff": -0.09523809523809523,
+    "lo": -0.3181818181818182,
+    "hi": 0.14285714285714285,
+    "label": "NO SIGN EFFECT"
+   },
+   "F2_tumours": [
+    {
+     "patient": "23",
+     "drawn_phase": 2,
+     "diam_mm": 29.45,
+     "c_arterial": -6.57,
+     "c_portal": 9.51,
+     "detected_arterial": 0,
+     "detected_portal": 1,
+     "coverage_arterial": 0.0,
+     "coverage_portal": 0.12759
+    },
+    {
+     "patient": "325",
+     "drawn_phase": 2,
+     "diam_mm": 73.46,
+     "c_arterial": -6.4,
+     "c_portal": 27.46,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.30399,
+     "coverage_portal": 0.9139
+    },
+    {
+     "patient": "330",
+     "drawn_phase": 2,
+     "diam_mm": 83.67,
+     "c_arterial": -0.17,
+     "c_portal": 0.29,
+     "detected_arterial": 0,
+     "detected_portal": 1,
+     "coverage_arterial": 0.00769,
+     "coverage_portal": 0.41695
+    },
+    {
+     "patient": "36",
+     "drawn_phase": 1,
+     "diam_mm": 87.47,
+     "c_arterial": -9.58,
+     "c_portal": 0.79,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.62984,
+     "coverage_portal": 0.14396
+    },
+    {
+     "patient": "372",
+     "drawn_phase": 1,
+     "diam_mm": 40.64,
+     "c_arterial": -3.04,
+     "c_portal": 4.37,
+     "detected_arterial": 1,
+     "detected_portal": 1,
+     "coverage_arterial": 0.43238,
+     "coverage_portal": 0.23707
+    }
+   ],
+   "conditional_logit_penalised": {
+    "status": "OK (penalised)",
+    "discordant": 95,
+    "bootstrap_ok": 1000,
+    "coef": {
+     "phase": {
+      "OR": 0.1832063290008439,
+      "boot_OR_lo": 0.03275592882104468,
+      "boot_OR_hi": 0.3301597805999794,
+      "wald_OR_lo": 0.08741898589873748,
+      "wald_OR_hi": 0.3839504501327121
+     },
+     "sign": {
+      "OR": 0.3214179151855495,
+      "boot_OR_lo": 0.0064423368587183585,
+      "boot_OR_hi": 1.2406833077843245,
+      "wald_OR_lo": 0.07410372811714831,
+      "wald_OR_hi": 1.3941198213254034
+     },
+     "abs_contrast": {
+      "OR": 18.833951080760404,
+      "boot_OR_lo": 6.216831508551077,
+      "boot_OR_hi": 3784.9134596445483,
+      "wald_OR_lo": 4.293520936899563,
+      "wald_OR_hi": 82.61697532762574
+     },
+     "is_propagated": {
+      "OR": 0.5003948141434282,
+      "boot_OR_lo": 0.13932540798690335,
+      "boot_OR_hi": 1.0518581762941046,
+      "wald_OR_lo": 0.25479421061573426,
+      "wald_OR_hi": 0.9827341422575222
+     }
+    }
+   },
+   "already_seen": false
+  }
+ }
+}

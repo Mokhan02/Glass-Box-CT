@@ -1,0 +1,36 @@
+{
+ "reference": "BRIGHT",
+ "margin": 0.1,
+ "arms": {
+  "W6b-FULL-L143": {
+   "n_bright_arterial": 242,
+   "n_patients": 152,
+   "arm_detection": 0.6983471074380165,
+   "reference_detection": 0.7727272727272727,
+   "diff": -0.0743801652892562,
+   "lo": -0.11618749105737589,
+   "hi": -0.036885245901639344,
+   "criterion_1": "NOT SHOWN NON-INFERIOR"
+  },
+  "W6b-FULL-L573": {
+   "n_bright_arterial": 242,
+   "n_patients": 152,
+   "arm_detection": 0.6900826446280992,
+   "reference_detection": 0.7727272727272727,
+   "diff": -0.08264462809917356,
+   "lo": -0.12109670928030303,
+   "hi": -0.046413502109704644,
+   "criterion_1": "NOT SHOWN NON-INFERIOR"
+  },
+  "W6b-DEC-L143": {
+   "n_bright_arterial": 242,
+   "n_patients": 152,
+   "arm_detection": 0.5991735537190083,
+   "reference_detection": 0.7727272727272727,
+   "diff": -0.17355371900826447,
+   "lo": -0.22554215258613014,
+   "hi": -0.12446304244158322,
+   "criterion_1": "NOT SHOWN NON-INFERIOR"
+  }
+ }
+}
