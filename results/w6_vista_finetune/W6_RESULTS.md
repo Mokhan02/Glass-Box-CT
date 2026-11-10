@@ -1,6 +1,6 @@
 # W6 / W4b results (living file; research use only, no clinical claims)
 
-Last updated 2026-11-09 15:10 EST. Frozen analysis (`code_hashes_analysis.txt`); every number below comes from files in this folder. Single training runs per arm (seed 2 pending). Models are internal derivatives of NV-Segment-CT and are never published.
+Last updated 2026-11-09 21:15 EST. Frozen analysis (`code_hashes_analysis.txt`); every number below comes from files in this folder. Single training runs per arm (seed 2 pending). Models are internal derivatives of NV-Segment-CT and are never published.
 
 ## Arm status
 
@@ -11,7 +11,7 @@ Last updated 2026-11-09 15:10 EST. Frozen analysis (`code_hashes_analysis.txt`);
 | PLAIN (no edit) | yes | yes | yes | yes | done: FAILS (29 of 48) |
 | BRIGHT-DEC (decoder only) | yes | yes | yes | yes | done: FAILS (20 of 48 classes) |
 | BRIGHT seed 2 | yes (08:07 EST) | yes (10:47 EST) | yes | yes | done: FAILS (31 of 48 classes) |
-| TotalSegmentator | running (176 of 200 series of half 0 at 10:45 EST; ~95 s per series) | - | - | not applicable | - |
+| TotalSegmentator | done (16:13 EST) | yes | not run | not applicable | not applicable |
 
 The frozen forgetting script cannot hold the drift masks of 20 series in memory (DEVIATIONS 31). The researcher approved a streaming version (memory only; byte-identical output on a real 2-series test; DEVIATIONS 33), now running for the drift check.
 
@@ -32,6 +32,7 @@ theta difference d = **-0.277 [-0.418, -0.135]: REDUCES THE PENALTY** (297 tumou
 | PLAIN | +0.209 [+0.089, +0.338] | BRIGHT PENALTY | INCONCLUSIVE |
 | BRIGHT-DEC | +0.013 [-0.127, +0.152] | INCONCLUSIVE | NO PENALTY |
 | BRIGHT seed 2 | -0.059 [-0.191, +0.090] | INCONCLUSIVE | NO PENALTY |
+| TotalSegmentator `liver_vessels` (public model; held-out status inferred, not author-confirmed) | -0.034 [-0.150, +0.080] | INCONCLUSIVE | reported as INCONCLUSIVE under the PREREG rule that a null public result is never called no penalty |
 
 Secondary S1, BRIGHT minus PLAIN: **d = -0.241 [-0.384, -0.090], REDUCES THE PENALTY.** Fine-tuning without the edit (PLAIN) keeps the penalty, so the reduction is not just an effect of fine-tuning on this task.
 Secondary S2, BRIGHT-DEC minus SHAM: **d = -0.233 [-0.375, -0.079], REDUCES THE PENALTY.**
@@ -50,6 +51,7 @@ Files: `analysis_all_arms/` (all arms including seed 2) and `analysis_with_plain
 | **BRIGHT** | 74.5% (41) | **77.3% (187)** | 65.7% (109) | 78.6% (103) |
 | BRIGHT seed 2 | 70.9% (39) | 76.4% (185) | 60.2% (100) | 78.6% (103) |
 | BRIGHT-DEC | 74.5% (41) | 67.8% (164) | 55.4% (92) | 78.6% (103) |
+| TotalSegmentator (public) | 63.6% (35) | 50.0% (121) | 54.8% (91) | 77.9% (102) |
 
 BRIGHT detects fewer dark arterial tumours than SHAM (41 vs 44 of 55); its gain on bright tumours carries over to the portal-venous series (65.7% vs 21.1% at baseline). Baseline and SHAM happen to have the same arterial-bright count; their dark-minus-bright gaps differ (0.35 vs 0.59).
 Paired tests (W5 CLOSES rule): BRIGHT vs SHAM CONFIRMED (detection delta -0.612 [-0.708, -0.530], Dice -0.271 [-0.325, -0.216]); BRIGHT vs PLAIN CONFIRMED (-0.541 [-0.637, -0.432]; Dice -0.233 [-0.292, -0.173]); DEC vs SHAM CONFIRMED (-0.517 [-0.612, -0.436]; Dice -0.243 [-0.291, -0.192]); BRIGHT vs BASELINE CONFIRMED (descriptive, confounded with fine-tuning).

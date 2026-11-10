@@ -1,0 +1,5300 @@
+{
+ "arm": "TS",
+ "series": 196,
+ "series_gate_fail": [],
+ "gate": "shape equals input, no flip improves, centroid offset <= 15 mm (W3 Amendment 2) and no MISALIGNED translation (> 5 mm per axis with a Dice gain >= 0.05)",
+ "per_series": [
+  {
+   "case": "101_1",
+   "organ_dice": 0.9748,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    -0.1,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1434,
+    "flip_1": 0.356,
+    "flip_2": 0.4127
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    -0.7,
+    -0.7,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "101_2",
+   "organ_dice": 0.9755,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    -0.2,
+    -0.1,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1371,
+    "flip_1": 0.3664,
+    "flip_2": 0.397
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    -0.7,
+    -0.7,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "104_1",
+   "organ_dice": 0.9846,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    0.0,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0964,
+    "flip_1": 0.5438,
+    "flip_2": 0.4284
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 4
+  },
+  {
+   "case": "104_2",
+   "organ_dice": 0.9846,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    0.0,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0986,
+    "flip_1": 0.5618,
+    "flip_2": 0.4433
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 4
+  },
+  {
+   "case": "108_1",
+   "organ_dice": 0.9766,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.3,
+   "centroid_offset_xyz_mm": [
+    1.2,
+    -0.2,
+    0.3
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.3455,
+    "flip_1": 0.4493,
+    "flip_2": 0.2511
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "108_2",
+   "organ_dice": 0.9794,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.1,
+   "centroid_offset_xyz_mm": [
+    1.0,
+    -0.2,
+    0.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.3272,
+    "flip_1": 0.463,
+    "flip_2": 0.258
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "10_1",
+   "organ_dice": 0.9849,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.0,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2948,
+    "flip_1": 0.2585,
+    "flip_2": 0.5091
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "10_2",
+   "organ_dice": 0.9847,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2808,
+    "flip_1": 0.2806,
+    "flip_2": 0.485
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "111_1",
+   "organ_dice": 0.9851,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.0,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1381,
+    "flip_1": 0.2595,
+    "flip_2": 0.4043
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.8,
+    0.8,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "111_2",
+   "organ_dice": 0.9843,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.0,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1479,
+    "flip_1": 0.2234,
+    "flip_2": 0.3933
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.8,
+    0.8,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "114_1",
+   "organ_dice": 0.9846,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    -0.1,
+    -0.1,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.153,
+    "flip_1": 0.2386,
+    "flip_2": 0.3779
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "114_2",
+   "organ_dice": 0.9863,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.5,
+   "centroid_offset_xyz_mm": [
+    -0.3,
+    -0.1,
+    -0.3
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1543,
+    "flip_1": 0.2295,
+    "flip_2": 0.3767
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "116_1",
+   "organ_dice": 0.9822,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    0.1,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1802,
+    "flip_1": 0.4103,
+    "flip_2": 0.4702
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 5
+  },
+  {
+   "case": "116_2",
+   "organ_dice": 0.9806,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.4,
+   "centroid_offset_xyz_mm": [
+    0.3,
+    0.2,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1792,
+    "flip_1": 0.4459,
+    "flip_2": 0.4747
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.7,
+    0.7,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 5
+  },
+  {
+   "case": "121_1",
+   "organ_dice": 0.9768,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.1,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0241,
+    "flip_1": 0.6529,
+    "flip_2": 0.5099
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "121_2",
+   "organ_dice": 0.9755,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    0.3,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0304,
+    "flip_1": 0.6463,
+    "flip_2": 0.4934
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "125_1",
+   "organ_dice": 0.9833,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    0.1,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1421,
+    "flip_1": 0.3134,
+    "flip_2": 0.4682
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "125_2",
+   "organ_dice": 0.9836,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.1,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1303,
+    "flip_1": 0.3067,
+    "flip_2": 0.4682
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "139_1",
+   "organ_dice": 0.986,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    0.1,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1564,
+    "flip_1": 0.6273,
+    "flip_2": 0.5839
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "139_2",
+   "organ_dice": 0.9904,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    0.3,
+    0.1,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1647,
+    "flip_1": 0.5597,
+    "flip_2": 0.5716
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "144_1",
+   "organ_dice": 0.9827,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    -0.1,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2806,
+    "flip_1": 0.3844,
+    "flip_2": 0.4401
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "144_2",
+   "organ_dice": 0.9839,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    -0.1,
+    -0.1,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2671,
+    "flip_1": 0.3806,
+    "flip_2": 0.4587
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "146_1",
+   "organ_dice": 0.9895,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    -0.1,
+    -0.1,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0502,
+    "flip_1": 0.1975,
+    "flip_2": 0.4391
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "146_2",
+   "organ_dice": 0.9861,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    -0.0,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0496,
+    "flip_1": 0.3266,
+    "flip_2": 0.4266
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "149_1",
+   "organ_dice": 0.985,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.1,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.145,
+    "flip_1": 0.1566,
+    "flip_2": 0.4888
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "149_2",
+   "organ_dice": 0.988,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    -0.1,
+    0.0,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1432,
+    "flip_1": 0.1572,
+    "flip_2": 0.4875
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "150_1",
+   "organ_dice": 0.9834,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    0.1,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1082,
+    "flip_1": 0.2425,
+    "flip_2": 0.5169
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    -0.7,
+    -0.7,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "150_2",
+   "organ_dice": 0.9811,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    0.1,
+    -0.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1007,
+    "flip_1": 0.2755,
+    "flip_2": 0.5188
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    -0.7,
+    -0.7,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "165_1",
+   "organ_dice": 0.8915,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 10.3,
+   "centroid_offset_xyz_mm": [
+    8.7,
+    5.4,
+    1.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2359,
+    "flip_1": 0.4923,
+    "flip_2": 0.5186
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "165_2",
+   "organ_dice": 0.9194,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 14.3,
+   "centroid_offset_xyz_mm": [
+    9.6,
+    5.2,
+    9.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2338,
+    "flip_1": 0.4767,
+    "flip_2": 0.5485
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "167_1",
+   "organ_dice": 0.9835,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    -0.1,
+    0.1,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.065,
+    "flip_1": 0.3828,
+    "flip_2": 0.4254
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 3
+  },
+  {
+   "case": "167_2",
+   "organ_dice": 0.9836,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    0.1,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0631,
+    "flip_1": 0.408,
+    "flip_2": 0.4111
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 3
+  },
+  {
+   "case": "16_1",
+   "organ_dice": 0.9781,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    -0.1,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1347,
+    "flip_1": 0.316,
+    "flip_2": 0.376
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    -0.7,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "16_2",
+   "organ_dice": 0.9788,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    -0.1,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1646,
+    "flip_1": 0.0995,
+    "flip_2": 0.3847
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    -0.7,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "171_1",
+   "organ_dice": 0.9805,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    0.1,
+    0.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.187,
+    "flip_1": 0.6344,
+    "flip_2": 0.4533
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    -0.8,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "171_2",
+   "organ_dice": 0.9835,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.5,
+   "centroid_offset_xyz_mm": [
+    0.4,
+    0.3,
+    0.3
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1902,
+    "flip_1": 0.6232,
+    "flip_2": 0.4498
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    -0.8,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "184_1",
+   "organ_dice": 0.9822,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    -0.1,
+    -0.0,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1155,
+    "flip_1": 0.5551,
+    "flip_2": 0.4972
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "184_2",
+   "organ_dice": 0.9823,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    -0.2,
+    -0.1,
+    -0.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1395,
+    "flip_1": 0.4966,
+    "flip_2": 0.4977
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "18_1",
+   "organ_dice": 0.9842,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.1,
+    -0.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1333,
+    "flip_1": 0.3988,
+    "flip_2": 0.6123
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "18_2",
+   "organ_dice": 0.9844,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    0.2,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1374,
+    "flip_1": 0.4432,
+    "flip_2": 0.6056
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "190_1",
+   "organ_dice": 0.9873,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    0.0,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1943,
+    "flip_1": 0.5525,
+    "flip_2": 0.4845
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "190_2",
+   "organ_dice": 0.9832,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.1,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2186,
+    "flip_1": 0.5447,
+    "flip_2": 0.4784
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "193_1",
+   "organ_dice": 0.9693,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 2.0,
+   "centroid_offset_xyz_mm": [
+    1.8,
+    1.0,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0866,
+    "flip_1": 0.4864,
+    "flip_2": 0.4045
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "193_2",
+   "organ_dice": 0.9814,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.5,
+   "centroid_offset_xyz_mm": [
+    0.3,
+    0.3,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0845,
+    "flip_1": 0.4998,
+    "flip_2": 0.4213
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "197_1",
+   "organ_dice": 0.9806,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    -0.2,
+    0.1,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2139,
+    "flip_1": 0.5812,
+    "flip_2": 0.5316
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "197_2",
+   "organ_dice": 0.9781,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.6,
+   "centroid_offset_xyz_mm": [
+    0.5,
+    0.1,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2087,
+    "flip_1": 0.5803,
+    "flip_2": 0.5237
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "20_1",
+   "organ_dice": 0.9832,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0512,
+    "flip_1": 0.6713,
+    "flip_2": 0.4639
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "20_2",
+   "organ_dice": 0.9808,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.0,
+    0.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0454,
+    "flip_1": 0.6875,
+    "flip_2": 0.4441
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    -0.7,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "21_1",
+   "organ_dice": 0.9806,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.0,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0791,
+    "flip_1": 0.5295,
+    "flip_2": 0.5392
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "21_2",
+   "organ_dice": 0.9782,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0675,
+    "flip_1": 0.4655,
+    "flip_2": 0.5776
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "26_1",
+   "organ_dice": 0.9834,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1813,
+    "flip_1": 0.6173,
+    "flip_2": 0.4936
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "26_2",
+   "organ_dice": 0.9857,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    0.1,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1954,
+    "flip_1": 0.6029,
+    "flip_2": 0.4914
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "28_1",
+   "organ_dice": 0.9849,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.4,
+   "centroid_offset_xyz_mm": [
+    0.3,
+    -0.0,
+    0.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2747,
+    "flip_1": 0.1064,
+    "flip_2": 0.5015
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "28_2",
+   "organ_dice": 0.9832,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    -0.0,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2743,
+    "flip_1": 0.0966,
+    "flip_2": 0.4982
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "29_1",
+   "organ_dice": 0.9837,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    -0.1,
+    0.3
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1226,
+    "flip_1": 0.1735,
+    "flip_2": 0.4659
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 3
+  },
+  {
+   "case": "29_2",
+   "organ_dice": 0.9837,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    -0.1,
+    -0.0,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1199,
+    "flip_1": 0.1491,
+    "flip_2": 0.474
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 3
+  },
+  {
+   "case": "2_1",
+   "organ_dice": 0.9789,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    -0.1,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0901,
+    "flip_1": 0.0694,
+    "flip_2": 0.3388
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "2_2",
+   "organ_dice": 0.9765,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    0.3,
+    0.0,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0837,
+    "flip_1": 0.0826,
+    "flip_2": 0.3422
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "303_1",
+   "organ_dice": 0.9853,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    0.1,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.3054,
+    "flip_1": 0.5109,
+    "flip_2": 0.5898
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.8,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "303_2",
+   "organ_dice": 0.9845,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    -0.2,
+    0.0,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.306,
+    "flip_1": 0.5,
+    "flip_2": 0.5841
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "304_1",
+   "organ_dice": 0.9845,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    0.1,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1977,
+    "flip_1": 0.6307,
+    "flip_2": 0.4787
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "304_2",
+   "organ_dice": 0.9816,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.4,
+   "centroid_offset_xyz_mm": [
+    0.3,
+    0.1,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1842,
+    "flip_1": 0.6371,
+    "flip_2": 0.4734
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "310_1",
+   "organ_dice": 0.9758,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.2,
+   "centroid_offset_xyz_mm": [
+    1.2,
+    0.3,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2586,
+    "flip_1": 0.5686,
+    "flip_2": 0.562
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "310_2",
+   "organ_dice": 0.9728,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 2.3,
+   "centroid_offset_xyz_mm": [
+    2.2,
+    0.6,
+    -0.3
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2717,
+    "flip_1": 0.5558,
+    "flip_2": 0.5274
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "318_1",
+   "organ_dice": 0.9826,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.0,
+   "centroid_offset_xyz_mm": [
+    0.6,
+    0.8,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.4326,
+    "flip_1": 0.5108,
+    "flip_2": 0.7858
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "318_2",
+   "organ_dice": 0.9826,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.0,
+   "centroid_offset_xyz_mm": [
+    0.6,
+    0.8,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.4326,
+    "flip_1": 0.5108,
+    "flip_2": 0.7858
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "319_1",
+   "organ_dice": 0.9839,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    0.1,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0138,
+    "flip_1": 0.4994,
+    "flip_2": 0.5213
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 3
+  },
+  {
+   "case": "319_2",
+   "organ_dice": 0.9859,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    0.1,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0139,
+    "flip_1": 0.5157,
+    "flip_2": 0.5163
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 3
+  },
+  {
+   "case": "31_1",
+   "organ_dice": 0.9791,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.8,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    1.7,
+    -0.7
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1647,
+    "flip_1": 0.5489,
+    "flip_2": 0.4426
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "31_2",
+   "organ_dice": 0.969,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 2.2,
+   "centroid_offset_xyz_mm": [
+    -0.1,
+    2.0,
+    -0.7
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1724,
+    "flip_1": 0.5862,
+    "flip_2": 0.4297
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "324_1",
+   "organ_dice": 0.9882,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    -0.1,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0607,
+    "flip_1": 0.5871,
+    "flip_2": 0.5426
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "324_2",
+   "organ_dice": 0.9869,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    -0.1,
+    -0.1,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.065,
+    "flip_1": 0.2949,
+    "flip_2": 0.5199
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "327_1",
+   "organ_dice": 0.9816,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.6,
+   "centroid_offset_xyz_mm": [
+    -0.2,
+    -0.2,
+    0.5
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1042,
+    "flip_1": 0.1815,
+    "flip_2": 0.561
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "327_2",
+   "organ_dice": 0.9832,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.5,
+   "centroid_offset_xyz_mm": [
+    -0.3,
+    -0.1,
+    0.4
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.095,
+    "flip_1": 0.1919,
+    "flip_2": 0.5622
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "332_1",
+   "organ_dice": 0.9858,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.0,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    -0.0,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0694,
+    "flip_1": 0.5856,
+    "flip_2": 0.6054
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "332_2",
+   "organ_dice": 0.9856,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.0,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    0.0,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.064,
+    "flip_1": 0.5769,
+    "flip_2": 0.5933
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "333_1",
+   "organ_dice": 0.9848,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.0,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.25,
+    "flip_1": 0.3136,
+    "flip_2": 0.4664
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "333_2",
+   "organ_dice": 0.9831,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    -0.1,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2403,
+    "flip_1": 0.3147,
+    "flip_2": 0.4423
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "33_1",
+   "organ_dice": 0.9807,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    -0.1,
+    0.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0928,
+    "flip_1": 0.5709,
+    "flip_2": 0.6764
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 5
+  },
+  {
+   "case": "33_2",
+   "organ_dice": 0.9544,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 3.8,
+   "centroid_offset_xyz_mm": [
+    -1.3,
+    0.3,
+    -3.5
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1112,
+    "flip_1": 0.5212,
+    "flip_2": 0.6461
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 5
+  },
+  {
+   "case": "342_1",
+   "organ_dice": 0.9825,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    -0.1,
+    -0.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0905,
+    "flip_1": 0.6127,
+    "flip_2": 0.4769
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "342_2",
+   "organ_dice": 0.9823,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    -0.0,
+    -0.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0906,
+    "flip_1": 0.6132,
+    "flip_2": 0.5046
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "343_1",
+   "organ_dice": 0.9857,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1213,
+    "flip_1": 0.5611,
+    "flip_2": 0.5484
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "343_2",
+   "organ_dice": 0.9843,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    0.2,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1255,
+    "flip_1": 0.5248,
+    "flip_2": 0.5151
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "344_1",
+   "organ_dice": 0.9821,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    0.3,
+    -0.1,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.21,
+    "flip_1": 0.3428,
+    "flip_2": 0.643
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "344_2",
+   "organ_dice": 0.9849,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    -0.1,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2166,
+    "flip_1": 0.2998,
+    "flip_2": 0.659
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "345_1",
+   "organ_dice": 0.9881,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.0,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    -0.0,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1245,
+    "flip_1": 0.5736,
+    "flip_2": 0.5395
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "345_2",
+   "organ_dice": 0.9882,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    -0.1,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1296,
+    "flip_1": 0.5684,
+    "flip_2": 0.5379
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "349_1",
+   "organ_dice": 0.979,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    0.0,
+    0.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1417,
+    "flip_1": 0.4564,
+    "flip_2": 0.5106
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "349_2",
+   "organ_dice": 0.9692,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.8,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    -0.4,
+    0.7
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1174,
+    "flip_1": 0.5193,
+    "flip_2": 0.4562
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "353_1",
+   "organ_dice": 0.9478,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 4.3,
+   "centroid_offset_xyz_mm": [
+    -0.8,
+    -3.9,
+    -1.6
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1547,
+    "flip_1": 0.56,
+    "flip_2": 0.5892
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "353_2",
+   "organ_dice": 0.9505,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 5.4,
+   "centroid_offset_xyz_mm": [
+    -3.0,
+    -4.0,
+    -1.9
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1417,
+    "flip_1": 0.5627,
+    "flip_2": 0.5952
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "354_1",
+   "organ_dice": 0.9766,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 2.5,
+   "centroid_offset_xyz_mm": [
+    2.4,
+    0.0,
+    0.3
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1081,
+    "flip_1": 0.6345,
+    "flip_2": 0.4367
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "354_2",
+   "organ_dice": 0.9696,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 3.9,
+   "centroid_offset_xyz_mm": [
+    -3.8,
+    0.5,
+    -0.8
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0894,
+    "flip_1": 0.6368,
+    "flip_2": 0.4646
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "35_1",
+   "organ_dice": 0.982,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.0,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    -0.0,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0691,
+    "flip_1": 0.4662,
+    "flip_2": 0.6043
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "35_2",
+   "organ_dice": 0.9871,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.0,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0705,
+    "flip_1": 0.4504,
+    "flip_2": 0.601
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "367_1",
+   "organ_dice": 0.9777,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    -0.3,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.11,
+    "flip_1": 0.5813,
+    "flip_2": 0.2621
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "367_2",
+   "organ_dice": 0.979,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    -0.1,
+    0.0,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0921,
+    "flip_1": 0.5784,
+    "flip_2": 0.307
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "369_1",
+   "organ_dice": 0.9849,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    -0.0,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.3058,
+    "flip_1": 0.5245,
+    "flip_2": 0.5228
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.7,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "369_2",
+   "organ_dice": 0.9815,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    -0.1,
+    0.1,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.3044,
+    "flip_1": 0.5398,
+    "flip_2": 0.5062
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    -0.7,
+    -0.7,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "370_1",
+   "organ_dice": 0.9812,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    -0.1,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2647,
+    "flip_1": 0.5369,
+    "flip_2": 0.4014
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 3
+  },
+  {
+   "case": "370_2",
+   "organ_dice": 0.9837,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.5,
+   "centroid_offset_xyz_mm": [
+    0.3,
+    0.3,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2587,
+    "flip_1": 0.5091,
+    "flip_2": 0.4244
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 3
+  },
+  {
+   "case": "371_1",
+   "organ_dice": 0.9768,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.8,
+   "centroid_offset_xyz_mm": [
+    0.6,
+    -0.3,
+    1.6
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0522,
+    "flip_1": 0.6395,
+    "flip_2": 0.3733
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "371_2",
+   "organ_dice": 0.9821,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.6,
+   "centroid_offset_xyz_mm": [
+    0.5,
+    -0.1,
+    0.4
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0565,
+    "flip_1": 0.594,
+    "flip_2": 0.4879
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "372_1",
+   "organ_dice": 0.9856,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    0.0,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.376,
+    "flip_1": 0.2673,
+    "flip_2": 0.6259
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "372_2",
+   "organ_dice": 0.986,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    0.1,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.3496,
+    "flip_1": 0.3454,
+    "flip_2": 0.5904
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "373_1",
+   "organ_dice": 0.9802,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    -0.1,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1336,
+    "flip_1": 0.5991,
+    "flip_2": 0.5561
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "373_2",
+   "organ_dice": 0.9866,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    -0.1,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.136,
+    "flip_1": 0.6079,
+    "flip_2": 0.5548
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "379_1",
+   "organ_dice": 0.971,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 2.0,
+   "centroid_offset_xyz_mm": [
+    -1.4,
+    -1.0,
+    1.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1999,
+    "flip_1": 0.5432,
+    "flip_2": 0.6121
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "379_2",
+   "organ_dice": 0.9761,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.7,
+   "centroid_offset_xyz_mm": [
+    -1.2,
+    -0.8,
+    0.9
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1962,
+    "flip_1": 0.5356,
+    "flip_2": 0.6125
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "385_1",
+   "organ_dice": 0.9881,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.0,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2254,
+    "flip_1": 0.5521,
+    "flip_2": 0.498
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    -0.7,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "385_2",
+   "organ_dice": 0.9876,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    -0.0,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2106,
+    "flip_1": 0.5327,
+    "flip_2": 0.5088
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "3_1",
+   "organ_dice": 0.9787,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    -0.2,
+    -0.1,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0725,
+    "flip_1": 0.6354,
+    "flip_2": 0.7262
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "3_2",
+   "organ_dice": 0.9808,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    -0.1,
+    0.1,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0761,
+    "flip_1": 0.6451,
+    "flip_2": 0.7201
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "42_1",
+   "organ_dice": 0.9786,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.2,
+   "centroid_offset_xyz_mm": [
+    1.1,
+    0.4,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.4461,
+    "flip_1": 0.1271,
+    "flip_2": 0.6524
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "42_2",
+   "organ_dice": 0.9817,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.5,
+   "centroid_offset_xyz_mm": [
+    0.5,
+    0.2,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.457,
+    "flip_1": 0.1482,
+    "flip_2": 0.6443
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    -0.7,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "434_1",
+   "organ_dice": 0.9808,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.7,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    0.7,
+    -0.3
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1353,
+    "flip_1": 0.4229,
+    "flip_2": 0.6256
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 3
+  },
+  {
+   "case": "434_2",
+   "organ_dice": 0.9779,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.2,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    1.1,
+    -0.4
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1336,
+    "flip_1": 0.4046,
+    "flip_2": 0.6112
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 3
+  },
+  {
+   "case": "437_1",
+   "organ_dice": 0.9816,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.5,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    -0.2,
+    -0.3
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2391,
+    "flip_1": 0.2744,
+    "flip_2": 0.7177
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "437_2",
+   "organ_dice": 0.9783,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.5,
+   "centroid_offset_xyz_mm": [
+    0.3,
+    -0.1,
+    -0.4
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.243,
+    "flip_1": 0.2211,
+    "flip_2": 0.6797
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "43_1",
+   "organ_dice": 0.9829,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.5,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    -0.5,
+    0.3
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0267,
+    "flip_1": 0.6775,
+    "flip_2": 0.6297
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    -0.7,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "43_2",
+   "organ_dice": 0.9819,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.8,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    -0.6,
+    0.4
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0238,
+    "flip_1": 0.7112,
+    "flip_2": 0.6266
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "440_1",
+   "organ_dice": 0.9836,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    0.0,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2802,
+    "flip_1": 0.4985,
+    "flip_2": 0.6624
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    -0.7,
+    -0.7,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "440_2",
+   "organ_dice": 0.9835,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.4,
+   "centroid_offset_xyz_mm": [
+    0.4,
+    0.0,
+    -0.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2701,
+    "flip_1": 0.4599,
+    "flip_2": 0.6525
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    -0.7,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "442_1",
+   "organ_dice": 0.9855,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    -0.0,
+    -0.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2091,
+    "flip_1": 0.2684,
+    "flip_2": 0.5247
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "442_2",
+   "organ_dice": 0.9847,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.1,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2104,
+    "flip_1": 0.2559,
+    "flip_2": 0.5454
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "443_1",
+   "organ_dice": 0.9838,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    -0.0,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.094,
+    "flip_1": 0.5695,
+    "flip_2": 0.5725
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "443_2",
+   "organ_dice": 0.9829,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    -0.1,
+    -0.0,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0942,
+    "flip_1": 0.5683,
+    "flip_2": 0.5622
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "447_1",
+   "organ_dice": 0.9795,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.2,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1038,
+    "flip_1": 0.4669,
+    "flip_2": 0.5181
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.7,
+    0.7,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "447_2",
+   "organ_dice": 0.9829,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0883,
+    "flip_1": 0.5033,
+    "flip_2": 0.4959
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    -0.7,
+    -0.7,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "44_1",
+   "organ_dice": 0.9872,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.5,
+   "centroid_offset_xyz_mm": [
+    0.4,
+    0.1,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1503,
+    "flip_1": 0.4614,
+    "flip_2": 0.542
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "44_2",
+   "organ_dice": 0.9854,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.1,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1499,
+    "flip_1": 0.4876,
+    "flip_2": 0.5372
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "450_1",
+   "organ_dice": 0.985,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    -0.1,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.3806,
+    "flip_1": 0.315,
+    "flip_2": 0.4046
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "450_2",
+   "organ_dice": 0.977,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.5,
+   "centroid_offset_xyz_mm": [
+    0.7,
+    -0.6,
+    1.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.3717,
+    "flip_1": 0.3373,
+    "flip_2": 0.3826
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "453_1",
+   "organ_dice": 0.9811,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    -0.0,
+    0.3
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1102,
+    "flip_1": 0.5203,
+    "flip_2": 0.4816
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.7,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "453_2",
+   "organ_dice": 0.9812,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    -0.1,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1208,
+    "flip_1": 0.5181,
+    "flip_2": 0.4645
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.7,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "45_1",
+   "organ_dice": 0.9818,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    -0.2,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0535,
+    "flip_1": 0.3593,
+    "flip_2": 0.5439
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    -0.7,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "45_2",
+   "organ_dice": 0.9827,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    -0.1,
+    -0.2,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0461,
+    "flip_1": 0.2979,
+    "flip_2": 0.5839
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    -0.7,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "465_1",
+   "organ_dice": 0.9825,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    -0.1,
+    -0.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0905,
+    "flip_1": 0.6127,
+    "flip_2": 0.4769
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "465_2",
+   "organ_dice": 0.9823,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    -0.0,
+    -0.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0906,
+    "flip_1": 0.6132,
+    "flip_2": 0.5046
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "474_1",
+   "organ_dice": 0.9776,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.7,
+   "centroid_offset_xyz_mm": [
+    0.5,
+    -0.5,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.4261,
+    "flip_1": 0.1488,
+    "flip_2": 0.6043
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "474_2",
+   "organ_dice": 0.9713,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 2.1,
+   "centroid_offset_xyz_mm": [
+    0.6,
+    -1.9,
+    0.5
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.4314,
+    "flip_1": 0.1455,
+    "flip_2": 0.4703
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "486_1",
+   "organ_dice": 0.9785,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    -0.1,
+    -0.1,
+    0.3
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0672,
+    "flip_1": 0.1284,
+    "flip_2": 0.5087
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.6,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "486_2",
+   "organ_dice": 0.976,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.5,
+   "centroid_offset_xyz_mm": [
+    -0.1,
+    0.0,
+    -0.5
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0719,
+    "flip_1": 0.119,
+    "flip_2": 0.4759
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.6,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "48_1",
+   "organ_dice": 0.982,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 1.0,
+   "centroid_offset_xyz_mm": [
+    -0.9,
+    -0.4,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.5136,
+    "flip_1": 0.0642,
+    "flip_2": 0.4039
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.7,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "48_2",
+   "organ_dice": 0.975,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.9,
+   "centroid_offset_xyz_mm": [
+    -0.9,
+    -0.1,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.5119,
+    "flip_1": 0.0801,
+    "flip_2": 0.4094
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.7,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "494_1",
+   "organ_dice": 0.9834,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.0,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    0.0,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0814,
+    "flip_1": 0.5694,
+    "flip_2": 0.4665
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 3
+  },
+  {
+   "case": "494_2",
+   "organ_dice": 0.9834,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.0,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    0.0,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0814,
+    "flip_1": 0.5694,
+    "flip_2": 0.4665
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 3
+  },
+  {
+   "case": "496_1",
+   "organ_dice": 0.9791,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    -0.1,
+    -0.1,
+    0.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1901,
+    "flip_1": 0.5233,
+    "flip_2": 0.6766
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "496_2",
+   "organ_dice": 0.9806,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    -0.1,
+    -0.0,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1864,
+    "flip_1": 0.502,
+    "flip_2": 0.0201
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "500_1",
+   "organ_dice": 0.9818,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    -0.2,
+    0.2,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0943,
+    "flip_1": 0.7273,
+    "flip_2": 0.5744
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "500_2",
+   "organ_dice": 0.9843,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    -0.0,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1059,
+    "flip_1": 0.696,
+    "flip_2": 0.571
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "512_1",
+   "organ_dice": 0.988,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    0.3,
+    -0.0,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0669,
+    "flip_1": 0.4207,
+    "flip_2": 0.6836
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "512_2",
+   "organ_dice": 0.9868,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    0.3,
+    -0.1,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.074,
+    "flip_1": 0.4213,
+    "flip_2": 0.6657
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "517_1",
+   "organ_dice": 0.9799,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.0,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0185,
+    "flip_1": 0.356,
+    "flip_2": 0.4396
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "517_2",
+   "organ_dice": 0.98,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.0,
+    -0.3
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0235,
+    "flip_1": 0.3374,
+    "flip_2": 0.415
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "518_1",
+   "organ_dice": 0.9799,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    -0.1,
+    -0.1,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2102,
+    "flip_1": 0.4065,
+    "flip_2": 0.586
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 3
+  },
+  {
+   "case": "518_2",
+   "organ_dice": 0.9788,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.0,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2089,
+    "flip_1": 0.4244,
+    "flip_2": 0.5938
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 3
+  },
+  {
+   "case": "521_1",
+   "organ_dice": 0.9874,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    0.1,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0624,
+    "flip_1": 0.5986,
+    "flip_2": 0.4595
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "521_2",
+   "organ_dice": 0.9861,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    -0.1,
+    -0.1,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0589,
+    "flip_1": 0.5396,
+    "flip_2": 0.4414
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "522_1",
+   "organ_dice": 0.9823,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    -0.1,
+    -0.0,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.249,
+    "flip_1": 0.3359,
+    "flip_2": 0.466
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    -0.5,
+    -0.5,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "522_2",
+   "organ_dice": 0.9826,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    -0.0,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2554,
+    "flip_1": 0.3158,
+    "flip_2": 0.4591
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    -0.5,
+    -0.5,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "527_1",
+   "organ_dice": 0.9778,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    -0.0,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0674,
+    "flip_1": 0.141,
+    "flip_2": 0.576
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "527_2",
+   "organ_dice": 0.975,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    -0.1,
+    0.1,
+    -0.3
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.068,
+    "flip_1": 0.1116,
+    "flip_2": 0.538
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "53_1",
+   "organ_dice": 0.9841,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    -0.0,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1769,
+    "flip_1": 0.1142,
+    "flip_2": 0.6681
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "53_2",
+   "organ_dice": 0.9831,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.5,
+   "centroid_offset_xyz_mm": [
+    0.4,
+    0.1,
+    0.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1857,
+    "flip_1": 0.1206,
+    "flip_2": 0.6595
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "540_1",
+   "organ_dice": 0.9865,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    -0.1,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2034,
+    "flip_1": 0.1891,
+    "flip_2": 0.5784
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "540_2",
+   "organ_dice": 0.9821,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.0,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2131,
+    "flip_1": 0.5812,
+    "flip_2": 0.498
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "54_1",
+   "organ_dice": 0.9841,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    -0.2,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2081,
+    "flip_1": 0.2365,
+    "flip_2": 0.499
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 3
+  },
+  {
+   "case": "54_2",
+   "organ_dice": 0.979,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    -0.2,
+    -0.3,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2122,
+    "flip_1": 0.2604,
+    "flip_2": 0.4803
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 3
+  },
+  {
+   "case": "59_1",
+   "organ_dice": 0.9818,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    -0.2,
+    -0.1,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1847,
+    "flip_1": 0.3824,
+    "flip_2": 0.5857
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "59_2",
+   "organ_dice": 0.9829,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.5,
+   "centroid_offset_xyz_mm": [
+    -0.3,
+    -0.0,
+    -0.4
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1883,
+    "flip_1": 0.4081,
+    "flip_2": 0.5855
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "5_1",
+   "organ_dice": 0.978,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    -0.2,
+    -0.1,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2498,
+    "flip_1": 0.2056,
+    "flip_2": 0.611
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "5_2",
+   "organ_dice": 0.978,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    -0.0,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2564,
+    "flip_1": 0.218,
+    "flip_2": 0.5782
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "61_1",
+   "organ_dice": 0.9691,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    0.0,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.44,
+    "flip_1": 0.1885,
+    "flip_2": 0.4937
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "61_2",
+   "organ_dice": 0.9711,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    -0.1,
+    0.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.44,
+    "flip_1": 0.1873,
+    "flip_2": 0.4802
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "63_1",
+   "organ_dice": 0.9849,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    -0.1,
+    -0.0,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1953,
+    "flip_1": 0.1969,
+    "flip_2": 0.5296
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "63_2",
+   "organ_dice": 0.9801,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    -0.1,
+    -0.0,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2039,
+    "flip_1": 0.1749,
+    "flip_2": 0.5423
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "66_1",
+   "organ_dice": 0.9849,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    -0.0,
+    -0.1,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2893,
+    "flip_1": 0.3451,
+    "flip_2": 0.458
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "66_2",
+   "organ_dice": 0.985,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.0,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2758,
+    "flip_1": 0.3978,
+    "flip_2": 0.5046
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "72_1",
+   "organ_dice": 0.9812,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.0,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2729,
+    "flip_1": 0.2567,
+    "flip_2": 0.6042
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "72_2",
+   "organ_dice": 0.9796,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    -0.1,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2245,
+    "flip_1": 0.3926,
+    "flip_2": 0.5676
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "77_1",
+   "organ_dice": 0.981,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.4,
+   "centroid_offset_xyz_mm": [
+    0.2,
+    0.3,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1097,
+    "flip_1": 0.5127,
+    "flip_2": 0.535
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    -0.7,
+    -0.7,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "77_2",
+   "organ_dice": 0.986,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1019,
+    "flip_1": 0.5288,
+    "flip_2": 0.5239
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    -0.7,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "7_1",
+   "organ_dice": 0.9865,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.1,
+    0.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.0965,
+    "flip_1": 0.6706,
+    "flip_2": 0.6834
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "7_2",
+   "organ_dice": 0.9864,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1024,
+    "flip_1": 0.6734,
+    "flip_2": 0.6694
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 2
+  },
+  {
+   "case": "85_1",
+   "organ_dice": 0.9829,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.5,
+   "centroid_offset_xyz_mm": [
+    0.3,
+    0.4,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2474,
+    "flip_1": 0.565,
+    "flip_2": 0.6089
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 5
+  },
+  {
+   "case": "85_2",
+   "organ_dice": 0.983,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.5,
+   "centroid_offset_xyz_mm": [
+    0.4,
+    0.3,
+    0.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2434,
+    "flip_1": 0.5546,
+    "flip_2": 0.6036
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 5
+  },
+  {
+   "case": "86_1",
+   "organ_dice": 0.9853,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    0.3,
+    0.1,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1371,
+    "flip_1": 0.3376,
+    "flip_2": 0.5562
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "86_2",
+   "organ_dice": 0.9854,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.7,
+   "centroid_offset_xyz_mm": [
+    0.4,
+    0.5,
+    0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1277,
+    "flip_1": 0.5778,
+    "flip_2": 0.5751
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "87_1",
+   "organ_dice": 0.9844,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    0.1,
+    0.3,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1225,
+    "flip_1": 0.5495,
+    "flip_2": 0.3475
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 5
+  },
+  {
+   "case": "87_2",
+   "organ_dice": 0.9809,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.2,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    0.2,
+    -0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1168,
+    "flip_1": 0.6114,
+    "flip_2": 0.355
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 5
+  },
+  {
+   "case": "90_1",
+   "organ_dice": 0.99,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    0.1,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.3087,
+    "flip_1": 0.4145,
+    "flip_2": 0.7521
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "90_2",
+   "organ_dice": 0.9866,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.1,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    0.1,
+    -0.1
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.2984,
+    "flip_1": 0.4445,
+    "flip_2": 0.763
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "96_1",
+   "organ_dice": 0.9836,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.0,
+   "centroid_offset_xyz_mm": [
+    0.0,
+    -0.0,
+    0.0
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1236,
+    "flip_1": 0.3089,
+    "flip_2": 0.6111
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  },
+  {
+   "case": "96_2",
+   "organ_dice": 0.9852,
+   "low_dice_lt_0.85": false,
+   "centroid_offset_mm": 0.3,
+   "centroid_offset_xyz_mm": [
+    -0.2,
+    -0.1,
+    -0.2
+   ],
+   "shape_ok": true,
+   "flip_dice": {
+    "flip_0": 0.1216,
+    "flip_1": 0.3059,
+    "flip_2": 0.588
+   },
+   "flip_improves_dice": false,
+   "pass": true,
+   "shift_verdict": "ALIGNED",
+   "best_shift_mm": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "gate_pass": true,
+   "n_tumours": 1
+  }
+ ]
+}
