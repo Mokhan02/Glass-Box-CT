@@ -1,0 +1,201 @@
+{
+ "MSD Task03 (training source)": {
+  "phase": "portal-venous in most cases (LiTS, several institutions); phase not labelled per case",
+  "primary": {
+   "n_lesions": 184,
+   "n_cases": 113,
+   "bright": 2,
+   "dark": 182,
+   "pct_bright": 1.0869565217391304,
+   "lo": 0.0,
+   "hi": 2.809385513870373,
+   "q": [
+    -74.20751762390137,
+    -47.448607444763184,
+    -37.98733711242676,
+    -24.61345863342285,
+    -12.035724639892578
+   ]
+  },
+  "all_lesions": {
+   "n_lesions": 574,
+   "n_cases": 113,
+   "bright": 3,
+   "dark": 571,
+   "pct_bright": 0.5226480836236934,
+   "lo": 0.0,
+   "hi": 1.2706231191361295,
+   "q": [
+    -67.09774322509766,
+    -49.220696449279785,
+    -38.972991943359375,
+    -25.320709228515625,
+    -11.968915939331051
+   ]
+  }
+ },
+ "CRML-CT (training source)": {
+  "phase": "portal-venous (preoperative contrast-enhanced CT)",
+  "primary": {
+   "n_lesions": 301,
+   "n_cases": 194,
+   "bright": 23,
+   "dark": 278,
+   "pct_bright": 7.641196013289036,
+   "lo": 4.391154997279158,
+   "hi": 11.18308396334841,
+   "q": [
+    -69.69761657714844,
+    -42.10222244262695,
+    -28.36902618408203,
+    -15.192329406738281,
+    4.6802520751953125
+   ]
+  },
+  "all_lesions": {
+   "n_lesions": 408,
+   "n_cases": 194,
+   "bright": 29,
+   "dark": 379,
+   "pct_bright": 7.107843137254902,
+   "lo": 4.244031830238726,
+   "hi": 10.346623563218388,
+   "q": [
+    -71.52397708892822,
+    -42.31132888793945,
+    -27.758018493652344,
+    -15.022161483764648,
+    4.26606101989746
+   ]
+  }
+ },
+ "HCC-TACE-Seg (held-out reference)": {
+  "phase": "mixed acquisitions; phase not labelled (tags stripped)",
+  "primary": {
+   "n_lesions": 86,
+   "n_cases": 75,
+   "bright": 28,
+   "dark": 58,
+   "pct_bright": 32.55813953488372,
+   "lo": 22.089478162223482,
+   "hi": 42.353900255754475,
+   "q": [
+    -43.0055,
+    -21.009,
+    -8.873999999999999,
+    6.163,
+    31.49525
+   ]
+  },
+  "all_lesions": null
+ },
+ "WAW-TACE, contrast on the phase the mask was drawn on (held-out reference)": {
+  "phase": "arterial (phase 1) or portal-venous (phase 2), whichever the annotators drew on; 181 of 276 primary lesions drawn on arterial",
+  "primary": {
+   "n_lesions": 276,
+   "n_cases": 199,
+   "bright": 201,
+   "dark": 75,
+   "pct_bright": 72.82608695652173,
+   "lo": 66.89622253365391,
+   "hi": 78.64900368719246,
+   "q": [
+    -23.2725,
+    -0.4625,
+    11.5,
+    19.37,
+    34.7525
+   ]
+  },
+  "all_lesions": {
+   "n_lesions": 329,
+   "n_cases": 199,
+   "bright": 245,
+   "dark": 84,
+   "pct_bright": 74.46808510638297,
+   "lo": 68.37029707691575,
+   "hi": 80.0,
+   "q": [
+    -22.371999999999996,
+    -0.03,
+    12.01,
+    19.1,
+    32.34999999999998
+   ]
+  }
+ },
+ "WAW-TACE arterial series, all 297 paired tumours": {
+  "phase": "arterial",
+  "primary": {
+   "n_lesions": 297,
+   "n_cases": 181,
+   "bright": 242,
+   "dark": 55,
+   "pct_bright": 81.48148148148148,
+   "lo": 75.40864813494892,
+   "hi": 86.85121107266436,
+   "q": [
+    -10.604,
+    2.93,
+    11.52,
+    19.46,
+    32.86999999999998
+   ]
+  },
+  "all_lesions": null
+ },
+ "WAW-TACE portal-venous series, same 297 tumours": {
+  "phase": "portal-venous",
+  "primary": {
+   "n_lesions": 297,
+   "n_cases": 181,
+   "bright": 166,
+   "dark": 131,
+   "pct_bright": 55.89225589225589,
+   "lo": 49.31407583879293,
+   "hi": 62.3617228107765,
+   "q": [
+    -25.688,
+    -8.02,
+    1.8,
+    10.67,
+    23.985999999999994
+   ]
+  },
+  "all_lesions": null
+ },
+ "waw_by_drawn_phase": {
+  "arterial-drawn": {
+   "n_lesions": 181,
+   "n_cases": 126,
+   "bright": 154,
+   "dark": 27,
+   "pct_bright": 85.0828729281768,
+   "lo": 78.57049364248317,
+   "hi": 90.81081081081082,
+   "q": [
+    -9.24,
+    5.67,
+    14.6,
+    21.34,
+    39.15
+   ]
+  },
+  "portal-drawn": {
+   "n_lesions": 95,
+   "n_cases": 73,
+   "bright": 47,
+   "dark": 48,
+   "pct_bright": 49.473684210526315,
+   "lo": 38.70967741935484,
+   "hi": 60.60686653771761,
+   "q": [
+    -28.095,
+    -17.15,
+    -0.36,
+    12.27,
+    27.162
+   ]
+  }
+ }
+}

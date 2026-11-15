@@ -42,3 +42,6 @@ Added after the primary W1 verdict (BRIGHT RARE IN TRAINING) was known, at the r
 
 ## Cross-reference (2026-10-20): HCC_019_773068 label displacement
 The HCC_019_773068 label was displaced 25 mm by the converter (see `results/w3_models/DEVIATIONS.md` entry 1 and `results/dq_hcc_labels/DQ_REPORT.md`). Published numbers here are as converted; effects of excluding or correcting the case are computed there and are within the pre-committed no-update bounds (provisional for the corrected W2 point-prompt re-run).
+
+## Task08 pseudo-liver analysis not run: CPU run time (2026-11-15)
+The PREREG fixes TotalSegmentator `total`, class `liver`, full resolution, CPU for the Task08 pseudo-liver and says Task08 is dropped and logged if the CPU run time is impractical. Timed on the researcher's Mac (10 threads, TotalSegmentator 2.18.0): 873 s and 801 s per case, about 65 h for 303 cases. The analysis was therefore not run; the table of bright versus dark tumours (`source_contrast/`) covers Task03, CRML-CT, HCC-TACE-Seg and WAW-TACE. The 3 mm `--fast` model takes 23 s per case (liver Dice against full resolution 0.974 on one case) but is not the PREREG setting, so it was not used without the researcher's decision. No contrast or share was computed for Task08.
