@@ -36,7 +36,7 @@ def main(argv):
     sets = {}      # name -> (phase note, primary rows, all rows)
     m = load(f"{R}/w1_training_audit/msd_lesions.csv", "patient", "contrast_hu", "rank"); sets["MSD Task03 (training source)"] = ("portal-venous in most cases (LiTS, several institutions); phase not labelled per case", [r for r in m if r["rank"] <= 2], m)
     if t8:
-        m8 = load(t8, "patient", "contrast_hu", "rank"); sets["MSD Task08 HepaticVessel (training source; PSEUDO-LIVER)"] = ("portal-venous per the MSD description (not verified per case); liver mask = TotalSegmentator pseudo-liver", [r for r in m8 if r["rank"] <= 2], m8)
+        m8 = load(t8, "patient", "contrast_hu", "rank", {"excluded": "excluded_far_from_liver"}); sets["MSD Task08 HepaticVessel (training source; fast pseudo-liver)"] = ("portal-venous per the MSD description (not verified per case); liver mask = TotalSegmentator --fast pseudo-liver (no liver label in Task08); lesions further than 10 mm from it excluded", [r for r in m8 if r["rank"] <= 2 and r["excluded"] != "True"], [r for r in m8 if r["excluded"] != "True"])
     c = load(f"{R}/w1_training_audit/crml_lesions.csv", "patient", "contrast_hu", "rank"); sets["CRML-CT (training source)"] = ("portal-venous (preoperative contrast-enhanced CT)", [r for r in c if r["rank"] <= 2], c)
     h = load(f"{R}/w1_training_audit/hcc_lesions_variants.csv", "case", "contrast_hu", "rank"); sets["HCC-TACE-Seg (held-out reference)"] = ("mixed acquisitions; phase not labelled (tags stripped)", h, None)
     w = [r for r in csv.DictReader(open(f"{R}/w4_waw/contrast_masked_phase.csv"))]; wr = [{"case": r["patient"], "c": float(r["contrast_hu"]), "ph": r["phase"], "top2": r["top2"] == "1"} for r in w]

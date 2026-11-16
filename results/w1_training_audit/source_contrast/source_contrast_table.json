@@ -34,6 +34,41 @@
    ]
   }
  },
+ "MSD Task08 HepaticVessel (training source; fast pseudo-liver)": {
+  "phase": "portal-venous per the MSD description (not verified per case); liver mask = TotalSegmentator --fast pseudo-liver (no liver label in Task08); lesions further than 10 mm from it excluded",
+  "primary": {
+   "n_lesions": 375,
+   "n_cases": 299,
+   "bright": 48,
+   "dark": 327,
+   "pct_bright": 12.8,
+   "lo": 9.562788579658575,
+   "hi": 16.40006538796861,
+   "q": [
+    -65.09616622924806,
+    -37.68217086791992,
+    -21.416671752929688,
+    -8.591011047363281,
+    11.860737609863303
+   ]
+  },
+  "all_lesions": {
+   "n_lesions": 463,
+   "n_cases": 299,
+   "bright": 49,
+   "dark": 414,
+   "pct_bright": 10.583153347732182,
+   "lo": 7.799805194805194,
+   "hi": 13.877269315106378,
+   "q": [
+    -63.86875419616699,
+    -37.68217086791992,
+    -21.87384033203125,
+    -10.405405044555664,
+    9.906884002685546
+   ]
+  }
+ },
  "CRML-CT (training source)": {
   "phase": "portal-venous (preoperative contrast-enhanced CT)",
   "primary": {
