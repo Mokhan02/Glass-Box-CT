@@ -1,0 +1,160 @@
+{
+ "cases": [
+  "hepaticvessel_222.nii.gz",
+  "hepaticvessel_020.nii.gz",
+  "hepaticvessel_367.nii.gz",
+  "hepaticvessel_123.nii.gz",
+  "hepaticvessel_265.nii.gz"
+ ],
+ "per_case": {
+  "hepaticvessel_222.nii.gz": {
+   "dice": 0.9779959168293667,
+   "n_lesions": 3,
+   "lesions": [
+    {
+     "rank": 1,
+     "diam_mm": 156.057544626614,
+     "c_full": -29.337547302246094,
+     "c_fast": -28.72370147705078,
+     "dc": 0.6138458251953125,
+     "flip": false,
+     "fallback_full": false,
+     "fallback_fast": false
+    },
+    {
+     "rank": 2,
+     "diam_mm": 27.080894245381213,
+     "c_full": -25.364036560058594,
+     "c_fast": -24.845443725585938,
+     "dc": 0.5185928344726562,
+     "flip": false,
+     "fallback_full": false,
+     "fallback_fast": false
+    },
+    {
+     "rank": 3,
+     "diam_mm": 23.047691326719338,
+     "c_full": -8.843681335449219,
+     "c_fast": -8.2559814453125,
+     "dc": 0.5876998901367188,
+     "flip": false,
+     "fallback_full": false,
+     "fallback_fast": false
+    }
+   ]
+  },
+  "hepaticvessel_020.nii.gz": {
+   "dice": 0.9725637268294298,
+   "n_lesions": 1,
+   "lesions": [
+    {
+     "rank": 1,
+     "diam_mm": 48.64496898768155,
+     "c_full": -7.155555725097656,
+     "c_fast": -6.05279541015625,
+     "dc": 1.1027603149414062,
+     "flip": false,
+     "fallback_full": false,
+     "fallback_fast": false
+    }
+   ]
+  },
+  "hepaticvessel_367.nii.gz": {
+   "dice": 0.9700670928004665,
+   "n_lesions": 5,
+   "lesions": [
+    {
+     "rank": 1,
+     "diam_mm": 26.738546303673925,
+     "c_full": -20.71210479736328,
+     "c_fast": -19.594818115234375,
+     "dc": 1.1172866821289062,
+     "flip": false,
+     "fallback_full": false,
+     "fallback_fast": false
+    },
+    {
+     "rank": 2,
+     "diam_mm": 15.623667893936997,
+     "c_full": -17.532272338867188,
+     "c_fast": -16.901023864746094,
+     "dc": 0.6312484741210938,
+     "flip": false,
+     "fallback_full": false,
+     "fallback_fast": false
+    },
+    {
+     "rank": 3,
+     "diam_mm": 14.934343570517855,
+     "c_full": -14.132369995117188,
+     "c_fast": -13.820442199707031,
+     "dc": 0.31192779541015625,
+     "flip": false,
+     "fallback_full": false,
+     "fallback_fast": false
+    },
+    {
+     "rank": 4,
+     "diam_mm": 13.380853295326233,
+     "c_full": -10.378959655761719,
+     "c_fast": -9.137344360351562,
+     "dc": 1.2416152954101562,
+     "flip": false,
+     "fallback_full": false,
+     "fallback_fast": false
+    },
+    {
+     "rank": 5,
+     "diam_mm": 10.589468803786264,
+     "c_full": -5.9519805908203125,
+     "c_fast": -3.6107254028320312,
+     "dc": 2.3412551879882812,
+     "flip": false,
+     "fallback_full": false,
+     "fallback_fast": false
+    }
+   ]
+  },
+  "hepaticvessel_123.nii.gz": {
+   "dice": 0.9702082803242339,
+   "n_lesions": 1,
+   "lesions": [
+    {
+     "rank": 1,
+     "diam_mm": 41.33942130589457,
+     "c_full": -16.26915740966797,
+     "c_fast": -14.666732788085938,
+     "dc": 1.6024246215820312,
+     "flip": false,
+     "fallback_full": false,
+     "fallback_fast": false
+    }
+   ]
+  },
+  "hepaticvessel_265.nii.gz": {
+   "dice": 0.9747279379374133,
+   "n_lesions": 1,
+   "lesions": [
+    {
+     "rank": 1,
+     "diam_mm": 18.6543654827094,
+     "c_full": -11.387214660644531,
+     "c_fast": -11.240303039550781,
+     "dc": 0.14691162109375,
+     "flip": false,
+     "fallback_full": false,
+     "fallback_fast": false
+    }
+   ]
+  }
+ },
+ "summary": {
+  "min_dice": 0.9700670928004665,
+  "n_lesions": 11,
+  "max_abs_dc_hu": 2.3412551879882812,
+  "median_abs_dc_hu": 0.6312484741210938,
+  "n_flips": 0,
+  "all_dice_ge_0.95": true,
+  "PASS": true
+ }
+}
